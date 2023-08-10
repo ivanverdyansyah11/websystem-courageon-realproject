@@ -16,10 +16,10 @@
 
 <body>
 
-    @if (Request::is('login'))
+    @if (Request::is('admin/login'))
         @yield('container')
     @else
-        <p>Not Login Page</p>
+        @yield('container')
     @endif
 
 
