@@ -249,58 +249,22 @@
     {{-- END MODAL DETAIL MOTTO --}}
 
     {{-- MODAL EDIT MOTTO --}}
-    <div class="modal fade" id="editVisionMissionModal" tabindex="-1" aria-labelledby="editVisionMissionModalLabel"
+    <div class="modal fade" id="editMottoModal" tabindex="-1" aria-labelledby="editMottoModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Visi Misi Sekolah</h3>
-                <form id="editVisionMission" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Motto Sekolah</h3>
+                <form id="editMotto" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_vision_mission">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-vision-mission" alt="Banner Visi Misi" width="80"
-                                        data-value="banner_vision_mission">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-vision-mission"
-                                            name="banner">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_visi">Judul Visi</label>
-                                <input type="text" id="judul_visi" class="input" autocomplete="off"
-                                    data-value="title_vision" name="title_vision">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_misi">Judul Misi</label>
-                                <input type="text" id="judul_misi" class="input" autocomplete="off"
-                                    data-value="title_mission" name="title_mission">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_visi">Deskripsi Visi</label>
-                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="3" data-value="description_vision"
-                                    name="description_vision"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_misi">Deskripsi Misi</label>
-                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="3" data-value="description_mission"
-                                    name="description_mission"></textarea>
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="pembicara">Pembicara</label>
+                        <input type="text" id="pembicara" class="input" autocomplete="off" data-value="speaker"
+                            name="speaker">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="motto">Motto</label>
+                        <textarea id="motto" class="input" autocomplete="off" rows="3" data-value="motto" name="motto"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -354,18 +318,14 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editVisionMissionModal"]', function() {
-            $('#editVisionMission').attr('action', '/admin/profil/visi-misi/edit-motto');
+        $(document).on('click', '[data-bs-target="#editMottoModal"]', function() {
+            $('#editMotto').attr('action', '/admin/profil/visi-misi/edit-motto');
             $.ajax({
                 type: 'get',
                 url: '/admin/profil/visi-misi/edit-motto',
                 success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src", "/storage/" + data.banner);
-                    $('[data-value="oldImage_vision_mission"]').val(data.banner);
-                    $('[data-value="title_vision"]').val(data.title_vision);
-                    $('[data-value="description_vision"]').val(data.description_vision);
-                    $('[data-value="title_mission"]').val(data.title_mission);
-                    $('[data-value="description_mission"]').val(data.description_mission);
+                    $('[data-value="speaker"]').val(data.speaker);
+                    $('[data-value="motto"]').val(data.motto);
                 }
             });
         });
