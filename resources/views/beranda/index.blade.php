@@ -170,42 +170,28 @@
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
-                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
-                                    alt="Image Not Found" width="80">
+                                @if ($section_history->banner)
+                                    <img src="{{ asset('storage/' . $section_history->banner) }}" class="img-notfound"
+                                        alt="Banner Section Sejarah" width="80">
+                                @else
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
+                                        alt="Image Not Found" width="80">
+                                @endif
                             </div>
-                            <div class="col data-value data-length">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Est
-                                ducimus
-                                consequuntur minima assumenda voluptates fugit beatae dolore? Aut, atque. Architecto ullam
-                                labore debitis quidem in incidunt voluptas magni, animi veritatis provident inventore veniam
-                                repellendus ex sapiente pariatur distinctio est, excepturi reprehenderit nesciunt cum.
-                                Asperiores quod adipisci impedit cumque eveniet optio incidunt, sunt non. Voluptates
-                                consectetur est quidem laboriosam enim sed sint excepturi assumenda. Ad accusantium alias
-                                quis dolore inventore nemo doloribus sit ratione! Reiciendis neque at soluta sapiente
-                                voluptas numquam adipisci possimus! Laborum fugit totam earum sapiente natus saepe sequi sed
-                                excepturi perferendis esse, ullam ut aliquid tenetur nulla numquam!
-                            </div>
+                            <div class="col data-value data-length">{{ $section_history->title_history }}</div>
                             <div class="col
-                                data-value data-length">Lorem ipsum dolor sit
-                                amet consectetur adipisicing
-                                elit. Est
-                                ducimus
-                                consequuntur minima assumenda voluptates fugit beatae dolore? Aut, atque. Architecto ullam
-                                labore debitis quidem in incidunt voluptas magni, animi veritatis provident inventore veniam
-                                repellendus ex sapiente pariatur distinctio est, excepturi reprehenderit nesciunt cum.
-                                Asperiores quod adipisci impedit cumque eveniet optio incidunt, sunt non. Voluptates
-                                consectetur est quidem laboriosam enim sed sint excepturi assumenda. Ad accusantium alias
-                                quis dolore inventore nemo doloribus sit ratione! Reiciendis neque at soluta sapiente
-                                voluptas numquam adipisci possimus! Laborum fugit totam earum sapiente natus saepe sequi sed
-                                excepturi perferendis esse, ullam ut aliquid tenetur nulla numquam!</div>
+                                data-value data-length">
+                                {{ $section_history->description }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
-                                        class="button-action button-detail d-flex justify-content-center align-items-center">
+                                        class="button-action button-detail d-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionHistoryModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
-                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
+                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#editSectionHistoryModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -359,7 +345,7 @@
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
-                                alt="Banner Section Remark" width="80" data-value="banner_remark">
+                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
                         </div>
                     </div>
                     <div class="input-wrapper">
@@ -419,6 +405,80 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION REMARK --}}
+
+    {{-- MODAL DETAIL SECTION HISTORY --}}
+    <div class="modal fade" id="detailSectionHistoryModal" tabindex="-1"
+        aria-labelledby="detailSectionHistoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Section Sejarah</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
+                                alt="Banner Section Sejarah" width="80" data-value="banner_history">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Sejarah</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_history" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="description">Description</label>
+                        <textarea id="description" class="input" autocomplete="off" rows="3" data-value="description_history"
+                            disabled></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL SECTION HISTORY --}}
+
+    {{-- MODAL EDIT SECTION HISTORY --}}
+    {{-- <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Sambutan</h3>
+                <form id="editSectionRemark" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_remark">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-remark"
+                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="banner" class="input-edit-remark" name="banner">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Sambutan</label>
+                        <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
+                            data-value="title_remark">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="pesan">Pesan</label>
+                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="3"
+                            data-value="message_remark"></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Close Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> --}}
+    {{-- END MODAL EDIT SECTION HISTORY --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
@@ -495,6 +555,58 @@
                 }
             });
         });
+
+        $(document).on('click', '[data-bs-target="#detailSectionRemarkModal"]', function() {
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-remark',
+                success: function(data) {
+                    $('[data-value="title_remark"]').val(data.title_remark);
+                    $('[data-value="message_remark"]').val(data.message);
+                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editSectionRemarkModal"]', function() {
+            $('#editSectionRemark').attr('action', '/admin/beranda/edit-remark');
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-remark',
+                success: function(data) {
+                    $('[data-value="title_remark"]').val(data.title_remark);
+                    $('[data-value="message_remark"]').val(data.message);
+                    $('[data-value="oldImage_remark"]').val(data.banner);
+                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailSectionHistoryModal"]', function() {
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-history',
+                success: function(data) {
+                    $('[data-value="title_history"]').val(data.title_history);
+                    $('[data-value="description_history"]').val(data.description);
+                    $('[data-value="banner_history"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
+
+        // $(document).on('click', '[data-bs-target="#editSectionRemarkModal"]', function() {
+        //     $('#editSectionRemark').attr('action', '/admin/beranda/edit-remark');
+        //     $.ajax({
+        //         type: 'get',
+        //         url: '/admin/beranda/edit-remark',
+        //         success: function(data) {
+        //             $('[data-value="title_remark"]').val(data.title_remark);
+        //             $('[data-value="message_remark"]').val(data.message);
+        //             $('[data-value="oldImage_remark"]').val(data.banner);
+        //             $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+        //         }
+        //     });
+        // });
 
         const tagEditHeader = document.querySelector('.tag-edit-header');
         const inputEditHeader = document.querySelector('.input-edit-header');

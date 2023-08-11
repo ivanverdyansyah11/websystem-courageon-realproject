@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HeaderHome;
+use App\Models\HistoryHome;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class BerandaController extends Controller
             'section_header' => HeaderHome::first(),
             'section_opening' => OpeningHome::first(),
             'section_remark' => RemarkHome::first(),
+            'section_history' => HistoryHome::first(),
         ]);
     }
 
@@ -97,7 +99,36 @@ class BerandaController extends Controller
         if ($remarkHome) {
             return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Sambutan!');
         } else {
-            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Pembuka!');
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Sambutan!');
+        }
+    }
+
+    function editHistory()
+    {
+        $section_history = HistoryHome::first();
+        return response()->json($section_history);
+    }
+
+    function updateHistory(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_history' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        if ($request->file('banner')) {
+            Storage::delete($request->oldImage);
+            $validatedData['banner'] = $request->file('banner')->store('beranda-images/sejarah-image');
+        } else {
+            $validatedData['banner'] = $request->oldImage;
+        }
+
+        $remarkHome = RemarkHome::first()->update($validatedData);
+
+        if ($remarkHome) {
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Sejarah!');
+        } else {
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Sejarah!');
         }
     }
 }

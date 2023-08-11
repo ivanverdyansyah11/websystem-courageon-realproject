@@ -41,6 +41,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
         Route::post('/beranda/edit-opening', 'updateOpening');
         Route::get('/beranda/edit-remark', 'editRemark');
         Route::post('/beranda/edit-remark', 'updateRemark');
+        Route::get('/beranda/edit-history', 'editHistory');
+        Route::post('/beranda/edit-history', 'updateHistory');
     });
 
     Route::controller(ProfilController::class)->group(function () {
