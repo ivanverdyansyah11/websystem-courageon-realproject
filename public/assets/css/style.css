@@ -94,6 +94,134 @@ h3.title {
     font-size: 1.75rem;
     font-family: var(--semibold-font);
 }
+
+h5.subtitle {
+    font-size: 1.275rem;
+    font-family: var(--semibold-font);
+}
+
+button.button-default {
+    padding: 14px 20px;
+    border: var(--border-style);
+    outline: none;
+    stroke: none;
+    font-size: 0.875rem;
+    color: rgba(var(--dark-color), 1);
+    border-radius: 9999px;
+    background-color: rgba(var(--light-color), 1);
+}
+
+button.button-default:hover {
+    background-color: rgba(var(--dark-color), 0.03);
+}
+
+.row-gap {
+    margin-bottom: 32px;
+}
+
+.content-title {
+    margin-bottom: 22px;
+}
+
+.table-default {
+    border: var(--border-style);
+    width: 100%;
+    border-radius: 12px !important;
+    margin: 0;
+}
+
+.table-default .table-row {
+    padding: 22px 18px;
+}
+
+.table-default .table-border {
+    position: relative;
+}
+
+.table-default .table-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97.2%;
+    height: 1px;
+    background-color: transparent;
+    border-top: var(--border-style);
+}
+
+.table-default .data-header,
+.table-default .data-value {
+    color: rgba(var(--dark-color), 0.62);
+    font-size: 0.938rem;
+}
+
+.table-default .data-value {
+    color: rgba(var(--dark-color), 1);
+}
+
+.table-default .data-value.data-length {
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+}
+
+.table-default .wrapper-action {
+    gap: 6px;
+}
+
+.table-default .button-action {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    border: none;
+    outline: none;
+    stroke: none;
+}
+
+.table-default .button-action.button-detail {
+    background-color: rgba(var(--blue-color), 0.12);
+}
+
+.table-default .button-action.button-detail:hover {
+    background-color: rgba(var(--blue-color), 0.18);
+}
+
+.table-default .button-action.button-edit {
+    background-color: rgba(var(--yellow-color), 0.12);
+}
+
+.table-default .button-action.button-edit:hover {
+    background-color: rgba(var(--yellow-color), 0.18);
+}
+
+.table-default .button-action.button-delete {
+    background-color: rgba(var(--red-color), 0.12);
+}
+
+.table-default .button-action.button-delete:hover {
+    background-color: rgba(var(--red-color), 0.18);
+}
+
+.table-default .detail-icon,
+.table-default .edit-icon,
+.table-default .delete-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url('../img/icon/detail.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.table-default .edit-icon {
+    background-image: url('../img/icon/edit.svg');
+}
+
+.table-default .delete-icon {
+    background-image: url('../img/icon/delete.svg');
+}
 /* END COMPONENT STYLE */
 
 

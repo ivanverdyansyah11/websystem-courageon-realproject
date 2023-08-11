@@ -4,7 +4,7 @@
         <div class="topbar-profile d-flex align-items-center position-relative">
             <div class="wrapper-profile d-flex align-items-center">
                 <img src="{{ asset('assets/img/other/profile-admin.svg') }}" class="img-fluid profile-image"
-                    alt="Profile Admin">
+                    alt="Profile Admin" draggable="false">
                 <div class="profile-user">
                     <h6 class="user-name">Ayu Pradewi</h6>
                     <p class="user-role">Admin Management</p>
