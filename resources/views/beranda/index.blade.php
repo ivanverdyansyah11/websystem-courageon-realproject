@@ -2,6 +2,19 @@
 
 @section('container')
     <div class="content">
+        <div class="row">
+            <div class="col-12">
+                @if (session()->has('success'))
+                    <div class="alert alert-success mb-4" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @elseif(session()->has('failed'))
+                    <div class="alert alert-danger mb-4" role="alert">
+                        {{ session('failed') }}
+                    </div>
+                @endif
+            </div>
+        </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Section Header</h5>
@@ -276,8 +289,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="POST" enctype="multipart/form-data"
+                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
+                    @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">

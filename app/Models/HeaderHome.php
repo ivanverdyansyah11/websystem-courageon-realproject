@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class HeaderHome extends Model
 {
-    use HasFactory;
+    protected $guarded = [];
 }

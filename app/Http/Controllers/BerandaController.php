@@ -26,15 +26,23 @@ class BerandaController extends Controller
     {
         $validatedData = $request->validate([
             // 'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'name_translation' => 'required|string|max:255',
-            'description_translation' => 'required|string',
+            'title_header' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
         if ($request->file('banner')) {
             Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('menu-images');
+            $validatedData['banner'] = $request->file('banner')->store('beranda-images/header-image');
         } else {
             $validatedData['banner'] = $request->oldImage;
+        }
+
+        $headerHome = HeaderHome::first()->update($validatedData);
+
+        if ($headerHome) {
+            return redirect(route('beranda-index'))->with('success', 'Update Section Header Successfully!');
+        } else {
+            return redirect(route('beranda-index'))->with('failed', 'Update Section Header Failed!');
         }
     }
 }

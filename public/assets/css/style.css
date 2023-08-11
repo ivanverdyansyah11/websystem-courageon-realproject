@@ -255,6 +255,10 @@ button.button-default-solid:hover {
 .table-default .delete-icon {
     background-image: url('../img/icon/delete.svg');
 }
+
+.alert {
+    font-size: 0.938rem;
+}
 /* END COMPONENT STYLE */
 
 
