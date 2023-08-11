@@ -9,12 +9,12 @@
                         alt="Brand Logo" draggable="false">
                     <form action="" class="form d-flex flex-column justify-content-center">
                         <div class="input-wrapper">
-                            <input type="email" id="email" class="input" autocomplete="off">
                             <label for="email">Email</label>
+                            <input type="email" id="email" class="input" autocomplete="off">
                         </div>
                         <div class="input-wrapper">
-                            <input type="password" id="password" class="input" autocomplete="off">
                             <label for="password">Password</label>
+                            <input type="password" id="password" class="input" autocomplete="off">
                         </div>
                         <button class="button-form">Login</button>
                     </form>
