@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HeaderHome;
 use App\Models\OpeningHome;
+use App\Models\RemarkHome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,6 +16,7 @@ class BerandaController extends Controller
             'title' => 'Beranda',
             'section_header' => HeaderHome::first(),
             'section_opening' => OpeningHome::first(),
+            'section_remark' => RemarkHome::first(),
         ]);
     }
 
@@ -42,9 +44,9 @@ class BerandaController extends Controller
         $headerHome = HeaderHome::first()->update($validatedData);
 
         if ($headerHome) {
-            return redirect(route('beranda-index'))->with('success', 'Update Section Header Successfully!');
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Header!');
         } else {
-            return redirect(route('beranda-index'))->with('failed', 'Update Section Header Failed!');
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Header!');
         }
     }
 
@@ -64,9 +66,39 @@ class BerandaController extends Controller
         $openingHome = OpeningHome::first()->update($validatedData);
 
         if ($openingHome) {
-            return redirect(route('beranda-index'))->with('success', 'Update Section Opening Successfully!');
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Pembuka!');
         } else {
-            return redirect(route('beranda-index'))->with('failed', 'Update Section Opening Failed!');
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Pembuka!');
+        }
+    }
+
+    function editRemark()
+    {
+        $section_remark = RemarkHome::first();
+        return response()->json($section_remark);
+    }
+
+    function updateRemark(Request $request)
+    {
+        $validatedData = $request->validate([
+            // 'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'title_remark' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        if ($request->file('banner')) {
+            Storage::delete($request->oldImage);
+            $validatedData['banner'] = $request->file('banner')->store('beranda-images/sambutan-image');
+        } else {
+            $validatedData['banner'] = $request->oldImage;
+        }
+
+        $remarkHome = RemarkHome::first()->update($validatedData);
+
+        if ($remarkHome) {
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Sambutan!');
+        } else {
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Pembuka!');
         }
     }
 }
