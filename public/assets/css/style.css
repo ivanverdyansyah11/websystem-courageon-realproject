@@ -269,11 +269,14 @@ button.button-default-solid:hover {
 }
 
 .login .button-form {
-    all: unset;
+    width: 100%;
+    border: none;
+    outline: none;
+    stroke: none;
     display: inline-block;
     margin-top: 8px;
     padding: 16px 22px;
-    border-radius: 8px;
+    border-radius: 9999px;
     background-color: rgba(var(--primary-color), 1);
     cursor: pointer;
     color: rgba(var(--light-color), 1);
@@ -281,8 +284,28 @@ button.button-default-solid:hover {
     text-align: center;
 }
 
+.login .button-form::placeholder {
+    color: rgba(var(--dark-color), 0.62);
+    font-size: 0.938rem;
+}
+
 .login .button-form:hover {
     opacity: 0.94;
+}
+
+.login p,
+.login .link-forgot {
+    color: rgba(var(--primary-color), 1);
+    font-size: 0.875rem;
+}
+
+.login p {
+    margin-top: 48px;
+    color: rgba(var(--dark-color), 0.62);
+}
+
+.login .link-forgot:hover {
+    text-decoration: underline;
 }
 /* END LOGIN STYLE */
 
