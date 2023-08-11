@@ -211,7 +211,6 @@
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
@@ -284,7 +283,6 @@
             <div class="modal-content">
                 <h3 class="title">Detail Section Pembuka</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Pembuka</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
@@ -310,8 +308,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Pembuka</h3>
-                <form id="editSectionOpening" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
+                <form id="editSectionOpening" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Pembuka</label>
@@ -340,7 +337,6 @@
             <div class="modal-content">
                 <h3 class="title">Detail Section Sambutan</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
@@ -413,7 +409,6 @@
             <div class="modal-content">
                 <h3 class="title">Detail Section Sejarah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
@@ -611,9 +606,21 @@
 
         const tagEditHeader = document.querySelector('.tag-edit-header');
         const inputEditHeader = document.querySelector('.input-edit-header');
+        const tagEditRemark = document.querySelector('.tag-edit-remark');
+        const inputEditRemark = document.querySelector('.input-edit-remark');
+        const tagEditHistory = document.querySelector('.tag-edit-history');
+        const inputEditHistory = document.querySelector('.input-edit-history');
 
         inputEditHeader.addEventListener('change', function() {
             tagEditHeader.src = URL.createObjectURL(inputEditHeader.files[0]);
+        });
+
+        inputEditRemark.addEventListener('change', function() {
+            tagEditRemark.src = URL.createObjectURL(inputEditRemark.files[0]);
+        });
+
+        inputEditHistory.addEventListener('change', function() {
+            tagEditHistory.src = URL.createObjectURL(inputEditHistory.files[0]);
         });
     </script>
 @endsection
