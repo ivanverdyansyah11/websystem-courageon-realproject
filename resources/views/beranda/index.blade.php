@@ -381,23 +381,34 @@
     {{-- END MODAL DETAIL SECTION REMARK --}}
 
     {{-- MODAL EDIT SECTION REMARK --}}
-    {{-- <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
+    <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Pembuka</h3>
-                <form id="editSectionOpening" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Section Sambutan</h3>
+                <form id="editSectionRemark" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
-                        <label for="judul">Judul Pembuka</label>
-                        <input type="text" id="judul" class="input" name="title_opening" autocomplete="off"
-                            data-value="title_opening">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_remark">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-remark"
+                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="banner" class="input-edit-remark" name="banner">
+                            </div>
+                        </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
-                            data-value="description"></textarea>
+                        <label for="judul">Judul Sambutan</label>
+                        <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
+                            data-value="title_remark">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="pesan">Pesan</label>
+                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="3"
+                            data-value="message_remark"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -406,7 +417,7 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL EDIT SECTION REMARK --}}
 
     <script>
@@ -471,18 +482,19 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#editSectionOpeningModal"]', function() {
-        //     $('#editSectionOpening').attr('action', '/admin/beranda/edit-opening');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/beranda/edit-opening',
-        //         success: function(data) {
-        //             $('[data-value="title_opening"]').val(data.title_opening);
-        //             $('[data-value="description"]').val(data.description);
-        //             $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editSectionRemarkModal"]', function() {
+            $('#editSectionRemark').attr('action', '/admin/beranda/edit-remark');
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-remark',
+                success: function(data) {
+                    $('[data-value="title_remark"]').val(data.title_remark);
+                    $('[data-value="message_remark"]').val(data.message);
+                    $('[data-value="oldImage_remark"]').val(data.banner);
+                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
 
         const tagEditHeader = document.querySelector('.tag-edit-header');
         const inputEditHeader = document.querySelector('.input-edit-header');
