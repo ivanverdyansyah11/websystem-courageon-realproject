@@ -37,12 +37,12 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('visi-misi-index') }}" class="link-child">Visi & Misi</a>
+                    <a href="{{ route('visi-misi-index') }}" class="link-child">Visi & Misi</a>
                     <a href="{{ route('logo-mars-index') }}" class="link-child">Logo & Mars</a>
                     <a href="{{ route('manajemen-index') }}" class="link-child">Manajemen</a>
                     <a href="{{ route('guru-index') }}" class="link-child">Guru</a>
                     <a href="{{ route('pegawai-index') }}" class="link-child">Pegawai</a>
-                    <a href="{{ route('lokasi-index') }}" class="link-child">Lokasi</a> --}}
+                    <a href="{{ route('lokasi-index') }}" class="link-child">Lokasi</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik*') ? 'active' : '' }}">
@@ -99,7 +99,7 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('Prasarana-index') }}" class="link-child">Prasarana</a>
+                    {{-- <a href="{{ route('prasarana-index') }}" class="link-child">Prasarana</a>
                     <a href="{{ route('denah-index') }}" class="link-child">Denah</a> --}}
                 </div>
 
