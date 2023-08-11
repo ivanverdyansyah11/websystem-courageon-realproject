@@ -25,7 +25,6 @@ class VisiMisiController extends Controller
     function updateVisionMission(Request $request)
     {
         $validatedData = $request->validate([
-            // 'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title_vision' => 'required|string|max:255',
             'description_vision' => 'required|string',
             'title_mission' => 'required|string|max:255',

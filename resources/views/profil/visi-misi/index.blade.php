@@ -80,7 +80,7 @@
                                 <label for="banner">Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
-                                        alt="Banner Section Visi Misi" width="80" data-value="banner_vision_mission">
+                                        alt="Banner Visi Misi" width="80" data-value="banner_vision_mission">
                                 </div>
                             </div>
                         </div>
@@ -122,34 +122,58 @@
     {{-- END MODAL DETAIL VISION MISSION --}}
 
     {{-- MODAL EDIT VISION MISSION --}}
-    {{-- <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+    <div class="modal fade" id="editVisionMissionModal" tabindex="-1" aria-labelledby="editVisionMissionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Visi Misi Sekolah</h3>
+                <form id="editVisionMission" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_header">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-header"
-                                alt="Banner Section Header" width="80" data-value="banner_header">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="banner" class="input-edit-header" name="banner">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_vision_mission">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-vision-mission" alt="Banner Visi Misi" width="80"
+                                        data-value="banner_vision_mission">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="banner" class="input-edit-vision-mission"
+                                            name="banner">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" name="title_header" autocomplete="off"
-                            data-value="title_header">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
-                            data-value="description_header"></textarea>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul_visi">Judul Visi</label>
+                                <input type="text" id="judul_visi" class="input" autocomplete="off"
+                                    data-value="title_vision" name="title_vision">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul_misi">Judul Misi</label>
+                                <input type="text" id="judul_misi" class="input" autocomplete="off"
+                                    data-value="title_mission" name="title_mission">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="deskripsi_visi">Deskripsi Visi</label>
+                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="3" data-value="description_vision"
+                                    name="description_vision"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-wrapper">
+                                <label for="deskripsi_misi">Deskripsi Misi</label>
+                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="3" data-value="description_mission"
+                                    name="description_mission"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -158,7 +182,7 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL EDIT VISION MISSION --}}
 
     <script>
@@ -176,25 +200,27 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-        //     $('#editSectionHeader').attr('action', '/admin/profil/edit-header');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/edit-header',
-        //         success: function(data) {
-        //             $('[data-value="title_header"]').val(data.title_header);
-        //             $('[data-value="description_header"]').val(data.description);
-        //             $('[data-value="oldImage_header"]').val(data.banner);
-        //             $('[data-value="banner_header"]').attr("src", "/storage/" + data.banner);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editVisionMissionModal"]', function() {
+            $('#editVisionMission').attr('action', '/admin/profil/visi-misi/edit-visi-misi');
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/visi-misi/edit-visi-misi',
+                success: function(data) {
+                    $('[data-value="banner_vision_mission"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="oldImage_vision_mission"]').val(data.banner);
+                    $('[data-value="title_vision"]').val(data.title_vision);
+                    $('[data-value="description_vision"]').val(data.description_vision);
+                    $('[data-value="title_mission"]').val(data.title_mission);
+                    $('[data-value="description_mission"]').val(data.description_mission);
+                }
+            });
+        });
 
-        // const tagEditHeader = document.querySelector('.tag-edit-header');
-        // const inputEditHeader = document.querySelector('.input-edit-header');
+        const tagEditVisionMission = document.querySelector('.tag-edit-vision-mission');
+        const inputEditVisionMission = document.querySelector('.input-edit-vision-mission');
 
-        // inputEditHeader.addEventListener('change', function() {
-        //     tagEditHeader.src = URL.createObjectURL(inputEditHeader.files[0]);
-        // });
+        inputEditVisionMission.addEventListener('change', function() {
+            tagEditVisionMission.src = URL.createObjectURL(inputEditVisionMission.files[0]);
+        });
     </script>
 @endsection
