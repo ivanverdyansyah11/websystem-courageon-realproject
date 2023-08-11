@@ -427,8 +427,8 @@
                             data-value="title_history" disabled>
                     </div>
                     <div class="input-wrapper">
-                        <label for="description">Description</label>
-                        <textarea id="description" class="input" autocomplete="off" rows="3" data-value="description_history"
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_history"
                             disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -441,34 +441,35 @@
     {{-- END MODAL DETAIL SECTION HISTORY --}}
 
     {{-- MODAL EDIT SECTION HISTORY --}}
-    {{-- <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
+    <div class="modal fade" id="editSectionHistoryModal" tabindex="-1" aria-labelledby="editSectionHistoryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Sambutan</h3>
-                <form id="editSectionRemark" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Section Sejarah</h3>
+                <form id="editSectionHistory" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_remark">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-remark"
-                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
+                            <input type="hidden" name="oldImage" data-value="oldImage_history">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                class="img-fluid tag-edit-history" alt="Banner Section Sejarah" width="80"
+                                data-value="banner_history">
                             <div class="wrapper-image w-100">
-                                <input type="file" id="banner" class="input-edit-remark" name="banner">
+                                <input type="file" id="banner" class="input-edit-history" name="banner">
                             </div>
                         </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="judul">Judul Sambutan</label>
-                        <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
-                            data-value="title_remark">
+                        <label for="judul">Judul Sejarah</label>
+                        <input type="text" id="judul" class="input" name="title_history" autocomplete="off"
+                            data-value="title_history">
                     </div>
                     <div class="input-wrapper">
-                        <label for="pesan">Pesan</label>
-                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="3"
-                            data-value="message_remark"></textarea>
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
+                            data-value="description_history"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -477,7 +478,7 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL EDIT SECTION HISTORY --}}
 
     <script>
@@ -594,19 +595,19 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#editSectionRemarkModal"]', function() {
-        //     $('#editSectionRemark').attr('action', '/admin/beranda/edit-remark');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/beranda/edit-remark',
-        //         success: function(data) {
-        //             $('[data-value="title_remark"]').val(data.title_remark);
-        //             $('[data-value="message_remark"]').val(data.message);
-        //             $('[data-value="oldImage_remark"]').val(data.banner);
-        //             $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editSectionHistoryModal"]', function() {
+            $('#editSectionHistory').attr('action', '/admin/beranda/edit-history');
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-history',
+                success: function(data) {
+                    $('[data-value="title_history"]').val(data.title_history);
+                    $('[data-value="description_history"]').val(data.description);
+                    $('[data-value="oldImage_history"]').val(data.banner);
+                    $('[data-value="banner_history"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
 
         const tagEditHeader = document.querySelector('.tag-edit-header');
         const inputEditHeader = document.querySelector('.input-edit-header');

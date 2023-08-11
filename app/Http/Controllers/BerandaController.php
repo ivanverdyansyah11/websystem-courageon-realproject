@@ -123,9 +123,9 @@ class BerandaController extends Controller
             $validatedData['banner'] = $request->oldImage;
         }
 
-        $remarkHome = RemarkHome::first()->update($validatedData);
+        $historyHome = HistoryHome::first()->update($validatedData);
 
-        if ($remarkHome) {
+        if ($historyHome) {
             return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Sejarah!');
         } else {
             return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Sejarah!');
