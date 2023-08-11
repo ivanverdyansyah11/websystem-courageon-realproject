@@ -65,6 +65,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
         Route::get('/profil/visi-misi', 'index')->name('visi-misi-index');
         Route::get('/profil/visi-misi/edit-visi-misi', 'editVisionMission');
         Route::post('/profil/visi-misi/edit-visi-misi', 'updateVisionMission');
+        Route::get('/profil/visi-misi/edit-motto', 'editMotto');
+        Route::post('/profil/visi-misi/edit-motto', 'updateMotto');
     });
 
     Route::controller(LogoMarsController::class)->group(function () {

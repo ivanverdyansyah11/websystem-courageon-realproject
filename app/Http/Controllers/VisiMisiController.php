@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Motto;
 use App\Models\VisionMission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,7 @@ class VisiMisiController extends Controller
         return view('profil.visi-misi.index', [
             'title' => 'Profil > Visi & Misi',
             'vision_mission' => VisionMission::first(),
+            'motto' => Motto::first(),
         ]);
     }
 
@@ -44,6 +46,28 @@ class VisiMisiController extends Controller
             return redirect(route('visi-misi-index'))->with('success', 'Berhasil Update Visi Misi Sekolah!');
         } else {
             return redirect(route('visi-misi-index'))->with('failed', 'Gagal Update Visi Misi Sekolah!');
+        }
+    }
+
+    function editMotto()
+    {
+        $motto = Motto::first();
+        return response()->json($motto);
+    }
+
+    function updateMotto(Request $request)
+    {
+        $validatedData = $request->validate([
+            'speaker' => 'required|string|max:255',
+            'motto' => 'required|string',
+        ]);
+
+        $motto = Motto::first()->update($validatedData);
+
+        if ($motto) {
+            return redirect(route('visi-misi-index'))->with('success', 'Berhasil Update Motto Sekolah!');
+        } else {
+            return redirect(route('visi-misi-index'))->with('failed', 'Gagal Update Motto Sekolah!');
         }
     }
 }

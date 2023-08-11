@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
+use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use App\Models\VisionMission;
@@ -54,6 +55,11 @@ class DatabaseSeeder extends Seeder
             'description_vision' => 'Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.',
             'title_mission' => 'Misi sekolah',
             'description_mission' => 'Misi Courageon School adalah menyediakan pendidikan yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk mengembangkan keberanian dan kreativitas mereka melalui berbagai program ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi masyarakat dan dunia.',
+        ]);
+
+        Motto::create([
+            'speaker' => 'Courageon',
+            'motto' => 'Bangsa yang malas belajar tidak akan bisa berkembang!',
         ]);
     }
 }
