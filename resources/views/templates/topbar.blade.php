@@ -1,5 +1,5 @@
 <div class="topbar d-flex justify-content-between align-items-center">
-    <h3 class="title">Halaman Dashboard</h3>
+    <h3 class="title">Halaman {{ $title }}</h3>
     <div class="wrapper-position position-relative d-none d-lg-inline-block">
         <div class="topbar-profile d-flex align-items-center position-relative">
             <div class="wrapper-profile d-flex align-items-center">

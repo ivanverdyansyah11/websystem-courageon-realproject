@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HumasController;
+use App\Http\Controllers\KesiswaanController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SaranaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +30,30 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
     });
 
     Route::controller(DashboardController::class)->group(function () {
-        Route::get('/dashboard', 'index')->name('dashboard');
+        Route::get('/dashboard', 'index')->name('dashboard-index');
+    });
+
+    Route::controller(BerandaController::class)->group(function () {
+        Route::get('/beranda', 'index')->name('beranda-index');
+    });
+
+    Route::controller(ProfilController::class)->group(function () {
+        Route::get('/profil', 'index')->name('profil-index');
+    });
+
+    Route::controller(AkademikController::class)->group(function () {
+        Route::get('/akademik', 'index')->name('akademik-index');
+    });
+
+    Route::controller(KesiswaanController::class)->group(function () {
+        Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
+    });
+
+    Route::controller(SaranaController::class)->group(function () {
+        Route::get('/sarana', 'index')->name('sarana-index');
+    });
+
+    Route::controller(HumasController::class)->group(function () {
+        Route::get('/humas', 'index')->name('humas-index');
     });
 });

@@ -1,13 +1,13 @@
 <div class="sidebar">
     <div class="sidebar-scroll d-flex flex-column justify-content-between">
         <div class="sidebar-menu-top d-flex flex-column align-items-center w-100">
-            <a href="/admin/dashboard">
+            <a href="{{ route('dashboard-index') }}">
                 <img src="{{ asset('assets/img/brand/brand-logo.svg') }}" class="img-fluid brand-logo" alt="Brand Logo"
                     draggable="false">
             </a>
             <div class="link-wrapper d-flex flex-column w-100">
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="/admin/dashboard" class="link-item d-flex align-items-center">
+                    <a href="{{ route('dashboard-index') }}" class="link-item d-flex align-items-center">
                         <div class="icon-sidebar-wrapper">
                             <div class="sidebar-icon dashboard-icon"></div>
                         </div>
@@ -15,8 +15,8 @@
                     </a>
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/beranda/*') ? 'active' : '' }}">
-                    <a href="/admin/beranda" class="link-item d-flex align-items-center">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/beranda*') ? 'active' : '' }}">
+                    <a href="{{ route('beranda-index') }}" class="link-item d-flex align-items-center">
                         <div class="icon-sidebar-wrapper">
                             <div class="sidebar-icon beranda-icon"></div>
                         </div>
@@ -24,8 +24,9 @@
                     </a>
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/profil/*') ? 'active' : '' }}">
-                    <a href="/admin/profil" class="link-item d-flex align-items-center justify-content-between">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/profil*') ? 'active' : '' }}">
+                    <a href="{{ route('profil-index') }}"
+                        class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
                             <div class="icon-sidebar-wrapper">
                                 <div class="sidebar-icon profil-icon"></div>
@@ -36,16 +37,17 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="/admin/profil/visi-misi" class="link-child">Visi & Misi</a>
-                    <a href="/admin/profil/logo-mars" class="link-child">Logo & Mars</a>
-                    <a href="/admin/profil/manajemen" class="link-child">Manajemen</a>
-                    <a href="/admin/profil/guru" class="link-child">Guru</a>
-                    <a href="/admin/profil/pegawai" class="link-child">Pegawai</a>
-                    <a href="/admin/profil/lokasi" class="link-child">Lokasi</a>
+                    {{-- <a href="{{ route('visi-misi-index') }}" class="link-child">Visi & Misi</a>
+                    <a href="{{ route('logo-mars-index') }}" class="link-child">Logo & Mars</a>
+                    <a href="{{ route('manajemen-index') }}" class="link-child">Manajemen</a>
+                    <a href="{{ route('guru-index') }}" class="link-child">Guru</a>
+                    <a href="{{ route('pegawai-index') }}" class="link-child">Pegawai</a>
+                    <a href="{{ route('lokasi-index') }}" class="link-child">Lokasi</a> --}}
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik/*') ? 'active' : '' }}">
-                    <a href="/admin/akademik" class="link-item d-flex align-items-center justify-content-between">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik*') ? 'active' : '' }}">
+                    <a href="{{ route('akademik-index') }}"
+                        class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
                             <div class="icon-sidebar-wrapper">
                                 <div class="sidebar-icon akademik-icon"></div>
@@ -56,14 +58,15 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="/admin/akademik/kurikulum" class="link-child">Kurikulum</a>
-                    <a href="/admin/akademik/program" class="link-child">Program</a>
-                    <a href="/admin/akademik/proyek" class="link-child">Proyek P5</a>
-                    <a href="/admin/akademik/kelulusan" class="link-child">Kelulusan Kelas</a>
+                    {{-- <a href="{{ route('kurikulum-index') }}" class="link-child">Kurikulum</a>
+                    <a href="{{ route('program-index') }}" class="link-child">Program</a>
+                    <a href="{{ route('proyek-index') }}" class="link-child">Proyek P5</a>
+                    <a href="{{ route('kelulusan-index') }}" class="link-child">Kelulusan Kelas</a> --}}
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/kesiswaan/*') ? 'active' : '' }}">
-                    <a href="/admin/kesiswaan" class="link-item d-flex align-items-center justify-content-between">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/kesiswaan*') ? 'active' : '' }}">
+                    <a href="{{ route('kesiswaan-index') }}"
+                        class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
                             <div class="icon-sidebar-wrapper">
                                 <div class="sidebar-icon kesiswaan-icon"></div>
@@ -74,17 +77,18 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="/admin/kesiswaan/siswa" class="link-child">Data Siswa</a>
-                    <a href="/admin/kesiswaan/ekstrakulikuler" class="link-child">Ekstrakulikuler</a>
-                    <a href="/admin/kesiswaan/pelayanan" class="link-child">Pelayanan</a>
-                    <a href="/admin/kesiswaan/osis-mpk" class="link-child">Osis & Mpk</a>
-                    <a href="/admin/kesiswaan/prestasi" class="link-child">Prestasi</a>
-                    <a href="/admin/kesiswaan/beasiswa" class="link-child">Beasiswa</a>
-                    <a href="/admin/kesiswaan/alumni" class="link-child">Alumni</a>
+                    {{-- <a href="{{ route('siswa-index') }}" class="link-child">Data Siswa</a>
+                    <a href="{{ route('ekstrakulikuler-index') }}" class="link-child">Ekstrakulikuler</a>
+                    <a href="{{ route('pelayanan-index') }}" class="link-child">Pelayanan</a>
+                    <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a>
+                    <a href="{{ route('prestasi-index') }}" class="link-child">Prestasi</a>
+                    <a href="{{ route('beasiswa-index') }}" class="link-child">Beasiswa</a>
+                    <a href="{{ route('alumni-index') }}" class="link-child">Alumni</a> --}}
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/sarana/*') ? 'active' : '' }}">
-                    <a href="/admin/sarana" class="link-item d-flex align-items-center justify-content-between">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/sarana*') ? 'active' : '' }}">
+                    <a href="{{ route('sarana-index') }}"
+                        class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
                             <div class="icon-sidebar-wrapper">
                                 <div class="sidebar-icon sarana-icon"></div>
@@ -95,12 +99,13 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="/admin/sarana/sarana" class="link-child">Sarana</a>
-                    <a href="/admin/sarana/denah" class="link-child">Denah</a>
+                    {{-- <a href="{{ route('Prasarana-index') }}" class="link-child">Prasarana</a>
+                    <a href="{{ route('denah-index') }}" class="link-child">Denah</a> --}}
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/humas/*') ? 'active' : '' }}">
-                    <a href="/admin/humas" class="link-item d-flex align-items-center justify-content-between">
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/humas*') ? 'active' : '' }}">
+                    <a href="{{ route('humas-index') }}"
+                        class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
                             <div class="icon-sidebar-wrapper">
                                 <div class="sidebar-icon humas-icon"></div>
@@ -111,8 +116,8 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="/admin/humas/kemitraan" class="link-child">Kemitraan</a>
-                    <a href="/admin/humas/majalah" class="link-child">Majalah</a>
+                    {{-- <a href="{{ route('kemitraan-index') }}" class="link-child">Kemitraan</a>
+                    <a href="{{ route('majalah-index') }}" class="link-child">Majalah</a> --}}
                 </div>
             </div>
         </div>
