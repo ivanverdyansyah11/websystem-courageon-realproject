@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\HeaderHome;
+use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
@@ -38,6 +39,12 @@ class DatabaseSeeder extends Seeder
             'banner' => 'beranda-images/sejarah-image/banner-sejarah.jpg',
             'title_history' => 'Sejarah singkat tentang sekolah courageon',
             'description' => 'Sekolah Courageon didirikan pada tahun 1995 oleh sekelompok pendidik visioner yang percaya bahwa pendidikan sejati tidak hanya tentang akademik, tetapi juga tentang memupuk keberanian dan semangat dalam setiap siswa. Berlokasi di sebuah desa kecil yang indah, sekolah ini berkomitmen untuk menciptakan lingkungan pembelajaran yang inklusif dan inspiratif.',
+        ]);
+
+        HeaderProfile::create([
+            'banner' => 'profil-images/header-image/banner-header.jpg',
+            'title_header' => 'Profile Dan informasi mengenai sekolah courgaeon',
+            'description' => 'Courageon School adalah sekolah swasta yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
         ]);
     }
 }

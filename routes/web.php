@@ -47,6 +47,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
 
     Route::controller(ProfilController::class)->group(function () {
         Route::get('/profil', 'index')->name('profil-index');
+        Route::get('/profil/edit-header', 'editHeader');
+        Route::post('/profil/edit-header', 'updateHeader');
     });
 
     Route::controller(AkademikController::class)->group(function () {
