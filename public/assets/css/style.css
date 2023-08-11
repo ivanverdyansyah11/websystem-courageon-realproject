@@ -196,7 +196,7 @@ button.button-default-solid:hover {
 .table-default .data-value.data-length {
     -webkit-line-clamp: 1;
     overflow: hidden;
-    display: -webkit-box; 
+    display: -webkit-box;
     -webkit-box-orient: vertical;
 }
 
@@ -704,6 +704,12 @@ button.button-default-solid:hover {
 
     .dashboard .content-dashboard {
         padding: 30px 40px;
+    }
+}
+
+@media (min-width: 576px) {
+    .data-length {
+        display: -webkit-box !important;
     }
 }
 

@@ -37,12 +37,18 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="{{ route('visi-misi-index') }}" class="link-child">Visi & Misi</a>
-                    <a href="{{ route('logo-mars-index') }}" class="link-child">Logo & Mars</a>
-                    <a href="{{ route('manajemen-index') }}" class="link-child">Manajemen</a>
-                    <a href="{{ route('guru-index') }}" class="link-child">Guru</a>
-                    <a href="{{ route('pegawai-index') }}" class="link-child">Pegawai</a>
-                    <a href="{{ route('lokasi-index') }}" class="link-child">Lokasi</a>
+                    <a href="{{ route('visi-misi-index') }}"
+                        class="link-child {{ Request::is('admin/profil/visi-misi*') ? 'active' : '' }}">Visi & Misi</a>
+                    <a href="{{ route('logo-mars-index') }}"
+                        class="link-child {{ Request::is('admin/profil/logo-mars*') ? 'active' : '' }}">Logo & Mars</a>
+                    <a href="{{ route('manajemen-index') }}"
+                        class="link-child {{ Request::is('admin/profil/manajemen*') ? 'active' : '' }}">Manajemen</a>
+                    <a href="{{ route('guru-index') }}"
+                        class="link-child {{ Request::is('admin/profil/guru*') ? 'active' : '' }}">Guru</a>
+                    <a href="{{ route('pegawai-index') }}"
+                        class="link-child {{ Request::is('admin/profil/pegawai*') ? 'active' : '' }}">Pegawai</a>
+                    <a href="{{ route('kontak-index') }}"
+                        class="link-child {{ Request::is('admin/profil/kontak*') ? 'active' : '' }}">Kontak</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik*') ? 'active' : '' }}">

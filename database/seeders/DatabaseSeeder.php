@@ -7,6 +7,7 @@ use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
+use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -45,6 +46,14 @@ class DatabaseSeeder extends Seeder
             'banner' => 'profil-images/header-image/banner-header.jpg',
             'title_header' => 'Profile Dan informasi mengenai sekolah courgaeon',
             'description' => 'Courageon School adalah sekolah swasta yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
+        ]);
+
+        VisionMission::create([
+            'banner' => 'profil-images/visi-misi-image/banner-visi-misi.jpg',
+            'title_vision' => 'Visi sekolah',
+            'description_vision' => 'Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.',
+            'title_mission' => 'Misi sekolah',
+            'description_mission' => 'Misi Courageon School adalah menyediakan pendidikan yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk mengembangkan keberanian dan kreativitas mereka melalui berbagai program ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi masyarakat dan dunia.',
         ]);
     }
 }
