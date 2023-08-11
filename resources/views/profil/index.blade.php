@@ -151,10 +151,10 @@
         });
 
         $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/beranda/edit-header');
+            $('#editSectionHeader').attr('action', '/admin/profil/edit-header');
             $.ajax({
                 type: 'get',
-                url: '/admin/beranda/edit-header',
+                url: '/admin/profil/edit-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
@@ -162,6 +162,13 @@
                     $('[data-value="banner_header"]').attr("src", "/storage/" + data.banner);
                 }
             });
+        });
+
+        const tagEditHeader = document.querySelector('.tag-edit-header');
+        const inputEditHeader = document.querySelector('.input-edit-header');
+
+        inputEditHeader.addEventListener('change', function() {
+            tagEditHeader.src = URL.createObjectURL(inputEditHeader.files[0]);
         });
     </script>
 @endsection
