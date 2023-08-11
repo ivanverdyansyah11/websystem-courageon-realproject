@@ -15,6 +15,9 @@ class CreateHeaderHomesTable extends Migration
     {
         Schema::create('header_homes', function (Blueprint $table) {
             $table->id();
+            $table->string('banner');
+            $table->string('title_header');
+            $table->text('description');
             $table->timestamps();
         });
     }

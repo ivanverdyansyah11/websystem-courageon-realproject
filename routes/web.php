@@ -35,6 +35,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
 
     Route::controller(BerandaController::class)->group(function () {
         Route::get('/beranda', 'index')->name('beranda-index');
+        Route::get('/beranda/edit-header', 'editHeader')->name('header-edit');
+        Route::post('/beranda/edit-header', 'updateHeader')->name('header-update');
     });
 
     Route::controller(ProfilController::class)->group(function () {

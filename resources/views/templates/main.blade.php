@@ -28,7 +28,6 @@
                 @yield('container')
             </div>
         </div>
-
         <script>
             const topbarProfile = document.querySelector('.topbar-profile');
             const popupLogout = document.querySelector('.popup-logout');
