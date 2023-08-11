@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HeaderHome;
+use App\Models\OpeningHome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,6 +14,7 @@ class BerandaController extends Controller
         return view('beranda.index', [
             'title' => 'Beranda',
             'section_header' => HeaderHome::first(),
+            'section_opening' => OpeningHome::first(),
         ]);
     }
 
@@ -43,6 +45,28 @@ class BerandaController extends Controller
             return redirect(route('beranda-index'))->with('success', 'Update Section Header Successfully!');
         } else {
             return redirect(route('beranda-index'))->with('failed', 'Update Section Header Failed!');
+        }
+    }
+
+    function editOpening()
+    {
+        $section_opening = OpeningHome::first();
+        return response()->json($section_opening);
+    }
+
+    function updateOpening(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_opening' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $openingHome = OpeningHome::first()->update($validatedData);
+
+        if ($openingHome) {
+            return redirect(route('beranda-index'))->with('success', 'Update Section Opening Successfully!');
+        } else {
+            return redirect(route('beranda-index'))->with('failed', 'Update Section Opening Failed!');
         }
     }
 }

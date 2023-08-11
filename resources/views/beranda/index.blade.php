@@ -80,39 +80,20 @@
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
-                            <div class="col data-value data-length">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Est
-                                ducimus
-                                consequuntur minima assumenda voluptates fugit beatae dolore? Aut, atque. Architecto ullam
-                                labore debitis quidem in incidunt voluptas magni, animi veritatis provident inventore veniam
-                                repellendus ex sapiente pariatur distinctio est, excepturi reprehenderit nesciunt cum.
-                                Asperiores quod adipisci impedit cumque eveniet optio incidunt, sunt non. Voluptates
-                                consectetur est quidem laboriosam enim sed sint excepturi assumenda. Ad accusantium alias
-                                quis dolore inventore nemo doloribus sit ratione! Reiciendis neque at soluta sapiente
-                                voluptas numquam adipisci possimus! Laborum fugit totam earum sapiente natus saepe sequi sed
-                                excepturi perferendis esse, ullam ut aliquid tenetur nulla numquam!
-                            </div>
+                            <div class="col data-value data-length">{{ $section_opening->title_opening }}</div>
                             <div class="col
-                                data-value data-length">Lorem ipsum dolor sit
-                                amet consectetur adipisicing
-                                elit. Est
-                                ducimus
-                                consequuntur minima assumenda voluptates fugit beatae dolore? Aut, atque. Architecto ullam
-                                labore debitis quidem in incidunt voluptas magni, animi veritatis provident inventore veniam
-                                repellendus ex sapiente pariatur distinctio est, excepturi reprehenderit nesciunt cum.
-                                Asperiores quod adipisci impedit cumque eveniet optio incidunt, sunt non. Voluptates
-                                consectetur est quidem laboriosam enim sed sint excepturi assumenda. Ad accusantium alias
-                                quis dolore inventore nemo doloribus sit ratione! Reiciendis neque at soluta sapiente
-                                voluptas numquam adipisci possimus! Laborum fugit totam earum sapiente natus saepe sequi sed
-                                excepturi perferendis esse, ullam ut aliquid tenetur nulla numquam!</div>
+                                data-value data-length">
+                                {{ $section_opening->description }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
-                                        class="button-action button-detail d-flex justify-content-center align-items-center">
+                                        class="button-action button-detail d-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionOpeningModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
-                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
+                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#editSectionOpeningModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -257,7 +238,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
-                <form action="" class="form d-flex flex-column justify-content-center">
+                <form class="form d-flex flex-column justify-content-center">
+                    @csrf
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
@@ -268,14 +250,14 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_header">
+                            data-value="title_header" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description"></textarea>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Close Modal</button>
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
@@ -315,13 +297,68 @@
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Close Modal</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
+
+    {{-- MODAL DETAIL SECTION OPENING --}}
+    <div class="modal fade" id="detailSectionOpeningModal" tabindex="-1"
+        aria-labelledby="detailSectionOpeningModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Section Pembuka</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Pembuka</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_opening" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description" disabled></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL SECTION OPENING --}}
+
+    {{-- MODAL EDIT SECTION OPENING --}}
+    <div class="modal fade" id="editSectionOpeningModal" tabindex="-1" aria-labelledby="editSectionOpeningModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Pembuka</h3>
+                <form id="editSectionOpening" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Pembuka</label>
+                        <input type="text" id="judul" class="input" name="title_opening" autocomplete="off"
+                            data-value="title_opening">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
+                            data-value="description"></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Close Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT SECTION OPENING --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
@@ -351,6 +388,29 @@
                     $('[data-value="description"]').val(data.description);
                     $('[data-value="oldImage"]').val(data.banner);
                     $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailSectionOpeningModal"]', function() {
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-opening',
+                success: function(data) {
+                    $('[data-value="title_opening"]').val(data.title_opening);
+                    $('[data-value="description"]').val(data.description);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editSectionOpeningModal"]', function() {
+            $('#editSectionOpening').attr('action', '/admin/beranda/edit-opening');
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-opening',
+                success: function(data) {
+                    $('[data-value="title_opening"]').val(data.title_opening);
+                    $('[data-value="description"]').val(data.description);
                 }
             });
         });
