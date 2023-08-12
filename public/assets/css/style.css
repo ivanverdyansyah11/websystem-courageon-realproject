@@ -689,6 +689,13 @@ button.button-default-solid:hover {
 /* END MODAL STYLE */
 
 
+/* RICHEDITOR STYLE */
+.richtexteditor {
+    min-width: 100% !important;
+}
+/* END RICHEDITOR STYLE */
+
+
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;

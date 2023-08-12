@@ -73,6 +73,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
         Route::get('/profil/logo-mars', 'index')->name('logo-mars-index');
         Route::get('/profil/logo-mars/edit-logo', 'editLogo');
         Route::post('/profil/logo-mars/edit-logo', 'updateLogo');
+        Route::get('/profil/logo-mars/edit-mars', 'editMars');
+        Route::post('/profil/logo-mars/edit-mars', 'updateMars');
     });
 
     Route::controller(ManajemenController::class)->group(function () {

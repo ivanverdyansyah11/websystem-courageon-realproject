@@ -10,6 +10,7 @@
     {{-- STYLE CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/rte_theme_default.css') }}">
     {{-- END STYLE CSS --}}
 
 
@@ -18,6 +19,8 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/rte.js') }}"></script>
+    <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
     {{-- END SCRIPT JS --}}
 
 </head>
