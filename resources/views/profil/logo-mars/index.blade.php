@@ -246,10 +246,9 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="mars">Mars</label>
-                                {{-- <textarea id="inp_editor1" class="w-100">
-                                    &lt;p&gt;Initial Document Content&lt;/p&gt; 
-                                   </textarea> --}}
-                                <textarea id="mars" rows="3" class="input" autocomplete="off" data-value="mars" disabled></textarea>
+                                <textarea id="inputDetailMars" autocomplete="off" name="mars">
+                                    {{ $mars->mars }}
+                                </textarea>
                             </div>
                         </div>
                     </div>
@@ -267,13 +266,15 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Mars Sekolah</h3>
-                <form class="form d-flex flex-column justify-content-center">
+                <form id="editMars" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="banner">Banner</label>
                                 <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_mars">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_banner">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                         class="img-fluid tag-edit-mars" alt="Banner Visi Misi" width="80"
                                         data-value="banner">
@@ -287,28 +288,28 @@
                             <div class="input-wrapper">
                                 <label for="judul_section">Judul Section</label>
                                 <input type="text" id="judul_section" class="input" autocomplete="off"
-                                    data-value="title_section" disabled>
+                                    data-value="title_section" name="title_section">
                             </div>
                         </div>
                         <div class="col-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="pencipta">Pencipta</label>
                                 <input type="text" id="pencipta" class="input" autocomplete="off"
-                                    data-value="creation" disabled>
+                                    data-value="creation" name="creation">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="mars">Mars</label>
-                                {{-- <textarea id="inp_editor1" class="w-100">
-                                    &lt;p&gt;Initial Document Content&lt;/p&gt; 
-                                   </textarea> --}}
-                                <textarea id="mars" rows="3" class="input" autocomplete="off" data-value="mars" disabled></textarea>
+                                <textarea id="inputEditMars" autocomplete="off" name="mars">
+                                    {{ $mars->mars }}
+                                </textarea>
                             </div>
                         </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
@@ -317,7 +318,8 @@
     {{-- END MODAL EDIT MARS --}}
 
     <script>
-        const editor1 = new RichTextEditor("#inp_editor1");
+        const editor1 = new RichTextEditor("#inputDetailMars");
+        const editor2 = new RichTextEditor("#inputEditMars");
 
         $(document).on('click', '[data-bs-target="#detailLogoModal"]', function() {
             $.ajax({
@@ -354,32 +356,36 @@
                 success: function(data) {
                     $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
                     $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="mars"]').val(data.mars);
                     $('[data-value="creation"]').val(data.creation);
                 }
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#editLogoModal"]', function() {
-        //     $('#editLogo').attr('action', '/admin/profil/logo-mars/edit-logo');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/logo-mars/edit-logo',
-        //         success: function(data) {
-        //             $('[data-value="logo"]').attr("src", "/storage/" + data.logo);
-        //             $('[data-value="oldImage_logo"]').val(data.logo);
-        //             $('[data-value="logo_meaning"]').val(data.logo_meaning);
-        //             $('[data-value="font_meaning"]').val(data.font_meaning);
-        //             $('[data-value="color_meaning"]').val(data.color_meaning);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editMarsModal"]', function() {
+            $('#editMars').attr('action', '/admin/profil/logo-mars/edit-mars');
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/logo-mars/edit-mars',
+                success: function(data) {
+                    $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="oldImage_banner"]').val(data.banner);
+                    $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="creation"]').val(data.creation);
+                }
+            });
+        });
 
         const tagEditLogo = document.querySelector('.tag-edit-logo');
         const inputEditLogo = document.querySelector('.input-edit-logo');
+        const tagEditMars = document.querySelector('.tag-edit-mars');
+        const inputEditMars = document.querySelector('.input-edit-mars');
 
         inputEditLogo.addEventListener('change', function() {
             tagEditLogo.src = URL.createObjectURL(inputEditLogo.files[0]);
+        });
+
+        inputEditMars.addEventListener('change', function() {
+            tagEditMars.src = URL.createObjectURL(inputEditMars.files[0]);
         });
     </script>
 @endsection
