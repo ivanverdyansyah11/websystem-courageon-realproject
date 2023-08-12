@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
+use App\Models\Logo;
 use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
@@ -60,6 +61,13 @@ class DatabaseSeeder extends Seeder
         Motto::create([
             'speaker' => 'Courageon',
             'motto' => 'Bangsa yang malas belajar tidak akan bisa berkembang!',
+        ]);
+
+        Logo::create([
+            'logo' => 'logo-brand/logo-brand.png',
+            'logo_meaning' => 'Buku dalam logo menggambarkan komitmen sekolah untuk memberikan pendidikan yang berkualitas tinggi kepada siswa. Ini mengandung pesan bahwa sekolah adalah tempat belajar dan pengetahuan yang didorong untuk membekali siswa dengan bekal yang kuat untuk masa depan.',
+            'font_meaning' => 'Penggunaan font sans serif capitalize menunjukkan kesan modern dan progresif dari sekolah tersebut. Logo ini ingin menyampaikan bahwa sekolah memiliki pendekatan yang inovatif dalam pendidikan dan selalu berada di garis depan perkembangan pendidikan.',
+            'color_meaning' => 'Warna biru tua sering dikaitkan dengan keberlanjutan dan konsistensi. Logo ini ingin menyampaikan bahwa sekolah memiliki dedikasi yang kuat untuk memberikan pendidikan berkualitas dan berkomitmen untuk mencapai tujuan jangka panjang.',
         ]);
     }
 }

@@ -33,10 +33,10 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($section_header->banner)
-                                    <img src="{{ asset('storage/' . $section_header->banner) }}" class="img-notfound"
+                                    <img src="{{ asset('storage/' . $section_header->banner) }}" class="img-fluid"
                                         alt="Banner Section Header" width="80">
                                 @else
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Image Not Found" width="80">
                                 @endif
                             </div>
@@ -75,7 +75,7 @@
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                 alt="Banner Section Header" width="80" data-value="banner_header">
                         </div>
                     </div>
