@@ -114,7 +114,7 @@
                                 <label for="logo">Logo</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Logo Brand" width="180" data-value="logo">
+                                        alt="Logo Brand" width="140" data-value="logo">
                                 </div>
                             </div>
                         </div>
@@ -146,22 +146,49 @@
     </div>
     {{-- END MODAL DETAIL LOGO --}}
 
-    {{-- MODAL EDIT MOTTO --}}
-    {{-- <div class="modal fade" id="editMottoModal" tabindex="-1" aria-labelledby="editMottoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    {{-- MODAL EDIT LOGO --}}
+    <div class="modal fade" id="editLogoModal" tabindex="-1" aria-labelledby="editLogoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Edit Motto Sekolah</h3>
-                <form id="editMotto" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Edit Logo Sekolah</h3>
+                <form id="editLogo" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="pembicara">Pembicara</label>
-                        <input type="text" id="pembicara" class="input" autocomplete="off" data-value="speaker"
-                            name="speaker">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="motto">Motto</label>
-                        <textarea id="motto" class="input" autocomplete="off" rows="3" data-value="motto" name="motto"></textarea>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="logo">Logo</label>
+                                <div class="wrapper d-flex flex-column">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_logo">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-logo" alt="Logo" width="140" data-value="logo">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="logo" class="input-edit-logo" name="logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="makna_logo">Makna Logo</label>
+                                <textarea id="makna_logo" class="input" autocomplete="off" rows="3" data-value="logo_meaning"
+                                    name="logo_meaning"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="makna_font">Makna Font</label>
+                                <textarea id="makna_font" class="input" autocomplete="off" rows="3" data-value="font_meaning"
+                                    name="font_meaning"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-wrapper">
+                                <label for="makna_warna">Makna Warna</label>
+                                <textarea id="makna_warna" class="input" autocomplete="off" rows="3" data-value="color_meaning"
+                                    name="color_meaning"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -170,8 +197,8 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL EDIT MOTTO --}}
+    </div>
+    {{-- END MODAL EDIT LOGO --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailLogoModal"]', function() {
@@ -187,50 +214,26 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editVisionMissionModal"]', function() {
-            $('#editVisionMission').attr('action', '/admin/profil/visi-misi/edit-visi-misi');
+        $(document).on('click', '[data-bs-target="#editLogoModal"]', function() {
+            $('#editLogo').attr('action', '/admin/profil/logo-mars/edit-logo');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/visi-misi/edit-visi-misi',
+                url: '/admin/profil/logo-mars/edit-logo',
                 success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src", "/storage/" + data.banner);
-                    $('[data-value="oldImage_vision_mission"]').val(data.banner);
-                    $('[data-value="title_vision"]').val(data.title_vision);
-                    $('[data-value="description_vision"]').val(data.description_vision);
-                    $('[data-value="title_mission"]').val(data.title_mission);
-                    $('[data-value="description_mission"]').val(data.description_mission);
+                    $('[data-value="logo"]').attr("src", "/storage/" + data.logo);
+                    $('[data-value="oldImage_logo"]').val(data.logo);
+                    $('[data-value="logo_meaning"]').val(data.logo_meaning);
+                    $('[data-value="font_meaning"]').val(data.font_meaning);
+                    $('[data-value="color_meaning"]').val(data.color_meaning);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailMottoModal"]', function() {
-            $.ajax({
-                type: 'get',
-                url: '/admin/profil/visi-misi/edit-motto',
-                success: function(data) {
-                    $('[data-value="speaker"]').val(data.speaker);
-                    $('[data-value="motto"]').val(data.motto);
-                }
-            });
-        });
+        const tagEditLogo = document.querySelector('.tag-edit-logo');
+        const inputEditLogo = document.querySelector('.input-edit-logo');
 
-        $(document).on('click', '[data-bs-target="#editMottoModal"]', function() {
-            $('#editMotto').attr('action', '/admin/profil/visi-misi/edit-motto');
-            $.ajax({
-                type: 'get',
-                url: '/admin/profil/visi-misi/edit-motto',
-                success: function(data) {
-                    $('[data-value="speaker"]').val(data.speaker);
-                    $('[data-value="motto"]').val(data.motto);
-                }
-            });
-        });
-
-        const tagEditVisionMission = document.querySelector('.tag-edit-vision-mission');
-        const inputEditVisionMission = document.querySelector('.input-edit-vision-mission');
-
-        inputEditVisionMission.addEventListener('change', function() {
-            tagEditVisionMission.src = URL.createObjectURL(inputEditVisionMission.files[0]);
+        inputEditLogo.addEventListener('change', function() {
+            tagEditLogo.src = URL.createObjectURL(inputEditLogo.files[0]);
         });
     </script>
 @endsection
