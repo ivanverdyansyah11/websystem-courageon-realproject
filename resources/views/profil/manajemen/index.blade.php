@@ -8,10 +8,6 @@
                     <div class="alert alert-success mb-4" role="alert">
                         {{ session('success') }}
                     </div>
-                @elseif(session()->has('failed'))
-                    <div class="alert alert-danger mb-4" role="alert">
-                        {{ session('failed') }}
-                    </div>
                 @endif
             </div>
         </div>

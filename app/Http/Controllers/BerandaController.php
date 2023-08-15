@@ -31,7 +31,6 @@ class BerandaController extends Controller
     function updateHeader(Request $request)
     {
         $validatedData = $request->validate([
-            // 'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title_header' => 'required|string|max:255',
             'description' => 'required|string',
         ]);

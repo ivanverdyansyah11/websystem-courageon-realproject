@@ -15,18 +15,17 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('role_employees_id');
+            $table->bigInteger('role_employees_id')->nullable();
             $table->string('fullname');
             $table->string('image');
-            $table->string('nip', 18)->nullable();
+            $table->string('nip')->nullable();
             $table->string('place_of_birth');
             $table->date('date_of_birth');
-            // $table->string('rank');
             $table->string('position');
             $table->enum('gender', ['L', 'P']);
             $table->enum('status', ['pns', 'pppk', 'honorer'])->nullable();
             $table->string('course_id')->nullable();
-            $table->string('highest_rank');
+            $table->string('highest_rank')->nullable();
             $table->string('room_type')->nullable();
             $table->date('tmt')->nullable();
             $table->string('last_number_skp')->nullable();
