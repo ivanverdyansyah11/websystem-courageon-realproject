@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-11 col-md-7 col-lg-5 col-xl-4 px-xxl-5">
                 <div class="login-content d-flex flex-column align-items-center">
-                    <img src="{{ asset('assets/img/brand/brand-logo.svg') }}" class="img-fluid brand-logo text-center mx-auto"
+                    <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo text-center mx-auto"
                         alt="Brand Logo" draggable="false">
                     <form action="" class="form d-flex flex-column justify-content-center align-items-end">
                         <div class="input-wrapper w-100">
