@@ -128,7 +128,8 @@ h5.subtitle {
 
 button.button-default,
 a.button-default,
-button.button-default-solid {
+button.button-default-solid,
+a.button-default-solid {
     padding: 14px 20px;
     border: var(--border-style);
     outline: none;
@@ -145,12 +146,14 @@ a.button-default:hover {
     background-color: rgba(var(--dark-color), 0.03);
 }
 
-button.button-default-solid {
+button.button-default-solid,
+a.button-default-solid {
     background-color: rgba(var(--dark-color), 1);
     color: rgba(var(--light-color), 1);
 }
 
-button.button-default-solid:hover {
+button.button-default-solid:hover,
+a.button-default-solid:hover {
     opacity: 0.95;
 }
 

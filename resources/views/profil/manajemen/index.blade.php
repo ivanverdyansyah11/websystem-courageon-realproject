@@ -46,11 +46,10 @@
                                     {{ $management->date_of_birth }}</div>
                                 <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                     <div class="wrapper-action d-flex">
-                                        <button type="button"
-                                            class="button-action button-detail d-flex justify-content-center align-items-center"
-                                            data-bs-toggle="modal" data-bs-target="#detailManagementModal">
+                                        <a href="{{ route('manajemen-detail', $management->id) }}"
+                                            class="button-action button-detail d-flex justify-content-center align-items-center">
                                             <div class="detail-icon"></div>
-                                        </button>
+                                        </a>
                                         <button type="button"
                                             class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
                                             data-bs-toggle="modal" data-bs-target="#editManagementModal">

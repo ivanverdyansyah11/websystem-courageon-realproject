@@ -20,22 +20,27 @@ class ManajemenController extends Controller
     {
         $employee = Employee::where('id', $id)->first();
 
-        return $employee;
-        // $work_tenure = str_replace('-', ',', $validatedData['work_tenure']);
-        // $work_tenure = explode(',', $work_tenure);
+        if ($employee->work_tenure) {
+            $work_tenure = str_replace('-', ',', $employee->work_tenure);
+            $work_tenure = explode(',', $work_tenure);
 
-        // $targetDate = Carbon::create($work_tenure[0], $work_tenure[1], $work_tenure[2]);
-        // $currentDate = Carbon::now();
+            $targetDate = Carbon::create($work_tenure[0], $work_tenure[1], $work_tenure[2]);
+            $currentDate = Carbon::now();
 
-        // $diff = $currentDate->diff($targetDate);
-        // $diffInYears = $diff->y;
-        // $diffInMonths = $diff->m;
+            $diff = $currentDate->diff($targetDate);
+            $diffInYears = $diff->y;
+            $diffInMonths = $diff->m;
 
-        // return $diffInYears . ' tahun ' . $diffInMonths . ' bulan';
+            $work_tenure = $diffInYears . ' tahun ' . $diffInMonths . ' bulan';
+        } else {
+            $work_tenure = '-';
+        }
+
 
         return view('profil.manajemen.detail', [
             'title' => 'Profil > Detail Manajemen',
             'management' => Employee::where('id', $id)->first(),
+            'work_tenure' => $work_tenure,
         ]);
     }
 
