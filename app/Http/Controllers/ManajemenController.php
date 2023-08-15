@@ -36,7 +36,6 @@ class ManajemenController extends Controller
             $work_tenure = '-';
         }
 
-
         return view('profil.manajemen.detail', [
             'title' => 'Profil > Detail Manajemen',
             'management' => Employee::where('id', $id)->first(),
@@ -97,27 +96,11 @@ class ManajemenController extends Controller
         return response()->json($managements);
     }
 
-    function updateManagement(Request $request)
+    function edit($id)
     {
-        // $validatedData = $request->validate([
-        //     'logo_meaning' => 'required|string',
-        //     'font_meaning' => 'required|string',
-        //     'color_meaning' => 'required|string',
-        // ]);
-
-        // if ($request->file('logo')) {
-        //     Storage::delete($request->oldImage);
-        //     $validatedData['logo'] = $request->file('logo')->store('logo-brand');
-        // } else {
-        //     $validatedData['logo'] = $request->oldImage;
-        // }
-
-        // $logo = Logo::first()->update($validatedData);
-
-        // if ($logo) {
-        //     return redirect(route('logo-mars-index'))->with('success', 'Berhasil Update Logo Sekolah!');
-        // } else {
-        //     return redirect(route('logo-mars-index'))->with('failed', 'Gagal Update Logo Sekolah!');
-        // }
+        return view('profil.manajemen.edit', [
+            'title' => 'Profil > Edit Manajemen',
+            'management' => Employee::where('id', $id)->first(),
+        ]);
     }
 }

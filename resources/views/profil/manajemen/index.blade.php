@@ -50,11 +50,10 @@
                                             class="button-action button-detail d-flex justify-content-center align-items-center">
                                             <div class="detail-icon"></div>
                                         </a>
-                                        <button type="button"
-                                            class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                            data-bs-toggle="modal" data-bs-target="#editManagementModal">
+                                        <a href="{{ route('manajemen-edit', $management->id) }}"
+                                            class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                             <div class="edit-icon"></div>
-                                        </button>
+                                        </a>
                                         <button type="button"
                                             class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                             data-bs-toggle="modal" data-bs-target="#deleteManagementModal">
