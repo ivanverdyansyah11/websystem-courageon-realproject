@@ -57,9 +57,9 @@ class LogoMarsController extends Controller
     function updateMars(Request $request)
     {
         $validatedData = $request->validate([
-            'title_section' => 'required|string',
-            'mars' => 'required|string|max:255',
-            'creation' => 'required|string',
+            'title_section' => 'required|string|max:255',
+            'mars' => 'required|string',
+            'creation' => 'required|string|max:255',
         ]);
 
         if ($request->file('banner')) {

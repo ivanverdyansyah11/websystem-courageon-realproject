@@ -10,6 +10,7 @@ use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
+use App\Models\RoleEmployee;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 

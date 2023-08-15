@@ -27,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('', '/homepage');
+Route::redirect('/admin', '/admin/login');
+
 Route::middleware(['guest'])->prefix('admin')->group(function () {
     // AUTHENTICATION
     Route::controller(AuthController::class)->group(function () {
