@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     protected $guarded = [];
+
+    public function role_employee()
+    {
+        return $this->belongsTo(RoleEmployee::class, 'role_employees_id');
+    }
 }

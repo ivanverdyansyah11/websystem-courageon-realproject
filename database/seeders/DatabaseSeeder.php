@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
@@ -77,6 +78,33 @@ class DatabaseSeeder extends Seeder
             'title_section' => 'Mars Sekolah courageon',
             'mars' => '',
             'creation' => 'Dr. Andi Pranoto, M.Pd.',
+        ]);
+
+        RoleEmployee::create([
+            'role' => 'management',
+        ]);
+
+        RoleEmployee::create([
+            'role' => 'teacher',
+        ]);
+
+        RoleEmployee::create([
+            'role' => 'employee',
+        ]);
+
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Komang Wirasatya',
+            'image' => 'profil-images/manajemen-image/sample-manajemen.jpg',
+            'place_of_birth' => 'karangasem',
+            'date_of_birth' => '1995-11-23',
+            'highest_rank' => 'SMKN 2014',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
         ]);
     }
 }
