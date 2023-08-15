@@ -82,6 +82,8 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
 
     Route::controller(ManajemenController::class)->group(function () {
         Route::get('/profil/manajemen', 'index')->name('manajemen-index');
+        Route::get('/profil/manajemen/tambah', 'create')->name('manajemen-create');
+        Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');
     });
 
     Route::controller(GuruController::class)->group(function () {

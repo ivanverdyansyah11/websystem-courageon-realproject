@@ -15,6 +15,18 @@ class ManajemenController extends Controller
         ]);
     }
 
+    function create()
+    {
+        return view('profil.manajemen.create', [
+            'title' => 'Profil > Manajemen',
+        ]);
+    }
+
+    function store(Request $request)
+    {
+        return $request;
+    }
+
     function editManagement()
     {
         $managements = Employee::where('role_employees_id', '1')->get();

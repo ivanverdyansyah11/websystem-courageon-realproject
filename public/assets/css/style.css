@@ -122,6 +122,7 @@ h5.subtitle {
 }
 
 button.button-default,
+a.button-default,
 button.button-default-solid {
     padding: 14px 20px;
     border: var(--border-style);
@@ -134,7 +135,8 @@ button.button-default-solid {
     cursor: pointer;
 }
 
-button.button-default:hover {
+button.button-default:hover,
+a.button-default:hover {
     background-color: rgba(var(--dark-color), 0.03);
 }
 

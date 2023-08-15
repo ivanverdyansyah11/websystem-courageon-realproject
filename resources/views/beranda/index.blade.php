@@ -18,7 +18,6 @@
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Section Header</h5>
-                {{-- <button type="button" class="button-default">Tambah Manajemen</button> --}}
             </div>
             <div class="col-12">
                 <div class="row table-default">

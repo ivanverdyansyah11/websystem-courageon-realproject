@@ -34,7 +34,7 @@ class CreateEmployeesTable extends Migration
             $table->date('work_tenure')->nullable();
             $table->string('first_number_skp')->nullable();
             $table->date('first_date_skp')->nullable();
-            $table->string('salary_increase')->nullable();
+            $table->date('salary_increase')->nullable();
             $table->string('employee_card_number')->nullable();
             $table->timestamps();
 
