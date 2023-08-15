@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ManajemenController extends Controller
 {
@@ -102,5 +103,47 @@ class ManajemenController extends Controller
             'title' => 'Profil > Edit Manajemen',
             'management' => Employee::where('id', $id)->first(),
         ]);
+    }
+
+    function update($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'fullname' => 'required|string|max:255',
+            'nip' => 'nullable|string|max:18',
+            'place_of_birth' => 'required|string|max:255',
+            'date_of_birth' => 'required|date',
+            'position' => 'required|string|max:255',
+            'gender' => 'required|string',
+            'status' => 'string',
+            'highest_rank' => 'nullable|string|max:255',
+            'room_type' => 'nullable|max:255',
+            'tmt' => 'nullable|date',
+            'last_number_skp' => 'nullable|string|max:255',
+            'last_date_skp' => 'nullable|date',
+            'work_tenure' => 'nullable|date',
+            'first_number_skp' => 'nullable|string|max:255',
+            'first_date_skp' => 'nullable|date',
+            'salary_increase' => 'nullable|date',
+            'employee_card_number' => 'nullable|string|max:255',
+        ]);
+
+        if ($request->file('image')) {
+            Storage::delete($request->oldImage);
+            $validatedData['image'] = $request->file('image')->store('profil-images/manajemen-image');
+        } else {
+            $validatedData['image'] = $request->oldImage;
+        }
+
+        if ($validatedData['status'] == '-') {
+            $validatedData['status'] = null;
+        }
+
+        $employee = Employee::where('id', $id)->first()->update($validatedData);
+
+        if ($employee) {
+            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
+        } else {
+            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+        }
     }
 }
