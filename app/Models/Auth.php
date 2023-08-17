@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Auth extends Model
+class Auth extends Authenticatable
 {
-    use HasFactory;
+    protected $guarded = [];
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\HumasController;
 use App\Http\Controllers\KesiswaanController;
 use App\Http\Controllers\KontakController;
@@ -30,6 +31,15 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('', '/homepage');
 Route::redirect('/admin', '/admin/login');
 
+Route::controller(HomepageController::class)->group(function () {
+    Route::get('/homepage', 'homepage')->name('homepage');
+    Route::get('/profil', 'profil')->name('profil');
+    Route::get('/akademik', 'akademik')->name('akademik');
+    Route::get('/kesiswaan', 'kesiswaan')->name('kesiswaan');
+    Route::get('/sarana-prasarana', 'saranaPrasarana')->name('sarana-prasarana');
+    Route::get('/humas', 'humas')->name('humas');
+});
+
 Route::middleware(['guest'])->prefix('admin')->group(function () {
     // AUTHENTICATION
     Route::controller(AuthController::class)->group(function () {
@@ -38,7 +48,9 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
 
         Route::post('/logout', 'logout')->name('logout.action');
     });
+});
 
+Route::middleware(['auth'])->prefix('admin')->group(function () {
     // DASHBOARD
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard-index');

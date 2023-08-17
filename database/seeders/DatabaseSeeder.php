@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Auth;
 use App\Models\Employee;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
@@ -24,6 +25,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Auth::create([
+            'username' => 'Admin Sekolah',
+            'role' => 'Manajemen Admin',
+            'email' => 'admin123@gmail.com',
+            'password' => bcrypt('admin123'),
+        ]);
+
         HeaderHome::create([
             'banner' => 'beranda-images/header-image/banner-header.jpg',
             'title_header' => 'Sekolah Courageon, Wujudkan impianmu yang tinggi di sini!',
