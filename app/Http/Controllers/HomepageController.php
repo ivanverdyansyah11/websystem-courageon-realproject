@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    function homepage()
+    function beranda()
     {
-        return view('homepage.homepage', [
-            'title' => 'Homepage',
+        return view('homepage.beranda', [
+            'title' => 'Beranda',
         ]);
     }
 

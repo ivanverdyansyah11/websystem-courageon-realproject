@@ -28,14 +28,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('', '/homepage');
+Route::redirect('', '/beranda');
 
 Route::fallback(function () {
     return redirect('admin/login');
 });
 
 Route::controller(HomepageController::class)->group(function () {
-    Route::get('/homepage', 'homepage')->name('homepage');
+    Route::get('/beranda', 'beranda')->name('beranda');
     Route::get('/profil', 'profil')->name('profil');
     Route::get('/akademik', 'akademik')->name('akademik');
     Route::get('/kesiswaan', 'kesiswaan')->name('kesiswaan');

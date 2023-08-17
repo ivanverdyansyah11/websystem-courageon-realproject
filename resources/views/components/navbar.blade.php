@@ -9,8 +9,8 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav gap-4">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('homepage') ? 'active' : '' }}"
-                        href="{{ route('homepage') }}">Beranda</a>
+                    <a class="nav-link {{ Request::is('beranda') ? 'active' : '' }}"
+                        href="{{ route('beranda') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('profil') ? 'active' : '' }}"
