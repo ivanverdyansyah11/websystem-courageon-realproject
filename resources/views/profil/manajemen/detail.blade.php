@@ -24,8 +24,8 @@
                                     <label for="image">Gambar Profil</label>
                                     <div class="wrapper d-flex gap-3 align-items-end">
                                         @if ($management->image)
-                                            <img src="{{ asset('storage/' . $management->image) }}" class="img-fluid"
-                                                alt="Management Image" width="80">
+                                            <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
+                                                class="img-fluid" alt="Management Image" width="80">
                                         @else
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                                 alt="Image Not Found" width="80">
