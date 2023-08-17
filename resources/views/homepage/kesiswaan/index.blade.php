@@ -541,4 +541,214 @@
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var showCategory = 'category1';
+            var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+            showAllCategory.classList.add('active');
+            showCategory.style.display = 'flex';
+            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+        });
+
+        function showItems(category) {
+            // Menghapus kelas "active" dari semua kategori
+            var categories = document.getElementsByClassName('category-name');
+            for (var i = 0; i < categories.length; i++) {
+                categories[i].classList.remove('active');
+            }
+
+            // Menambahkan kelas "active" ke kategori yang dipilih
+            var selectedCategory = event.target;
+            if (!selectedCategory.classList.contains('active')) {
+                selectedCategory.classList.add('active');
+            }
+
+            // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+            var items = document.getElementsByClassName('item');
+            for (var j = 0; j < items.length; j++) {
+                items[j].style.display = 'none';
+                if (items[j].classList.contains(category)) {
+                    items[j].style.display = 'flex';
+                }
+            }
+        }
+
+        const chart1 = document.getElementById('chart1');
+        const chart2 = document.getElementById('chart2');
+        const chart3 = document.getElementById('chart3');
+
+        new Chart(chart1, {
+            type: 'bar',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    data: [1000, 2380, 2853, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [2000, 1380, 2453, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [3000, 1980, 2953, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 3000,
+                        ticks: {
+                            stepSize: 300
+                        }
+                    },
+                    xAxes: [{
+
+                    }]
+
+                }
+            }
+        });
+
+        new Chart(chart2, {
+            type: 'bar',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    data: [2000, 2180, 2553, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [2300, 1290, 2753, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [1900, 2680, 2253, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 3000,
+                        ticks: {
+                            stepSize: 300
+                        }
+                    },
+                    xAxes: [{
+
+                    }]
+
+                }
+            }
+        });
+
+        new Chart(chart3, {
+            type: 'bar',
+            data: {
+                labels: ['2021', '2022', '2023'],
+                datasets: [{
+                    data: [3000, 2880, 2153, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [2800, 1190, 2153, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [1800, 2180, 2653, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 3000,
+                        ticks: {
+                            stepSize: 300
+                        }
+                    },
+                    xAxes: [{
+
+                    }]
+
+                }
+            }
+        });
+    </script>
 @endsection
