@@ -13,6 +13,7 @@
 
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
+            Request::is('berita*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -35,6 +36,7 @@
     @if (
         !Request::is('beranda') ||
             !Request::is('prestasi*') ||
+            Request::is('berita*') ||
             !Request::is('profil*') ||
             !Request::is('akademik*') ||
             !Request::is('kesiswaan*') ||
@@ -57,6 +59,7 @@
         @yield('container')
     @elseif(Request::is('beranda') ||
             Request::is('prestasi*') ||
+            Request::is('berita*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -99,6 +102,7 @@
 
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
+            Request::is('berita*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||

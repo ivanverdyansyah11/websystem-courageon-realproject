@@ -43,6 +43,7 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/humas', 'humas')->name('humas');
     Route::get('/prestasi', 'prestasi')->name('prestasi');
     Route::get('/prestasi/{id}', 'detailPrestasi')->name('detail-prestasi');
+    Route::get('/berita', 'berita')->name('berita');
 });
 
 Route::middleware('guest')->group(function () {

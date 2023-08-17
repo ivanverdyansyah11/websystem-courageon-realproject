@@ -61,4 +61,11 @@ class HomepageController extends Controller
             'title' => 'Detail Prestasi',
         ]);
     }
+
+    function berita()
+    {
+        return view('homepage.berita.index', [
+            'title' => 'Berita',
+        ]);
+    }
 }

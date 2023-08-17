@@ -334,7 +334,7 @@
                 </div>
             </div>
             <div class="btn-wrapper d-flex justify-content-center mt-4">
-                <a href="allBerita.html" class="btn btn-color">
+                <a href="{{ route('berita') }}" class="btn btn-color">
                     lihat semua
                 </a>
             </div>
