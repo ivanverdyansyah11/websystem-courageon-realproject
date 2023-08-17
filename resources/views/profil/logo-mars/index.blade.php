@@ -34,8 +34,8 @@
                         <div class="row table-data gap-4 align-items-center justify-content-between">
                             <div class="col-2 data-value">
                                 @if ($logo->logo)
-                                    <img src="{{ asset('storage/' . $logo->logo) }}" class="img-fluid" alt="Logo Brand"
-                                        width="140">
+                                    <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" class="img-fluid"
+                                        alt="Logo Brand" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Image Not Found" width="80">
@@ -133,19 +133,19 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="makna_logo">Makna Logo</label>
-                                <textarea id="makna_logo" class="input" autocomplete="off" rows="3" data-value="logo_meaning" disabled></textarea>
+                                <textarea id="makna_logo" class="input" autocomplete="off" rows="4" data-value="logo_meaning" disabled></textarea>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="makna_font">Makna Font</label>
-                                <textarea id="makna_font" class="input" autocomplete="off" rows="3" data-value="font_meaning" disabled></textarea>
+                                <textarea id="makna_font" class="input" autocomplete="off" rows="4" data-value="font_meaning" disabled></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="makna_warna">Makna Warna</label>
-                                <textarea id="makna_warna" class="input" autocomplete="off" rows="3" data-value="color_meaning" disabled></textarea>
+                                <textarea id="makna_warna" class="input" autocomplete="off" rows="4" data-value="color_meaning" disabled></textarea>
                             </div>
                         </div>
                     </div>
