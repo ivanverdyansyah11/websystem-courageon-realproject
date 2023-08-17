@@ -9,6 +9,8 @@
     <link rel="icon" href="{{ asset('assets-homepage/img/logo.png') }}">
 
     {{-- STYLE CSS --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
     @if (Request::is('beranda') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
@@ -20,23 +22,29 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('assets-homepage/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets-homepage/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style-homepage.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     @else
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/rte_theme_default.css') }}">
     @endif
     {{-- END STYLE CSS --}}
 
     {{-- SCRIPT JS --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="{{ asset('assets/js/rte.js') }}"></script>
-    <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
+    @if (
+        !Request::is('beranda') ||
+            !Request::is('profil*') ||
+            !Request::is('akademik*') ||
+            !Request::is('kesiswaan*') ||
+            !Request::is('sarana-prasarana*') ||
+            !Request::is('humas*'))
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="{{ asset('assets/js/rte.js') }}"></script>
+        <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
+    @endif
     {{-- END SCRIPT JS --}}
 
 </head>
@@ -104,13 +112,18 @@
 
 
     {{-- SCRIPT JS --}}
-    @if (Request::is('homepage'))
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    @if (Request::is('beranda') ||
+            Request::is('profil*') ||
+            Request::is('akademik*') ||
+            Request::is('kesiswaan*') ||
+            Request::is('sarana-prasarana*') ||
+            Request::is('humas*'))
         <script src="https://kit.fontawesome.com/9e88c62f38.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('assets-homepage/js/popper.min.js') }}"></script>
-        <script src="{{ asset('assets-homepage/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     @else
-        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/js/script.js') }}"></script>
     @endif
     {{-- END SCRIPT JS --}}

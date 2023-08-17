@@ -15,7 +15,7 @@
                         setiap individu.
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="profile.html" class="btn btn-color">lihat profile</a>
+                        <a href="{{ route('profil-index') }}" class="btn btn-color">lihat profile</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>

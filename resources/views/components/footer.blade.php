@@ -8,27 +8,27 @@
             <hr class="main-color hr-footer opacity-100 d-xl-flex d-none">
             <div class="row w-100 row-cols-lg-6 row-cols-md-3 row-cols-2 gy-4">
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('beranda') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('beranda*') ? 'active' : '' }}"
                         href="{{ route('beranda') }}">Beranda</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('profil') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}"
                         href="{{ route('profil') }}">Profile</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('akademik') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('akademik*') ? 'active' : '' }}"
                         href="{{ route('akademik') }}">Akademik</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('kesiswaan') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('kesiswaan*') ? 'active' : '' }}"
                         href="{{ route('kesiswaan') }}">Kesiswaan</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('sarana-prasarana') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('sarana-prasarana*') ? 'active' : '' }}"
                         href="{{ route('sarana-prasarana') }}">Sarana Prasarana</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('humas') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('humas*') ? 'active' : '' }}"
                         href="{{ route('humas') }}">Humas</a>
                 </div>
             </div>
