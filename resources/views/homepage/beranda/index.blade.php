@@ -280,7 +280,7 @@
             </div>
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 <div class="col card-blog">
-                    <a href="#" class="card-blog text-decoration-none">
+                    <a href="" class="card-blog text-decoration-none">
                         <img src="{{ asset('assets-homepage/img/blog1.png') }}"
                             alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
                         <p class="mt-3 text-black fw-semibold text-center">
@@ -293,7 +293,7 @@
                     </a>
                 </div>
                 <div class="col card-blog">
-                    <a href="#" class="card-blog text-decoration-none">
+                    <a href="" class="card-blog text-decoration-none">
                         <img src="{{ asset('assets-homepage/img/blog2.png') }}"
                             alt="Pengaruh Teknologi dalam Dunia Pendidikan, Tantangan di Sekolah" class="w-100">
                         <p class="mt-3 text-black fw-semibold text-center">
@@ -306,7 +306,7 @@
                     </a>
                 </div>
                 <div class="col card-blog">
-                    <a href="#" class="card-blog text-decoration-none">
+                    <a href="" class="card-blog text-decoration-none">
                         <img src="{{ asset('assets-homepage/img/blog3.png') }}"
                             alt="Tips untuk Membangun Kemitraan dengan Sekolah" class="w-100">
                         <p class="mt-3 text-black fw-semibold text-center">
@@ -319,7 +319,7 @@
                     </a>
                 </div>
                 <div class="col card-blog">
-                    <a href="#" class="card-blog text-decoration-none">
+                    <a href="" class="card-blog text-decoration-none">
                         <img src="{{ asset('assets-homepage/img/blog4.png') }}"
                             alt="Menelusuri Jejak Sejarah Sekolah: Kilas Balik 50 Tahun Perjalanan Pendidikan"
                             class="w-100">

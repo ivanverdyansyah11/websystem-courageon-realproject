@@ -75,7 +75,7 @@
                     <div class="ms-xl-3">
                         <p class="text-black fs-3 fw-bold text-capitalize">Pelaksanaan 5P Lainnya :</p>
                         <div class="mt-3 d-flex flex-column gap-4 other-p5-wrapper">
-                            <a href="detailP5.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-projek', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Gaya Hidup Berkelanjutan"
@@ -87,7 +87,7 @@
                                     <p class="desc fs-14">Proyek penguatan profil pelajar Panca...</p>
                                 </div>
                             </a>
-                            <a href="detailP5.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-projek', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/p53.png') }}" alt="Kearifan Lokal"
@@ -99,7 +99,7 @@
                                     <p class="desc fs-14">Proyek penguatan profil pelajar Panca...</p>
                                 </div>
                             </a>
-                            <a href="detailP5.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-projek', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/p54.png') }}" alt="Kearifan Lokal"
