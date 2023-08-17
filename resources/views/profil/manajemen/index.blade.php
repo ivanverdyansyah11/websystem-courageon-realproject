@@ -56,7 +56,8 @@
                                         </a>
                                         <button type="button"
                                             class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                            data-bs-toggle="modal" data-bs-target="#deleteManagementModal">
+                                            data-bs-toggle="modal" data-bs-target="#deleteManagementModal"
+                                            data-id="{{ $management->id }}">
                                             <div class="delete-icon"></div>
                                         </button>
                                     </div>
@@ -68,4 +69,34 @@
             </div>
         </div>
     </div>
+
+    {{-- MODAL EDIT SECTION HEADER --}}
+    <div class="modal fade" id="deleteManagementModal" tabindex="-1" aria-labelledby="deleteManagementModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Manajemen Sekolah</h3>
+                <form id="deleteManagement" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Manajemen Sekolah: Apakah Anda yakin ingin
+                        menghapus manajemen sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan manajemen sekolah akan dihapus secara permanen dari sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Manajemen</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT SECTION HEADER --}}
+
+    <script>
+        $(document).on('click', '[data-bs-target="#deleteManagementModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteManagement').attr('action', '/admin/profil/manajemen/delete/' + id);
+        });
+    </script>
 @endsection

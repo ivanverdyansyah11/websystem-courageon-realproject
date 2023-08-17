@@ -87,6 +87,7 @@ Route::middleware(['guest'])->prefix('admin')->group(function () {
         Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');
         Route::get('/profil/manajemen/edit/{id}', 'edit')->name('manajemen-edit');
         Route::post('/profil/manajemen/edit/{id}', 'update')->name('manajemen-update');
+        Route::post('/profil/manajemen/delete/{id}', 'delete')->name('manajemen-delete');
     });
 
     Route::controller(GuruController::class)->group(function () {

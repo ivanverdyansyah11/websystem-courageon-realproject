@@ -696,6 +696,11 @@ a.button-default-solid:hover {
     width: 100%;
     text-align: center;
 }
+
+.modal .caption-description {
+    font-size: 0.938rem;
+    color: rgba(var(--dark-color), 0.62);
+}
 /* END MODAL STYLE */
 
 

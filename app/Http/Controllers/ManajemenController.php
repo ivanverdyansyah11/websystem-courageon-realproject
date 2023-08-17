@@ -74,7 +74,13 @@ class ManajemenController extends Controller
             'employee_card_number' => 'nullable|string|max:255',
         ]);
 
-        $validatedData['image'] = $request->file('image')->store('profil-images/manajemen-image');
+        if ($validatedData['image']) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+        }
+
+        // $validatedData['image'] = $request->file('image')->store('profil-images/manajemen-image');
 
         $validatedData['role_employees_id'] = '1';
 
@@ -145,5 +151,16 @@ class ManajemenController extends Controller
         } else {
             return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
         }
+    }
+
+    function delete($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        if ($employee->image) {
+            Storage::delete($employee->image);
+        }
+
+        $employee = $employee->delete();
     }
 }
