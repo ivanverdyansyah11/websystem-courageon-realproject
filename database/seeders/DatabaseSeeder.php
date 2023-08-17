@@ -106,7 +106,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Komang Wirasatya',
-            'image' => 'profil-images/manajemen-image/sample-manajemen.jpg',
+            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'karangasem',
             'date_of_birth' => '1995-11-23',
             'highest_rank' => 'SMKN 2014',

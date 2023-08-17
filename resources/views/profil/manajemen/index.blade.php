@@ -33,8 +33,8 @@
                             <div class="row table-data gap-4 align-items-center justify-content-between">
                                 <div class="d-none d-lg-inline-block col-2 data-value">
                                     @if ($management->image)
-                                        <img src="{{ asset('storage/' . $management->image) }}" class="img-fluid"
-                                            alt="Management Image" width="80">
+                                        <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
+                                            class="img-fluid" alt="Management Image" width="80">
                                     @else
                                         <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                             alt="Image Not Found" width="80">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    {{-- MODAL EDIT SECTION HEADER --}}
+    {{-- MODAL DELETE SECTION HEADER --}}
     <div class="modal fade" id="deleteManagementModal" tabindex="-1" aria-labelledby="deleteManagementModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION HEADER --}}
+    {{-- END MODAL DELETE SECTION HEADER --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#deleteManagementModal"]', function() {
