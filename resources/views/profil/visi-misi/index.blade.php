@@ -264,7 +264,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="motto">Motto</label>
-                        <textarea id="motto" class="input" autocomplete="off" rows="3" data-value="motto" name="motto"></textarea>
+                        <textarea id="motto" class="input" autocomplete="off" rows="4" data-value="motto" name="motto"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
