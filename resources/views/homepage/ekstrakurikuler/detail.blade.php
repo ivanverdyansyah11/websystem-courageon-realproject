@@ -158,56 +158,56 @@
                     <div class="ms-xl-3">
                         <p class="text-black fs-3 fw-bold text-capitalize">ekstrakulikuler Lainnya :</p>
                         <div class="mt-3 row row-cols-lg-1 row-cols-md-2 row-cols-1 gy-4">
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra1.svg') }}" alt="gambar sepak bola"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Sepak Bola</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra2.svg') }}" alt="gambar basket"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Basket</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra3.svg') }}" alt="gambar paduan suara"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Paduan Suara</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra4.svg') }}" alt="gambar Teater & Drama"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Teater & Drama</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra5.svg') }}" alt="gambar Pramuka"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Pramuka</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra6.svg') }}" alt="gambar lukis"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Melukis</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra7.svg') }}" alt="gambar debat"
                                         class="">
                                     <p class="card-extra-text text-black fs-18">Debat</p>
                                 </div>
                             </a>
-                            <a href="detailExtra.html" class="col">
+                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                                 <div class="card-extra d-flex gap-3 align-items-center">
                                     <img src="{{ asset('assets-homepage/img/extra8.svg') }}" alt="gambar klub sastra"
                                         class="">
