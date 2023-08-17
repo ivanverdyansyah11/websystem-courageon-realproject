@@ -182,23 +182,26 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="makna_logo">Makna Logo</label>
-                                <textarea id="makna_logo" class="input" autocomplete="off" rows="4" data-value="logo_meaning"
-                                    name="logo_meaning"></textarea>
+                                <label for="inputEditLogoMeaning">Makna Logo</label>
+                                <textarea id="inputEditLogoMeaning" autocomplete="off" name="logo_meaning">
+                                    {{ $logo->logo_meaning }}
+                                </textarea>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
-                                <label for="makna_font">Makna Font</label>
-                                <textarea id="makna_font" class="input" autocomplete="off" rows="4" data-value="font_meaning"
-                                    name="font_meaning"></textarea>
+                                <label for="inputEditFontMeaning">Makna Font</label>
+                                <textarea id="inputEditFontMeaning" autocomplete="off" name="font_meaning">
+                                    {{ $logo->font_meaning }}
+                                </textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
-                                <label for="makna_warna">Makna Warna</label>
-                                <textarea id="makna_warna" class="input" autocomplete="off" rows="4" data-value="color_meaning"
-                                    name="color_meaning"></textarea>
+                                <label for="inputEditColorMeaning">Makna Warna</label>
+                                <textarea id="inputEditColorMeaning" autocomplete="off" name="color_meaning">
+                                    {{ $logo->color_meaning }}
+                                </textarea>
                             </div>
                         </div>
                     </div>
@@ -318,10 +321,11 @@
     {{-- END MODAL EDIT MARS --}}
 
     <script>
-        // const editor1 = new RichTextEditor("#inputDetailLogo");
-        // const editor2 = new RichTextEditor("#inputEditLogo");
-        const editor3 = new RichTextEditor("#inputDetailMars");
-        const editor4 = new RichTextEditor("#inputEditMars");
+        const editor1 = new RichTextEditor("#inputEditLogoMeaning");
+        const editor2 = new RichTextEditor("#inputEditFontMeaning");
+        const editor3 = new RichTextEditor("#inputEditColorMeaning");
+        const editor4 = new RichTextEditor("#inputDetailMars");
+        const editor5 = new RichTextEditor("#inputEditMars");
 
         $(document).on('click', '[data-bs-target="#detailLogoModal"]', function() {
             $.ajax({
@@ -342,11 +346,8 @@
                 type: 'get',
                 url: '/admin/profil/logo-mars/edit-logo',
                 success: function(data) {
-                    $('[data-value="logo"]').attr("src", "/storage/" + data.logo);
+                    $('[data-value="logo"]').attr("src", "/assets/img/brand/" + data.logo);
                     $('[data-value="oldImage_logo"]').val(data.logo);
-                    $('[data-value="logo_meaning"]').val(data.logo_meaning);
-                    $('[data-value="font_meaning"]').val(data.font_meaning);
-                    $('[data-value="color_meaning"]').val(data.color_meaning);
                 }
             });
         });
