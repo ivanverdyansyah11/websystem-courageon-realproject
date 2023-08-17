@@ -28,7 +28,7 @@
                                         <div class="wrapper d-flex align-items-end">
                                             <input type="hidden" name="oldImage" value="{{ $management->image }}">
                                             @if ($management->image)
-                                                <img src="{{ asset('storage/' . $management->image) }}"
+                                                <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
                                                     class="img-fluid tag-edit-image" alt="Management Image" width="80"
                                                     name="image">
                                             @else

@@ -133,8 +133,13 @@ class ManajemenController extends Controller
         ]);
 
         if ($request->file('image')) {
-            Storage::delete($request->oldImage);
-            $validatedData['image'] = $request->file('image')->store('profil-images/manajemen-image');
+            $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         } else {
             $validatedData['image'] = $request->oldImage;
         }
