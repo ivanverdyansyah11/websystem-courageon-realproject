@@ -68,7 +68,7 @@
             </div>
             <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-5 gy-4">
                 <div class="col prestasi">
-                    <a href="detailPrestasi.html" class="">
+                    <a href="{{ route('detail-prestasi', '1') }}" class="">
                         <div class="image-wrapper position-relative">
                             <div class="position-relative">
                                 <img src="{{ asset('assets-homepage/img/prestasi1.png') }}" alt="juara 1 olimpiade fisika"
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="allPrestasi.html" class="btn btn-color btn-more">lihat semua</a>
+                <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
             </div>
         </section>
         <section class="testi-section container section-margin-top">
@@ -260,7 +260,7 @@
                             berkomitmen untuk menciptakan lingkungan pembelajaran yang inklusif dan inspiratif.
                         </p>
                     </article>
-                    <a href="#" class="btn mt-4 btn-color d-flex gap-3 align-items-center">
+                    <a href="{{ route('profil') }}" class="btn mt-4 btn-color d-flex gap-3 align-items-center">
                         lihat profile
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                             fill="none">
@@ -346,7 +346,7 @@
                 </p>
             </div>
             <div class="btn-wrapper d-flex justify-content-center mt-4">
-                <a href="#" class="btn btn-color d-flex gap-2 align-items-center">
+                <a href="{{ route('profil') }}" class="btn btn-color d-flex gap-2 align-items-center">
                     lihat profile
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                         fill="none">
