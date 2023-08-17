@@ -17,7 +17,7 @@
                         href="{{ route('profil') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') || Request::is('manajemen') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') ? 'active' : '' }}"
                         href="{{ route('akademik') }}">Akademik</a>
                 </li>
                 <li class="nav-item">

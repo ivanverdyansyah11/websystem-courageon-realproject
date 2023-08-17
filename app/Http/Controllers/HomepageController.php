@@ -75,4 +75,18 @@ class HomepageController extends Controller
             'title' => 'Manajemen',
         ]);
     }
+
+    function guru()
+    {
+        return view('homepage.guru.index', [
+            'title' => 'Guru',
+        ]);
+    }
+
+    function pegawai()
+    {
+        return view('homepage.pegawai.index', [
+            'title' => 'Pegawai',
+        ]);
+    }
 }

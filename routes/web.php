@@ -45,6 +45,8 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/prestasi/{id}', 'detailPrestasi')->name('detail-prestasi');
     Route::get('/berita', 'berita')->name('berita');
     Route::get('/manajemen', 'manajemen')->name('manajemen');
+    Route::get('/guru', 'guru')->name('guru');
+    Route::get('/pegawai', 'pegawai')->name('pegawai');
 });
 
 Route::middleware('guest')->group(function () {

@@ -15,6 +15,8 @@
             Request::is('prestasi*') ||
             Request::is('berita*') ||
             Request::is('manajemen*') ||
+            Request::is('guru*') ||
+            Request::is('pegawai*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -39,6 +41,8 @@
             !Request::is('prestasi*') ||
             !Request::is('berita*') ||
             !Request::is('manajemen*') ||
+            !Request::is('guru*') ||
+            !Request::is('pegawai*') ||
             !Request::is('profil*') ||
             !Request::is('akademik*') ||
             !Request::is('kesiswaan*') ||
@@ -63,6 +67,8 @@
             Request::is('prestasi*') ||
             Request::is('berita*') ||
             Request::is('manajemen*') ||
+            Request::is('guru*') ||
+            Request::is('pegawai*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -99,7 +105,6 @@
         </script>
     @endif
 
-
     {{-- SCRIPT JS --}}
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -107,6 +112,8 @@
             Request::is('prestasi*') ||
             Request::is('berita*') ||
             Request::is('manajemen*') ||
+            Request::is('guru*') ||
+            Request::is('pegawai*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
