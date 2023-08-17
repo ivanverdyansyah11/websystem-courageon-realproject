@@ -52,6 +52,7 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/ekstrakurikuler', 'ekstrakurikuler')->name('ekstrakurikuler');
     Route::get('/pelayanan-karir', 'pelayanan')->name('pelayanan');
     Route::get('/pelayanan-karir/{id}', 'detailPelayanan')->name('detail-pelayanan');
+    Route::get('/sarana-prasarana/detail', 'detailSaranaPrasarana')->name('detail-sarana-prasarana');
 });
 
 Route::middleware('guest')->group(function () {

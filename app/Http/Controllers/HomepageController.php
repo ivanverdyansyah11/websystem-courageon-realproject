@@ -124,4 +124,11 @@ class HomepageController extends Controller
             'title' => 'Detail Pelayanan Karir',
         ]);
     }
+
+    function detailSaranaPrasarana()
+    {
+        return view('homepage.sarana-prasarana.detail', [
+            'title' => 'Detail Sarana Prasarana Karir',
+        ]);
+    }
 }

@@ -25,7 +25,7 @@
                         href="{{ route('kesiswaan') }}">Kesiswaan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('sarana-prasarana') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('sarana-prasarana*') ? 'active' : '' }}"
                         href="{{ route('sarana-prasarana') }}">Sarana Prasarana</a>
                 </li>
                 <li class="nav-item">
