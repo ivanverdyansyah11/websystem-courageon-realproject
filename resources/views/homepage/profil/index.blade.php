@@ -40,7 +40,8 @@
                                         <p class="fw-semibold">Visi Sekolah</p>
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse" data-bs-parent="#myAccordion">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#myAccordion">
                                     <div class="card-body">
                                         <p class="fs-15 desc">
                                             Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin
@@ -58,7 +59,7 @@
                                         <p class="fw-semibold">Misi Sekolah</p>
                                     </button>
                                 </h2>
-                                <div id="collapse2" class="accordion-collapse" data-bs-parent="#myAccordion">
+                                <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
                                     <div class="card-body">
                                         <p class="fs-15 desc-color">Misi SMA Negeri 1 Selat adalah menyediakan pendidikan
                                             yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode

@@ -68,4 +68,11 @@ class HomepageController extends Controller
             'title' => 'Berita',
         ]);
     }
+
+    function manajemen()
+    {
+        return view('homepage.manajemen.index', [
+            'title' => 'Manajemen',
+        ]);
+    }
 }
