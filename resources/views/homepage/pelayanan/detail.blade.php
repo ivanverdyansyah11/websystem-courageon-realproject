@@ -84,7 +84,7 @@
                     <div class="ms-xl-3">
                         <p class="text-black fs-3 fw-bold text-capitalize">pelayanan Karir Lainnya :</p>
                         <div class="mt-3 d-flex flex-column gap-4 other-p5-wrapper">
-                            <a href="detailPelayananKarir.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-pelayanan', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/karir2.png') }}"
@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="detailPelayananKarir.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-pelayanan', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/karir3.png') }}"
@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="detailPelayananKarir.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-pelayanan', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/karir4.png') }}"
