@@ -65,26 +65,6 @@
         @include('components.navbar')
         @yield('container')
         @include('components.footer')
-
-        <script>
-            const swiperTesti = new Swiper('.swiper-testi', {
-                speed: 500,
-                loop: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                },
-                navigation: {
-                    nextEl: ".btn-next",
-                    prevEl: ".btn-prev",
-                },
-                breakpoints: {
-                    1: {
-                        slidesPerView: 1,
-                        spaceBetween: 10
-                    },
-                }
-            })
-        </script>
     @else
         <div class="container-fluid dashboard p-0 d-flex">
             @include('components.sidebar')
@@ -127,6 +107,25 @@
         <script src="https://kit.fontawesome.com/9e88c62f38.js" crossorigin="anonymous"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script>
+            const swiperTesti = new Swiper('.swiper-testi', {
+                speed: 500,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                navigation: {
+                    nextEl: ".btn-next",
+                    prevEl: ".btn-prev",
+                },
+                breakpoints: {
+                    1: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                }
+            })
+        </script>
     @else
         <script src="{{ asset('assets/js/script.js') }}"></script>
     @endif
