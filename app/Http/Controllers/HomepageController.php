@@ -19,4 +19,11 @@ class HomepageController extends Controller
             'title' => 'Profil',
         ]);
     }
+
+    function akademik()
+    {
+        return view('homepage.akademik', [
+            'title' => 'Akademik',
+        ]);
+    }
 }
