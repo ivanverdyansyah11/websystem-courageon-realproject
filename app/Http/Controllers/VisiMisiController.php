@@ -34,8 +34,13 @@ class VisiMisiController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('profil-images/visi-misi-image');
+            $oldImagePath = public_path('assets/img/profil-images/visi-misi-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/visi-misi-image'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }

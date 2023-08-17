@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         VisionMission::create([
-            'banner' => 'profil-images/visi-misi-image/banner-visi-misi.jpg',
+            'banner' => 'banner-visi-misi.jpg',
             'title_vision' => 'Visi sekolah',
             'description_vision' => 'Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.',
             'title_mission' => 'Misi sekolah',

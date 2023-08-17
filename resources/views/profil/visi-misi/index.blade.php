@@ -35,8 +35,8 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($vision_mission->banner)
-                                    <img src="{{ asset('storage/' . $vision_mission->banner) }}" class="img-notfound"
-                                        alt="Banner Section Header" width="80">
+                                    <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $vision_mission->banner) }}"
+                                        class="img-notfound" alt="Banner Section Header" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Image Not Found" width="80">
@@ -138,14 +138,14 @@
                         <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="deskripsi_visi">Deskripsi Visi</label>
-                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="3" data-value="description_vision"
+                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="4" data-value="description_vision"
                                     disabled></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="deskripsi_misi">Deskripsi Misi</label>
-                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="3" data-value="description_mission"
+                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="4" data-value="description_mission"
                                     disabled></textarea>
                             </div>
                         </div>
@@ -201,14 +201,14 @@
                         <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="deskripsi_visi">Deskripsi Visi</label>
-                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="3" data-value="description_vision"
+                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="4" data-value="description_vision"
                                     name="description_vision"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="deskripsi_misi">Deskripsi Misi</label>
-                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="3" data-value="description_mission"
+                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="4" data-value="description_mission"
                                     name="description_mission"></textarea>
                             </div>
                         </div>
@@ -282,7 +282,8 @@
                 type: 'get',
                 url: '/admin/profil/visi-misi/edit-visi-misi',
                 success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_vision_mission"]').attr("src",
+                        "/assets/img/profil-images/visi-misi-image/" + data.banner);
                     $('[data-value="title_vision"]').val(data.title_vision);
                     $('[data-value="description_vision"]').val(data.description_vision);
                     $('[data-value="title_mission"]').val(data.title_mission);
@@ -297,7 +298,8 @@
                 type: 'get',
                 url: '/admin/profil/visi-misi/edit-visi-misi',
                 success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_vision_mission"]').attr("src",
+                        "/assets/img/profil-images/visi-misi-image/" + data.banner);
                     $('[data-value="oldImage_vision_mission"]').val(data.banner);
                     $('[data-value="title_vision"]').val(data.title_vision);
                     $('[data-value="description_vision"]').val(data.description_vision);
