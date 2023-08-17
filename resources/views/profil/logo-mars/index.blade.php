@@ -83,8 +83,8 @@
                         <div class="row table-data gap-4 align-items-center justify-content-between">
                             <div class="col-2 data-value">
                                 @if ($mars->banner)
-                                    <img src="{{ asset('storage/' . $mars->banner) }}" class="img-fluid" alt="Banner Mars"
-                                        width="80">
+                                    <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
+                                        class="img-fluid" alt="Banner Mars" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Image Not Found" width="80">
@@ -357,7 +357,8 @@
                 type: 'get',
                 url: '/admin/profil/logo-mars/edit-mars',
                 success: function(data) {
-                    $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner"]').attr("src", "/assets/img/profil-images/mars-image/" +
+                        data.banner);
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="creation"]').val(data.creation);
                 }
@@ -370,7 +371,8 @@
                 type: 'get',
                 url: '/admin/profil/logo-mars/edit-mars',
                 success: function(data) {
-                    $('[data-value="banner"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner"]').attr("src", "/assets/img/profil-images/mars-image/" +
+                        data.banner);
                     $('[data-value="oldImage_banner"]').val(data.banner);
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="creation"]').val(data.creation);

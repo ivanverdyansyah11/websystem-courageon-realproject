@@ -85,8 +85,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Mars::create([
-            'banner' => 'profil-images/mars-image/banner-mars.jpg',
-            'title_section' => 'Mars Sekolah courageon',
+            'banner' => 'banner-mars.jpg',
+            'title_section' => 'Mars SMA Negeri 1 Selat',
             'mars' => '',
             'creation' => 'Dr. Andi Pranoto, M.Pd.',
         ]);
