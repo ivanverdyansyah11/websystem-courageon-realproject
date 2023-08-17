@@ -93,8 +93,13 @@ class BerandaController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('beranda-images/sambutan-image');
+            $oldImagePath = public_path('assets/img/beranda-images/sambutan-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/beranda-images/sambutan-image'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
