@@ -31,8 +31,12 @@ class ProfilController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('profil-images/header-image');
+            $oldImagePath = public_path('assets/img/profil-images/header-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/header-image'), $imageName);
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
