@@ -183,21 +183,21 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="makna_logo">Makna Logo</label>
-                                <textarea id="makna_logo" class="input" autocomplete="off" rows="3" data-value="logo_meaning"
+                                <textarea id="makna_logo" class="input" autocomplete="off" rows="4" data-value="logo_meaning"
                                     name="logo_meaning"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="makna_font">Makna Font</label>
-                                <textarea id="makna_font" class="input" autocomplete="off" rows="3" data-value="font_meaning"
+                                <textarea id="makna_font" class="input" autocomplete="off" rows="4" data-value="font_meaning"
                                     name="font_meaning"></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="makna_warna">Makna Warna</label>
-                                <textarea id="makna_warna" class="input" autocomplete="off" rows="3" data-value="color_meaning"
+                                <textarea id="makna_warna" class="input" autocomplete="off" rows="4" data-value="color_meaning"
                                     name="color_meaning"></textarea>
                             </div>
                         </div>
@@ -318,15 +318,17 @@
     {{-- END MODAL EDIT MARS --}}
 
     <script>
-        const editor1 = new RichTextEditor("#inputDetailMars");
-        const editor2 = new RichTextEditor("#inputEditMars");
+        // const editor1 = new RichTextEditor("#inputDetailLogo");
+        // const editor2 = new RichTextEditor("#inputEditLogo");
+        const editor3 = new RichTextEditor("#inputDetailMars");
+        const editor4 = new RichTextEditor("#inputEditMars");
 
         $(document).on('click', '[data-bs-target="#detailLogoModal"]', function() {
             $.ajax({
                 type: 'get',
                 url: '/admin/profil/logo-mars/edit-logo',
                 success: function(data) {
-                    $('[data-value="logo"]').attr("src", "/storage/" + data.logo);
+                    $('[data-value="logo"]').attr("src", "/assets/img/brand/" + data.logo);
                     $('[data-value="logo_meaning"]').val(data.logo_meaning);
                     $('[data-value="font_meaning"]').val(data.font_meaning);
                     $('[data-value="color_meaning"]').val(data.color_meaning);
