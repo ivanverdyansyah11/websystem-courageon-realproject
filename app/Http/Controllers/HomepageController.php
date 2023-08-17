@@ -26,4 +26,11 @@ class HomepageController extends Controller
             'title' => 'Akademik',
         ]);
     }
+
+    function kesiswaan()
+    {
+        return view('homepage.kesiswaan', [
+            'title' => 'Kesiswaan',
+        ]);
+    }
 }
