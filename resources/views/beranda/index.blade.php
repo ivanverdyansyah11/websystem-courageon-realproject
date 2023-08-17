@@ -33,8 +33,8 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($section_header->banner)
-                                    <img src="{{ asset('storage/' . $section_header->banner) }}" class="img-notfound"
-                                        alt="Banner Section Header" width="80">
+                                    <img src="{{ asset('assets/img/beranda-images/header-image/' . $section_header->banner) }}"
+                                        class="img-notfound" alt="Banner Section Header" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Image Not Found" width="80">
@@ -218,13 +218,13 @@
                         </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_header" disabled>
-                    </div>
-                    <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_header" disabled></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_header" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -264,6 +264,11 @@
                         <label for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
                             data-value="description_header"></textarea>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_header" name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -483,7 +488,9 @@
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
-                    $('[data-value="banner_header"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="button_header"]').val(data.button);
+                    $('[data-value="banner_header"]').attr("src",
+                        "/assets/img/beranda-images/header-image/" + data.banner);
                 }
             });
         });
@@ -496,8 +503,10 @@
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
+                    $('[data-value="button_header"]').val(data.button);
                     $('[data-value="oldImage_header"]').val(data.banner);
-                    $('[data-value="banner_header"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_header"]').attr("src",
+                        "/assets/img/beranda-images/header-image/" + data.banner);
                 }
             });
         });

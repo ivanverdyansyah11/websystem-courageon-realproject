@@ -61,7 +61,6 @@ Route::middleware('guest')->group(function () {
     });
 
     Route::prefix('admin')->group(function () {
-        // AUTHENTICATION
         Route::controller(AuthController::class)->group(function () {
             Route::get('/login', 'index')->name('login');
             Route::post('/login', 'loginAction')->name('login.action');

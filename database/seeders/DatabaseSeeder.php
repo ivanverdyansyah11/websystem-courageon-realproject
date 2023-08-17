@@ -33,9 +33,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HeaderHome::create([
-            'banner' => 'beranda-images/header-image/banner-header.jpg',
-            'title_header' => 'Sekolah Courageon, Wujudkan impianmu yang tinggi di sini!',
-            'description' => 'Selamat datang di CourageOn School, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'SMA Negeri 1 Selat, Wujudkan Impianmu Yang Tinggi Di Sini!',
+            'description' => 'Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
+            'button' => 'Lihat Profile',
         ]);
 
         OpeningHome::create([
