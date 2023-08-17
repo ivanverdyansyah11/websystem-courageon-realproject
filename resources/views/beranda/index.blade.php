@@ -466,7 +466,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_history"
+                                <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_history"
                                     disabled></textarea>
                             </div>
                         </div>
@@ -483,33 +483,48 @@
     {{-- MODAL EDIT SECTION HISTORY --}}
     <div class="modal fade" id="editSectionHistoryModal" tabindex="-1" aria-labelledby="editSectionHistoryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Sejarah</h3>
                 <form id="editSectionHistory" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_history">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                class="img-fluid tag-edit-history" alt="Banner Section Sejarah" width="80"
-                                data-value="banner_history">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="banner" class="input-edit-history" name="banner">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_history">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-history" alt="Banner Section Sejarah" width="80"
+                                        data-value="banner_history">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="banner" class="input-edit-history" name="banner">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul">Judul Sejarah</label>
-                        <input type="text" id="judul" class="input" name="title_history" autocomplete="off"
-                            data-value="title_history">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
-                            data-value="description_history"></textarea>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Sejarah</label>
+                                <input type="text" id="judul" class="input" name="title_history"
+                                    autocomplete="off" data-value="title_history">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" name="button" autocomplete="off"
+                                    data-value="button_history">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
+                                    data-value="description_history"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -610,6 +625,7 @@
                 success: function(data) {
                     $('[data-value="title_history"]').val(data.title_history);
                     $('[data-value="description_history"]').val(data.description);
+                    $('[data-value="button_history"]').val(data.button);
                     $('[data-value="banner_history"]').attr("src",
                         "/assets/img/beranda-images/sejarah-image/" + data.banner);
                 }
@@ -624,6 +640,7 @@
                 success: function(data) {
                     $('[data-value="title_history"]').val(data.title_history);
                     $('[data-value="description_history"]').val(data.description);
+                    $('[data-value="button_history"]').val(data.button);
                     $('[data-value="oldImage_history"]').val(data.banner);
                     $('[data-value="banner_history"]').attr("src",
                         "/assets/img/beranda-images/sejarah-image/" + data.banner);
