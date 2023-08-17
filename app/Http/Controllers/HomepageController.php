@@ -33,4 +33,11 @@ class HomepageController extends Controller
             'title' => 'Kesiswaan',
         ]);
     }
+
+    function saranaPrasarana()
+    {
+        return view('homepage.sarana-prasarana', [
+            'title' => 'Sarana Prasarana',
+        ]);
+    }
 }
