@@ -18,6 +18,7 @@ class CreateHeaderProfilesTable extends Migration
             $table->string('banner');
             $table->string('title_header');
             $table->text('description');
+            $table->string('button');
             $table->timestamps();
         });
     }

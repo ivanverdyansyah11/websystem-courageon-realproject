@@ -58,9 +58,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HeaderProfile::create([
-            'banner' => 'profil-images/header-image/banner-header.jpg',
-            'title_header' => 'Profile Dan informasi mengenai sekolah courgaeon',
-            'description' => 'Courageon School adalah sekolah swasta yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Profile Dan informasi mengenai SMA Negeri 1 Selat',
+            'description' => 'SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
+            'button' => 'Lihat Selengkapnya',
         ]);
 
         VisionMission::create([
