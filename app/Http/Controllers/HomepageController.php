@@ -40,4 +40,11 @@ class HomepageController extends Controller
             'title' => 'Sarana Prasarana',
         ]);
     }
+
+    function humas()
+    {
+        return view('homepage.humas', [
+            'title' => 'Humas',
+        ]);
+    }
 }
