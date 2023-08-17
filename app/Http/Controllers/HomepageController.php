@@ -104,10 +104,10 @@ class HomepageController extends Controller
         ]);
     }
 
-    function ekstrakurikuler()
+    function detailEkstrakurikuler()
     {
-        return view('homepage.ekstrakurikuler.index', [
-            'title' => 'Ekstrakurikuler',
+        return view('homepage.ekstrakurikuler.detail', [
+            'title' => 'Detail Ekstrakurikuler',
         ]);
     }
 

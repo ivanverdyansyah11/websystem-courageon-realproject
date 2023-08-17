@@ -20,7 +20,7 @@
                         href="{{ route('akademik') }}">Akademik</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('kesiswaan') || Request::is('ekstrakurikuler') || Request::is('pelayanan-karir*') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('kesiswaan') || Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') ? 'active' : '' }}"
                         href="{{ route('kesiswaan') }}">Kesiswaan</a>
                 </div>
                 <div class="col justify-content-center d-flex">
