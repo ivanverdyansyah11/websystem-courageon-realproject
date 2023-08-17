@@ -121,8 +121,8 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($section_remark->banner)
-                                    <img src="{{ asset('storage/' . $section_remark->banner) }}" class="img-notfound"
-                                        alt="Banner Section Remark" width="80">
+                                    <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $section_remark->banner) }}"
+                                        class="img-notfound" alt="Banner Section Remark" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Image Not Found" width="80">
@@ -320,7 +320,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_opening"
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_opening"
                             disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -347,7 +347,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="3"
+                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                             data-value="description_opening"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -381,7 +381,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="pesan">Pesan</label>
-                        <textarea id="pesan" class="input" autocomplete="off" rows="3" data-value="message_remark" disabled></textarea>
+                        <textarea id="pesan" class="input" autocomplete="off" rows="4" data-value="message_remark" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -419,7 +419,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="pesan">Pesan</label>
-                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="3"
+                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="4"
                             data-value="message_remark"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -567,7 +567,8 @@
                 success: function(data) {
                     $('[data-value="title_remark"]').val(data.title_remark);
                     $('[data-value="message_remark"]').val(data.message);
-                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_remark"]').attr("src",
+                        "/assets/img/beranda-images/sambutan-image/" + data.banner);
                 }
             });
         });
@@ -581,33 +582,8 @@
                     $('[data-value="title_remark"]').val(data.title_remark);
                     $('[data-value="message_remark"]').val(data.message);
                     $('[data-value="oldImage_remark"]').val(data.banner);
-                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#detailSectionRemarkModal"]', function() {
-            $.ajax({
-                type: 'get',
-                url: '/admin/beranda/edit-remark',
-                success: function(data) {
-                    $('[data-value="title_remark"]').val(data.title_remark);
-                    $('[data-value="message_remark"]').val(data.message);
-                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editSectionRemarkModal"]', function() {
-            $('#editSectionRemark').attr('action', '/admin/beranda/edit-remark');
-            $.ajax({
-                type: 'get',
-                url: '/admin/beranda/edit-remark',
-                success: function(data) {
-                    $('[data-value="title_remark"]').val(data.title_remark);
-                    $('[data-value="message_remark"]').val(data.message);
-                    $('[data-value="oldImage_remark"]').val(data.banner);
-                    $('[data-value="banner_remark"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_remark"]').attr("src",
+                        "/assets/img/beranda-images/sambutan-image/" + data.banner);
                 }
             });
         });

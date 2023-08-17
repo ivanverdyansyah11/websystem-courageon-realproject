@@ -40,14 +40,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         OpeningHome::create([
-            'title_opening' => 'Selamat Datang Di sekolah Courageon!',
-            'description' => 'Di CourageOn, kami menciptakan lingkungan yang mendukung dan memelihara, yang mendorong individualitas dan kreativitas. Tim pendidik kami yang berdedikasi penuh komitmen untuk menyediakan pendidikan terbaik, dan perhatian pribadi.',
+            'title_opening' => 'Selamat Datang Di SMA Negeri 1 Selat!!',
+            'description' => 'Di SMA Negeri 1 Selat, kami menciptakan lingkungan yang mendukung dan memelihara, yang mendorong individualitas dan kreativitas. Tim pendidik kami yang berdedikasi penuh komitmen untuk menyediakan pendidikan terbaik, dan perhatian pribadi.',
         ]);
 
         RemarkHome::create([
-            'banner' => 'beranda-images/sambutan-image/banner-sambutan.jpg',
-            'title_remark' => 'Sambutan dari kepala sekolah courageon',
-            'message' => 'Puji Syukur kepada Tuhan Yesus Kristus yang telah memberkati Sekolah Courageon sehingga boleh berkembang dan mendapat kepercayaan masyarakat. Berkomitmen meningkatkan mutu dan pelayanan, teguh dalam iman, berbudaya serta berwawasan lingkungan sehingga mampu menghasilkan lulusan yang siap terjun ke Dunia Usaha, Dunia Industri, dan Dunia Kerja serta memiliki jiwa enterpreneur, mandiri dan mampu berkompetisi di segala bidang.',
+            'banner' => 'banner-sambutan.jpg',
+            'title_remark' => 'Sambutan Dari Kepala Sekolah SMA Negeri 1 Selat',
+            'message' => 'Puji Syukur kepada Tuhan Yang Maha Esa yang telah memberkati SMA Negeri 1 Selat sehingga boleh berkembang dan mendapat kepercayaan masyarakat. Berkomitmen meningkatkan mutu dan pelayanan, teguh dalam iman, berbudaya serta berwawasan lingkungan sehingga mampu menghasilkan lulusan yang siap terjun ke Dunia Usaha, Dunia Industri, dan Dunia Kerja serta memiliki jiwa enterpreneur, mandiri dan mampu berkompetisi di segala bidang.',
         ]);
 
         HistoryHome::create([
