@@ -96,4 +96,11 @@ class HomepageController extends Controller
             'title' => 'Projek 5P',
         ]);
     }
+
+    function detailProjek($id)
+    {
+        return view('homepage.projek.detail', [
+            'title' => 'Detail Projek 5P',
+        ]);
+    }
 }
