@@ -47,4 +47,18 @@ class HomepageController extends Controller
             'title' => 'Humas',
         ]);
     }
+
+    function prestasi()
+    {
+        return view('homepage.prestasi.index', [
+            'title' => 'Prestasi',
+        ]);
+    }
+
+    function detailPrestasi($id)
+    {
+        return view('homepage.prestasi.detail', [
+            'title' => 'Detail Prestasi',
+        ]);
+    }
 }

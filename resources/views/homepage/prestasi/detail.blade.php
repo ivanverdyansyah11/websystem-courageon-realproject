@@ -7,7 +7,7 @@
                 <div class="col-lg-8 col-12">
                     <div class="prestasi-detail-section">
                         <div class="header-article">
-                            <img src="../img/prestasi1.png"
+                            <img src="{{ asset('assets-homepage/img/prestasi1.png') }}"
                                 alt="gambar Prestasi Siswa : Juara 1 Pada Olimpiade Fisika tingkat Regional, Rizky Putra"
                                 class="img-detail">
                             <h2 class="fs-2 fw-bold text-black mt-4">Prestasi Siswa : Juara 1 Pada Olimpiade Fisika tingkat
@@ -115,8 +115,8 @@
                             <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
-                                        <img src="../img/prestasi3.png" alt="juara 1 lomba renang"
-                                            class="w-100 img-prestasi img-prestasi-sm">
+                                        <img src="{{ asset('assets-homepage/img/prestasi3.png') }}"
+                                            alt="juara 1 lomba renang" class="w-100 img-prestasi img-prestasi-sm">
                                     </div>
                                     <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                         <div
@@ -152,8 +152,8 @@
                             <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
-                                        <img src="../img/prestasi2.png" alt="juara 1 olimpiade fisika"
-                                            class="w-100 img-prestasi img-prestasi-sm">
+                                        <img src="{{ asset('assets-homepage/img/prestasi2.png') }}"
+                                            alt="juara 1 olimpiade fisika" class="w-100 img-prestasi img-prestasi-sm">
                                     </div>
                                     <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                         <div
@@ -189,8 +189,8 @@
                             <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
-                                        <img src="../img/prestasi4.png" alt="juara 2 olimpiade Biologi"
-                                            class="w-100 img-prestasi img-prestasi-sm">
+                                        <img src="{{ asset('assets-homepage/img/prestasi4.png') }}"
+                                            alt="juara 2 olimpiade Biologi" class="w-100 img-prestasi img-prestasi-sm">
                                     </div>
                                     <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                         <div

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
     @if (Request::is('beranda') ||
+            Request::is('prestasi*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -33,6 +34,7 @@
     {{-- SCRIPT JS --}}
     @if (
         !Request::is('beranda') ||
+            !Request::is('prestasi*') ||
             !Request::is('profil*') ||
             !Request::is('akademik*') ||
             !Request::is('kesiswaan*') ||
@@ -54,6 +56,7 @@
     @if (Request::is('admin/login'))
         @yield('container')
     @elseif(Request::is('beranda') ||
+            Request::is('prestasi*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -115,6 +118,7 @@
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     @if (Request::is('beranda') ||
+            Request::is('prestasi*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
