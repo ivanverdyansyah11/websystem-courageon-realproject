@@ -33,6 +33,7 @@ class BerandaController extends Controller
         $validatedData = $request->validate([
             'title_header' => 'required|string|max:255',
             'description' => 'required|string',
+            'button' => 'required|string|max:255',
         ]);
 
         if ($request->file('banner')) {
