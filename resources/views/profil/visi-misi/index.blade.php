@@ -237,7 +237,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="motto">Motto</label>
-                        <textarea id="motto" class="input" autocomplete="off" rows="3" data-value="motto" disabled></textarea>
+                        <textarea id="motto" class="input" autocomplete="off" rows="4" data-value="motto" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
