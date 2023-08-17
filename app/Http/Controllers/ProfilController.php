@@ -25,9 +25,9 @@ class ProfilController extends Controller
     function updateHeader(Request $request)
     {
         $validatedData = $request->validate([
-            // 'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title_header' => 'required|string|max:255',
             'description' => 'required|string',
+            'button' => 'required|string|max:255',
         ]);
 
         if ($request->file('banner')) {
@@ -37,6 +37,7 @@ class ProfilController extends Controller
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/img/profil-images/header-image'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
