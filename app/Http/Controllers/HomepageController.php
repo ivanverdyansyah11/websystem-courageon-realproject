@@ -89,4 +89,11 @@ class HomepageController extends Controller
             'title' => 'Pegawai',
         ]);
     }
+
+    function projek()
+    {
+        return view('homepage.projek.index', [
+            'title' => 'Projek 5P',
+        ]);
+    }
 }

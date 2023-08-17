@@ -210,7 +210,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a href="allManagement.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('manajemen') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>
@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="allGuru.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('guru') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>
@@ -300,7 +300,7 @@
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="allPegawai.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('pegawai') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>

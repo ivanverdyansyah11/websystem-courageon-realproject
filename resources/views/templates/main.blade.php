@@ -17,6 +17,7 @@
             Request::is('manajemen*') ||
             Request::is('guru*') ||
             Request::is('pegawai*') ||
+            Request::is('projek*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -43,6 +44,7 @@
             !Request::is('manajemen*') ||
             !Request::is('guru*') ||
             !Request::is('pegawai*') ||
+            !Request::is('projek*') ||
             !Request::is('profil*') ||
             !Request::is('akademik*') ||
             !Request::is('kesiswaan*') ||
@@ -69,6 +71,7 @@
             Request::is('manajemen*') ||
             Request::is('guru*') ||
             Request::is('pegawai*') ||
+            Request::is('projek*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
@@ -114,6 +117,7 @@
             Request::is('manajemen*') ||
             Request::is('guru*') ||
             Request::is('pegawai*') ||
+            Request::is('projek*') ||
             Request::is('profil*') ||
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
