@@ -159,12 +159,19 @@ class ManajemenController extends Controller
 
     function delete($id)
     {
-        $employee = Employee::findOrFail($id);
+        $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            Storage::delete($employee->image);
+            $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
+            unlink($imagePath);
         }
 
         $employee = $employee->delete();
+
+        if ($employee) {
+            return redirect(route('manajemen-index'))->with('success', 'Berhasil Hapus Manajemen Sekolah!');
+        } else {
+            return redirect(route('manajemen-create'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
+        }
     }
 }
