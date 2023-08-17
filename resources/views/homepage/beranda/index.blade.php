@@ -15,7 +15,7 @@
                         setiap individu.
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="{{ route('profil-index') }}" class="btn btn-color">lihat profile</a>
+                        <a href="{{ route('profil') }}" class="btn btn-color">lihat profile</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
@@ -358,4 +358,25 @@
             </div>
         </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const swiperTesti = new Swiper('.swiper-testi', {
+            speed: 500,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+            }
+        })
+    </script>
 @endsection
