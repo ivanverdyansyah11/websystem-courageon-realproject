@@ -109,10 +109,8 @@
                             <button class="btn btn-color btn-input">cari</button>
                         </div>
                         <p class="mt-5 text-black fs-5 fw-bold">Prestasi Terbaru</p>
-
-
                         <div class="mt-3 d-flex flex-column gap-4 other-prestasi-wrapper">
-                            <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-prestasi', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/prestasi3.png') }}"
@@ -149,7 +147,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-prestasi', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/prestasi2.png') }}"
@@ -186,7 +184,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="detailPrestasi.html" class="d-flex gap-3 align-items-center">
+                            <a href="{{ route('detail-prestasi', '1') }}" class="d-flex gap-3 align-items-center">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">
                                         <img src="{{ asset('assets-homepage/img/prestasi4.png') }}"
