@@ -110,4 +110,18 @@ class HomepageController extends Controller
             'title' => 'Ekstrakurikuler',
         ]);
     }
+
+    function pelayanan()
+    {
+        return view('homepage.pelayanan.index', [
+            'title' => 'Pelayanan Karir',
+        ]);
+    }
+
+    function detailPelayanan($id)
+    {
+        return view('homepage.pelayanan.detail', [
+            'title' => 'Detail Pelayanan Karir',
+        ]);
+    }
 }
