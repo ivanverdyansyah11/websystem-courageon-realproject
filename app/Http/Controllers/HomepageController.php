@@ -68,4 +68,60 @@ class HomepageController extends Controller
             'title' => 'Berita',
         ]);
     }
+
+    function manajemen()
+    {
+        return view('homepage.manajemen.index', [
+            'title' => 'Manajemen',
+        ]);
+    }
+
+    function guru()
+    {
+        return view('homepage.guru.index', [
+            'title' => 'Guru',
+        ]);
+    }
+
+    function pegawai()
+    {
+        return view('homepage.pegawai.index', [
+            'title' => 'Pegawai',
+        ]);
+    }
+
+    function projek()
+    {
+        return view('homepage.projek.index', [
+            'title' => 'Projek 5P',
+        ]);
+    }
+
+    function detailProjek($id)
+    {
+        return view('homepage.projek.detail', [
+            'title' => 'Detail Projek 5P',
+        ]);
+    }
+
+    function ekstrakurikuler()
+    {
+        return view('homepage.ekstrakurikuler.index', [
+            'title' => 'Ekstrakurikuler',
+        ]);
+    }
+
+    function pelayanan()
+    {
+        return view('homepage.pelayanan.index', [
+            'title' => 'Pelayanan Karir',
+        ]);
+    }
+
+    function detailPelayanan($id)
+    {
+        return view('homepage.pelayanan.detail', [
+            'title' => 'Detail Pelayanan Karir',
+        ]);
+    }
 }

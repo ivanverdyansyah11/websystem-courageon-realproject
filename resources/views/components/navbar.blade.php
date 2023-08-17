@@ -17,11 +17,11 @@
                         href="{{ route('profil') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'active' : '' }}"
                         href="{{ route('akademik') }}">Akademik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('kesiswaan') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('kesiswaan') || Request::is('ekstrakurikuler') || Request::is('pelayanan-karir*') ? 'active' : '' }}"
                         href="{{ route('kesiswaan') }}">Kesiswaan</a>
                 </li>
                 <li class="nav-item">

@@ -44,6 +44,14 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/prestasi', 'prestasi')->name('prestasi');
     Route::get('/prestasi/{id}', 'detailPrestasi')->name('detail-prestasi');
     Route::get('/berita', 'berita')->name('berita');
+    Route::get('/manajemen', 'manajemen')->name('manajemen');
+    Route::get('/guru', 'guru')->name('guru');
+    Route::get('/pegawai', 'pegawai')->name('pegawai');
+    Route::get('/projek', 'projek')->name('projek');
+    Route::get('/projek/{id}', 'detailProjek')->name('detail-projek');
+    Route::get('/ekstrakurikuler', 'ekstrakurikuler')->name('ekstrakurikuler');
+    Route::get('/pelayanan-karir', 'pelayanan')->name('pelayanan');
+    Route::get('/pelayanan-karir/{id}', 'detailPelayanan')->name('detail-pelayanan');
 });
 
 Route::middleware('guest')->group(function () {

@@ -34,33 +34,44 @@
                     <div class="d-flex flex-column gap-4">
                         <div class="accordion" id="myAccordion">
                             <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne">
-                                <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                  <p class="fw-semibold">Visi Sekolah</p>
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#myAccordion">
-                                <div class="card-body">
-                                  <p class="fs-15 desc">
-                                    Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.
-                                  </p>
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                        data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        <p class="fw-semibold">Visi Sekolah</p>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#myAccordion">
+                                    <div class="card-body">
+                                        <p class="fs-15 desc">
+                                            Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin
+                                            masa depan yang berintegritas dan berbudaya global.
+                                        </p>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
                           </div>
                           <div class="accordion" id="myAccordion2">
                             <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading2">
-                                <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white" data-bs-toggle="collapse" data-bs-target="#collapse2">
-                                  <p class="fw-semibold">Misi Sekolah</p>
-                                </button>
-                              </h2>
-                              <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
-                                <div class="card-body">
-                                  <p class="fs-15 desc">Misi SMA Negeri 1 Selat adalah menyediakan pendidikan yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk mengembangkan keberanian dan kreativitas mereka melalui berbagai program ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi masyarakat dan dunia.
-                                  </p>
+                                <h2 class="accordion-header" id="heading2">
+                                    <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                        <p class="fw-semibold">Misi Sekolah</p>
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
+                                    <div class="card-body">
+                                        <p class="fs-15 desc-color">Misi SMA Negeri 1 Selat adalah menyediakan pendidikan
+                                            yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode
+                                            pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk
+                                            mengembangkan keberanian dan kreativitas mereka melalui berbagai program
+                                            ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan
+                                            tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter
+                                            unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi
+                                            masyarakat dan dunia.
+                                        </p>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
                           </div>
                     </div>
@@ -199,7 +210,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a href="allManagement.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('manajemen') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>
@@ -244,7 +255,7 @@
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="allGuru.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('guru') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>
@@ -289,7 +300,7 @@
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="allPegawai.html" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('pegawai') }}" class="btn btn-color">lihat semua</a>
                 </div>
             </div>
         </section>

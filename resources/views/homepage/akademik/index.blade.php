@@ -74,7 +74,8 @@
                                 berpartisipasi dalam diskusi dan berkolaborasi dengan sesama siswa dalam proses belajar.
                             </p>
                         </article>
-                        <a href="https://guru.kemdikbud.go.id/" class="d-flex align-items-center gap-2 mt-4 btn btn-color">
+                        <a target="_block" href="https://guru.kemdikbud.go.id/"
+                            class="d-flex align-items-center gap-2 mt-4 btn btn-color">
                             website e-learning
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                                 fill="none">
@@ -107,7 +108,8 @@
                                 dan tugas interaktif yang dirancang untuk mengukur pemahaman siswa dalam berbagai tingkatan
                                 kognitif. </p>
                         </article>
-                        <a href="https://guru.kemdikbud.go.id/" class="d-flex align-items-center gap-2 mt-4 btn btn-color">
+                        <a target="_block" href="https://guru.kemdikbud.go.id/"
+                            class="d-flex align-items-center gap-2 mt-4 btn btn-color">
                             website e-asessment
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                                 fill="none">
