@@ -361,7 +361,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="allSapras.html" class="btn btn-color">lihat semua</a>
+                <a href="{{ route('detail-sarana-prasarana') }}" class="btn btn-color">lihat semua</a>
             </div>
         </section>
         <section class="denah-section container section-margin-top">
