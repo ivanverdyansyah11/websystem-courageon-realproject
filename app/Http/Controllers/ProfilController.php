@@ -36,7 +36,7 @@ class ProfilController extends Controller
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/header-image'), $imageName);
+            $image->move(public_path('assets/img/profil-images/header-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;

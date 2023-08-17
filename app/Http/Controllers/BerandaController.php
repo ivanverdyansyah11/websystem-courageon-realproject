@@ -42,7 +42,7 @@ class BerandaController extends Controller
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/beranda-images/header-image'), $imageName);
+            $image->move(public_path('assets/img/beranda-images/header-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
@@ -98,7 +98,7 @@ class BerandaController extends Controller
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/beranda-images/sambutan-image'), $imageName);
+            $image->move(public_path('assets/img/beranda-images/sambutan-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
@@ -133,7 +133,7 @@ class BerandaController extends Controller
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/beranda-images/sejarah-image'), $imageName);
+            $image->move(public_path('assets/img/beranda-images/sejarah-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;

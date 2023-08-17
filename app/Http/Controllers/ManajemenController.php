@@ -77,10 +77,9 @@ class ManajemenController extends Controller
         if ($validatedData['image']) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         }
-
-        // $validatedData['image'] = $request->file('image')->store('profil-images/manajemen-image');
 
         $validatedData['role_employees_id'] = '1';
 
