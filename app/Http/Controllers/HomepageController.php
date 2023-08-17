@@ -12,4 +12,11 @@ class HomepageController extends Controller
             'title' => 'Homepage',
         ]);
     }
+
+    function profil()
+    {
+        return view('homepage.profil', [
+            'title' => 'Profil',
+        ]);
+    }
 }
