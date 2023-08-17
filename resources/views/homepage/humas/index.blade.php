@@ -184,7 +184,7 @@
                 </div>
             </div>
             <div class="mt-4 d-flex justify-content-center">
-                <a href="#" class="btn btn-color">lihat semua berita</a>
+                <a href="{{ route('berita') }}" class="btn btn-color">lihat semua berita</a>
             </div>
         </section>
     </main>
