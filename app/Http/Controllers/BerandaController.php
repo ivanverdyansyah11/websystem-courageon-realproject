@@ -124,11 +124,17 @@ class BerandaController extends Controller
         $validatedData = $request->validate([
             'title_history' => 'required|string|max:255',
             'description' => 'required|string',
+            'button' => 'required|string|max:255',
         ]);
 
         if ($request->file('banner')) {
-            Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('beranda-images/sejarah-image');
+            $oldImagePath = public_path('assets/img/beranda-images/sejarah-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/beranda-images/sejarah-image'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
