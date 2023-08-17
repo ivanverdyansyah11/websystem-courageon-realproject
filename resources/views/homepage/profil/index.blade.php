@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
                             </div>
-                          </div>
-                          <div class="accordion" id="myAccordion2">
+                        </div>
+                        <div class="accordion" id="myAccordion2">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading2">
                                     <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
         </section>
         <section class="management-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">data Manajemen SMA Negeri 1
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Manajemen SMA Negeri 1
                     Selat</p>
             </div>
             <div class="mt-5">
@@ -216,7 +216,7 @@
         </section>
         <section class="teacher-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">data Guru SMA Negeri 1 Selat
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Guru SMA Negeri 1 Selat
                 </p>
             </div>
             <div class="mt-5">
@@ -261,7 +261,7 @@
         </section>
         <section class="employee-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">data Pegawai SMA Negeri 1 Selat
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Pegawai SMA Negeri 1 Selat
                 </p>
             </div>
             <div class="mt-5">
