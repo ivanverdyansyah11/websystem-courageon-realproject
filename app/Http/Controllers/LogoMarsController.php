@@ -33,8 +33,13 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('logo')) {
-            Storage::delete($request->oldImage);
-            $validatedData['logo'] = $request->file('logo')->store('logo-brand');
+            $oldImagePath = public_path('assets/img/brand/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('logo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/brand/'), $imageName);
+            $validatedData['logo'] = $imageName;
         } else {
             $validatedData['logo'] = $request->oldImage;
         }
@@ -63,8 +68,13 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            Storage::delete($request->oldImage);
-            $validatedData['banner'] = $request->file('banner')->store('profil-images/mars-image');
+            $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/mars-image'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
