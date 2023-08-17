@@ -49,6 +49,7 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/pegawai', 'pegawai')->name('pegawai');
     Route::get('/projek', 'projek')->name('projek');
     Route::get('/projek/{id}', 'detailProjek')->name('detail-projek');
+    Route::get('/ekstrakurikuler', 'ekstrakurikuler')->name('ekstrakurikuler');
 });
 
 Route::middleware('guest')->group(function () {

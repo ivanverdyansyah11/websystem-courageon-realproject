@@ -103,4 +103,11 @@ class HomepageController extends Controller
             'title' => 'Detail Projek 5P',
         ]);
     }
+
+    function ekstrakurikuler()
+    {
+        return view('homepage.ekstrakurikuler.index', [
+            'title' => 'Ekstrakurikuler',
+        ]);
+    }
 }

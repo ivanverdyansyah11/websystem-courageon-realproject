@@ -21,7 +21,7 @@
                         href="{{ route('akademik') }}">Akademik</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('kesiswaan') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('kesiswaan') || Request::is('ekstrakurikuler') ? 'active' : '' }}"
                         href="{{ route('kesiswaan') }}">Kesiswaan</a>
                 </li>
                 <li class="nav-item">
