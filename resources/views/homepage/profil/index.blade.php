@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion" id="myAccordion2">
+                          </div>
+                          <div class="accordion" id="myAccordion2">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="heading2">
                                     <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                          </div>
                     </div>
                 </div>
             </div>
