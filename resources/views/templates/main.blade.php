@@ -54,9 +54,6 @@
             !Request::is('kesiswaan*') ||
             !Request::is('sarana-prasarana*') ||
             !Request::is('humas*'))
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="{{ asset('assets/js/rte.js') }}"></script>
         <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
@@ -115,7 +112,6 @@
     @endif
 
     {{-- SCRIPT JS --}}
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
@@ -133,6 +129,7 @@
             Request::is('humas*'))
         <script src="https://kit.fontawesome.com/9e88c62f38.js" crossorigin="anonymous"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <script>
             const swiperTesti = new Swiper('.swiper-testi', {
