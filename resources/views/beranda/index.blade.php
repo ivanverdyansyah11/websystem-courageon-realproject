@@ -435,26 +435,41 @@
     {{-- MODAL DETAIL SECTION HISTORY --}}
     <div class="modal fade" id="detailSectionHistoryModal" tabindex="-1"
         aria-labelledby="detailSectionHistoryModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Sejarah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
-                                alt="Banner Section Sejarah" width="80" data-value="banner_history">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
+                                        alt="Banner Section Sejarah" width="80" data-value="banner_history">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul">Judul Sejarah</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_history" disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_history"
-                            disabled></textarea>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Sejarah</label>
+                                <input type="text" id="judul" class="input" autocomplete="off"
+                                    data-value="title_history" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" autocomplete="off"
+                                    data-value="button_history" disabled>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea id="deskripsi" class="input" autocomplete="off" rows="3" data-value="description_history"
+                                    disabled></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
