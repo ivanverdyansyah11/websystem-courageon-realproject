@@ -10,6 +10,7 @@
 
     {{-- STYLE CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> --}}
 
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
@@ -42,9 +43,9 @@
             !Request::is('kesiswaan*') ||
             !Request::is('sarana-prasarana*') ||
             !Request::is('humas*'))
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-        </script>
+        </script> --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="{{ asset('assets/js/rte.js') }}"></script>
         <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
@@ -98,6 +99,7 @@
 
 
     {{-- SCRIPT JS --}}
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     @if (Request::is('beranda') ||
@@ -108,10 +110,217 @@
             Request::is('kesiswaan*') ||
             Request::is('sarana-prasarana*') ||
             Request::is('humas*'))
-        <script src="https://kit.fontawesome.com/9e88c62f38.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+        {{-- <script src="https://kit.fontawesome.com/9e88c62f38.js" crossorigin="anonymous"></script> --}}
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
         <script>
+             document.addEventListener('DOMContentLoaded', function() {
+    var showCategory = 'category1';
+    var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+    showAllCategory.classList.add('active');
+    showCategory.style.display='flex';
+    showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+  });
+
+  function showItems(category) {
+    // Menghapus kelas "active" dari semua kategori
+    var categories = document.getElementsByClassName('category-name');
+    for (var i = 0; i < categories.length; i++) {
+      categories[i].classList.remove('active');
+    }
+
+    // Menambahkan kelas "active" ke kategori yang dipilih
+    var selectedCategory = event.target;
+    if (!selectedCategory.classList.contains('active')) {
+      selectedCategory.classList.add('active');
+    }
+
+    // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+    var items = document.getElementsByClassName('item');
+    for (var j = 0; j < items.length; j++) {
+      items[j].style.display = 'none';
+      if (items[j].classList.contains(category)) {
+        items[j].style.display = 'flex';
+      }
+    }
+  }
+  const chart1 = document.getElementById('chart1');
+  const chart2 = document.getElementById('chart2');
+  const chart3 = document.getElementById('chart3');
+
+  new Chart(chart1, {
+    type: 'bar',
+    data: {
+      labels: ['2021', '2022', '2023'],
+      datasets: [{
+        data: [1000, 2380, 2853,],
+        borderWidth: 0.1,
+        backgroundColor:['#F94144','#F94144','#F94144'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [2000, 1380, 2453,],
+        borderWidth: 0.1,
+        backgroundColor:['#90BE6D','#90BE6D','#90BE6D'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [3000, 1980, 2953,],
+        borderWidth: 0.1,
+        backgroundColor:['#2D9CDB','#2D9CDB','#2D9CDB'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },
+      ],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+
+
+      scales: {
+        y: {
+          beginAtZero: true,
+          min:0,
+          max:3000,
+          ticks:{
+            stepSize:300
+          }
+        },
+        xAxes: [{
+
+        }]
+
+      }
+    }
+  });
+
+  new Chart(chart2, {
+    type: 'bar',
+    data: {
+      labels: ['2021', '2022', '2023'],
+      datasets: [{
+        data: [2000, 2180, 2553,],
+        borderWidth: 0.1,
+        backgroundColor:['#F94144','#F94144','#F94144'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [2300, 1290, 2753,],
+        borderWidth: 0.1,
+        backgroundColor:['#90BE6D','#90BE6D','#90BE6D'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [1900, 2680, 2253,],
+        borderWidth: 0.1,
+        backgroundColor:['#2D9CDB','#2D9CDB','#2D9CDB'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },
+      ],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+
+
+      scales: {
+        y: {
+          beginAtZero: true,
+          min:0,
+          max:3000,
+          ticks:{
+            stepSize:300
+          }
+        },
+        xAxes: [{
+
+        }]
+
+      }
+    }
+  });
+
+  new Chart(chart3, {
+    type: 'bar',
+    data: {
+      labels: ['2021', '2022', '2023'],
+      datasets: [{
+        data: [3000, 2880, 2153,],
+        borderWidth: 0.1,
+        backgroundColor:['#F94144','#F94144','#F94144'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [2800, 1190, 2153,],
+        borderWidth: 0.1,
+        backgroundColor:['#90BE6D','#90BE6D','#90BE6D'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },{
+        data: [1800, 2180, 2653,],
+        borderWidth: 0.1,
+        backgroundColor:['#2D9CDB','#2D9CDB','#2D9CDB'],
+        categoryPercentage: 0.8,
+        barPercentage: 0.6,
+        borderRadius:'8',
+        spaceBetween:'10'
+      },
+      ],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+
+
+      scales: {
+        y: {
+          beginAtZero: true,
+          min:0,
+          max:3000,
+          ticks:{
+            stepSize:300
+          }
+        },
+        xAxes: [{
+
+        }]
+
+      }
+    }
+  });
             const swiperTesti = new Swiper('.swiper-testi', {
                 speed: 500,
                 loop: true,

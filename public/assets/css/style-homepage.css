@@ -398,12 +398,12 @@ tbody tr:last-child td:last-child{
     margin-bottom: 120px;
 }
 .accordion-button::after {
-    background-image: url("../img/plus.svg");
+    background-image: url("../../assets-homepage/img/plus.svg");
     transform: scale(.7) !important;
 
 }
 .accordion-button:not(.collapsed)::after {
-    background-image: url('../img/minus.svg');
+    background-image: url('../../assets-homepage/img/minus.svg');
     justify-content: end;
     transform: scale(.7) !important;
     /*margin-top: 8px!important;*/
