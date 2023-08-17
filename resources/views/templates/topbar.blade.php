@@ -6,8 +6,8 @@
                 <img src="{{ asset('assets/img/other/profile-admin.svg') }}" class="img-fluid profile-image"
                     alt="Profile Admin" draggable="false">
                 <div class="profile-user">
-                    <h6 class="user-name">Ayu Pradewi</h6>
-                    <p class="user-role">Admin Management</p>
+                    <h6 class="user-name">{{ auth()->user()->username }}</h6>
+                    <p class="user-role">{{ auth()->user()->role }}</p>
                 </div>
             </div>
             <div class="arrow-border d-flex align-items-center justify-content-center">
@@ -15,8 +15,9 @@
             </div>
         </div>
         <div class="popup-logout position-absolute">
-            <form action="">
-                <button class="button-logout d-flex align-items-center">
+            <form action="{{ route('logout.action') }}" method="post">
+                @csrf
+                <button type="submit" class="button-logout d-flex align-items-center">
                     <div class="wrapper-logout">
                         <div class="logout-solid"></div>
                     </div>

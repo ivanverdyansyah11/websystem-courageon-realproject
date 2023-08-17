@@ -22,10 +22,18 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // $request->session()->regenerate();
+            $request->session()->regenerate();
             return redirect()->intended(route('dashboard-index'));
         } else {
             return redirect(route('login'))->with('failed', "Email or Password does't match!");
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect(route('login'))->with('logout', 'Successfully Logout Account!');
     }
 }

@@ -522,6 +522,32 @@ a.button-default-solid:hover {
     padding: 40px 60px 50px;
     width: 100%;
 }
+
+.content .card-default {
+    padding: 16px;
+    background-color: rgba(var(--light-color), 1);
+    border-radius: 12px;
+    border: var(--border-style);
+}
+
+.content .card-caption .caption-name {
+    font-size: 0.938rem;
+    color: rgba(var(--dark-color), 0.62);
+    margin-bottom: 8px;
+}
+
+.content .card-caption .caption-value {
+    font-size: 1.5rem;
+    font-family: var(--semibold-font);
+    color: rgba(var(--dark-color), 1);
+}
+
+.content .card-default .wrapper-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 9999px;
+    border: var(--border-style);
+}
 /* END CONTENT DASHBOARD STYLE */
 
 

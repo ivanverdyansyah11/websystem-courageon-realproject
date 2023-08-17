@@ -22,10 +22,16 @@
                         <div class="input-wrapper w-100">
                             <input type="email" class="input" autocomplete="off" placeholder="Enter your email.."
                                 name="email">
+                            @error('email')
+                                <p class="caption-error mt-2">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="input-wrapper w-100">
                             <input type="password" class="input" autocomplete="off" placeholder="Enter your password.."
                                 name="password">
+                            @error('password')
+                                <p class="caption-error mt-2">{{ $message }}</p>
+                            @enderror
                         </div>
                         <button type="submit" class="button-form">Login</button>
                     </form>

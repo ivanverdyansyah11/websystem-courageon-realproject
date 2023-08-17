@@ -29,7 +29,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('', '/homepage');
-Route::redirect('/admin', '/admin/login');
+
+Route::fallback(function () {
+    return redirect('admin/login');
+});
 
 Route::controller(HomepageController::class)->group(function () {
     Route::get('/homepage', 'homepage')->name('homepage');
@@ -40,97 +43,111 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/humas', 'humas')->name('humas');
 });
 
-Route::middleware(['guest'])->prefix('admin')->group(function () {
-    // AUTHENTICATION
-    Route::controller(AuthController::class)->group(function () {
-        Route::get('/login', 'index')->name('login');
-        Route::post('/login', 'loginAction')->name('login.action');
+Route::middleware('guest')->group(function () {
+    Route::fallback(function () {
+        return redirect(route('login'));
+    });
 
-        Route::post('/logout', 'logout')->name('logout.action');
+    Route::prefix('admin')->group(function () {
+        // AUTHENTICATION
+        Route::controller(AuthController::class)->group(function () {
+            Route::get('/login', 'index')->name('login');
+            Route::post('/login', 'loginAction')->name('login.action');
+        });
     });
 });
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
-    // DASHBOARD
-    Route::controller(DashboardController::class)->group(function () {
-        Route::get('/dashboard', 'index')->name('dashboard-index');
+Route::middleware('auth')->group(function () {
+    Route::fallback(function () {
+        return redirect(route('dashboard-index'));
     });
 
-    // BERANDA
-    Route::controller(BerandaController::class)->group(function () {
-        Route::get('/beranda', 'index')->name('beranda-index');
-        Route::get('/beranda/edit-header', 'editHeader');
-        Route::post('/beranda/edit-header', 'updateHeader');
-        Route::get('/beranda/edit-opening', 'editOpening');
-        Route::post('/beranda/edit-opening', 'updateOpening');
-        Route::get('/beranda/edit-remark', 'editRemark');
-        Route::post('/beranda/edit-remark', 'updateRemark');
-        Route::get('/beranda/edit-history', 'editHistory');
-        Route::post('/beranda/edit-history', 'updateHistory');
-    });
+    Route::prefix('admin')->group(function () {
+        Route::controller(AuthController::class)->group(function () {
+            Route::post('/logout', 'logout')->name('logout.action');
+        });
 
-    // PROFIL
-    Route::controller(ProfilController::class)->group(function () {
-        Route::get('/profil', 'index')->name('profil-index');
-        Route::get('/profil/edit-header', 'editHeader');
-        Route::post('/profil/edit-header', 'updateHeader');
-    });
+        // DASHBOARD
+        Route::controller(DashboardController::class)->group(function () {
+            Route::get('/dashboard', 'index')->name('dashboard-index');
+        });
 
-    Route::controller(VisiMisiController::class)->group(function () {
-        Route::get('/profil/visi-misi', 'index')->name('visi-misi-index');
-        Route::get('/profil/visi-misi/edit-visi-misi', 'editVisionMission');
-        Route::post('/profil/visi-misi/edit-visi-misi', 'updateVisionMission');
-        Route::get('/profil/visi-misi/edit-motto', 'editMotto');
-        Route::post('/profil/visi-misi/edit-motto', 'updateMotto');
-    });
+        // BERANDA
+        Route::controller(BerandaController::class)->group(function () {
+            Route::get('/beranda', 'index')->name('beranda-index');
+            Route::get('/beranda/edit-header', 'editHeader');
+            Route::post('/beranda/edit-header', 'updateHeader');
+            Route::get('/beranda/edit-opening', 'editOpening');
+            Route::post('/beranda/edit-opening', 'updateOpening');
+            Route::get('/beranda/edit-remark', 'editRemark');
+            Route::post('/beranda/edit-remark', 'updateRemark');
+            Route::get('/beranda/edit-history', 'editHistory');
+            Route::post('/beranda/edit-history', 'updateHistory');
+        });
 
-    Route::controller(LogoMarsController::class)->group(function () {
-        Route::get('/profil/logo-mars', 'index')->name('logo-mars-index');
-        Route::get('/profil/logo-mars/edit-logo', 'editLogo');
-        Route::post('/profil/logo-mars/edit-logo', 'updateLogo');
-        Route::get('/profil/logo-mars/edit-mars', 'editMars');
-        Route::post('/profil/logo-mars/edit-mars', 'updateMars');
-    });
+        // PROFIL
+        Route::controller(ProfilController::class)->group(function () {
+            Route::get('/profil', 'index')->name('profil-index');
+            Route::get('/profil/edit-header', 'editHeader');
+            Route::post('/profil/edit-header', 'updateHeader');
+        });
 
-    Route::controller(ManajemenController::class)->group(function () {
-        Route::get('/profil/manajemen', 'index')->name('manajemen-index');
-        Route::get('/profil/manajemen/detail/{id}', 'detail')->name('manajemen-detail');
-        Route::get('/profil/manajemen/tambah', 'create')->name('manajemen-create');
-        Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');
-        Route::get('/profil/manajemen/edit/{id}', 'edit')->name('manajemen-edit');
-        Route::post('/profil/manajemen/edit/{id}', 'update')->name('manajemen-update');
-        Route::post('/profil/manajemen/delete/{id}', 'delete')->name('manajemen-delete');
-    });
+        Route::controller(VisiMisiController::class)->group(function () {
+            Route::get('/profil/visi-misi', 'index')->name('visi-misi-index');
+            Route::get('/profil/visi-misi/edit-visi-misi', 'editVisionMission');
+            Route::post('/profil/visi-misi/edit-visi-misi', 'updateVisionMission');
+            Route::get('/profil/visi-misi/edit-motto', 'editMotto');
+            Route::post('/profil/visi-misi/edit-motto', 'updateMotto');
+        });
 
-    Route::controller(GuruController::class)->group(function () {
-        Route::get('/profil/guru', 'index')->name('guru-index');
-    });
+        Route::controller(LogoMarsController::class)->group(function () {
+            Route::get('/profil/logo-mars', 'index')->name('logo-mars-index');
+            Route::get('/profil/logo-mars/edit-logo', 'editLogo');
+            Route::post('/profil/logo-mars/edit-logo', 'updateLogo');
+            Route::get('/profil/logo-mars/edit-mars', 'editMars');
+            Route::post('/profil/logo-mars/edit-mars', 'updateMars');
+        });
 
-    Route::controller(PegawaiController::class)->group(function () {
-        Route::get('/profil/pegawai', 'index')->name('pegawai-index');
-    });
+        Route::controller(ManajemenController::class)->group(function () {
+            Route::get('/profil/manajemen', 'index')->name('manajemen-index');
+            Route::get('/profil/manajemen/detail/{id}', 'detail')->name('manajemen-detail');
+            Route::get('/profil/manajemen/tambah', 'create')->name('manajemen-create');
+            Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');
+            Route::get('/profil/manajemen/edit/{id}', 'edit')->name('manajemen-edit');
+            Route::post('/profil/manajemen/edit/{id}', 'update')->name('manajemen-update');
+            Route::post('/profil/manajemen/delete/{id}', 'delete')->name('manajemen-delete');
+        });
 
-    Route::controller(KontakController::class)->group(function () {
-        Route::get('/profil/kontak', 'index')->name('kontak-index');
-    });
+        Route::controller(GuruController::class)->group(function () {
+            Route::get('/profil/guru', 'index')->name('guru-index');
+        });
 
-    // AKADEMIK
-    Route::controller(AkademikController::class)->group(function () {
-        Route::get('/akademik', 'index')->name('akademik-index');
-    });
+        Route::controller(PegawaiController::class)->group(function () {
+            Route::get('/profil/pegawai', 'index')->name('pegawai-index');
+        });
 
-    // KESISWAAN
-    Route::controller(KesiswaanController::class)->group(function () {
-        Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
-    });
+        Route::controller(KontakController::class)->group(function () {
+            Route::get('/profil/kontak', 'index')->name('kontak-index');
+        });
 
-    // SARANA & PRASARANA
-    Route::controller(SaranaController::class)->group(function () {
-        Route::get('/sarana', 'index')->name('sarana-index');
-    });
+        // AKADEMIK
+        Route::controller(AkademikController::class)->group(function () {
+            Route::get('/akademik', 'index')->name('akademik-index');
+        });
 
-    // HUMAS
-    Route::controller(HumasController::class)->group(function () {
-        Route::get('/humas', 'index')->name('humas-index');
+        // KESISWAAN
+        Route::controller(KesiswaanController::class)->group(function () {
+            Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
+        });
+
+        // SARANA & PRASARANA
+        Route::controller(SaranaController::class)->group(function () {
+            Route::get('/sarana', 'index')->name('sarana-index');
+        });
+
+        // HUMAS
+        Route::controller(HumasController::class)->group(function () {
+            Route::get('/humas', 'index')->name('humas-index');
+        });
     });
 });
