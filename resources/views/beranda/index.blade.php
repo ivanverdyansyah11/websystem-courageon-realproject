@@ -170,8 +170,8 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($section_history->banner)
-                                    <img src="{{ asset('storage/' . $section_history->banner) }}" class="img-notfound"
-                                        alt="Banner Section Sejarah" width="80">
+                                    <img src="{{ asset('assets/img/beranda-images/sejarah-image/' . $section_history->banner) }}"
+                                        class="img-notfound" alt="Banner Section Sejarah" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Image Not Found" width="80">
@@ -595,7 +595,8 @@
                 success: function(data) {
                     $('[data-value="title_history"]').val(data.title_history);
                     $('[data-value="description_history"]').val(data.description);
-                    $('[data-value="banner_history"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_history"]').attr("src",
+                        "/assets/img/beranda-images/sejarah-image/" + data.banner);
                 }
             });
         });
@@ -609,7 +610,8 @@
                     $('[data-value="title_history"]').val(data.title_history);
                     $('[data-value="description_history"]').val(data.description);
                     $('[data-value="oldImage_history"]').val(data.banner);
-                    $('[data-value="banner_history"]').attr("src", "/storage/" + data.banner);
+                    $('[data-value="banner_history"]').attr("src",
+                        "/assets/img/beranda-images/sejarah-image/" + data.banner);
                 }
             });
         });

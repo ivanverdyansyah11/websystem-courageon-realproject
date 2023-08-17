@@ -18,6 +18,7 @@ class CreateHistoryHomesTable extends Migration
             $table->string('banner');
             $table->string('title_history');
             $table->text('description');
+            $table->string('button');
             $table->timestamps();
         });
     }
