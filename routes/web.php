@@ -145,6 +145,12 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(PegawaiController::class)->group(function () {
             Route::get('/profil/pegawai', 'index')->name('pegawai-index');
+            Route::get('/profil/pegawai/detail/{id}', 'detail')->name('pegawai-detail');
+            Route::get('/profil/pegawai/tambah', 'create')->name('pegawai-create');
+            Route::post('/profil/pegawai/tambah', 'store')->name('pegawai-store');
+            Route::get('/profil/pegawai/edit/{id}', 'edit')->name('pegawai-edit');
+            Route::post('/profil/pegawai/edit/{id}', 'update')->name('pegawai-update');
+            Route::post('/profil/pegawai/delete/{id}', 'delete')->name('pegawai-delete');
         });
 
         Route::controller(KontakController::class)->group(function () {
