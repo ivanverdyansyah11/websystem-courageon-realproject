@@ -280,6 +280,34 @@
     </div>
     {{-- END MODAL DETAIL COURSE --}}
 
+    {{-- MODAL EDIT COURSE --}}
+    <div class="modal fade" id="editCourseModal" tabindex="-1" aria-labelledby="editCourseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Mata Pelajaran</h3>
+                <form id="editCourse" method="POST" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" name="name"
+                            data-value="name_course">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="jam_per_minggu">Jam Per Minggu</label>
+                        <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
+                            autocomplete="off" data-value="hours_course">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT COURSE --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
@@ -319,6 +347,19 @@
                 success: function(data) {
                     $('[data-value="name_course"]').val(data.name);
                     $('[data-value="hours_course"]').val(data.hours_per_week + ' hours');
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editCourseModal"]', function() {
+            let id = $(this).data('id');
+            $('#editCourse').attr('action', '/admin/profil/edit-course/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/edit-course/' + id,
+                success: function(data) {
+                    $('[data-value="name_course"]').val(data.name);
+                    $('[data-value="hours_course"]').val(data.hours_per_week);
                 }
             });
         });

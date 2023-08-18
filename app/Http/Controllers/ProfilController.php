@@ -78,47 +78,16 @@ class ProfilController extends Controller
     function updateCourse($id, Request $request)
     {
         $validatedData = $request->validate([
-            'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
-            'place_of_birth' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
-            'position' => 'required|string|max:255',
-            'gender' => 'required|string',
-            'status' => 'string',
-            'highest_rank' => 'nullable|string|max:255',
-            'room_type' => 'nullable|max:255',
-            'tmt' => 'nullable|date',
-            'last_number_skp' => 'nullable|string|max:255',
-            'last_date_skp' => 'nullable|date',
-            'work_tenure' => 'nullable|date',
-            'first_number_skp' => 'nullable|string|max:255',
-            'first_date_skp' => 'nullable|date',
-            'salary_increase' => 'nullable|date',
-            'employee_card_number' => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
+            'hours_per_week' => 'required|string|max:255',
         ]);
 
-        if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
-            unlink($oldImagePath);
+        $course = Course::where('id', $id)->first()->update($validatedData);
 
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
-            $validatedData['image'] = $imageName;
+        if ($course) {
+            return redirect(route('profil-index'))->with('success', 'Berhasil Edit Mata Pelajaran!');
         } else {
-            $validatedData['image'] = $request->oldImage;
-        }
-
-        if ($validatedData['status'] == '-') {
-            $validatedData['status'] = null;
-        }
-
-        $employee = Employee::where('id', $id)->first()->update($validatedData);
-
-        if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
-        } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+            return redirect(route('profil-index'))->with('failed', 'Gagal Edit Mata Pelajaran!');
         }
     }
 
