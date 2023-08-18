@@ -19,6 +19,12 @@ class ManajemenController extends Controller
         ]);
     }
 
+    function detailSection()
+    {
+        $section_management = SectionManagement::first();
+        return response()->json($section_management);
+    }
+
     function detail($id)
     {
         $employee = Employee::where('id', $id)->first();
@@ -95,6 +101,22 @@ class ManajemenController extends Controller
             return redirect(route('manajemen-index'))->with('success', 'Berhasil Tambah Manajemen Sekolah!');
         } else {
             return redirect(route('manajemen-create'))->with('failed', 'Gagal Tambah Manajemen Sekolah!');
+        }
+    }
+
+    function updateSection($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_section' => 'required|string|max:255',
+            'button' => 'required|string|max:255',
+        ]);
+
+        $employee = Employee::where('id', $id)->first()->update($validatedData);
+
+        if ($employee) {
+            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
+        } else {
+            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
         }
     }
 

@@ -125,6 +125,9 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(ManajemenController::class)->group(function () {
             Route::get('/profil/manajemen', 'index')->name('manajemen-index');
+            Route::get('/profil/manajemen/detail-section', 'detailSection')->name('section-manajemen-detail');
+            Route::post('/profil/manajemen/edit-section', 'updateSection')->name('section-manajemen-update');
+
             Route::get('/profil/manajemen/detail/{id}', 'detail')->name('manajemen-detail');
             Route::get('/profil/manajemen/tambah', 'create')->name('manajemen-create');
             Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');

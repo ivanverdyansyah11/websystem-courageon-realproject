@@ -208,22 +208,22 @@
         $(document).on('click', '[data-bs-target="#detailSectionManagementModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/beranda/edit-opening',
+                url: '/admin/profil/manajemen/detail-section',
                 success: function(data) {
-                    $('[data-value="title_opening"]').val(data.title_opening);
-                    $('[data-value="description_opening"]').val(data.description);
+                    $('[data-value="title_management"]').val(data.title_section);
+                    $('[data-value="button_management"]').val(data.button);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionOpeningModal"]', function() {
-            $('#editSectionOpening').attr('action', '/admin/beranda/edit-opening');
+        $(document).on('click', '[data-bs-target="#editSectionManagementModal"]', function() {
+            $('#editSectionManagement').attr('action', '/admin/profil/manajemen/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/beranda/edit-opening',
+                url: '/admin/profil/manajemen/detail-section',
                 success: function(data) {
-                    $('[data-value="title_opening"]').val(data.title_opening);
-                    $('[data-value="description_opening"]').val(data.description);
+                    $('[data-value="title_management"]').val(data.title_section);
+                    $('[data-value="button_management"]').val(data.button);
                 }
             });
         });
