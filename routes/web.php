@@ -104,6 +104,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/profil/add-course', 'storeCourse')->name('mata-pelajaran-store');
             Route::get('/profil/edit-course/{id}', 'editCourse');
             Route::post('/profil/edit-course/{id}', 'updateCourse');
+            Route::post('/profil/delete-course/{id}', 'deleteCourse');
         });
 
         Route::controller(VisiMisiController::class)->group(function () {

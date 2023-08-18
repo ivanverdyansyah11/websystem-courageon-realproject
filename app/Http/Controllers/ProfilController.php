@@ -91,21 +91,16 @@ class ProfilController extends Controller
         }
     }
 
-    function delete($id)
+    function deleteCourse($id)
     {
-        $employee = Employee::where('id', $id)->first();
+        $course = Course::where('id', $id)->first();
 
-        if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
-            unlink($imagePath);
-        }
+        $course = $course->delete();
 
-        $employee = $employee->delete();
-
-        if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Hapus Manajemen Sekolah!');
+        if ($course) {
+            return redirect(route('profil-index'))->with('success', 'Berhasil Hapus Mata Pelajaran!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
+            return redirect(route('profil-index'))->with('failed', 'Gagal Hapus Mata Pelajaran!');
         }
     }
 }

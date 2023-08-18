@@ -308,6 +308,31 @@
     </div>
     {{-- END MODAL EDIT COURSE --}}
 
+    {{-- MODAL DELETE COURSE --}}
+    <div class="modal fade" id="deleteCourseModal" tabindex="-1" aria-labelledby="deleteCourseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Mata Pelajaran</h3>
+                <form id="deleteCourse" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Mata Pelajaran Sekolah: Apakah Anda yakin
+                        ingin
+                        menghapus mata pelajaran sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan mata pelajaran sekolah akan dihapus secara permanen dari
+                        sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Mata Pelajaran</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE COURSE --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
@@ -362,6 +387,11 @@
                     $('[data-value="hours_course"]').val(data.hours_per_week);
                 }
             });
+        });
+
+        $(document).on('click', '[data-bs-target="#deleteCourseModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteCourse').attr('action', '/admin/profil/delete-course/' + id);
         });
 
         const tagEditHeader = document.querySelector('.tag-edit-header');
