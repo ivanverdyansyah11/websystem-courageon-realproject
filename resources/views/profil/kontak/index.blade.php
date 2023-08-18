@@ -86,7 +86,8 @@
                             data-value="title_section" name="title_section">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
@@ -116,11 +117,11 @@
             });
         });
 
-        const tagEditBanner = document.querySelector('.tag-edit-banner');
-        const inputEditBanner = document.querySelector('.input-edit-banner');
+        // const tagEditBanner = document.querySelector('.tag-edit-banner');
+        // const inputEditBanner = document.querySelector('.input-edit-banner');
 
-        inputEditBanner.addEventListener('change', function() {
-            tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
-        });
+        // inputEditBanner.addEventListener('change', function() {
+        //     tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
+        // });
     </script>
 @endsection
