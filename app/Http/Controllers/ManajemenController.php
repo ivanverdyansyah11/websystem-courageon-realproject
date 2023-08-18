@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\SectionManagement;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,7 @@ class ManajemenController extends Controller
     {
         return view('profil.manajemen.index', [
             'title' => 'Profil > Manajemen',
+            'section' => SectionManagement::first(),
             'managements' => Employee::where('role_employees_id', '1')->get(),
         ]);
     }

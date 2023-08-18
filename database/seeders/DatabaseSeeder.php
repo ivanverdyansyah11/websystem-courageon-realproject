@@ -14,6 +14,7 @@ use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
+use App\Models\SectionManagement;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -117,6 +118,11 @@ class DatabaseSeeder extends Seeder
         Course::create([
             'name' => 'PPKN',
             'hours_per_week' => '10',
+        ]);
+
+        SectionManagement::create([
+            'title_section' => 'Data Manajemen SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua',
         ]);
 
         Employee::create([

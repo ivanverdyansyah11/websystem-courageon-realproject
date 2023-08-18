@@ -13,6 +13,43 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Section Manajemen</h5>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Judul Header</div>
+                            <div class="col data-header">Button</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 table-row table-border">
+                        <div class="row table-data gap-4 align-items-center justify-content-between">
+                            <div class="col data-value">{{ $section->title_section }}</div>
+                            <div class="col data-value">{{ $section->button }}</div>
+                            <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                <div class="wrapper-action d-flex">
+                                    <button type="button"
+                                        class="button-action button-detail d-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionManagementModal">
+                                        <div class="detail-icon"></div>
+                                    </button>
+                                    <button type="button"
+                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#editSectionManagementModal">
+                                        <div class="edit-icon"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Manajemen Sekolah</h5>
                 <a href="{{ route('manajemen-create') }}" class="d-none d-md-inline-block button-default">Tambah
                     Manajemen</a>
@@ -78,6 +115,72 @@
         </div>
     </div>
 
+    {{-- MODAL DETAIL SECTION MANAGEMENT --}}
+    <div class="modal fade" id="detailSectionManagementModal" tabindex="-1"
+        aria-labelledby="detailSectionManagementModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Section Manajemen</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Section</label>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_management"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_management" disabled>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL SECTION MANAGEMENT --}}
+
+    {{-- MODAL EDIT SECTION REMARK --}}
+    <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Sambutan</h3>
+                <form id="editSectionRemark" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_remark">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-remark"
+                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="banner" class="input-edit-remark" name="banner">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Sambutan</label>
+                        <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
+                            data-value="title_remark">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="pesan">Pesan</label>
+                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="4"
+                            data-value="message_remark"></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Close Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT SECTION REMARK --}}
+
     {{-- MODAL DELETE SECTION HEADER --}}
     <div class="modal fade" id="deleteManagementModal" tabindex="-1" aria-labelledby="deleteManagementModalLabel"
         aria-hidden="true">
@@ -102,6 +205,29 @@
     {{-- END MODAL DELETE SECTION HEADER --}}
 
     <script>
+        $(document).on('click', '[data-bs-target="#detailSectionManagementModal"]', function() {
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-opening',
+                success: function(data) {
+                    $('[data-value="title_opening"]').val(data.title_opening);
+                    $('[data-value="description_opening"]').val(data.description);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editSectionOpeningModal"]', function() {
+            $('#editSectionOpening').attr('action', '/admin/beranda/edit-opening');
+            $.ajax({
+                type: 'get',
+                url: '/admin/beranda/edit-opening',
+                success: function(data) {
+                    $('[data-value="title_opening"]').val(data.title_opening);
+                    $('[data-value="description_opening"]').val(data.description);
+                }
+            });
+        });
+
         $(document).on('click', '[data-bs-target="#deleteManagementModal"]', function() {
             let id = $(this).data('id');
             $('#deleteManagement').attr('action', '/admin/profil/manajemen/delete/' + id);
