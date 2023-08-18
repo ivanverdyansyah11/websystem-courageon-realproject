@@ -98,30 +98,27 @@ class GuruController extends Controller
         }
     }
 
-    function editManagement()
-    {
-        $managements = Employee::where('role_employees_id', '1')->get();
-        return response()->json($managements);
-    }
-
     function edit($id)
     {
-        return view('profil.manajemen.edit', [
-            'title' => 'Profil > Edit Manajemen',
-            'management' => Employee::where('id', $id)->first(),
+        return view('profil.guru.edit', [
+            'title' => 'Profil > Edit Guru',
+            'teacher' => Employee::with('course')->where('id', $id)->first(),
+            'courses' => Course::all(),
         ]);
     }
 
     function update($id, Request $request)
     {
         $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:255',
-            'place_of_birth' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
+            'nip' => 'required|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'date_of_birth' => 'nullable|date',
             'position' => 'required|string|max:255',
             'gender' => 'required|string',
-            'status' => 'string',
+            'status' => 'nullable|string',
+            'course_id' => 'required|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
             'tmt' => 'nullable|date',
@@ -135,12 +132,12 @@ class GuruController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/profil-images/guru-image/') . $request->oldImage;
             unlink($oldImagePath);
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $image->move(public_path('assets/img/profil-images/guru-image/'), $imageName);
             $validatedData['image'] = $imageName;
         } else {
             $validatedData['image'] = $request->oldImage;
@@ -153,9 +150,9 @@ class GuruController extends Controller
         $employee = Employee::where('id', $id)->first()->update($validatedData);
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
+            return redirect(route('guru-index'))->with('success', 'Berhasil Edit Guru Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+            return redirect(route('guru-create'))->with('failed', 'Gagal Edit Guru Sekolah!');
         }
     }
 
