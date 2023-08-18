@@ -32,12 +32,12 @@
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
                                         class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailSectionManagementModal">
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionStaffModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
                                         class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editSectionManagementModal">
+                                        data-bs-toggle="modal" data-bs-target="#editSectionStaffModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -115,22 +115,22 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL SECTION MANAGEMENT --}}
-    <div class="modal fade" id="detailSectionManagementModal" tabindex="-1"
-        aria-labelledby="detailSectionManagementModalLabel" aria-hidden="true">
+    {{-- MODAL DETAIL SECTION STAFF --}}
+    <div class="modal fade" id="detailSectionStaffModal" tabindex="-1" aria-labelledby="detailSectionStaffModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Manajemen</h3>
+                <h3 class="title">Detail Section Staff</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_management"
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_staff"
                             disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_management" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_staff"
+                            disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -139,9 +139,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION MANAGEMENT --}}
+    {{-- END MODAL DETAIL SECTION STAFF --}}
 
-    {{-- MODAL EDIT SECTION MANAGEMENT --}}
+    {{-- MODAL EDIT SECTION STAFF --}}
     <div class="modal fade" id="editSectionManagementModal" tabindex="-1"
         aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION MANAGEMENT --}}
+    {{-- END MODAL EDIT SECTION STAFF --}}
 
     {{-- MODAL DELETE SECTION HEADER --}}
     <div class="modal fade" id="deletestaffModal" tabindex="-1" aria-labelledby="deletestaffModalLabel"
@@ -194,25 +194,25 @@
     {{-- END MODAL DELETE SECTION HEADER --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailSectionManagementModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionStaffModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/manajemen/detail-section',
+                url: '/admin/profil/pegawai/detail-section',
                 success: function(data) {
-                    $('[data-value="title_management"]').val(data.title_section);
-                    $('[data-value="button_management"]').val(data.button);
+                    $('[data-value="title_staff"]').val(data.title_section);
+                    $('[data-value="button_staff"]').val(data.button);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionManagementModal"]', function() {
-            $('#editSectionManagement').attr('action', '/admin/profil/manajemen/edit-section');
+        $(document).on('click', '[data-bs-target="#editSectionStaffModal"]', function() {
+            $('#editSectionStaff').attr('action', '/admin/profil/pegawai/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/manajemen/detail-section',
+                url: '/admin/profil/pegawai/detail-section',
                 success: function(data) {
-                    $('[data-value="title_management"]').val(data.title_section);
-                    $('[data-value="button_management"]').val(data.button);
+                    $('[data-value="title_staff"]').val(data.title_section);
+                    $('[data-value="button_staff"]').val(data.button);
                 }
             });
         });
