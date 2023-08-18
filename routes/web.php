@@ -131,6 +131,12 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(GuruController::class)->group(function () {
             Route::get('/profil/guru', 'index')->name('guru-index');
+            Route::get('/profil/guru/detail/{id}', 'detail')->name('guru-detail');
+            Route::get('/profil/guru/tambah', 'create')->name('guru-create');
+            Route::post('/profil/guru/tambah', 'store')->name('guru-store');
+            Route::get('/profil/guru/edit/{id}', 'edit')->name('guru-edit');
+            Route::post('/profil/guru/edit/{id}', 'update')->name('guru-update');
+            Route::post('/profil/guru/delete/{id}', 'delete')->name('guru-delete');
         });
 
         Route::controller(PegawaiController::class)->group(function () {
