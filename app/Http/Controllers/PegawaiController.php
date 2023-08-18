@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\SectionStaff;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class PegawaiController extends Controller
     {
         return view('profil.pegawai.index', [
             'title' => 'Profil > Pegawai',
+            'section' => SectionStaff::first(),
             'staffs' => Employee::where('role_employees_id', '3')->get(),
         ]);
     }

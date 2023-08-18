@@ -13,6 +13,43 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Section Pegawai</h5>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Judul Header</div>
+                            <div class="col data-header">Button</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 table-row table-border">
+                        <div class="row table-data gap-4 align-items-center justify-content-between">
+                            <div class="col data-value">{{ $section->title_section }}</div>
+                            <div class="col data-value">{{ $section->button }}</div>
+                            <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                <div class="wrapper-action d-flex">
+                                    <button type="button"
+                                        class="button-action button-detail d-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionManagementModal">
+                                        <div class="detail-icon"></div>
+                                    </button>
+                                    <button type="button"
+                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#editSectionManagementModal">
+                                        <div class="edit-icon"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pegawai Sekolah</h5>
                 <a href="{{ route('pegawai-create') }}" class="d-none d-md-inline-block button-default">Tambah
                     Pegawai</a>
@@ -78,8 +115,64 @@
         </div>
     </div>
 
+    {{-- MODAL DETAIL SECTION MANAGEMENT --}}
+    <div class="modal fade" id="detailSectionManagementModal" tabindex="-1"
+        aria-labelledby="detailSectionManagementModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Section Manajemen</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Section</label>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_management"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_management" disabled>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL SECTION MANAGEMENT --}}
+
+    {{-- MODAL EDIT SECTION MANAGEMENT --}}
+    <div class="modal fade" id="editSectionManagementModal" tabindex="-1"
+        aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Manajemen</h3>
+                <form id="editSectionManagement" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Section</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_management" name="title_section">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_management" name="button">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Close Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT SECTION MANAGEMENT --}}
+
     {{-- MODAL DELETE SECTION HEADER --}}
-    <div class="modal fade" id="deletestaffModal" tabindex="-1" aria-labelledby="deletestaffModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deletestaffModal" tabindex="-1" aria-labelledby="deletestaffModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Hapus Pegawai Sekolah</h3>
@@ -101,6 +194,29 @@
     {{-- END MODAL DELETE SECTION HEADER --}}
 
     <script>
+        $(document).on('click', '[data-bs-target="#detailSectionManagementModal"]', function() {
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/manajemen/detail-section',
+                success: function(data) {
+                    $('[data-value="title_management"]').val(data.title_section);
+                    $('[data-value="button_management"]').val(data.button);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editSectionManagementModal"]', function() {
+            $('#editSectionManagement').attr('action', '/admin/profil/manajemen/edit-section');
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/manajemen/detail-section',
+                success: function(data) {
+                    $('[data-value="title_management"]').val(data.title_section);
+                    $('[data-value="button_management"]').val(data.button);
+                }
+            });
+        });
+
         $(document).on('click', '[data-bs-target="#deletestaffModal"]', function() {
             let id = $(this).data('id');
             $('#deletestaff').attr('action', '/admin/profil/pegawai/delete/' + id);
