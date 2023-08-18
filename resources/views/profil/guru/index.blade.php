@@ -146,8 +146,8 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Sambutan</h3>
-                <form id="editSectionManagement" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Section Guru</h3>
+                <form id="editSectionTeacher" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
@@ -205,11 +205,11 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionManagementModal"]', function() {
-            $('#editSectionManagement').attr('action', '/admin/profil/manajemen/edit-section');
+        $(document).on('click', '[data-bs-target="#editSectionTeacherModal"]', function() {
+            $('#editSectionTeacher').attr('action', '/admin/profil/guru/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/manajemen/detail-section',
+                url: '/admin/profil/guru/detail-section',
                 success: function(data) {
                     $('[data-value="title_teacher"]').val(data.title_section);
                     $('[data-value="button_teacher"]').val(data.button);

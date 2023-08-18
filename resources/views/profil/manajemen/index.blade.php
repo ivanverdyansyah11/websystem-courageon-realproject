@@ -146,7 +146,7 @@
         aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Sambutan</h3>
+                <h3 class="title">Edit Section Manajemen</h3>
                 <form id="editSectionManagement" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
