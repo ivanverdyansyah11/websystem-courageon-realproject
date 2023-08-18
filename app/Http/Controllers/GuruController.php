@@ -39,7 +39,7 @@ class GuruController extends Controller
 
         return view('profil.guru.detail', [
             'title' => 'Profil > Detail Guru',
-            'management' => Employee::where('id', $id)->first(),
+            'teacher' => Employee::with('course')->where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
     }
