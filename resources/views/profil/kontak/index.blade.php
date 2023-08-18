@@ -168,30 +168,40 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Kontak Sekolah</h3>
-                <form id="addContact" method="post" class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Tambah Kontak Sekolah</h3>
+                <form action="{{ route('kontak-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
                     <div class="input-wrapper">
                         <label for="icon">Icon</label>
                         <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-icon"
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-icon"
                                 alt="icon Section Sejarah" width="80">
                             <div class="wrapper-image w-100">
-                                <input type="file" id="icon" class="input-edit-icon" name="icon">
+                                <input type="file" id="icon" class="input-add-icon" name="icon">
                             </div>
                         </div>
+                        @error('icon')
+                            <p>{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        @error('name')
+                            <p>{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off" name="link">
+                        @error('link')
+                            <p>{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                        <button type="submit" class="button-default-solid">Tambah Kontak</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
             </div>
@@ -221,11 +231,11 @@
             });
         });
 
-        const tagEditIcon = document.querySelector('.tag-edit-icon');
-        const inputEditIcon = document.querySelector('.input-edit-icon');
+        const tagAddIcon = document.querySelector('.tag-add-icon');
+        const inputAddIcon = document.querySelector('.input-add-icon');
 
-        inputEditIcon.addEventListener('change', function() {
-            tagEditIcon.src = URL.createObjectURL(inputEditIcon.files[0]);
+        inputAddIcon.addEventListener('change', function() {
+            tagAddIcon.src = URL.createObjectURL(inputAddIcon.files[0]);
         });
     </script>
 @endsection

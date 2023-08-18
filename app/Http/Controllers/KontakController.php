@@ -43,4 +43,28 @@ class KontakController extends Controller
         $contact = Contact::where('id', $id)->first();
         return response()->json($contact);
     }
+
+    function storeContact(Request $request)
+    {
+        $validatedData = $request->validate([
+            'icon' => 'required|image|max:2048',
+            'name' => 'required|string|max:255',
+            'link' => 'required|string|max:255',
+        ]);
+
+        if ($validatedData['icon']) {
+            $image = $request->file('icon');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/kontak-image/'), $imageName);
+            $validatedData['icon'] = $imageName;
+        }
+
+        $contact = Contact::create($validatedData);
+
+        if ($contact) {
+            return redirect(route('kontak-index'))->with('success', 'Berhasil Tambah Kontak Sekolah!');
+        } else {
+            return redirect(route('kontak-create'))->with('failed', 'Gagal Tambah Kontak Sekolah!');
+        }
+    }
 }
