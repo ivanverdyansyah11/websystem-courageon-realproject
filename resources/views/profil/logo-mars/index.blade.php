@@ -207,7 +207,7 @@
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
                     </div>
                 </form>
             </div>
@@ -312,7 +312,7 @@
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
                     </div>
                 </form>
             </div>
