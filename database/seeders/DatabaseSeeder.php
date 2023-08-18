@@ -15,6 +15,8 @@ use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionManagement;
+use App\Models\SectionStaff;
+use App\Models\SectionTeacher;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -140,6 +142,11 @@ class DatabaseSeeder extends Seeder
             'first_date_skp' => '2014-08-01',
         ]);
 
+        SectionTeacher::create([
+            'title_section' => 'Data Guru SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua',
+        ]);
+
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'Drs. I Wayan Cenik, M.Pd.',
@@ -160,6 +167,11 @@ class DatabaseSeeder extends Seeder
             'gender' => 'P',
             'course_id' => '2',
             'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+
+        SectionStaff::create([
+            'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua',
         ]);
 
         Employee::create([

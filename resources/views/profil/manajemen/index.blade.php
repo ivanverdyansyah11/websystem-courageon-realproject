@@ -141,7 +141,7 @@
     </div>
     {{-- END MODAL DETAIL SECTION MANAGEMENT --}}
 
-    {{-- MODAL EDIT SECTION REMARK --}}
+    {{-- MODAL EDIT SECTION MANAGEMENT --}}
     <div class="modal fade" id="editSectionManagementModal" tabindex="-1"
         aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION REMARK --}}
+    {{-- END MODAL EDIT SECTION MANAGEMENT --}}
 
     {{-- MODAL DELETE SECTION HEADER --}}
     <div class="modal fade" id="deleteManagementModal" tabindex="-1" aria-labelledby="deleteManagementModalLabel"

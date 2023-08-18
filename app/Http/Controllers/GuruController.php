@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Employee;
+use App\Models\SectionTeacher;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,31 @@ class GuruController extends Controller
     {
         return view('profil.guru.index', [
             'title' => 'Profil > Guru',
+            'section' => SectionTeacher::first(),
             'teachers' => Employee::where('role_employees_id', '2')->get(),
         ]);
+    }
+
+    function detailSection()
+    {
+        $section_teacher = SectionTeacher::first();
+        return response()->json($section_teacher);
+    }
+
+    function updateSection(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_section' => 'required|string|max:255',
+            'button' => 'required|string|max:255',
+        ]);
+
+        $section_teacher = SectionTeacher::first()->update($validatedData);
+
+        if ($section_teacher) {
+            return redirect(route('guru-index'))->with('success', 'Berhasil Edit Section Guru Sekolah!');
+        } else {
+            return redirect(route('guru-create'))->with('failed', 'Gagal Edit Section Guru Sekolah!');
+        }
     }
 
     function detail($id)
