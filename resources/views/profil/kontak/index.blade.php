@@ -200,7 +200,7 @@
     </div>
     {{-- END MODAL ADD CONTACT --}}
 
-    {{-- MODAL ADD CONTACT --}}
+    {{-- MODAL DETAIL CONTACT --}}
     <div class="modal fade" id="detailContactModal" tabindex="-1" aria-labelledby="detailContactModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -217,21 +217,61 @@
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_contact">
+                            data-value="name_contact" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off"
-                            data-value="link_contact">
+                            data-value="link_contact" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Tambah</button>
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL ADD CONTACT --}}
+    {{-- END MODAL DETAIL CONTACT --}}
+
+    {{-- MODAL EDIT CONTACT --}}
+    <div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Kontak Sekolah</h3>
+                <form id="editContact" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="icon">Icon</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_contact">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-icon"
+                                alt="Icon Kontak" width="80" data-value="icon_contact">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="icon" class="input-edit-icon" name="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="nama">Judul Kontak</label>
+                        <input type="text" id="nama" class="input" autocomplete="off"
+                            data-value="name_contact" name="name">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="link">Link</label>
+                        <input type="text" id="link" class="input" autocomplete="off"
+                            data-value="link_contact" name="link">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT CONTACT --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionContactModal"]', function() {
@@ -269,11 +309,34 @@
             });
         });
 
+        $(document).on('click', '[data-bs-target="#editContactModal"]', function() {
+            let id = $(this).data('id');
+            $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/kontak/detail-contact/' + id,
+                success: function(data) {
+                    $('[data-value="icon_contact"]').attr("src",
+                        "/assets/img/profil-images/kontak-image/" + data.icon);
+                    $('[data-value="oldImage_contact"]').val(data.icon);
+                    $('[data-value="name_contact"]').val(data.name);
+                    $('[data-value="link_contact"]').val(data.link);
+                }
+            });
+        });
+
         const tagAddIcon = document.querySelector('.tag-add-icon');
         const inputAddIcon = document.querySelector('.input-add-icon');
 
+        const tagEditIcon = document.querySelector('.tag-edit-icon');
+        const inputEditIcon = document.querySelector('.input-edit-icon');
+
         inputAddIcon.addEventListener('change', function() {
             tagAddIcon.src = URL.createObjectURL(inputAddIcon.files[0]);
+        });
+
+        inputEditIcon.addEventListener('change', function() {
+            tagEditIcon.src = URL.createObjectURL(inputEditIcon.files[0]);
         });
     </script>
 @endsection
