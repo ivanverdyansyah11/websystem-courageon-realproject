@@ -1,4 +1,4 @@
-@extends('templates.main')
+x @extends('templates.main')
 
 @section('container')
     <main class="mt-3">
@@ -374,32 +374,53 @@
                     <div class="mt-3 table-wrapper">
                         <table class="table table-denah">
                             <thead class="desc">
-                                <tr>
-                                    <th class="">
-                                        <div class="d-flex justify-content-center">Kode Ruangan</div>
-                                    </th>
-                                    <th class="">
-                                        <div class="d-flex justify-content-center">Nama Ruangan</div>
-                                    </th>
-                                </tr>
+                            <tr>
+                                <th class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-center w-100">Kode Ruangan</div>
+                                    <div class="d-flex justify-content-center w-100">Nama Ruangan</div>
+                                    <div class="d-flex justify-content-center w-100"></div>
+                                </th>
+
+                            </tr>
                             </thead>
                             <tbody class="text-black">
-                                <tr>
-                                    <td class="">
-                                        <div class="d-flex justify-content-center">A</div>
-                                    </td>
-                                    <td class="">
-                                        <div class="d-flex justify-content-center">Ruang Kelas</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="">
-                                        <div class="d-flex justify-content-center">B</div>
-                                    </td>
-                                    <td class="">
-                                        <div class="d-flex justify-content-center">Ruang Guru</div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-center w-100">A</div>
+                                    <div class="d-flex justify-content-center w-100">Ruang Kelas</div>
+                                    <div class="d-flex justify-content-center w-100">
+                                        <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                            Detail
+                                          </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="collapse" id="collapseExample">
+                                        <div class="">
+                                            Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.
+                                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-center w-100">B</div>
+                                    <div class="d-flex justify-content-center w-100">Ruang Guru</div>
+                                    <div class="d-flex justify-content-center w-100">
+                                        <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                                            Detail
+                                          </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="collapse show" id="collapseExample2">
+                                        <div class="">
+                                            Ruang guru di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan yang nyaman dan baik bagi para guru.
+                                        </div>
+                                </td>
+                            </tr>
+
                             </tbody>
                         </table>
                     </div>

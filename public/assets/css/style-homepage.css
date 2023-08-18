@@ -200,6 +200,10 @@ a{
     height: 100px !important;
     width: 100px !important;
 }
+.btn-sm{
+    padding: 8px 14px;
+    font-size: 12px !important;
+}
 /*general style end */
 
 
@@ -301,9 +305,6 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
     margin-top: 20px;
     width: 100%;
 }
-.pin-img:nth-child(odd){
-
-}
 @media (min-width: 500px) and (max-width: 900px){
     .pin-container{
         -moz-column-count: 2 !important;
@@ -355,18 +356,11 @@ thead, tbody{
 thead tr th {
     font-weight: 500;
 }
-tbody tr:last-child{
+tbody tr:last-child, tbody tr:nth-last-child(2){
     border-bottom-color: transparent !important;
 }
-thead tr th{
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-tbody tr:last-child td:first-child{
-    border-bottom-left-radius:12px;
-}
-tbody tr:last-child td:last-child{
-    border-bottom-right-radius:12px;
+tbody tr:last-child td{
+    border-top: 1px solid rgba(44, 42, 38, 0.52) !important;
 }
 /*table style*/
 
