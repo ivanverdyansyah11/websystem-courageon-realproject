@@ -77,7 +77,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Kontak Sekolah</h3>
+                <h3 class="title">Edit Kontak Sekolah</h3>
                 <form id="editSectionContact" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
@@ -87,7 +87,7 @@
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
                     </div>
                 </form>
             </div>
@@ -107,7 +107,7 @@
         });
 
         $(document).on('click', '[data-bs-target="#editSectionContactModal"]', function() {
-            $('#editSectionContact').attr('action', '/admin/profil/kontak/detail-section');
+            $('#editSectionContact').attr('action', '/admin/profil/kontak/edit-section');
             $.ajax({
                 type: 'get',
                 url: '/admin/profil/kontak/detail-section',

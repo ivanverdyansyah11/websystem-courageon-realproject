@@ -25,15 +25,14 @@ class KontakController extends Controller
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
-            'button' => 'required|string|max:255',
         ]);
 
-        $section_contact = SectionStaff::first()->update($validatedData);
+        $section_contact = SectionContact::first()->update($validatedData);
 
         if ($section_contact) {
-            return redirect(route('pegawai-index'))->with('success', 'Berhasil Edit Section Pegawai Sekolah!');
+            return redirect(route('kontak-index'))->with('success', 'Berhasil Edit Section Kontak Sekolah!');
         } else {
-            return redirect(route('pegawai-create'))->with('failed', 'Gagal Edit Section Pegawai Sekolah!');
+            return redirect(route('kontak-index'))->with('failed', 'Gagal Edit Section Kontak Sekolah!');
         }
     }
 }
