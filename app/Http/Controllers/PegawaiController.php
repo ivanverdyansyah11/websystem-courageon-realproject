@@ -61,7 +61,7 @@ class PegawaiController extends Controller
             'rank' => 'nullable|string|max:255',
             'position' => 'nullable|string|max:255',
             'gender' => 'required|string',
-            'status' => 'string',
+            'status' => 'nullable|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
             'tmt' => 'nullable|date',
@@ -98,22 +98,24 @@ class PegawaiController extends Controller
 
     function edit($id)
     {
-        return view('profil.manajemen.edit', [
-            'title' => 'Profil > Edit Manajemen',
-            'management' => Employee::where('id', $id)->first(),
+        return view('profil.pegawai.edit', [
+            'title' => 'Profil > Pegawai',
+            'staff' => Employee::where('id', $id)->first(),
         ]);
     }
 
     function update($id, Request $request)
     {
         $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:255',
-            'place_of_birth' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
-            'position' => 'required|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'date_of_birth' => 'nullable|date',
+            'rank' => 'nullable|string|max:255',
+            'position' => 'nullable|string|max:255',
             'gender' => 'required|string',
-            'status' => 'string',
+            'status' => 'nullable|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
             'tmt' => 'nullable|date',
@@ -127,12 +129,12 @@ class PegawaiController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/profil-images/pegawai-image/') . $request->oldImage;
             unlink($oldImagePath);
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $image->move(public_path('assets/img/profil-images/pegawai-image/'), $imageName);
             $validatedData['image'] = $imageName;
         } else {
             $validatedData['image'] = $request->oldImage;
@@ -145,9 +147,9 @@ class PegawaiController extends Controller
         $employee = Employee::where('id', $id)->first()->update($validatedData);
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
+            return redirect(route('pegawai-index'))->with('success', 'Berhasil Edit Pegawai Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+            return redirect(route('pegawai-create'))->with('failed', 'Gagal Edit Pegawai Sekolah!');
         }
     }
 
