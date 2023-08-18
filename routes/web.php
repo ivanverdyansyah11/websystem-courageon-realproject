@@ -166,6 +166,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/kontak', 'index')->name('kontak-index');
             Route::get('/profil/kontak/detail-section', 'detailSection')->name('section-kontak-detail');
             Route::post('/profil/kontak/edit-section', 'updateSection')->name('section-kontak-update');
+
+            Route::post('/profil/kontak/add', 'store')->name('kontak-store');
+            Route::get('/profil/kontak/detail-contact/{id}', 'detailContact')->name('kontak-detail');
+            Route::post('/profil/kontak/edit-contact/{id}', 'updateContact')->name('kontak-update');
+            Route::post('/profil/kontak/delete-contact/{id}', 'deleteContact')->name('kontak-delete');
         });
 
         // AKADEMIK

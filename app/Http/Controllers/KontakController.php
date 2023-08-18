@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\SectionContact;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class KontakController extends Controller
         return view('profil.kontak.index', [
             'title' => 'Profil > Kontak',
             'section' => SectionContact::first(),
+            'contacts' => Contact::all(),
         ]);
     }
 
@@ -34,5 +36,11 @@ class KontakController extends Controller
         } else {
             return redirect(route('kontak-index'))->with('failed', 'Gagal Edit Section Kontak Sekolah!');
         }
+    }
+
+    function detailContact($id)
+    {
+        $contact = Contact::where('id', $id)->first();
+        return response()->json($contact);
     }
 }

@@ -15,9 +15,9 @@
                 @endif
             </div>
         </div>
-        <div class="row">
+        <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Kontak Sekolah</h5>
+                <h5 class="subtitle">Section Kontak</h5>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -46,6 +46,74 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Kontak Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addContactModal">Tambah
+                    Kontak</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="d-none d-lg-inline-block col-2 data-header">Icon</div>
+                            <div class="col data-header">Nama</div>
+                            <div class="col data-header">Link</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($contacts->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Guru!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($contacts as $contact)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center justify-content-between">
+                                    <div class="d-none d-lg-inline-block col-2 data-value">
+                                        @if ($contact->icon)
+                                            <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}"
+                                                class="img-fluid" alt="Contact Icon" width="40">
+                                        @else
+                                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                                alt="Image Not Found" width="80">
+                                        @endif
+                                    </div>
+                                    <div class="col data-value">{{ $contact->name }}</div>
+                                    <div class="col data-value data-length">{{ $contact->link }}</div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailContactModal"
+                                                data-id="{{ $contact->id }}">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editContactModal"
+                                                data-id="{{ $contact->id }}">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteContactModal"
+                                                data-id="{{ $contact->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -95,6 +163,42 @@
     </div>
     {{-- END MODAL EDIT SECTION CONTACT --}}
 
+    {{-- MODAL ADD CONTACT --}}
+    <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Kontak Sekolah</h3>
+                <form id="addContact" method="post" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="icon">Icon</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-icon"
+                                alt="icon Section Sejarah" width="80">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="icon" class="input-edit-icon" name="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="nama">Judul Kontak</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="link">Link</label>
+                        <input type="text" id="link" class="input" autocomplete="off" name="link">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD CONTACT --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionContactModal"]', function() {
             $.ajax({
@@ -117,11 +221,11 @@
             });
         });
 
-        // const tagEditBanner = document.querySelector('.tag-edit-banner');
-        // const inputEditBanner = document.querySelector('.input-edit-banner');
+        const tagEditIcon = document.querySelector('.tag-edit-icon');
+        const inputEditIcon = document.querySelector('.input-edit-icon');
 
-        // inputEditBanner.addEventListener('change', function() {
-        //     tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
-        // });
+        inputEditIcon.addEventListener('change', function() {
+            tagEditIcon.src = URL.createObjectURL(inputEditIcon.files[0]);
+        });
     </script>
 @endsection

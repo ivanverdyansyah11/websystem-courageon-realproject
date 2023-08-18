@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Auth;
+use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Employee;
 use App\Models\HeaderHome;
@@ -186,6 +187,30 @@ class DatabaseSeeder extends Seeder
 
         SectionContact::create([
             'title_section' => 'Hubungi Kami',
+        ]);
+
+        Contact::create([
+            'icon' => 'email-icon.svg',
+            'name' => 'Email',
+            'link' => 'smanegeri1selat@gmail.com',
+        ]);
+
+        Contact::create([
+            'icon' => 'address-icon.svg',
+            'name' => 'Address',
+            'link' => 'Jl. Baledan, Duda, Kec. Selat, Kabupaten Karangasem, Bali 80862',
+        ]);
+
+        Contact::create([
+            'icon' => 'phone-icon.svg',
+            'name' => 'Phone Number',
+            'link' => '0274 - 513454',
+        ]);
+
+        Contact::create([
+            'icon' => 'fax-icon.svg',
+            'name' => 'FAX',
+            'link' => '0274 - 513454',
         ]);
     }
 }
