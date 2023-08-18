@@ -104,19 +104,19 @@ class ManajemenController extends Controller
         }
     }
 
-    function updateSection($id, Request $request)
+    function updateSection(Request $request)
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
             'button' => 'required|string|max:255',
         ]);
 
-        $employee = Employee::where('id', $id)->first()->update($validatedData);
+        $section_management = SectionManagement::first()->update($validatedData);
 
-        if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
+        if ($section_management) {
+            return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Section Manajemen Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Section Manajemen Sekolah!');
         }
     }
 

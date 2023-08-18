@@ -142,34 +142,23 @@
     {{-- END MODAL DETAIL SECTION MANAGEMENT --}}
 
     {{-- MODAL EDIT SECTION REMARK --}}
-    <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editSectionManagementModal" tabindex="-1"
+        aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Sambutan</h3>
-                <form id="editSectionRemark" method="post" enctype="multipart/form-data"
+                <form id="editSectionManagement" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_remark">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-remark"
-                                alt="Banner Section Sambutan" width="80" data-value="banner_remark">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="banner" class="input-edit-remark" name="banner">
-                            </div>
-                        </div>
+                        <label for="judul">Judul Section</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_management" name="title_section">
                     </div>
                     <div class="input-wrapper">
-                        <label for="judul">Judul Sambutan</label>
-                        <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
-                            data-value="title_remark">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="pesan">Pesan</label>
-                        <textarea id="pesan" class="input" name="message" autocomplete="off" rows="4"
-                            data-value="message_remark"></textarea>
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_management" name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
