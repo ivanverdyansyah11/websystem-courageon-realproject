@@ -136,17 +136,22 @@ class DatabaseSeeder extends Seeder
 
         Employee::create([
             'role_employees_id' => '2',
-            'fullname' => 'I Komang Wirasatya',
-            'image' => 'sample-manajemen.jpg',
-            'place_of_birth' => 'karangasem',
-            'date_of_birth' => '1995-11-23',
-            'highest_rank' => 'SMKN 2014',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
+            'fullname' => 'Drs. I Wayan Cenik, M.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19650428 199512 1 002',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'P',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'Ida Bagus Nyoman Gelgel, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19670110 199203 1 012',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'P',
+            'room_type' => 'Pembina Tk. I / IVb',
         ]);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -35,8 +37,8 @@ class GuruController extends Controller
             $work_tenure = '-';
         }
 
-        return view('profil.manajemen.detail', [
-            'title' => 'Profil > Detail Manajemen',
+        return view('profil.guru.detail', [
+            'title' => 'Profil > Detail Guru',
             'management' => Employee::where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
@@ -44,8 +46,9 @@ class GuruController extends Controller
 
     function create()
     {
-        return view('profil.manajemen.create', [
-            'title' => 'Profil > Manajemen',
+        return view('profil.guru.create', [
+            'title' => 'Profil > Guru',
+            'courses' => Course::all(),
         ]);
     }
 
@@ -55,11 +58,12 @@ class GuruController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:18',
-            'place_of_birth' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
-            'position' => 'required|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'date_of_birth' => 'nullable|date',
+            'position' => 'nullable|string|max:255',
             'gender' => 'required|string',
-            'status' => 'string',
+            'status' => 'required|string',
+            'course_id' => 'required|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
             'tmt' => 'nullable|date',

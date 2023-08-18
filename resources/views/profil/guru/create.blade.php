@@ -13,10 +13,10 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Tambah Manajemen Sekolah</h5>
+                <h5 class="subtitle">Tambah Guru Sekolah</h5>
             </div>
             <div class="col-12">
-                <form action="{{ route('manajemen-store') }}" method="post"
+                <form action="{{ route('guru-store') }}" method="post"
                     class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -102,12 +102,26 @@
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
                                         <select name="status" id="status" class="input">
-                                            <option value="-">Pilih status manajemen</option>
-                                            <option value="pns">Manajemen pns</option>
-                                            <option value="pppk">Manajemen pppk</option>
-                                            <option value="honorer">Manajemen honorer</option>
+                                            <option value="-">Pilih status guru</option>
+                                            <option value="pns">Guru pns</option>
+                                            <option value="pppk">Guru pppk</option>
+                                            <option value="honorer">Guru honorer</option>
                                         </select>
                                         @error('status')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="mata_pelajaran">Mata Pelajaran</label>
+                                        <select name="course_id" id="mata_pelajaran" class="input">
+                                            <option value="-">Pilih Mata Pelajaran</option>
+                                            @foreach ($courses as $course)
+                                                <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('course_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -218,8 +232,8 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="button-wrapper d-flex gap-2">
-                                <button type="submit" class="button-default-solid">Tambah Manajemen</button>
-                                <a href="{{ route('manajemen-index') }}" class="button-default">Batal Tambah</a>
+                                <button type="submit" class="button-default-solid">Tambah Guru</button>
+                                <a href="{{ route('guru-index') }}" class="button-default">Batal Tambah</a>
                             </div>
                         </div>
                     </div>
