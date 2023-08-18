@@ -96,12 +96,14 @@
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailSectionHeaderModal">
+                                                data-bs-toggle="modal" data-bs-target="#detailCourseModal"
+                                                data-id="{{ $course->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editSectionHeaderModal">
+                                                data-bs-toggle="modal" data-bs-target="#editCourseModal"
+                                                data-id="{{ $course->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
@@ -255,7 +257,7 @@
     {{-- MODAL DETAIL COURSE --}}
     <div class="modal fade" id="detailCourseModal" tabindex="-1" aria-labelledby="detailCourseModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Mata Pelajaran</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -313,13 +315,10 @@
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/detail-course' + $id,
+                url: '/admin/profil/edit-course/' + id,
                 success: function(data) {
-                    $('[data-value="title_header"]').val(data.title_header);
-                    $('[data-value="description_header"]').val(data.description);
-                    $('[data-value="button_header"]').val(data.button);
-                    $('[data-value="banner_header"]').attr("src",
-                        "/assets/img/profil-images/header-image/" + data.banner);
+                    $('[data-value="name_course"]').val(data.name);
+                    $('[data-value="hours_course"]').val(data.hours_per_week + ' hours');
                 }
             });
         });

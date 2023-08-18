@@ -71,19 +71,11 @@ class ProfilController extends Controller
 
     function editCourse($id)
     {
-        $course = Course::where('id', $id)->get();
+        $course = Course::where('id', $id)->first();
         return response()->json($course);
     }
 
-    function edit($id)
-    {
-        return view('profil.manajemen.edit', [
-            'title' => 'Profil > Edit Manajemen',
-            'management' => Employee::where('id', $id)->first(),
-        ]);
-    }
-
-    function update($id, Request $request)
+    function updateCourse($id, Request $request)
     {
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',

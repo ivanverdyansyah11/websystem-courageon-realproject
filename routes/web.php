@@ -102,6 +102,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/edit-header', 'editHeader');
             Route::post('/profil/edit-header', 'updateHeader');
             Route::post('/profil/add-course', 'storeCourse')->name('mata-pelajaran-store');
+            Route::get('/profil/edit-course/{id}', 'editCourse');
         });
 
         Route::controller(VisiMisiController::class)->group(function () {
