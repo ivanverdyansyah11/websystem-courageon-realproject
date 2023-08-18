@@ -252,6 +252,32 @@
     </div>
     {{-- END MODAL ADD COURSE --}}
 
+    {{-- MODAL DETAIL COURSE --}}
+    <div class="modal fade" id="detailCourseModal" tabindex="-1" aria-labelledby="detailCourseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Detail Mata Pelajaran</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" disabled
+                            data-value="name_course">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="jam_per_minggu">Jam Per Minggu</label>
+                        <input type="text" id="jam_per_minggu" class="input" disabled autocomplete="off"
+                            data-value="hours_course">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL COURSE --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
@@ -277,6 +303,21 @@
                     $('[data-value="description_header"]').val(data.description);
                     $('[data-value="button_header"]').val(data.button);
                     $('[data-value="oldImage_header"]').val(data.banner);
+                    $('[data-value="banner_header"]').attr("src",
+                        "/assets/img/profil-images/header-image/" + data.banner);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailCourseModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/detail-course' + $id,
+                success: function(data) {
+                    $('[data-value="title_header"]').val(data.title_header);
+                    $('[data-value="description_header"]').val(data.description);
+                    $('[data-value="button_header"]').val(data.button);
                     $('[data-value="banner_header"]').attr("src",
                         "/assets/img/profil-images/header-image/" + data.banner);
                 }
