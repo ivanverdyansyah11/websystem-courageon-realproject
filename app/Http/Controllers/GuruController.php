@@ -161,16 +161,16 @@ class GuruController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
+            $imagePath = public_path('assets/img/profil-images/guru-image/') . $employee->image;
             unlink($imagePath);
         }
 
         $employee = $employee->delete();
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Hapus Manajemen Sekolah!');
+            return redirect(route('guru-index'))->with('success', 'Berhasil Hapus Guru Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
+            return redirect(route('guru-create'))->with('failed', 'Gagal Hapus Guru Sekolah!');
         }
     }
 }
