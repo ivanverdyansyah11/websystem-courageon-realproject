@@ -138,6 +138,9 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(GuruController::class)->group(function () {
             Route::get('/profil/guru', 'index')->name('guru-index');
+            Route::get('/profil/guru/detail-section', 'detailSection')->name('section-guru-detail');
+            Route::post('/profil/guru/edit-section', 'updateSection')->name('section-guru-update');
+
             Route::get('/profil/guru/detail/{id}', 'detail')->name('guru-detail');
             Route::get('/profil/guru/tambah', 'create')->name('guru-create');
             Route::post('/profil/guru/tambah', 'store')->name('guru-store');

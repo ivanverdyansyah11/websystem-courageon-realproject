@@ -120,17 +120,17 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Manajemen</h3>
+                <h3 class="title">Detail Section Guru</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_management"
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_teacher"
                             disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_management" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_teacher"
+                            disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -153,12 +153,12 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_management" name="title_section">
+                            data-value="title_teacher" name="title_section">
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_management" name="button">
+                            data-value="button_teacher" name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -194,13 +194,13 @@
     {{-- END MODAL DELETE SECTION HEADER --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailSectionManagementModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionTeacherModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/manajemen/detail-section',
+                url: '/admin/profil/guru/detail-section',
                 success: function(data) {
-                    $('[data-value="title_management"]').val(data.title_section);
-                    $('[data-value="button_management"]').val(data.button);
+                    $('[data-value="title_teacher"]').val(data.title_section);
+                    $('[data-value="button_teacher"]').val(data.button);
                 }
             });
         });
@@ -211,8 +211,8 @@
                 type: 'get',
                 url: '/admin/profil/manajemen/detail-section',
                 success: function(data) {
-                    $('[data-value="title_management"]').val(data.title_section);
-                    $('[data-value="button_management"]').val(data.button);
+                    $('[data-value="title_teacher"]').val(data.title_section);
+                    $('[data-value="button_teacher"]').val(data.button);
                 }
             });
         });
