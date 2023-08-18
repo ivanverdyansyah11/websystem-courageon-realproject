@@ -13,10 +13,10 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Tambah Manajemen Sekolah</h5>
+                <h5 class="subtitle">Tambah Pegawai Sekolah</h5>
             </div>
             <div class="col-12">
-                <form action="{{ route('manajemen-store') }}" method="post"
+                <form action="{{ route('pegawai-store') }}" method="post"
                     class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -81,6 +81,16 @@
                                         <input type="text" id="position" class="input" autocomplete="off"
                                             name="position">
                                         @error('position')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="rank">Pangkat/ Golongan</label>
+                                        <input type="text" id="rank" class="input" autocomplete="off"
+                                            name="rank">
+                                        @error('rank')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -218,8 +228,8 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="button-wrapper d-flex gap-2">
-                                <button type="submit" class="button-default-solid">Tambah Manajemen</button>
-                                <a href="{{ route('manajemen-index') }}" class="button-default">Batal Tambah</a>
+                                <button type="submit" class="button-default-solid">Tambah Pegawai</button>
+                                <a href="{{ route('pegawai-index') }}" class="button-default">Batal Tambah</a>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ class CreateEmployeesTable extends Migration
             $table->string('place_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->string('rank')->nullable();
-            $table->string('position');
+            $table->string('position')->nullable();
             $table->enum('gender', ['L', 'P']);
             $table->enum('status', ['pns', 'pppk', 'honorer'])->nullable();
             $table->string('course_id')->nullable();

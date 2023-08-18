@@ -55,7 +55,7 @@ class PegawaiController extends Controller
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'nullable|string|max:255',
             'date_of_birth' => 'nullable|date',
             'rank' => 'nullable|string|max:255',
@@ -81,7 +81,7 @@ class PegawaiController extends Controller
             $validatedData['image'] = $imageName;
         }
 
-        $validatedData['role_employees_id'] = '1';
+        $validatedData['role_employees_id'] = '3';
 
         if ($validatedData['status'] == '-') {
             $validatedData['status'] = null;
@@ -108,7 +108,7 @@ class PegawaiController extends Controller
     {
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
             'position' => 'required|string|max:255',

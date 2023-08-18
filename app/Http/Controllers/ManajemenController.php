@@ -56,7 +56,7 @@ class ManajemenController extends Controller
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
             'position' => 'required|string|max:255',
@@ -108,7 +108,7 @@ class ManajemenController extends Controller
     {
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
             'position' => 'required|string|max:255',
