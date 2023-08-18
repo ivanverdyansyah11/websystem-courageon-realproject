@@ -164,6 +164,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(KontakController::class)->group(function () {
             Route::get('/profil/kontak', 'index')->name('kontak-index');
+            Route::get('/profil/kontak/detail-section', 'detailSection')->name('section-kontak-detail');
+            Route::post('/profil/kontak/edit-section', 'updateSection')->name('section-kontak-update');
         });
 
         // AKADEMIK

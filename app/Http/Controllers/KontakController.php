@@ -17,8 +17,8 @@ class KontakController extends Controller
 
     function detailSection()
     {
-        $section_staff = SectionStaff::first();
-        return response()->json($section_staff);
+        $section_contact = SectionContact::first();
+        return response()->json($section_contact);
     }
 
     function updateSection(Request $request)
@@ -28,9 +28,9 @@ class KontakController extends Controller
             'button' => 'required|string|max:255',
         ]);
 
-        $section_staff = SectionStaff::first()->update($validatedData);
+        $section_contact = SectionStaff::first()->update($validatedData);
 
-        if ($section_staff) {
+        if ($section_contact) {
             return redirect(route('pegawai-index'))->with('success', 'Berhasil Edit Section Pegawai Sekolah!');
         } else {
             return redirect(route('pegawai-create'))->with('failed', 'Gagal Edit Section Pegawai Sekolah!');

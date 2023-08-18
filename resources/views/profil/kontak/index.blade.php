@@ -51,10 +51,10 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL LOGO --}}
-    {{-- <div class="modal fade" id="detailSectionContactModal" tabindex="-1" aria-labelledby="detailSectionContactModalLabel"
+    {{-- MODAL DETAIL SECTION CONTACT --}}
+    <div class="modal fade" id="detailSectionContactModal" tabindex="-1" aria-labelledby="detailSectionContactModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Kontak Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -69,88 +69,49 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL DETAIL LOGO --}}
+    </div>
+    {{-- END MODAL DETAIL SECTION CONTACT --}}
 
-    {{-- MODAL EDIT LOGO --}}
-    {{-- <div class="modal fade" id="editLogoModal" tabindex="-1" aria-labelledby="editLogoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    {{-- MODAL EDIT SECTION CONTACT --}}
+    <div class="modal fade" id="editSectionContactModal" tabindex="-1" aria-labelledby="editSectionContactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Logo Sekolah</h3>
-                <form id="editLogo" method="post" class="form d-flex flex-column justify-content-center"
-                    enctype="multipart/form-data">
+                <h3 class="title">Detail Kontak Sekolah</h3>
+                <form id="editSectionContact" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="logo">Logo</label>
-                                <div class="wrapper d-flex flex-column">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_logo">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-logo" alt="Logo" width="140" data-value="logo">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="logo" class="input-edit-logo" name="logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="inputEditLogoMeaning">Makna Logo</label>
-                                <textarea id="inputEditLogoMeaning" autocomplete="off" name="logo_meaning">
-                                    {{ $logo->logo_meaning }}
-                                </textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="inputEditFontMeaning">Makna Font</label>
-                                <textarea id="inputEditFontMeaning" autocomplete="off" name="font_meaning">
-                                    {{ $logo->font_meaning }}
-                                </textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-wrapper">
-                                <label for="inputEditColorMeaning">Makna Warna</label>
-                                <textarea id="inputEditColorMeaning" autocomplete="off" name="color_meaning">
-                                    {{ $logo->color_meaning }}
-                                </textarea>
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="judul_section">Judul Section</label>
+                        <input type="text" id="judul_section" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Tutup Modal</button>
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL EDIT LOGO --}}
+    </div>
+    {{-- END MODAL EDIT SECTION CONTACT --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailLogoModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionContactModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/logo-mars/edit-logo',
+                url: '/admin/profil/kontak/detail-section',
                 success: function(data) {
-                    $('[data-value="logo"]').attr("src", "/assets/img/brand/" + data.logo);
-                    $('[data-value="logo_meaning"]').val(data.logo_meaning);
-                    $('[data-value="font_meaning"]').val(data.font_meaning);
-                    $('[data-value="color_meaning"]').val(data.color_meaning);
+                    $('[data-value="title_section"]').val(data.title_section);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editLogoModal"]', function() {
-            $('#editLogo').attr('action', '/admin/profil/logo-mars/edit-logo');
+        $(document).on('click', '[data-bs-target="#editSectionContactModal"]', function() {
+            $('#editSectionContact').attr('action', '/admin/profil/kontak/detail-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/logo-mars/edit-logo',
+                url: '/admin/profil/kontak/detail-section',
                 success: function(data) {
-                    $('[data-value="logo"]').attr("src", "/assets/img/brand/" + data.logo);
-                    $('[data-value="oldImage_logo"]').val(data.logo);
+                    $('[data-value="title_section"]').val(data.title_section);
                 }
             });
         });
