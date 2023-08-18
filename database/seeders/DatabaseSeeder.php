@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Employee;
 use App\Models\HeaderHome;
+use App\Models\HeaderHumas;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
 use App\Models\Logo;
@@ -211,6 +212,13 @@ class DatabaseSeeder extends Seeder
             'icon' => 'fax-icon.svg',
             'name' => 'FAX',
             'link' => '0274 - 513454',
+        ]);
+
+        HeaderHumas::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
+            'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
+            'button' => 'Lihat Selengkapnya',
         ]);
     }
 }
