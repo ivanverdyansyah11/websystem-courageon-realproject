@@ -428,4 +428,5 @@ x @extends('templates.main')
             </div>
         </section>
     </main>
+    
 @endsection
