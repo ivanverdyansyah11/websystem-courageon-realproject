@@ -57,12 +57,12 @@ class GuruController extends Controller
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'required|string|max:255',
             'place_of_birth' => 'nullable|string|max:255',
             'date_of_birth' => 'nullable|date',
-            'position' => 'nullable|string|max:255',
+            'position' => 'required|string|max:255',
             'gender' => 'required|string',
-            'status' => 'required|string',
+            'status' => 'nullable|string',
             'course_id' => 'required|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
@@ -79,11 +79,11 @@ class GuruController extends Controller
         if ($validatedData['image']) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $image->move(public_path('assets/img/profil-images/guru-image/'), $imageName);
             $validatedData['image'] = $imageName;
         }
 
-        $validatedData['role_employees_id'] = '1';
+        $validatedData['role_employees_id'] = '2';
 
         if ($validatedData['status'] == '-') {
             $validatedData['status'] = null;
@@ -92,9 +92,9 @@ class GuruController extends Controller
         $employee = Employee::create($validatedData);
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Tambah Manajemen Sekolah!');
+            return redirect(route('guru-index'))->with('success', 'Berhasil Tambah Guru Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Tambah Manajemen Sekolah!');
+            return redirect(route('guru-create'))->with('failed', 'Gagal Tambah Guru Sekolah!');
         }
     }
 
@@ -116,7 +116,7 @@ class GuruController extends Controller
     {
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:18',
+            'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
             'position' => 'required|string|max:255',

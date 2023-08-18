@@ -141,6 +141,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19650428 199512 1 002',
             'position' => 'Guru Ahli Madya',
             'gender' => 'P',
+            'course_id' => '1',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
 
@@ -151,6 +152,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19670110 199203 1 012',
             'position' => 'Guru Ahli Madya',
             'gender' => 'P',
+            'course_id' => '2',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
     }
