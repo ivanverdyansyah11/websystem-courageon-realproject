@@ -142,23 +142,23 @@
     {{-- END MODAL DETAIL SECTION STAFF --}}
 
     {{-- MODAL EDIT SECTION STAFF --}}
-    <div class="modal fade" id="editSectionManagementModal" tabindex="-1"
-        aria-labelledby="editSectionManagementModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editSectionStaffModal" tabindex="-1" aria-labelledby="editSectionStaffModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Manajemen</h3>
-                <form id="editSectionManagement" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Section Staff</h3>
+                <form id="editSectionStaff" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_management" name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_staff"
+                            name="title_section">
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_management" name="button">
+                            data-value="button_staff" name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
