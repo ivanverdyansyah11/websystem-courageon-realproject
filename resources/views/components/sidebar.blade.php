@@ -122,8 +122,10 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    <a href="{{ route('kemitraan-index') }}" class="link-child">Kemitraan</a>
-                    <a href="{{ route('majalah-index') }}" class="link-child">Majalah</a>
+                    <a href="{{ route('kemitraan-index') }}"
+                        class="link-child {{ Request::is('admin/humas/kemitraan*') ? 'active' : '' }}">Kemitraan</a>
+                    <a href="{{ route('majalah-index') }}"
+                        class="link-child {{ Request::is('admin/humas/majalah*') ? 'active' : '' }}">Majalah</a>
                 </div>
             </div>
         </div>

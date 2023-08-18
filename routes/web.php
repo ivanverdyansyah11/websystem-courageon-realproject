@@ -7,9 +7,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\HumasController;
+use App\Http\Controllers\KemitraanController;
 use App\Http\Controllers\KesiswaanController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LogoMarsController;
+use App\Http\Controllers\MajalahController;
 use App\Http\Controllers\ManajemenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProfilController;
@@ -193,6 +195,14 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas', 'index')->name('humas-index');
             Route::get('/humas/detail-header', 'detailHeader');
             Route::post('/humas/edit-header', 'updateHeader');
+        });
+
+        Route::controller(KemitraanController::class)->group(function () {
+            Route::get('/humas/kemitraan', 'index')->name('kemitraan-index');
+        });
+
+        Route::controller(MajalahController::class)->group(function () {
+            Route::get('/humas/majalah', 'index')->name('majalah-index');
         });
     });
 });

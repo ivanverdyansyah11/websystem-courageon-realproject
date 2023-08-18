@@ -17,6 +17,7 @@ use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
+use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
 use App\Models\SectionStaff;
 use App\Models\SectionTeacher;
@@ -219,6 +220,11 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
             'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
             'button' => 'Lihat Selengkapnya',
+        ]);
+
+        SectionKemitraan::create([
+            'title_header' => 'Melangkah Bersama dengan Kemitraan Aktif Sekolah-Industri',
+            'description' => 'Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan menjalin hubungan erat antara sekolah.',
         ]);
     }
 }
