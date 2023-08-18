@@ -122,8 +122,8 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('kemitraan-index') }}" class="link-child">Kemitraan</a>
-                    <a href="{{ route('majalah-index') }}" class="link-child">Majalah</a> --}}
+                    <a href="{{ route('kemitraan-index') }}" class="link-child">Kemitraan</a>
+                    <a href="{{ route('majalah-index') }}" class="link-child">Majalah</a>
                 </div>
             </div>
         </div>
