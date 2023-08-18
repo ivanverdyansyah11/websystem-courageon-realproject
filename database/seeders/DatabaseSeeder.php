@@ -160,7 +160,7 @@ class DatabaseSeeder extends Seeder
             'role_employees_id' => '3',
             'fullname' => 'I Nengah Sumerta, S.Sos.',
             'image' => 'sample-pegawai.jpg',
-            'rank' => 'Analis SDM / KTU',
+            'rank' => 'Penata / IIIc',
             'position' => 'Analis SDM / KTU',
             'gender' => 'L',
         ]);

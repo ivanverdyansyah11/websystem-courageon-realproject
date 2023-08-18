@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -35,17 +36,17 @@ class PegawaiController extends Controller
             $work_tenure = '-';
         }
 
-        return view('profil.manajemen.detail', [
-            'title' => 'Profil > Detail Manajemen',
-            'management' => Employee::where('id', $id)->first(),
+        return view('profil.pegawai.detail', [
+            'title' => 'Profil > Detail Pegawai',
+            'staff' => Employee::where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
     }
 
     function create()
     {
-        return view('profil.manajemen.create', [
-            'title' => 'Profil > Manajemen',
+        return view('profil.pegawai.create', [
+            'title' => 'Profil > Tambah Pegawai',
         ]);
     }
 
