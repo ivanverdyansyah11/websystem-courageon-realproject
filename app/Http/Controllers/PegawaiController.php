@@ -37,7 +37,7 @@ class PegawaiController extends Controller
         }
 
         return view('profil.pegawai.detail', [
-            'title' => 'Profil > Detail Pegawai',
+            'title' => 'Profil > Pegawai',
             'staff' => Employee::where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
@@ -46,7 +46,7 @@ class PegawaiController extends Controller
     function create()
     {
         return view('profil.pegawai.create', [
-            'title' => 'Profil > Tambah Pegawai',
+            'title' => 'Profil > Pegawai',
         ]);
     }
 
@@ -56,9 +56,10 @@ class PegawaiController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:18',
-            'place_of_birth' => 'required|string|max:255',
-            'date_of_birth' => 'required|date',
-            'position' => 'required|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'date_of_birth' => 'nullable|date',
+            'rank' => 'nullable|string|max:255',
+            'position' => 'nullable|string|max:255',
             'gender' => 'required|string',
             'status' => 'string',
             'highest_rank' => 'nullable|string|max:255',
@@ -76,7 +77,7 @@ class PegawaiController extends Controller
         if ($validatedData['image']) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/manajemen-image/'), $imageName);
+            $image->move(public_path('assets/img/profil-images/pegawai-image/'), $imageName);
             $validatedData['image'] = $imageName;
         }
 
@@ -89,9 +90,9 @@ class PegawaiController extends Controller
         $employee = Employee::create($validatedData);
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Tambah Manajemen Sekolah!');
+            return redirect(route('pegawai-index'))->with('success', 'Berhasil Tambah Pegawai Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Tambah Manajemen Sekolah!');
+            return redirect(route('pegawai-create'))->with('failed', 'Gagal Tambah Pegawai Sekolah!');
         }
     }
 

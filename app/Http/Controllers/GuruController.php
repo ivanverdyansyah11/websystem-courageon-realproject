@@ -38,7 +38,7 @@ class GuruController extends Controller
         }
 
         return view('profil.guru.detail', [
-            'title' => 'Profil > Detail Guru',
+            'title' => 'Profil > Guru',
             'teacher' => Employee::with('course')->where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
@@ -101,7 +101,7 @@ class GuruController extends Controller
     function edit($id)
     {
         return view('profil.guru.edit', [
-            'title' => 'Profil > Edit Guru',
+            'title' => 'Profil > Guru',
             'teacher' => Employee::with('course')->where('id', $id)->first(),
             'courses' => Course::all(),
         ]);

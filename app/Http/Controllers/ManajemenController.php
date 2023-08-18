@@ -38,7 +38,7 @@ class ManajemenController extends Controller
         }
 
         return view('profil.manajemen.detail', [
-            'title' => 'Profil > Detail Manajemen',
+            'title' => 'Profil > Manajemen',
             'management' => Employee::where('id', $id)->first(),
             'work_tenure' => $work_tenure,
         ]);
@@ -99,7 +99,7 @@ class ManajemenController extends Controller
     function edit($id)
     {
         return view('profil.manajemen.edit', [
-            'title' => 'Profil > Edit Manajemen',
+            'title' => 'Profil > Manajemen',
             'management' => Employee::where('id', $id)->first(),
         ]);
     }
