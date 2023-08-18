@@ -96,12 +96,6 @@ class ManajemenController extends Controller
         }
     }
 
-    function editManagement()
-    {
-        $managements = Employee::where('role_employees_id', '1')->get();
-        return response()->json($managements);
-    }
-
     function edit($id)
     {
         return view('profil.manajemen.edit', [

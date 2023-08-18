@@ -155,5 +155,14 @@ class DatabaseSeeder extends Seeder
             'course_id' => '2',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
+
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Nengah Sumerta, S.Sos.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Analis SDM / KTU',
+            'position' => 'Analis SDM / KTU',
+            'gender' => 'L',
+        ]);
     }
 }
