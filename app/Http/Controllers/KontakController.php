@@ -96,4 +96,22 @@ class KontakController extends Controller
             return redirect(route('kontak-index'))->with('failed', 'Gagal Edit Kontak Sekolah!');
         }
     }
+
+    function deleteContact($id)
+    {
+        $contact = Contact::where('id', $id)->first();
+
+        if ($contact->icon) {
+            $imagePath = public_path('assets/img/profil-images/kontak-image/') . $contact->icon;
+            unlink($imagePath);
+        }
+
+        $contact = $contact->delete();
+
+        if ($contact) {
+            return redirect(route('kontak-index'))->with('success', 'Berhasil Hapus Kontak Sekolah!');
+        } else {
+            return redirect(route('kontak-index'))->with('failed', 'Gagal Hapus Kontak Sekolah!');
+        }
+    }
 }
