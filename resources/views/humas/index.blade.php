@@ -171,29 +171,29 @@
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/edit-header',
+                url: '/admin/humas/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
                     $('[data-value="button_header"]').val(data.button);
                     $('[data-value="banner_header"]').attr("src",
-                        "/assets/img/profil-images/header-image/" + data.banner);
+                        "/assets/img/humas-images/header-image/" + data.banner);
                 }
             });
         });
 
         $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/profil/edit-header');
+            $('#editSectionHeader').attr('action', '/admin/humas/edit-header');
             $.ajax({
                 type: 'get',
-                url: '/admin/profil/edit-header',
+                url: '/admin/humas/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
                     $('[data-value="button_header"]').val(data.button);
                     $('[data-value="oldImage_header"]').val(data.banner);
                     $('[data-value="banner_header"]').attr("src",
-                        "/assets/img/profil-images/header-image/" + data.banner);
+                        "/assets/img/humas-images/header-image/" + data.banner);
                 }
             });
         });

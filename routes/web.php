@@ -191,6 +191,8 @@ Route::middleware('auth')->group(function () {
         // HUMAS
         Route::controller(HumasController::class)->group(function () {
             Route::get('/humas', 'index')->name('humas-index');
+            Route::get('/humas/detail-header', 'detailHeader');
+            Route::post('/humas/edit-header', 'updateHeader');
         });
     });
 });
