@@ -545,6 +545,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
 
     <script>
         const swiperTesti = new Swiper('.swiper-testi', {
@@ -566,209 +567,340 @@
         })
 
         document.addEventListener('DOMContentLoaded', function() {
-            var showCategory = 'category1';
-            var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
-            showAllCategory.classList.add('active');
-            showCategory.style.display = 'flex';
-            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
-        });
+    var showCategory = 'category1';
+    var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+    showAllCategory.classList.add('active');
+    showCategory.style.display='flex';
+    showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+  });
 
-        function showItems(category) {
-            // Menghapus kelas "active" dari semua kategori
-            var categories = document.getElementsByClassName('category-name');
-            for (var i = 0; i < categories.length; i++) {
-                categories[i].classList.remove('active');
-            }
+  function showItems(category) {
+    // Menghapus kelas "active" dari semua kategori
+    var categories = document.getElementsByClassName('category-name');
+    for (var i = 0; i < categories.length; i++) {
+      categories[i].classList.remove('active');
+    }
 
-            // Menambahkan kelas "active" ke kategori yang dipilih
-            var selectedCategory = event.target;
-            if (!selectedCategory.classList.contains('active')) {
-                selectedCategory.classList.add('active');
-            }
+    // Menambahkan kelas "active" ke kategori yang dipilih
+    var selectedCategory = event.target;
+    if (!selectedCategory.classList.contains('active')) {
+      selectedCategory.classList.add('active');
+    }
 
-            // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
-            var items = document.getElementsByClassName('item');
-            for (var j = 0; j < items.length; j++) {
-                items[j].style.display = 'none';
-                if (items[j].classList.contains(category)) {
-                    items[j].style.display = 'flex';
-                }
-            }
+    // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+    var items = document.getElementsByClassName('item');
+    for (var j = 0; j < items.length; j++) {
+      items[j].style.display = 'none';
+      if (items[j].classList.contains(category)) {
+        items[j].style.display = 'flex';
+      }
+    }
+  }
+  const chart1 = document.getElementById('chart1');
+  const chart2 = document.getElementById('chart2');
+  const chart3 = document.getElementById('chart3');
+  const chart4 = document.getElementById('chart4');
+  const chart5 = document.getElementById('chart5');
+  const chart6 = document.getElementById('chart6');
+  const chart7 = document.getElementById('chart7');
+  const chart8 = document.getElementById('chart8');
+  const chart9 = document.getElementById('chart9');
+
+  new Chart(chart1, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [30, 40, 30],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
         }
-
-        const chart1 = document.getElementById('chart1');
-        const chart2 = document.getElementById('chart2');
-        const chart3 = document.getElementById('chart3');
-
-        new Chart(chart1, {
-            type: 'bar',
-            data: {
-                labels: ['2021', '2022', '2023'],
-                datasets: [{
-                    data: [1000, 2380, 2853, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [2000, 1380, 2453, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [3000, 1980, 2953, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
+      },
 
 
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 3000,
-                        ticks: {
-                            stepSize: 300
-                        }
-                    },
-                    xAxes: [{
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
 
-                    }]
+  new Chart(chart2, {
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                }
-            }
-        });
+        data: [33, 33, 34],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
 
-        new Chart(chart2, {
-            type: 'bar',
-            data: {
-                labels: ['2021', '2022', '2023'],
-                datasets: [{
-                    data: [2000, 2180, 2553, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [2300, 1290, 2753, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [1900, 2680, 2253, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
 
 
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 3000,
-                        ticks: {
-                            stepSize: 300
-                        }
-                    },
-                    xAxes: [{
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
 
-                    }]
+  new Chart(chart3, {
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                }
-            }
-        });
+        data: [50, 25, 25],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
 
-        new Chart(chart3, {
-            type: 'bar',
-            data: {
-                labels: ['2021', '2022', '2023'],
-                datasets: [{
-                    data: [3000, 2880, 2153, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [2800, 1190, 2153, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [1800, 2180, 2653, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
 
 
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 3000,
-                        ticks: {
-                            stepSize: 300
-                        }
-                    },
-                    xAxes: [{
+      scale: {
+        ticks: {
+          // display: false
+        }
+      },
+    }
+  });
 
-                    }]
+  new Chart(chart4, {
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                }
-            }
-        });
+        data: [35, 30, 35],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart5, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [25, 40, 35],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart6, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [50, 35, 15],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          // display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart7, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [40, 40, 20],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart8, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [33, 53, 24],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart9, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [70, 25, 5],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          // display: false
+        }
+      },
+    }
+  });
     </script>
 @endsection
