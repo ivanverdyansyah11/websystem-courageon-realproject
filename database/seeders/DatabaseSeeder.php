@@ -14,6 +14,7 @@ use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
+use App\Models\SectionContact;
 use App\Models\SectionManagement;
 use App\Models\SectionStaff;
 use App\Models\SectionTeacher;
@@ -181,6 +182,10 @@ class DatabaseSeeder extends Seeder
             'rank' => 'Penata / IIIc',
             'position' => 'Analis SDM / KTU',
             'gender' => 'L',
+        ]);
+
+        SectionContact::create([
+            'title_section' => 'Hubungi Kami',
         ]);
     }
 }
