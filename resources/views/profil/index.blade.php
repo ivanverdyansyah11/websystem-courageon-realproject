@@ -15,7 +15,7 @@
                 @endif
             </div>
         </div>
-        <div class="row">
+        <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Section Header</h5>
             </div>
@@ -59,6 +59,63 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Mata Pelajaran</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addCourseModal">Tambah
+                    Mata Pelajaran</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama</div>
+                            <div class="col d-none d-md-inline-block data-header">Jam per Minggu</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($courses->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Manajemen!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($courses as $course)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">{{ $course->name }}</div>
+                                    <div class="col data-value d-none d-md-inline-block data-length">
+                                        {{ $course->hours_per_week }} Hours</div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailSectionHeaderModal">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editSectionHeaderModal">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteCourseModal"
+                                                data-id="{{ $course->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -166,6 +223,34 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
+
+    {{-- MODAL ADD COURSE --}}
+    <div class="modal fade" id="addCourseModal" tabindex="-1" aria-labelledby="addCourseModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Tambah Mata Pelajaran</h3>
+                <form action="{{ route('mata-pelajaran-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" name="name" autocomplete="off">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="jam_per_minggu">Jam Per Minggu</label>
+                        <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
+                            autocomplete="off">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Mata Pelajaran</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD COURSE --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {

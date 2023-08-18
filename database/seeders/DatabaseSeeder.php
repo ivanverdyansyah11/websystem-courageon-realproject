@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Auth;
+use App\Models\Course;
 use App\Models\Employee;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
@@ -101,6 +102,21 @@ class DatabaseSeeder extends Seeder
 
         RoleEmployee::create([
             'role' => 'employee',
+        ]);
+
+        Course::create([
+            'name' => 'Matematika',
+            'hours_per_week' => '12',
+        ]);
+
+        Course::create([
+            'name' => 'IPA',
+            'hours_per_week' => '8',
+        ]);
+
+        Course::create([
+            'name' => 'PPKN',
+            'hours_per_week' => '10',
         ]);
 
         Employee::create([
