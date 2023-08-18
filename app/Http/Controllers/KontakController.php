@@ -38,12 +38,6 @@ class KontakController extends Controller
         }
     }
 
-    function detailContact($id)
-    {
-        $contact = Contact::where('id', $id)->first();
-        return response()->json($contact);
-    }
-
     function storeContact(Request $request)
     {
         $validatedData = $request->validate([
@@ -66,5 +60,11 @@ class KontakController extends Controller
         } else {
             return redirect(route('kontak-create'))->with('failed', 'Gagal Tambah Kontak Sekolah!');
         }
+    }
+
+    function detailContact($id)
+    {
+        $contact = Contact::where('id', $id)->first();
+        return response()->json($contact);
     }
 }

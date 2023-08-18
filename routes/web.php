@@ -167,7 +167,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/kontak/detail-section', 'detailSection')->name('section-kontak-detail');
             Route::post('/profil/kontak/edit-section', 'updateSection')->name('section-kontak-update');
 
-            Route::post('/profil/kontak/add-contact', 'storeContact')->name('kontak-store');
+            Route::post('/profil/kontak/tambah-contact', 'storeContact')->name('kontak-store');
             Route::get('/profil/kontak/detail-contact/{id}', 'detailContact')->name('kontak-detail');
             Route::post('/profil/kontak/edit-contact/{id}', 'updateContact')->name('kontak-update');
             Route::post('/profil/kontak/delete-contact/{id}', 'deleteContact')->name('kontak-delete');

@@ -181,27 +181,51 @@
                                 <input type="file" id="icon" class="input-add-icon" name="icon">
                             </div>
                         </div>
-                        @error('icon')
-                            <p>{{ $message }}</p>
-                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name">
-                        @error('name')
-                            <p>{{ $message }}</p>
-                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off" name="link">
-                        @error('link')
-                            <p>{{ $message }}</p>
-                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Kontak</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD CONTACT --}}
+
+    {{-- MODAL ADD CONTACT --}}
+    <div class="modal fade" id="detailContactModal" tabindex="-1" aria-labelledby="detailContactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Kontak Sekolah</h3>
+                <form id="detailContact" method="post" class="form d-flex flex-column justify-content-center">
+                    <div class="input-wrapper">
+                        <label for="icon">Icon</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                alt="icon Section Sejarah" width="80" data-value="icon_contact">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="nama">Judul Kontak</label>
+                        <input type="text" id="nama" class="input" autocomplete="off"
+                            data-value="name_contact">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="link">Link</label>
+                        <input type="text" id="link" class="input" autocomplete="off"
+                            data-value="link_contact">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Tambah</button>
                     </div>
                 </form>
             </div>
@@ -227,6 +251,20 @@
                 url: '/admin/profil/kontak/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailContactModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/kontak/detail-contact/' + id,
+                success: function(data) {
+                    $('[data-value="icon_contact"]').attr("src",
+                        "/assets/img/profil-images/kontak-image/" + data.icon);
+                    $('[data-value="name_contact"]').val(data.name);
+                    $('[data-value="link_contact"]').val(data.link);
                 }
             });
         });
