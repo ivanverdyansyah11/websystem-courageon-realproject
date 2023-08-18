@@ -158,16 +158,16 @@ class PegawaiController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
+            $imagePath = public_path('assets/img/profil-images/pegawai-image/') . $employee->image;
             unlink($imagePath);
         }
 
         $employee = $employee->delete();
 
         if ($employee) {
-            return redirect(route('manajemen-index'))->with('success', 'Berhasil Hapus Manajemen Sekolah!');
+            return redirect(route('pegawai-index'))->with('success', 'Berhasil Hapus Pegawai Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
+            return redirect(route('pegawai-create'))->with('failed', 'Gagal Hapus Pegawai Sekolah!');
         }
     }
 }
