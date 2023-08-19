@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prasarana;
 use App\Models\SectionPrasarana;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class PrasaranaController extends Controller
         return view('sarana.prasarana.index', [
             'title' => 'Sarana',
             'section' => SectionPrasarana::first(),
+            'prasaranas' => Prasarana::all(),
         ]);
     }
 
@@ -38,37 +40,38 @@ class PrasaranaController extends Controller
         }
     }
 
-    function storeContact(Request $request)
+    function storePrasarana(Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'description' => 'required|string',
+            'total' => 'required|integer',
         ]);
 
-        if ($validatedData['icon']) {
-            $image = $request->file('icon');
+        if ($validatedData['image']) {
+            $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/kontak-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         }
 
-        $contact = Contact::create($validatedData);
+        $prasarana = Prasarana::create($validatedData);
 
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Tambah Kontak Sekolah!');
+        if ($prasarana) {
+            return redirect(route('prasarana-index'))->with('success', 'Berhasil Tambah Sarana Prasarana Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Tambah Kontak Sekolah!');
+            return redirect(route('prasarana-index'))->with('failed', 'Gagal Tambah Sarana Prasarana Sekolah!');
         }
     }
 
-    function detailContact($id)
+    function detailPrasarana($id)
     {
         $contact = Contact::where('id', $id)->first();
         return response()->json($contact);
     }
 
-    function updateContact($id, Request $request)
+    function updatePrasarana($id, Request $request)
     {
         $validatedData = $request->validate([
             'icon' => 'required|image|max:2048',
@@ -97,7 +100,7 @@ class PrasaranaController extends Controller
         }
     }
 
-    function deleteContact($id)
+    function deletePrasarana($id)
     {
         $contact = Contact::where('id', $id)->first();
 

@@ -201,6 +201,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/sarana-prasarana/prasarana', 'index')->name('prasarana-index');
             Route::get('/sarana-prasarana/prasarana/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/prasarana/edit-section', 'updateSection');
+
+            Route::post('/sarana-prasarana/prasarana/tambah-prasarana', 'storePrasarana')->name('prasarana-store');
+            Route::get('/sarana-prasarana/prasarana/detail-prasarana/{id}', 'detailPrasarana');
+            Route::post('/sarana-prasarana/prasarana/edit-prasarana/{id}', 'updatePrasarana');
+            Route::post('/sarana-prasarana/prasarana/delete-prasarana/{id}', 'deletePrasarana');
         });
 
         Route::controller(DenahController::class)->group(function () {

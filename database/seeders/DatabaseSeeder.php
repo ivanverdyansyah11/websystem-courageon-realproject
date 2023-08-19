@@ -18,6 +18,7 @@ use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\Partnership;
+use App\Models\Prasarana;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
@@ -265,6 +266,13 @@ class DatabaseSeeder extends Seeder
             'title_section' => 'Pentingnya Peningkatan Sarana Dan Prasarana Di Sekolah',
             'description' => 'Peningkatan sarana dan prasarana di sekolah untuk menciptakan lingkungan belajar yang optimal. Infrastruktur fisik, teknologi pendidikan, keamanan, dan aksesibilitas.',
             'button' => 'Lihat Semua',
+        ]);
+
+        Prasarana::create([
+            'image' => 'sample-sarana-prasarana.jpg',
+            'name' => 'Ruang Kelas',
+            'description' => 'Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas',
+            'total' => 38,
         ]);
 
         SectionDenah::create([

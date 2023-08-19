@@ -39,7 +39,8 @@ x @extends('templates.main')
             </div>
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 <div class="col">
-                    <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalSapras">
+                    <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal"
+                        data-bs-target="#modalSapras">
                         <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
                         <p class="mt-2 text-black fs-4 fw-semibold text-center text-capitalize">
                             Ruang Kelas
@@ -374,52 +375,62 @@ x @extends('templates.main')
                     <div class="mt-3 table-wrapper">
                         <table class="table table-denah">
                             <thead class="desc">
-                            <tr>
-                                <th class="d-flex justify-content-between">
-                                    <div class="d-flex justify-content-center w-100">Kode Ruangan</div>
-                                    <div class="d-flex justify-content-center w-100">Nama Ruangan</div>
-                                    <div class="d-flex justify-content-center w-100"></div>
-                                </th>
+                                <tr>
+                                    <th class="d-flex justify-content-between">
+                                        <div class="d-flex justify-content-center w-100">Kode Ruangan</div>
+                                        <div class="d-flex justify-content-center w-100">Nama Ruangan</div>
+                                        <div class="d-flex justify-content-center w-100"></div>
+                                    </th>
 
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody class="text-black">
-                            <tr>
-                                <td class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-center w-100">A</div>
-                                    <div class="d-flex justify-content-center w-100">Ruang Kelas</div>
-                                    <div class="d-flex justify-content-center w-100">
-                                        <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                            Detail
-                                          </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="collapse" id="collapseExample">
-                                        <div class="">
-                                            Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.
+                                <tr>
+                                    <td class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-center w-100">A</div>
+                                        <div class="d-flex justify-content-center w-100">Ruang Kelas</div>
+                                        <div class="d-flex justify-content-center w-100">
+                                            <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseExample" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                Detail
+                                            </button>
                                         </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-center w-100">B</div>
-                                    <div class="d-flex justify-content-center w-100">Ruang Guru</div>
-                                    <div class="d-flex justify-content-center w-100">
-                                        <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                                            Detail
-                                          </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="collapse show" id="collapseExample2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="collapse" id="collapseExample">
                                         <div class="">
-                                            Ruang guru di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan yang nyaman dan baik bagi para guru.
+                                            Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan
+                                            modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan
+                                            interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan
+                                            kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang
+                                            efektif.
                                         </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-center w-100">B</div>
+                                        <div class="d-flex justify-content-center w-100">Ruang Guru</div>
+                                        <div class="d-flex justify-content-center w-100">
+                                            <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseExample2" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                Detail
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="collapse show" id="collapseExample2">
+                                        <div class="">
+                                            Ruang guru di sekolah ini didesain dengan baik, dilengkapi dengan perabotan
+                                            modern dan fungsional yang menciptakan lingkungan yang nyaman dan baik bagi para
+                                            guru.
+                                        </div>
+                                    </td>
+                                </tr>
 
                             </tbody>
                         </table>
@@ -430,15 +441,18 @@ x @extends('templates.main')
     </main>
     <div class="modal fade" id="modalSapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-                <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
-                <p class="mt-3 fs-4 fw-semibold text-black">Ruang Kelas</p>
-                <p class="mt-1 desc">
-                    Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas:
-                </p>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
+                    <p class="mt-3 fs-4 fw-semibold text-black">Ruang Kelas</p>
+                    <p class="mt-1 desc">
+                        Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah
+                        ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru.
+                        Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada
+                        dalam ruangan kelas:
+                    </p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 @endsection
