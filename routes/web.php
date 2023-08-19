@@ -8,15 +8,19 @@ use App\Http\Controllers\DenahController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\HumasController;
+use App\Http\Controllers\KelulusanController;
 use App\Http\Controllers\KemitraanController;
 use App\Http\Controllers\KesiswaanController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\LogoMarsController;
 use App\Http\Controllers\MajalahController;
 use App\Http\Controllers\ManajemenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PrasaranaController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SaranaPrasaranaController;
 use App\Http\Controllers\VisiMisiController;
@@ -185,6 +189,22 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik', 'index')->name('akademik-index');
             Route::get('/akademik/detail-header', 'detailHeader');
             Route::post('/akademik/edit-header', 'updateHeader');
+        });
+
+        Route::controller(KurikulumController::class)->group(function () {
+            Route::get('/akademik/kurikulum', 'index')->name('kurikulum-index');
+        });
+
+        Route::controller(ProgramController::class)->group(function () {
+            Route::get('/akademik/program', 'index')->name('program-index');
+        });
+
+        Route::controller(ProyekController::class)->group(function () {
+            Route::get('/akademik/proyek', 'index')->name('proyek-index');
+        });
+
+        Route::controller(KelulusanController::class)->group(function () {
+            Route::get('/akademik/kelulusan', 'index')->name('kelulusan-index');
         });
 
         // KESISWAAN

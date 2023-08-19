@@ -64,10 +64,14 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('kurikulum-index') }}" class="link-child">Kurikulum</a>
-                    <a href="{{ route('program-index') }}" class="link-child">Program</a>
-                    <a href="{{ route('proyek-index') }}" class="link-child">Proyek P5</a>
-                    <a href="{{ route('kelulusan-index') }}" class="link-child">Kelulusan Kelas</a> --}}
+                    <a href="{{ route('kurikulum-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/kurikulum*') ? 'active' : '' }}">Kurikulum</a>
+                    <a href="{{ route('program-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/program*') ? 'active' : '' }}">Program</a>
+                    <a href="{{ route('proyek-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/proyek*') ? 'active' : '' }}">Proyek P5</a>
+                    <a href="{{ route('kelulusan-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/kelulusan*') ? 'active' : '' }}">Kelulusan</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/kesiswaan*') ? 'active' : '' }}">
