@@ -67,29 +67,17 @@ class DenahController extends Controller
     function updateRoom($id, Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|max:2048',
+            'code' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
-        if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/profil-images/kontak-image/') . $request->oldImage;
-            unlink($oldImagePath);
+        $denah = Denah::where('id', $id)->first()->update($validatedData);
 
-            $image = $request->file('icon');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/kontak-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+        if ($denah) {
+            return redirect(route('denah-index'))->with('success', 'Berhasil Edit Ruangan Denah Sekolah!');
         } else {
-            $validatedData['icon'] = $request->oldImage;
-        }
-
-        $contact = Contact::where('id', $id)->first()->update($validatedData);
-
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Edit Kontak Sekolah!');
-        } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Edit Kontak Sekolah!');
+            return redirect(route('denah-index'))->with('failed', 'Gagal Edit Ruangan Denah Sekolah!');
         }
     }
 
