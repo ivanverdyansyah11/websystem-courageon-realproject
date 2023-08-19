@@ -98,19 +98,19 @@ class KemitraanController extends Controller
 
     function deletePartnership($id)
     {
-        $contact = Contact::where('id', $id)->first();
+        $partnership = Partnership::where('id', $id)->first();
 
-        if ($contact->icon) {
-            $imagePath = public_path('assets/img/profil-images/kontak-image/') . $contact->icon;
+        if ($partnership->logo) {
+            $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
             unlink($imagePath);
         }
 
-        $contact = $contact->delete();
+        $partnership = $partnership->delete();
 
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Hapus Kontak Sekolah!');
+        if ($partnership) {
+            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Hapus Kemitraan Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Hapus Kontak Sekolah!');
+            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Hapus Kemitraan Sekolah!');
         }
     }
 }

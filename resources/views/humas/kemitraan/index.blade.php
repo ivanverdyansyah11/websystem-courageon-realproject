@@ -270,20 +270,20 @@
     {{-- END MODAL EDIT PARTNERSHIP --}}
 
     {{-- MODAL DELETE PARTNERSHIP --}}
-    <div class="modal fade" id="deleteContactModal" tabindex="-1" aria-labelledby="deleteContactModalLabel"
+    <div class="modal fade" id="deletePartnershipModal" tabindex="-1" aria-labelledby="deletePartnershipModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Kontak Sekolah</h3>
-                <form id="deleteContact" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Kemitraan Sekolah</h3>
+                <form id="deletePartnership" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kontak Sekolah: Apakah Anda yakin ingin
-                        menghapus kontak sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan kontak sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kemitraan Sekolah: Apakah Anda yakin ingin
+                        menghapus kemitraan sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan kemitraan sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Kontak</button>
+                        <button type="submit" class="button-default-solid">Hapus Kemitraan</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
@@ -342,6 +342,11 @@
                     $('[data-value="name_partnership"]').val(data.name);
                 }
             });
+        });
+
+        $(document).on('click', '[data-bs-target="#deletePartnershipModal"]', function() {
+            let id = $(this).data('id');
+            $('#deletePartnership').attr('action', '/admin/humas/kemitraan/delete-kemitraan/' + id);
         });
 
         const tagAddLogo = document.querySelector('.tag-add-logo');
