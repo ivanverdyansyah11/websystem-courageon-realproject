@@ -141,7 +141,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -153,20 +153,27 @@
     {{-- END MODAL DETAIL SECTION PROYEK --}}
 
     {{-- MODAL EDIT SECTION PROYEK --}}
-    <div class="modal fade" id="editSectionProgramModal" tabindex="-1" aria-labelledby="editSectionProgramModalLabel"
+    <div class="modal fade" id="editSectionProyekModal" tabindex="-1" aria-labelledby="editSectionProyekModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Program</h3>
-                <form id="editSectionProgram" method="post" class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Edit Section Proyek</h3>
+                <form id="editSectionProyek" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
-                            data-value="title_section">
-                        @error('title_section')
-                            <p class="caption-error mt-1">{{ $message }}</p>
-                        @enderror
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            name="title_section">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button label</label>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            name="button">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
+                            autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -179,7 +186,8 @@
     {{-- END MODAL EDIT SECTION PROYEK --}}
 
     {{-- MODAL ADD PROGRAM --}}
-    <div class="modal fade" id="addProgramModal" tabindex="-1" aria-labelledby="addProgramModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addProgramModal" tabindex="-1" aria-labelledby="addProgramModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Program Sekolah</h3>
@@ -395,6 +403,8 @@
                 url: '/admin/akademik/proyek/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="description_section"]').val(data.description);
+                    $('[data-value="button_section"]').val(data.button);
                 }
             });
         });

@@ -26,14 +26,16 @@ class ProyekController extends Controller
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
+            'description' => 'required|string',
+            'button' => 'required|string|max:255',
         ]);
 
-        $sectionProgram = SectionProgram::first()->update($validatedData);
+        $sectionProyek = SectionProyek::first()->update($validatedData);
 
-        if ($sectionProgram) {
-            return redirect(route('program-index'))->with('success', 'Berhasil Update Section Program!');
+        if ($sectionProyek) {
+            return redirect(route('proyek-index'))->with('success', 'Berhasil Update Section Proyek!');
         } else {
-            return redirect(route('program-index'))->with('failed', 'Gagal Update Section Program!');
+            return redirect(route('proyek-index'))->with('failed', 'Gagal Update Section Proyek!');
         }
     }
 
