@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
 use App\Models\SectionProgram;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class ProgramController extends Controller
         return view('akademik.program.index', [
             'title' => 'Program',
             'section_program' => SectionProgram::first(),
+            'programs' => Program::all(),
         ]);
     }
 
