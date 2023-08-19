@@ -60,7 +60,7 @@
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Denah Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addDenahModal">Tambah
+                    data-bs-target="#addRoomModal">Tambah
                     Ruangan Denah</button>
             </div>
             <div class="col-12">
@@ -91,19 +91,19 @@
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailDenahModal"
+                                                data-bs-toggle="modal" data-bs-target="#detailRoomModal"
                                                 data-id="{{ $room->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editDenahModal"
+                                                data-bs-toggle="modal" data-bs-target="#editRoomModal"
                                                 data-id="{{ $room->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteDenahModal"
+                                                data-bs-toggle="modal" data-bs-target="#deleteRoomModal"
                                                 data-id="{{ $room->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
@@ -192,44 +192,37 @@
     </div>
     {{-- END MODAL EDIT SECTION MAP --}}
 
-    {{-- MODAL ADD CONTACT --}}
-    {{-- <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
-        aria-hidden="true">
+    {{-- MODAL ADD ROOM MAP --}}
+    <div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="addRoomModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Tambah Kontak Sekolah</h3>
-                <form action="{{ route('kontak-store') }}" method="post"
+                <h3 class="title">Tambah Ruangan Sekolah</h3>
+                <form action="{{ route('ruangan-store') }}" method="post"
                     class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
                     <div class="input-wrapper">
-                        <label for="icon">Icon</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-icon"
-                                alt="icon Section Sejarah" width="80">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="icon" class="input-add-icon" name="icon">
-                            </div>
-                        </div>
+                        <label for="kode">Kode Ruangan</label>
+                        <input type="text" id="kode" class="input" autocomplete="off" name="code">
                     </div>
                     <div class="input-wrapper">
-                        <label for="nama">Judul Kontak</label>
+                        <label for="nama">Nama Ruangan</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name">
                     </div>
                     <div class="input-wrapper">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" class="input" autocomplete="off" name="link">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Kontak</button>
+                        <button type="submit" class="button-default-solid">Tambah Ruangan</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL ADD CONTACT --}}
+    </div>
+    {{-- END MODAL ADD ROOM MAP --}}
 
-    {{-- MODAL DETAIL CONTACT --}}
+    {{-- MODAL DETAIL ROOM MAP --}}
     {{-- <div class="modal fade" id="detailContactModal" tabindex="-1" aria-labelledby="detailContactModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -260,9 +253,9 @@
             </div>
         </div>
     </div> --}}
-    {{-- END MODAL DETAIL CONTACT --}}
+    {{-- END MODAL DETAIL ROOM MAP --}}
 
-    {{-- MODAL EDIT CONTACT --}}
+    {{-- MODAL EDIT ROOM MAP --}}
     {{-- <div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -300,9 +293,9 @@
             </div>
         </div>
     </div> --}}
-    {{-- END MODAL EDIT CONTACT --}}
+    {{-- END MODAL EDIT ROOM MAP --}}
 
-    {{-- MODAL DELETE CONTACT --}}
+    {{-- MODAL DELETE ROOM MAP --}}
     <div class="modal fade" id="deleteContactModal" tabindex="-1" aria-labelledby="deleteContactModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -323,7 +316,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE CONTACT --}}
+    {{-- END MODAL DELETE ROOM MAP --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionDenahModal"]', function() {

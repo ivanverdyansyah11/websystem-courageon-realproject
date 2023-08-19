@@ -205,6 +205,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/sarana-prasarana/denah', 'index')->name('denah-index');
             Route::get('/sarana-prasarana/denah/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/denah/edit-section', 'updateSection');
+
+            Route::post('/sarana-prasarana/denah/tambah-ruangan', 'storeRoom')->name('ruangan-store');
+            Route::get('/sarana-prasarana/denah/detail-ruangan/{id}', 'detailRoom');
+            Route::post('/sarana-prasarana/denah/edit-ruangan/{id}', 'updateRoom');
+            Route::post('/sarana-prasarana/denah/delete-ruangan/{id}', 'deleteRoom');
         });
 
         // HUMAS
