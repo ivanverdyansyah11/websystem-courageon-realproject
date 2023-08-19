@@ -210,6 +210,13 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(ProyekController::class)->group(function () {
             Route::get('/akademik/proyek', 'index')->name('proyek-index');
+            Route::get('/akademik/proyek/detail-section', 'detailSection');
+            Route::post('/akademik/proyek/edit-section', 'updateSection');
+
+            Route::post('/akademik/proyek/tambah-proyek', 'storeProject')->name('proyek-store');
+            Route::get('/akademik/proyek/detail-proyek/{id}', 'detailProject')->name('proyek-detail');
+            Route::post('/akademik/proyek/edit-proyek/{id}', 'updateProject')->name('proyek-update');
+            Route::post('/akademik/proyek/delete-proyek/{id}', 'deleteProject')->name('proyek-delete');
         });
 
         Route::controller(KelulusanController::class)->group(function () {

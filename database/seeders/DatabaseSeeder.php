@@ -31,6 +31,7 @@ use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
 use App\Models\SectionPrasarana;
 use App\Models\SectionProgram;
+use App\Models\SectionProyek;
 use App\Models\SectionStaff;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
@@ -323,6 +324,12 @@ class DatabaseSeeder extends Seeder
             'description' => 'E-Assessment di Sekolah SMA Negeri 1 Selat merupakan sistem evaluasi dan penilaian berbasis teknologi yang inovatif untuk mengukur kemajuan belajar siswa secara akurat dan efisien. Dengan menggunakan teknologi canggih, E-Assessment memungkinkan siswa untuk mengikuti berbagai jenis ujian dan tugas evaluasi secara online melalui platform pembelajaran digital yang terintegrasi. Platform E-Assessment ini menyediakan berbagai format ujian, termasuk pilihan ganda, uraian, dan tugas interaktif yang dirancang untuk mengukur pemahaman siswa dalam berbagai tingkatan kognitif.',
             'button' => 'Website E-Asessment',
             'link' => 'https://guru.kemdikbud.go.id/',
+        ]);
+
+        SectionProyek::create([
+            'title_section' => 'Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila) Di SMA Negeri 1 Selat',
+            'description' => 'Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini dalam kehidupan sehari-hari dan masyarakat.',
+            'button' => 'Lihat Semua',
         ]);
     }
 }
