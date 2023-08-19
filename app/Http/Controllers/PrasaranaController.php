@@ -46,7 +46,7 @@ class PrasaranaController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
-            'total' => 'required|integer',
+            'total' => 'required|string',
         ]);
 
         if ($validatedData['image']) {
@@ -74,29 +74,29 @@ class PrasaranaController extends Controller
     function updatePrasarana($id, Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|max:2048',
             'name' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'description' => 'required|string',
+            'total' => 'required|string',
         ]);
 
-        if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/profil-images/kontak-image/') . $request->oldImage;
+        if ($request->file('image')) {
+            $oldImagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage;
             unlink($oldImagePath);
 
-            $image = $request->file('icon');
+            $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/kontak-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         } else {
-            $validatedData['icon'] = $request->oldImage;
+            $validatedData['image'] = $request->oldImage;
         }
 
-        $contact = Contact::where('id', $id)->first()->update($validatedData);
+        $prasarana = Prasarana::where('id', $id)->first()->update($validatedData);
 
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Edit Kontak Sekolah!');
+        if ($prasarana) {
+            return redirect(route('prasarana-index'))->with('success', 'Berhasil Edit Sarana Prasarana Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Edit Kontak Sekolah!');
+            return redirect(route('prasarana-index'))->with('failed', 'Gagal Edit Sarana Prasarana Sekolah!');
         }
     }
 

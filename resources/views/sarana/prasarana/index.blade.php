@@ -288,34 +288,62 @@
     {{-- END MODAL DETAIL PRASARANA --}}
 
     {{-- MODAL EDIT PRASARANA --}}
-    {{-- <div class="modal fade" id="editPrasaranaModal" tabindex="-1" aria-labelledby="editPrasaranaModalLabel"
+    <div class="modal fade" id="editPrasaranaModal" tabindex="-1" aria-labelledby="editPrasaranaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Edit Kontak Sekolah</h3>
-                <form id="editContact" method="post" class="form d-flex flex-column justify-content-center"
+                <h3 class="title">Edit Prasarana Sekolah</h3>
+                <form id="editPrasarana" method="post" class="form d-flex flex-column justify-content-center"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="icon">Icon</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_contact">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-icon"
-                                alt="Icon Kontak" width="80" data-value="icon_contact">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="icon" class="input-edit-icon" name="icon">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="image">Image</label>
+                                <input type="hidden" name="oldImage" data-value="oldImage_prasarana">
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-image" alt="Image Prasarana" width="80"
+                                        data-value="image_prasarana">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="image" class="input-edit-image" name="image">
+                                    </div>
+                                </div>
+                                @error('image')
+                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="nama">Judul Kontak</label>
-                        <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_contact" name="name">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" class="input" autocomplete="off"
-                            data-value="link_contact" name="link">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama Sarana Prasarana</label>
+                                <input type="text" id="nama" class="input" autocomplete="off"
+                                    data-value="name_prasarana" name="name">
+                                @error('name')
+                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="total">Total Sarana Prasarana</label>
+                                <input type="text" id="total" class="input" autocomplete="off"
+                                    data-value="total_prasarana" name="total">
+                                @error('total')
+                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea data-value="description_prasarana" name="description" id="deskripsi" rows="4" class="input"
+                                    autocomplete="off"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -324,7 +352,7 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL EDIT PRASARANA --}}
 
     {{-- MODAL DELETE PRASARANA --}}
@@ -393,16 +421,17 @@
 
         $(document).on('click', '[data-bs-target="#editPrasaranaModal"]', function() {
             let id = $(this).data('id');
-            $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
+            $('#editPrasarana').attr('action', '/admin/sarana-prasarana/prasarana/edit-prasarana/' + id);
             $.ajax({
                 type: 'get',
                 url: '/admin/sarana-prasarana/prasarana/detail-prasarana/' + id,
                 success: function(data) {
-                    $('[data-value="icon_contact"]').attr("src",
-                        "/assets/img/profil-images/kontak-image/" + data.icon);
-                    $('[data-value="oldImage_contact"]').val(data.icon);
-                    $('[data-value="name_contact"]').val(data.name);
-                    $('[data-value="link_contact"]').val(data.link);
+                    $('[data-value="image_prasarana"]').attr("src",
+                        "/assets/img/sarana-prasarana-images/sarana-prasarana-image/" + data.image);
+                    $('[data-value="oldImage_prasarana"]').val(data.image);
+                    $('[data-value="name_prasarana"]').val(data.name);
+                    $('[data-value="description_prasarana"]').val(data.description);
+                    $('[data-value="total_prasarana"]').val(data.total);
                 }
             });
         });

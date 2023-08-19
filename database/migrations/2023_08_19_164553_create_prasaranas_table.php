@@ -18,7 +18,7 @@ class CreatePrasaranasTable extends Migration
             $table->string('image');
             $table->string('name');
             $table->text('description');
-            $table->integer('total');
+            $table->string('total');
             $table->timestamps();
         });
     }
