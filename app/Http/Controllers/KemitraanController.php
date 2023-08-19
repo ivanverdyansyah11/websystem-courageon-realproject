@@ -64,8 +64,8 @@ class KemitraanController extends Controller
 
     function detailPartnership($id)
     {
-        $contact = Contact::where('id', $id)->first();
-        return response()->json($contact);
+        $partnership = Partnership::where('id', $id)->first();
+        return response()->json($partnership);
     }
 
     function updatePartnership($id, Request $request)

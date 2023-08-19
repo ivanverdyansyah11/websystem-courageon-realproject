@@ -206,6 +206,62 @@
     </div>
     {{-- END MODAL ADD PARTNERSHIP --}}
 
+    {{-- MODAL DETAIL SECTION HEADER --}}
+    <div class="modal fade" id="detailPartnershipModal" tabindex="-1" aria-labelledby="detailPartnershipModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Kemitraan Sekolah</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="input-wrapper">
+                        <label for="logo">Logo</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                alt="Logo Partnership" width="80" data-value="logo_partnership">
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Header</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="name_partnership" disabled>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL SECTION HEADER --}}
+
+    {{-- MODAL EDIT SECTION HEADER --}}
+    <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Header</h3>
+                <form id="editSectionHeader" method="post" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Header</label>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_header" name="title_header">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
+                            name="description"></textarea>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT SECTION HEADER --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
@@ -214,6 +270,31 @@
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
+            $('#editSectionHeader').attr('action', '/admin/humas/kemitraan/edit-header');
+            $.ajax({
+                type: 'get',
+                url: '/admin/humas/kemitraan/detail-header',
+                success: function(data) {
+                    $('[data-value="title_header"]').val(data.title_header);
+                    $('[data-value="description_header"]').val(data.description);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailPartnershipModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/humas/kemitraan/detail-kemitraan/' + id,
+                success: function(data) {
+                    $('[data-value="logo_partnership"]').attr("src",
+                        "/assets/img/humas-images/kemitraan-image/" + data.logo);
+                    $('[data-value="name_partnership"]').val(data.name);
                 }
             });
         });
