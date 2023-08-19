@@ -30,23 +30,23 @@ class AkademikController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/humas-images/header-image/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/akademik-images/header-image/') . $request->oldImage;
             unlink($oldImagePath);
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/humas-images/header-image/'), $imageName);
+            $image->move(public_path('assets/img/akademik-images/header-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
             $validatedData['banner'] = $request->oldImage;
         }
 
-        $headerHumas = HeaderHumas::first()->update($validatedData);
+        $headerAcademic = HeaderAcademic::first()->update($validatedData);
 
-        if ($headerHumas) {
-            return redirect(route('humas-index'))->with('success', 'Berhasil Update Section Header!');
+        if ($headerAcademic) {
+            return redirect(route('akademik-index'))->with('success', 'Berhasil Update Section Header!');
         } else {
-            return redirect(route('humas-index'))->with('failed', 'Gagal Update Section Header!');
+            return redirect(route('akademik-index'))->with('failed', 'Gagal Update Section Header!');
         }
     }
 }

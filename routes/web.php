@@ -184,7 +184,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(AkademikController::class)->group(function () {
             Route::get('/akademik', 'index')->name('akademik-index');
             Route::get('/akademik/detail-header', 'detailHeader');
-            Route::post('/sarana-prasarana/edit-header', 'updateHeader');
+            Route::post('/akademik/edit-header', 'updateHeader');
         });
 
         // KESISWAAN
