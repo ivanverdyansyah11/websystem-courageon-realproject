@@ -18,8 +18,8 @@ class GaleriController extends Controller
 
     function detailSection()
     {
-        $section_project = SectionProyek::first();
-        return response()->json($section_project);
+        $section_gallery = SectionGallery::first();
+        return response()->json($section_gallery);
     }
 
     function updateSection(Request $request)

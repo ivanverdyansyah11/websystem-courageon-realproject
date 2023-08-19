@@ -124,21 +124,16 @@
         </div> --}}
     </div>
 
-    {{-- MODAL DETAIL SECTION PROYEK --}}
-    <div class="modal fade" id="detailSectionProyekModal" tabindex="-1" aria-labelledby="detailSectionProyekModalLabel"
+    {{-- MODAL DETAIL SECTION GALLERY --}}
+    <div class="modal fade" id="detailSectionGalleryModal" tabindex="-1" aria-labelledby="detailSectionGalleryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Program</h3>
+                <h3 class="title">Detail Section Galeri</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="button">Button label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
                             disabled>
                     </div>
                     <div class="input-wrapper">
@@ -152,9 +147,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION PROYEK --}}
+    {{-- END MODAL DETAIL SECTION GALLERY --}}
 
-    {{-- MODAL EDIT SECTION PROYEK --}}
+    {{-- MODAL EDIT SECTION GALLERY --}}
     <div class="modal fade" id="editSectionProyekModal" tabindex="-1" aria-labelledby="editSectionProyekModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -185,7 +180,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION PROYEK --}}
+    {{-- END MODAL EDIT SECTION GALLERY --}}
 
     {{-- MODAL ADD PROJECT --}}
     <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
@@ -366,14 +361,13 @@
     {{-- END MODAL DELETE PROJECT --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailSectionProyekModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionGalleryModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/proyek/detail-section',
+                url: '/admin/akademik/galeri/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="button_section"]').val(data.button);
                 }
             });
         });
@@ -386,7 +380,6 @@
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="button_section"]').val(data.button);
                 }
             });
         });
