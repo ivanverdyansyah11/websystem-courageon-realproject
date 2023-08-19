@@ -379,11 +379,11 @@
         $(document).on('click', '[data-bs-target="#detailSectionProyekModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/program/detail-section',
+                url: '/admin/akademik/proyek/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="button_section"]').val(data.button);
                     $('[data-value="description_section"]').val(data.description);
+                    $('[data-value="button_section"]').val(data.button);
                 }
             });
         });

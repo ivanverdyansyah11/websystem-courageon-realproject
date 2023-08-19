@@ -16,8 +16,8 @@ class CreateSectionProyeksTable extends Migration
         Schema::create('section_proyeks', function (Blueprint $table) {
             $table->id();
             $table->string('title_section');
-            $table->text('description');
             $table->string('button');
+            $table->text('description');
             $table->timestamps();
         });
     }
