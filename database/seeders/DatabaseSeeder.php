@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\HeaderHome;
 use App\Models\HeaderHumas;
 use App\Models\HeaderProfile;
+use App\Models\HeaderSaranaPrasarana;
 use App\Models\HistoryHome;
 use App\Models\Journal;
 use App\Models\Logo;
@@ -247,6 +248,13 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'sample-dokumen.pdf',
             'author' => 'Aditya Prayatna',
             'created_date' => '2023-08-11',
+        ]);
+
+        HeaderSaranaPrasarana::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
+            'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
+            'button' => 'Lihat Selengkapnya',
         ]);
     }
 }
