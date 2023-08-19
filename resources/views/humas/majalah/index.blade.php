@@ -382,16 +382,16 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Kemitraan Sekolah</h3>
-                <form id="deletePartnership" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Majalah Sekolah</h3>
+                <form id="deleteJournal" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kemitraan Sekolah: Apakah Anda yakin ingin
-                        menghapus kemitraan sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan kemitraan sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Majalah Sekolah: Apakah Anda yakin ingin
+                        menghapus majalah sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan majalah sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Kemitraan</button>
+                        <button type="submit" class="button-default-solid">Hapus Majalah</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
@@ -464,7 +464,7 @@
 
         $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
             let id = $(this).data('id');
-            $('#deletePartnership').attr('action', '/admin/humas/majalah/delete-majalah/' + id);
+            $('#deleteJournal').attr('action', '/admin/humas/majalah/delete-majalah/' + id);
         });
 
         const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');

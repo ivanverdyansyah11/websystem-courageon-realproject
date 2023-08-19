@@ -121,19 +121,21 @@ class MajalahController extends Controller
 
     function deleteJournal($id)
     {
-        $partnership = Partnership::where('id', $id)->first();
+        $journal = Journal::where('id', $id)->first();
 
-        if ($partnership->logo) {
-            $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
+        if ($journal->thumbnail && $journal->document_pdf) {
+            $imagePath = public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail;
+            $documentPath = public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf;
             unlink($imagePath);
+            unlink($documentPath);
         }
 
-        $partnership = $partnership->delete();
+        $journal = $journal->delete();
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Hapus Kemitraan Sekolah!');
+        if ($journal) {
+            return redirect(route('majalah-index'))->with('success', 'Berhasil Hapus Majalah Sekolah!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Hapus Kemitraan Sekolah!');
+            return redirect(route('majalah-index'))->with('failed', 'Gagal Hapus Majalah Sekolah!');
         }
     }
 }
