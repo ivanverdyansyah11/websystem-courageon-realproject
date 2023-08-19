@@ -206,44 +206,24 @@
     </div>
     {{-- END MODAL ADD PROJECT --}}
 
-    {{-- MODAL DETAIL PROJECT --}}
-    <div class="modal fade" id="detailProjectModal" tabindex="-1" aria-labelledby="detailProjectModalLabel"
+    {{-- MODAL DETAIL GALLERY --}}
+    <div class="modal fade" id="detailGalleryModal" tabindex="-1" aria-labelledby="detailGalleryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Proyek Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label>Image</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Image Project" width="80" data-value="image_project">
-                                </div>
-                            </div>
+                    <div class="input-wrapper">
+                        <label>Gambar</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                alt="Image Gallery" width="80" data-value="image_gallery">
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Proyek</label>
-                                <input type="text" id="judul" class="input" disabled data-value="title_project"
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="topik">Topik</label>
-                                <input type="text" id="topik" class="input" disabled data-value="topic_project"
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" disabled data-value="description_project" autocomplete="off"
-                                    rows="4"></textarea>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Gambar</label>
+                        <input type="text" id="judul" class="input" disabled data-value="title_gallery"
+                            autocomplete="off">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -252,9 +232,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL PROJECT --}}
+    {{-- END MODAL DETAIL GALLERY --}}
 
-    {{-- MODAL EDIT PROJECT --}}
+    {{-- MODAL EDIT GALLERY --}}
     <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -308,9 +288,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT PROJECT --}}
+    {{-- END MODAL EDIT GALLERY --}}
 
-    {{-- MODAL DELETE PROJECT --}}
+    {{-- MODAL DELETE GALLERY --}}
     <div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -331,7 +311,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE PROJECT --}}
+    {{-- END MODAL DELETE GALLERY --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionGalleryModal"]', function() {
@@ -357,17 +337,15 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailProjectModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailGalleryModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/proyek/detail-proyek/' + id,
+                url: '/admin/akademik/galeri/detail-galeri/' + id,
                 success: function(data) {
-                    $('[data-value="image_project"]').attr("src",
-                        "/assets/img/akademik-images/proyek-image/" + data.image);
-                    $('[data-value="title_project"]').val(data.title);
-                    $('[data-value="topic_project"]').val(data.topic);
-                    $('[data-value="description_project"]').val(data.description);
+                    $('[data-value="image_gallery"]').attr("src",
+                        "/assets/img/akademik-images/galeri-image/" + data.image);
+                    $('[data-value="title_gallery"]').val(data.title);
                 }
             });
         });

@@ -64,8 +64,8 @@ class GaleriController extends Controller
 
     function detailGallery($id)
     {
-        $project = Project::where('id', $id)->first();
-        return response()->json($project);
+        $gallery = Gallery::where('id', $id)->first();
+        return response()->json($gallery);
     }
 
     function updateGallery($id, Request $request)
