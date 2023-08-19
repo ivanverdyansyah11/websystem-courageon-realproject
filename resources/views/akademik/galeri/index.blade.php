@@ -270,20 +270,20 @@
     {{-- END MODAL EDIT GALLERY --}}
 
     {{-- MODAL DELETE GALLERY --}}
-    <div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel"
+    <div class="modal fade" id="deleteGalleryModal" tabindex="-1" aria-labelledby="deleteGalleryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Proyek Sekolah</h3>
-                <form id="deleteProject" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Gambar Sekolah</h3>
+                <form id="deleteGallery" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Proyek Sekolah: Apakah Anda yakin ingin
-                        menghapus proyek sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan proyek sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Gambar Sekolah: Apakah Anda yakin ingin
+                        menghapus gambar sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan gambar sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Proyek</button>
+                        <button type="submit" class="button-default-solid">Hapus Gambar</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
@@ -344,9 +344,9 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#deleteProjectModal"]', function() {
+        $(document).on('click', '[data-bs-target="#deleteGalleryModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteProject').attr('action', '/admin/akademik/proyek/delete-proyek/' + id);
+            $('#deleteGallery').attr('action', '/admin/akademik/galeri/delete-galeri/' + id);
         });
 
         const tagAddImage = document.querySelector('.tag-add-image');

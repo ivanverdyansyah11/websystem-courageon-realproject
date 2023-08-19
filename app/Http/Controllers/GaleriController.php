@@ -97,19 +97,19 @@ class GaleriController extends Controller
 
     function deleteGallery($id)
     {
-        $project = Project::where('id', $id)->first();
+        $gallery = Gallery::where('id', $id)->first();
 
-        if ($project->image) {
-            $imagePath = public_path('assets/img/akademik-images/proyek-image/') . $project->image;
+        if ($gallery->image) {
+            $imagePath = public_path('assets/img/akademik-images/galeri-image/') . $gallery->image;
             unlink($imagePath);
         }
 
-        $project = $project->delete();
+        $gallery = $gallery->delete();
 
-        if ($project) {
-            return redirect(route('proyek-index'))->with('success', 'Berhasil Hapus Proyek Sekolah!');
+        if ($gallery) {
+            return redirect(route('galeri-index'))->with('success', 'Berhasil Hapus Galeri Sekolah!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Hapus Proyek Sekolah!');
+            return redirect(route('galeri-index'))->with('failed', 'Gagal Hapus Galeri Sekolah!');
         }
     }
 }
