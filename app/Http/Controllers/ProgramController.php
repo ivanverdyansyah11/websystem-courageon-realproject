@@ -25,27 +25,14 @@ class ProgramController extends Controller
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
-            'description' => 'required|string',
         ]);
 
-        if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/akademik-images/kurikulum-image/') . $request->oldImage;
-            unlink($oldImagePath);
+        $sectionProgram = SectionProgram::first()->update($validatedData);
 
-            $image = $request->file('banner');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/kurikulum-image/'), $imageName);
-            $validatedData['banner'] = $imageName;
+        if ($sectionProgram) {
+            return redirect(route('program-index'))->with('success', 'Berhasil Update Section Program!');
         } else {
-            $validatedData['banner'] = $request->oldImage;
-        }
-
-        $curriculum = SectionProgram::first()->update($validatedData);
-
-        if ($curriculum) {
-            return redirect(route('kurikulum-index'))->with('success', 'Berhasil Update Section Kurikulum!');
-        } else {
-            return redirect(route('kurikulum-index'))->with('failed', 'Gagal Update Section Kurikulum!');
+            return redirect(route('program-index'))->with('failed', 'Gagal Update Section Program!');
         }
     }
 }

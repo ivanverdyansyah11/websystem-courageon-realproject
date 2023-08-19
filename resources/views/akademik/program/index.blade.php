@@ -56,7 +56,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Kurikulum</h3>
+                <h3 class="title">Detail Section Program</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
@@ -76,37 +76,14 @@
     <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Kurikulum</h3>
-                <form id="editCurriculum" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Edit Section Program</h3>
+                <form id="editProgram" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_section">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-section"
-                                alt="Banner Section Curriculum" width="80" data-value="banner_section">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="banner" class="input-edit-section" name="banner">
-                            </div>
-                        </div>
-                        @error('banner')
-                            <p class="caption-error mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
                             data-value="title_section">
                         @error('title_section')
-                            <p class="caption-error mt-1">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                            data-value="description_section"></textarea>
-                        @error('description')
                             <p class="caption-error mt-1">{{ $message }}</p>
                         @enderror
                     </div>
