@@ -40,39 +40,38 @@ class ProyekController extends Controller
         }
     }
 
-    function storeProgram(Request $request)
+    function storeProject(Request $request)
     {
         $validatedData = $request->validate([
-            'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title' => 'required|string|max:255',
-            'button' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'topic' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
 
-        if ($validatedData['banner']) {
-            $image = $request->file('banner');
+        if ($validatedData['image']) {
+            $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/program-image/'), $imageName);
-            $validatedData['banner'] = $imageName;
+            $image->move(public_path('assets/img/akademik-images/proyek-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         }
 
-        $program = Program::create($validatedData);
+        $project = Project::create($validatedData);
 
-        if ($program) {
-            return redirect(route('program-index'))->with('success', 'Berhasil Tambah Program Sekolah!');
+        if ($project) {
+            return redirect(route('proyek-index'))->with('success', 'Berhasil Tambah Proyek Sekolah!');
         } else {
-            return redirect(route('program-index'))->with('failed', 'Gagal Tambah Program Sekolah!');
+            return redirect(route('proyek-index'))->with('failed', 'Gagal Tambah Proyek Sekolah!');
         }
     }
 
-    function detailProgram($id)
+    function detailProject($id)
     {
         $program = Program::where('id', $id)->first();
         return response()->json($program);
     }
 
-    function updateProgram($id, Request $request)
+    function updateProject($id, Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -102,7 +101,7 @@ class ProyekController extends Controller
         }
     }
 
-    function deleteProgram($id)
+    function deleteProject($id)
     {
         $program = Program::where('id', $id)->first();
 

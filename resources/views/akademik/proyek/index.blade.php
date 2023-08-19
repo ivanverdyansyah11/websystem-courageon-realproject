@@ -56,7 +56,7 @@
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Proyek 5P Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addProgramModal">Tambah
+                    data-bs-target="#addProjectModal">Tambah
                     Proyek</button>
             </div>
             <div class="col-12">
@@ -188,44 +188,38 @@
     </div>
     {{-- END MODAL EDIT SECTION PROYEK --}}
 
-    {{-- MODAL ADD PROGRAM --}}
-    <div class="modal fade" id="addProgramModal" tabindex="-1" aria-labelledby="addProgramModalLabel"
+    {{-- MODAL ADD PROJECT --}}
+    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Tambah Program Sekolah</h3>
-                <form action="{{ route('program-store') }}" method="post" enctype="multipart/form-data"
+                <h3 class="title">Tambah Proyek Sekolah</h3>
+                <form action="{{ route('proyek-store') }}" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label for="image">Image</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-banner" alt="Banner Program" width="80">
+                                        class="img-fluid tag-add-image" alt="Image Project" width="80">
                                     <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-add-banner" name="banner">
+                                        <input type="file" id="image" class="input-add-image" name="image">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="judul">Judul Program</label>
+                                <label for="judul">Judul Proyek</label>
                                 <input type="text" id="judul" class="input" name="title" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" name="button" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="link">Link</label>
-                                <input type="text" id="link" class="input" name="link" autocomplete="off">
+                                <label for="topik">Topik</label>
+                                <input type="text" id="topik" class="input" name="topic" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -236,17 +230,17 @@
                         </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Program</button>
+                        <button type="submit" class="button-default-solid">Tambah Proyek</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL ADD PROGRAM --}}
+    {{-- END MODAL ADD PROJECT --}}
 
-    {{-- MODAL DETAIL PROGRAM --}}
-    <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"
+    {{-- MODAL DETAIL PROJECT --}}
+    <div class="modal fade" id="detailProjectModal" tabindex="-1" aria-labelledby="detailProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -298,10 +292,10 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL PROGRAM --}}
+    {{-- END MODAL DETAIL PROJECT --}}
 
-    {{-- MODAL EDIT PROGRAM --}}
-    <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
+    {{-- MODAL EDIT PROJECT --}}
+    <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -361,10 +355,10 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT PROGRAM --}}
+    {{-- END MODAL EDIT PROJECT --}}
 
-    {{-- MODAL DELETE PROGRAM --}}
-    <div class="modal fade" id="deleteProgramModal" tabindex="-1" aria-labelledby="deleteProgramModalLabel"
+    {{-- MODAL DELETE PROJECT --}}
+    <div class="modal fade" id="deleteProjectModal" tabindex="-1" aria-labelledby="deleteProjectModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -384,7 +378,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE PROGRAM --}}
+    {{-- END MODAL DELETE PROJECT --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionProyekModal"]', function() {
@@ -412,7 +406,7 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailProgramModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailProjectModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
@@ -428,7 +422,7 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editProgramModal"]', function() {
+        $(document).on('click', '[data-bs-target="#editProjectModal"]', function() {
             let id = $(this).data('id');
             $('#editProgram').attr('action', '/admin/akademik/program/edit-program/' + id);
             $.ajax({
@@ -446,22 +440,22 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#deleteProgramModal"]', function() {
+        $(document).on('click', '[data-bs-target="#deleteProjectModal"]', function() {
             let id = $(this).data('id');
             $('#deleteProgram').attr('action', '/admin/akademik/program/delete-program/' + id);
         });
 
-        const tagAddBanner = document.querySelector('.tag-add-banner');
-        const inputAddBanner = document.querySelector('.input-add-banner');
-        const tagEditBanner = document.querySelector('.tag-edit-banner');
-        const inputEditBanner = document.querySelector('.input-edit-banner');
+        const tagAddImage = document.querySelector('.tag-add-image');
+        const inputAddImage = document.querySelector('.input-add-image');
+        const tagEditImage = document.querySelector('.tag-edit-image');
+        const inputEditImage = document.querySelector('.input-edit-image');
 
-        inputAddBanner.addEventListener('change', function() {
-            tagAddBanner.src = URL.createObjectURL(inputAddBanner.files[0]);
+        inputAddImage.addEventListener('change', function() {
+            tagAddImage.src = URL.createObjectURL(inputAddImage.files[0]);
         });
 
-        inputEditBanner.addEventListener('change', function() {
-            tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
+        inputEditImage.addEventListener('change', function() {
+            tagEditImage.src = URL.createObjectURL(inputEditImage.files[0]);
         });
     </script>
 @endsection
