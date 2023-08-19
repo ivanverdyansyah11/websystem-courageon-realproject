@@ -289,16 +289,16 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Kontak Sekolah</h3>
-                <form id="deleteContact" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Ruangan Sekolah</h3>
+                <form id="deleteRoom" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kontak Sekolah: Apakah Anda yakin ingin
-                        menghapus kontak sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan kontak sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Ruangan Sekolah: Apakah Anda yakin ingin
+                        menghapus ruangan sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan ruangan sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Kontak</button>
+                        <button type="submit" class="button-default-solid">Hapus Ruangan</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
@@ -364,7 +364,7 @@
 
         $(document).on('click', '[data-bs-target="#deleteRoomModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteContact').attr('action', '/admin/profil/kontak/delete-contact/' + id);
+            $('#deleteRoom').attr('action', '/admin/sarana-prasarana/denah/delete-ruangan/' + id);
         });
 
         const tagAddIcon = document.querySelector('.tag-add-icon');

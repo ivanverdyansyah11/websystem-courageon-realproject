@@ -83,19 +83,13 @@ class DenahController extends Controller
 
     function deleteRoom($id)
     {
-        $contact = Contact::where('id', $id)->first();
+        $denah = Denah::where('id', $id)->first();
+        $denah = $denah->delete();
 
-        if ($contact->icon) {
-            $imagePath = public_path('assets/img/profil-images/kontak-image/') . $contact->icon;
-            unlink($imagePath);
-        }
-
-        $contact = $contact->delete();
-
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Hapus Kontak Sekolah!');
+        if ($denah) {
+            return redirect(route('denah-index'))->with('success', 'Berhasil Hapus Ruangan Denah Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Hapus Kontak Sekolah!');
+            return redirect(route('denah-index'))->with('failed', 'Gagal Hapus Ruangan Denah Sekolah!');
         }
     }
 }
