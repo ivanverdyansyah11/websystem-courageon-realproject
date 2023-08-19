@@ -252,8 +252,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(EkstrakurikulerController::class)->group(function () {
             Route::get('/kesiswaan/ekstrakurikuler', 'index')->name('ekstrakurikuler-index');
-            Route::get('/kesiswaan/detail-section', 'detailSection');
-            Route::post('/kesiswaan/edit-section', 'updateSection');
+            Route::get('/kesiswaan/ekstrakurikuler/detail-section', 'detailSection');
+            Route::post('/kesiswaan/ekstrakurikuler/edit-section', 'updateSection');
         });
 
         // SARANA & PRASARANA

@@ -29,6 +29,7 @@ use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
+use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
 use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
@@ -369,6 +370,11 @@ class DatabaseSeeder extends Seeder
             'caption_1' => 'Kelas X',
             'caption_2' => 'Kelas XI',
             'caption_3' => 'Kelas XII',
+        ]);
+
+        SectionExtracurricular::create([
+            'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
+            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
         ]);
     }
 }
