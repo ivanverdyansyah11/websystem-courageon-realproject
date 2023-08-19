@@ -102,19 +102,19 @@ class ProgramController extends Controller
 
     function deleteProgram($id)
     {
-        $partnership = Partnership::where('id', $id)->first();
+        $program = Program::where('id', $id)->first();
 
-        if ($partnership->logo) {
-            $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
+        if ($program->banner) {
+            $imagePath = public_path('assets/img/akademik-images/program-image/') . $program->banner;
             unlink($imagePath);
         }
 
-        $partnership = $partnership->delete();
+        $program = $program->delete();
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Hapus Kemitraan Sekolah!');
+        if ($program) {
+            return redirect(route('program-index'))->with('success', 'Berhasil Hapus Program Sekolah!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Hapus Kemitraan Sekolah!');
+            return redirect(route('program-index'))->with('failed', 'Gagal Hapus Program Sekolah!');
         }
     }
 }

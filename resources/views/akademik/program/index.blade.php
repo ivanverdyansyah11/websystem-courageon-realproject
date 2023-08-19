@@ -342,6 +342,29 @@
     </div>
     {{-- END MODAL EDIT PROGRAM --}}
 
+    {{-- MODAL DELETE PROGRAM --}}
+    <div class="modal fade" id="deleteProgramModal" tabindex="-1" aria-labelledby="deleteProgramModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Program Sekolah</h3>
+                <form id="deleteProgram" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Program Sekolah: Apakah Anda yakin ingin
+                        menghapus program sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan program sekolah akan dihapus secara permanen dari sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Program</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE PROGRAM --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionProgramModal"]', function() {
             $.ajax({
@@ -396,6 +419,11 @@
                     $('[data-value="description_program"]').val(data.description);
                 }
             });
+        });
+
+        $(document).on('click', '[data-bs-target="#deleteProgramModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteProgram').attr('action', '/admin/akademik/program/delete-program/' + id);
         });
 
         const tagAddBanner = document.querySelector('.tag-add-banner');
