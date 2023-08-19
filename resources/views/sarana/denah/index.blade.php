@@ -56,62 +56,55 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Sarana Prasarana Sekolah</h5>
+                <h5 class="subtitle">Denah Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addPrasaranaModal">Tambah
-                    Prasarana</button>
+                    data-bs-target="#addDenahModal">Tambah
+                    Ruangan Denah</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-lg-inline-block col-2 data-header">Icon</div>
-                            <div class="col data-header">Nama</div>
-                            <div class="col data-header">Link</div>
+                            <div class="col data-header">Kode <span class="d-none d-md-inline-block">Denah</span></div>
+                            <div class="col data-header">Nama <span class="d-none d-md-inline-block">Ruangan</span></div>
+                            <div class="d-none d-md-inline-block col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($contacts->count() == 0)
+                    @if ($rooms->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Guru!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Ruangan Denah!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($contacts as $contact)
+                        @foreach ($rooms as $room)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center justify-content-between">
-                                    <div class="d-none d-lg-inline-block col-2 data-value">
-                                        @if ($contact->icon)
-                                            <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}"
-                                                class="img-fluid" alt="Contact Icon" width="40">
-                                        @else
-                                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                                alt="Image Not Found" width="80">
-                                        @endif
-                                    </div>
-                                    <div class="col data-value">{{ $contact->name }}</div>
-                                    <div class="col data-value data-length">{{ $contact->link }}</div>
+                                    <div class="col data-value">{{ $room->code }}</div>
+                                    <div class="col data-value">{{ $room->name }}</div>
+                                    <div class="col d-none d-md-inline-block data-value data-length">
+                                        {{ $room->description }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailPrasaranaModal"
-                                                data-id="{{ $contact->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#detailDenahModal"
+                                                data-id="{{ $room->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editPrasaranaModal"
-                                                data-id="{{ $contact->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#editDenahModal"
+                                                data-id="{{ $room->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deletePrasaranaModal"
-                                                data-id="{{ $contact->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#deleteDenahModal"
+                                                data-id="{{ $room->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -122,7 +115,7 @@
                     @endif
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION MAP --}}
@@ -144,13 +137,13 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="judul_ruangan">Judul Ruangan</label>
-                        <input type="text" id="judul_ruangan" class="input" autocomplete="off" data-value="title_room"
-                            disabled>
+                        <input type="text" id="judul_ruangan" class="input" autocomplete="off"
+                            data-value="title_room" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Denah;
 use App\Models\SectionDenah;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class DenahController extends Controller
         return view('sarana.denah.index', [
             'title' => 'Sarana',
             'section' => SectionDenah::first(),
+            'rooms' => Denah::all(),
         ]);
     }
 
