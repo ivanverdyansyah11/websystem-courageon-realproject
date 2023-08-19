@@ -17,8 +17,8 @@ class DenahController extends Controller
 
     function detailSection()
     {
-        $section_prasarana = SectionPrasarana::first();
-        return response()->json($section_prasarana);
+        $section_denah = SectionDenah::first();
+        return response()->json($section_denah);
     }
 
     function updateSection(Request $request)

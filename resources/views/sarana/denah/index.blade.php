@@ -341,15 +341,16 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionPrasaranaModal"]', function() {
-            $('#editSectionPrasarana').attr('action', '/admin/sarana-prasarana/prasarana/edit-section');
+        $(document).on('click', '[data-bs-target="#editSectionDenahModal"]', function() {
+            $('#editSectionDenah').attr('action', '/admin/sarana-prasarana/denah/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/sarana-prasarana/prasarana/detail-section',
+                url: '/admin/sarana-prasarana/denah/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="title_code"]').val(data.title_code);
+                    $('[data-value="title_room"]').val(data.title_room);
                     $('[data-value="button_section"]').val(data.button);
-                    $('[data-value="description_section"]').val(data.description);
                 }
             });
         });
