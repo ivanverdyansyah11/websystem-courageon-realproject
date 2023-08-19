@@ -27,6 +27,7 @@ class KontakController extends Controller
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
+            'url_maps' => 'required|string',
         ]);
 
         $section_contact = SectionContact::first()->update($validatedData);

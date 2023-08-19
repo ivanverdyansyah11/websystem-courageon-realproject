@@ -16,6 +16,7 @@ class CreateSectionContactsTable extends Migration
         Schema::create('section_contacts', function (Blueprint $table) {
             $table->id();
             $table->string('title_section');
+            $table->text('url_maps');
             $table->timestamps();
         });
     }

@@ -131,6 +131,11 @@
                         <input type="text" id="judul_section" class="input" autocomplete="off"
                             data-value="title_section" disabled>
                     </div>
+                    <div class="input-wrapper">
+                        <label for="url_maps">URL Lokasi</label>
+                        <input type="text" id="url_maps" class="input" autocomplete="off" data-value="url_maps"
+                            disabled>
+                    </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
                     </div>
@@ -152,6 +157,11 @@
                         <label for="judul_section">Judul Section</label>
                         <input type="text" id="judul_section" class="input" autocomplete="off"
                             data-value="title_section" name="title_section">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="url_maps">URL Lokasi</label>
+                        <input type="text" id="url_maps" class="input" autocomplete="off" data-value="url_maps"
+                            name="url_maps">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -303,6 +313,7 @@
                 url: '/admin/profil/kontak/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="url_maps"]').val(data.url_maps);
                 }
             });
         });
@@ -314,6 +325,7 @@
                 url: '/admin/profil/kontak/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="url_maps"]').val(data.url_maps);
                 }
             });
         });
