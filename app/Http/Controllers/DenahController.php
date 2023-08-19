@@ -60,8 +60,8 @@ class DenahController extends Controller
 
     function detailRoom($id)
     {
-        $contact = Contact::where('id', $id)->first();
-        return response()->json($contact);
+        $denah = Denah::where('id', $id)->first();
+        return response()->json($denah);
     }
 
     function updateRoom($id, Request $request)

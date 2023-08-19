@@ -223,28 +223,25 @@
     {{-- END MODAL ADD ROOM MAP --}}
 
     {{-- MODAL DETAIL ROOM MAP --}}
-    {{-- <div class="modal fade" id="detailContactModal" tabindex="-1" aria-labelledby="detailContactModalLabel"
+    <div class="modal fade" id="detailRoomModal" tabindex="-1" aria-labelledby="detailRoomModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Kontak Sekolah</h3>
-                <form id="detailContact" method="post" class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Detail Ruangan Sekolah</h3>
+                <form id="detailRoom" method="post" class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="icon">Icon</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                alt="icon Section Sejarah" width="80" data-value="icon_contact">
-                        </div>
+                        <label for="kode">Kode Ruangan</label>
+                        <input type="text" id="kode" class="input" autocomplete="off" data-value="code_room"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
-                        <label for="nama">Judul Kontak</label>
-                        <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_contact" disabled>
+                        <label for="nama">Nama Ruangan</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" data-value="name_room"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" class="input" autocomplete="off"
-                            data-value="link_contact" disabled>
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea data-value="description_room" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -252,11 +249,11 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL DETAIL ROOM MAP --}}
 
     {{-- MODAL EDIT ROOM MAP --}}
-    {{-- <div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel"
+    {{-- <div class="modal fade" id="editRoomModal" tabindex="-1" aria-labelledby="editRoomModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -296,7 +293,7 @@
     {{-- END MODAL EDIT ROOM MAP --}}
 
     {{-- MODAL DELETE ROOM MAP --}}
-    <div class="modal fade" id="deleteContactModal" tabindex="-1" aria-labelledby="deleteContactModalLabel"
+    <div class="modal fade" id="deleteRoomModal" tabindex="-1" aria-labelledby="deleteRoomModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -346,40 +343,39 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#detailContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/kontak/detail-contact/' + id,
-        //         success: function(data) {
-        //             $('[data-value="icon_contact"]').attr("src",
-        //                 "/assets/img/profil-images/kontak-image/" + data.icon);
-        //             $('[data-value="name_contact"]').val(data.name);
-        //             $('[data-value="link_contact"]').val(data.link);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#detailRoomModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/sarana-prasarana/denah/detail-ruangan/' + id,
+                success: function(data) {
+                    $('[data-value="code_room"]').val(data.code);
+                    $('[data-value="name_room"]').val(data.name);
+                    $('[data-value="description_room"]').val(data.description);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#editContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/kontak/detail-contact/' + id,
-        //         success: function(data) {
-        //             $('[data-value="icon_contact"]').attr("src",
-        //                 "/assets/img/profil-images/kontak-image/" + data.icon);
-        //             $('[data-value="oldImage_contact"]').val(data.icon);
-        //             $('[data-value="name_contact"]').val(data.name);
-        //             $('[data-value="link_contact"]').val(data.link);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editRoomModal"]', function() {
+            let id = $(this).data('id');
+            $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/profil/kontak/detail-contact/' + id,
+                success: function(data) {
+                    $('[data-value="icon_contact"]').attr("src",
+                        "/assets/img/profil-images/kontak-image/" + data.icon);
+                    $('[data-value="oldImage_contact"]').val(data.icon);
+                    $('[data-value="name_contact"]').val(data.name);
+                    $('[data-value="link_contact"]').val(data.link);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#deleteContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#deleteContact').attr('action', '/admin/profil/kontak/delete-contact/' + id);
-        // });
+        $(document).on('click', '[data-bs-target="#deleteRoomModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteContact').attr('action', '/admin/profil/kontak/delete-contact/' + id);
+        });
 
         const tagAddIcon = document.querySelector('.tag-add-icon');
         const inputAddIcon = document.querySelector('.input-add-icon');
