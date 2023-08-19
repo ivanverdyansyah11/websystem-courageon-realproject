@@ -27,15 +27,14 @@ class GaleriController extends Controller
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
             'description' => 'required|string',
-            'button' => 'required|string|max:255',
         ]);
 
-        $sectionProyek = SectionProyek::first()->update($validatedData);
+        $sectionGallery = SectionGallery::first()->update($validatedData);
 
-        if ($sectionProyek) {
-            return redirect(route('proyek-index'))->with('success', 'Berhasil Update Section Proyek!');
+        if ($sectionGallery) {
+            return redirect(route('galeri-index'))->with('success', 'Berhasil Update Section Galeri!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Update Section Proyek!');
+            return redirect(route('galeri-index'))->with('failed', 'Gagal Update Section Galeri!');
         }
     }
 

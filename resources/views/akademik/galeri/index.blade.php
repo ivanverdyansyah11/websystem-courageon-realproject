@@ -150,22 +150,17 @@
     {{-- END MODAL DETAIL SECTION GALLERY --}}
 
     {{-- MODAL EDIT SECTION GALLERY --}}
-    <div class="modal fade" id="editSectionProyekModal" tabindex="-1" aria-labelledby="editSectionProyekModalLabel"
+    <div class="modal fade" id="editSectionGalleryModal" tabindex="-1" aria-labelledby="editSectionGalleryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Proyek</h3>
-                <form id="editSectionProyek" method="post" class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Edit Section Galeri</h3>
+                <form id="editSectionGallery" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
                             name="title_section">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="button">Button label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            name="button">
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
@@ -183,8 +178,7 @@
     {{-- END MODAL EDIT SECTION GALLERY --}}
 
     {{-- MODAL ADD PROJECT --}}
-    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Proyek Sekolah</h3>
@@ -372,11 +366,11 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionProyekModal"]', function() {
-            $('#editSectionProyek').attr('action', '/admin/akademik/proyek/edit-section');
+        $(document).on('click', '[data-bs-target="#editSectionGalleryModal"]', function() {
+            $('#editSectionGallery').attr('action', '/admin/akademik/galeri/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/proyek/detail-section',
+                url: '/admin/akademik/galeri/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
