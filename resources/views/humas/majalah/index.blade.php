@@ -307,27 +307,65 @@
     {{-- MODAL EDIT JOURNAL --}}
     <div class="modal fade" id="editJournalModal" tabindex="-1" aria-labelledby="editJournalModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Edit Kemitraan Sekolah</h3>
-                <form id="editPartnership" method="post" class="form d-flex flex-column justify-content-center"
+                <h3 class="title">Edit Journal Sekolah</h3>
+                <form id="editJournal" method="post" class="form d-flex flex-column justify-content-center"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="logo">logo</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <input type="hidden" name="oldImage" data-value="oldImage_partnership">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-logo"
-                                alt="Logo Kemitraan" width="80" data-value="logo_partnership">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="logo" class="input-edit-logo" name="logo">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="thumbnail">Thumbnail</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_journal">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-thumbnail" alt="Thumbnail Journal" width="80"
+                                        data-value="thumbnail_journal">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="thumbnail" class="input-edit-thumbnail"
+                                            name="thumbnail">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="name_partnership" name="name">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="document_pdf">Dokumen PDF</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <input type="hidden" name="oldDocument" data-value="oldDocument_journal">
+                                    <input type="file" id="document_pdf" name="document_pdf">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="title">Judul</label>
+                                <input type="text" id="title" class="input" autocomplete="off"
+                                    data-value="title_journal" name="title">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="penulis">Penulis</label>
+                                <input type="text" id="penulis" class="input" autocomplete="off"
+                                    data-value="author_journal" name="author">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
+                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
+                                    data-value="created_journal" name="created_date">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi Singkat</label>
+                                <textarea name="description" data-value="description_journal" id="deskripsi" rows="4" class="input"
+                                    autocomplete="off"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -405,15 +443,21 @@
 
         $(document).on('click', '[data-bs-target="#editJournalModal"]', function() {
             let id = $(this).data('id');
-            $('#editPartnership').attr('action', '/admin/humas/majalah/edit-majalah/' + id);
+            $('#editJournal').attr('action', '/admin/humas/majalah/edit-majalah/' + id);
             $.ajax({
                 type: 'get',
                 url: '/admin/humas/majalah/detail-majalah/' + id,
                 success: function(data) {
-                    $('[data-value="logo_journal"]').attr("src",
-                        "/assets/img/humas-images/majalah-image/" + data.logo);
-                    $('[data-value="oldImage_journal"]').val(data.logo);
-                    $('[data-value="name_journal"]').val(data.name);
+                    $('[data-value="thumbnail_journal"]').attr("src",
+                        "/assets/img/humas-images/majalah-image/" + data.thumbnail);
+                    $('[data-value="oldImage_journal"]').val(data.thumbnail);
+
+                    $('[data-value="oldDocument_journal"]').val(data.document_pdf);
+
+                    $('[data-value="title_journal"]').val(data.title);
+                    $('[data-value="description_journal"]').val(data.description);
+                    $('[data-value="author_journal"]').val(data.author);
+                    $('[data-value="created_journal"]').val(data.created_date);
                 }
             });
         });

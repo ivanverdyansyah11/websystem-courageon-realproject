@@ -80,28 +80,42 @@ class MajalahController extends Controller
     function updateJournal($id, Request $request)
     {
         $validatedData = $request->validate([
-            'logo' => 'required|image|max:2048',
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'author' => 'required|string',
+            'created_date' => 'required|date',
         ]);
 
-        if ($request->file('logo')) {
-            $oldImagePath = public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage;
+        if ($request->file('thumbnail')) {
+            $oldImagePath = public_path('assets/img/humas-images/majalah-image/') . $request->oldImage;
             unlink($oldImagePath);
 
-            $image = $request->file('logo');
+            $image = $request->file('thumbnail');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/humas-images/kemitraan-image/'), $imageName);
-            $validatedData['logo'] = $imageName;
+            $image->move(public_path('assets/img/humas-images/majalah-image/'), $imageName);
+            $validatedData['thumbnail'] = $imageName;
         } else {
-            $validatedData['logo'] = $request->oldImage;
+            $validatedData['thumbnail'] = $request->oldImage;
         }
 
-        $partnership = Partnership::where('id', $id)->first()->update($validatedData);
+        if ($request->file('document_pdf')) {
+            $oldDocumentPath = public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument;
+            unlink($oldDocumentPath);
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Edit Kemitraan Sekolah!');
+            $document = $request->file('document_pdf');
+            $documentName = time() . '.' . $document->getClientOriginalExtension();
+            $document->move(public_path('assets/img/humas-images/majalah-image/'), $documentName);
+            $validatedData['document_pdf'] = $documentName;
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Edit Kemitraan Sekolah!');
+            $validatedData['document_pdf'] = $request->oldDocument;
+        }
+
+        $journal = Journal::where('id', $id)->first()->update($validatedData);
+
+        if ($journal) {
+            return redirect(route('majalah-index'))->with('success', 'Berhasil Edit Majalah Sekolah!');
+        } else {
+            return redirect(route('majalah-index'))->with('failed', 'Gagal Edit Majalah Sekolah!');
         }
     }
 
