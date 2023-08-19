@@ -89,9 +89,11 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('siswa-index') }}" class="link-child">Data Siswa</a>
-                    <a href="{{ route('ekstrakulikuler-index') }}" class="link-child">Ekstrakulikuler</a>
-                    <a href="{{ route('pelayanan-index') }}" class="link-child">Pelayanan</a>
+                    <a href="{{ route('siswa-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/siswa*') ? 'active' : '' }}">Data Siswa</a>
+                    <a href="{{ route('ekstrakurikuler-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/ekstrakurikuler*') ? 'active' : '' }}">Ekstrakulikuler</a>
+                    {{-- <a href="{{ route('pelayanan-index') }}" class="link-child">Pelayanan</a>
                     <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a>
                     <a href="{{ route('prestasi-index') }}" class="link-child">Prestasi</a>
                     <a href="{{ route('beasiswa-index') }}" class="link-child">Beasiswa</a>

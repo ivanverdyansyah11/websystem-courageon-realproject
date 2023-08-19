@@ -37,6 +37,7 @@ use App\Models\SectionPrasarana;
 use App\Models\SectionProgram;
 use App\Models\SectionProyek;
 use App\Models\SectionStaff;
+use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
@@ -358,6 +359,16 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
             'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
             'button' => 'Lihat Selengkapnya',
+        ]);
+
+        SectionStudent::create([
+            'title_section' => 'Grafik Data Kesiswaan',
+            'button_1' => 'Semua Siswa',
+            'button_2' => 'Siswa Laki-Laki',
+            'button_3' => 'Siswa Perempuan',
+            'caption_1' => 'Kelas X',
+            'caption_2' => 'Kelas XI',
+            'caption_3' => 'Kelas XII',
         ]);
     }
 }

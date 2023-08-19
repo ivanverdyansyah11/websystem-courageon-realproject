@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenahController;
+use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SaranaPrasaranaController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -240,6 +242,18 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
             Route::get('/kesiswaan/detail-header', 'detailHeader');
             Route::post('/kesiswaan/edit-header', 'updateHeader');
+        });
+
+        Route::controller(SiswaController::class)->group(function () {
+            Route::get('/kesiswaan/siswa', 'index')->name('siswa-index');
+            Route::get('/kesiswaan/siswa/detail-section', 'detailSectionStudent');
+            Route::post('/kesiswaan/siswa/edit-section', 'updateSectionStudent');
+        });
+
+        Route::controller(EkstrakurikulerController::class)->group(function () {
+            Route::get('/kesiswaan/ekstrakurikuler', 'index')->name('ekstrakurikuler-index');
+            Route::get('/kesiswaan/detail-section', 'detailSection');
+            Route::post('/kesiswaan/edit-section', 'updateSection');
         });
 
         // SARANA & PRASARANA
