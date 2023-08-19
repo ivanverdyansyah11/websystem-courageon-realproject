@@ -21,12 +21,19 @@ class AuthController extends Controller
             'password' => 'required|string|min:3|max:255',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])()) {
             $request->session()->regenerate();
             return redirect()->intended(route('dashboard-index'));
         } else {
             return redirect(route('login'))->with('failed', "Email or Password does't match!");
         }
+    }
+
+    function forgotPassword()
+    {
+        return view('auth.forgot-password', [
+            'title' => 'Forgot Password',
+        ]);
     }
 
     public function logout(Request $request)

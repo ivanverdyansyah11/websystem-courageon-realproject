@@ -65,7 +65,7 @@
 
 <body>
 
-    @if (Request::is('admin/login'))
+    @if (Request::is('admin/login') || Request::is('admin/forgot-password'))
         @yield('container')
     @elseif(Request::is('beranda') ||
             Request::is('prestasi*') ||

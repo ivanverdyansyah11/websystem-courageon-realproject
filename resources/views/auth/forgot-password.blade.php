@@ -16,7 +16,7 @@
                     @endif
                     <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo text-center mx-auto"
                         alt="Brand Logo" draggable="false">
-                    <form action="{{ route('login.action') }}" method="POST"
+                    <form action="{{ route('forgot-password.action') }}" method="POST"
                         class="form d-flex flex-column justify-content-center align-items-end">
                         @csrf
                         <div class="input-wrapper w-100">
@@ -26,17 +26,9 @@
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="input-wrapper w-100">
-                            <input type="password" class="input" autocomplete="off" placeholder="Enter your password.."
-                                name="password">
-                            @error('password')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <button type="submit" class="button-form">Login</button>
+                        <button type="submit" class="button-form">Send Email</button>
                     </form>
-                    <p>Forgot password account? <a href="{{ route('forgot-password') }}" class="link-forgot">Forgot
-                            Password</a></p>
+                    <p>Remember your password account? <a href="{{ route('login') }}" class="link-forgot">Login</a></p>
                 </div>
             </div>
         </div>
