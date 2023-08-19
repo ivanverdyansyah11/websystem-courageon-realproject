@@ -17,8 +17,8 @@ class KurikulumController extends Controller
 
     function detailHeader()
     {
-        $section_academic = HeaderAcademic::first();
-        return response()->json($section_academic);
+        $section_curriculum = Curriculum::first();
+        return response()->json($section_curriculum);
     }
 
     function updateHeader(Request $request)

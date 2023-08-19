@@ -47,12 +47,12 @@
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
                                         class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailSectionHeaderModal">
+                                        data-bs-toggle="modal" data-bs-target="#detailCurriculumModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
                                         class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editSectionHeaderModal">
+                                        data-bs-toggle="modal" data-bs-target="#editCurriculumModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -65,42 +65,27 @@
     </div>
 
     {{-- MODAL DETAIL SECTION HEADER --}}
-    <div class="modal fade" id="detailSectionHeaderModal" tabindex="-1" aria-labelledby="detailSectionHeaderModalLabel"
+    <div class="modal fade" id="detailCurriculumModal" tabindex="-1" aria-labelledby="detailCurriculumModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Banner Section Header" width="80" data-value="banner_section">
-                                </div>
-                            </div>
+                    <div class="input-wrapper">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                alt="Banner Section Header" width="80" data-value="banner_section">
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" autocomplete="off"
-                                    data-value="title_section" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" autocomplete="off"
-                                    data-value="button_section" disabled>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_section" disabled></textarea>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Header</label>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_section" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -112,12 +97,12 @@
     {{-- END MODAL DETAIL SECTION HEADER --}}
 
     {{-- MODAL EDIT SECTION HEADER --}}
-    <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+    <div class="modal fade" id="editCurriculumModal" tabindex="-1" aria-labelledby="editCurriculumModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
+                <form id="editCurriculum" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
@@ -168,29 +153,27 @@
     {{-- END MODAL EDIT SECTION HEADER --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailCurriculumModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/detail-header',
+                url: '/admin/akademik/kurikulum/detail-header',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="button_section"]').val(data.button);
                     $('[data-value="banner_section"]').attr("src",
                         "/assets/img/akademik-images/kurikulum-image/" + data.banner);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/akademik/edit-header');
+        $(document).on('click', '[data-bs-target="#editCurriculumModal"]', function() {
+            $('#editCurriculum').attr('action', '/admin/akademik/edit-header');
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/detail-header',
+                url: '/admin/akademik/kurikulum/detail-header',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="button_section"]').val(data.button);
                     $('[data-value="oldImage_section"]').val(data.banner);
                     $('[data-value="banner_section"]').attr("src",
                         "/assets/img/akademik-images/kurikulum-image/" + data.banner);
