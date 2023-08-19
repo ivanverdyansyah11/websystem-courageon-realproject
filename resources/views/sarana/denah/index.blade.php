@@ -175,14 +175,19 @@
                             data-value="title_section">
                     </div>
                     <div class="input-wrapper">
+                        <label for="judul_kode">Judul Kode</label>
+                        <input type="text" id="judul_kode" class="input" autocomplete="off" data-value="title_code"
+                            name="title_code">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul_ruangan">Judul Ruangan</label>
+                        <input type="text" id="judul_ruangan" class="input" autocomplete="off"
+                            data-value="title_room" name="title_room">
+                    </div>
+                    <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" name="button" autocomplete="off"
                             data-value="button_section">
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                            data-value="description_section"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>

@@ -25,16 +25,17 @@ class DenahController extends Controller
     {
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
-            'description' => 'required|string',
+            'title_code' => 'required|string|max:255',
+            'title_room' => 'required|string|max:255',
             'button' => 'required|string|max:255',
         ]);
 
-        $sectionPrasarana = SectionPrasarana::first()->update($validatedData);
+        $sectionDenah = SectionDenah::first()->update($validatedData);
 
-        if ($sectionPrasarana) {
-            return redirect(route('prasarana-index'))->with('success', 'Berhasil Update Section Prasarana!');
+        if ($sectionDenah) {
+            return redirect(route('denah-index'))->with('success', 'Berhasil Update Section Denah!');
         } else {
-            return redirect(route('prasarana-index'))->with('failed', 'Gagal Update Section Prasarana!');
+            return redirect(route('denah-index'))->with('failed', 'Gagal Update Section Denah!');
         }
     }
 }
