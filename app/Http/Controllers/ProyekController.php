@@ -75,29 +75,28 @@ class ProyekController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'button' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'topic' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
 
-        if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/akademik-images/program-image/') . $request->oldImage;
+        if ($request->file('image')) {
+            $oldImagePath = public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage;
             unlink($oldImagePath);
 
-            $image = $request->file('banner');
+            $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/program-image/'), $imageName);
-            $validatedData['banner'] = $imageName;
+            $image->move(public_path('assets/img/akademik-images/proyek-image/'), $imageName);
+            $validatedData['image'] = $imageName;
         } else {
-            $validatedData['banner'] = $request->oldImage;
+            $validatedData['image'] = $request->oldImage;
         }
 
-        $program = Program::where('id', $id)->first()->update($validatedData);
+        $project = Project::where('id', $id)->first()->update($validatedData);
 
-        if ($program) {
-            return redirect(route('program-index'))->with('success', 'Berhasil Edit Program Sekolah!');
+        if ($project) {
+            return redirect(route('proyek-index'))->with('success', 'Berhasil Edit Proyek Sekolah!');
         } else {
-            return redirect(route('program-index'))->with('failed', 'Gagal Edit Program Sekolah!');
+            return redirect(route('proyek-index'))->with('failed', 'Gagal Edit Proyek Sekolah!');
         }
     }
 
