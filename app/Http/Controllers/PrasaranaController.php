@@ -102,19 +102,19 @@ class PrasaranaController extends Controller
 
     function deletePrasarana($id)
     {
-        $contact = Contact::where('id', $id)->first();
+        $prasarana = Prasarana::where('id', $id)->first();
 
-        if ($contact->icon) {
-            $imagePath = public_path('assets/img/profil-images/kontak-image/') . $contact->icon;
+        if ($prasarana->icon) {
+            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->icon;
             unlink($imagePath);
         }
 
-        $contact = $contact->delete();
+        $prasarana = $prasarana->delete();
 
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Hapus Kontak Sekolah!');
+        if ($prasarana) {
+            return redirect(route('prasarana-index'))->with('success', 'Berhasil Hapus Sarana Prasarana Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Hapus Kontak Sekolah!');
+            return redirect(route('prasarana-index'))->with('failed', 'Gagal Hapus Sarana Prasarana Sekolah!');
         }
     }
 }
