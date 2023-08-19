@@ -147,7 +147,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Program</h3>
-                <form id="editProgram" method="post" class="form d-flex flex-column justify-content-center">
+                <form id="editSectionProgram" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
@@ -280,48 +280,55 @@
     {{-- END MODAL DETAIL PROGRAM --}}
 
     {{-- MODAL EDIT PROGRAM --}}
-    <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+    <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Program Sekolah</h3>
+                <form id="editProgram" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="banner">Banner</label>
+                                <input type="hidden" data-value="oldImage_program" name="oldImage">
                                 <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_header">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
-                                        data-value="banner_header">
+                                        class="img-fluid tag-edit-banner" alt="Banner Program" width="80"
+                                        data-value="banner_program">
                                     <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-header" name="banner">
+                                        <input type="file" id="banner" class="input-edit-banner" name="banner">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" name="title_header"
-                                    autocomplete="off" data-value="title_header">
+                                <label for="judul">Judul Program</label>
+                                <input type="text" id="judul" class="input" data-value="title_program"
+                                    name="title" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_header">
+                                <input type="text" id="button" class="input" data-value="button_program"
+                                    name="button" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="link">Link</label>
+                                <input type="text" id="link" class="input" data-value="link_program"
+                                    name="link" autocomplete="off">
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                    data-value="description_header"></textarea>
+                                <textarea id="deskripsi" class="input" data-value="description_program" name="description" autocomplete="off"
+                                    rows="4"></textarea>
                             </div>
                         </div>
                     </div>
@@ -347,7 +354,7 @@
         });
 
         $(document).on('click', '[data-bs-target="#editSectionProgramModal"]', function() {
-            $('#editProgram').attr('action', '/admin/akademik/program/edit-section');
+            $('#editSectionProgram').attr('action', '/admin/akademik/program/edit-section');
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/program/detail-section',
@@ -365,6 +372,24 @@
                 success: function(data) {
                     $('[data-value="banner_program"]').attr("src",
                         "/assets/img/akademik-images/program-image/" + data.banner);
+                    $('[data-value="title_program"]').val(data.title);
+                    $('[data-value="button_program"]').val(data.button);
+                    $('[data-value="link_program"]').val(data.link);
+                    $('[data-value="description_program"]').val(data.description);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editProgramModal"]', function() {
+            let id = $(this).data('id');
+            $('#editProgram').attr('action', '/admin/akademik/program/edit-program/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/akademik/program/detail-program/' + id,
+                success: function(data) {
+                    $('[data-value="banner_program"]').attr("src",
+                        "/assets/img/akademik-images/program-image/" + data.banner);
+                    $('[data-value="oldImage_program"]').val(data.banner);
                     $('[data-value="title_program"]').val(data.title);
                     $('[data-value="button_program"]').val(data.button);
                     $('[data-value="link_program"]').val(data.link);

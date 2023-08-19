@@ -73,28 +73,30 @@ class ProgramController extends Controller
     function updateProgram($id, Request $request)
     {
         $validatedData = $request->validate([
-            'logo' => 'required|image|max:2048',
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'button' => 'required|string|max:255',
+            'link' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
-        if ($request->file('logo')) {
-            $oldImagePath = public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage;
+        if ($request->file('banner')) {
+            $oldImagePath = public_path('assets/img/akademik-images/program-image/') . $request->oldImage;
             unlink($oldImagePath);
 
-            $image = $request->file('logo');
+            $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/humas-images/kemitraan-image/'), $imageName);
-            $validatedData['logo'] = $imageName;
+            $image->move(public_path('assets/img/akademik-images/program-image/'), $imageName);
+            $validatedData['banner'] = $imageName;
         } else {
-            $validatedData['logo'] = $request->oldImage;
+            $validatedData['banner'] = $request->oldImage;
         }
 
-        $partnership = Partnership::where('id', $id)->first()->update($validatedData);
+        $program = Program::where('id', $id)->first()->update($validatedData);
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Edit Kemitraan Sekolah!');
+        if ($program) {
+            return redirect(route('program-index'))->with('success', 'Berhasil Edit Program Sekolah!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Edit Kemitraan Sekolah!');
+            return redirect(route('program-index'))->with('failed', 'Gagal Edit Program Sekolah!');
         }
     }
 
