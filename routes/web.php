@@ -199,6 +199,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(ProgramController::class)->group(function () {
             Route::get('/akademik/program', 'index')->name('program-index');
+            Route::get('/akademik/program/detail-section', 'detailSection');
+            Route::post('/akademik/program/edit-section', 'updateSection');
         });
 
         Route::controller(ProyekController::class)->group(function () {

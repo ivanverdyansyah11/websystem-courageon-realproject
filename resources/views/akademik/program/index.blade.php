@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL SECTION CURRICULUM --}}
+    {{-- MODAL DETAIL SECTION PROGRAM --}}
     <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -59,20 +59,9 @@
                 <h3 class="title">Detail Section Kurikulum</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="banner">Banner</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                alt="Banner Section Curriculum" width="80" data-value="banner_section">
-                        </div>
-                    </div>
-                    <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
                             disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_section" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -81,9 +70,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION CURRICULUM --}}
+    {{-- END MODAL DETAIL SECTION PROGRAM --}}
 
-    {{-- MODAL EDIT SECTION CURRICULUM --}}
+    {{-- MODAL EDIT SECTION PROGRAM --}}
     <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -129,7 +118,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION CURRICULUM --}}
+    {{-- END MODAL EDIT SECTION PROGRAM --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailProgramModal"]', function() {
@@ -138,9 +127,6 @@
                 url: '/admin/akademik/program/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="banner_section"]').attr("src",
-                        "/assets/img/akademik-images/program-image/" + data.banner);
                 }
             });
         });
@@ -152,10 +138,6 @@
                 url: '/admin/akademik/program/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="description_section"]').val(data.description);
-                    $('[data-value="oldImage_section"]').val(data.banner);
-                    $('[data-value="banner_section"]').attr("src",
-                        "/assets/img/akademik-images/program-image/" + data.banner);
                 }
             });
         });
