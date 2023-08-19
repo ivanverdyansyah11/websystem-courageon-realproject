@@ -52,65 +52,60 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Proyek 5P Sekolah</h5>
+                <h5 class="subtitle">Galeri Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addProjectModal">Tambah
-                    Proyek</button>
+                    data-bs-target="#addGalleryModal">Tambah
+                    Gambar</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-md-inline-block col-2 data-header">Image</div>
-                            <div class="col data-header">Judul <span class="d-none d-md-inline-block">Proyek</span></div>
-                            <div class="col data-header">Topik</div>
-                            <div class="col data-header">Deskripsi</div>
+                            <div class="d-none d-md-inline-block col-2 data-header">Gambar</div>
+                            <div class="col data-header">Judul <span class="d-none d-md-inline-block">Gambar</span></div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($projects->count() == 0)
+                    @if ($galleries->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Proyek!</div>
+                                <div class="col-12 data-value">Tidak Ada Gambar!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($projects as $project)
+                        @foreach ($galleries as $gallery)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="d-none d-md-inline-block col-2 data-value">
-                                        @if ($project->image)
-                                            <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
-                                                class="img-fluid" alt="Image Project" width="80">
+                                        @if ($gallery->image)
+                                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
+                                                class="img-fluid" alt="Image Gallery" width="80">
                                         @else
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                                 alt="Image Not Found" width="80">
                                         @endif
                                     </div>
-                                    <div class="col data-value data-length">{{ $project->title }}</div>
-                                    <div class="col data-value data-length">{{ $project->topic }}</div>
-                                    <div class="d-none col data-value data-length">
-                                        {{ $project->description }}</div>
+                                    <div class="col data-value data-length">{{ $gallery->title }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailProjectModal"
-                                                data-id="{{ $project->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#detailGalleryModal"
+                                                data-id="{{ $gallery->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editProjectModal"
-                                                data-id="{{ $project->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#editGalleryModal"
+                                                data-id="{{ $gallery->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteProjectModal"
-                                                data-id="{{ $project->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#deleteGalleryModal"
+                                                data-id="{{ $gallery->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -121,7 +116,7 @@
                     @endif
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION GALLERY --}}
@@ -138,7 +133,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
+                            autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -159,8 +155,8 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
@@ -178,7 +174,8 @@
     {{-- END MODAL EDIT SECTION GALLERY --}}
 
     {{-- MODAL ADD PROJECT --}}
-    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Proyek Sekolah</h3>

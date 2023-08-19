@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\SectionGallery;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class GaleriController extends Controller
         return view('akademik.galeri.index', [
             'title' => 'Galeri',
             'section_gallery' => SectionGallery::first(),
-            // 'projects' => Project::all(),
+            'galleries' => Gallery::all(),
         ]);
     }
 

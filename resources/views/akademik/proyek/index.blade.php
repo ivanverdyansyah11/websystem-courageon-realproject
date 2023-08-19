@@ -63,7 +63,7 @@
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-md-inline-block col-2 data-header">Image</div>
+                            <div class="d-none d-md-inline-block col-2 data-header">Gambar</div>
                             <div class="col data-header">Judul <span class="d-none d-md-inline-block">Proyek</span></div>
                             <div class="col data-header">Topik</div>
                             <div class="col data-header">Deskripsi</div>

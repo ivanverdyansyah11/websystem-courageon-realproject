@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Curriculum;
 use App\Models\Denah;
 use App\Models\Employee;
+use App\Models\Gallery;
 use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
 use App\Models\HeaderHumas;
@@ -344,6 +345,11 @@ class DatabaseSeeder extends Seeder
         SectionGallery::create([
             'title_section' => 'Galeri Dokumentasi Sekolah',
             'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
+        ]);
+
+        Gallery::create([
+            'image' => 'sample-galeri.jpg',
+            'title' => 'Sample Gambar Galeri Pertama',
         ]);
     }
 }
