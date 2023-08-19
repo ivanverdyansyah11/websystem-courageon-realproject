@@ -39,7 +39,7 @@ x @extends('templates.main')
             </div>
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 <div class="col">
-                    <div class="card-sapras text-decoration-none">
+                    <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalSapras">
                         <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
                         <p class="mt-2 text-black fs-4 fw-semibold text-center text-capitalize">
                             Ruang Kelas
@@ -76,7 +76,7 @@ x @extends('templates.main')
                                 <p class="desc fs-14 lh-base">10 Ruangan</p>
                             </div>
                         </div>
-                    </div>
+                    </button>
                 </div>
                 <div class="col">
                     <div class="card-sapras text-decoration-none">
@@ -428,5 +428,17 @@ x @extends('templates.main')
             </div>
         </section>
     </main>
-    
+    <div class="modal fade" id="modalSapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
+                <p class="mt-3 fs-4 fw-semibold text-black">Ruang Kelas</p>
+                <p class="mt-1 desc">
+                    Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas:
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
 @endsection
