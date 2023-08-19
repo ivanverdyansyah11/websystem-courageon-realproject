@@ -133,8 +133,9 @@
                             disabled>
                     </div>
                     <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_header"
+                            disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -296,19 +297,19 @@
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/kemitraan/detail-header',
+                url: '/admin/humas/majalah/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
-                    $('[data-value="description_header"]').val(data.description);
+                    $('[data-value="button_header"]').val(data.button);
                 }
             });
         });
 
         $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/humas/kemitraan/edit-header');
+            $('#editSectionHeader').attr('action', '/admin/humas/majalah/edit-header');
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/kemitraan/detail-header',
+                url: '/admin/humas/majalah/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);

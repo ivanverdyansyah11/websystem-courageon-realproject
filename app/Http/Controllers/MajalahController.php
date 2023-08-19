@@ -19,8 +19,8 @@ class MajalahController extends Controller
 
     function detailHeader()
     {
-        $section_kemitraan = SectionKemitraan::first();
-        return response()->json($section_kemitraan);
+        $section_journal = SectionJournal::first();
+        return response()->json($section_journal);
     }
 
     function updateHeader(Request $request)
@@ -30,7 +30,7 @@ class MajalahController extends Controller
             'description' => 'required|string',
         ]);
 
-        $section_kemitraan = SectionKemitraan::first()->update($validatedData);
+        $section_kemitraan = SectionJournal::first()->update($validatedData);
 
         if ($section_kemitraan) {
             return redirect(route('kemitraan-index'))->with('success', 'Berhasil Update Section Header!');
