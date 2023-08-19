@@ -39,38 +39,36 @@ class GaleriController extends Controller
         }
     }
 
-    function storeProject(Request $request)
+    function storeGallery(Request $request)
     {
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'title' => 'required|string|max:255',
-            'topic' => 'required|string|max:255',
-            'description' => 'required|string',
         ]);
 
         if ($validatedData['image']) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/proyek-image/'), $imageName);
+            $image->move(public_path('assets/img/akademik-images/galeri-image/'), $imageName);
             $validatedData['image'] = $imageName;
         }
 
-        $project = Project::create($validatedData);
+        $gallery = Gallery::create($validatedData);
 
-        if ($project) {
-            return redirect(route('proyek-index'))->with('success', 'Berhasil Tambah Proyek Sekolah!');
+        if ($gallery) {
+            return redirect(route('galeri-index'))->with('success', 'Berhasil Tambah Galeri Sekolah!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Tambah Proyek Sekolah!');
+            return redirect(route('galeri-index'))->with('failed', 'Gagal Tambah Galeri Sekolah!');
         }
     }
 
-    function detailProject($id)
+    function detailGallery($id)
     {
         $project = Project::where('id', $id)->first();
         return response()->json($project);
     }
 
-    function updateProject($id, Request $request)
+    function updateGallery($id, Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
@@ -99,7 +97,7 @@ class GaleriController extends Controller
         }
     }
 
-    function deleteProject($id)
+    function deleteGallery($id)
     {
         $project = Project::where('id', $id)->first();
 

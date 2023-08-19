@@ -174,48 +174,30 @@
     {{-- END MODAL EDIT SECTION GALLERY --}}
 
     {{-- MODAL ADD PROJECT --}}
-    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
+    <div class="modal fade" id="addGalleryModal" tabindex="-1" aria-labelledby="addGalleryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Tambah Proyek Sekolah</h3>
-                <form action="{{ route('proyek-store') }}" method="post" enctype="multipart/form-data"
+                <h3 class="title">Tambah Gambar Sekolah</h3>
+                <form action="{{ route('galeri-store') }}" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="image">Image</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-image" alt="Image Project" width="80">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="image" class="input-add-image" name="image">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Proyek</label>
-                                <input type="text" id="judul" class="input" name="title" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="topik">Topik</label>
-                                <input type="text" id="topik" class="input" name="topic" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
+                    <div class="input-wrapper">
+                        <label for="gambar">Gambar</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-image"
+                                alt="Image Gallery" width="80">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="gambar" class="input-add-image" name="image">
                             </div>
                         </div>
                     </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Gambar</label>
+                        <input type="text" id="judul" class="input" name="title" autocomplete="off">
+                    </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Proyek</button>
+                        <button type="submit" class="button-default-solid">Tambah Gambar</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
