@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenahController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\HumasController;
@@ -217,6 +218,17 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/proyek/detail-proyek/{id}', 'detailProject')->name('proyek-detail');
             Route::post('/akademik/proyek/edit-proyek/{id}', 'updateProject')->name('proyek-update');
             Route::post('/akademik/proyek/delete-proyek/{id}', 'deleteProject')->name('proyek-delete');
+        });
+
+        Route::controller(GaleriController::class)->group(function () {
+            Route::get('/akademik/galeri', 'index')->name('galeri-index');
+            Route::get('/akademik/galeri/detail-section', 'detailSection');
+            Route::post('/akademik/galeri/edit-section', 'updateSection');
+
+            Route::post('/akademik/galeri/tambah-galeri', 'storeGallery')->name('galeri-store');
+            Route::get('/akademik/galeri/detail-galeri/{id}', 'detailGallery')->name('galeri-detail');
+            Route::post('/akademik/galeri/edit-galeri/{id}', 'updateGallery')->name('galeri-update');
+            Route::post('/akademik/galeri/delete-galeri/{id}', 'deleteGallery')->name('proyek-delete');
         });
 
         Route::controller(KelulusanController::class)->group(function () {

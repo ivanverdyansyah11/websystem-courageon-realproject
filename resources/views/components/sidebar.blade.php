@@ -70,6 +70,8 @@
                         class="link-child {{ Request::is('admin/akademik/program*') ? 'active' : '' }}">Program</a>
                     <a href="{{ route('proyek-index') }}"
                         class="link-child {{ Request::is('admin/akademik/proyek*') ? 'active' : '' }}">Proyek P5</a>
+                    <a href="{{ route('galeri-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/galeri*') ? 'active' : '' }}">Galeri</a>
                     <a href="{{ route('kelulusan-index') }}"
                         class="link-child {{ Request::is('admin/akademik/kelulusan*') ? 'active' : '' }}">Kelulusan</a>
                 </div>

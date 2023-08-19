@@ -17,7 +17,7 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Section Proyek 5P</h5>
+                <h5 class="subtitle">Section Galeri</h5>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -30,18 +30,18 @@
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
-                            <div class="col data-value data-length">{{ $section_proyek->title_section }}</div>
-                            <div class="d-none col data-value data-length">{{ $section_proyek->description }}</div>
+                            <div class="col data-value data-length">{{ $section_gallery->title_section }}</div>
+                            <div class="d-none col data-value data-length">{{ $section_gallery->description }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
                                         class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailSectionProyekModal">
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionGalleryModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
                                         class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editSectionProyekModal">
+                                        data-bs-toggle="modal" data-bs-target="#editSectionGalleryModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Proyek 5P Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
@@ -121,7 +121,7 @@
                     @endif
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     {{-- MODAL DETAIL SECTION PROYEK --}}
@@ -133,18 +133,17 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -165,13 +164,13 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            name="title_section">
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" name="button">
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            name="button">
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>

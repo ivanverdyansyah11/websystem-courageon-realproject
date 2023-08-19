@@ -27,6 +27,7 @@ use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
+use App\Models\SectionGallery;
 use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
@@ -338,6 +339,11 @@ class DatabaseSeeder extends Seeder
             'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
             'topic' => 'Gaya Hidup Berkelanjutan',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
+        ]);
+
+        SectionGallery::create([
+            'title_section' => 'Galeri Dokumentasi Sekolah',
+            'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
         ]);
     }
 }
