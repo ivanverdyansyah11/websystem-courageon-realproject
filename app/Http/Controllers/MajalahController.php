@@ -73,8 +73,8 @@ class MajalahController extends Controller
 
     function detailJournal($id)
     {
-        $partnership = Partnership::where('id', $id)->first();
-        return response()->json($partnership);
+        $journal = Journal::where('id', $id)->first();
+        return response()->json($journal);
     }
 
     function updateJournal($id, Request $request)

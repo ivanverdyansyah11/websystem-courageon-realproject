@@ -246,21 +246,54 @@
     {{-- MODAL DETAIL JOURNAL --}}
     <div class="modal fade" id="detailJournalModal" tabindex="-1" aria-labelledby="detailJournalModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Detail Kemitraan Sekolah</h3>
+                <h3 class="title">Detail Journal Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="logo">Logo</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                alt="Logo Partnership" width="80" data-value="logo_partnership">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="thumbnail">Thumbnail</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Thumbnail Journal" width="80" data-value="thumbnail_journal">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="name_partnership" disabled>
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="document_pdf">Document PDF</label>
+                                <input type="text" id="document_pdf" class="input" autocomplete="off"
+                                    data-value="document_journal" disabled>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="title">Judul</label>
+                                <input type="text" id="title" class="input" autocomplete="off"
+                                    data-value="title_journal" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="penulis">Penulis</label>
+                                <input type="text" id="penulis" class="input" autocomplete="off"
+                                    data-value="author_journal" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
+                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
+                                    data-value="created_journal" disabled>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi Singkat</label>
+                                <textarea data-value="description_journal" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -353,38 +386,42 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#detailJournalModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/humas/kemitraan/detail-kemitraan/' + id,
-        //         success: function(data) {
-        //             $('[data-value="logo_partnership"]').attr("src",
-        //                 "/assets/img/humas-images/kemitraan-image/" + data.logo);
-        //             $('[data-value="name_partnership"]').val(data.name);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#detailJournalModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/humas/majalah/detail-majalah/' + id,
+                success: function(data) {
+                    $('[data-value="thumbnail_journal"]').attr("src",
+                        "/assets/img/humas-images/majalah-image/" + data.thumbnail);
+                    $('[data-value="title_journal"]').val(data.title);
+                    $('[data-value="description_journal"]').val(data.description);
+                    $('[data-value="author_journal"]').val(data.author);
+                    $('[data-value="created_journal"]').val(data.created_date);
+                    $('[data-value="document_journal"]').val(data.document_pdf);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#editJournalModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#editPartnership').attr('action', '/admin/humas/kemitraan/edit-kemitraan/' + id);
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/humas/kemitraan/detail-kemitraan/' + id,
-        //         success: function(data) {
-        //             $('[data-value="logo_partnership"]').attr("src",
-        //                 "/assets/img/humas-images/kemitraan-image/" + data.logo);
-        //             $('[data-value="oldImage_partnership"]').val(data.logo);
-        //             $('[data-value="name_partnership"]').val(data.name);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editJournalModal"]', function() {
+            let id = $(this).data('id');
+            $('#editPartnership').attr('action', '/admin/humas/majalah/edit-majalah/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/humas/majalah/detail-majalah/' + id,
+                success: function(data) {
+                    $('[data-value="logo_journal"]').attr("src",
+                        "/assets/img/humas-images/majalah-image/" + data.logo);
+                    $('[data-value="oldImage_journal"]').val(data.logo);
+                    $('[data-value="name_journal"]').val(data.name);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#deletePartnership').attr('action', '/admin/humas/kemitraan/delete-kemitraan/' + id);
-        // });
+        $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
+            let id = $(this).data('id');
+            $('#deletePartnership').attr('action', '/admin/humas/majalah/delete-majalah/' + id);
+        });
 
         const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');
         const inputAddThumbnail = document.querySelector('.input-add-thumbnail');
