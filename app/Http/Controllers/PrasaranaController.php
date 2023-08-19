@@ -15,6 +15,29 @@ class PrasaranaController extends Controller
         ]);
     }
 
+    function detailSection()
+    {
+        $section_prasarana = SectionPrasarana::first();
+        return response()->json($section_prasarana);
+    }
+
+    function updateSection(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_section' => 'required|string|max:255',
+            'description' => 'required|string',
+            'button' => 'required|string|max:255',
+        ]);
+
+        $headerSarana = SectionPrasarana::first()->update($validatedData);
+
+        if ($headerSarana) {
+            return redirect(route('sarana-index'))->with('success', 'Berhasil Update Section Header!');
+        } else {
+            return redirect(route('sarana-index'))->with('failed', 'Gagal Update Section Header!');
+        }
+    }
+
     function storeContact(Request $request)
     {
         $validatedData = $request->validate([

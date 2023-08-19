@@ -197,8 +197,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(PrasaranaController::class)->group(function () {
             Route::get('/sarana-prasarana/prasarana', 'index')->name('prasarana-index');
-            Route::get('/sarana-prasarana/prasarana/detail-header', 'detailHeader');
-            Route::post('/sarana-prasarana/prasarana/edit-header', 'updateHeader');
+            Route::get('/sarana-prasarana/prasarana/detail-section', 'detailSection');
+            Route::post('/sarana-prasarana/prasarana/edit-section', 'updateSection');
         });
 
         Route::controller(DenahController::class)->group(function () {

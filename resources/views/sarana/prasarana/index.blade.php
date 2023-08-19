@@ -131,17 +131,17 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_header"
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
                             disabled>
-                        <div class="input-wrapper">
-                            <label for="button">Button Label</label>
-                            <input type="text" id="button" class="input" autocomplete="off"
-                                data-value="button_header" disabled>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="deskripsi">Deskripsi</label>
-                            <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
-                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_section" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -348,6 +348,8 @@
                 url: '/admin/sarana-prasarana/prasarana/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="button_section"]').val(data.button);
+                    $('[data-value="description_section"]').val(data.description);
                 }
             });
         });
