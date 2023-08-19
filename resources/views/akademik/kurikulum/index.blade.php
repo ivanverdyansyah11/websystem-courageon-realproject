@@ -24,7 +24,7 @@
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             <div class="d-none d-md-inline-block col-2 data-header">Banner</div>
-                            <div class="col data-header">Judul <span class="d-none d-md-inline-block">Header</span></div>
+                            <div class="col data-header">Judul <span class="d-none d-md-inline-block">Section</span></div>
                             <div class="col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
@@ -34,7 +34,7 @@
                             <div class="d-none d-md-inline-block col-2 data-value">
                                 @if ($section_section->banner)
                                     <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $section_section->banner) }}"
-                                        class="img-fluid" alt="Banner Section Header" width="80">
+                                        class="img-fluid" alt="Banner Section Curriculum" width="80">
                                 @else
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Image Not Found" width="80">
@@ -64,22 +64,22 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL SECTION HEADER --}}
+    {{-- MODAL DETAIL SECTION CURRICULUM --}}
     <div class="modal fade" id="detailCurriculumModal" tabindex="-1" aria-labelledby="detailCurriculumModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Header</h3>
+                <h3 class="title">Detail Section Kurikulum</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="banner">Banner</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                alt="Banner Section Header" width="80" data-value="banner_section">
+                                alt="Banner Section Curriculum" width="80" data-value="banner_section">
                         </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
+                        <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
                             disabled>
                     </div>
@@ -94,53 +94,46 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION HEADER --}}
+    {{-- END MODAL DETAIL SECTION CURRICULUM --}}
 
-    {{-- MODAL EDIT SECTION HEADER --}}
+    {{-- MODAL EDIT SECTION CURRICULUM --}}
     <div class="modal fade" id="editCurriculumModal" tabindex="-1" aria-labelledby="editCurriculumModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Header</h3>
+                <h3 class="title">Edit Section Kurikulum</h3>
                 <form id="editCurriculum" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_section">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
-                                        data-value="banner_section">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-header" name="banner">
-                                    </div>
-                                </div>
+                    <div class="input-wrapper">
+                        <label for="banner">Banner</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_section">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-section"
+                                alt="Banner Section Curriculum" width="80" data-value="banner_section">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="banner" class="input-edit-section" name="banner">
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" name="title_section"
-                                    autocomplete="off" data-value="title_section">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_section">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                    data-value="description_section"></textarea>
-                            </div>
-                        </div>
+                        @error('banner')
+                            <p class="caption-error mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Section</label>
+                        <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
+                            data-value="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
+                            data-value="description_section"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -150,13 +143,13 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION HEADER --}}
+    {{-- END MODAL EDIT SECTION CURRICULUM --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailCurriculumModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/kurikulum/detail-header',
+                url: '/admin/akademik/kurikulum/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
@@ -167,10 +160,10 @@
         });
 
         $(document).on('click', '[data-bs-target="#editCurriculumModal"]', function() {
-            $('#editCurriculum').attr('action', '/admin/akademik/edit-header');
+            $('#editCurriculum').attr('action', '/admin/akademik/kurikulum/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/kurikulum/detail-header',
+                url: '/admin/akademik/kurikulum/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
@@ -181,11 +174,11 @@
             });
         });
 
-        const tagEditHeader = document.querySelector('.tag-edit-header');
-        const inputEditHeader = document.querySelector('.input-edit-header');
+        const tagEditSection = document.querySelector('.tag-edit-section');
+        const inputEditSection = document.querySelector('.input-edit-section');
 
-        inputEditHeader.addEventListener('change', function() {
-            tagEditHeader.src = URL.createObjectURL(inputEditHeader.files[0]);
+        inputEditSection.addEventListener('change', function() {
+            tagEditSection.src = URL.createObjectURL(inputEditSection.files[0]);
         });
     </script>
 @endsection

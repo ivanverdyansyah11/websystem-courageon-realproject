@@ -193,8 +193,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(KurikulumController::class)->group(function () {
             Route::get('/akademik/kurikulum', 'index')->name('kurikulum-index');
-            Route::get('/akademik/kurikulum/detail-header', 'detailHeader');
-            Route::post('/akademik/kurikulum/edit-header', 'updateHeader');
+            Route::get('/akademik/kurikulum/detail-section', 'detailSection');
+            Route::post('/akademik/kurikulum/edit-section', 'updateSection');
         });
 
         Route::controller(ProgramController::class)->group(function () {
