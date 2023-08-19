@@ -178,41 +178,73 @@
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
 
-    {{-- MODAL ADD PARTNERSHIP --}}
-    {{-- <div class="modal fade" id="addPartnershipModal" tabindex="-1" aria-labelledby="addPartnershipModalLabel"
+    {{-- MODAL ADD JOURNAL --}}
+    <div class="modal fade" id="addJournalModal" tabindex="-1" aria-labelledby="addJournalModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Tambah Kemitraan Sekolah</h3>
-                <form action="{{ route('kemitraan-store') }}" method="post"
+                <h3 class="title">Tambah Majalah Sekolah</h3>
+                <form action="{{ route('majalah-store') }}" method="post"
                     class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="logo">Logo</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-logo"
-                                alt="Logo Partnership" width="80">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="logo" class="input-add-logo" name="logo">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="thumbnail">Thumbnail</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-add-thumbnail" alt="Thumbnail Journal" width="80">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="thumbnail" class="input-add-thumbnail"
+                                            name="thumbnail">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="document_pdf">Document PDF</label>
+                                <input type="file" id="document_pdf" name="document_pdf">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="title">Judul</label>
+                                <input type="text" id="title" class="input" autocomplete="off" name="title">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="penulis">Penulis</label>
+                                <input type="text" id="penulis" class="input" autocomplete="off" name="author">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
+                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
+                                    name="created_date">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi Singkat</label>
+                                <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="input-wrapper">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" class="input" autocomplete="off" name="name">
-                    </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Kemitraan</button>
+                        <button type="submit" class="button-default-solid">Tambah Majalah</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL ADD PARTNERSHIP --}}
+    </div>
+    {{-- END MODAL ADD JOURNAL --}}
 
-    {{-- MODAL DETAIL PARTNERSHIP --}}
-    {{-- <div class="modal fade" id="detailPartnershipModal" tabindex="-1" aria-labelledby="detailPartnershipModalLabel"
+    {{-- MODAL DETAIL JOURNAL --}}
+    <div class="modal fade" id="detailJournalModal" tabindex="-1" aria-labelledby="detailJournalModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -236,11 +268,11 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL DETAIL PARTNERSHIP --}}
+    </div>
+    {{-- END MODAL DETAIL JOURNAL --}}
 
-    {{-- MODAL EDIT PARTNERSHIP --}}
-    {{-- <div class="modal fade" id="editPartnershipModal" tabindex="-1" aria-labelledby="editPartnershipModalLabel"
+    {{-- MODAL EDIT JOURNAL --}}
+    <div class="modal fade" id="editJournalModal" tabindex="-1" aria-labelledby="editJournalModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -271,11 +303,11 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL EDIT PARTNERSHIP --}}
+    </div>
+    {{-- END MODAL EDIT JOURNAL --}}
 
-    {{-- MODAL DELETE PARTNERSHIP --}}
-    {{-- <div class="modal fade" id="deletePartnershipModal" tabindex="-1" aria-labelledby="deletePartnershipModalLabel"
+    {{-- MODAL DELETE JOURNAL --}}
+    <div class="modal fade" id="deleteJournalModal" tabindex="-1" aria-labelledby="deleteJournalModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -294,8 +326,8 @@
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL DELETE PARTNERSHIP --}}
+    </div>
+    {{-- END MODAL DELETE JOURNAL --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
@@ -321,7 +353,7 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#detailPartnershipModal"]', function() {
+        // $(document).on('click', '[data-bs-target="#detailJournalModal"]', function() {
         //     let id = $(this).data('id');
         //     $.ajax({
         //         type: 'get',
@@ -334,7 +366,7 @@
         //     });
         // });
 
-        // $(document).on('click', '[data-bs-target="#editPartnershipModal"]', function() {
+        // $(document).on('click', '[data-bs-target="#editJournalModal"]', function() {
         //     let id = $(this).data('id');
         //     $('#editPartnership').attr('action', '/admin/humas/kemitraan/edit-kemitraan/' + id);
         //     $.ajax({
@@ -349,22 +381,22 @@
         //     });
         // });
 
-        // $(document).on('click', '[data-bs-target="#deletePartnershipModal"]', function() {
+        // $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
         //     let id = $(this).data('id');
         //     $('#deletePartnership').attr('action', '/admin/humas/kemitraan/delete-kemitraan/' + id);
         // });
 
-        const tagAddLogo = document.querySelector('.tag-add-logo');
-        const inputAddLogo = document.querySelector('.input-add-logo');
-        const tagEditLogo = document.querySelector('.tag-edit-logo');
-        const inputEditLogo = document.querySelector('.input-edit-logo');
+        const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');
+        const inputAddThumbnail = document.querySelector('.input-add-thumbnail');
+        const tagEditThumbnail = document.querySelector('.tag-edit-thumbnail');
+        const inputEditThumbnail = document.querySelector('.input-edit-thumbnail');
 
-        inputAddLogo.addEventListener('change', function() {
-            tagAddLogo.src = URL.createObjectURL(inputAddLogo.files[0]);
+        inputAddThumbnail.addEventListener('change', function() {
+            tagAddThumbnail.src = URL.createObjectURL(inputAddThumbnail.files[0]);
         });
 
-        inputEditLogo.addEventListener('change', function() {
-            tagEditLogo.src = URL.createObjectURL(inputEditLogo.files[0]);
+        inputEditThumbnail.addEventListener('change', function() {
+            tagEditThumbnail.src = URL.createObjectURL(inputEditThumbnail.files[0]);
         });
     </script>
 @endsection

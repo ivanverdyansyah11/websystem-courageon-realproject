@@ -39,36 +39,45 @@ class MajalahController extends Controller
         }
     }
 
-    function storePartnership(Request $request)
+    function storeJournal(Request $request)
     {
         $validatedData = $request->validate([
-            'logo' => 'required|image|max:2048',
-            'name' => 'required|string|max:255',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'author' => 'required|string',
+            'created_date' => 'required|date',
+            'document_pdf' => 'required|mimes:pdf',
         ]);
 
-        if ($validatedData['logo']) {
-            $image = $request->file('logo');
+        if ($validatedData['thumbnail'] && $validatedData['document_pdf']) {
+            $image = $request->file('thumbnail');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/humas-images/kemitraan-image/'), $imageName);
-            $validatedData['logo'] = $imageName;
+            $image->move(public_path('assets/img/humas-images/majalah-image/'), $imageName);
+            $validatedData['thumbnail'] = $imageName;
+
+            $document = $request->file('document_pdf');
+            $documentName = time() . '.' . $document->getClientOriginalExtension();
+            $document->move(public_path('assets/img/humas-images/majalah-image/'), $documentName);
+            $validatedData['document_pdf'] = $documentName;
         }
 
-        $partnership = Partnership::create($validatedData);
+        $journal = Journal::create($validatedData);
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Tambah Kemitraan Sekolah!');
+        if ($journal) {
+            return redirect(route('majalah-index'))->with('success', 'Berhasil Tambah Majalah Sekolah!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Tambah Kemitraan Sekolah!');
+            return redirect(route('majalah-index'))->with('failed', 'Gagal Tambah Majalah Sekolah!');
         }
     }
 
-    function detailPartnership($id)
+    function detailJournal($id)
     {
         $partnership = Partnership::where('id', $id)->first();
         return response()->json($partnership);
     }
 
-    function updatePartnership($id, Request $request)
+    function updateJournal($id, Request $request)
     {
         $validatedData = $request->validate([
             'logo' => 'required|image|max:2048',
@@ -96,7 +105,7 @@ class MajalahController extends Controller
         }
     }
 
-    function deletePartnership($id)
+    function deleteJournal($id)
     {
         $partnership = Partnership::where('id', $id)->first();
 
