@@ -53,60 +53,64 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Kemitraan Sekolah</h5>
+                <h5 class="subtitle">Majalah Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addPartnershipModal">Tambah
-                    Kemitraan</button>
+                    data-bs-target="#addJournalModal">Tambah
+                    Majalah</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-md-inline-block col data-header col-2">Logo</span></div>
-                            <div class="col data-header">Nama</div>
+                            <div class="d-none d-md-inline-block col data-header col-2">Thumbnail</span></div>
+                            <div class="col data-header">Judul</div>
+                            <div class="col data-header">Tanggal Dibuat</div>
+                            <div class="col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($partnerships->count() == 0)
+                    @if ($journals->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Partnership!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Majalah!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($partnerships as $partnership)
+                        @foreach ($journals as $journal)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="d-none d-md-inline-block col-2 data-value">
-                                        @if ($partnership->logo)
-                                            <img src="{{ asset('assets/img/humas-images/kemitraan-image/' . $partnership->logo) }}"
-                                                class="img-fluid" alt="Logo Partnership" width="80">
+                                        @if ($journal->thumbnail)
+                                            <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
+                                                class="img-fluid" alt="Thumbnail Journal" width="80">
                                         @else
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                                 alt="Image Not Found" width="80">
                                         @endif
                                     </div>
-                                    <div class="col data-value data-length">{{ $partnership->name }}</div>
+                                    <div class="col data-value data-length">{{ $journal->title }}</div>
+                                    <div class="col data-value data-length">{{ $journal->created_date }}</div>
+                                    <div class="col data-value data-length">{{ $journal->description }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailPartnershipModal"
-                                                data-id="{{ $partnership->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#detailJournalModal"
+                                                data-id="{{ $journal->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editPartnershipModal"
-                                                data-id="{{ $partnership->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#editJournalModal"
+                                                data-id="{{ $journal->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deletePartnershipModal"
-                                                data-id="{{ $partnership->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#deleteJournalModal"
+                                                data-id="{{ $journal->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -117,7 +121,7 @@
                     @endif
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION HEADER --}}
@@ -134,8 +138,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_header"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_header" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -156,13 +160,13 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_header"
-                            name="title_header">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_header" name="title_header">
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_header"
-                            name="button">
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_header" name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>

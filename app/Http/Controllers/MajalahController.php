@@ -13,7 +13,7 @@ class MajalahController extends Controller
         return view('humas.majalah.index', [
             'title' => 'Humas > Majalah',
             'section_header' => SectionJournal::first(),
-            // 'journals' => Journal::all(),
+            'journals' => Journal::all(),
         ]);
     }
 
