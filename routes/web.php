@@ -209,6 +209,13 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(MajalahController::class)->group(function () {
             Route::get('/humas/majalah', 'index')->name('majalah-index');
+            Route::get('/humas/majalah/detail-header', 'detailHeader');
+            Route::post('/humas/majalah/edit-header', 'updateHeader');
+
+            Route::post('/humas/majalah/tambah-majalah', 'storeJournal')->name('majalah-store');
+            Route::get('/humas/majalah/detail-majalah/{id}', 'detailJournal');
+            Route::post('/humas/majalah/edit-majalah/{id}', 'updateJournal');
+            Route::post('/humas/majalah/delete-majalah/{id}', 'deleteJournal');
         });
     });
 });

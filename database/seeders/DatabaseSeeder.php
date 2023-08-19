@@ -10,6 +10,7 @@ use App\Models\HeaderHome;
 use App\Models\HeaderHumas;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
+use App\Models\Journal;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
@@ -18,6 +19,7 @@ use App\Models\Partnership;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
+use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
 use App\Models\SectionStaff;
@@ -231,6 +233,20 @@ class DatabaseSeeder extends Seeder
         Partnership::create([
             'logo' => 'sample-kemitraan.svg',
             'name' => 'Radius Company',
+        ]);
+
+        SectionJournal::create([
+            'title_header' => 'Berbagai Berita Mengenai SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua Berita',
+        ]);
+
+        Journal::create([
+            'thumbnail' => 'sample-majalah.jpg',
+            'title' => 'Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota',
+            'description' => 'Prestasi ini menyoroti ketekunan, dedikasi, dan kemampuan siswa dalam menghadapi tantangan matematika yang kompetitif. Kemenangan ini bukan hanya menjadi kebanggaan sekolah, tetapi juga mencerminkan upaya keras siswa dalam mempertajam kemampuan akademiknya serta membuktikan bahwa pendidikan yang berkualitas menghasilkan hasil yang gemilang.',
+            'document_pdf' => 'sample-dokumen.pdf',
+            'author' => 'Aditya Prayatna',
+            'created_date' => '2023-08-11',
         ]);
     }
 }
