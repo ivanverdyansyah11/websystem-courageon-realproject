@@ -105,8 +105,10 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
-                    {{-- <a href="{{ route('prasarana-index') }}" class="link-child">Prasarana</a>
-                    <a href="{{ route('denah-index') }}" class="link-child">Denah</a> --}}
+                    <a href="{{ route('prasarana-index') }}"
+                        class="link-child {{ Request::is('admin/sarana-prasarana/prasarana*') ? 'active' : '' }}">Prasarana</a>
+                    <a href="{{ route('denah-index') }}"
+                        class="link-child {{ Request::is('admin/sarana-prasarana/denah*') ? 'active' : '' }}">Denah</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/humas*') ? 'active' : '' }}">

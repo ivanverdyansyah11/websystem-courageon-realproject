@@ -4,6 +4,7 @@ use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DenahController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\HumasController;
@@ -14,8 +15,10 @@ use App\Http\Controllers\LogoMarsController;
 use App\Http\Controllers\MajalahController;
 use App\Http\Controllers\ManajemenController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PrasaranaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SaranaController;
+use App\Http\Controllers\SaranaPrasaranaController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -190,6 +193,18 @@ Route::middleware('auth')->group(function () {
             Route::get('/sarana-prasarana', 'index')->name('sarana-index');
             Route::get('/sarana-prasarana/detail-header', 'detailHeader');
             Route::post('/sarana-prasarana/edit-header', 'updateHeader');
+        });
+
+        Route::controller(PrasaranaController::class)->group(function () {
+            Route::get('/sarana-prasarana/prasarana', 'index')->name('prasarana-index');
+            Route::get('/sarana-prasarana/prasarana/detail-header', 'detailHeader');
+            Route::post('/sarana-prasarana/prasarana/edit-header', 'updateHeader');
+        });
+
+        Route::controller(DenahController::class)->group(function () {
+            Route::get('/sarana-prasarana/denah', 'index')->name('denah-index');
+            // Route::get('/sarana-prasarana/detail-header', 'detailHeader');
+            // Route::post('/sarana-prasarana/edit-header', 'updateHeader');
         });
 
         // HUMAS
