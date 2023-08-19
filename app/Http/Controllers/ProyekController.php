@@ -67,8 +67,8 @@ class ProyekController extends Controller
 
     function detailProject($id)
     {
-        $program = Program::where('id', $id)->first();
-        return response()->json($program);
+        $project = Project::where('id', $id)->first();
+        return response()->json($project);
     }
 
     function updateProject($id, Request $request)

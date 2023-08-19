@@ -244,43 +244,36 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Detail Program Sekolah</h3>
+                <h3 class="title">Detail Proyek Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Image</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Banner Program" width="80" data-value="banner_program">
+                                        alt="Image Project" width="80" data-value="image_project">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="judul">Judul Program</label>
-                                <input type="text" id="judul" class="input" data-value="title_program" disabled
+                                <label for="judul">Judul Proyek</label>
+                                <input type="text" id="judul" class="input" disabled data-value="title_project"
                                     autocomplete="off">
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" data-value="button_program" disabled
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="link">Link</label>
-                                <input type="text" id="link" class="input" data-value="link_program" disabled
+                                <label for="topik">Topik</label>
+                                <input type="text" id="topik" class="input" disabled data-value="topic_project"
                                     autocomplete="off">
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" data-value="description_program" disabled autocomplete="off"
+                                <textarea id="deskripsi" class="input" disabled data-value="description_project" autocomplete="off"
                                     rows="4"></textarea>
                             </div>
                         </div>
@@ -410,14 +403,13 @@
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/program/detail-program/' + id,
+                url: '/admin/akademik/proyek/detail-proyek/' + id,
                 success: function(data) {
-                    $('[data-value="banner_program"]').attr("src",
-                        "/assets/img/akademik-images/program-image/" + data.banner);
-                    $('[data-value="title_program"]').val(data.title);
-                    $('[data-value="button_program"]').val(data.button);
-                    $('[data-value="link_program"]').val(data.link);
-                    $('[data-value="description_program"]').val(data.description);
+                    $('[data-value="image_project"]').attr("src",
+                        "/assets/img/akademik-images/proyek-image/" + data.image);
+                    $('[data-value="title_project"]').val(data.title);
+                    $('[data-value="topic_project"]').val(data.topic);
+                    $('[data-value="description_project"]').val(data.description);
                 }
             });
         });
