@@ -160,9 +160,9 @@
                             name="title_header">
                     </div>
                     <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
-                            name="description"></textarea>
+                        <label for="button">Button Label</label>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_header"
+                            name="button">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -312,7 +312,7 @@
                 url: '/admin/humas/majalah/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
-                    $('[data-value="description_header"]').val(data.description);
+                    $('[data-value="button_header"]').val(data.button);
                 }
             });
         });

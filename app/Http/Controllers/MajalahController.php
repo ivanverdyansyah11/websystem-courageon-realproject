@@ -27,15 +27,15 @@ class MajalahController extends Controller
     {
         $validatedData = $request->validate([
             'title_header' => 'required|string|max:255',
-            'description' => 'required|string',
+            'button' => 'required|string|max:255',
         ]);
 
-        $section_kemitraan = SectionJournal::first()->update($validatedData);
+        $section_journal = SectionJournal::first()->update($validatedData);
 
-        if ($section_kemitraan) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Update Section Header!');
+        if ($section_journal) {
+            return redirect(route('majalah-index'))->with('success', 'Berhasil Update Section Header!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Update Section Header!');
+            return redirect(route('majalah-index'))->with('failed', 'Gagal Update Section Header!');
         }
     }
 
