@@ -183,6 +183,8 @@ Route::middleware('auth')->group(function () {
         // AKADEMIK
         Route::controller(AkademikController::class)->group(function () {
             Route::get('/akademik', 'index')->name('akademik-index');
+            Route::get('/akademik/detail-header', 'detailHeader');
+            Route::post('/sarana-prasarana/edit-header', 'updateHeader');
         });
 
         // KESISWAAN

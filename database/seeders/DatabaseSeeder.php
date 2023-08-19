@@ -7,6 +7,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Denah;
 use App\Models\Employee;
+use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
 use App\Models\HeaderHumas;
 use App\Models\HeaderProfile;
@@ -286,6 +287,13 @@ class DatabaseSeeder extends Seeder
             'code' => 'A',
             'name' => 'Ruang Kelas',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+
+        HeaderAcademic::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
+            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
+            'button' => 'Lihat Selengkapnya',
         ]);
     }
 }
