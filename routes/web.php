@@ -187,7 +187,9 @@ Route::middleware('auth')->group(function () {
 
         // SARANA & PRASARANA
         Route::controller(SaranaController::class)->group(function () {
-            Route::get('/sarana', 'index')->name('sarana-index');
+            Route::get('/sarana-prasarana', 'index')->name('sarana-index');
+            Route::get('/sarana-prasarana/detail-header', 'detailHeader');
+            Route::post('/sarana-prasarana/edit-header', 'updateHeader');
         });
 
         // HUMAS

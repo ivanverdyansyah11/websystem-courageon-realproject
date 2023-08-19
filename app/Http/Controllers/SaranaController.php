@@ -17,8 +17,8 @@ class SaranaController extends Controller
 
     function detailHeader()
     {
-        $section_humas = HeaderHumas::first();
-        return response()->json($section_humas);
+        $section_sarana = HeaderSaranaPrasarana::first();
+        return response()->json($section_sarana);
     }
 
     function updateHeader(Request $request)
