@@ -199,6 +199,12 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(KemitraanController::class)->group(function () {
             Route::get('/humas/kemitraan', 'index')->name('kemitraan-index');
+            Route::get('/humas/kemitraan/detail-header', 'detailHeader');
+            Route::post('/humas/kemitraan/edit-header', 'updateHeader');
+            Route::post('/humas/kemitraan/tambah-kemitraan', 'addKemitraan');
+            Route::get('/humas/kemitraan/detail-kemitraan/{id}', 'detailKemitraan');
+            Route::post('/humas/kemitraan/edit-kemitraan/{id}', 'updateKemitraan');
+            Route::post('/humas/kemitraan/delete-kemitraan/{id}', 'deleteKemitraan');
         });
 
         Route::controller(MajalahController::class)->group(function () {

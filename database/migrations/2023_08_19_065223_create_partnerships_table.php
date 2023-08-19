@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKemitraansTable extends Migration
+class CreatePartnershipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateKemitraansTable extends Migration
      */
     public function up()
     {
-        Schema::create('kemitraans', function (Blueprint $table) {
+        Schema::create('partnerships', function (Blueprint $table) {
             $table->id();
+            $table->string('logo');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateKemitraansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kemitraans');
+        Schema::dropIfExists('partnerships');
     }
 }

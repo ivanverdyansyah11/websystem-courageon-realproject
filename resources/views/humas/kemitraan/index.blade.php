@@ -57,40 +57,18 @@
     {{-- MODAL DETAIL SECTION HEADER --}}
     <div class="modal fade" id="detailSectionHeaderModal" tabindex="-1" aria-labelledby="detailSectionHeaderModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Banner Section Header" width="80" data-value="banner_header">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" autocomplete="off"
-                                    data-value="title_header" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" autocomplete="off"
-                                    data-value="button_header" disabled>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Header</label>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_header"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -128,8 +106,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" name="title_header"
-                                    autocomplete="off" data-value="title_header">
+                                <input type="text" id="judul" class="input" name="title_header" autocomplete="off"
+                                    data-value="title_header">
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -161,29 +139,22 @@
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/detail-header',
+                url: '/admin/humas/kemitraan/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
-                    $('[data-value="button_header"]').val(data.button);
-                    $('[data-value="banner_header"]').attr("src",
-                        "/assets/img/humas-images/header-image/" + data.banner);
                 }
             });
         });
 
         $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/humas/edit-header');
+            $('#editSectionHeader').attr('action', '/admin/humas/kemitraan/edit-header');
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/detail-header',
+                url: '/admin/humas/kemitraan/detail-header',
                 success: function(data) {
                     $('[data-value="title_header"]').val(data.title_header);
                     $('[data-value="description_header"]').val(data.description);
-                    $('[data-value="button_header"]').val(data.button);
-                    $('[data-value="oldImage_header"]').val(data.banner);
-                    $('[data-value="banner_header"]').attr("src",
-                        "/assets/img/humas-images/header-image/" + data.banner);
                 }
             });
         });

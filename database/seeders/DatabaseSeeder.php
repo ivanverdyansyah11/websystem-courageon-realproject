@@ -14,6 +14,7 @@ use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
+use App\Models\Partnership;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
@@ -225,6 +226,11 @@ class DatabaseSeeder extends Seeder
         SectionKemitraan::create([
             'title_header' => 'Melangkah Bersama dengan Kemitraan Aktif Sekolah-Industri',
             'description' => 'Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan menjalin hubungan erat antara sekolah.',
+        ]);
+
+        Partnership::create([
+            'logo' => 'sample-kemitraan.svg',
+            'name' => 'Radius Company',
         ]);
     }
 }
