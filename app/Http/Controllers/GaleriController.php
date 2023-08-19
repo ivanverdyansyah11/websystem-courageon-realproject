@@ -72,28 +72,26 @@ class GaleriController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'topic' => 'required|string|max:255',
-            'description' => 'required|string',
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/akademik-images/galeri-image/') . $request->oldImage;
             unlink($oldImagePath);
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/proyek-image/'), $imageName);
+            $image->move(public_path('assets/img/akademik-images/galeri-image/'), $imageName);
             $validatedData['image'] = $imageName;
         } else {
             $validatedData['image'] = $request->oldImage;
         }
 
-        $project = Project::where('id', $id)->first()->update($validatedData);
+        $gallery = Gallery::where('id', $id)->first()->update($validatedData);
 
-        if ($project) {
-            return redirect(route('proyek-index'))->with('success', 'Berhasil Edit Proyek Sekolah!');
+        if ($gallery) {
+            return redirect(route('galeri-index'))->with('success', 'Berhasil Edit Galeri Sekolah!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Edit Proyek Sekolah!');
+            return redirect(route('galeri-index'))->with('failed', 'Gagal Edit Galeri Sekolah!');
         }
     }
 

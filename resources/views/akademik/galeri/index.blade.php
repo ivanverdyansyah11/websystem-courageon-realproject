@@ -235,50 +235,29 @@
     {{-- END MODAL DETAIL GALLERY --}}
 
     {{-- MODAL EDIT GALLERY --}}
-    <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel"
+    <div class="modal fade" id="editGalleryModal" tabindex="-1" aria-labelledby="editGalleryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Proyek Sekolah</h3>
-                <form id="editProject" method="post" enctype="multipart/form-data"
+                <h3 class="title">Edit Gambar Sekolah</h3>
+                <form id="editGallery" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="image">Image</label>
-                                <input type="hidden" name="oldImage" data-value="oldImage_project">
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-image" alt="Image Project" width="80"
-                                        data-value="image_project">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="image" class="input-edit-image" name="image">
-                                    </div>
-                                </div>
+                    <div class="input-wrapper">
+                        <label for="gambar">Gambar</label>
+                        <input type="hidden" data-value="oldImage_gallery" name="oldImage">
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-image"
+                                alt="Image Gallery" width="80" data-value="image_gallery">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="gambar" class="input-edit-image" name="image">
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Proyek</label>
-                                <input type="text" id="judul" class="input" name="title"
-                                    data-value="title_project" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="topik">Topik</label>
-                                <input type="text" id="topik" class="input" name="topic"
-                                    data-value="topic_project" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" data-value="description_project" autocomplete="off"
-                                    rows="4"></textarea>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Gambar</label>
+                        <input type="text" id="judul" class="input" data-value="title_gallery" name="title"
+                            autocomplete="off">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -350,19 +329,17 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editProjectModal"]', function() {
+        $(document).on('click', '[data-bs-target="#editGalleryModal"]', function() {
             let id = $(this).data('id');
-            $('#editProject').attr('action', '/admin/akademik/proyek/edit-proyek/' + id);
+            $('#editGallery').attr('action', '/admin/akademik/galeri/edit-galeri/' + id);
             $.ajax({
                 type: 'get',
-                url: '/admin/akademik/proyek/detail-proyek/' + id,
+                url: '/admin/akademik/galeri/detail-galeri/' + id,
                 success: function(data) {
-                    $('[data-value="image_project"]').attr("src",
-                        "/assets/img/akademik-images/proyek-image/" + data.image);
-                    $('[data-value="oldImage_project"]').val(data.image);
-                    $('[data-value="title_project"]').val(data.title);
-                    $('[data-value="topic_project"]').val(data.topic);
-                    $('[data-value="description_project"]').val(data.description);
+                    $('[data-value="image_gallery"]').attr("src",
+                        "/assets/img/akademik-images/galeri-image/" + data.image);
+                    $('[data-value="oldImage_gallery"]').val(data.image);
+                    $('[data-value="title_gallery"]').val(data.title);
                 }
             });
         });
