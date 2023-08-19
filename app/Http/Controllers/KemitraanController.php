@@ -42,34 +42,33 @@ class KemitraanController extends Controller
     function storePartnership(Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|max:2048',
+            'logo' => 'required|image|max:2048',
             'name' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
         ]);
 
-        if ($validatedData['icon']) {
-            $image = $request->file('icon');
+        if ($validatedData['logo']) {
+            $image = $request->file('logo');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/profil-images/kontak-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/humas-images/kemitraan-image/'), $imageName);
+            $validatedData['logo'] = $imageName;
         }
 
-        $contact = Contact::create($validatedData);
+        $partnership = Partnership::create($validatedData);
 
-        if ($contact) {
-            return redirect(route('kontak-index'))->with('success', 'Berhasil Tambah Kontak Sekolah!');
+        if ($partnership) {
+            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Tambah Kemitraan Sekolah!');
         } else {
-            return redirect(route('kontak-index'))->with('failed', 'Gagal Tambah Kontak Sekolah!');
+            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Tambah Kemitraan Sekolah!');
         }
     }
 
-    function detailContact($id)
+    function detailPartnership($id)
     {
         $contact = Contact::where('id', $id)->first();
         return response()->json($contact);
     }
 
-    function updateContact($id, Request $request)
+    function updatePartnership($id, Request $request)
     {
         $validatedData = $request->validate([
             'icon' => 'required|image|max:2048',
@@ -98,7 +97,7 @@ class KemitraanController extends Controller
         }
     }
 
-    function deleteContact($id)
+    function deletePartnership($id)
     {
         $contact = Contact::where('id', $id)->first();
 

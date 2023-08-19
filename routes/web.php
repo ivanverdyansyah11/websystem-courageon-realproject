@@ -201,10 +201,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas/kemitraan', 'index')->name('kemitraan-index');
             Route::get('/humas/kemitraan/detail-header', 'detailHeader');
             Route::post('/humas/kemitraan/edit-header', 'updateHeader');
-            Route::post('/humas/kemitraan/tambah-kemitraan', 'addKemitraan');
-            Route::get('/humas/kemitraan/detail-kemitraan/{id}', 'detailKemitraan');
-            Route::post('/humas/kemitraan/edit-kemitraan/{id}', 'updateKemitraan');
-            Route::post('/humas/kemitraan/delete-kemitraan/{id}', 'deleteKemitraan');
+            Route::post('/humas/kemitraan/tambah-kemitraan', 'storePartnership')->name('kemitraan-store');
+            Route::get('/humas/kemitraan/detail-kemitraan/{id}', 'detailPartnership');
+            Route::post('/humas/kemitraan/edit-kemitraan/{id}', 'updatePartnership');
+            Route::post('/humas/kemitraan/delete-kemitraan/{id}', 'deletePartnership');
         });
 
         Route::controller(MajalahController::class)->group(function () {

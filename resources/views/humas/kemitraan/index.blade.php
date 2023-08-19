@@ -56,6 +56,9 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Kemitraan Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addPartnershipModal">Tambah
+                    Kemitraan</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -170,6 +173,39 @@
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
 
+    {{-- MODAL ADD PARTNERSHIP --}}
+    <div class="modal fade" id="addPartnershipModal" tabindex="-1" aria-labelledby="addPartnershipModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Tambah Kemitraan Sekolah</h3>
+                <form action="{{ route('kemitraan-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="logo">Logo</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-logo"
+                                alt="Logo Partnership" width="80">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="logo" class="input-add-logo" name="logo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" class="input" autocomplete="off" name="name">
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Kemitraan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD PARTNERSHIP --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
@@ -194,11 +230,11 @@
             });
         });
 
-        const tagEditHeader = document.querySelector('.tag-edit-header');
-        const inputEditHeader = document.querySelector('.input-edit-header');
+        const tagAddLogo = document.querySelector('.tag-add-logo');
+        const inputAddLogo = document.querySelector('.input-add-logo');
 
-        inputEditHeader.addEventListener('change', function() {
-            tagEditHeader.src = URL.createObjectURL(inputEditHeader.files[0]);
+        inputAddLogo.addEventListener('change', function() {
+            tagAddLogo.src = URL.createObjectURL(inputAddLogo.files[0]);
         });
     </script>
 @endsection
