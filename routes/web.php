@@ -201,6 +201,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/program', 'index')->name('program-index');
             Route::get('/akademik/program/detail-section', 'detailSection');
             Route::post('/akademik/program/edit-section', 'updateSection');
+
+            Route::post('/akademik/program/tambah-program', 'storeProgram')->name('program-store');
+            Route::get('/akademik/program/detail-program/{id}', 'detailProgram')->name('program-detail');
+            Route::post('/akademik/program/edit-program/{id}', 'updateProgram')->name('program-update');
+            Route::post('/akademik/program/delete-program/{id}', 'deleteProgram')->name('program-delete');
         });
 
         Route::controller(ProyekController::class)->group(function () {

@@ -34,12 +34,12 @@
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
                                         class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailProgramModal">
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionProgramModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
                                         class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editProgramModal">
+                                        data-bs-toggle="modal" data-bs-target="#editSectionProgramModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -53,6 +53,9 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Program Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addProgramModal">Tambah
+                    Program</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -118,7 +121,7 @@
     </div>
 
     {{-- MODAL DETAIL SECTION PROGRAM --}}
-    <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"
+    <div class="modal fade" id="detailSectionProgramModal" tabindex="-1" aria-labelledby="detailSectionProgramModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -139,7 +142,7 @@
     {{-- END MODAL DETAIL SECTION PROGRAM --}}
 
     {{-- MODAL EDIT SECTION PROGRAM --}}
-    <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
+    <div class="modal fade" id="editSectionProgramModal" tabindex="-1" aria-labelledby="editSectionProgramModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -164,8 +167,176 @@
     </div>
     {{-- END MODAL EDIT SECTION PROGRAM --}}
 
+    {{-- MODAL ADD PROGRAM --}}
+    <div class="modal fade" id="addProgramModal" tabindex="-1" aria-labelledby="addProgramModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Tambah Program Sekolah</h3>
+                <form action="{{ route('program-store') }}" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-add-program" alt="Banner Program" width="80">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="banner" class="input-add-program" name="banner">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Program</label>
+                                <input type="text" id="judul" class="input" name="title" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" name="button" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="link">Link</label>
+                                <input type="text" id="link" class="input" name="link" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Program</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD PROGRAM --}}
+
+    {{-- MODAL DETAIL PROGRAM --}}
+    <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Detail Program Sekolah</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Banner Program" width="80" data-value="banner_program">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Program</label>
+                                <input type="text" id="judul" class="input" data-value="title_program" disabled
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" data-value="button_program" disabled
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="link">Link</label>
+                                <input type="text" id="link" class="input" data-value="link_program" disabled
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea id="deskripsi" class="input" data-value="description_program" disabled autocomplete="off"
+                                    rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL PROGRAM --}}
+
+    {{-- MODAL EDIT PROGRAM --}}
+    <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Edit Section Header</h3>
+                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="banner">Banner</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <input type="hidden" name="oldImage" data-value="oldImage_header">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
+                                        data-value="banner_header">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="banner" class="input-edit-header" name="banner">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Header</label>
+                                <input type="text" id="judul" class="input" name="title_header"
+                                    autocomplete="off" data-value="title_header">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" name="button" autocomplete="off"
+                                    data-value="button_header">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
+                                    data-value="description_header"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT PROGRAM --}}
+
     <script>
-        $(document).on('click', '[data-bs-target="#detailProgramModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionProgramModal"]', function() {
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/program/detail-section',
@@ -175,13 +346,29 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editProgramModal"]', function() {
+        $(document).on('click', '[data-bs-target="#editSectionProgramModal"]', function() {
             $('#editProgram').attr('action', '/admin/akademik/program/edit-section');
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/program/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailProgramModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/akademik/program/detail-program/' + id,
+                success: function(data) {
+                    $('[data-value="banner_program"]').attr("src",
+                        "/assets/img/akademik-images/program-image/" + data.banner);
+                    $('[data-value="title_program"]').val(data.title);
+                    $('[data-value="button_program"]').val(data.button);
+                    $('[data-value="link_program"]').val(data.link);
+                    $('[data-value="description_program"]').val(data.description);
                 }
             });
         });
