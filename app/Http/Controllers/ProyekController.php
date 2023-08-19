@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\SectionProyek;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class ProyekController extends Controller
         return view('akademik.proyek.index', [
             'title' => 'Proyek',
             'section_proyek' => SectionProyek::first(),
-            // 'proyeks' => proyek::all(),
+            'projects' => Project::all(),
         ]);
     }
 

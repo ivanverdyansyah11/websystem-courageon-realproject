@@ -22,6 +22,7 @@ use App\Models\OpeningHome;
 use App\Models\Partnership;
 use App\Models\Prasarana;
 use App\Models\Program;
+use App\Models\Project;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
@@ -330,6 +331,13 @@ class DatabaseSeeder extends Seeder
             'title_section' => 'Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila) Di SMA Negeri 1 Selat',
             'description' => 'Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini dalam kehidupan sehari-hari dan masyarakat.',
             'button' => 'Lihat Semua',
+        ]);
+
+        Project::create([
+            'image' => 'sample-proyek.jpg',
+            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Gaya Hidup Berkelanjutan',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
         ]);
     }
 }

@@ -63,7 +63,7 @@
                         <div class="row table-data gap-4">
                             <div class="d-none d-md-inline-block col-2 data-header">Banner</div>
                             <div class="col data-header">Judul <span class="d-none d-md-inline-block">Program</span></div>
-                            <div class="col data-header">Deskripsi</div>
+                            <div class="d-none col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                                         @endif
                                     </div>
                                     <div class="col data-value data-length">{{ $program->title }}</div>
-                                    <div class="col data-value data-length">
+                                    <div class="d-none col data-value data-length">
                                         {{ $program->description }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
