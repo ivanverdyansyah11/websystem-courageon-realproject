@@ -42,22 +42,25 @@ class ProgramController extends Controller
     {
         $validatedData = $request->validate([
             'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'button' => 'required|string|max:255',
+            'link' => 'required|string|max:255',
+            'description' => 'required|string',
         ]);
 
-        if ($validatedData['logo']) {
-            $image = $request->file('logo');
+        if ($validatedData['banner']) {
+            $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/humas-images/kemitraan-image/'), $imageName);
-            $validatedData['logo'] = $imageName;
+            $image->move(public_path('assets/img/akademik-images/program-image/'), $imageName);
+            $validatedData['banner'] = $imageName;
         }
 
-        $partnership = Partnership::create($validatedData);
+        $program = Program::create($validatedData);
 
-        if ($partnership) {
-            return redirect(route('kemitraan-index'))->with('success', 'Berhasil Tambah Kemitraan Sekolah!');
+        if ($program) {
+            return redirect(route('program-index'))->with('success', 'Berhasil Tambah Program Sekolah!');
         } else {
-            return redirect(route('kemitraan-index'))->with('failed', 'Gagal Tambah Kemitraan Sekolah!');
+            return redirect(route('program-index'))->with('failed', 'Gagal Tambah Program Sekolah!');
         }
     }
 

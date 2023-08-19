@@ -182,9 +182,9 @@
                                 <label for="banner">Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-program" alt="Banner Program" width="80">
+                                        class="img-fluid tag-add-banner" alt="Banner Program" width="80">
                                     <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-add-program" name="banner">
+                                        <input type="file" id="banner" class="input-add-banner" name="banner">
                                     </div>
                                 </div>
                             </div>
@@ -371,6 +371,19 @@
                     $('[data-value="description_program"]').val(data.description);
                 }
             });
+        });
+
+        const tagAddBanner = document.querySelector('.tag-add-banner');
+        const inputAddBanner = document.querySelector('.input-add-banner');
+        const tagEditBanner = document.querySelector('.tag-edit-banner');
+        const inputEditBanner = document.querySelector('.input-edit-banner');
+
+        inputAddBanner.addEventListener('change', function() {
+            tagAddBanner.src = URL.createObjectURL(inputAddBanner.files[0]);
+        });
+
+        inputEditBanner.addEventListener('change', function() {
+            tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
         });
     </script>
 @endsection
