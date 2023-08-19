@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partnership;
 use App\Models\SectionKemitraan;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class KemitraanController extends Controller
         return view('humas.kemitraan.index', [
             'title' => 'Humas > Kemitraan',
             'section_header' => SectionKemitraan::first(),
+            'partnerships' => Partnership::all(),
         ]);
     }
 
@@ -37,7 +39,7 @@ class KemitraanController extends Controller
         }
     }
 
-    function storeContact(Request $request)
+    function storePartnership(Request $request)
     {
         $validatedData = $request->validate([
             'icon' => 'required|image|max:2048',
