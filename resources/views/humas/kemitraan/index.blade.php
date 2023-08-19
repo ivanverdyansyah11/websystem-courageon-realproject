@@ -82,48 +82,20 @@
     {{-- MODAL EDIT SECTION HEADER --}}
     <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
+                <form id="editSectionHeader" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_header">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
-                                        data-value="banner_header">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-header" name="banner">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Header</label>
-                                <input type="text" id="judul" class="input" name="title_header" autocomplete="off"
-                                    data-value="title_header">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_header">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                    data-value="description_header"></textarea>
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="judul">Judul Header</label>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_header"
+                            name="title_header">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
+                            name="description"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
