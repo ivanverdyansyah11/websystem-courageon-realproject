@@ -29,12 +29,12 @@ class PrasaranaController extends Controller
             'button' => 'required|string|max:255',
         ]);
 
-        $headerSarana = SectionPrasarana::first()->update($validatedData);
+        $sectionPrasarana = SectionPrasarana::first()->update($validatedData);
 
-        if ($headerSarana) {
-            return redirect(route('sarana-index'))->with('success', 'Berhasil Update Section Header!');
+        if ($sectionPrasarana) {
+            return redirect(route('prasarana-index'))->with('success', 'Berhasil Update Section Prasarana!');
         } else {
-            return redirect(route('sarana-index'))->with('failed', 'Gagal Update Section Header!');
+            return redirect(route('prasarana-index'))->with('failed', 'Gagal Update Section Prasarana!');
         }
     }
 

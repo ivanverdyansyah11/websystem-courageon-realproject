@@ -20,6 +20,7 @@ use App\Models\Partnership;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionContact;
+use App\Models\SectionDenah;
 use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
@@ -262,6 +263,13 @@ class DatabaseSeeder extends Seeder
             'title_section' => 'Pentingnya Peningkatan Sarana Dan Prasarana Di Sekolah',
             'description' => 'Peningkatan sarana dan prasarana di sekolah untuk menciptakan lingkungan belajar yang optimal. Infrastruktur fisik, teknologi pendidikan, keamanan, dan aksesibilitas.',
             'button' => 'Lihat Semua',
+        ]);
+
+        SectionDenah::create([
+            'title_section' => 'Kode Denah',
+            'title_code' => 'Kode Ruangan',
+            'title_room' => 'Nama Ruangan',
+            'button' => 'Detail',
         ]);
     }
 }

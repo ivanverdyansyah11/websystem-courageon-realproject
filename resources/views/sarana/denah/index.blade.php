@@ -17,32 +17,35 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Section Prasarana</h5>
+                <h5 class="subtitle">Section Denah</h5>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             <div class="col data-header">Judul Section</div>
-                            <div class="d-none d-md-inline-block col data-header">Deskripsi</div>
+                            <div class="d-none d-md-inline-block col data-header">Judul Kode</div>
+                            <div class="d-none d-md-inline-block col data-header">Judul Ruangan</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center justify-content-between">
                             <div class="col data-value data-length">{{ $section->title_section }}</div>
-                            <div class="d-none d-md-inline-block col data-value data-length">{{ $section->description }}
+                            <div class="d-none d-md-inline-block col data-value data-length">{{ $section->title_code }}
+                            </div>
+                            <div class="d-none d-md-inline-block col data-value data-length">{{ $section->title_room }}
                             </div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
                                         class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailSectionPrasaranaModal">
+                                        data-bs-toggle="modal" data-bs-target="#detailSectionDenahModal">
                                         <div class="detail-icon"></div>
                                     </button>
                                     <button type="button"
                                         class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editSectionPrasaranaModal">
+                                        data-bs-toggle="modal" data-bs-target="#editSectionDenahModal">
                                         <div class="edit-icon"></div>
                                     </button>
                                 </div>
@@ -122,26 +125,32 @@
         </div> --}}
     </div>
 
-    {{-- MODAL DETAIL SECTION PRASARANA --}}
-    <div class="modal fade" id="detailSectionPrasaranaModal" tabindex="-1"
-        aria-labelledby="detailSectionPrasaranaModalLabel" aria-hidden="true">
+    {{-- MODAL DETAIL SECTION MAP --}}
+    <div class="modal fade" id="detailSectionDenahModal" tabindex="-1" aria-labelledby="detailSectionDenahModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Prasarana</h3>
+                <h3 class="title">Detail Section Denah</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                        <label for="judul_section">Judul Section</label>
+                        <input type="text" id="judul_section" class="input" autocomplete="off"
+                            data-value="title_section" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul_kode">Judul Kode</label>
+                        <input type="text" id="judul_kode" class="input" autocomplete="off" data-value="title_code"
+                            disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="judul_ruangan">Judul Ruangan</label>
+                        <input type="text" id="judul_ruangan" class="input" autocomplete="off" data-value="title_room"
                             disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
                             disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_section" disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -150,15 +159,15 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION PRASARANA --}}
+    {{-- END MODAL DETAIL SECTION MAP --}}
 
-    {{-- MODAL EDIT SECTION PRASARANA --}}
-    <div class="modal fade" id="editSectionPrasaranaModal" tabindex="-1" aria-labelledby="editSectionPrasaranaModalLabel"
+    {{-- MODAL EDIT SECTION MAP --}}
+    <div class="modal fade" id="editSectionDenahModal" tabindex="-1" aria-labelledby="editSectionDenahModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Prasarana</h3>
-                <form id="editSectionPrasarana" method="post" class="form d-flex flex-column justify-content-center">
+                <form id="editSectionDenah" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
@@ -183,7 +192,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION PRASARANA --}}
+    {{-- END MODAL EDIT SECTION MAP --}}
 
     {{-- MODAL ADD CONTACT --}}
     {{-- <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel"
@@ -319,14 +328,15 @@
     {{-- END MODAL DELETE CONTACT --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailSectionPrasaranaModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailSectionDenahModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/sarana-prasarana/prasarana/detail-section',
+                url: '/admin/sarana-prasarana/denah/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
+                    $('[data-value="title_code"]').val(data.title_code);
+                    $('[data-value="title_room"]').val(data.title_room);
                     $('[data-value="button_section"]').val(data.button);
-                    $('[data-value="description_section"]').val(data.description);
                 }
             });
         });

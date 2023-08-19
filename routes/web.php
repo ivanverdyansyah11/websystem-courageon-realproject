@@ -203,8 +203,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(DenahController::class)->group(function () {
             Route::get('/sarana-prasarana/denah', 'index')->name('denah-index');
-            // Route::get('/sarana-prasarana/detail-header', 'detailHeader');
-            // Route::post('/sarana-prasarana/edit-header', 'updateHeader');
+            Route::get('/sarana-prasarana/denah/detail-section', 'detailSection');
+            Route::post('/sarana-prasarana/denah/edit-section', 'updateSection');
         });
 
         // HUMAS
