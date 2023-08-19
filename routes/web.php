@@ -238,6 +238,8 @@ Route::middleware('auth')->group(function () {
         // KESISWAAN
         Route::controller(KesiswaanController::class)->group(function () {
             Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
+            Route::get('/kesiswaan/detail-header', 'detailHeader');
+            Route::post('/kesiswaan/edit-header', 'updateHeader');
         });
 
         // SARANA & PRASARANA
