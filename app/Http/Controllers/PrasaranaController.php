@@ -67,8 +67,8 @@ class PrasaranaController extends Controller
 
     function detailPrasarana($id)
     {
-        $contact = Contact::where('id', $id)->first();
-        return response()->json($contact);
+        $prasarana = Prasarana::where('id', $id)->first();
+        return response()->json($prasarana);
     }
 
     function updatePrasarana($id, Request $request)

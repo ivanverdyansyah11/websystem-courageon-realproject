@@ -240,28 +240,43 @@
     {{-- END MODAL ADD PRASARANA --}}
 
     {{-- MODAL DETAIL PRASARANA --}}
-    {{-- <div class="modal fade" id="detailPrasaranaModal" tabindex="-1" aria-labelledby="detailPrasaranaModalLabel"
+    <div class="modal fade" id="detailPrasaranaModal" tabindex="-1" aria-labelledby="detailPrasaranaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Detail Kontak Sekolah</h3>
+                <h3 class="title">Detail Prasarana Sekolah</h3>
                 <form id="detailContact" method="post" class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="icon">Icon</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                alt="icon Section Sejarah" width="80" data-value="icon_contact">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="image">Image</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Image Prasarana" width="80" data-value="image_prasarana">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="nama">Judul Kontak</label>
-                        <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_contact" disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" class="input" autocomplete="off"
-                            data-value="link_contact" disabled>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama Sarana Prasarana</label>
+                                <input type="text" id="nama" class="input" autocomplete="off"
+                                    data-value="name_prasarana" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="total">Total Sarana Prasarana</label>
+                                <input type="text" id="total" class="input" autocomplete="off"
+                                    data-value="total_prasarana" disabled>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea data-value="description_prasarana" disabled id="deskripsi" rows="4" class="input"
+                                    autocomplete="off"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -269,7 +284,7 @@
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- END MODAL DETAIL PRASARANA --}}
 
     {{-- MODAL EDIT PRASARANA --}}
@@ -361,40 +376,41 @@
             });
         });
 
-        // $(document).on('click', '[data-bs-target="#detailContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/kontak/detail-contact/' + id,
-        //         success: function(data) {
-        //             $('[data-value="icon_contact"]').attr("src",
-        //                 "/assets/img/profil-images/kontak-image/" + data.icon);
-        //             $('[data-value="name_contact"]').val(data.name);
-        //             $('[data-value="link_contact"]').val(data.link);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#detailPrasaranaModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/sarana-prasarana/prasarana/detail-prasarana/' + id,
+                success: function(data) {
+                    $('[data-value="image_prasarana"]').attr("src",
+                        "/assets/img/sarana-prasarana-images/sarana-prasarana-image/" + data.image);
+                    $('[data-value="name_prasarana"]').val(data.name);
+                    $('[data-value="description_prasarana"]').val(data.description);
+                    $('[data-value="total_prasarana"]').val(data.total);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#editContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
-        //     $.ajax({
-        //         type: 'get',
-        //         url: '/admin/profil/kontak/detail-contact/' + id,
-        //         success: function(data) {
-        //             $('[data-value="icon_contact"]').attr("src",
-        //                 "/assets/img/profil-images/kontak-image/" + data.icon);
-        //             $('[data-value="oldImage_contact"]').val(data.icon);
-        //             $('[data-value="name_contact"]').val(data.name);
-        //             $('[data-value="link_contact"]').val(data.link);
-        //         }
-        //     });
-        // });
+        $(document).on('click', '[data-bs-target="#editPrasaranaModal"]', function() {
+            let id = $(this).data('id');
+            $('#editContact').attr('action', '/admin/profil/kontak/edit-contact/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/sarana-prasarana/prasarana/detail-prasarana/' + id,
+                success: function(data) {
+                    $('[data-value="icon_contact"]').attr("src",
+                        "/assets/img/profil-images/kontak-image/" + data.icon);
+                    $('[data-value="oldImage_contact"]').val(data.icon);
+                    $('[data-value="name_contact"]').val(data.name);
+                    $('[data-value="link_contact"]').val(data.link);
+                }
+            });
+        });
 
-        // $(document).on('click', '[data-bs-target="#deleteContactModal"]', function() {
-        //     let id = $(this).data('id');
-        //     $('#deleteContact').attr('action', '/admin/profil/kontak/delete-contact/' + id);
-        // });
+        $(document).on('click', '[data-bs-target="#deletePrasaranaModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteContact').attr('action', '/admin/profil/kontak/delete-contact/' + id);
+        });
 
         const tagAddImage = document.querySelector('.tag-add-image');
         const inputAddImage = document.querySelector('.input-add-image');
