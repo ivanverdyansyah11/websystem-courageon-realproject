@@ -183,7 +183,7 @@
         });
 
         $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/humas/edit-header');
+            $('#editSectionHeader').attr('action', '/admin/sarana-prasarana/edit-header');
             $.ajax({
                 type: 'get',
                 url: '/admin/sarana-prasarana/detail-header',
