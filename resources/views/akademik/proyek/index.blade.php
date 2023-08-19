@@ -348,16 +348,16 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Program Sekolah</h3>
-                <form id="deleteProgram" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Proyek Sekolah</h3>
+                <form id="deleteProject" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Program Sekolah: Apakah Anda yakin ingin
-                        menghapus program sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan program sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Proyek Sekolah: Apakah Anda yakin ingin
+                        menghapus proyek sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan proyek sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Program</button>
+                        <button type="submit" class="button-default-solid">Hapus Proyek</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
@@ -426,7 +426,7 @@
 
         $(document).on('click', '[data-bs-target="#deleteProjectModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteProgram').attr('action', '/admin/akademik/program/delete-program/' + id);
+            $('#deleteProject').attr('action', '/admin/akademik/proyek/delete-proyek/' + id);
         });
 
         const tagAddImage = document.querySelector('.tag-add-image');

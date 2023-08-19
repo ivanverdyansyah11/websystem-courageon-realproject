@@ -102,19 +102,19 @@ class ProyekController extends Controller
 
     function deleteProject($id)
     {
-        $program = Program::where('id', $id)->first();
+        $project = Project::where('id', $id)->first();
 
-        if ($program->banner) {
-            $imagePath = public_path('assets/img/akademik-images/program-image/') . $program->banner;
+        if ($project->image) {
+            $imagePath = public_path('assets/img/akademik-images/proyek-image/') . $project->image;
             unlink($imagePath);
         }
 
-        $program = $program->delete();
+        $project = $project->delete();
 
-        if ($program) {
-            return redirect(route('program-index'))->with('success', 'Berhasil Hapus Program Sekolah!');
+        if ($project) {
+            return redirect(route('proyek-index'))->with('success', 'Berhasil Hapus Proyek Sekolah!');
         } else {
-            return redirect(route('program-index'))->with('failed', 'Gagal Hapus Program Sekolah!');
+            return redirect(route('proyek-index'))->with('failed', 'Gagal Hapus Proyek Sekolah!');
         }
     }
 }
