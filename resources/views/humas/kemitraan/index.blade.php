@@ -206,7 +206,7 @@
     </div>
     {{-- END MODAL ADD PARTNERSHIP --}}
 
-    {{-- MODAL DETAIL SECTION HEADER --}}
+    {{-- MODAL DETAIL PARTNERSHIP --}}
     <div class="modal fade" id="detailPartnershipModal" tabindex="-1" aria-labelledby="detailPartnershipModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -221,8 +221,8 @@
                         </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" class="input" autocomplete="off"
                             data-value="name_partnership" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -232,25 +232,32 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION HEADER --}}
+    {{-- END MODAL DETAIL PARTNERSHIP --}}
 
-    {{-- MODAL EDIT SECTION HEADER --}}
-    <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
+    {{-- MODAL EDIT PARTNERSHIP --}}
+    <div class="modal fade" id="editPartnershipModal" tabindex="-1" aria-labelledby="editPartnershipModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Header</h3>
-                <form id="editSectionHeader" method="post" class="form d-flex flex-column justify-content-center">
+                <h3 class="title">Edit Kemitraan Sekolah</h3>
+                <form id="editPartnership" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_header" name="title_header">
+                        <label for="logo">logo</label>
+                        <div class="wrapper d-flex align-items-end">
+                            <input type="hidden" name="oldImage" data-value="oldImage_partnership">
+                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-edit-logo"
+                                alt="Logo Kemitraan" width="80" data-value="logo_partnership">
+                            <div class="wrapper-image w-100">
+                                <input type="file" id="logo" class="input-edit-logo" name="logo">
+                            </div>
+                        </div>
                     </div>
                     <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
-                            name="description"></textarea>
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" class="input" autocomplete="off"
+                            data-value="name_partnership" name="name">
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -260,7 +267,30 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION HEADER --}}
+    {{-- END MODAL EDIT PARTNERSHIP --}}
+
+    {{-- MODAL DELETE PARTNERSHIP --}}
+    <div class="modal fade" id="deleteContactModal" tabindex="-1" aria-labelledby="deleteContactModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Kontak Sekolah</h3>
+                <form id="deleteContact" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kontak Sekolah: Apakah Anda yakin ingin
+                        menghapus kontak sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan kontak sekolah akan dihapus secara permanen dari sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Kontak</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE PARTNERSHIP --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
@@ -299,23 +329,32 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editSectionHeaderModal"]', function() {
-            $('#editSectionHeader').attr('action', '/admin/humas/kemitraan/edit-header');
+        $(document).on('click', '[data-bs-target="#editPartnershipModal"]', function() {
+            let id = $(this).data('id');
+            $('#editPartnership').attr('action', '/admin/humas/kemitraan/edit-kemitraan/' + id);
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/kemitraan/detail-header',
+                url: '/admin/humas/kemitraan/detail-kemitraan/' + id,
                 success: function(data) {
-                    $('[data-value="title_header"]').val(data.title_header);
-                    $('[data-value="description_header"]').val(data.description);
+                    $('[data-value="logo_partnership"]').attr("src",
+                        "/assets/img/humas-images/kemitraan-image/" + data.logo);
+                    $('[data-value="oldImage_partnership"]').val(data.logo);
+                    $('[data-value="name_partnership"]').val(data.name);
                 }
             });
         });
 
         const tagAddLogo = document.querySelector('.tag-add-logo');
         const inputAddLogo = document.querySelector('.input-add-logo');
+        const tagEditLogo = document.querySelector('.tag-edit-logo');
+        const inputEditLogo = document.querySelector('.input-edit-logo');
 
         inputAddLogo.addEventListener('change', function() {
             tagAddLogo.src = URL.createObjectURL(inputAddLogo.files[0]);
+        });
+
+        inputEditLogo.addEventListener('change', function() {
+            tagEditLogo.src = URL.createObjectURL(inputEditLogo.files[0]);
         });
     </script>
 @endsection
