@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                     <a href="{{ route('detail-pelayanan', '1') }}" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/karir1.png') }}" alt="Gaya Hidup Berkelanjutan"
