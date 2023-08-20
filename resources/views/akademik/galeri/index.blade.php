@@ -157,11 +157,17 @@
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_section" name="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
                             autocomplete="off"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -191,10 +197,16 @@
                                 <input type="file" id="gambar" class="input-add-image" name="image">
                             </div>
                         </div>
+                        @error('image')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="judul">Judul Gambar</label>
                         <input type="text" id="judul" class="input" name="title" autocomplete="off">
+                        @error('title')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Gambar</button>
@@ -253,11 +265,17 @@
                                 <input type="file" id="gambar" class="input-edit-image" name="image">
                             </div>
                         </div>
+                        @error('image')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="judul">Judul Gambar</label>
                         <input type="text" id="judul" class="input" data-value="title_gallery" name="title"
                             autocomplete="off">
+                        @error('title')
+                            <p class="caption-error mt-4">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
