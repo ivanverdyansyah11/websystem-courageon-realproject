@@ -29,7 +29,7 @@
                                     <div class="row align-items-end">
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <label for="icon">Icon</label>
+                                                <label>Icon</label>
                                                 <div class="wrapper d-flex align-items-end">
                                                     @if ($extracurricular->icon)
                                                         <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurricular->icon) }}"
@@ -83,38 +83,38 @@
                                         <label>Jadwal Ekstrakurikuler</label>
                                         <div class="row">
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" id="senin" value="senin" disabled
-                                                    {{ in_array('senin', $schedule_days) ? 'checked' : '' }}>
+                                                <input type="checkbox" id="senin" value="enin" disabled
+                                                    {{ in_array('Senin', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="selasa" value="selasa" disabled
-                                                    {{ in_array('selasa', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Selasa', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="selasa">Selasa</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="rabu" value="rabu" disabled
-                                                    {{ in_array('rabu', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Rabu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="rabu">Rabu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="kamis" value="kamis" disabled
-                                                    {{ in_array('kamis', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Kamis', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="kamis">Kamis</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="jumat" value="jumat" disabled
-                                                    {{ in_array('jumat', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Jumat', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="jumat">Jumat</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="sabtu" value="sabtu" disabled
-                                                    {{ in_array('sabtu', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Sabtu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="sabtu">Sabtu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="minggu" value="minggu" disabled
-                                                    {{ in_array('minggu', $schedule_days) ? 'checked' : '' }}>
+                                                    {{ in_array('Minggu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="minggu">Minggu</label>
                                             </div>
                                         </div>
@@ -150,4 +150,5 @@
                 </form>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

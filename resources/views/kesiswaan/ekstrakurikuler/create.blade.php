@@ -103,35 +103,35 @@
                                         <label>Jadwal Ekstrakurikuler</label>
                                         <div class="row">
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="senin" value="senin">
+                                                <input type="checkbox" name="schedule_day[]" id="senin" value="Senin">
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="selasa" value="selasa">
+                                                <input type="checkbox" name="schedule_day[]" id="selasa" value="Selasa">
                                                 <label class="mb-0" for="selasa">Selasa</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="rabu" value="rabu">
+                                                <input type="checkbox" name="schedule_day[]" id="rabu" value="Rabu">
                                                 <label class="mb-0" for="rabu">Rabu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" name="schedule_day[]" id="kamis"
-                                                    value="kamis">
+                                                    value="Kamis">
                                                 <label class="mb-0" for="kamis">Kamis</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2">
                                                 <input type="checkbox" name="schedule_day[]" id="jumat"
-                                                    value="jumat">
+                                                    value="Jumat">
                                                 <label class="mb-0" for="jumat">Jumat</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2">
                                                 <input type="checkbox" name="schedule_day[]" id="sabtu"
-                                                    value="sabtu">
+                                                    value="Sabtu">
                                                 <label class="mb-0" for="sabtu">Sabtu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2">
                                                 <input type="checkbox" name="schedule_day[]" id="minggu"
-                                                    value="minggu">
+                                                    value="Minggu">
                                                 <label class="mb-0" for="minggu">Minggu</label>
                                             </div>
                                         </div>

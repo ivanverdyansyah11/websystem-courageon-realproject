@@ -111,44 +111,44 @@
                                         <label>Jadwal Ekstrakurikuler</label>
                                         <div class="row">
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" id="senin" name="schedule_day[]" value="senin"
-                                                    {{ in_array('senin', $schedule_days) ? 'checked' : '' }}>
+                                                <input type="checkbox" id="senin" name="schedule_day[]" value="Senin"
+                                                    {{ in_array('Senin', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="selasa" name="schedule_day[]"
-                                                    value="selasa"
-                                                    {{ in_array('selasa', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Selasa"
+                                                    {{ in_array('Selasa', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="selasa">Selasa</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="rabu" name="schedule_day[]"
-                                                    value="rabu"
-                                                    {{ in_array('rabu', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Rabu"
+                                                    {{ in_array('Rabu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="rabu">Rabu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="kamis" name="schedule_day[]"
-                                                    value="kamis"
-                                                    {{ in_array('kamis', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Kamis"
+                                                    {{ in_array('Kamis', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="kamis">Kamis</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="jumat" name="schedule_day[]"
-                                                    value="jumat"
-                                                    {{ in_array('jumat', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Jumat"
+                                                    {{ in_array('Jumat', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="jumat">Jumat</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="sabtu" name="schedule_day[]"
-                                                    value="sabtu"
-                                                    {{ in_array('sabtu', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Sabtu"
+                                                    {{ in_array('Sabtu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="sabtu">Sabtu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
                                                 <input type="checkbox" id="minggu" name="schedule_day[]"
-                                                    value="minggu"
-                                                    {{ in_array('minggu', $schedule_days) ? 'checked' : '' }}>
+                                                    value="Minggu"
+                                                    {{ in_array('Minggu', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="minggu">Minggu</label>
                                             </div>
                                         </div>

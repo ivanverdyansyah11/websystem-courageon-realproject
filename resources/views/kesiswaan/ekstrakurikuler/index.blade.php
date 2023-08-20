@@ -118,10 +118,13 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $extracurriculars->links() }}
+            </div>
         </div>
     </div>
 
-    {{-- MODAL DETAIL SECTION GALLERY --}}
+    {{-- MODAL DETAIL SECTION EXTRACURRICULAR --}}
     <div class="modal fade" id="detailSectionExtracurricularModal" tabindex="-1"
         aria-labelledby="detailSectionExtracurricularModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -135,7 +138,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
+                            autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -144,9 +148,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION GALLERY --}}
+    {{-- END MODAL DETAIL SECTION EXTRACURRICULAR --}}
 
-    {{-- MODAL EDIT SECTION GALLERY --}}
+    {{-- MODAL EDIT SECTION EXTRACURRICULAR --}}
     <div class="modal fade" id="editSectionExtracurricularModal" tabindex="-1"
         aria-labelledby="editSectionExtracurricularModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -159,11 +163,17 @@
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_section" name="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
                             autocomplete="off"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -173,9 +183,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION GALLERY --}}
+    {{-- END MODAL EDIT SECTION EXTRACURRICULAR --}}
 
-    {{-- MODAL DELETE GALLERY --}}
+    {{-- MODAL DELETE EXTRACURRICULAR --}}
     <div class="modal fade" id="deleteExtracurricularModal" tabindex="-1"
         aria-labelledby="deleteExtracurricularModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -198,7 +208,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE GALLERY --}}
+    {{-- END MODAL DELETE EXTRACURRICULAR --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionExtracurricularModal"]', function() {

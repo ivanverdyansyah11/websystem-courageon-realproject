@@ -13,7 +13,7 @@ class EkstrakurikulerController extends Controller
         return view('kesiswaan.ekstrakurikuler.index', [
             'title' => 'Kesiswaan > Ekstrakurikuler',
             'section_extracurricular' => SectionExtracurricular::first(),
-            'extracurriculars' => Extracurricular::all(),
+            'extracurriculars' => Extracurricular::paginate(6),
         ]);
     }
 
@@ -61,7 +61,7 @@ class EkstrakurikulerController extends Controller
             'link_register' => 'required|string||max:255',
         ]);
 
-        $validatedData['schedule_day'] = implode(',', $validatedData['schedule_day']);
+        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
 
         if ($validatedData['icon']) {
             $image = $request->file('icon');
@@ -82,7 +82,7 @@ class EkstrakurikulerController extends Controller
     function detailExtracurriculer($id)
     {
         $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(',', $extracurricular->schedule_day);
+        $schedule_days = explode(', ', $extracurricular->schedule_day);
 
         return view('kesiswaan.ekstrakurikuler.detail', [
             'title' => 'Kesiswaan > Ekstrakurikuler',
@@ -94,7 +94,7 @@ class EkstrakurikulerController extends Controller
     function editExtracurriculer($id)
     {
         $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(',', $extracurricular->schedule_day);
+        $schedule_days = explode(', ', $extracurricular->schedule_day);
 
         return view('kesiswaan.ekstrakurikuler.edit', [
             'title' => 'Kesiswaan > Ekstrakurikuler',
@@ -118,7 +118,7 @@ class EkstrakurikulerController extends Controller
             'link_register' => 'required|string||max:255',
         ]);
 
-        $validatedData['schedule_day'] = implode(',', $validatedData['schedule_day']);
+        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
 
         if ($request->file('icon')) {
             $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
