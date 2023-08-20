@@ -10,7 +10,7 @@ class SaranaController extends Controller
     function index()
     {
         return view('sarana.index', [
-            'title' => 'Sarana',
+            'title' => 'Sarana Prasarana',
             'section_header' => HeaderSaranaPrasarana::first(),
         ]);
     }

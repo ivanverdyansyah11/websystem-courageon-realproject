@@ -11,7 +11,7 @@ class PrasaranaController extends Controller
     function index()
     {
         return view('sarana.prasarana.index', [
-            'title' => 'Sarana',
+            'title' => 'Sarana Prasarana > Prasarana',
             'section' => SectionPrasarana::first(),
             'prasaranas' => Prasarana::paginate(6),
         ]);

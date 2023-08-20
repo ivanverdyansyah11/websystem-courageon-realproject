@@ -11,7 +11,7 @@ class DenahController extends Controller
     function index()
     {
         return view('sarana.denah.index', [
-            'title' => 'Sarana',
+            'title' => 'Sarana Prasarana > Denah',
             'section' => SectionDenah::first(),
             'rooms' => Denah::paginate(6),
         ]);
