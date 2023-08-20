@@ -1,6 +1,7 @@
 @extends('templates.main')
 
 @section('container')
+
     <main class="mt-3">
         <section class="hero-section container">
             <div class="row align-items-center">
@@ -197,15 +198,15 @@
             </div>
             <div class="mt-2">
                 <div class="pin-container">
-                    <div class="pin-content">
-                        <img src="{{ asset('assets-homepage/img/gallery1.png') }}" alt="gallery 1" class="pin-img">
-                    </div>
-                    <div class="pin-content">
-                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" alt="gallery 2" class="pin-img">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery3.png') }}" alt="gallery 3" class="w-100">
-                    </div>
+                        <a href="{{ asset('assets-homepage/img/gallery1.png') }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                            <img src="{{ asset('assets-homepage/img/gallery1.png') }}" class="w-100" alt="gallery 1">
+                        </a>
+                    <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
+                    </a>
                     <div class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery4.png') }}" alt="gallery 4" class="w-100">
                     </div>
