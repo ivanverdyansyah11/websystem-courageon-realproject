@@ -1,6 +1,7 @@
 @extends('templates.main')
 
 @section('container')
+
     <main class="mt-3">
         <section class="hero-section container">
             <div class="row align-items-center">
@@ -138,18 +139,7 @@
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p51.png') }}" alt="Gaya Hidup Berkelanjutan"
-                                class="w-100">
-                            <div class="mt-3 text-center">
-                                <a href="{{ route('detail-projek', '1') }}" class="text-black fw-bold">Gaya Hidup
-                                    Berkelanjutan</a>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Kearifan Lokal" class="w-100">
                             <div class="mt-3 text-center">
@@ -157,8 +147,8 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </a>
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p53.png') }}" alt="Bhinneka Tunggal Ika" class="w-100">
                             <div class="mt-3 text-center">
@@ -166,8 +156,18 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </a>
+                    <a href="" class="col">
+                        <div class="card-p5">
+                            <img src="{{ asset('assets-homepage/img/p51.png') }}" alt="Bangunlah Jiwa dan Raganya"
+                                class="w-100">
+                            <div class="mt-3 text-center">
+                                <p class="text-black fw-bold">Bhinneka Tunggal Ika</p>
+                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p54.png') }}" alt="Bangunlah Jiwa dan Raganya"
                                 class="w-100">
@@ -176,7 +176,8 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
+
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
                     <a href="{{ route('projek') }}" class="btn btn-color">lihat semua</a>
@@ -197,30 +198,31 @@
             </div>
             <div class="mt-2">
                 <div class="pin-container">
-                    <div class="pin-content">
-                        <img src="{{ asset('assets-homepage/img/gallery1.png') }}" alt="gallery 1" class="pin-img">
-                    </div>
-                    <div class="pin-content">
-                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" alt="gallery 2" class="pin-img">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery3.png') }}" alt="gallery 3" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery4.png') }}" alt="gallery 4" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery5.png') }}" alt="gallery 5" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery6.png') }}" alt="gallery 6" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery7.png') }}" alt="gallery 7" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery8.png') }}" alt="gallery 8" class="w-100">
-                    </div>
+                    <a href="{{ asset('assets-homepage/img/gallery1.png') }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                        <img src="{{ asset('assets-homepage/img/gallery1.png') }}" class="w-100" alt="gallery 1">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery3.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery3.png') }}" class="w-100" alt="gallery 3">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery4.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery4.png') }}" class="w-100" alt="gallery 4">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery5.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery5.png') }}" class="w-100" alt="gallery 5">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery6.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery6.png') }}" class="w-100" alt="gallery 6">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery7.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery7.png') }}" class="w-100" alt="gallery 7">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery8.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery8.png') }}" class="w-100" alt="gallery 8">
+                    </a>
+
                 </div>
             </div>
         </section>

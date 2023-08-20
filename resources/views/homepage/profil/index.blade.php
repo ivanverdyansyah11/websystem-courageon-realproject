@@ -175,7 +175,7 @@
                     Selat</p>
             </div>
             <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                     <div class="col">
                         <div class="card-school-people text-center">
                             <img src="{{ asset('assets-homepage/img/management1.png') }}" alt="Dr. Andi Pranoto, M.Pd."

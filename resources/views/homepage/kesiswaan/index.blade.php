@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                     <a href="{{ route('detail-pelayanan', '1') }}" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/karir1.png') }}" alt="Gaya Hidup Berkelanjutan"
@@ -548,23 +548,28 @@
     <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
 
     <script>
-        const swiperTesti = new Swiper('.swiper-testi', {
-            speed: 500,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            navigation: {
-                nextEl: ".btn-next",
-                prevEl: ".btn-prev",
-            },
-            breakpoints: {
-                1: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-            }
-        })
+     const swiperTesti = new Swiper('.swiper-testi',{
+      speed: 500,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        // clickable: true
+      },
+      navigation: {
+        nextEl: ".btn-next",
+        prevEl: ".btn-prev",
+      },
+      breakpoints: {
+        1: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        500:{
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    } )
 
         document.addEventListener('DOMContentLoaded', function() {
     var showCategory = 'category1';
