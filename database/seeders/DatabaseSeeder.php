@@ -29,6 +29,7 @@ use App\Models\Project;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionAchievement;
+use App\Models\SectionAlumni;
 use App\Models\SectionBeasiswa;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
@@ -420,6 +421,11 @@ class DatabaseSeeder extends Seeder
         SectionBeasiswa::create([
             'title_section' => 'Ayo dapatkan Peluang Beasiswa di Sekolah!',
             'description' => 'Dengan adanya beasiswa di sekolah, para siswa berpeluang untuk mengakses pendidikan yang berkualitas tanpa memandang latar belakang ekonomi. Ini juga membuka pintu bagi mereka untuk mengembangkan potensi diri',
+        ]);
+
+        SectionAlumni::create([
+            'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
+            'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang profesi.',
         ]);
     }
 }

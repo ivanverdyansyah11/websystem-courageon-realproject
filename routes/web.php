@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkademikController;
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeasiswaController;
 use App\Http\Controllers\BerandaController;
@@ -303,6 +304,17 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/beasiswa/tambah-beasiswa', 'storeBeasiswa')->name('beasiswa-store');
             Route::post('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'updateBeasiswa');
             Route::post('/kesiswaan/beasiswa/delete-beasiswa/{id}', 'deleteBeasiswa');
+        });
+
+        Route::controller(AlumniController::class)->group(function () {
+            Route::get('/kesiswaan/alumni', 'index')->name('alumni-index');
+            Route::get('/kesiswaan/alumni/detail-section', 'detailSection');
+            Route::post('/kesiswaan/alumni/edit-section', 'updateSection');
+
+            Route::get('/kesiswaan/alumni/detail-alumni/{id}', 'detailAlumni');
+            Route::post('/kesiswaan/alumni/tambah-alumni', 'storeAlumni')->name('alumni-store');
+            Route::post('/kesiswaan/alumni/edit-alumni/{id}', 'updateAlumni');
+            Route::post('/kesiswaan/alumni/delete-alumni/{id}', 'deleteAlumni');
         });
 
         // SARANA & PRASARANA

@@ -99,8 +99,9 @@
                         class="link-child {{ Request::is('admin/kesiswaan/prestasi*') ? 'active' : '' }}">Prestasi</a>
                     <a href="{{ route('beasiswa-index') }}"
                         class="link-child {{ Request::is('admin/kesiswaan/beasiswa*') ? 'active' : '' }}">Beasiswa</a>
+                    <a href="{{ route('alumni-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/alumni*') ? 'active' : '' }}">Alumni</a>
                     {{-- <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a> --}}
-                    {{-- <a href="{{ route('alumni-index') }}" class="link-child">Alumni</a> --}}
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/sarana*') ? 'active' : '' }}">

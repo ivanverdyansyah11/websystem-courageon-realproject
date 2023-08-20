@@ -17,7 +17,7 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Section Beasiswa</h5>
+                <h5 class="subtitle">Section Alumni</h5>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
-                            <div class="col data-value data-length">{{ $section_beasiswa->title_section }}</div>
+                            <div class="col data-value data-length">{{ $section_alumni->title_section }}</div>
                             <div class="d-none col data-value data-length">
-                                {{ $section_beasiswa->description }}</div>
+                                {{ $section_alumni->description }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Beasiswa Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
@@ -113,7 +113,7 @@
             <div class="col-12 d-flex justify-content-end mt-4">
                 {{ $beasiswas->links() }}
             </div>
-        </div>
+        </div> --}}
     </div>
 
     {{-- MODAL DETAIL SECTION --}}
@@ -121,7 +121,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Section Beasiswa</h3>
+                <h3 class="title">Detail Section Alumni</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label>Judul Section</label>
@@ -142,17 +142,16 @@
     {{-- END MODAL DETAIL SECTION --}}
 
     {{-- MODAL EDIT SECTION --}}
-    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Section Beasiswa</h3>
+                <h3 class="title">Edit Section Alumni</h3>
                 <form id="editSection" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -174,100 +173,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION --}}
-
-    {{-- MODAL ADD BEASISWA --}}
-    <div class="modal fade" id="addBeasiswaModal" tabindex="-1" aria-labelledby="addBeasiswaModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Tambah Beasiswa Sekolah</h3>
-                <form action="{{ route('beasiswa-store') }}" method="post"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="input-wrapper">
-                        <label for="name">Nama Beasiswa</label>
-                        <input type="text" id="name" class="input" autocomplete="off" name="title">
-                        @error('title')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" class="input" autocomplete="off" id="deskripsi"
-                            rows="4"></textarea>
-                        @error('description')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Beasiswa</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL ADD BEASISWA --}}
-
-    {{-- MODAL DETAIL BEASISWA --}}
-    <div class="modal fade" id="detailBeasiswaModal" tabindex="-1" aria-labelledby="detailBeasiswaModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Detail Beasiswa Sekolah</h3>
-                <form class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="name">Nama Beasiswa</label>
-                        <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="title_beasiswa" disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_beasiswa" disabled class="input" autocomplete="off" id="deskripsi"
-                            rows="4"></textarea>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DETAIL BEASISWA --}}
-
-    {{-- MODAL EDIT BEASISWA --}}
-    <div class="modal fade" id="editBeasiswaModal" tabindex="-1" aria-labelledby="editBeasiswaModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Edit Beasiswa Sekolah</h3>
-                <form id="editBeasiswa" method="post" class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="input-wrapper">
-                        <label for="name">Nama Beasiswa</label>
-                        <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="title_beasiswa" name="title">
-                        @error('title')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_beasiswa" data-value="description_beasiswa" name="description" class="input"
-                            autocomplete="off" id="deskripsi" rows="4"></textarea>
-                        @error('description')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL EDIT BEASISWA --}}
 
     {{-- MODAL DELETE BEASISWA --}}
     <div class="modal fade" id="deleteBeasiswaModal" tabindex="-1" aria-labelledby="deleteBeasiswaModalLabel"
@@ -296,7 +201,7 @@
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-section',
+                url: '/admin/kesiswaan/alumni/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
@@ -305,38 +210,13 @@
         });
 
         $(document).on('click', '[data-bs-target="#editSectionModal"]', function() {
-            $('#editSection').attr('action', '/admin/kesiswaan/beasiswa/edit-section');
+            $('#editSection').attr('action', '/admin/kesiswaan/alumni/edit-section');
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-section',
+                url: '/admin/kesiswaan/alumni/detail-section',
                 success: function(data) {
                     $('[data-value="title_section"]').val(data.title_section);
                     $('[data-value="description_section"]').val(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#detailBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
-                success: function(data) {
-                    $('[data-value="title_beasiswa"]').val(data.title);
-                    $('[data-value="description_beasiswa"]').val(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $('#editBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-beasiswa/' + id);
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
-                success: function(data) {
-                    $('[data-value="title_beasiswa"]').val(data.title);
-                    $('[data-value="description_beasiswa"]').val(data.description);
                 }
             });
         });
