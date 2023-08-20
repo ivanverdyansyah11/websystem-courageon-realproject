@@ -115,6 +115,9 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $rooms->links() }}
+            </div>
         </div>
     </div>
 
@@ -166,21 +169,33 @@
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
                             data-value="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="judul_kode">Judul Kode</label>
                         <input type="text" id="judul_kode" class="input" autocomplete="off" data-value="title_code"
                             name="title_code">
+                        @error('title_code')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="judul_ruangan">Judul Ruangan</label>
                         <input type="text" id="judul_ruangan" class="input" autocomplete="off"
                             data-value="title_room" name="title_room">
+                        @error('title_room')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" name="button" autocomplete="off"
                             data-value="button_section">
+                        @error('button')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -203,14 +218,23 @@
                     <div class="input-wrapper">
                         <label for="kode">Kode Ruangan</label>
                         <input type="text" id="kode" class="input" autocomplete="off" name="code">
+                        @error('code')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Nama Ruangan</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Ruangan</button>
@@ -263,16 +287,25 @@
                         <label for="kode">Kode Ruangan</label>
                         <input type="text" id="kode" class="input" autocomplete="off" data-value="code_room"
                             name="code">
+                        @error('code')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Nama Ruangan</label>
                         <input type="text" id="nama" class="input" autocomplete="off" data-value="name_room"
                             name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea data-value="description_room" name="description" id="deskripsi" rows="4" class="input"
                             autocomplete="off"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>

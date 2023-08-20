@@ -13,7 +13,7 @@ class DenahController extends Controller
         return view('sarana.denah.index', [
             'title' => 'Sarana',
             'section' => SectionDenah::first(),
-            'rooms' => Denah::all(),
+            'rooms' => Denah::paginate(6),
         ]);
     }
 

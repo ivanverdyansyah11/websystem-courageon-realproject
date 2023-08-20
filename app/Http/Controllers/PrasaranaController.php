@@ -13,7 +13,7 @@ class PrasaranaController extends Controller
         return view('sarana.prasarana.index', [
             'title' => 'Sarana',
             'section' => SectionPrasarana::first(),
-            'prasaranas' => Prasarana::all(),
+            'prasaranas' => Prasarana::paginate(6),
         ]);
     }
 
