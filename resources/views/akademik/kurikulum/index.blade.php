@@ -72,7 +72,7 @@
                 <h3 class="title">Detail Section Kurikulum</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="banner">Banner</label>
+                        <label>Banner</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                 alt="Banner Section Curriculum" width="80" data-value="banner_section">
