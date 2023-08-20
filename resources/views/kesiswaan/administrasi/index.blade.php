@@ -123,6 +123,65 @@
                 {{ $semesters->links() }}
             </div>
         </div>
+
+        <div class="row row-gap">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Kelas Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addKelasModal">Tambah
+                    Kelas</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama Kelas</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($kelases->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Kelas!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($kelases as $kelas)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">{{ $kelas->name }}</div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailKelasModal"
+                                                data-id="{{ $kelas->id }}">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editKelasModal"
+                                                data-id="{{ $kelas->id }}">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteKelasModal"
+                                                data-id="{{ $kelas->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $kelases->links() }}
+            </div>
+        </div>
     </div>
 
     {{-- MODAL ADD TAHUN AJARAN --}}
@@ -292,12 +351,122 @@
     </div>
     {{-- END MODAL EDIT SEMESTER --}}
 
+    {{-- MODAL ADD KELAS --}}
+    <div class="modal fade" id="addKelasModal" tabindex="-1" aria-labelledby="addKelasModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Tambah Kelas</h3>
+                <form action="{{ route('kelas-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama Kelas</label>
+                                <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                                @error('name')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Kelas</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD KELAS --}}
+
+    {{-- MODAL DETAIL KELAS --}}
+    <div class="modal fade" id="detailKelasModal" tabindex="-1" aria-labelledby="detailKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Kelas</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" class="input" autocomplete="off"
+                                    data-value="name_kelas" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL KELAS --}}
+
+    {{-- MODAL EDIT KELAS --}}
+    <div class="modal fade" id="editKelasModal" tabindex="-1" aria-labelledby="editKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Kelas</h3>
+                <form id="editKelas" method="post" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" class="input" autocomplete="off"
+                                    data-value="name_kelas" name="name">
+                                @error('name')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT KELAS --}}
+
+    {{-- MODAL DELETE KELAS --}}
+    <div class="modal fade" id="deleteKelasModal" tabindex="-1" aria-labelledby="deleteKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Kelas</h3>
+                <form id="deleteKelas" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kelas Sekolah: Apakah Anda yakin
+                        ingin
+                        menghapus kelas sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan kelas sekolah akan dihapus secara permanen dari
+                        sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Kelas</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE KELAS --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailTahunAjaranModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/siswa/detail-tahun-ajaran/' + id,
+                url: '/admin/kesiswaan/administrasi/detail-tahun-ajaran/' + id,
                 success: function(data) {
                     $('[data-value="tahun_ajaran"]').val(data.tahun);
                 }
@@ -306,10 +475,10 @@
 
         $(document).on('click', '[data-bs-target="#editTahunAjaranModal"]', function() {
             let id = $(this).data('id');
-            $('#editTahunAjaran').attr('action', '/admin/kesiswaan/siswa/edit-tahun-ajaran/' + id);
+            $('#editTahunAjaran').attr('action', '/admin/kesiswaan/administrasi/edit-tahun-ajaran/' + id);
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/siswa/detail-tahun-ajaran/' + id,
+                url: '/admin/kesiswaan/administrasi/detail-tahun-ajaran/' + id,
                 success: function(data) {
                     $('[data-value="tahun_ajaran"]').val(data.tahun);
                 }
@@ -318,14 +487,14 @@
 
         $(document).on('click', '[data-bs-target="#deleteTahunAjaranModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteTahunAjaran').attr('action', '/admin/kesiswaan/siswa/delete-tahun-ajaran/' + id);
+            $('#deleteTahunAjaran').attr('action', '/admin/kesiswaan/administrasi/delete-tahun-ajaran/' + id);
         });
 
         $(document).on('click', '[data-bs-target="#detailSemesterModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/siswa/detail-semester/' + id,
+                url: '/admin/kesiswaan/administrasi/detail-semester/' + id,
                 success: function(data) {
                     $('[data-value="semester"]').val(data.semester);
                 }
@@ -334,14 +503,42 @@
 
         $(document).on('click', '[data-bs-target="#editSemesterModal"]', function() {
             let id = $(this).data('id');
-            $('#editSemester').attr('action', '/admin/kesiswaan/siswa/edit-semester/' + id);
+            $('#editSemester').attr('action', '/admin/kesiswaan/administrasi/edit-semester/' + id);
             $.ajax({
                 type: 'get',
-                url: '/admin/kesiswaan/siswa/detail-semester/' + id,
+                url: '/admin/kesiswaan/administrasi/detail-semester/' + id,
                 success: function(data) {
                     $('[data-value="semester"]').val(data.semester);
                 }
             });
+        });
+
+        $(document).on('click', '[data-bs-target="#detailKelasModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/kesiswaan/administrasi/detail-kelas/' + id,
+                success: function(data) {
+                    $('[data-value="name_kelas"]').val(data.name);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editKelasModal"]', function() {
+            let id = $(this).data('id');
+            $('#editKelas').attr('action', '/admin/kesiswaan/administrasi/edit-kelas/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/kesiswaan/administrasi/detail-kelas/' + id,
+                success: function(data) {
+                    $('[data-value="name_kelas"]').val(data.name);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#deleteKelasModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteKelas').attr('action', '/admin/kesiswaan/administrasi/delete-kelas/' + id);
         });
     </script>
 @endsection

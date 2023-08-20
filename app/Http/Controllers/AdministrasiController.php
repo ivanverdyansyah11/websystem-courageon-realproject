@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Semester;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class AdministrasiController extends Controller
             'title' => 'Kesiswaan > Administrasi',
             'tahun_ajarans' => TahunAjaran::paginate(6),
             'semesters' => Semester::paginate(6),
+            'kelases' => Kelas::paginate(6),
         ]);
     }
 
@@ -26,9 +28,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = TahunAjaran::create($validatedData);
 
         if ($tahun_ajaran) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Tambah Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Tahun Ajaran!');
         } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Tambah Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Tahun Ajaran!');
         }
     }
 
@@ -47,9 +49,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = TahunAjaran::where('id', $id)->first()->update($validatedData);
 
         if ($tahun_ajaran) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Update Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Tahun Ajaran!');
         } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Update Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Tahun Ajaran!');
         }
     }
 
@@ -60,9 +62,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = $tahun_ajaran->delete();
 
         if ($tahun_ajaran) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Hapus Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Tahun Ajaran!');
         } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Hapus Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Tahun Ajaran!');
         }
     }
 
@@ -81,9 +83,58 @@ class AdministrasiController extends Controller
         $semester = Semester::where('id', $id)->first()->update($validatedData);
 
         if ($semester) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Update Semester!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Semester!');
         } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Update Semester!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Semester!');
+        }
+    }
+
+    function storeKelas(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $kelas = Kelas::create($validatedData);
+
+        if ($kelas) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Kelas!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Kelas!');
+        }
+    }
+
+    function detailKelas($id)
+    {
+        $kelas = Kelas::where('id', $id)->first();
+        return response()->json($kelas);
+    }
+
+    function updateKelas($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $kelas = Kelas::where('id', $id)->first()->update($validatedData);
+
+        if ($kelas) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Kelas!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Kelas!');
+        }
+    }
+
+    function deleteKelas($id)
+    {
+        $kelas = Kelas::where('id', $id)->first();
+
+        $kelas = $kelas->delete();
+
+        if ($kelas) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Kelas!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Kelas!');
         }
     }
 }
