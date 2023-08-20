@@ -112,9 +112,6 @@
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Semester Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addSemesterModal">Tambah
-                    Semester</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -148,12 +145,6 @@
                                                 data-bs-toggle="modal" data-bs-target="#editSemesterModal"
                                                 data-id="{{ $semester->id }}">
                                                 <div class="edit-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteSemesterModal"
-                                                data-id="{{ $semester->id }}">
-                                                <div class="delete-icon"></div>
                                             </button>
                                         </div>
                                     </div>
@@ -438,36 +429,6 @@
     </div>
     {{-- END MODAL DELETE TAHUN AJARAN --}}
 
-    {{-- MODAL ADD SEMESTER --}}
-    <div class="modal fade" id="addSemesterModal" tabindex="-1" aria-labelledby="addSemesterModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Tambah Semester</h3>
-                <form action="{{ route('semester-store') }}" method="post"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="semester">Semester</label>
-                                <input type="text" id="semester" class="input" autocomplete="off" name="semester">
-                                @error('semester')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Semester</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL ADD SEMESTER --}}
-
     {{-- MODAL DETAIL SEMESTER --}}
     <div class="modal fade" id="detailSemesterModal" tabindex="-1" aria-labelledby="detailSemesterModalLabel"
         aria-hidden="true">
@@ -523,31 +484,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT SEMESTER --}}
-
-    {{-- MODAL DELETE SEMESTER --}}
-    <div class="modal fade" id="deleteSemesterModal" tabindex="-1" aria-labelledby="deleteSemesterModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Hapus Semester</h3>
-                <form id="deleteSemester" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Semester Sekolah: Apakah Anda yakin
-                        ingin
-                        menghapus semester sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan semester sekolah akan dihapus secara permanen dari
-                        sistem.
-                    </p>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Semester</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DELETE SEMESTER --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionStudentModal"]', function() {
@@ -632,11 +568,6 @@
                     $('[data-value="semester"]').val(data.semester);
                 }
             });
-        });
-
-        $(document).on('click', '[data-bs-target="#deleteSemesterModal"]', function() {
-            let id = $(this).data('id');
-            $('#deleteSemester').attr('action', '/admin/kesiswaan/siswa/delete-semester/' + id);
         });
     </script>
 @endsection

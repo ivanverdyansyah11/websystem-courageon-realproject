@@ -46,6 +46,7 @@ use App\Models\SectionService;
 use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
+use App\Models\Semester;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -426,6 +427,14 @@ class DatabaseSeeder extends Seeder
         SectionAlumni::create([
             'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
             'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang profesi.',
+        ]);
+
+        Semester::create([
+            'semester' => 'Ganjil',
+        ]);
+
+        Semester::create([
+            'semester' => 'Genap',
         ]);
     }
 }

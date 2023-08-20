@@ -95,21 +95,6 @@ class SiswaController extends Controller
         }
     }
 
-    function storeSemester(Request $request)
-    {
-        $validatedData = $request->validate([
-            'semester' => 'required|string|max:255',
-        ]);
-
-        $semester = Semester::create($validatedData);
-
-        if ($semester) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Tambah Semester!');
-        } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Tambah Semester!');
-        }
-    }
-
     function detailSemester($id)
     {
         $semester = Semester::where('id', $id)->first();
@@ -128,19 +113,6 @@ class SiswaController extends Controller
             return redirect(route('siswa-index'))->with('success', 'Berhasil Update Semester!');
         } else {
             return redirect(route('siswa-index'))->with('failed', 'Gagal Update Semester!');
-        }
-    }
-
-    function deleteSemester($id)
-    {
-        $semester = Semester::where('id', $id)->first();
-
-        $semester = $semester->delete();
-
-        if ($semester) {
-            return redirect(route('siswa-index'))->with('success', 'Berhasil Hapus Semester!');
-        } else {
-            return redirect(route('siswa-index'))->with('failed', 'Gagal Hapus Semester!');
         }
     }
 }
