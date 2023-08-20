@@ -89,6 +89,8 @@
                             <div class="arrow-sidebar-icon"></div>
                         </div>
                     </a>
+                    <a href="{{ route('administrasi-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/administrasi*') ? 'active' : '' }}">Administrasi</a>
                     <a href="{{ route('siswa-index') }}"
                         class="link-child {{ Request::is('admin/kesiswaan/siswa*') ? 'active' : '' }}">Data Siswa</a>
                     <a href="{{ route('ekstrakurikuler-index') }}"

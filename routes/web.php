@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AuthController;
@@ -250,18 +251,27 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/edit-header', 'updateHeader');
         });
 
+        Route::controller(AdministrasiController::class)->group(function () {
+            Route::get('/kesiswaan/administrasi', 'index')->name('administrasi-index');
+
+            Route::post('/kesiswaan/administrasi/tambah-tahun-ajaran', 'storeTahunAjaran')->name('tahun-ajaran-store');
+            Route::get('/kesiswaan/administrasi/detail-tahun-ajaran/{id}', 'detailTahunAjaran');
+            Route::post('/kesiswaan/administrasi/edit-tahun-ajaran/{id}', 'updateTahunAjaran');
+            Route::post('/kesiswaan/administrasi/delete-tahun-ajaran/{id}', 'deleteTahunAjaran');
+
+            Route::get('/kesiswaan/administrasi/detail-semester/{id}', 'detailSemester');
+            Route::post('/kesiswaan/administrasi/edit-semester/{id}', 'updateSemester');
+
+            Route::post('/kesiswaan/administrasi/tambah-kelas', 'storeKelas')->name('kelas-store');
+            Route::get('/kesiswaan/administrasi/detail-kelas/{id}', 'detailKelas');
+            Route::post('/kesiswaan/administrasi/edit-kelas/{id}', 'updateKelas');
+            Route::post('/kesiswaan/administrasi/delete-kelas/{id}', 'deleteKelas');
+        });
+
         Route::controller(SiswaController::class)->group(function () {
             Route::get('/kesiswaan/siswa', 'index')->name('siswa-index');
             Route::get('/kesiswaan/siswa/detail-section', 'detailSectionStudent');
             Route::post('/kesiswaan/siswa/edit-section', 'updateSectionStudent');
-
-            Route::post('/kesiswaan/siswa/tambah-tahun-ajaran', 'storeTahunAjaran')->name('tahun-ajaran-store');
-            Route::get('/kesiswaan/siswa/detail-tahun-ajaran/{id}', 'detailTahunAjaran');
-            Route::post('/kesiswaan/siswa/edit-tahun-ajaran/{id}', 'updateTahunAjaran');
-            Route::post('/kesiswaan/siswa/delete-tahun-ajaran/{id}', 'deleteTahunAjaran');
-
-            Route::get('/kesiswaan/siswa/detail-semester/{id}', 'detailSemester');
-            Route::post('/kesiswaan/siswa/edit-semester/{id}', 'updateSemester');
         });
 
         Route::controller(EkstrakurikulerController::class)->group(function () {
