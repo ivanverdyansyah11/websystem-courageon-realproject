@@ -114,7 +114,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Banner Visi Misi" width="80" data-value="banner_vision_mission">
@@ -182,6 +182,9 @@
                                             name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -189,6 +192,9 @@
                                 <label for="judul_visi">Judul Visi</label>
                                 <input type="text" id="judul_visi" class="input" autocomplete="off"
                                     data-value="title_vision" name="title_vision">
+                                @error('title_vision')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -196,6 +202,9 @@
                                 <label for="judul_misi">Judul Misi</label>
                                 <input type="text" id="judul_misi" class="input" autocomplete="off"
                                     data-value="title_mission" name="title_mission">
+                                @error('title_mission')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
@@ -203,6 +212,9 @@
                                 <label for="deskripsi_visi">Deskripsi Visi</label>
                                 <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="4" data-value="description_vision"
                                     name="description_vision"></textarea>
+                                @error('description_vision')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -210,6 +222,9 @@
                                 <label for="deskripsi_misi">Deskripsi Misi</label>
                                 <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="4" data-value="description_mission"
                                     name="description_mission"></textarea>
+                                @error('description_mission')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -231,7 +246,7 @@
                 <h3 class="title">Detail Motto Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="pembicara">Pembicara</label>
+                        <label>Pembicara</label>
                         <input type="text" id="pembicara" class="input" autocomplete="off" data-value="speaker"
                             disabled>
                     </div>
@@ -261,10 +276,16 @@
                         <label for="pembicara">Pembicara</label>
                         <input type="text" id="pembicara" class="input" autocomplete="off" data-value="speaker"
                             name="speaker">
+                        @error('speaker')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="motto">Motto</label>
                         <textarea id="motto" class="input" autocomplete="off" rows="4" data-value="motto" name="motto"></textarea>
+                        @error('motto')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
