@@ -24,6 +24,7 @@ class CreateExtracurricularsTable extends Migration
             $table->time('end_time');
             $table->string('coach');
             $table->string('number_phone_coach');
+            $table->string('link_register');
             $table->timestamps();
         });
     }

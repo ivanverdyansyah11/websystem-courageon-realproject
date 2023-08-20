@@ -257,8 +257,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/ekstrakurikuler/detail-section', 'detailSection');
             Route::post('/kesiswaan/ekstrakurikuler/edit-section', 'updateSection');
 
-            Route::post('/kesiswaan/ekstrakurikuler/tambah-ekstrakurikuler', 'storeExtracurriculer')->name('ekstrakurikuler-store');
             Route::get('/kesiswaan/ekstrakurikuler/detail-ekstrakurikuler/{id}', 'detailExtracurriculer')->name('ekstrakurikuler-detail');
+            Route::get('/kesiswaan/ekstrakurikuler/tambah-ekstrakurikuler', 'createExtracurriculer')->name('ekstrakurikuler-create');
+            Route::post('/kesiswaan/ekstrakurikuler/tambah-ekstrakurikuler', 'storeExtracurriculer')->name('ekstrakurikuler-store');
+            Route::get('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'editExtracurriculer')->name('ekstrakurikuler-edit');
             Route::post('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'updateExtracurriculer')->name('ekstrakurikuler-update');
             Route::post('/kesiswaan/ekstrakurikuler/delete-ekstrakurikuler/{id}', 'deleteExtracurriculer')->name('proyek-delete');
         });

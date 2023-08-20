@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="judul">Judul Section</label>
+                                <label>Judul Section</label>
                                 <input type="text" id="judul" class="input" autocomplete="off"
                                     data-value="title_section" disabled>
                             </div>
@@ -133,6 +133,9 @@
                                 <label for="judul">Judul Section</label>
                                 <input type="text" id="judul" class="input" autocomplete="off"
                                     data-value="title_section" name="title_section">
+                                @error('title_section')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -140,6 +143,9 @@
                                 <label for="button_1">Button Label 1</label>
                                 <input type="text" id="button_1" class="input" autocomplete="off"
                                     data-value="button_section_1" name="button_1">
+                                @error('button_1')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -147,6 +153,9 @@
                                 <label for="button_2">Button Label 2</label>
                                 <input type="text" id="button_2" class="input" autocomplete="off"
                                     data-value="button_section_2" name="button_2">
+                                @error('button_2')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -154,6 +163,9 @@
                                 <label for="button_3">Button Label 3</label>
                                 <input type="text" id="button_3" class="input" autocomplete="off"
                                     data-value="button_section_3" name="button_3">
+                                @error('button_3')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -161,6 +173,9 @@
                                 <label for="caption_1">Caption 1</label>
                                 <input type="text" id="caption_1" class="input" autocomplete="off"
                                     data-value="caption_section_1" name="caption_1">
+                                @error('caption_1')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -168,6 +183,9 @@
                                 <label for="caption_2">Caption 2</label>
                                 <input type="text" id="caption_2" class="input" autocomplete="off"
                                     data-value="caption_section_2" name="caption_2">
+                                @error('caption_')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -175,6 +193,9 @@
                                 <label for="caption_3">Caption 3</label>
                                 <input type="text" id="caption_3" class="input" autocomplete="off"
                                     data-value="caption_section_3" name="caption_3">
+                                @error('caption_3')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>

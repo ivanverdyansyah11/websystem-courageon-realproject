@@ -394,11 +394,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sepak Bola',
             'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
             'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
-            'schedule_day' => 'Jumat',
+            'schedule_day' => 'jumat',
             'start_time' => '15:00',
             'end_time' => '16:00',
             'coach' => 'Ahmad Fatoni',
             'number_phone_coach' => '08123456789',
+            'link_register' => 'https://translate.google.co.id/?hl=id',
         ]);
     }
 }

@@ -39,77 +39,123 @@ class EkstrakurikulerController extends Controller
         }
     }
 
-    function storeGallery(Request $request)
+    function createExtracurriculer()
+    {
+        return view('kesiswaan.ekstrakurikuler.create', [
+            'title' => 'Kesiswaan > Ekstrakurikuler',
+        ]);
+    }
+
+    function storeExtracurriculer(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'schedule_day' => 'required',
+            'start_time' => 'required|string',
+            'end_time' => 'required|string',
+            'coach' => 'required|string|max:255',
+            'number_phone_coach' => 'required|string||max:11',
+            'link_register' => 'required|string||max:255',
         ]);
 
-        if ($validatedData['image']) {
-            $image = $request->file('image');
+        $validatedData['schedule_day'] = implode(',', $validatedData['schedule_day']);
+
+        if ($validatedData['icon']) {
+            $image = $request->file('icon');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/galeri-image/'), $imageName);
-            $validatedData['image'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
+            $validatedData['icon'] = $imageName;
         }
 
-        $gallery = Gallery::create($validatedData);
+        $extracurricular = Extracurricular::create($validatedData);
 
-        if ($gallery) {
-            return redirect(route('galeri-index'))->with('success', 'Berhasil Tambah Galeri Sekolah!');
+        if ($extracurricular) {
+            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('galeri-index'))->with('failed', 'Gagal Tambah Galeri Sekolah!');
+            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
         }
     }
 
-    function detailGallery($id)
+    function detailExtracurriculer($id)
     {
-        $gallery = Gallery::where('id', $id)->first();
-        return response()->json($gallery);
+        $extracurricular = Extracurricular::where('id', $id)->first();
+        $schedule_days = explode(',', $extracurricular->schedule_day);
+
+        return view('kesiswaan.ekstrakurikuler.detail', [
+            'title' => 'Kesiswaan > Ekstrakurikuler',
+            'extracurricular' => Extracurricular::where('id', $id)->first(),
+            'schedule_days' => $schedule_days,
+        ]);
     }
 
-    function updateGallery($id, Request $request)
+    function editExtracurriculer($id)
     {
+        $extracurricular = Extracurricular::where('id', $id)->first();
+        $schedule_days = explode(',', $extracurricular->schedule_day);
+
+        return view('kesiswaan.ekstrakurikuler.edit', [
+            'title' => 'Kesiswaan > Ekstrakurikuler',
+            'extracurricular' => Extracurricular::where('id', $id)->first(),
+            'schedule_days' => $schedule_days,
+        ]);
+    }
+
+    function updateExtracurriculer($id, Request $request)
+    {
+        $extracurriculer = Extracurricular::where('id', $id)->first();
         $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'schedule_day' => 'required',
+            'start_time' => 'required|string',
+            'end_time' => 'required|string',
+            'coach' => 'required|string|max:255',
+            'number_phone_coach' => 'required|string||max:11',
+            'link_register' => 'required|string||max:255',
         ]);
 
-        if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/akademik-images/galeri-image/') . $request->oldImage;
+        $validatedData['schedule_day'] = implode(',', $validatedData['schedule_day']);
+
+        if ($request->file('icon')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
             unlink($oldImagePath);
 
-            $image = $request->file('image');
+            $image = $request->file('icon');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/akademik-images/galeri-image/'), $imageName);
-            $validatedData['image'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
+            $validatedData['icon'] = $imageName;
         } else {
-            $validatedData['image'] = $request->oldImage;
+            $validatedData['icon'] = $request->oldImage;
         }
 
-        $gallery = Gallery::where('id', $id)->first()->update($validatedData);
+        $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
 
-        if ($gallery) {
-            return redirect(route('galeri-index'))->with('success', 'Berhasil Edit Galeri Sekolah!');
+        if ($extracurricularAction) {
+            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Edit Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('galeri-index'))->with('failed', 'Gagal Edit Galeri Sekolah!');
+            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
         }
     }
 
-    function deleteGallery($id)
+    function deleteExtracurriculer($id)
     {
-        $gallery = Gallery::where('id', $id)->first();
+        $extracurricular = Extracurricular::where('id', $id)->first();
 
-        if ($gallery->image) {
-            $imagePath = public_path('assets/img/akademik-images/galeri-image/') . $gallery->image;
+        if ($extracurricular->icon) {
+            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
             unlink($imagePath);
         }
 
-        $gallery = $gallery->delete();
+        $extracurricular = $extracurricular->delete();
 
-        if ($gallery) {
-            return redirect(route('galeri-index'))->with('success', 'Berhasil Hapus Galeri Sekolah!');
+        if ($extracurricular) {
+            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Hapus Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('galeri-index'))->with('failed', 'Gagal Hapus Galeri Sekolah!');
+            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Hapus Ekstrakurikuler Sekolah!');
         }
     }
 }
