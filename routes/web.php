@@ -254,6 +254,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/siswa', 'index')->name('siswa-index');
             Route::get('/kesiswaan/siswa/detail-section', 'detailSectionStudent');
             Route::post('/kesiswaan/siswa/edit-section', 'updateSectionStudent');
+
+            Route::post('/kesiswaan/siswa/tambah-tahun-ajaran', 'storeTahunAjaran')->name('tahun-ajaran-store');
+            Route::get('/kesiswaan/siswa/detail-tahun-ajaran/{id}', 'detailTahunAjaran');
+            Route::post('/kesiswaan/siswa/edit-tahun-ajaran/{id}', 'updateTahunAjaran');
+            Route::post('/kesiswaan/siswa/delete-tahun-ajaran/{id}', 'deleteTahunAjaran');
         });
 
         Route::controller(EkstrakurikulerController::class)->group(function () {
