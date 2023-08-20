@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="logo">Logo</label>
+                                <label>Logo</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Logo Brand" width="140" data-value="logo">
@@ -178,6 +178,9 @@
                                         <input type="file" id="logo" class="input-edit-logo" name="logo">
                                     </div>
                                 </div>
+                                @error('logo')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -186,6 +189,9 @@
                                 <textarea id="inputEditLogoMeaning" autocomplete="off" name="logo_meaning">
                                     {{ $logo->logo_meaning }}
                                 </textarea>
+                                @error('logo_meaning')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
@@ -194,6 +200,9 @@
                                 <textarea id="inputEditFontMeaning" autocomplete="off" name="font_meaning">
                                     {{ $logo->font_meaning }}
                                 </textarea>
+                                @error('font_meaning')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -202,6 +211,9 @@
                                 <textarea id="inputEditColorMeaning" autocomplete="off" name="color_meaning">
                                     {{ $logo->color_meaning }}
                                 </textarea>
+                                @error('color_meaning')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -225,7 +237,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Banner Mars Sekolah" width="80" data-value="banner">
@@ -285,6 +297,9 @@
                                         <input type="file" id="banner" class="input-edit-mars" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-6 mb-4">
@@ -292,6 +307,9 @@
                                 <label for="judul_section">Judul Section</label>
                                 <input type="text" id="judul_section" class="input" autocomplete="off"
                                     data-value="title_section" name="title_section">
+                                @error('title_section')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-6 mb-4">
@@ -299,6 +317,9 @@
                                 <label for="pencipta">Pencipta</label>
                                 <input type="text" id="pencipta" class="input" autocomplete="off"
                                     data-value="creation" name="creation">
+                                @error('creation')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
@@ -307,6 +328,9 @@
                                 <textarea id="inputEditMars" autocomplete="off" name="mars">
                                     {{ $mars->mars }}
                                 </textarea>
+                                @error('mars')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
