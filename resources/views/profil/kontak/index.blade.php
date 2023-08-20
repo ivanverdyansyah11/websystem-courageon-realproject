@@ -157,11 +157,17 @@
                         <label for="judul_section">Judul Section</label>
                         <input type="text" id="judul_section" class="input" autocomplete="off"
                             data-value="title_section" name="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="url_maps">URL Lokasi</label>
                         <input type="text" id="url_maps" class="input" autocomplete="off" data-value="url_maps"
                             name="url_maps">
+                        @error('url_maps')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -191,14 +197,23 @@
                                 <input type="file" id="icon" class="input-add-icon" name="icon">
                             </div>
                         </div>
+                        @error('icon')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off" name="link">
+                        @error('link')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Kontak</button>
@@ -218,7 +233,7 @@
                 <h3 class="title">Detail Kontak Sekolah</h3>
                 <form id="detailContact" method="post" class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="icon">Icon</label>
+                        <label>Icon</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                 alt="icon Section Sejarah" width="80" data-value="icon_contact">
@@ -262,16 +277,25 @@
                                 <input type="file" id="icon" class="input-edit-icon" name="icon">
                             </div>
                         </div>
+                        @error('icon')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off"
                             data-value="name_contact" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off"
                             data-value="link_contact" name="link">
+                        @error('link')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
