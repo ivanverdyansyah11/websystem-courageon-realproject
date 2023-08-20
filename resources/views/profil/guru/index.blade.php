@@ -123,7 +123,7 @@
                 <h3 class="title">Detail Section Guru</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="judul">Judul Section</label>
+                        <label>Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_teacher"
                             disabled>
                     </div>
@@ -154,11 +154,17 @@
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_teacher" name="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
                             data-value="button_teacher" name="button">
+                        @error('button')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>

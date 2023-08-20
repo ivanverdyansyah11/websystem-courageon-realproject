@@ -33,6 +33,9 @@
                                                     name="image">
                                             </div>
                                         </div>
+                                        @error('image')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
