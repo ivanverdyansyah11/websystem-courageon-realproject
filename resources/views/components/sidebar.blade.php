@@ -93,11 +93,12 @@
                         class="link-child {{ Request::is('admin/kesiswaan/siswa*') ? 'active' : '' }}">Data Siswa</a>
                     <a href="{{ route('ekstrakurikuler-index') }}"
                         class="link-child {{ Request::is('admin/kesiswaan/ekstrakurikuler*') ? 'active' : '' }}">Ekstrakulikuler</a>
-                    {{-- <a href="{{ route('pelayanan-index') }}" class="link-child">Pelayanan</a>
-                    <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a>
-                    <a href="{{ route('prestasi-index') }}" class="link-child">Prestasi</a>
-                    <a href="{{ route('beasiswa-index') }}" class="link-child">Beasiswa</a>
-                    <a href="{{ route('alumni-index') }}" class="link-child">Alumni</a> --}}
+                    <a href="{{ route('pelayanan-karir-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/pelayanan-karir*') ? 'active' : '' }}">Pelayanan</a>
+                    {{-- <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a> --}}
+                    {{-- <a href="{{ route('prestasi-index') }}" class="link-child">Prestasi</a> --}}
+                    {{-- <a href="{{ route('beasiswa-index') }}" class="link-child">Beasiswa</a> --}}
+                    {{-- <a href="{{ route('alumni-index') }}" class="link-child">Alumni</a> --}}
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/sarana*') ? 'active' : '' }}">

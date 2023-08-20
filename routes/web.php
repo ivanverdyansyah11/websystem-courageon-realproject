@@ -19,6 +19,7 @@ use App\Http\Controllers\LogoMarsController;
 use App\Http\Controllers\MajalahController;
 use App\Http\Controllers\ManajemenController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\PelayananKarirController;
 use App\Http\Controllers\PrasaranaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProgramController;
@@ -263,6 +264,12 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'editExtracurriculer')->name('ekstrakurikuler-edit');
             Route::post('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'updateExtracurriculer')->name('ekstrakurikuler-update');
             Route::post('/kesiswaan/ekstrakurikuler/delete-ekstrakurikuler/{id}', 'deleteExtracurriculer')->name('proyek-delete');
+        });
+
+        Route::controller(PelayananKarirController::class)->group(function () {
+            Route::get('/kesiswaan/pelayanan-karir', 'index')->name('pelayanan-karir-index');
+            Route::get('/kesiswaan/pelayanan-karir/detail-section', 'detailSection');
+            Route::post('/kesiswaan/pelayanan-karir/edit-section', 'updateSection');
         });
 
         // SARANA & PRASARANA

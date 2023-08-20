@@ -39,6 +39,7 @@ use App\Models\SectionManagement;
 use App\Models\SectionPrasarana;
 use App\Models\SectionProgram;
 use App\Models\SectionProyek;
+use App\Models\SectionService;
 use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
@@ -400,6 +401,12 @@ class DatabaseSeeder extends Seeder
             'coach' => 'Ahmad Fatoni',
             'number_phone_coach' => '08123456789',
             'link_register' => 'https://translate.google.co.id/?hl=id',
+        ]);
+
+        SectionService::create([
+            'title_section' => 'Kami Mengarahkan Siswa Menuju Kesuksesan Karir',
+            'description' => 'Kami memandu setiap siswa menuju pencapaian kesuksesan yang berkelanjutan dalam berbagai bidang karir yang mereka pilih. Visi kami adalah membantu siswa mengembangkan potensi terbaik mereka untuk meraih prestasi luar biasa dalam perjalanan karir mereka yang penuh prestasi.',
+            'button' => 'Lihat Semua',
         ]);
     }
 }
