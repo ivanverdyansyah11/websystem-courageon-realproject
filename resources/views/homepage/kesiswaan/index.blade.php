@@ -548,23 +548,28 @@
     <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
 
     <script>
-        const swiperTesti = new Swiper('.swiper-testi', {
-            speed: 500,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            navigation: {
-                nextEl: ".btn-next",
-                prevEl: ".btn-prev",
-            },
-            breakpoints: {
-                1: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-            }
-        })
+     const swiperTesti = new Swiper('.swiper-testi',{
+      speed: 500,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        // clickable: true
+      },
+      navigation: {
+        nextEl: ".btn-next",
+        prevEl: ".btn-prev",
+      },
+      breakpoints: {
+        1: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        500:{
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    } )
 
         document.addEventListener('DOMContentLoaded', function() {
     var showCategory = 'category1';

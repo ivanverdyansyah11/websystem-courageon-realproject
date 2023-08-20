@@ -361,22 +361,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
-        const swiperTesti = new Swiper('.swiper-testi', {
-            speed: 500,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            navigation: {
-                nextEl: ".btn-next",
-                prevEl: ".btn-prev",
-            },
-            breakpoints: {
-                1: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-            }
-        })
+          const swiperTesti = new Swiper('.swiper-testi',{
+      speed: 500,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".btn-next",
+        prevEl: ".btn-prev",
+      },
+      breakpoints: {
+        1: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        500:{
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    } )
     </script>
 @endsection

@@ -138,18 +138,7 @@
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p51.png') }}" alt="Gaya Hidup Berkelanjutan"
-                                class="w-100">
-                            <div class="mt-3 text-center">
-                                <a href="{{ route('detail-projek', '1') }}" class="text-black fw-bold">Gaya Hidup
-                                    Berkelanjutan</a>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Kearifan Lokal" class="w-100">
                             <div class="mt-3 text-center">
@@ -157,8 +146,8 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </a>
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p53.png') }}" alt="Bhinneka Tunggal Ika" class="w-100">
                             <div class="mt-3 text-center">
@@ -166,8 +155,18 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    </a>
+                    <a href="" class="col">
+                        <div class="card-p5">
+                            <img src="{{ asset('assets-homepage/img/p51.png') }}" alt="Bangunlah Jiwa dan Raganya"
+                                class="w-100">
+                            <div class="mt-3 text-center">
+                                <p class="text-black fw-bold">Bhinneka Tunggal Ika</p>
+                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="col">
                         <div class="card-p5">
                             <img src="{{ asset('assets-homepage/img/p54.png') }}" alt="Bangunlah Jiwa dan Raganya"
                                 class="w-100">
@@ -176,7 +175,8 @@
                                 <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
+
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
                     <a href="{{ route('projek') }}" class="btn btn-color">lihat semua</a>
