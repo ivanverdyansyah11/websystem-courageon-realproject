@@ -32,6 +32,7 @@ use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
+use App\Models\SectionGraduation;
 use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
@@ -354,6 +355,16 @@ class DatabaseSeeder extends Seeder
         Gallery::create([
             'image' => 'sample-galeri.jpg',
             'title' => 'Sample Gambar Galeri Pertama',
+        ]);
+
+        SectionGraduation::create([
+            'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
+            'button_1' => 'Semua Siswa',
+            'button_2' => 'Siswa Laki-Laki',
+            'button_3' => 'Siswa Perempuan',
+            'caption_1' => 'Kelas X',
+            'caption_2' => 'Kelas XI',
+            'caption_3' => 'Kelas XII',
         ]);
 
         HeaderStudent::create([

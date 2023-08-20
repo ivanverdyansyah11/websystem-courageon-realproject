@@ -235,6 +235,8 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(KelulusanController::class)->group(function () {
             Route::get('/akademik/kelulusan', 'index')->name('kelulusan-index');
+            Route::get('/akademik/kelulusan/detail-section', 'detailSectionGraduation');
+            Route::post('/akademik/kelulusan/edit-section', 'updateSectionGraduation');
         });
 
         // KESISWAAN
