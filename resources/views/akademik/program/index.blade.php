@@ -154,7 +154,7 @@
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
                             data-value="title_section">
                         @error('title_section')
-                            <p class="caption-error mt-1">{{ $message }}</p>
+                            <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
@@ -187,30 +187,45 @@
                                         <input type="file" id="banner" class="input-add-banner" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="judul">Judul Program</label>
                                 <input type="text" id="judul" class="input" name="title" autocomplete="off">
+                                @error('title')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="link">Link</label>
                                 <input type="text" id="link" class="input" name="link" autocomplete="off">
+                                @error('link')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -234,7 +249,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Banner Program" width="80" data-value="banner_program">
@@ -301,6 +316,9 @@
                                         <input type="file" id="banner" class="input-edit-banner" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -308,6 +326,9 @@
                                 <label for="judul">Judul Program</label>
                                 <input type="text" id="judul" class="input" data-value="title_program"
                                     name="title" autocomplete="off">
+                                @error('title')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -315,6 +336,9 @@
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" data-value="button_program"
                                     name="button" autocomplete="off">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -322,6 +346,9 @@
                                 <label for="link">Link</label>
                                 <input type="text" id="link" class="input" data-value="link_program"
                                     name="link" autocomplete="off">
+                                @error('link')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -329,6 +356,9 @@
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" data-value="description_program" name="description" autocomplete="off"
                                     rows="4"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>

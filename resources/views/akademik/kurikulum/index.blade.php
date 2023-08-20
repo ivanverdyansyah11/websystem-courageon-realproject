@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         @error('banner')
-                            <p class="caption-error mt-1">{{ $message }}</p>
+                            <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
@@ -124,7 +124,7 @@
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
                             data-value="title_section">
                         @error('title_section')
-                            <p class="caption-error mt-1">{{ $message }}</p>
+                            <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
@@ -132,7 +132,7 @@
                         <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                             data-value="description_section"></textarea>
                         @error('description')
-                            <p class="caption-error mt-1">{{ $message }}</p>
+                            <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
