@@ -52,6 +52,65 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Beasiswa Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addBeasiswaModal">Tambah
+                    Beasiswa</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama</div>
+                            <div class="d-none col data-header">Deskripsi</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($beasiswas->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Beasiswa!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($beasiswas as $beasiswa)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">{{ $beasiswa->title }}</div>
+                                    <div class="d-none col data-value data-length">
+                                        {{ $beasiswa->description }}</div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailBeasiswaModal"
+                                                data-id="{{ $beasiswa->id }}">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editBeasiswaModal"
+                                                data-id="{{ $beasiswa->id }}">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteBeasiswaModal"
+                                                data-id="{{ $beasiswa->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION --}}
@@ -80,7 +139,8 @@
     {{-- END MODAL DETAIL SECTION --}}
 
     {{-- MODAL EDIT SECTION --}}
-    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Beasiswa</h3>
@@ -88,8 +148,8 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Beasiswa</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -112,139 +172,56 @@
     </div>
     {{-- END MODAL EDIT SECTION --}}
 
-    {{-- MODAL ADD JOURNAL --}}
-    <div class="modal fade" id="addJournalModal" tabindex="-1" aria-labelledby="addJournalModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    {{-- MODAL ADD BEASISWA --}}
+    <div class="modal fade" id="addBeasiswaModal" tabindex="-1" aria-labelledby="addBeasiswaModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Tambah Majalah Sekolah</h3>
-                <form action="{{ route('majalah-store') }}" method="post"
-                    class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
+                <h3 class="title">Tambah Beasiswa Sekolah</h3>
+                <form action="{{ route('beasiswa-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="thumbnail">Thumbnail</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-thumbnail" alt="Thumbnail Journal" width="80">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="thumbnail" class="input-add-thumbnail"
-                                            name="thumbnail">
-                                    </div>
-                                </div>
-                                @error('thumbnail')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="document_pdf">Document PDF</label>
-                                <input type="file" id="document_pdf" name="document_pdf">
-                                @error('document_pdf')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="title">Judul</label>
-                                <input type="text" id="title" class="input" autocomplete="off" name="title">
-                                @error('title')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="penulis">Penulis</label>
-                                <input type="text" id="penulis" class="input" autocomplete="off" name="author">
-                                @error('author')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
-                                    name="created_date">
-                                @error('created_date')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi Singkat</label>
-                                <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
-                                @error('description')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="name">Nama Beasiswa</label>
+                        <input type="text" id="name" class="input" autocomplete="off" name="title">
+                        @error('title')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea data-value="description_section" name="description" class="input" autocomplete="off" id="deskripsi"
+                            rows="4"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Majalah</button>
+                        <button type="submit" class="button-default-solid">Tambah Beasiswa</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL ADD JOURNAL --}}
+    {{-- END MODAL ADD BEASISWA --}}
 
-    {{-- MODAL DETAIL JOURNAL --}}
-    <div class="modal fade" id="detailJournalModal" tabindex="-1" aria-labelledby="detailJournalModalLabel"
+    {{-- MODAL DETAIL BEASISWA --}}
+    <div class="modal fade" id="detailBeasiswaModal" tabindex="-1" aria-labelledby="detailBeasiswaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Detail Journal Sekolah</h3>
+                <h3 class="title">Detail Beasiswa Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label>Thumbnail</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Thumbnail Journal" width="80" data-value="thumbnail_journal">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="document_pdf">Document PDF</label>
-                                <input type="text" id="document_pdf" class="input" autocomplete="off"
-                                    data-value="document_journal" disabled>
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="title">Judul</label>
-                                <input type="text" id="title" class="input" autocomplete="off"
-                                    data-value="title_journal" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="penulis">Penulis</label>
-                                <input type="text" id="penulis" class="input" autocomplete="off"
-                                    data-value="author_journal" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
-                                    data-value="created_journal" disabled>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi Singkat</label>
-                                <textarea data-value="description_journal" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="name">Nama Beasiswa</label>
+                        <input type="text" id="name" class="input" autocomplete="off"
+                            data-value="title_beasiswa" disabled>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea data-value="description_beasiswa" disabled class="input" autocomplete="off" id="deskripsi"
+                            rows="4"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -253,88 +230,31 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL JOURNAL --}}
+    {{-- END MODAL DETAIL BEASISWA --}}
 
-    {{-- MODAL EDIT JOURNAL --}}
-    <div class="modal fade" id="editJournalModal" tabindex="-1" aria-labelledby="editJournalModalLabel"
+    {{-- MODAL EDIT BEASISWA --}}
+    <div class="modal fade" id="editBeasiswaModal" tabindex="-1" aria-labelledby="editBeasiswaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Edit Journal Sekolah</h3>
-                <form id="editJournal" method="post" class="form d-flex flex-column justify-content-center"
-                    enctype="multipart/form-data">
+                <h3 class="title">Edit Beasiswa Sekolah</h3>
+                <form id="editBeasiswa" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="thumbnail">Thumbnail</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_journal">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-thumbnail" alt="Thumbnail Journal" width="80"
-                                        data-value="thumbnail_journal">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="thumbnail" class="input-edit-thumbnail"
-                                            name="thumbnail">
-                                    </div>
-                                </div>
-                                @error('thumbnail')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="document_pdf">Dokumen PDF</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldDocument" data-value="oldDocument_journal">
-                                    <input type="file" id="document_pdf" name="document_pdf">
-                                    @error('document_pdf')
-                                        <p class="caption-error mt-2">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="title">Judul</label>
-                                <input type="text" id="title" class="input" autocomplete="off"
-                                    data-value="title_journal" name="title">
-                                @error('title')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="penulis">Penulis</label>
-                                <input type="text" id="penulis" class="input" autocomplete="off"
-                                    data-value="author_journal" name="author">
-                                @error('author')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                                <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
-                                    data-value="created_journal" name="created_date">
-                                @error('created_date')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi Singkat</label>
-                                <textarea name="description" data-value="description_journal" id="deskripsi" rows="4" class="input"
-                                    autocomplete="off"></textarea>
-                                @error('description')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="input-wrapper">
+                        <label for="name">Nama Beasiswa</label>
+                        <input type="text" id="name" class="input" autocomplete="off"
+                            data-value="title_beasiswa" name="title">
+                        @error('title')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea data-value="description_beasiswa" data-value="description_beasiswa" name="description" class="input"
+                            autocomplete="off" id="deskripsi" rows="4"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -344,30 +264,30 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT JOURNAL --}}
+    {{-- END MODAL EDIT BEASISWA --}}
 
-    {{-- MODAL DELETE JOURNAL --}}
-    <div class="modal fade" id="deleteJournalModal" tabindex="-1" aria-labelledby="deleteJournalModalLabel"
+    {{-- MODAL DELETE BEASISWA --}}
+    <div class="modal fade" id="deleteBeasiswaModal" tabindex="-1" aria-labelledby="deleteBeasiswaModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Majalah Sekolah</h3>
-                <form id="deleteJournal" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Beasiswa Sekolah</h3>
+                <form id="deleteBeasiswa" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Majalah Sekolah: Apakah Anda yakin ingin
-                        menghapus majalah sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan majalah sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Beasiswa Sekolah: Apakah Anda yakin ingin
+                        menghapus beasiswa sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan beasiswa sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Majalah</button>
+                        <button type="submit" class="button-default-solid">Hapus Beasiswa</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE JOURNAL --}}
+    {{-- END MODAL DELETE BEASISWA --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
@@ -393,47 +313,34 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailJournalModal"]', function() {
+        $(document).on('click', '[data-bs-target="#detailBeasiswaModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/majalah/detail-majalah/' + id,
+                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
                 success: function(data) {
-                    $('[data-value="thumbnail_journal"]').attr("src",
-                        "/assets/img/humas-images/majalah-image/" + data.thumbnail);
-                    $('[data-value="title_journal"]').val(data.title);
-                    $('[data-value="description_journal"]').val(data.description);
-                    $('[data-value="author_journal"]').val(data.author);
-                    $('[data-value="created_journal"]').val(data.created_date);
-                    $('[data-value="document_journal"]').val(data.document_pdf);
+                    $('[data-value="title_beasiswa"]').val(data.title);
+                    $('[data-value="description_beasiswa"]').val(data.description);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#editJournalModal"]', function() {
+        $(document).on('click', '[data-bs-target="#editBeasiswaModal"]', function() {
             let id = $(this).data('id');
-            $('#editJournal').attr('action', '/admin/humas/majalah/edit-majalah/' + id);
+            $('#editBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-beasiswa/' + id);
             $.ajax({
                 type: 'get',
-                url: '/admin/humas/majalah/detail-majalah/' + id,
+                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
                 success: function(data) {
-                    $('[data-value="thumbnail_journal"]').attr("src",
-                        "/assets/img/humas-images/majalah-image/" + data.thumbnail);
-                    $('[data-value="oldImage_journal"]').val(data.thumbnail);
-
-                    $('[data-value="oldDocument_journal"]').val(data.document_pdf);
-
-                    $('[data-value="title_journal"]').val(data.title);
-                    $('[data-value="description_journal"]').val(data.description);
-                    $('[data-value="author_journal"]').val(data.author);
-                    $('[data-value="created_journal"]').val(data.created_date);
+                    $('[data-value="title_beasiswa"]').val(data.title);
+                    $('[data-value="description_beasiswa"]').val(data.description);
                 }
             });
         });
 
-        $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
+        $(document).on('click', '[data-bs-target="#deleteBeasiswaModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteJournal').attr('action', '/admin/humas/majalah/delete-majalah/' + id);
+            $('#deleteBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/delete-beasiswa/' + id);
         });
 
         const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');

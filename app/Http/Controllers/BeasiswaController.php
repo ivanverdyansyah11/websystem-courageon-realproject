@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beasiswa;
 use App\Models\SectionBeasiswa;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class BeasiswaController extends Controller
         return view('kesiswaan.beasiswa.index', [
             'title' => 'Kesiswaan > Beasiswa',
             'section_beasiswa' => SectionBeasiswa::first(),
-            // 'extracurriculars' => Extracurricular::paginate(6),
+            'beasiswas' => Beasiswa::paginate(6),
         ]);
     }
 
@@ -35,6 +36,57 @@ class BeasiswaController extends Controller
             return redirect(route('beasiswa-index'))->with('success', 'Berhasil Update Section Beasiswa!');
         } else {
             return redirect(route('beasiswa-index'))->with('failed', 'Gagal Update Section Beasiswa!');
+        }
+    }
+
+    function storeBeasiswa(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $Beasiswa = Beasiswa::create($validatedData);
+
+        if ($Beasiswa) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Tambah Beasiswa Sekolah!');
+        } else {
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Tambah Beasiswa Sekolah!');
+        }
+    }
+
+    function detailBeasiswa($id)
+    {
+        $beasiswa = Beasiswa::where('id', $id)->first();
+        return response()->json($beasiswa);
+    }
+
+    function updateBeasiswa($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $Beasiswa = Beasiswa::where('id', $id)->first()->update($validatedData);
+
+        if ($Beasiswa) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Update Beasiswa Sekolah!');
+        } else {
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Update Beasiswa Sekolah!');
+        }
+    }
+
+    function deleteBeasiswa($id)
+    {
+        $beasiswa = Beasiswa::where('id', $id)->first();
+
+        $beasiswa = $beasiswa->delete();
+
+        if ($beasiswa) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Hapus Beasiswa Sekolah!');
+        } else {
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Hapus Beasiswa Sekolah!');
         }
     }
 

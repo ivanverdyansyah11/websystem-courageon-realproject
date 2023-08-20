@@ -299,12 +299,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/beasiswa/detail-section', 'detailSection');
             Route::post('/kesiswaan/beasiswa/edit-section', 'updateSection');
 
-            Route::get('/kesiswaan/beasiswa/detail-beasiswa/{id}', 'detailAchievement')->name('beasiswa-detail');
-            Route::get('/kesiswaan/beasiswa/tambah-beasiswa', 'createAchievement')->name('beasiswa-create');
-            Route::post('/kesiswaan/beasiswa/tambah-beasiswa', 'storeAchievement')->name('beasiswa-store');
-            Route::get('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'editAchievement')->name('beasiswa-edit');
-            Route::post('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'updateAchievement')->name('beasiswa-update');
-            Route::post('/kesiswaan/beasiswa/delete-beasiswa/{id}', 'deleteAchievement')->name('beasiswa-delete');
+            Route::get('/kesiswaan/beasiswa/detail-beasiswa/{id}', 'detailBeasiswa');
+            Route::post('/kesiswaan/beasiswa/tambah-beasiswa', 'storeBeasiswa')->name('beasiswa-store');
+            Route::post('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'updateBeasiswa');
+            Route::post('/kesiswaan/beasiswa/delete-beasiswa/{id}', 'deleteBeasiswa');
         });
 
         // SARANA & PRASARANA
