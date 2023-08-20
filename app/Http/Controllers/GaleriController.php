@@ -13,7 +13,7 @@ class GaleriController extends Controller
         return view('akademik.galeri.index', [
             'title' => 'Galeri',
             'section_gallery' => SectionGallery::first(),
-            'galleries' => Gallery::all(),
+            'galleries' => Gallery::paginate(6),
         ]);
     }
 

@@ -116,6 +116,9 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $galleries->links() }}
+            </div>
         </div>
     </div>
 
