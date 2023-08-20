@@ -157,11 +157,17 @@
                         <label for="judul">Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_header" name="title_header">
+                        @error('title_header')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
                             name="description"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -191,10 +197,16 @@
                                 <input type="file" id="logo" class="input-add-logo" name="logo">
                             </div>
                         </div>
+                        @error('logo')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="name">Nama</label>
                         <input type="text" id="name" class="input" autocomplete="off" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Kemitraan</button>
@@ -214,7 +226,7 @@
                 <h3 class="title">Detail Kemitraan Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="logo">Logo</label>
+                        <label>Logo</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                 alt="Logo Partnership" width="80" data-value="logo_partnership">
@@ -253,11 +265,17 @@
                                 <input type="file" id="logo" class="input-edit-logo" name="logo">
                             </div>
                         </div>
+                        @error('logo')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="name">Nama</label>
                         <input type="text" id="name" class="input" autocomplete="off"
                             data-value="name_partnership" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
