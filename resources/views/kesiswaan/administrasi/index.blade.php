@@ -243,6 +243,65 @@
                 {{ $jurusans->links() }}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Index Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addIndexModal">Tambah
+                    Index</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($indexes->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Index!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($indexes as $index)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">{{ $index->name }}</div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailIndexModal"
+                                                data-id="{{ $index->id }}">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editIndexModal"
+                                                data-id="{{ $index->id }}">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteIndexModal"
+                                                data-id="{{ $index->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $indexes->links() }}
+            </div>
+        </div>
     </div>
 
     {{-- MODAL ADD TAHUN AJARAN --}}
@@ -641,6 +700,104 @@
     </div>
     {{-- END MODAL DELETE JURUSAN --}}
 
+    {{-- MODAL ADD INDEX --}}
+    <div class="modal fade" id="addIndexModal" tabindex="-1" aria-labelledby="addIndexModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Tambah Index</h3>
+                <form action="{{ route('index-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Index</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD INDEX --}}
+
+    {{-- MODAL DETAIL INDEX --}}
+    <div class="modal fade" id="detailIndexModal" tabindex="-1" aria-labelledby="detailIndexModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Detail Index</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" data-value="name_index"
+                            disabled>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL INDEX --}}
+
+    {{-- MODAL EDIT INDEX --}}
+    <div class="modal fade" id="editIndexModal" tabindex="-1" aria-labelledby="editIndexModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Edit Index</h3>
+                <form id="editIndex" method="post" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="input-wrapper">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" class="input" autocomplete="off" data-value="name_index"
+                            name="name">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT INDEX --}}
+
+    {{-- MODAL DELETE INDEX --}}
+    <div class="modal fade" id="deleteIndexModal" tabindex="-1" aria-labelledby="deleteIndexModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Index</h3>
+                <form id="deleteIndex" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Index Sekolah: Apakah Anda yakin
+                        ingin
+                        menghapus index sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan index sekolah akan dihapus secara permanen dari
+                        sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Index</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE INDEX --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailTahunAjaranModal"]', function() {
             let id = $(this).data('id');
@@ -749,6 +906,34 @@
         $(document).on('click', '[data-bs-target="#deleteJurusanModal"]', function() {
             let id = $(this).data('id');
             $('#deleteJurusan').attr('action', '/admin/kesiswaan/administrasi/delete-jurusan/' + id);
+        });
+
+        $(document).on('click', '[data-bs-target="#detailIndexModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/kesiswaan/administrasi/detail-index/' + id,
+                success: function(data) {
+                    $('[data-value="name_index"]').val(data.name);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editIndexModal"]', function() {
+            let id = $(this).data('id');
+            $('#editIndex').attr('action', '/admin/kesiswaan/administrasi/edit-index/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/kesiswaan/administrasi/detail-index/' + id,
+                success: function(data) {
+                    $('[data-value="name_index"]').val(data.name);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#deleteIndexModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteIndex').attr('action', '/admin/kesiswaan/administrasi/delete-index/' + id);
         });
     </script>
 @endsection

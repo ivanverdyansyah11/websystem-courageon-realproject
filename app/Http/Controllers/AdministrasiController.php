@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Index;
 use App\Models\Jurusan;
 use App\Models\Kelas;
 use App\Models\Semester;
@@ -18,6 +19,7 @@ class AdministrasiController extends Controller
             'semesters' => Semester::paginate(6),
             'kelases' => Kelas::paginate(6),
             'jurusans' => Jurusan::paginate(6),
+            'indexes' => Index::paginate(6),
         ]);
     }
 
@@ -30,9 +32,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = TahunAjaran::create($validatedData);
 
         if ($tahun_ajaran) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Tahun Ajaran Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Tahun Ajaran Sekolah!');
         }
     }
 
@@ -51,9 +53,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = TahunAjaran::where('id', $id)->first()->update($validatedData);
 
         if ($tahun_ajaran) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Tahun Ajaran Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Tahun Ajaran Sekolah!');
         }
     }
 
@@ -64,9 +66,9 @@ class AdministrasiController extends Controller
         $tahun_ajaran = $tahun_ajaran->delete();
 
         if ($tahun_ajaran) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Tahun Ajaran Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Tahun Ajaran!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Tahun Ajaran Sekolah!');
         }
     }
 
@@ -85,9 +87,9 @@ class AdministrasiController extends Controller
         $semester = Semester::where('id', $id)->first()->update($validatedData);
 
         if ($semester) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Semester!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Semester Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Semester!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Semester Sekolah!');
         }
     }
 
@@ -100,9 +102,9 @@ class AdministrasiController extends Controller
         $kelas = Kelas::create($validatedData);
 
         if ($kelas) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Kelas!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Kelas Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Kelas!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Kelas Sekolah!');
         }
     }
 
@@ -121,9 +123,9 @@ class AdministrasiController extends Controller
         $kelas = Kelas::where('id', $id)->first()->update($validatedData);
 
         if ($kelas) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Kelas!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Kelas Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Kelas!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Kelas Sekolah!');
         }
     }
 
@@ -134,9 +136,9 @@ class AdministrasiController extends Controller
         $kelas = $kelas->delete();
 
         if ($kelas) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Kelas!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Kelas Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Kelas!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Kelas Sekolah!');
         }
     }
 
@@ -150,9 +152,9 @@ class AdministrasiController extends Controller
         $jurusan = Jurusan::create($validatedData);
 
         if ($jurusan) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Jurusan!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Jurusan Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Jurusan!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Jurusan Sekolah!');
         }
     }
 
@@ -172,9 +174,9 @@ class AdministrasiController extends Controller
         $jurusan = Jurusan::where('id', $id)->first()->update($validatedData);
 
         if ($jurusan) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Jurusan!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Jurusan Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Jurusan!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Jurusan Sekolah!');
         }
     }
 
@@ -185,9 +187,58 @@ class AdministrasiController extends Controller
         $jurusan = $jurusan->delete();
 
         if ($jurusan) {
-            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Jurusan!');
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Jurusan Sekolah!');
         } else {
-            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Jurusan!');
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Jurusan Sekolah!');
+        }
+    }
+
+    function storeIndex(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $index = Index::create($validatedData);
+
+        if ($index) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Index Sekolah!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Index Sekolah!');
+        }
+    }
+
+    function detailIndex($id)
+    {
+        $index = Index::where('id', $id)->first();
+        return response()->json($index);
+    }
+
+    function updateIndex($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $index = Index::where('id', $id)->first()->update($validatedData);
+
+        if ($index) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Index Sekolah!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Index Sekolah!');
+        }
+    }
+
+    function deleteIndex($id)
+    {
+        $index = Index::where('id', $id)->first();
+
+        $index = $index->delete();
+
+        if ($index) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Index Sekolah!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Index Sekolah!');
         }
     }
 }

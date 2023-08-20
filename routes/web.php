@@ -271,6 +271,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/administrasi/detail-jurusan/{id}', 'detailJurusan');
             Route::post('/kesiswaan/administrasi/edit-jurusan/{id}', 'updateJurusan');
             Route::post('/kesiswaan/administrasi/delete-jurusan/{id}', 'deleteJurusan');
+
+            Route::post('/kesiswaan/administrasi/tambah-index', 'storeIndex')->name('index-store');
+            Route::get('/kesiswaan/administrasi/detail-index/{id}', 'detailIndex');
+            Route::post('/kesiswaan/administrasi/edit-index/{id}', 'updateIndex');
+            Route::post('/kesiswaan/administrasi/delete-index/{id}', 'deleteIndex');
         });
 
         Route::controller(SiswaController::class)->group(function () {
