@@ -133,7 +133,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Banner Section Header" width="80" data-value="banner_header">
@@ -192,6 +192,9 @@
                                         <input type="file" id="banner" class="input-edit-header" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -199,6 +202,9 @@
                                 <label for="judul">Judul Header</label>
                                 <input type="text" id="judul" class="input" name="title_header"
                                     autocomplete="off" data-value="title_header">
+                                @error('title_header')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -206,6 +212,9 @@
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
                                     data-value="button_header">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -213,6 +222,9 @@
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                                     data-value="description_header"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -238,11 +250,17 @@
                     <div class="input-wrapper">
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" class="input" name="name" autocomplete="off">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="jam_per_minggu">Jam Per Minggu</label>
                         <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
                             autocomplete="off">
+                        @error('hours_per_week')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Mata Pelajaran</button>
@@ -262,7 +280,7 @@
                 <h3 class="title">Detail Mata Pelajaran</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="nama">Nama</label>
+                        <label>Nama</label>
                         <input type="text" id="nama" class="input" autocomplete="off" disabled
                             data-value="name_course">
                     </div>
@@ -292,11 +310,17 @@
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name"
                             data-value="name_course">
+                        @error('name')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="jam_per_minggu">Jam Per Minggu</label>
                         <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
                             autocomplete="off" data-value="hours_course">
+                        @error('hours_per_week')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
