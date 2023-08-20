@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SectionStudent;
+use App\Models\Semester;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,7 @@ class SiswaController extends Controller
             'title' => 'Kesiswaan > Siswa',
             'section_student' => SectionStudent::first(),
             'tahun_ajarans' => TahunAjaran::paginate(6),
+            'semesters' => Semester::paginate(6),
         ]);
     }
 
@@ -90,6 +92,55 @@ class SiswaController extends Controller
             return redirect(route('siswa-index'))->with('success', 'Berhasil Hapus Tahun Ajaran!');
         } else {
             return redirect(route('siswa-index'))->with('failed', 'Gagal Hapus Tahun Ajaran!');
+        }
+    }
+
+    function storeSemester(Request $request)
+    {
+        $validatedData = $request->validate([
+            'semester' => 'required|string|max:255',
+        ]);
+
+        $semester = Semester::create($validatedData);
+
+        if ($semester) {
+            return redirect(route('siswa-index'))->with('success', 'Berhasil Tambah Semester!');
+        } else {
+            return redirect(route('siswa-index'))->with('failed', 'Gagal Tambah Semester!');
+        }
+    }
+
+    function detailSemester($id)
+    {
+        $semester = Semester::where('id', $id)->first();
+        return response()->json($semester);
+    }
+
+    function updateSemester($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'semester' => 'required|string|max:255',
+        ]);
+
+        $semester = Semester::where('id', $id)->first()->update($validatedData);
+
+        if ($semester) {
+            return redirect(route('siswa-index'))->with('success', 'Berhasil Update Semester!');
+        } else {
+            return redirect(route('siswa-index'))->with('failed', 'Gagal Update Semester!');
+        }
+    }
+
+    function deleteSemester($id)
+    {
+        $semester = Semester::where('id', $id)->first();
+
+        $semester = $semester->delete();
+
+        if ($semester) {
+            return redirect(route('siswa-index'))->with('success', 'Berhasil Hapus Semester!');
+        } else {
+            return redirect(route('siswa-index'))->with('failed', 'Gagal Hapus Semester!');
         }
     }
 }
