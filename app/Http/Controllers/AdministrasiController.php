@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
 use App\Models\Kelas;
 use App\Models\Semester;
 use App\Models\TahunAjaran;
@@ -16,6 +17,7 @@ class AdministrasiController extends Controller
             'tahun_ajarans' => TahunAjaran::paginate(6),
             'semesters' => Semester::paginate(6),
             'kelases' => Kelas::paginate(6),
+            'jurusans' => Jurusan::paginate(6),
         ]);
     }
 
@@ -135,6 +137,57 @@ class AdministrasiController extends Controller
             return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Kelas!');
         } else {
             return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Kelas!');
+        }
+    }
+
+    function storeJurusan(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
+        ]);
+
+        $jurusan = Jurusan::create($validatedData);
+
+        if ($jurusan) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Tambah Jurusan!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Tambah Jurusan!');
+        }
+    }
+
+    function detailJurusan($id)
+    {
+        $jurusan = Jurusan::where('id', $id)->first();
+        return response()->json($jurusan);
+    }
+
+    function updateJurusan($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
+        ]);
+
+        $jurusan = Jurusan::where('id', $id)->first()->update($validatedData);
+
+        if ($jurusan) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Update Jurusan!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Update Jurusan!');
+        }
+    }
+
+    function deleteJurusan($id)
+    {
+        $jurusan = Jurusan::where('id', $id)->first();
+
+        $jurusan = $jurusan->delete();
+
+        if ($jurusan) {
+            return redirect(route('administrasi-index'))->with('success', 'Berhasil Hapus Jurusan!');
+        } else {
+            return redirect(route('administrasi-index'))->with('failed', 'Gagal Hapus Jurusan!');
         }
     }
 }

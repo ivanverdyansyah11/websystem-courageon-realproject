@@ -266,6 +266,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/administrasi/detail-kelas/{id}', 'detailKelas');
             Route::post('/kesiswaan/administrasi/edit-kelas/{id}', 'updateKelas');
             Route::post('/kesiswaan/administrasi/delete-kelas/{id}', 'deleteKelas');
+
+            Route::post('/kesiswaan/administrasi/tambah-jurusan', 'storeJurusan')->name('jurusan-store');
+            Route::get('/kesiswaan/administrasi/detail-jurusan/{id}', 'detailJurusan');
+            Route::post('/kesiswaan/administrasi/edit-jurusan/{id}', 'updateJurusan');
+            Route::post('/kesiswaan/administrasi/delete-jurusan/{id}', 'deleteJurusan');
         });
 
         Route::controller(SiswaController::class)->group(function () {
