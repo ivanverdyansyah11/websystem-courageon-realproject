@@ -198,30 +198,31 @@
             </div>
             <div class="mt-2">
                 <div class="pin-container">
-                        <a href="{{ asset('assets-homepage/img/gallery1.png') }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
-                            <img src="{{ asset('assets-homepage/img/gallery1.png') }}" class="w-100" alt="gallery 1">
-                        </a>
-                    <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
+                    <a href="{{ asset('assets-homepage/img/gallery1.png') }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                        <img src="{{ asset('assets-homepage/img/gallery1.png') }}" class="w-100" alt="gallery 1">
                     </a>
                     <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
                     </a>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery4.png') }}" alt="gallery 4" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery5.png') }}" alt="gallery 5" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery6.png') }}" alt="gallery 6" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery7.png') }}" alt="gallery 7" class="w-100">
-                    </div>
-                    <div class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery8.png') }}" alt="gallery 8" class="w-100">
-                    </div>
+                    <a href="{{ asset('assets-homepage/img/gallery3.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery3.png') }}" class="w-100" alt="gallery 3">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery4.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery4.png') }}" class="w-100" alt="gallery 4">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery5.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery5.png') }}" class="w-100" alt="gallery 5">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery6.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery6.png') }}" class="w-100" alt="gallery 6">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery7.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery7.png') }}" class="w-100" alt="gallery 7">
+                    </a>
+                    <a href="{{ asset('assets-homepage/img/gallery8.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                        <img src="{{ asset('assets-homepage/img/gallery8.png') }}" class="w-100" alt="gallery 8">
+                    </a>
+
                 </div>
             </div>
         </section>
