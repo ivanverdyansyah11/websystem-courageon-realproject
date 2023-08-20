@@ -14,7 +14,7 @@ class PegawaiController extends Controller
         return view('profil.pegawai.index', [
             'title' => 'Profil > Pegawai',
             'section' => SectionStaff::first(),
-            'staffs' => Employee::where('role_employees_id', '3')->get(),
+            'staffs' => Employee::where('role_employees_id', '3')->paginate(6),
         ]);
     }
 

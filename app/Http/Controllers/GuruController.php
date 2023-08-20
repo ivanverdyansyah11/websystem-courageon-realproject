@@ -15,7 +15,7 @@ class GuruController extends Controller
         return view('profil.guru.index', [
             'title' => 'Profil > Guru',
             'section' => SectionTeacher::first(),
-            'teachers' => Employee::where('role_employees_id', '2')->get(),
+            'teachers' => Employee::where('role_employees_id', '2')->paginate(6),
         ]);
     }
 

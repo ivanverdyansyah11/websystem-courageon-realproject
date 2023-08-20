@@ -15,7 +15,7 @@ class ManajemenController extends Controller
         return view('profil.manajemen.index', [
             'title' => 'Profil > Manajemen',
             'section' => SectionManagement::first(),
-            'managements' => Employee::where('role_employees_id', '1')->get(),
+            'managements' => Employee::where('role_employees_id', '1')->paginate(6),
         ]);
     }
 
