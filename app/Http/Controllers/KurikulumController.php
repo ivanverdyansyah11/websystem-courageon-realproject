@@ -10,7 +10,7 @@ class KurikulumController extends Controller
     function index()
     {
         return view('akademik.kurikulum.index', [
-            'title' => 'Akademik',
+            'title' => 'Akademik > Kurikulum',
             'section_section' => Curriculum::first(),
         ]);
     }

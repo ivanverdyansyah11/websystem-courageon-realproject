@@ -11,9 +11,9 @@ class ProgramController extends Controller
     function index()
     {
         return view('akademik.program.index', [
-            'title' => 'Program',
+            'title' => 'Akademik > Program',
             'section_program' => SectionProgram::first(),
-            'programs' => Program::all(),
+            'programs' => Program::paginate(6),
         ]);
     }
 
