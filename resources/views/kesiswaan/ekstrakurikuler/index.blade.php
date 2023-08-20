@@ -52,60 +52,64 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Galeri Sekolah</h5>
+                <h5 class="subtitle">Ekstrakurikuler Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addGalleryModal">Tambah
-                    Gambar</button>
+                    data-bs-target="#addExtracurricularModal">Tambah Ekstrakurikuler</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-md-inline-block col-2 data-header">Gambar</div>
-                            <div class="col data-header">Judul <span class="d-none d-md-inline-block">Gambar</span></div>
+                            <div class="d-none d-md-inline-block col-2 data-header">Icon</div>
+                            <div class="col data-header">Nama</div>
+                            <div class="d-none d-md-inline-block col data-header">Jadwal Ekstra</div>
+                            <div class="d-none d-md-inline-block col data-header">Jam Pelaksana</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($galleries->count() == 0)
+                    @if ($extracurriculars->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
                                 <div class="col-12 data-value">Tidak Ada Gambar!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($galleries as $gallery)
+                        @foreach ($extracurriculars as $extracurricular)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="d-none d-md-inline-block col-2 data-value">
-                                        @if ($gallery->image)
-                                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
-                                                class="img-fluid" alt="Image Gallery" width="80">
+                                        @if ($extracurricular->icon)
+                                            <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurricular->icon) }}"
+                                                class="img-fluid" alt="Icon Extracurricular" width="40">
                                         @else
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                                 alt="Image Not Found" width="80">
                                         @endif
                                     </div>
-                                    <div class="col data-value data-length">{{ $gallery->title }}</div>
+                                    <div class="col data-value data-length">{{ $extracurricular->name }}</div>
+                                    <div class="col data-value data-length">{{ $extracurricular->schedule_day }}</div>
+                                    <div class="col data-value data-length">{{ $extracurricular->start_time }} -
+                                        {{ $extracurricular->end_time }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailGalleryModal"
-                                                data-id="{{ $gallery->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#detailExtracurricularModal"
+                                                data-id="{{ $extracurricular->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editGalleryModal"
-                                                data-id="{{ $gallery->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#editExtracurricularModal"
+                                                data-id="{{ $extracurricular->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteGalleryModal"
-                                                data-id="{{ $gallery->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#deleteExtracurricularModal"
+                                                data-id="{{ $extracurricular->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -116,7 +120,7 @@
                     @endif
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION GALLERY --}}
@@ -133,7 +137,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
+                            autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -150,12 +155,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Ekstrakurikuler</h3>
-                <form id="editSectionExtracurricular" method="post" class="form d-flex flex-column justify-content-center">
+                <form id="editSectionExtracurricular" method="post"
+                    class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
@@ -173,29 +179,97 @@
     {{-- END MODAL EDIT SECTION GALLERY --}}
 
     {{-- MODAL ADD PROJECT --}}
-    <div class="modal fade" id="addGalleryModal" tabindex="-1" aria-labelledby="addGalleryModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="addExtracurricularModal" tabindex="-1" aria-labelledby="addExtracurricularModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Tambah Gambar Sekolah</h3>
-                <form action="{{ route('galeri-store') }}" method="post" enctype="multipart/form-data"
+                <h3 class="title">Tambah Ekstrakurikuler Sekolah</h3>
+                <form action="{{ route('ekstrakurikuler-store') }}" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="gambar">Gambar</label>
-                        <div class="wrapper d-flex align-items-end">
-                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-image"
-                                alt="Image Gallery" width="80">
-                            <div class="wrapper-image w-100">
-                                <input type="file" id="gambar" class="input-add-image" name="image">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="icon">Icon</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-add-icon" alt="Icon Extracurricular" width="80">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="icon" class="input-add-icon" name="image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" class="input" name="name" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Ekstrakurikuler</label>
+                                <input type="text" id="judul" class="input" name="name" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label>Jadwal Ekstrakurikuler</label>
+                                <div class="row">
+                                    <div class="col-3 d-flex align-items-center gap-2 mb-2">
+                                        <input type="checkbox" name="schedule_day[]" id="senin">
+                                        <label class="mb-0" for="senin">Senin</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2 mb-2">
+                                        <input type="checkbox" name="schedule_day[]" id="selasa">
+                                        <label class="mb-0" for="selasa">Selasa</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2 mb-2">
+                                        <input type="checkbox" name="schedule_day[]" id="rabu">
+                                        <label class="mb-0" for="rabu">Rabu</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2 mb-2">
+                                        <input type="checkbox" name="schedule_day[]" id="kamis">
+                                        <label class="mb-0" for="kamis">Kamis</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2">
+                                        <input type="checkbox" name="schedule_day[]" id="jumat">
+                                        <label class="mb-0" for="jumat">Jumat</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2">
+                                        <input type="checkbox" name="schedule_day[]" id="sabtu">
+                                        <label class="mb-0" for="sabtu">Sabtu</label>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-center gap-2">
+                                        <input type="checkbox" name="schedule_day[]" id="minggu">
+                                        <label class="mb-0" for="minggu">Minggu</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jam_mulai">Jam Mulai</label>
+                                <input type="time" id="jam_mulai" class="input" name="start_time"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jam_selesai">Jam Selesai</label>
+                                <input type="time" id="jam_selesai" class="input" name="end_time"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="deskripsi">Deskripsi</label>
+                                <textarea name="description" id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="input-wrapper">
-                        <label for="judul">Judul Gambar</label>
-                        <input type="text" id="judul" class="input" name="title" autocomplete="off">
-                    </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Gambar</button>
+                        <button type="submit" class="button-default-solid">Tambah Ekstrakurikuler</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>

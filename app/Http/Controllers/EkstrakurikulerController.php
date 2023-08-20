@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Extracurricular;
 use App\Models\SectionExtracurricular;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class EkstrakurikulerController extends Controller
         return view('kesiswaan.ekstrakurikuler.index', [
             'title' => 'Kesiswaan > Ekstrakurikuler',
             'section_extracurricular' => SectionExtracurricular::first(),
-            // 'galleries' => Gallery::all(),
+            'extracurriculars' => Extracurricular::all(),
         ]);
     }
 

@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Curriculum;
 use App\Models\Denah;
 use App\Models\Employee;
+use App\Models\Extracurricular;
 use App\Models\Gallery;
 use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
@@ -375,6 +376,18 @@ class DatabaseSeeder extends Seeder
         SectionExtracurricular::create([
             'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
             'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
+        ]);
+
+        Extracurricular::create([
+            'icon' => 'sample-ekstrakurikuler.svg',
+            'name' => 'Sepak Bola',
+            'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
+            'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
+            'schedule_day' => 'Jumat',
+            'start_time' => '15:00',
+            'end_time' => '16:00',
+            'coach' => 'Ahmad Fatoni',
+            'number_phone_coach' => '08123456789',
         ]);
     }
 }

@@ -213,7 +213,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Banner Section Header" width="80" data-value="banner_header">
@@ -272,6 +272,9 @@
                                         <input type="file" id="banner" class="input-edit-header" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -279,6 +282,9 @@
                                 <label for="judul">Judul Header</label>
                                 <input type="text" id="judul" class="input" name="title_header"
                                     autocomplete="off" data-value="title_header">
+                                @error('title_header')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -286,6 +292,9 @@
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" autocomplete="off"
                                     data-value="button_header" name="button">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -293,6 +302,9 @@
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                                     data-value="description_header"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -314,7 +326,7 @@
                 <h3 class="title">Detail Section Pembuka</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="judul">Judul Pembuka</label>
+                        <label>Judul Pembuka</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_opening" disabled>
                     </div>
@@ -344,11 +356,17 @@
                         <label for="judul">Judul Pembuka</label>
                         <input type="text" id="judul" class="input" name="title_opening" autocomplete="off"
                             data-value="title_opening">
+                        @error('title_opening')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                             data-value="description_opening"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -368,7 +386,7 @@
                 <h3 class="title">Detail Section Sambutan</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="banner">Banner</label>
+                        <label>Banner</label>
                         <div class="wrapper d-flex align-items-end">
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                 alt="Banner Section Sambutan" width="80" data-value="banner_remark">
@@ -411,16 +429,25 @@
                                 <input type="file" id="banner" class="input-edit-remark" name="banner">
                             </div>
                         </div>
+                        @error('banner')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="judul">Judul Sambutan</label>
                         <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
                             data-value="title_remark">
+                        @error('title_remark')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="pesan">Pesan</label>
                         <textarea id="pesan" class="input" name="message" autocomplete="off" rows="4"
                             data-value="message_remark"></textarea>
+                        @error('message')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -442,7 +469,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
                                         alt="Banner Section Sejarah" width="80" data-value="banner_history">
@@ -502,6 +529,9 @@
                                         <input type="file" id="banner" class="input-edit-history" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -509,6 +539,9 @@
                                 <label for="judul">Judul Sejarah</label>
                                 <input type="text" id="judul" class="input" name="title_history"
                                     autocomplete="off" data-value="title_history">
+                                @error('title_history')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -516,6 +549,9 @@
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
                                     data-value="button_history">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
@@ -523,6 +559,9 @@
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                                     data-value="description_history"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
