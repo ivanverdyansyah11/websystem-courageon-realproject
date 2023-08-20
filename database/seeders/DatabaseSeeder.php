@@ -28,6 +28,7 @@ use App\Models\Program;
 use App\Models\Project;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
+use App\Models\SectionAchievement;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
@@ -406,6 +407,12 @@ class DatabaseSeeder extends Seeder
         SectionService::create([
             'title_section' => 'Kami Mengarahkan Siswa Menuju Kesuksesan Karir',
             'description' => 'Kami memandu setiap siswa menuju pencapaian kesuksesan yang berkelanjutan dalam berbagai bidang karir yang mereka pilih. Visi kami adalah membantu siswa mengembangkan potensi terbaik mereka untuk meraih prestasi luar biasa dalam perjalanan karir mereka yang penuh prestasi.',
+            'button' => 'Lihat Semua',
+        ]);
+
+        SectionAchievement::create([
+            'title_section' => 'Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif Di Sekolah Kami',
+            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
             'button' => 'Lihat Semua',
         ]);
     }

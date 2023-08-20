@@ -21,6 +21,7 @@ use App\Http\Controllers\ManajemenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PelayananKarirController;
 use App\Http\Controllers\PrasaranaController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProyekController;
@@ -270,6 +271,26 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/pelayanan-karir', 'index')->name('pelayanan-karir-index');
             Route::get('/kesiswaan/pelayanan-karir/detail-section', 'detailSection');
             Route::post('/kesiswaan/pelayanan-karir/edit-section', 'updateSection');
+
+            Route::get('/kesiswaan/pelayanan-karir/detail-pelayanan-karir/{id}', 'detailService')->name('pelayanan-karir-detail');
+            Route::get('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'createService')->name('pelayanan-karir-create');
+            Route::post('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'storeService')->name('pelayanan-karir-store');
+            Route::get('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'editService')->name('pelayanan-karir-edit');
+            Route::post('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'updateService')->name('pelayanan-karir-update');
+            Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService')->name('proyek-delete');
+        });
+
+        Route::controller(PrestasiController::class)->group(function () {
+            Route::get('/kesiswaan/prestasi', 'index')->name('prestasi-index');
+            Route::get('/kesiswaan/prestasi/detail-section', 'detailSection');
+            Route::post('/kesiswaan/prestasi/edit-section', 'updateSection');
+
+            Route::get('/kesiswaan/prestasi/detail-prestasi/{id}', 'detailAchievement')->name('prestasi-detail');
+            Route::get('/kesiswaan/prestasi/tambah-prestasi', 'createAchievement')->name('prestasi-create');
+            Route::post('/kesiswaan/prestasi/tambah-prestasi', 'storeAchievement')->name('prestasi-store');
+            Route::get('/kesiswaan/prestasi/edit-prestasi/{id}', 'editAchievement')->name('prestasi-edit');
+            Route::post('/kesiswaan/prestasi/edit-prestasi/{id}', 'updateAchievement')->name('prestasi-update');
+            Route::post('/kesiswaan/prestasi/delete-prestasi/{id}', 'deleteAchievement')->name('proyek-delete');
         });
 
         // SARANA & PRASARANA
