@@ -167,16 +167,25 @@
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
                             data-value="title_section">
+                        @error('title_section')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" name="button" autocomplete="off"
                             data-value="button_section">
+                        @error('button')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                             data-value="description_section"></textarea>
+                        @error('description')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -208,24 +217,36 @@
                                         <input type="file" id="image" class="input-add-image" name="image">
                                     </div>
                                 </div>
+                                @error('image')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nama">Nama Sarana Prasarana</label>
                                 <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                                @error('name')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="total">Total Sarana Prasarana</label>
                                 <input type="text" id="total" class="input" autocomplete="off" name="total">
+                                @error('total')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -249,7 +270,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="image">Image</label>
+                                <label>Image</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Image Prasarana" width="80" data-value="image_prasarana">
@@ -310,7 +331,7 @@
                                     </div>
                                 </div>
                                 @error('image')
-                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                    <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -320,7 +341,7 @@
                                 <input type="text" id="nama" class="input" autocomplete="off"
                                     data-value="name_prasarana" name="name">
                                 @error('name')
-                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                    <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -330,7 +351,7 @@
                                 <input type="text" id="total" class="input" autocomplete="off"
                                     data-value="total_prasarana" name="total">
                                 @error('total')
-                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                    <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -340,7 +361,7 @@
                                 <textarea data-value="description_prasarana" name="description" id="deskripsi" rows="4" class="input"
                                     autocomplete="off"></textarea>
                                 @error('description')
-                                    <p class="caption-error mt-1">{{ $message }}</p>
+                                    <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
