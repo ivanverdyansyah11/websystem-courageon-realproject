@@ -132,7 +132,7 @@
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
-                        <label for="judul">Judul Header</label>
+                        <label>Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_header"
                             disabled>
                     </div>
@@ -162,11 +162,17 @@
                         <label for="judul">Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
                             data-value="title_header" name="title_header">
+                        @error('title_header')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
                             data-value="button_header" name="button">
+                        @error('button')
+                            <p class="caption-error mt-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -199,24 +205,36 @@
                                             name="thumbnail">
                                     </div>
                                 </div>
+                                @error('thumbnail')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="document_pdf">Document PDF</label>
                                 <input type="file" id="document_pdf" name="document_pdf">
+                                @error('document_pdf')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="title">Judul</label>
                                 <input type="text" id="title" class="input" autocomplete="off" name="title">
+                                @error('title')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="penulis">Penulis</label>
                                 <input type="text" id="penulis" class="input" autocomplete="off" name="author">
+                                @error('author')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -224,12 +242,18 @@
                                 <label for="tanggal_dibuat">Tanggal Dibuat</label>
                                 <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
                                     name="created_date">
+                                @error('created_date')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi Singkat</label>
                                 <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -253,7 +277,7 @@
                     <div class="row align-items-end">
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="thumbnail">Thumbnail</label>
+                                <label>Thumbnail</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Thumbnail Journal" width="80" data-value="thumbnail_journal">
@@ -327,6 +351,9 @@
                                             name="thumbnail">
                                     </div>
                                 </div>
+                                @error('thumbnail')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 mb-md-0">
@@ -335,6 +362,9 @@
                                 <div class="wrapper d-flex align-items-end">
                                     <input type="hidden" name="oldDocument" data-value="oldDocument_journal">
                                     <input type="file" id="document_pdf" name="document_pdf">
+                                    @error('document_pdf')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -343,6 +373,9 @@
                                 <label for="title">Judul</label>
                                 <input type="text" id="title" class="input" autocomplete="off"
                                     data-value="title_journal" name="title">
+                                @error('title')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -350,6 +383,9 @@
                                 <label for="penulis">Penulis</label>
                                 <input type="text" id="penulis" class="input" autocomplete="off"
                                     data-value="author_journal" name="author">
+                                @error('author')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -357,6 +393,9 @@
                                 <label for="tanggal_dibuat">Tanggal Dibuat</label>
                                 <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
                                     data-value="created_journal" name="created_date">
+                                @error('created_date')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
@@ -364,6 +403,9 @@
                                 <label for="deskripsi">Deskripsi Singkat</label>
                                 <textarea name="description" data-value="description_journal" id="deskripsi" rows="4" class="input"
                                     autocomplete="off"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
