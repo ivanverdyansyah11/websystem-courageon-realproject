@@ -74,7 +74,7 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="banner">Banner</label>
+                                <label>Banner</label>
                                 <div class="wrapper d-flex align-items-end">
                                     <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                         alt="Banner Section Header" width="80" data-value="banner_header">
@@ -133,6 +133,9 @@
                                         <input type="file" id="banner" class="input-edit-header" name="banner">
                                     </div>
                                 </div>
+                                @error('banner')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -140,6 +143,9 @@
                                 <label for="judul">Judul Header</label>
                                 <input type="text" id="judul" class="input" name="title_header"
                                     autocomplete="off" data-value="title_header">
+                                @error('title_header')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -147,6 +153,9 @@
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
                                     data-value="button_header">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -154,6 +163,9 @@
                                 <label for="deskripsi">Deskripsi</label>
                                 <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
                                     data-value="description_header"></textarea>
+                                @error('description')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
