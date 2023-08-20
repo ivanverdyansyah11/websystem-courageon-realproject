@@ -15,7 +15,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('role_employees_id')->nullable();
+            $table->bigInteger('role_employees_id');
             $table->string('fullname');
             $table->string('image');
             $table->string('nip')->nullable();
@@ -23,7 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->date('date_of_birth')->nullable();
             $table->string('rank')->nullable();
             $table->string('position')->nullable();
-            $table->enum('gender', ['L', 'P']);
+            $table->enum('gender', ['L', 'P'])->nullable();
             $table->enum('status', ['pns', 'pppk', 'honorer'])->nullable();
             $table->string('course_id')->nullable();
             $table->string('highest_rank')->nullable();

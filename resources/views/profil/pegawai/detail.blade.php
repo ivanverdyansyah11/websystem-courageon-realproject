@@ -21,7 +21,7 @@
                         <div class="row align-items-end">
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
-                                    <label for="image">Gambar Profil</label>
+                                    <label>Gambar Profil</label>
                                     <div class="wrapper d-flex gap-3 align-items-end">
                                         @if ($staff->image)
                                             <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}"
@@ -253,13 +253,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const tagEdit = document.querySelector('.tag-edit-image');
-        const inputEdit = document.querySelector('.input-edit-image');
-
-        inputEdit.addEventListener('change', function() {
-            tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
-        });
-    </script>
 @endsection

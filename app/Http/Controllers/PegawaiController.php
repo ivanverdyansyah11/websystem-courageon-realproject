@@ -84,7 +84,7 @@ class PegawaiController extends Controller
             'date_of_birth' => 'nullable|date',
             'rank' => 'nullable|string|max:255',
             'position' => 'nullable|string|max:255',
-            'gender' => 'required|string',
+            'gender' => 'nullable|string',
             'status' => 'nullable|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
@@ -131,14 +131,13 @@ class PegawaiController extends Controller
     function update($id, Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:255',
             'place_of_birth' => 'nullable|string|max:255',
             'date_of_birth' => 'nullable|date',
             'rank' => 'nullable|string|max:255',
             'position' => 'nullable|string|max:255',
-            'gender' => 'required|string',
+            'gender' => 'nullable|string',
             'status' => 'nullable|string',
             'highest_rank' => 'nullable|string|max:255',
             'room_type' => 'nullable|max:255',
