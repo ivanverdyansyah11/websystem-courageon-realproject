@@ -121,6 +121,9 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $projects->links() }}
+            </div>
         </div>
     </div>
 
@@ -133,8 +136,8 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label>Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button label</label>

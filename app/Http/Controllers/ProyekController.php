@@ -11,9 +11,9 @@ class ProyekController extends Controller
     function index()
     {
         return view('akademik.proyek.index', [
-            'title' => 'Proyek',
+            'title' => 'Akademik > Proyek',
             'section_proyek' => SectionProyek::first(),
-            'projects' => Project::all(),
+            'projects' => Project::paginate(6),
         ]);
     }
 

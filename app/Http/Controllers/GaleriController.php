@@ -11,7 +11,7 @@ class GaleriController extends Controller
     function index()
     {
         return view('akademik.galeri.index', [
-            'title' => 'Galeri',
+            'title' => 'Akademik > Galeri',
             'section_gallery' => SectionGallery::first(),
             'galleries' => Gallery::paginate(6),
         ]);
