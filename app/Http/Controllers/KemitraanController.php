@@ -13,7 +13,7 @@ class KemitraanController extends Controller
         return view('humas.kemitraan.index', [
             'title' => 'Humas > Kemitraan',
             'section_header' => SectionKemitraan::first(),
-            'partnerships' => Partnership::all(),
+            'partnerships' => Partnership::paginate(6),
         ]);
     }
 
