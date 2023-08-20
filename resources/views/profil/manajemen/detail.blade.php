@@ -21,7 +21,7 @@
                         <div class="row align-items-end">
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
-                                    <label for="image">Gambar Profil</label>
+                                    <label>Gambar Profil</label>
                                     <div class="wrapper d-flex gap-3 align-items-end">
                                         @if ($management->image)
                                             <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
