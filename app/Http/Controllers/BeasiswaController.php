@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SectionService;
+use App\Models\SectionBeasiswa;
 use Illuminate\Http\Request;
 
-class PelayananKarirController extends Controller
+class BeasiswaController extends Controller
 {
     function index()
     {
-        return view('kesiswaan.pelayanan-karir.index', [
-            'title' => 'Kesiswaan > Pelayanan Karir',
-            'section_service' => SectionService::first(),
+        return view('kesiswaan.beasiswa.index', [
+            'title' => 'Kesiswaan > Beasiswa',
+            'section_beasiswa' => SectionBeasiswa::first(),
             // 'extracurriculars' => Extracurricular::paginate(6),
         ]);
     }
 
     function detailSection()
     {
-        $section_service = SectionService::first();
-        return response()->json($section_service);
+        $section_beasiswa = SectionBeasiswa::first();
+        return response()->json($section_beasiswa);
     }
 
     function updateSection(Request $request)
@@ -27,15 +27,14 @@ class PelayananKarirController extends Controller
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
             'description' => 'required|string',
-            'button' => 'required|string|max:255',
         ]);
 
-        $sectionService = SectionService::first()->update($validatedData);
+        $sectionBeasiswa = SectionBeasiswa::first()->update($validatedData);
 
-        if ($sectionService) {
-            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Update Section Pelayanan Karir!');
+        if ($sectionBeasiswa) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Update Section Beasiswa!');
         } else {
-            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Update Section Pelayanan Karir!');
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Update Section Beasiswa!');
         }
     }
 

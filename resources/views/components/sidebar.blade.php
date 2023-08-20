@@ -97,8 +97,9 @@
                         class="link-child {{ Request::is('admin/kesiswaan/pelayanan-karir*') ? 'active' : '' }}">Pelayanan</a>
                     <a href="{{ route('prestasi-index') }}"
                         class="link-child {{ Request::is('admin/kesiswaan/prestasi*') ? 'active' : '' }}">Prestasi</a>
+                    <a href="{{ route('beasiswa-index') }}"
+                        class="link-child {{ Request::is('admin/kesiswaan/beasiswa*') ? 'active' : '' }}">Beasiswa</a>
                     {{-- <a href="{{ route('osis-mpk-index') }}" class="link-child">Osis & Mpk</a> --}}
-                    {{-- <a href="{{ route('beasiswa-index') }}" class="link-child">Beasiswa</a> --}}
                     {{-- <a href="{{ route('alumni-index') }}" class="link-child">Alumni</a> --}}
                 </div>
 

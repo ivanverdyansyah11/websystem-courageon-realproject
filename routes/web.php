@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeasiswaController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenahController;
@@ -232,7 +233,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/akademik/galeri/tambah-galeri', 'storeGallery')->name('galeri-store');
             Route::get('/akademik/galeri/detail-galeri/{id}', 'detailGallery')->name('galeri-detail');
             Route::post('/akademik/galeri/edit-galeri/{id}', 'updateGallery')->name('galeri-update');
-            Route::post('/akademik/galeri/delete-galeri/{id}', 'deleteGallery')->name('proyek-delete');
+            Route::post('/akademik/galeri/delete-galeri/{id}', 'deleteGallery')->name('galeri-delete');
         });
 
         Route::controller(KelulusanController::class)->group(function () {
@@ -264,7 +265,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/ekstrakurikuler/tambah-ekstrakurikuler', 'storeExtracurriculer')->name('ekstrakurikuler-store');
             Route::get('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'editExtracurriculer')->name('ekstrakurikuler-edit');
             Route::post('/kesiswaan/ekstrakurikuler/edit-ekstrakurikuler/{id}', 'updateExtracurriculer')->name('ekstrakurikuler-update');
-            Route::post('/kesiswaan/ekstrakurikuler/delete-ekstrakurikuler/{id}', 'deleteExtracurriculer')->name('proyek-delete');
+            Route::post('/kesiswaan/ekstrakurikuler/delete-ekstrakurikuler/{id}', 'deleteExtracurriculer')->name('ekstrakurikuler-delete');
         });
 
         Route::controller(PelayananKarirController::class)->group(function () {
@@ -277,7 +278,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'storeService')->name('pelayanan-karir-store');
             Route::get('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'editService')->name('pelayanan-karir-edit');
             Route::post('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'updateService')->name('pelayanan-karir-update');
-            Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService')->name('proyek-delete');
+            Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService')->name('pelayanan-karir-delete');
         });
 
         Route::controller(PrestasiController::class)->group(function () {
@@ -290,7 +291,20 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/prestasi/tambah-prestasi', 'storeAchievement')->name('prestasi-store');
             Route::get('/kesiswaan/prestasi/edit-prestasi/{id}', 'editAchievement')->name('prestasi-edit');
             Route::post('/kesiswaan/prestasi/edit-prestasi/{id}', 'updateAchievement')->name('prestasi-update');
-            Route::post('/kesiswaan/prestasi/delete-prestasi/{id}', 'deleteAchievement')->name('proyek-delete');
+            Route::post('/kesiswaan/prestasi/delete-prestasi/{id}', 'deleteAchievement')->name('prestasi-delete');
+        });
+
+        Route::controller(BeasiswaController::class)->group(function () {
+            Route::get('/kesiswaan/beasiswa', 'index')->name('beasiswa-index');
+            Route::get('/kesiswaan/beasiswa/detail-section', 'detailSection');
+            Route::post('/kesiswaan/beasiswa/edit-section', 'updateSection');
+
+            Route::get('/kesiswaan/beasiswa/detail-beasiswa/{id}', 'detailAchievement')->name('beasiswa-detail');
+            Route::get('/kesiswaan/beasiswa/tambah-beasiswa', 'createAchievement')->name('beasiswa-create');
+            Route::post('/kesiswaan/beasiswa/tambah-beasiswa', 'storeAchievement')->name('beasiswa-store');
+            Route::get('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'editAchievement')->name('beasiswa-edit');
+            Route::post('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'updateAchievement')->name('beasiswa-update');
+            Route::post('/kesiswaan/beasiswa/delete-beasiswa/{id}', 'deleteAchievement')->name('beasiswa-delete');
         });
 
         // SARANA & PRASARANA

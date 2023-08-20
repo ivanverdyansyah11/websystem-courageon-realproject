@@ -29,6 +29,7 @@ use App\Models\Project;
 use App\Models\RemarkHome;
 use App\Models\RoleEmployee;
 use App\Models\SectionAchievement;
+use App\Models\SectionBeasiswa;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
@@ -414,6 +415,11 @@ class DatabaseSeeder extends Seeder
             'title_section' => 'Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif Di Sekolah Kami',
             'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
             'button' => 'Lihat Semua',
+        ]);
+
+        SectionBeasiswa::create([
+            'title_section' => 'Ayo dapatkan Peluang Beasiswa di Sekolah!',
+            'description' => 'Dengan adanya beasiswa di sekolah, para siswa berpeluang untuk mengakses pendidikan yang berkualitas tanpa memandang latar belakang ekonomi. Ini juga membuka pintu bagi mereka untuk mengembangkan potensi diri',
         ]);
     }
 }
