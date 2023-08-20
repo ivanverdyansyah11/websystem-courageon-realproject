@@ -112,6 +112,9 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $staffs->links() }}
+            </div>
         </div>
     </div>
 
