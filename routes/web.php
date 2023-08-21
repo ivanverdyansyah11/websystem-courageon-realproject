@@ -138,10 +138,12 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(LogoMarsController::class)->group(function () {
             Route::get('/profil/logo-mars', 'index')->name('logo-mars-index');
-            Route::get('/profil/logo-mars/edit-logo', 'editLogo');
-            Route::post('/profil/logo-mars/edit-logo', 'updateLogo');
-            Route::get('/profil/logo-mars/edit-mars', 'editMars');
-            Route::post('/profil/logo-mars/edit-mars', 'updateMars');
+            Route::get('/profil/logo-mars/detail-logo', 'detailLogo')->name('logo-detail');
+            Route::get('/profil/logo-mars/edit-logo', 'editLogo')->name('logo-edit');
+            Route::post('/profil/logo-mars/edit-logo', 'updateLogo')->name('logo-update');
+            Route::get('/profil/logo-mars/detail-mars', 'detailMars')->name('mars-detail');
+            Route::get('/profil/logo-mars/edit-mars', 'editMars')->name('mars-edit');
+            Route::post('/profil/logo-mars/edit-mars', 'updateMars')->name('mars-update');
         });
 
         Route::controller(ManajemenController::class)->group(function () {

@@ -18,14 +18,25 @@ class LogoMarsController extends Controller
         ]);
     }
 
+    function detailLogo()
+    {
+        return view('profil.logo-mars.detail-logo', [
+            'title' => 'Profil > Logo & Mars',
+            'logo' => Logo::first(),
+        ]);
+    }
+
     function editLogo()
     {
-        $logo = Logo::first();
-        return response()->json($logo);
+        return view('profil.logo-mars.edit-logo', [
+            'title' => 'Profil > Logo & Mars',
+            'logo' => Logo::first(),
+        ]);
     }
 
     function updateLogo(Request $request)
     {
+        $logo = Logo::first();
         $validatedData = $request->validate([
             'logo_meaning' => 'required|string',
             'font_meaning' => 'required|string',
@@ -33,7 +44,7 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('logo')) {
-            $oldImagePath = public_path('assets/img/brand/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/brand/') . $logo->logo;
             unlink($oldImagePath);
 
             $image = $request->file('logo');
@@ -41,26 +52,37 @@ class LogoMarsController extends Controller
             $image->move(public_path('assets/img/brand/'), $imageName);
             $validatedData['logo'] = $imageName;
         } else {
-            $validatedData['logo'] = $request->oldImage;
+            $validatedData['logo'] = $logo->logo;
         }
 
-        $logo = Logo::first()->update($validatedData);
+        $logoAction = Logo::first()->update($validatedData);
 
-        if ($logo) {
+        if ($logoAction) {
             return redirect(route('logo-mars-index'))->with('success', 'Berhasil Update Logo Sekolah!');
         } else {
             return redirect(route('logo-mars-index'))->with('failed', 'Gagal Update Logo Sekolah!');
         }
     }
 
+    function detailMars()
+    {
+        return view('profil.logo-mars.detail-mars', [
+            'title' => 'Profil > Logo & Mars',
+            'mars' => Mars::first(),
+        ]);
+    }
+
     function editMars()
     {
-        $mars = Mars::first();
-        return response()->json($mars);
+        return view('profil.logo-mars.edit-mars', [
+            'title' => 'Profil > Logo & Mars',
+            'mars' => Mars::first(),
+        ]);
     }
 
     function updateMars(Request $request)
     {
+        $mars = Mars::first();
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
             'mars' => 'required|string',
@@ -68,7 +90,7 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $request->oldImage;
+            $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $mars->banner;
             unlink($oldImagePath);
 
             $image = $request->file('banner');
@@ -76,12 +98,12 @@ class LogoMarsController extends Controller
             $image->move(public_path('assets/img/profil-images/mars-image/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
-            $validatedData['banner'] = $request->oldImage;
+            $validatedData['banner'] = $mars->banner;
         }
 
-        $mars = Mars::first()->update($validatedData);
+        $marsAction = Mars::first()->update($validatedData);
 
-        if ($mars) {
+        if ($marsAction) {
             return redirect(route('logo-mars-index'))->with('success', 'Berhasil Update Mars Sekolah!');
         } else {
             return redirect(route('logo-mars-index'))->with('failed', 'Gagal Update Mars Sekolah!');
