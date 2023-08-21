@@ -57,8 +57,8 @@ class EkstrakurikulerController extends Controller
             'start_time' => 'required|string',
             'end_time' => 'required|string',
             'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'number_phone_coach' => 'required|string|max:11',
+            'link_register' => 'required|string|max:255',
         ]);
 
         $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
@@ -114,8 +114,8 @@ class EkstrakurikulerController extends Controller
             'start_time' => 'required|string',
             'end_time' => 'required|string',
             'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'number_phone_coach' => 'required|string|max:11',
+            'link_register' => 'required|string|max:255',
         ]);
 
         $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);

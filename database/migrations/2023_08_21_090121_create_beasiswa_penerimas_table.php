@@ -17,6 +17,7 @@ class CreateBeasiswaPenerimasTable extends Migration
             $table->id();
             $table->string('tahun');
             $table->text('digunakan_untuk');
+            $table->string('jumlah_beasiswa');
             $table->bigInteger('students_id');
             $table->bigInteger('beasiswas_id');
             $table->timestamps();

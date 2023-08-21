@@ -35,8 +35,12 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        <input type="text" id="tahun_masuk" class="input" autocomplete="off"
-                                            name="tahun_masuk">
+                                        <select name="tahun_masuk" id="tahun_masuk" class="input">
+                                            <option selected>Pilih tahun ajaran masuk</option>
+                                            @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('tahun_masuk')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
