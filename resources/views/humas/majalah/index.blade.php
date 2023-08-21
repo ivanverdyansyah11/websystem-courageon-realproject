@@ -318,7 +318,8 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi Singkat</label>
-                                <textarea data-value="description_journal" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                                <textarea disabled data-value="description_journal" id="deskripsi" rows="4" class="input"
+                                    autocomplete="off"></textarea>
                             </div>
                         </div>
                     </div>

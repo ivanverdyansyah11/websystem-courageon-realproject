@@ -71,7 +71,6 @@ class KemitraanController extends Controller
     function updatePartnership($id, Request $request)
     {
         $validatedData = $request->validate([
-            'logo' => 'required|image|max:2048',
             'name' => 'required|string|max:255',
         ]);
 
