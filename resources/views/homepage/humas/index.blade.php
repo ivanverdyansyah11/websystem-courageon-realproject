@@ -6,21 +6,22 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        Kemitraan Sekolah-Industri untuk Masa Depan Sekolah
+                        {{ $headerHumas->title_header }}
                     </p>
                     <p class="mt-4 desc">
-                        Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi
-                        tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang
-                        relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya,
-                        serta cara mengatasi tantangan.
+                        {{ $headerHumas->description }}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#mitra" class="btn btn-color">lihat selengkapnya</a>
+                        <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/humas-hero.png') }}" alt="humas section image" class="w-100">
+                  @if ($headerHumas->banner)
+                    <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}" alt="humas section image" class="w-100">
+                  @else
+                      <img src="{{ asset('assets-homepage/img/humas-hero.png') }}" alt="humas section image" class="w-100">
+                  @endif
                 </div>
             </div>
         </section>
@@ -28,19 +29,20 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold">
-                        Melangkah Bersama dengan Kemitraan Aktif Sekolah-Industri
+                        {{ $SectionKemitraan->title_header }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan
-                        menjalin hubungan erat antara sekolah.
+                        {{ $SectionKemitraan->description }}
                     </p>
                 </div>
             </div>
             <div class="mt-5 row row-cols-xl-5 row-cols-md-3 row-cols-lg-4 row-cols-sm-2 row-cols-1 gy-4">
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor1.svg') }}" alt="sponsor 1 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
+                @foreach ($partnerships as $partner)
+                    <div class="col d-flex justify-content-center">
+                        <img src="{{ asset('assets/img/humas-images/kemitraan-image/' . $partner->logo) }}" alt="{{ $partner->name }}" class="img-fluid">
+                    </div>                    
+                @endforeach
+                {{-- <div class="col d-flex justify-content-center">
                     <img src="{{ asset('assets-homepage/img/sponsor2.svg') }}" alt="sponsor 2 name" class="img-fluid">
                 </div>
                 <div class="col d-flex justify-content-center">
@@ -66,13 +68,13 @@
                 </div>
                 <div class="col d-flex justify-content-center">
                     <img src="{{ asset('assets-homepage/img/sponsor10.svg') }}" alt="sponsor 10 name" class="img-fluid">
-                </div>
+                </div> --}}
             </div>
         </section>
         <section class="berita-section container section-margin-top">
             <div class="d-flex justify-content-center">
                 <div class="title-section-text">
-                    <p class="display-5 fw-bold text-center text-capitalize">berbagai berita mengenai SMA Negeri 1 Selat</p>
+                    <p class="display-5 fw-bold text-center text-capitalize">{{ $sectionJournal->title_header }}</p>
                 </div>
             </div>
             <div class="mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
@@ -184,7 +186,7 @@
                 </div>
             </div>
             <div class="mt-4 d-flex justify-content-center">
-                <a href="{{ route('berita') }}" class="btn btn-color">lihat semua berita</a>
+                <a href="{{ route('berita') }}" class="btn btn-color">{{ $sectionJournal->button }}</a>
             </div>
         </section>
     </main>
