@@ -31,7 +31,7 @@
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
                                         @foreach ($tahun_ajarans as $tahun_ajaran)
-                                            @if ($tahun_ajaran->id == $student->tahun_masuk)
+                                            @if ($tahun_ajaran->tahun == $student->tahun_masuk)
                                                 <input type="text" id="tahun_masuk" class="input" autocomplete="off"
                                                     value="{{ $tahun_ajaran->tahun }}" disabled>
                                             @endif

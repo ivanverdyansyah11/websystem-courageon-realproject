@@ -36,20 +36,10 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        <input type="text" id="tahun_masuk" class="input" autocomplete="off"
-                                            value="{{ $student->tahun_masuk }}" name="tahun_masuk">
-                                        @error('tahun_masuk')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
-                                        <label for="tahun_masuk">Tahun Masuk</label>
                                         <select name="tahun_masuk" id="tahun_masuk" class="input">
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
                                                 <option value="{{ $tahun_ajaran->id }}"
-                                                    {{ $student->tahun_masuk == $tahun_ajaran->id ? 'selected' : '' }}>
+                                                    {{ $student->tahun_masuk == $tahun_ajaran->tahun ? 'selected' : '' }}>
                                                     {{ $tahun_ajaran->tahun }}</option>
                                             @endforeach
                                         </select>

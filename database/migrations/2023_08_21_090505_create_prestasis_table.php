@@ -21,12 +21,10 @@ class CreatePrestasisTable extends Migration
             $table->string('nama_kegiatan');
             $table->string('penyelenggara');
             $table->string('nama_peserta');
-            $table->string('nis');
             $table->string('hasil');
-            $table->enum('tingkat', ['Kecamatan', 'Kabupaten', 'Provisi', 'Negara']);
+            $table->enum('tingkat', ['Kecamatan', 'Kabupaten', 'Provinsi', 'Negara']);
             $table->string('pembina');
             $table->text('deskripsi');
-            $table->bigInteger('kelases_id')->nullable();
             $table->timestamps();
         });
     }

@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Alumni;
 use App\Models\Auth;
 use App\Models\Beasiswa;
+use App\Models\BeasiswaPenerima;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Curriculum;
@@ -29,7 +31,10 @@ use App\Models\Motto;
 use App\Models\Navigasi;
 use App\Models\OpeningHome;
 use App\Models\Partnership;
+use App\Models\PelayananKarir;
+use App\Models\PembinaanSiswa;
 use App\Models\Prasarana;
+use App\Models\Prestasi;
 use App\Models\Program;
 use App\Models\Project;
 use App\Models\RemarkHome;
@@ -72,13 +77,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'Manajemen Admin',
             'email' => 'admin123@gmail.com',
             'password' => bcrypt('admin123'),
-        ]);
-
-        Beasiswa::create([
-            "title" => "Beasiswa Akademik Unggulan",
-            "description" => "Siswa yang mendapatkan beasiswa ini akan menerima dukungan finansial untuk biaya pendidikan
-            selama satu tahun ajaran, sebagai penghargaan atas dedikasi dan kerja keras mereka dalam
-            prestasi akademik."
         ]);
 
         HeaderHome::create([
@@ -475,6 +473,674 @@ class DatabaseSeeder extends Seeder
             'link' => '0274 - 513454',
         ]);
 
+        HeaderAcademic::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
+            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
+            'button' => 'Lihat Selengkapnya',
+        ]);
+
+        Curriculum::create([
+            'banner' => 'banner-kurikulum.jpg',
+            'title_section' => 'Langkah Kami Menghadapi Pendidikan Abad Ke-21',
+            'description' => 'Kurikulum di sekolah merupakan inti dari pendidikan formal, dan terus mengalami transformasi untuk menghadapi perubahan zaman dan tantangan abad ke-21. Deskripsi ini akan mengeksplorasi perubahan signifikan dalam kurikulum yang dilakukan oleh institusi pendidikan guna mempersiapkan generasi muda untuk menghadapi dunia yang cepat berubah dan kompleks. Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21 seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.',
+        ]);
+
+        SectionProgram::create([
+            'title_section' => 'Program Akademik Sekolah',
+        ]);
+
+        Program::create([
+            'banner' => 'banner-elerning.jpg',
+            'title' => 'E-Learning SMA Negeri 1 Selat',
+            'description' => 'Program E-Learning di SMA Negeri 1 Selat adalah platform pembelajaran digital yang inovatif dan interaktif, dirancang untuk mendukung proses belajar-mengajar yang efektif dan efisien. Melalui E-Learning, siswa memiliki akses ke beragam materi pembelajaran, modul, dan sumber daya pendukung yang dapat diakses kapan saja. Platform ini menawarkan berbagai fitur canggih, termasuk video pembelajaran, forum diskusi, ujian online, dan berbagai tugas interaktif. Dengan bimbingan dari para guru, siswa dapat berpartisipasi dalam diskusi dan berkolaborasi dengan sesama siswa dalam proses belajar.',
+            'button' => 'Website E-Learning',
+            'link' => 'https://guru.kemdikbud.go.id/',
+        ]);
+
+        Program::create([
+            'banner' => 'banner-asessment.jpg',
+            'title' => 'E-Asessment SMA Negeri 1 Selat',
+            'description' => 'E-Assessment di Sekolah SMA Negeri 1 Selat merupakan sistem evaluasi dan penilaian berbasis teknologi yang inovatif untuk mengukur kemajuan belajar siswa secara akurat dan efisien. Dengan menggunakan teknologi canggih, E-Assessment memungkinkan siswa untuk mengikuti berbagai jenis ujian dan tugas evaluasi secara online melalui platform pembelajaran digital yang terintegrasi. Platform E-Assessment ini menyediakan berbagai format ujian, termasuk pilihan ganda, uraian, dan tugas interaktif yang dirancang untuk mengukur pemahaman siswa dalam berbagai tingkatan kognitif.',
+            'button' => 'Website E-Asessment',
+            'link' => 'https://guru.kemdikbud.go.id/',
+        ]);
+
+        SectionProyek::create([
+            'title_section' => 'Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila) Di SMA Negeri 1 Selat',
+            'description' => 'Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini dalam kehidupan sehari-hari dan masyarakat.',
+            'button' => 'Lihat Semua',
+        ]);
+
+        Project::create([
+            'image' => 'proyek-1.jpg',
+            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Gaya Hidup Berkelanjutan',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
+        ]);
+
+        Project::create([
+            'image' => 'proyek-2.jpg',
+            'title' => 'Bhinneka Tunggal Ika, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Bhinneka Tunggal Ika',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
+        ]);
+
+        Project::create([
+            'image' => 'proyek-3.jpg',
+            'title' => 'Kearifan Lokal, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Kearifan Lokal',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema kearifan lokal di sekolah merupakan upaya yang bertujuan untuk mengintegrasikan nilai-nilai luhur Pancasila dengan nilai-nilai kearifan lokal dalam pendidikan. Tujuan dari proyek ini adalah menghasilkan generasi muda yang tidak hanya mengerti dan menghargai prinsip-prinsip dasar negara Indonesia, tetapi juga memiliki pemahaman yang mendalam terhadap budaya dan tradisi lokal yang kaya.',
+        ]);
+
+        Project::create([
+            'image' => 'proyek-4.jpg',
+            'title' => 'Bangunlah Jiwa dan Raganya, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Bangunlah Jiwa dan Raganya',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
+        ]);
+
+        SectionGallery::create([
+            'title_section' => 'Galeri Dokumentasi Sekolah',
+            'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-1.jpg',
+            'title' => 'Image 1',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-2.jpg',
+            'title' => 'Image 2',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-3.jpg',
+            'title' => 'Image 3',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-4.jpg',
+            'title' => 'Image 4',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-5.jpg',
+            'title' => 'Image 5',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-6.jpg',
+            'title' => 'Image 6',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-7.jpg',
+            'title' => 'Image 7',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-8.jpg',
+            'title' => 'Image 8',
+        ]);
+
+        SectionGraduation::create([
+            'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
+            'button_1' => 'Semua Siswa',
+            'button_2' => 'Siswa Laki-Laki',
+            'button_3' => 'Siswa Perempuan',
+            'caption_1' => 'Kelas X',
+            'caption_2' => 'Kelas XI',
+            'caption_3' => 'Kelas XII',
+        ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        HeaderStudent::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
+            'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
+            'button' => 'Lihat Selengkapnya',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2019/2020',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2020/2021',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2021/2022',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2022/2023',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2023/2024',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2024/2025',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2026/2027',
+        ]);
+
+        Semester::create([
+            'semester' => 'Ganjil',
+        ]);
+
+        Semester::create([
+            'semester' => 'Genap',
+        ]);
+
+        Kelas::create([
+            'name' => 'X',
+        ]);
+
+        Kelas::create([
+            'name' => 'XI',
+        ]);
+
+        Kelas::create([
+            'name' => 'XII',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Alam',
+            'code' => 'IPA',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Sosial',
+            'code' => 'IPS',
+        ]);
+
+        Index::create([
+            'name' => 'A',
+        ]);
+
+        Index::create([
+            'name' => 'B',
+        ]);
+
+        SectionStudent::create([
+            'title_section' => 'Grafik Data Kesiswaan',
+            'button_1' => 'Semua Siswa',
+            'button_2' => 'Siswa Laki-Laki',
+            'button_3' => 'Siswa Perempuan',
+            'caption_1' => 'Kelas X',
+            'caption_2' => 'Kelas XI',
+            'caption_3' => 'Kelas XII',
+        ]);
+
+        Student::create([
+            'nis' => '28820',
+            'nisn' => '0065471181',
+            'nama_lengkap' => 'Putu Aditya Prayatna',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Raya Ubud, Ubud, Gianyar, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28821',
+            'nisn' => '797829542',
+            'nama_lengkap' => 'Ida Bagus Andika Satya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/05/13',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Pantai Kuta, Kuta, Badung, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28822',
+            'nisn' => '862701208',
+            'nama_lengkap' => 'I Komang Adi',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/05/10',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Raya Seminyak, Seminyak, Kuta, Badung, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28823',
+            'nisn' => '973844481',
+            'nama_lengkap' => 'Ngurah Agung Bayu Darmawan',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/01/29',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Danau Buyan, Sanur, Denpasar, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28824',
+            'nisn' => '495433817',
+            'nama_lengkap' => 'I Dewa Putu Satria Mahatama',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/10/08',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Desa Pecatu, Uluwatu, Badung, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28825',
+            'nisn' => '744424024',
+            'nama_lengkap' => 'Ida Bagus Saputra',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/11/24',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Raya Tegallalang, Tegallalang, Gianyar, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28826',
+            'nisn' => '565765786',
+            'nama_lengkap' => 'Putra Kresna Adiputra',
+            'tahun_masuk' => '2021/2022',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2006/05/12',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Bypass Ngurah Rai, Jimbaran, Badung, Bali',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28827',
+            'nisn' => '234234546',
+            'nama_lengkap' => 'Agus Antini Maryanto',
+            'tahun_masuk' => '2021/2022',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2006/09/18',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Pantai Sindhu, Sanur, Denpasar, Bali',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28828',
+            'nisn' => '546457567',
+            'nama_lengkap' => 'Putri Haryanto Dewi',
+            'tahun_masuk' => '2021/2022',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2006/02/26',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Hanoman, Ubud, Gianyar, Bali',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        SectionExtracurricular::create([
+            'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
+            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
+        ]);
+
+        Extracurricular::create([
+            'icon' => 'ekstrakurikuler-1.png',
+            'banner' => 'ekstrakurikuler-banner-1.jpg',
+            'name' => 'Sepak Bola',
+            'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
+            'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
+            'schedule_day' => 'Senin',
+            'start_time' => '13:00',
+            'end_time' => '16:00',
+            'coach' => 'Komang Budi Setiawan',
+            'number_phone_coach' => '08236756854',
+            'link_register' => 'https://docs.google.com/forms/u/0/',
+        ]);
+
+        Extracurricular::create([
+            'icon' => 'ekstrakurikuler-2.png',
+            'banner' => 'ekstrakurikuler-banner-2.jpg',
+            'name' => 'Basket',
+            'title' => 'Tumbuhkan Bakat, Kembangkan Keterampilan Bola Basket, dan Fostering Kolaborasi Melalui Ekstrakurikuler Bola Basket yang Dinamis',
+            'description' => 'Bola basket adalah salah satu ekstrakulikuler yang menarik dan populer di kalangan siswa sekolah. Ekstrakulikuler bola basket memberikan kesempatan kepada siswa untuk belajar dan berpartisipasi dalam olahraga tim yang penuh aksi dan dinamis ini. Kegiatan ini biasanya diadakan di sekolah-sekolah sebagai sarana pengembangan bakat, keterampilan, dan semangat kompetitif.',
+            'schedule_day' => 'Sabtu',
+            'start_time' => '17:00',
+            'end_time' => '19:00',
+            'coach' => 'Dewi Sekarini',
+            'number_phone_coach' => '08126456756',
+            'link_register' => 'https://docs.google.com/forms/u/0/',
+        ]);
+
+        Extracurricular::create([
+            'icon' => 'ekstrakurikuler-3.png',
+            'banner' => 'ekstrakurikuler-banner-3.jpg',
+            'name' => 'Paduan Suara',
+            'title' => 'Ekstrakulikuler Paduan Suara sebagai Wadah Kreativitas Musikal, Kolaborasi Tim, dan Pertumbuhan Pribadi',
+            'description' => 'Paduan Suara adalah salah satu ekstrakulikuler yang menawarkan pengalaman musikal yang memuaskan bagi para siswa di sekolah. Kegiatan ini melibatkan kumpulan siswa yang memiliki minat dan bakat dalam bernyanyi, dan mereka bekerja bersama untuk menciptakan harmoni vokal yang indah. Ekstrakulikuler Paduan Suara mengajarkan nilai-nilai kerjasama, disiplin, kesabaran, dan apresiasi seni musik kepada pesertanya.',
+            'schedule_day' => 'Jumat',
+            'start_time' => '10:00',
+            'end_time' => '112:00',
+            'coach' => 'Manorez Anthonio',
+            'number_phone_coach' => '08123786754',
+            'link_register' => 'https://docs.google.com/forms/u/0/',
+        ]);
+
+        Extracurricular::create([
+            'icon' => 'ekstrakurikuler-4.png',
+            'banner' => 'ekstrakurikuler-banner-4.jpg',
+            'name' => 'Teater & Drama',
+            'title' => 'Melalui Panggung Emosi: Menjelajahi Kreativitas, Ekspresi Diri, dan Kolaborasi dalam Ekstrakurikuler Teater & Drama',
+            'description' => 'Ekstrakurikuler Teater & Drama "Panggung Emosi" adalah wadah kreatif bagi siswa-siswi untuk mengeksplorasi seni peran, ekspresi diri, dan pengembangan kepribadian melalui dunia panggung. Dalam ekstrakurikuler ini, siswa akan diajak untuk merasakan pengalaman bermain peran, memahami karakter, dan membangun suasana berbagai cerita. Melalui beragam kegiatan seperti latihan improvisasi, pembacaan skenario, dan latihan fisik, siswa akan mengembangkan kemampuan berbicara di depan umum, keterampilan sosial, serta rasa percaya diri yang mendalam.',
+            'schedule_day' => 'Rabu',
+            'start_time' => '16:00',
+            'end_time' => '18:00',
+            'coach' => 'Daniel Marcella',
+            'number_phone_coach' => '08345676456',
+            'link_register' => 'https://docs.google.com/forms/u/0/',
+        ]);
+
+        SectionService::create([
+            'title_section' => 'Kami Mengarahkan Siswa Menuju Kesuksesan Karir',
+            'description' => 'Kami memandu setiap siswa menuju pencapaian kesuksesan yang berkelanjutan dalam berbagai bidang karir yang mereka pilih. Visi kami adalah membantu siswa mengembangkan potensi terbaik mereka untuk meraih prestasi luar biasa dalam perjalanan karir mereka yang penuh prestasi.',
+            'button' => 'Lihat Semua',
+        ]);
+
+        PelayananKarir::create([
+            'dokumentasi' => 'pelayanan-karir-1.jpg',
+            'tanggal' => '2023/03/25',
+            'judul' => 'Kurangnya Akses dan Informasi yang Komprehensif tentang Berbagai Pilihan Karir, Menghambat Kemampuan Siswa untuk Mengambil Keputusan Karir yang Terinformasi',
+            'masalah' => 'Banyak siswa menghadapi kesulitan dalam merencanakan masa depan karir mereka karena kurangnya akses yang memadai terhadap informasi yang komprehensif tentang berbagai pilihan karir yang tersedia. Ketidakjelasan mengenai jalur pendidikan yang diperlukan, persyaratan pekerjaan, dan perkembangan industri dapat menyebabkan ketidakpastian dalam mengambil keputusan karir yang tepat.',
+            'solusi' => 'Implementasi Pusat Sumber Informasi Karir yang Terintegrasi Deskripsi Solusi: Untuk mengatasi tantangan ini, sekolah perlu mendirikan dan mengelola Pusat Sumber Informasi Karir yang komprehensif. Pusat ini akan menyediakan akses kepada siswa terhadap database informasi tentang berbagai industri, profesi, jalur pendidikan, peluang pekerjaan, serta tren pasar kerja terbaru. Selain itu, melalui kerja sama dengan para profesional industri, penyelenggaraan seminar karir, dan sesi tanya jawab, siswa akan mendapatkan wawasan yang lebih baik tentang dunia kerja dan langkah-langkah yang perlu mereka ambil untuk mencapai tujuan karir mereka.',
+            'students_id' => '4',
+        ]);
+
+        PelayananKarir::create([
+            'dokumentasi' => 'pelayanan-karir-2.jpg',
+            'tanggal' => '2023/02/12',
+            'judul' => 'Kesenjangan dalam Pengembangan Keterampilan Lunak dan Teknis yang Membatasi Persiapan Siswa untuk Sukses dalam Lingkungan Kerja yang Beragam',
+            'masalah' => 'Siswa sering kali lulus dengan pengetahuan teknis yang kuat, tetapi kekurangan keterampilan lunak yang penting seperti komunikasi efektif, kerja tim, kepemimpinan, dan kreativitas. Kesenjangan ini dapat menghambat kemampuan siswa untuk beradaptasi dan berhasil dalam lingkungan kerja yang semakin dinamis dan beragam.',
+            'solusi' => 'Mengatasi kesenjangan keterampilan lunak dan teknis memerlukan pendekatan pendidikan holistik. Sekolah dapat merancang kurikulum yang memadukan pembelajaran teknis dengan proyek kolaboratif, simulasi situasi nyata, dan tantangan interdisipliner yang mendorong pengembangan keterampilan lunak. Selain itu, program ekstrakurikuler yang fokus pada debat, teater, kegiatan sosial, dan pengembangan kepemimpinan juga dapat membantu siswa mengasah keterampilan sosial mereka.',
+            'students_id' => '6',
+        ]);
+
+        PelayananKarir::create([
+            'dokumentasi' => 'pelayanan-karir-3.jpg',
+            'tanggal' => '2023/01/08',
+            'judul' => 'Rendahnya Klarifikasi Rencana Karir dan Panduan yang Menyebabkan Kecemasan dan Tidak Pastinya Masa Depan Profesional Siswa',
+            'masalah' => 'Banyak siswa merasa cemas dan tidak yakin tentang langkah-langkah yang harus mereka ambil untuk mencapai tujuan karir mereka. Ketidakjelasan mengenai pilihan pendidikan lanjutan, peluang pekerjaan, serta perkembangan pribadi yang diperlukan dapat menyebabkan kebingungan dan kekhawatiran yang berkelanjutan.',
+            'solusi' => 'Sekolah dapat memperkenalkan program pembimbingan karir yang personal dan terstruktur. Setiap siswa akan memiliki guru pembimbing karir yang akan membantu mereka melakukan penilaian minat, mengidentifikasi kekuatan dan kelemahan, serta merencanakan langkah-langkah konkret dalam mencapai tujuan karir mereka. Dengan dukungan ini, siswa akan mendapatkan panduan yang lebih jelas dan berfokus dalam merencanakan masa depan profesional mereka.',
+            'students_id' => '2',
+        ]);
+
+        PelayananKarir::create([
+            'dokumentasi' => 'pelayanan-karir-4.jpg',
+            'tanggal' => '2023/01/02',
+            'judul' => 'Kekurangan Pengalaman Praktis yang Menghambat Kemampuan Siswa untuk Menghubungkan Teori dengan Dunia Nyata',
+            'masalah' => 'Siswa sering kesulitan memahami bagaimana teori yang dipelajari di sekolah dapat diterapkan dalam situasi nyata. Kurangnya peluang magang, kunjungan industri, atau keterlibatan praktis dapat menghambat perkembangan pemahaman praktis siswa tentang bagaimana ilmu yang mereka pelajari dapat diaplikasikan dalam dunia pekerjaan.',
+            'solusi' => 'Sekolah dapat bekerja sama dengan perusahaan lokal dan industri terkait untuk menyelenggarakan program magang yang relevan dengan kurikulum. Selain itu, penggunaan simulasi dan proyek nyata yang mensimulasikan situasi di dunia pekerjaan juga dapat membantu siswa mengalami pengalaman praktis. Melalui kunjungan industri, seminar tamu, dan partisipasi dalam proyek kolaboratif dengan profesional industri, siswa dapat menghubungkan teori dengan praktik dan membangun pemahaman yang lebih mendalam tentang realitas dunia kerja.',
+            'students_id' => '5',
+        ]);
+
+        PembinaanSiswa::create([
+            'dokumentasi' => 'pembinaan-siswa-1.jpg',
+            'tanggal' => '2023/03/22',
+            'masalah' => 'Belum melengkapi nilai beberapa mata pelajaran, menurut keterangan dari bibinya siswa tersebut tergolong siswa kurang mampu',
+            'solusi' => 'Siswa bersangkutan tidak memiliki fasilitas HP untuk mengikuti pembelajaran secara daring, karena orangtuanya belum bisa membelikan (penghasilan tidak menentu). Siswa akan melengkapi nilai ke sekolah.',
+            'students_id' => '1',
+        ]);
+
+        PembinaanSiswa::create([
+            'dokumentasi' => 'pembinaan-siswa-2.jpg',
+            'tanggal' => '2023/02/27',
+            'masalah' => 'Siswa belum bisa menyelesaikan administrasi dan belum mendapatkan raport/hasil belajar semester genap 2020/2021',
+            'solusi' => 'Siswa bersangkutan masih mengikuti pembelajaran di sekolah, orangtuanya tidak ada di rumah karena masih bekerja. Petugas BK diterima oleh bibi dari siswa bersangkutan.',
+            'students_id' => '4',
+        ]);
+
+        PembinaanSiswa::create([
+            'dokumentasi' => 'pembinaan-siswa-3.jpg',
+            'tanggal' => '2023/02/02',
+            'masalah' => 'Siswa bersangkutan hanya 2 (dua) kali mengikuti kegiatan Pembelajaran Tatap Muka tanpa keterangan yang jelas',
+            'solusi' => 'Saat kunjungan, siswa bersangkutan berada di rumah. Menurut keterangan ibu siswa bersangkutan siswa bersangkutan dapat sakit 2 hari, telat bangun, hari itu tidak ke sekolah karena salah mengartikan pengumuman tentang kegiatan persembahyangan purnama yang dilaksanakan secara bergilir',
+            'students_id' => '7',
+        ]);
+
+        PembinaanSiswa::create([
+            'dokumentasi' => 'pembinaan-siswa-4.jpg',
+            'tanggal' => '2023/01/22',
+            'masalah' => 'Siswa bersangkutan tidak pernah mengikuti kegiatan pembelajaran selama PTM',
+            'solusi' => 'Siswa bersangkutan sulit bersosialisasi dengan teman sebayanya, perilaku masih seperti anak kecil (berkebutuhan khusus). Guru BK menindaklanjuti dengan mengundang orangtua siswa untuk hadir ke sekolah pada tanggal 20 Januari 2022',
+            'students_id' => '6',
+        ]);
+
+        SectionAchievement::create([
+            'title_section' => 'Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif Di Sekolah Kami',
+            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
+            'button' => 'Lihat Semua',
+        ]);
+
+        Prestasi::create([
+            'dokumentasi' => 'prestasi-1.jpg',
+            'status' => 'Siswa',
+            'tanggal' => '2023/06/02',
+            'nama_kegiatan' => 'Olimpiade Fisika',
+            'penyelenggara' => 'Gedung Serbaguna Kota, Jakarta',
+            'nama_peserta' => 'Putu Aditya Prayatna',
+            'hasil' => 'Juara 1',
+            'tingkat' => 'Provinsi',
+            'pembina' => 'Putra Rizky',
+            'deskripsi' => 'Dengan dedikasi dan pemahaman yang mendalam terhadap konsep-konsep fisika, siswa kami berhasil meraih prestasi sebagai juara pertama dalam Olimpiade Fisika, menegaskan keunggulan mereka dalam bidang ilmu pengetahuan alam ini.',
+        ]);
+
+        Prestasi::create([
+            'dokumentasi' => 'prestasi-2.jpg',
+            'status' => 'Siswa',
+            'tanggal' => '2023/05/23',
+            'nama_kegiatan' => 'Olimpiade Sains',
+            'penyelenggara' => 'Universitas Gadjah Mada, Yogyakarta',
+            'nama_peserta' => 'Ayu Puradewi Putri',
+            'hasil' => 'Juara 2',
+            'tingkat' => 'Provinsi',
+            'pembina' => 'Siti Rahma',
+            'deskripsi' => 'Prestasi luar biasa siswa kami dalam Olimpiade Sains terbukti dengan peraihan juara kedua, memperlihatkan dedikasi mereka terhadap pembelajaran ilmiah dan semangat kompetitif yang kuat.',
+        ]);
+
+        Prestasi::create([
+            'dokumentasi' => 'prestasi-3.jpg',
+            'status' => 'Siswa',
+            'tanggal' => '2023/05/12',
+            'nama_kegiatan' => 'Lomba Renang',
+            'penyelenggara' => 'Balai Kartini, Jakarta',
+            'nama_peserta' => 'Putu Aditya Prayatna',
+            'hasil' => 'Juara 1',
+            'tingkat' => 'Kecamatan',
+            'pembina' => 'Jessi Nanda Putra',
+            'deskripsi' => 'Dalam lomba renang tingkat sekolah, siswa-siswa kami memamerkan keterampilan renang yang handal dan semangat sportivitas, menciptakan momen yang penuh kegembiraan dan kebersamaan di dalam air.',
+        ]);
+
+        Prestasi::create([
+            'dokumentasi' => 'prestasi-4.jpg',
+            'status' => 'Siswa',
+            'tanggal' => '2023/04/27',
+            'nama_kegiatan' => 'Olimpiade Biologi',
+            'penyelenggara' => 'Hotel Sultan, Surabaya',
+            'nama_peserta' => 'Alicia Destina Ayu',
+            'hasil' => 'Juara 2',
+            'tingkat' => 'Provinsi',
+            'pembina' => 'Putra Rizky',
+            'deskripsi' => 'Dalam Olimpiade Biologi, siswa-siswa kami menunjukkan pemahaman mendalam terhadap ilmu biologi dan kemampuan analisis yang unggul, meraih prestasi yang gemilang dalam ajang kompetisi ilmiah tersebut.',
+        ]);
+
+        SectionBeasiswa::create([
+            'title_section' => 'Ayo dapatkan Peluang Beasiswa di Sekolah!',
+            'description' => 'Dengan adanya beasiswa di sekolah, para siswa berpeluang untuk mengakses pendidikan yang berkualitas tanpa memandang latar belakang ekonomi. Ini juga membuka pintu bagi mereka untuk mengembangkan potensi diri',
+        ]);
+
+        Beasiswa::create([
+            "title" => "Beasiswa Akademik Unggulan",
+            "description" => "Siswa yang mendapatkan beasiswa ini akan menerima dukungan finansial untuk biaya pendidikan selama satu tahun ajaran, sebagai penghargaan atas dedikasi dan kerja keras mereka dalam prestasi akademik."
+        ]);
+
+        Beasiswa::create([
+            "title" => "Beasiswa Non-Akademik",
+            "description" => "Siswa yang menunjukkan prestasi di luar akademik seperti dalam olahraga, atau pelayanan masyarakat. Beasiswa ini bertujuan untuk mendorong dan mendukung perkembangan bakat dan kemampuan siswa di berbagai bidang non-akademik."
+        ]);
+
+        Beasiswa::create([
+            "title" => "Beasiswa Bantuan Keuangan",
+            "description" => "Beasiswa ini diberikan kepada siswa yang memiliki kebutuhan finansial dan kesulitan dalam membayar biaya pendidikan. Beasiswa ini bertujuan untuk membantu siswa yang kurang mampu agar tetap dapat melanjutkan pendidikan dengan layak."
+        ]);
+
+        BeasiswaPenerima::create([
+            'tahun' => '2022/2023',
+            'digunakan_untuk' => 'Sebagai pengakuan atas prestasi akademik yang luar biasa',
+            'jumlah_beasiswa' => '500000',
+            'students_id' => '5',
+            'beasiswas_id' => '1',
+        ]);
+
+        BeasiswaPenerima::create([
+            'tahun' => '2022/2023',
+            'digunakan_untuk' => 'mendorong mereka untuk terus berkinerja baik dalam pendidikan',
+            'jumlah_beasiswa' => '1000000',
+            'students_id' => '4',
+            'beasiswas_id' => '2',
+        ]);
+
+        BeasiswaPenerima::create([
+            'tahun' => '2022/2023',
+            'digunakan_untuk' => 'meringankan beban finansial keluarga dan membantu memfasilitasi akses pendidikan yang berkualitas',
+            'jumlah_beasiswa' => '750000',
+            'students_id' => '3',
+            'beasiswas_id' => '3',
+        ]);
+
+        SectionAlumni::create([
+            'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
+            'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang pro'
+        ]);
+
+        Alumni::create([
+            'tahun_ajaran_lulus' => '2023/2024',
+            'pekerjaan' => 'Part Of Carnival Cruise Line (CCL) as a Commis',
+            'testimoni' => 'Pendidikan di SMA Negeri 1 Selat telah membantu saya memahami pentingnya pendekatan ilmiah dalam memecahkan masalah. Kini, saya bekerja sebagai peneliti di sebuah lembaga riset internasional dan berkontribusi dalam mengembangkan solusi untuk isu-isu lingkungan.',
+            'students_id' => '8',
+        ]);
+
+        Alumni::create([
+            'tahun_ajaran_lulus' => '2023/2024',
+            'pekerjaan' => 'Insinyur di PT Teknologi Maju Indonesia',
+            'testimoni' => 'SMAN 1 Selat adalah tempat di mana saya menemukan minat dan passion saya dalam seni dan desain. Terima kasih atas dukungan para guru dan teman-teman yang telah membantu mengembangkan bakat saya. Saat ini, saya telah mendirikan perusahaan desain grafis.',
+            'students_id' => '7',
+        ]);
+
+        Alumni::create([
+            'tahun_ajaran_lulus' => '2023/2024',
+            'pekerjaan' => 'Pendiri dan Desainer Grafis di Maya Design Studio',
+            'testimoni' => 'Halo teman-teman alumni sekolah! Saya sangat senang ingin berbagi kabar baik. Saat ini, saya bekerja sebagai Komisaris di Carnival Cruise Line. Selama perjalanan karier ini, banyak pelajaran berharga yang saya pelajari. Bersama-sama, mari kita berikan kontribusi positif bagi masa depan sekolah kita.',
+            'students_id' => '6',
+        ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         HeaderSaranaPrasarana::create([
             'banner' => 'banner-header.jpg',
             'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
@@ -594,6 +1260,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'Lapangan Basket',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         HeaderHumas::create([
             'banner' => 'banner-header.jpg',
@@ -727,357 +1409,6 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'journal-pdf-8.pdf',
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
-        ]);
-
-        HeaderAcademic::create([
-            'banner' => 'banner-header.jpg',
-            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
-            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
-            'button' => 'Lihat Selengkapnya',
-        ]);
-
-        Curriculum::create([
-            'banner' => 'banner-kurikulum.jpg',
-            'title_section' => 'Langkah Kami Menghadapi Pendidikan Abad Ke-21',
-            'description' => 'Kurikulum di sekolah merupakan inti dari pendidikan formal, dan terus mengalami transformasi untuk menghadapi perubahan zaman dan tantangan abad ke-21. Deskripsi ini akan mengeksplorasi perubahan signifikan dalam kurikulum yang dilakukan oleh institusi pendidikan guna mempersiapkan generasi muda untuk menghadapi dunia yang cepat berubah dan kompleks. Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21 seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.',
-        ]);
-
-        SectionProgram::create([
-            'title_section' => 'Program Akademik Sekolah',
-        ]);
-
-        Program::create([
-            'banner' => 'banner-elerning.jpg',
-            'title' => 'E-Learning SMA Negeri 1 Selat',
-            'description' => 'Program E-Learning di SMA Negeri 1 Selat adalah platform pembelajaran digital yang inovatif dan interaktif, dirancang untuk mendukung proses belajar-mengajar yang efektif dan efisien. Melalui E-Learning, siswa memiliki akses ke beragam materi pembelajaran, modul, dan sumber daya pendukung yang dapat diakses kapan saja. Platform ini menawarkan berbagai fitur canggih, termasuk video pembelajaran, forum diskusi, ujian online, dan berbagai tugas interaktif. Dengan bimbingan dari para guru, siswa dapat berpartisipasi dalam diskusi dan berkolaborasi dengan sesama siswa dalam proses belajar.',
-            'button' => 'Website E-Learning',
-            'link' => 'https://guru.kemdikbud.go.id/',
-        ]);
-
-        Program::create([
-            'banner' => 'banner-asessment.jpg',
-            'title' => 'E-Asessment SMA Negeri 1 Selat',
-            'description' => 'E-Assessment di Sekolah SMA Negeri 1 Selat merupakan sistem evaluasi dan penilaian berbasis teknologi yang inovatif untuk mengukur kemajuan belajar siswa secara akurat dan efisien. Dengan menggunakan teknologi canggih, E-Assessment memungkinkan siswa untuk mengikuti berbagai jenis ujian dan tugas evaluasi secara online melalui platform pembelajaran digital yang terintegrasi. Platform E-Assessment ini menyediakan berbagai format ujian, termasuk pilihan ganda, uraian, dan tugas interaktif yang dirancang untuk mengukur pemahaman siswa dalam berbagai tingkatan kognitif.',
-            'button' => 'Website E-Asessment',
-            'link' => 'https://guru.kemdikbud.go.id/',
-        ]);
-
-        SectionProyek::create([
-            'title_section' => 'Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila) Di SMA Negeri 1 Selat',
-            'description' => 'Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini dalam kehidupan sehari-hari dan masyarakat.',
-            'button' => 'Lihat Semua',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-1.jpg',
-            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Gaya Hidup Berkelanjutan',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-2.jpg',
-            'title' => 'Bhinneka Tunggal Ika, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Bhinneka Tunggal Ika',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-3.jpg',
-            'title' => 'Kearifan Lokal, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Kearifan Lokal',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema kearifan lokal di sekolah merupakan upaya yang bertujuan untuk mengintegrasikan nilai-nilai luhur Pancasila dengan nilai-nilai kearifan lokal dalam pendidikan. Tujuan dari proyek ini adalah menghasilkan generasi muda yang tidak hanya mengerti dan menghargai prinsip-prinsip dasar negara Indonesia, tetapi juga memiliki pemahaman yang mendalam terhadap budaya dan tradisi lokal yang kaya.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-4.jpg',
-            'title' => 'Bangunlah Jiwa dan Raganya, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Bangunlah Jiwa dan Raganya',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
-        ]);
-
-        SectionGallery::create([
-            'title_section' => 'Galeri Dokumentasi Sekolah',
-            'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-1.jpg',
-            'title' => 'Image 1',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-2.jpg',
-            'title' => 'Image 2',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-3.jpg',
-            'title' => 'Image 3',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-4.jpg',
-            'title' => 'Image 4',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-5.jpg',
-            'title' => 'Image 5',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-6.jpg',
-            'title' => 'Image 6',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-7.jpg',
-            'title' => 'Image 7',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-8.jpg',
-            'title' => 'Image 8',
-        ]);
-
-        SectionGraduation::create([
-            'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
-            'button_1' => 'Semua Siswa',
-            'button_2' => 'Siswa Laki-Laki',
-            'button_3' => 'Siswa Perempuan',
-            'caption_1' => 'Kelas X',
-            'caption_2' => 'Kelas XI',
-            'caption_3' => 'Kelas XII',
-        ]);
-
-        HeaderStudent::create([
-            'banner' => 'banner-header.jpg',
-            'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
-            'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
-            'button' => 'Lihat Selengkapnya',
-        ]);
-
-        SectionStudent::create([
-            'title_section' => 'Grafik Data Kesiswaan',
-            'button_1' => 'Semua Siswa',
-            'button_2' => 'Siswa Laki-Laki',
-            'button_3' => 'Siswa Perempuan',
-            'caption_1' => 'Kelas X',
-            'caption_2' => 'Kelas XI',
-            'caption_3' => 'Kelas XII',
-        ]);
-
-        SectionExtracurricular::create([
-            'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
-            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
-        ]);
-
-        SectionService::create([
-            'title_section' => 'Kami Mengarahkan Siswa Menuju Kesuksesan Karir',
-            'description' => 'Kami memandu setiap siswa menuju pencapaian kesuksesan yang berkelanjutan dalam berbagai bidang karir yang mereka pilih. Visi kami adalah membantu siswa mengembangkan potensi terbaik mereka untuk meraih prestasi luar biasa dalam perjalanan karir mereka yang penuh prestasi.',
-            'button' => 'Lihat Semua',
-        ]);
-
-        SectionAchievement::create([
-            'title_section' => 'Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif Di Sekolah Kami',
-            'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
-            'button' => 'Lihat Semua',
-        ]);
-
-        SectionBeasiswa::create([
-            'title_section' => 'Ayo dapatkan Peluang Beasiswa di Sekolah!',
-            'description' => 'Dengan adanya beasiswa di sekolah, para siswa berpeluang untuk mengakses pendidikan yang berkualitas tanpa memandang latar belakang ekonomi. Ini juga membuka pintu bagi mereka untuk mengembangkan potensi diri',
-        ]);
-
-        SectionAlumni::create([
-            'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
-            'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang pro'
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2022/2023',
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2023/2024',
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2024/2025',
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2026/2027',
-        ]);
-
-        Semester::create([
-            'semester' => 'Ganjil',
-        ]);
-
-        Semester::create([
-            'semester' => 'Genap',
-        ]);
-
-        Kelas::create([
-            'name' => 'X',
-        ]);
-
-        Kelas::create([
-            'name' => 'XI',
-        ]);
-
-        Kelas::create([
-            'name' => 'XII',
-        ]);
-
-        Jurusan::create([
-            'name' => 'Ilmu Pengetahuan Alam',
-            'code' => 'IPA',
-        ]);
-
-        Jurusan::create([
-            'name' => 'Ilmu Pengetahuan Sosial',
-            'code' => 'IPS',
-        ]);
-
-        Index::create([
-            'name' => 'A',
-        ]);
-
-        Index::create([
-            'name' => 'B',
-        ]);
-
-        Index::create([
-            'name' => 'C',
-        ]);
-
-        Index::create([
-            'name' => 'D',
-        ]);
-
-        Index::create([
-            'name' => 'E',
-        ]);
-        Student::create([
-            'nis' => '6130',
-            'nisn' => '0065471181',
-            'nama_lengkap' => 'Aditya',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '1',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '4768',
-            'nisn' => '797829542',
-            'nama_lengkap' => 'andika satya',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '2',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '8055',
-            'nisn' => '862701208',
-            'nama_lengkap' => 'komang adi',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '3',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '2272',
-            'nisn' => '973844481',
-            'nama_lengkap' => 'ngurah',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '2',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '8502',
-            'nisn' => '495433817',
-            'nama_lengkap' => 'satria mahatama',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '3',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '8600',
-            'nisn' => '744424024',
-            'nama_lengkap' => 'saputra ',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '1',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
-        ]);
-        Student::create([
-            'nis' => '3985',
-            'nisn' => '749909383',
-            'nama_lengkap' => 'Putra Kresna',
-            'tahun_masuk' => '2023/2024',
-            'tempat_lahir' => 'Bali',
-            'tanggal_lahir' => '2023/08/03',
-            'jenis_kelamin' => 'L',
-            'kelurahan' => 'Ubung Kaja',
-            'kecamatan' => 'Denpasar Utara',
-            'alamat' => 'Ayani',
-            'kelases_id' => '1',
-            'tahun_ajarans_id' => '1',
-            'jurusans_id' => '1',
-            'indices_id' => '1',
-            'semesters_id' => '1',
         ]);
     }
 }

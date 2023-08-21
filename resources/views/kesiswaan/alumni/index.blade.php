@@ -211,42 +211,61 @@
     {{-- MODAL ADD ALUMNI --}}
     <div class="modal fade" id="addAlumniModal" tabindex="-1" aria-labelledby="addAlumniModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Alumni Sekolah</h3>
                 <form action="{{ route('alumni-store') }}" method="post"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="students_id">Siswa</label>
-                        <select name="students_id" id="students_id" class="input" autocomplete="off">
-                            <option value="-">Pilih siswa</option>
-                            @foreach ($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
-                            @endforeach
-                        </select>
-                        @error('students_id')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                        <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input" autocomplete="off">
-                            <option value="-">Pilih tahun ajaran lulus</option>
-                            @foreach ($tahun_ajarans as $tahun_ajaran)
-                                <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
-                            @endforeach
-                        </select>
-                        @error('tahun_ajaran_lulus')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="testimoni">Testimoni</label>
-                        <textarea name="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
-                        @error('testimoni')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="students_id">Siswa</label>
+                                <select name="students_id" id="students_id" class="input" autocomplete="off">
+                                    <option value="-">Pilih siswa</option>
+                                    @foreach ($students as $student)
+                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                    @endforeach
+                                </select>
+                                @error('students_id')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="pekerjaan">Pekerjaan</label>
+                                <input type="text" name="pekerjaan" id="pekerjaan" class="input"
+                                    autocomplete="off">
+                                @error('pekerjaan')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
+                                <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input"
+                                    autocomplete="off">
+                                    <option value="-">Pilih tahun ajaran lulus</option>
+                                    @foreach ($tahun_ajarans as $tahun_ajaran)
+                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tahun_ajaran_lulus')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="testimoni">Testimoni</label>
+                                <textarea name="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
+                                @error('testimoni')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Tambah Alumni</button>
@@ -261,25 +280,41 @@
     {{-- MODAL DETAIL ALUMNI --}}
     <div class="modal fade" id="detailAlumniModal" tabindex="-1" aria-labelledby="detailAlumniModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Journal Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="students_id">Siswa</label>
-                        <input type="text" id="students_id" class="input" autocomplete="off" disabled
-                            data-value="students_id">
-                        </select>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                        <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off" disabled
-                            data-value="tahun_ajaran_lulus">
-                        </select>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="testimoni">Testimoni</label>
-                        <textarea data-value="testimoni" disabled id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="students_id">Siswa</label>
+                                <input type="text" id="students_id" class="input" autocomplete="off" disabled
+                                    data-value="students_id">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="pekerjaan">Pekerjaan</label>
+                                <input type="text" id="pekerjaan" class="input" autocomplete="off" disabled
+                                    data-value="pekerjaan">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
+                                <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off" disabled
+                                    data-value="tahun_ajaran_lulus">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="testimoni">Testimoni</label>
+                                <textarea data-value="testimoni" disabled id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -293,39 +328,59 @@
     {{-- MODAL EDIT ALUMNI --}}
     <div class="modal fade" id="editAlumniModal" tabindex="-1" aria-labelledby="editAlumniModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Alumni Sekolah</h3>
                 <form id="editAlumni" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="students_id">Siswa</label>
-                        <select name="students_id" id="students_id" class="input" autocomplete="off">
-                            @foreach ($students as $student)
-                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
-                            @endforeach
-                        </select>
-                        @error('students_id')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                        <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input" autocomplete="off">
-                            @foreach ($tahun_ajarans as $tahun_ajaran)
-                                <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
-                            @endforeach
-                        </select>
-                        @error('tahun_ajaran_lulus')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="testimoni">Testimoni</label>
-                        <textarea name="testimoni" data-value="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
-                        @error('testimoni')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="students_id">Siswa</label>
+                                <select name="students_id" id="students_id" class="input">
+                                    <option data-value="students_id"></option>
+                                    @foreach ($students as $student)
+                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                    @endforeach
+                                </select>
+                                @error('students_id')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="pekerjaan">Pekerjaan</label>
+                                <input type="text" name="pekerjaan" data-value="pekerjaan" id="pekerjaan"
+                                    class="input" autocomplete="off">
+                                @error('pekerjaan')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
+                                <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input">
+                                    <option data-value="tahun_ajaran_lulus"></option>
+                                    @foreach ($tahun_ajarans as $tahun_ajaran)
+                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tahun_ajaran_lulus')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="testimoni">Testimoni</label>
+                                <textarea name="testimoni" data-value="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
+                                @error('testimoni')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -391,6 +446,7 @@
                 success: function(data) {
                     console.log(data);
                     $('[data-value="students_id"]').val(data.students_id);
+                    $('[data-value="pekerjaan"]').val(data.pekerjaan);
                     $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);
                     $('[data-value="testimoni"]').val(data.testimoni);
                 }
@@ -406,7 +462,10 @@
                 success: function(data) {
                     console.log(data);
                     $('[data-value="students_id"]').val(data.students_id);
+                    $('[data-value="students_id"]').html(data.students_nama);
                     $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);
+                    $('[data-value="tahun_ajaran_lulus"]').html(data.tahun_ajaran_lulus);
+                    $('[data-value="pekerjaan"]').val(data.pekerjaan);
                     $('[data-value="testimoni"]').val(data.testimoni);
                 }
             });

@@ -94,30 +94,6 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="nis">NIS</label>
-                                        <input type="text" id="nis" class="input" autocomplete="off"
-                                            name="nis">
-                                        @error('nis')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
-                                        <label for="kelases_id">Kelas</label>
-                                        <select name="kelases_id" id="kelases_id" class="input">
-                                            <option value="-">Pilih kelas</option>
-                                            @foreach ($kelases as $kelas)
-                                                <option value="{{ $kelas->id }}">{{ $kelas->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('kelases_id')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
                                         <label for="hasil">Hasil</label>
                                         <input type="text" id="hasil" class="input" autocomplete="off"
                                             name="hasil">

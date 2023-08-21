@@ -17,6 +17,7 @@ class CreatePelayananKarirsTable extends Migration
             $table->id();
             $table->string('dokumentasi');
             $table->date('tanggal');
+            $table->string('judul');
             $table->text('masalah');
             $table->text('solusi');
             $table->bigInteger('students_id');

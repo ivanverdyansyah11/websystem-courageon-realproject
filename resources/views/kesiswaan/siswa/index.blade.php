@@ -59,7 +59,7 @@
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             @foreach ($kelases as $kelas)
-                                <div class="col data-header"><span class="d-none d-md-inline-block">Jumlah Siswa</span>
+                                <div class="col data-header"><span class="d-none d-md-inline-block">Siswa</span>
                                     Kelas {{ $kelas->name }}
                                 </div>
                             @endforeach
@@ -67,16 +67,16 @@
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
-                            @foreach ($kelasCount as $count)
+                            @foreach ($kelases as $kelas)
                                 <div class="col data-value data-length"><a
-                                        href="{{ route('data-siswa-index', $kelas->id) }}">{{ $count['total'] }}</a>
-                                </div>
+                                        href="{{ route('data-siswa-index', $kelas->id) }}">Lihat siswa</a></div>
                             @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     {{-- MODAL DETAIL SECTION STUDENT --}}

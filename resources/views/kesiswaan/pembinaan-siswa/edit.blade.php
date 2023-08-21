@@ -107,7 +107,7 @@
         const tagEdit = document.querySelector('.tag-edit-image');
         const inputEdit = document.querySelector('.input-edit-image');
 
-        inputEdit.EditEventListener('change', function() {
+        inputEdit.addEventListener('change', function() {
             tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
         });
     </script>

@@ -71,24 +71,6 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="nis">NIS</label>
-                                        <input type="text" id="nis" class="input" autocomplete="off" disabled
-                                            value="{{ $prestasi->nis }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
-                                        <label for="kelases_id">Kelas</label>
-                                        @foreach ($kelases as $kelas)
-                                            @if ($prestasi->kelases_id === $kelas->id)
-                                                <input type="text" id="kelases_id" class="input" autocomplete="off"
-                                                    disabled value="{{ $kelas->name }}">
-                                            @endif
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
                                         <label for="hasil">Hasil</label>
                                         <input type="text" id="hasil" class="input" autocomplete="off" disabled
                                             value="{{ $prestasi->hasil }}">

@@ -54,14 +54,37 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <label for="nama">Nama</label>
-                                                <input type="text" id="nama" class="input"
-                                                    value="{{ $extracurricular->name }}" name="name" autocomplete="off">
-                                                @error('name')
+                                                <label for="banner">Banner</label>
+                                                <div class="wrapper d-flex align-items-end">
+                                                    @if ($extracurricular->banner)
+                                                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/' . $extracurricular->banner) }}"
+                                                            class="img-fluid tag-edit-banner" alt="Banner Extracurricular"
+                                                            width="80">
+                                                    @else
+                                                        <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                            class="img-fluid tag-edit-banner" alt="Image Not Found"
+                                                            width="80">
+                                                    @endif
+                                                    <div class="wrapper-image w-100">
+                                                        <input type="file" id="banner" class="input-edit-banner"
+                                                            name="banner">
+                                                    </div>
+                                                </div>
+                                                @error('banner')
                                                     <p class="caption-error mt-2">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" id="nama" class="input"
+                                            value="{{ $extracurricular->name }}" name="name" autocomplete="off">
+                                        @error('name')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -111,7 +134,8 @@
                                         <label>Jadwal Ekstrakurikuler</label>
                                         <div class="row">
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" id="senin" name="schedule_day[]" value="Senin"
+                                                <input type="checkbox" id="senin" name="schedule_day[]"
+                                                    value="Senin"
                                                     {{ in_array('Senin', $schedule_days) ? 'checked' : '' }}>
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
@@ -203,8 +227,15 @@
             const tagEditIcon = document.querySelector('.tag-edit-icon');
             const inputEditIcon = document.querySelector('.input-edit-icon');
 
+            const tagEditBanner = document.querySelector('.tag-edit-banner');
+            const inputEditBanner = document.querySelector('.input-edit-banner');
+
             inputEditIcon.addEventListener('change', function() {
                 tagEditIcon.src = URL.createObjectURL(inputEditIcon.files[0]);
+            });
+
+            inputEditBanner.addEventListener('change', function() {
+                tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
             });
         </script>
     @endsection

@@ -16,6 +16,7 @@ class CreateExtracurricularsTable extends Migration
         Schema::create('extracurriculars', function (Blueprint $table) {
             $table->id();
             $table->string('icon');
+            $table->string('banner');
             $table->string('name');
             $table->string('title');
             $table->text('description');

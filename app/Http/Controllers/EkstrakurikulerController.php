@@ -49,6 +49,7 @@ class EkstrakurikulerController extends Controller
     function storeExtracurriculer(Request $request)
     {
         $validatedData = $request->validate([
+            'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
@@ -68,6 +69,13 @@ class EkstrakurikulerController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
             $validatedData['icon'] = $imageName;
+        }
+
+        if ($validatedData['banner']) {
+            $banner = $request->file('banner');
+            $bannerName = time() . '.' . $banner->getClientOriginalExtension();
+            $banner->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/'), $bannerName);
+            $validatedData['banner'] = $bannerName;
         }
 
         $extracurricular = Extracurricular::create($validatedData);
@@ -132,6 +140,18 @@ class EkstrakurikulerController extends Controller
             $validatedData['icon'] = $request->$extracurriculer['icon'];
         }
 
+        if ($request->file('banner')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurriculer['banner'];
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/'), $imageName);
+            $validatedData['banner'] = $imageName;
+        } else {
+            $validatedData['banner'] = $request->$extracurriculer['banner'];
+        }
+
         $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
 
         if ($extracurricularAction) {
@@ -147,6 +167,11 @@ class EkstrakurikulerController extends Controller
 
         if ($extracurricular->icon) {
             $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
+            unlink($imagePath);
+        }
+
+        if ($extracurricular->banner) {
+            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner;
             unlink($imagePath);
         }
 

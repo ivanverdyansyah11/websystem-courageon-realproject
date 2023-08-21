@@ -45,7 +45,6 @@ class PrestasiController extends Controller
     {
         return view('kesiswaan.prestasi.create', [
             'title' => 'Kesiswaan > Prestasi',
-            'kelases' => Kelas::all(),
         ]);
     }
 
@@ -58,8 +57,6 @@ class PrestasiController extends Controller
             'nama_kegiatan' => 'required|string|max:255',
             'penyelenggara' => 'required|string|max:255',
             'nama_peserta' => 'required|string|max:255',
-            'nis' => 'required|string',
-            'kelases_id' => 'required|string',
             'hasil' => 'required|string|max:255',
             'tingkat' => 'required|string|max:255',
             'pembina' => 'required|string|max:255',
@@ -86,7 +83,6 @@ class PrestasiController extends Controller
     {
         return view('kesiswaan.prestasi.detail', [
             'title' => 'Kesiswaan > Prestasi',
-            'kelases' => Kelas::all(),
             'prestasi' => Prestasi::where('id', $id)->first(),
         ]);
     }
@@ -95,7 +91,6 @@ class PrestasiController extends Controller
     {
         return view('kesiswaan.prestasi.edit', [
             'title' => 'Kesiswaan > Prestasi',
-            'kelases' => Kelas::all(),
             'prestasi' => Prestasi::where('id', $id)->first(),
         ]);
     }
@@ -109,8 +104,6 @@ class PrestasiController extends Controller
             'nama_kegiatan' => 'required|string|max:255',
             'penyelenggara' => 'required|string|max:255',
             'nama_peserta' => 'required|string|max:255',
-            'nis' => 'required|string',
-            'kelases_id' => 'required|string',
             'hasil' => 'required|string|max:255',
             'tingkat' => 'required|string|max:255',
             'pembina' => 'required|string|max:255',
@@ -142,8 +135,8 @@ class PrestasiController extends Controller
     {
         $prestasi = Prestasi::where('id', $id)->first();
 
-        if ($prestasi->icon) {
-            $imagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->icon;
+        if ($prestasi->dokumentasi) {
+            $imagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->dokumentasi;
             unlink($imagePath);
         }
 

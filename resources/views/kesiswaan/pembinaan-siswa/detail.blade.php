@@ -38,9 +38,10 @@
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
                                         @foreach ($students as $student)
-                                            <input type="text" id="students_id" class="input" autocomplete="off"
-                                                disabled
-                                                value="{{ $pembinaan->id === $student->id ? $student->nama_lengkap : '' }}">
+                                            @if ($pembinaan->id === $student->id)
+                                                <input type="text" id="students_id" class="input" autocomplete="off"
+                                                    disabled value="{{ $student->nama_lengkap }}">
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>

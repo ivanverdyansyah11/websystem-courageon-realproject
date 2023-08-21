@@ -101,31 +101,6 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="nis">NIS</label>
-                                        <input type="text" id="nis" class="input" autocomplete="off"
-                                            name="nis" value="{{ $prestasi->nis }}">
-                                        @error('nis')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
-                                        <label for="kelases_id">Kelas</label>
-                                        <select name="kelases_id" id="kelases_id" class="input">
-                                            @foreach ($kelases as $kelas)
-                                                <option value="{{ $kelas->id }}"
-                                                    {{ $kelas->id === $prestasi->kelases_id ? 'selected' : '' }}>
-                                                    {{ $kelas->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('kelases_id')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper">
                                         <label for="hasil">Hasil</label>
                                         <input type="text" id="hasil" class="input" autocomplete="off"
                                             name="hasil" value="{{ $prestasi->hasil }}">
@@ -196,7 +171,7 @@
         const tagEdit = document.querySelector('.tag-edit-image');
         const inputEdit = document.querySelector('.input-edit-image');
 
-        inputEdit.EditEventListener('change', function() {
+        inputEdit.addEventListener('change', function() {
             tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
         });
     </script>

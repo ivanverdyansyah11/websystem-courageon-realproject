@@ -47,9 +47,17 @@ class AlumniController extends Controller
     {
         $alumni = Alumni::where('id', $id)->first();
         $students = Student::all();
+        $tahun_ajarans = TahunAjaran::all();
+
         foreach ($students as $student) {
             if ($student->id === $alumni->students_id) {
-                $alumni->students_id = $student->nama_lengkap;
+                $alumni->students_nama = $student->nama_lengkap;
+            }
+        }
+
+        foreach ($tahun_ajarans as $tahun_ajaran) {
+            if ($tahun_ajaran->tahun == $alumni->tahun_ajaran_lulus) {
+                $alumni->tahun_ajaran_lulus = $tahun_ajaran->tahun;
             }
         }
         return response()->json($alumni);
@@ -59,6 +67,7 @@ class AlumniController extends Controller
     {
         $validatedData = $request->validate([
             'tahun_ajaran_lulus' => 'required|string',
+            'pekerjaan' => 'required|string|max:255',
             'students_id' => 'required|string',
             'testimoni' => 'required|string',
         ]);
@@ -76,6 +85,7 @@ class AlumniController extends Controller
     {
         $validatedData = $request->validate([
             'tahun_ajaran_lulus' => 'required|string',
+            'pekerjaan' => 'required|string|max:255',
             'students_id' => 'required|string',
             'testimoni' => 'required|string',
         ]);

@@ -64,6 +64,15 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
+                                        <label for="judul">Judul</label>
+                                        <textarea name="judul" id="judul" rows="4" class="input" autocomplete="off"></textarea>
+                                        @error('judul')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
                                         <textarea name="masalah" id="masalah" rows="4" class="input" autocomplete="off"></textarea>
                                         @error('masalah')

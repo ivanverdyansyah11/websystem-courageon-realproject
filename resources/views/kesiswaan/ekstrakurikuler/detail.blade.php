@@ -43,11 +43,25 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <label for="nama">Nama</label>
-                                                <input type="text" id="nama" class="input"
-                                                    value="{{ $extracurricular->name }}" autocomplete="off" disabled>
+                                                <label>Banner</label>
+                                                <div class="wrapper d-flex align-items-end">
+                                                    @if ($extracurricular->banner)
+                                                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/' . $extracurricular->banner) }}"
+                                                            class="img-fluid" alt="Banner Extracurricular" width="80">
+                                                    @else
+                                                        <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                            class="img-fluid" alt="Image Not Found" width="80">
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" id="nama" class="input"
+                                            value="{{ $extracurricular->name }}" autocomplete="off" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">

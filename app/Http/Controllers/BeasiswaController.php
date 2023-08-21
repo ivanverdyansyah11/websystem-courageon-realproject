@@ -137,7 +137,7 @@ class BeasiswaController extends Controller
         }
 
         foreach ($tahun_ajarans as $tahun_ajaran) {
-            if ($tahun_ajaran->id == $penerima_beasiswa->tahun) {
+            if ($tahun_ajaran->tahun == $penerima_beasiswa->tahun) {
                 $penerima_beasiswa->tahun_beasiswa = $tahun_ajaran->tahun;
             }
         }

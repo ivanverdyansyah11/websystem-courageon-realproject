@@ -57,6 +57,7 @@ class PelayananKarirController extends Controller
         $validatedData = $request->validate([
             'dokumentasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'tanggal' => 'required|date',
+            'judul' => 'required|string',
             'masalah' => 'required|string',
             'solusi' => 'required|string',
             'students_id' => 'required|string',
@@ -101,6 +102,7 @@ class PelayananKarirController extends Controller
         $pelayanan = PelayananKarir::where('id', $id)->first();
         $validatedData = $request->validate([
             'tanggal' => 'required|date',
+            'judul' => 'required|string',
             'masalah' => 'required|string',
             'solusi' => 'required|string',
             'students_id' => 'required|string',

@@ -38,9 +38,10 @@
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
                                         @foreach ($students as $student)
-                                            <input type="text" id="students_id" class="input" autocomplete="off"
-                                                disabled
-                                                value="{{ $pelayanan->id === $student->id ? $student->nama_lengkap : '' }}">
+                                            @if ($pelayanan->id === $student->id)
+                                                <input type="text" id="students_id" class="input" autocomplete="off"
+                                                    disabled value="{{ $student->nama_lengkap }}">
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>
@@ -53,11 +54,17 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
+                                        <label for="judul">Judul</label>
+                                        <textarea disabled id="judul" rows="4" class="input" autocomplete="off">{{ $pelayanan->judul }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
                                         <textarea disabled id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
                                         <textarea disabled id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi }}</textarea>

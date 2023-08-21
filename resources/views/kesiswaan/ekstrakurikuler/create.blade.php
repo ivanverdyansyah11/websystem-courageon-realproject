@@ -48,14 +48,31 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-wrapper">
-                                                <label for="nama">Nama</label>
-                                                <input type="text" id="nama" class="input" name="name"
-                                                    autocomplete="off">
-                                                @error('name')
+                                                <label for="banner">Banner</label>
+                                                <div class="wrapper d-flex align-items-end">
+                                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                        class="img-fluid tag-add-banner" alt="Banner Extracurricular"
+                                                        width="80">
+                                                    <div class="wrapper-image w-100">
+                                                        <input type="file" id="banner" class="input-add-banner"
+                                                            name="banner">
+                                                    </div>
+                                                </div>
+                                                @error('banner')
                                                     <p class="caption-error mt-2">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" id="nama" class="input" name="name"
+                                            autocomplete="off">
+                                        @error('name')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -107,11 +124,13 @@
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="selasa" value="Selasa">
+                                                <input type="checkbox" name="schedule_day[]" id="selasa"
+                                                    value="Selasa">
                                                 <label class="mb-0" for="selasa">Selasa</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="rabu" value="Rabu">
+                                                <input type="checkbox" name="schedule_day[]" id="rabu"
+                                                    value="Rabu">
                                                 <label class="mb-0" for="rabu">Rabu</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
@@ -185,8 +204,15 @@
             const tagAddIcon = document.querySelector('.tag-add-icon');
             const inputAddIcon = document.querySelector('.input-add-icon');
 
+            const tagAddBanner = document.querySelector('.tag-add-banner');
+            const inputAddBanner = document.querySelector('.input-add-banner');
+
             inputAddIcon.addEventListener('change', function() {
                 tagAddIcon.src = URL.createObjectURL(inputAddIcon.files[0]);
+            });
+
+            inputAddBanner.addEventListener('change', function() {
+                tagAddBanner.src = URL.createObjectURL(inputAddBanner.files[0]);
             });
         </script>
     @endsection
