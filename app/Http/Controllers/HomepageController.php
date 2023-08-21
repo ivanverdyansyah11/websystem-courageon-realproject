@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Curriculum;
 use App\Models\Employee;
+use App\Models\Gallery;
+use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
@@ -11,9 +14,15 @@ use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
+use App\Models\Program;
+use App\Models\Project;
 use App\Models\RemarkHome;
+use App\Models\SectionAlumni;
 use App\Models\SectionContact;
+use App\Models\SectionGallery;
 use App\Models\SectionManagement;
+use App\Models\SectionProgram;
+use App\Models\SectionProyek;
 use App\Models\SectionStaff;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
@@ -56,6 +65,15 @@ class HomepageController extends Controller
     {
         return view('homepage.akademik.index', [
             'title' => 'Akademik',
+            'headerAcademic' => HeaderAcademic::first(),
+            'curriculum' => Curriculum::first(),
+            'sectionProgram' => SectionProgram::first(),
+            'programs' => Program::all(),
+            'sectionProyek' => SectionProyek::all(),
+            'projects' => Project::all(),
+            'sectionGallery' => SectionGallery::all(),
+            'galleries' => Gallery::all(),
+            'SectionAlumni' => SectionAlumni::all(),
         ]);
     }
 
