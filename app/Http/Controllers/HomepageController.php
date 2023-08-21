@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beasiswa;
 use App\Models\Contact;
 use App\Models\Curriculum;
 use App\Models\Employee;
+use App\Models\Extracurricular;
 use App\Models\Gallery;
 use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
+use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
 use App\Models\Logo;
 use App\Models\Mars;
@@ -17,13 +20,19 @@ use App\Models\OpeningHome;
 use App\Models\Program;
 use App\Models\Project;
 use App\Models\RemarkHome;
+use App\Models\SectionAchievement;
 use App\Models\SectionAlumni;
+use App\Models\SectionBeasiswa;
 use App\Models\SectionContact;
+use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
+use App\Models\SectionJournal;
 use App\Models\SectionManagement;
 use App\Models\SectionProgram;
 use App\Models\SectionProyek;
+use App\Models\SectionService;
 use App\Models\SectionStaff;
+use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
 use Illuminate\Http\Request;
@@ -37,6 +46,9 @@ class HomepageController extends Controller
             'headerHome' => HeaderHome::first(),
             'openingHome' => OpeningHome::first(),
             'remarkHome' => RemarkHome::first(),
+            'sectionAchievement' => SectionAchievement::first(),
+            'sectionAlumni' => SectionAlumni::first(),
+            'sectionJournal' => SectionJournal::first(),
             'historyHome' => HistoryHome::first(),
         ]);
     }
@@ -81,6 +93,15 @@ class HomepageController extends Controller
     {
         return view('homepage.kesiswaan.index', [
             'title' => 'Kesiswaan',
+            'headerStudent' => HeaderStudent::first(),
+            'sectionStudent' => SectionStudent::first(),
+            'sectionExtracurricular' => SectionExtracurricular::first(),
+            'extracurriculars' => Extracurricular::all(),
+            'sectionService' => SectionService::first(),
+            'sectionAchievement' => SectionAchievement::first(),
+            'sectionBeasiswa' => SectionBeasiswa::first(),
+            'beasiswas' => Beasiswa::all(),
+            'sectionAlumni' => SectionAlumni::first(),
         ]);
     }
 
