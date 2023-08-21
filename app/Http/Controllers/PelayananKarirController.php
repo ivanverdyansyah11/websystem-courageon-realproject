@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PelayananKarir;
+use App\Models\PembinaanSiswa;
 use App\Models\SectionService;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class PelayananKarirController extends Controller
             'section_service' => SectionService::first(),
             'students' => Student::all(),
             'pelayanan_karir' => PelayananKarir::paginate(6),
+            'pembinaan_siswa' => PembinaanSiswa::paginate(6),
         ]);
     }
 
@@ -46,7 +48,6 @@ class PelayananKarirController extends Controller
     {
         return view('kesiswaan.pelayanan-karir.create', [
             'title' => 'Kesiswaan > Pelayanan Karir',
-            'section_service' => SectionService::first(),
             'students' => Student::all(),
         ]);
     }
@@ -141,6 +142,107 @@ class PelayananKarirController extends Controller
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Hapus Pelayanan Karir Sekolah!');
         } else {
             return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Hapus Pelayanan Karir Sekolah!');
+        }
+    }
+
+    function createDevelopment()
+    {
+        return view('kesiswaan.pembinaan-siswa.create', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'students' => Student::all(),
+        ]);
+    }
+
+    function storeDevelopment(Request $request)
+    {
+        $validatedData = $request->validate([
+            'dokumentasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'tanggal' => 'required|date',
+            'masalah' => 'required|string',
+            'solusi' => 'required|string',
+            'students_id' => 'required|string',
+        ]);
+
+        if ($validatedData['dokumentasi']) {
+            $image = $request->file('dokumentasi');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
+        }
+
+        $pembinaanSiswa = PembinaanSiswa::create($validatedData);
+
+        if ($pembinaanSiswa) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pembinaan Siswa Sekolah!');
+        } else {
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Tambah Pembinaan Siswa Sekolah!');
+        }
+    }
+
+    function detailDevelopment($id)
+    {
+        return view('kesiswaan.pembinaan-siswa.detail', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'pembinaan' => PembinaanSiswa::where('id', $id)->first(),
+            'students' => Student::all(),
+        ]);
+    }
+
+    function editDevelopment($id)
+    {
+        return view('kesiswaan.pembinaan-siswa.edit', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'pembinaan' => PembinaanSiswa::where('id', $id)->first(),
+            'students' => Student::all(),
+        ]);
+    }
+
+    function updateDevelopment($id, Request $request)
+    {
+        $pembinaan = PembinaanSiswa::where('id', $id)->first();
+        $validatedData = $request->validate([
+            'tanggal' => 'required|date',
+            'masalah' => 'required|string',
+            'solusi' => 'required|string',
+            'students_id' => 'required|string',
+        ]);
+
+        if ($request->file('dokumentasi')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
+            unlink($oldImagePath);
+
+            $image = $request->file('dokumentasi');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
+        } else {
+            $validatedData['dokumentasi'] = $pembinaan->dokumentasi;
+        }
+
+        $pembinaanSiswa = PembinaanSiswa::where('id', $id)->first()->update($validatedData);
+
+        if ($pembinaanSiswa) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Edit Pembinaan Siswa Sekolah!');
+        } else {
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Edit Pembinaan Siswa Sekolah!');
+        }
+    }
+
+    function deleteDevelopment($id)
+    {
+        $pembinaan = PembinaanSiswa::where('id', $id)->first();
+
+        if ($pembinaan->dokumentasi) {
+            $imagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
+            unlink($imagePath);
+        }
+
+        $pembinaan = $pembinaan->delete();
+
+        if ($pembinaan) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Hapus Pembinaan Siswa Sekolah!');
+        } else {
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Hapus Pembinaan Siswa Sekolah!');
         }
     }
 }

@@ -316,6 +316,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'editService')->name('pelayanan-karir-edit');
             Route::post('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'updateService')->name('pelayanan-karir-update');
             Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService');
+
+            Route::get('/kesiswaan/pelayanan-karir/detail-pembinaan-siswa/{id}', 'detailDevelopment')->name('pembinaan-siswa-detail');
+            Route::get('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'createDevelopment')->name('pembinaan-siswa-create');
+            Route::post('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'storeDevelopment')->name('pembinaan-siswa-store');
+            Route::get('/kesiswaan/pelayanan-karir/edit-pembinaan-siswa/{id}', 'editDevelopment')->name('pembinaan-siswa-edit');
+            Route::post('/kesiswaan/pelayanan-karir/edit-pembinaan-siswa/{id}', 'updateDevelopment')->name('pembinaan-siswa-update');
+            Route::post('/kesiswaan/pelayanan-karir/delete-pembinaan-siswa/{id}', 'deleteDevelopment');
         });
 
         Route::controller(PrestasiController::class)->group(function () {

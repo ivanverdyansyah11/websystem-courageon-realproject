@@ -129,7 +129,7 @@ class EkstrakurikulerController extends Controller
             $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
             $validatedData['icon'] = $imageName;
         } else {
-            $validatedData['icon'] = $request->oldImage;
+            $validatedData['icon'] = $request->$extracurriculer['icon'];
         }
 
         $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
