@@ -30,8 +30,12 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        <input type="text" id="tahun_masuk" class="input" autocomplete="off"
-                                            value="{{ $student->tahun_masuk }}" disabled>
+                                        @foreach ($tahun_ajarans as $tahun_ajaran)
+                                            @if ($tahun_ajaran->id == $student->tahun_masuk)
+                                                <input type="text" id="tahun_masuk" class="input" autocomplete="off"
+                                                    value="{{ $tahun_ajaran->tahun }}" disabled>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">

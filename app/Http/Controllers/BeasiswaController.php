@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beasiswa;
+use App\Models\BeasiswaPenerima;
 use App\Models\SectionBeasiswa;
+use App\Models\Student;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class BeasiswaController extends Controller
@@ -14,6 +17,10 @@ class BeasiswaController extends Controller
             'title' => 'Kesiswaan > Beasiswa',
             'section_beasiswa' => SectionBeasiswa::first(),
             'beasiswas' => Beasiswa::paginate(6),
+            'penerima_beasiswa' => BeasiswaPenerima::paginate(6),
+            'allBeasiswa' => Beasiswa::all(),
+            'students' => Student::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
         ]);
     }
 
@@ -90,123 +97,82 @@ class BeasiswaController extends Controller
         }
     }
 
-    function createExtracurriculer()
-    {
-        return view('kesiswaan.ekstrakurikuler.create', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-        ]);
-    }
-
-    function storeExtracurriculer(Request $request)
+    function storePenerimaBeasiswa(Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'tahun' => 'required|string|max:255',
+            'digunakan_untuk' => 'required|string',
+            'jumlah_beasiswa' => 'required|string|max:255',
+            'students_id' => 'required|string',
+            'beasiswas_id' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
+        $beasiswaPenerima = BeasiswaPenerima::create($validatedData);
 
-        if ($validatedData['icon']) {
-            $image = $request->file('icon');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
-        }
-
-        $extracurricular = Extracurricular::create($validatedData);
-
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
+        if ($beasiswaPenerima) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Tambah Penerima Beasiswa Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Tambah Penerima Beasiswa Sekolah!');
         }
     }
 
-    function detailExtracurriculer($id)
+    function detailPenerimaBeasiswa($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
+        $penerima_beasiswa = BeasiswaPenerima::where('id', $id)->first();
+        $students = Student::all();
+        $beasiswas = Beasiswa::all();
+        $tahun_ajarans = TahunAjaran::all();
 
-        return view('kesiswaan.ekstrakurikuler.detail', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
-        ]);
+        foreach ($students as $student) {
+            if ($student->id === $penerima_beasiswa->students_id) {
+                $penerima_beasiswa->student_nama = $student->nama_lengkap;
+                $penerima_beasiswa->student_nis = $student->nis;
+            }
+        }
+
+        foreach ($beasiswas as $beasiswa) {
+            if ($beasiswa->id === $penerima_beasiswa->beasiswas_id) {
+                $penerima_beasiswa->nama_beasiswa = $beasiswa->title;
+            }
+        }
+
+        foreach ($tahun_ajarans as $tahun_ajaran) {
+            if ($tahun_ajaran->id == $penerima_beasiswa->tahun) {
+                $penerima_beasiswa->tahun_beasiswa = $tahun_ajaran->tahun;
+            }
+        }
+
+        return response()->json($penerima_beasiswa);
     }
 
-    function editExtracurriculer($id)
+    function updatePenerimaBeasiswa($id, Request $request)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
-
-        return view('kesiswaan.ekstrakurikuler.edit', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
-        ]);
-    }
-
-    function updateExtracurriculer($id, Request $request)
-    {
-        $extracurriculer = Extracurricular::where('id', $id)->first();
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'tahun' => 'required|string|max:255',
+            'digunakan_untuk' => 'required|string',
+            'jumlah_beasiswa' => 'required|string|max:255',
+            'students_id' => 'required|string',
+            'beasiswas_id' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
+        $beasiswaPenerima = BeasiswaPenerima::where('id', $id)->first()->update($validatedData);
 
-        if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
-            unlink($oldImagePath);
-
-            $image = $request->file('icon');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+        if ($beasiswaPenerima) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Edit Penerima Beasiswa Sekolah!');
         } else {
-            $validatedData['icon'] = $request->oldImage;
-        }
-
-        $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
-
-        if ($extracurricularAction) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Edit Ekstrakurikuler Sekolah!');
-        } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Edit Penerima Beasiswa Sekolah!');
         }
     }
 
-    function deleteExtracurriculer($id)
+    function deletePenerimaBeasiswa($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
+        $beasiswaPenerima = BeasiswaPenerima::where('id', $id)->first();
+        $beasiswaPenerima = $beasiswaPenerima->delete();
 
-        if ($extracurricular->icon) {
-            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
-            unlink($imagePath);
-        }
-
-        $extracurricular = $extracurricular->delete();
-
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Hapus Ekstrakurikuler Sekolah!');
+        if ($beasiswaPenerima) {
+            return redirect(route('beasiswa-index'))->with('success', 'Berhasil Hapus Penerima Beasiswa Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Hapus Ekstrakurikuler Sekolah!');
+            return redirect(route('beasiswa-index'))->with('failed', 'Gagal Hapus Penerima Beasiswa Sekolah!');
         }
     }
 }
