@@ -40,35 +40,8 @@
                 @foreach ($partnerships as $partner)
                     <div class="col d-flex justify-content-center">
                         <img src="{{ asset('assets/img/humas-images/kemitraan-image/' . $partner->logo) }}" alt="{{ $partner->name }}" class="img-fluid">
-                    </div>                    
+                    </div>
                 @endforeach
-                {{-- <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor2.svg') }}" alt="sponsor 2 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor3.svg') }}" alt="sponsor 3 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor4.svg') }}" alt="sponsor 4 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor5.svg') }}" alt="sponsor 5 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor6.svg') }}" alt="sponsor 6 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor7.svg') }}" alt="sponsor 7 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor8.svg') }}" alt="sponsor 8 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor9.svg') }}" alt="sponsor 9 name" class="img-fluid">
-                </div>
-                <div class="col d-flex justify-content-center">
-                    <img src="{{ asset('assets-homepage/img/sponsor10.svg') }}" alt="sponsor 10 name" class="img-fluid">
-                </div> --}}
             </div>
         </section>
         <section class="berita-section container section-margin-top">

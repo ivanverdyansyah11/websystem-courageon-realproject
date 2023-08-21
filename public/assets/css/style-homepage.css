@@ -246,7 +246,13 @@ a{
     border: 1px solid rgba(35, 35, 35, 0.26);
     padding: 36px;
 }
+.pin-img img, .btn-sapras img{
+    border-radius: 8px !important;
+}
 
+section .row .col-lg-5 img{
+    border-radius: 12px !important;
+}
 /*all section setting*/
 
 
@@ -356,9 +362,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
         max-width: 295px;
     }
 }
-.pin-img img{
-    border-radius: 8px !important;
-}
+
 /*pinterest layout style*/
 
 
