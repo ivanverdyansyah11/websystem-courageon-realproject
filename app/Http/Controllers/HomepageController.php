@@ -43,7 +43,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class HomepageController extends Controller
 {
@@ -56,8 +56,8 @@ class HomepageController extends Controller
             'remarkHome' => RemarkHome::first(),
             'sectionAchievement' => SectionAchievement::first(),
             'sectionAlumni' => SectionAlumni::first(),
-            'sectionJournal' => SectionJournal::first(),
             'historyHome' => HistoryHome::first(),
+            'sectionJournal' => SectionJournal::first(),
         ]);
     }
 

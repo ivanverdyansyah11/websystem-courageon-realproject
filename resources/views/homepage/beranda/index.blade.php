@@ -6,21 +6,22 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black text-capitalize">
-                        SMA Negeri 1 Selat, Wujudkan impianmu yang tinggi di sini!
+                        {{ $headerHome->title_header }}
                     </p>
                     <p class="mt-4 desc">
-                        Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana
-                        keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan
-                        pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam
-                        setiap individu.
+                        {{ $headerHome->description }}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="{{ route('profil') }}" class="btn btn-color">lihat profile</a>
+                        <a href="{{ route('profil') }}" class="btn btn-color">{{ $headerHome->button }}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image" class="w-100">
+                    @if ($headerHome->banner)
+                        <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}" alt="hero-section image" class="w-100">
+                    @else
+                        <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image" class="w-100">
+                    @endif
                 </div>
             </div>
         </section>
@@ -28,34 +29,31 @@
             <div class="top-section row align-items-center gy-4">
                 <div class="col-lg-6 col-xl-5 col-12">
                     <p class="display-5 fw-bold">
-                        Selamat Datang Di SMA Negeri 1 Selat!
+                        {{ $openingHome->title_opening }}
                     </p>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-6 col-12">
                     <p class="desc">
-                        Di SMA Negeri 1 Selat, kami menciptakan lingkungan yang mendukung dan memelihara, yang mendorong
-                        individualitas dan kreativitas. Tim pendidik kami yang berdedikasi penuh komitmen untuk
-                        menyediakan pendidikan terbaik, dan perhatian pribadi.
+                        {{ $openingHome->description }}
                     </p>
                 </div>
             </div>
             <div class="content-section mt-5 row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image"
-                        class="w-100">
+                    @if ($remarkHome->banner)
+                        <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $remarkHome->banner) }}" alt="hero-section image" class="w-100">
+                    @else
+                        <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image" class="w-100">
+                    @endif                    
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="fw-bold display-5 text-black text-capitalize">
-                        Sambutan dari kepala sekolah SMA Negeri 1 Selat
+                        {{ $remarkHome->title_remark }}
                     </p>
                     <p class="mt-3 desc">
-                        “Puji Syukur kepada Tuhan Yang Maha Esa yang telah memberkati SMA Negeri 1 Selat sehingga boleh
-                        berkembang dan mendapat kepercayaan masyarakat. Berkomitmen meningkatkan mutu dan pelayanan,
-                        teguh dalam iman, berbudaya serta berwawasan lingkungan sehingga mampu menghasilkan lulusan yang
-                        siap terjun ke Dunia Usaha, Dunia Industri, dan Dunia Kerja serta memiliki jiwa enterpreneur,
-                        mandiri dan mampu berkompetisi di segala bidang.”
+                        {{ $remarkHome->message }}
                     </p>
                 </div>
             </div>
@@ -63,7 +61,7 @@
         <section class="prestation-section container section-margin-top">
             <div class="d-flex justify-content-center">
                 <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                    Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif di Sekolah Kami
+                    {{ $sectionAchievement->title_section }}
                 </p>
             </div>
             <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-5 gy-4">
@@ -186,7 +184,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <p class="display-5 fw-bold text-capitalize">
-                        Apa kata alumni di SMA Negeri 1 Selat?
+                        {{ $sectionAlumni->title_section }}
                     </p>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
@@ -245,23 +243,23 @@
         <section class="history-section container section-margin-top">
             <div class="row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/history-img.png') }}" alt="history section image"
-                        class="w-100">
+                    @if ($historyHome->banner)
+                        <img src="{{ asset('assets/img/sejarah-images/sambutan-image/' . $historyHome->banner) }}" alt="hero-section image" class="w-100">
+                    @else
+                        <img src="{{ asset('assets-homepage/img/history-img.png') }}" alt="history section image" class="w-100">
+                    @endif
                 </div>
                 <div class="col-lg-7 col-xl-6 col-12 offset-xl-1">
                     <p class="display-5 text-black fw-bold text-capitalize">
-                        Sejarah singkat tentang SMA Negeri 1 Selat
+                        {{ $historyHome->title_history }}
                     </p>
                     <article class="mt-3">
                         <p class="desc">
-                            SMA Negeri 1 Selat didirikan pada tahun 1995 oleh sekelompok pendidik visioner yang percaya
-                            bahwa pendidikan sejati tidak hanya tentang akademik, tetapi juga tentang memupuk keberanian
-                            dan semangat dalam setiap siswa. Berlokasi di sebuah desa kecil yang indah, sekolah ini
-                            berkomitmen untuk menciptakan lingkungan pembelajaran yang inklusif dan inspiratif.
+                            {{ $historyHome->description }}
                         </p>
                     </article>
                     <a href="{{ route('profil') }}" class="btn mt-4 btn-color d-flex gap-3 align-items-center">
-                        lihat profile
+                        {{ $historyHome->button }}
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                             fill="none">
                             <path
@@ -275,7 +273,7 @@
         <section class="blog-section section-margin-top container">
             <div class="d-flex justify-content-center">
                 <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                    berita terbaru mengenai SMA Negeri 1 Selat
+                    {{ $sectionJournal->title_header }}
                 </p>
             </div>
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
@@ -335,7 +333,7 @@
             </div>
             <div class="btn-wrapper d-flex justify-content-center mt-4">
                 <a href="{{ route('berita') }}" class="btn btn-color">
-                    lihat semua
+                    {{ $sectionJournal->button }}
                 </a>
             </div>
         </section>
