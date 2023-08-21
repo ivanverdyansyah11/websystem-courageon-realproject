@@ -724,8 +724,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'E',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '6130',
+            'nisn' => '0065471181',
             'nama_lengkap' => 'Aditya',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -741,8 +741,8 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '4768',
+            'nisn' => '797829542',
             'nama_lengkap' => 'andika satya',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -758,8 +758,8 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '8055',
+            'nisn' => '862701208',
             'nama_lengkap' => 'komang adi',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -775,8 +775,8 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '2272',
+            'nisn' => '973844481',
             'nama_lengkap' => 'ngurah',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -792,8 +792,8 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '8502',
+            'nisn' => '495433817',
             'nama_lengkap' => 'satria mahatama',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -809,8 +809,8 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
+            'nis' => '8600',
+            'nisn' => '744424024',
             'nama_lengkap' => 'saputra ',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
@@ -826,9 +826,9 @@ class DatabaseSeeder extends Seeder
             'semesters_id' => '1',
         ]);
         Student::create([
-            'nis' => '123456789',
-            'nisn' => '12345',
-            'nama_lengkap' => 'Aditya',
+            'nis' => '3985',
+            'nisn' => '749909383',
+            'nama_lengkap' => 'Putra Kresna',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2023/08/03',
