@@ -171,21 +171,15 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
-  
-
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
 
-
-
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
-
-
 
         SectionContact::create([
             'title_section' => 'Hubungi Kami',
@@ -228,23 +222,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan menjalin hubungan erat antara sekolah.',
         ]);
 
-        Partnership::create([
-            'logo' => 'sample-kemitraan.svg',
-            'name' => 'Radius Company',
-        ]);
-
         SectionJournal::create([
             'title_header' => 'Berbagai Berita Mengenai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua Berita',
-        ]);
-
-        Journal::create([
-            'thumbnail' => 'sample-majalah.jpg',
-            'title' => 'Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota',
-            'description' => 'Prestasi ini menyoroti ketekunan, dedikasi, dan kemampuan siswa dalam menghadapi tantangan matematika yang kompetitif. Kemenangan ini bukan hanya menjadi kebanggaan sekolah, tetapi juga mencerminkan upaya keras siswa dalam mempertajam kemampuan akademiknya serta membuktikan bahwa pendidikan yang berkualitas menghasilkan hasil yang gemilang.',
-            'document_pdf' => 'sample-dokumen.pdf',
-            'author' => 'Aditya Prayatna',
-            'created_date' => '2023-08-11',
         ]);
 
         HeaderSaranaPrasarana::create([
@@ -319,21 +299,9 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
-        Project::create([
-            'image' => 'sample-proyek.jpg',
-            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Gaya Hidup Berkelanjutan',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
-        ]);
-
         SectionGallery::create([
             'title_section' => 'Galeri Dokumentasi Sekolah',
             'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
-        ]);
-
-        Gallery::create([
-            'image' => 'sample-galeri.jpg',
-            'title' => 'Sample Gambar Galeri Pertama',
         ]);
 
         SectionGraduation::create([
@@ -366,19 +334,6 @@ class DatabaseSeeder extends Seeder
         SectionExtracurricular::create([
             'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
             'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
-        ]);
-
-        Extracurricular::create([
-            'icon' => 'sample-ekstrakurikuler.svg',
-            'name' => 'Sepak Bola',
-            'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
-            'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
-            'schedule_day' => 'jumat',
-            'start_time' => '15:00',
-            'end_time' => '16:00',
-            'coach' => 'Ahmad Fatoni',
-            'number_phone_coach' => '08123456789',
-            'link_register' => 'https://translate.google.co.id/?hl=id',
         ]);
 
         SectionService::create([
