@@ -557,32 +557,38 @@ class DatabaseSeeder extends Seeder
             'name' => 'Ruang Kelas',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
         Denah::create([
             'code' => 'B',
             'name' => 'Ruang Guru',
             'description' => '
             Ruang guru adalah tempat di mana para guru berkumpul untuk merencanakan pelajaran, berkolaborasi dengan kolega, dan beristirahat. Biasanya terletak di dekat kantor kepala sekolah atau dekan, dan sering kali memiliki akses ke komputer, printer, dan sumber daya lainnya. Ruang guru juga dapat digunakan untuk pertemuan dengan orang tua atau wali murid, dan kadang-kadang digunakan untuk kegiatan ekstrakurikuler.',
         ]);
+
         Denah::create([
             'code' => 'C',
             'name' => 'Ruang Waka',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
         Denah::create([
             'code' => 'D',
             'name' => 'Ruang BK',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
         Denah::create([
             'code' => 'E',
             'name' => 'Ruang Kepala Sekolah',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
         Denah::create([
             'code' => 'F',
             'name' => 'Kantin',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
+
         Denah::create([
             'code' => 'G',
             'name' => 'Lapangan Basket',
@@ -762,7 +768,6 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
-
         Project::create([
             'image' => 'proyek-1.jpg',
             'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
@@ -791,12 +796,50 @@ class DatabaseSeeder extends Seeder
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
         ]);
 
-
         SectionGallery::create([
             'title_section' => 'Galeri Dokumentasi Sekolah',
             'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
         ]);
 
+        Gallery::create([
+            'image' => 'galeri-1.jpg',
+            'title' => 'Image 1',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-2.jpg',
+            'title' => 'Image 2',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-3.jpg',
+            'title' => 'Image 3',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-4.jpg',
+            'title' => 'Image 4',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-5.jpg',
+            'title' => 'Image 5',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-6.jpg',
+            'title' => 'Image 6',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-7.jpg',
+            'title' => 'Image 7',
+        ]);
+
+        Gallery::create([
+            'image' => 'galeri-8.jpg',
+            'title' => 'Image 8',
+        ]);
 
         SectionGraduation::create([
             'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
