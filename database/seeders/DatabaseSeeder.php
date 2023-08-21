@@ -18,7 +18,10 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\Index;
 use App\Models\Journal;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
@@ -49,6 +52,7 @@ use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\Semester;
 use App\Models\Student;
+use App\Models\TahunAjaran;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -169,7 +173,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Komang Wirasatya',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'karangasem',
             'date_of_birth' => '1995-11-23',
             'highest_rank' => 'SMKN 2014',
@@ -183,7 +186,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Made Satyawan',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'bangli',
             'date_of_birth' => '1985-10-23',
             'highest_rank' => 'SMKN 2000',
@@ -197,7 +199,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Kadek Satria',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1996-12-21',
             'highest_rank' => 'SMKN 2018',
@@ -211,7 +212,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Putu Adiawan',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1990-10-11',
             'highest_rank' => 'SMKN 2011',
@@ -225,7 +225,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'Ida Bagus Darmawangsa',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1989-12-31',
             'highest_rank' => 'SMKN 2001',
@@ -239,7 +238,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Gusti Agung Sucipta',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1999-11-14',
             'highest_rank' => 'SMKN 2017',
@@ -253,7 +251,6 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Gede Arya Sucipta',
-            'image' => 'sample-manajemen.jpg',
             'place_of_birth' => 'Negara',
             'date_of_birth' => '1982-10-19',
             'highest_rank' => 'SMKN 2001',
@@ -620,6 +617,22 @@ class DatabaseSeeder extends Seeder
             'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang profesi.',
         ]);
 
+        TahunAjaran::create([
+            'tahun' => '2022/2023',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2023/2024',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2024/2025',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2026/2027',
+        ]);
+
         Semester::create([
             'semester' => 'Ganjil',
         ]);
@@ -628,9 +641,64 @@ class DatabaseSeeder extends Seeder
             'semester' => 'Genap',
         ]);
 
-        Student::create([
-            'nama_lengkap' => 'Aditya',
+        Kelas::create([
+            'name' => 'X',
+        ]);
 
+        Kelas::create([
+            'name' => 'XI',
+        ]);
+
+        Kelas::create([
+            'name' => 'XII',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Alam',
+            'code' => 'IPA',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Sosial',
+            'code' => 'IPS',
+        ]);
+
+        Index::create([
+            'name' => 'A',
+        ]);
+
+        Index::create([
+            'name' => 'B',
+        ]);
+
+        Index::create([
+            'name' => 'C',
+        ]);
+
+        Index::create([
+            'name' => 'D',
+        ]);
+
+        Index::create([
+            'name' => 'E',
+        ]);
+
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'Aditya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
         ]);
     }
 }

@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->bigInteger('role_employees_id');
             $table->string('fullname');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('nip')->nullable();
             $table->string('place_of_birth')->nullable();
             $table->date('date_of_birth')->nullable();
