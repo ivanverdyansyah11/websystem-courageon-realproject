@@ -181,6 +181,7 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
+
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Komang Wirasatya',
@@ -273,10 +274,12 @@ class DatabaseSeeder extends Seeder
             'first_date_skp' => '2014-08-01',
         ]);
 
+
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
+
 
         Employee::create([
             'role_employees_id' => '2',
@@ -350,10 +353,12 @@ class DatabaseSeeder extends Seeder
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
 
+
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
+
 
         Employee::create([
             'role_employees_id' => '3',
@@ -412,6 +417,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'L',
         ]);
 
+
         SectionContact::create([
             'title_section' => 'Hubungi Kami',
             'url_maps' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.576504957393!2d115.48273847492702!3d-8.44318009159662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2053a75a7b143%3A0x5e66d8200f7bf2a2!2sSMA%20Negeri%201%20Selat!5e0!3m2!1sid!2sid!4v1692022962270!5m2!1sid!2sid',
@@ -451,11 +457,6 @@ class DatabaseSeeder extends Seeder
         SectionKemitraan::create([
             'title_header' => 'Melangkah Bersama dengan Kemitraan Aktif Sekolah-Industri',
             'description' => 'Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan menjalin hubungan erat antara sekolah.',
-        ]);
-
-        Partnership::create([
-            'logo' => 'sample-kemitraan.svg',
-            'name' => 'Radius Company',
         ]);
 
         SectionJournal::create([
@@ -536,6 +537,7 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
+
         Project::create([
             'image' => 'sample-proyek.jpg',
             'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
@@ -563,6 +565,7 @@ class DatabaseSeeder extends Seeder
             'topic' => 'Gaya Hidup Berkelanjutan',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
         ]);
+
 
         SectionGallery::create([
             'title_section' => 'Galeri Dokumentasi Sekolah',
@@ -600,19 +603,6 @@ class DatabaseSeeder extends Seeder
         SectionExtracurricular::create([
             'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
             'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
-        ]);
-
-        Extracurricular::create([
-            'icon' => 'sample-ekstrakurikuler.svg',
-            'name' => 'Sepak Bola',
-            'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
-            'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
-            'schedule_day' => 'jumat',
-            'start_time' => '15:00',
-            'end_time' => '16:00',
-            'coach' => 'Ahmad Fatoni',
-            'number_phone_coach' => '08123456789',
-            'link_register' => 'https://translate.google.co.id/?hl=id',
         ]);
 
         SectionService::create([
