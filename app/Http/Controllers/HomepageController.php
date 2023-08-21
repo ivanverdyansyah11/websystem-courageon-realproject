@@ -89,9 +89,9 @@ class HomepageController extends Controller
             'curriculum' => Curriculum::first(),
             'sectionProgram' => SectionProgram::first(),
             'programs' => Program::all(),
-            'sectionProyek' => SectionProyek::all(),
+            'sectionProyek' => SectionProyek::first(),
             'projects' => Project::all(),
-            'sectionGallery' => SectionGallery::all(),
+            'sectionGallery' => SectionGallery::first(),
             'galleries' => Gallery::all(),
             'SectionAlumni' => SectionAlumni::all(),
         ]);
