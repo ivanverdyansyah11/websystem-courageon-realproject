@@ -16,7 +16,7 @@ x @extends('templates.main')
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
-                <div class="col-lg-5 d-lg-block d-none">                    
+                <div class="col-lg-5 d-lg-block d-none">
                     @if ($headerSaranaPrasarana->banner)
                         <img src="{{ asset('assets/img/sarana-prasarana-images/header-image/' . $headerSaranaPrasarana->banner) }}" alt="sarana prasarana section image" class="w-100">
                     @else
@@ -390,6 +390,9 @@ x @extends('templates.main')
                                 </tr>
                             </thead>
                             <tbody class="text-black">
+                                @php
+                                    $i = 1;
+                                @endphp
                                 @foreach ($denahs as $denah)
                                     <tr>
                                         <td class="d-flex justify-content-between align-items-center">
@@ -397,21 +400,21 @@ x @extends('templates.main')
                                             <div class="d-flex justify-content-center w-100">{{ $denah->name }}</div>
                                             <div class="d-flex justify-content-center w-100">
                                                 <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseExample" aria-expanded="false"
-                                                    aria-controls="collapseExample">
+                                                    data-bs-target="#collapseExample{{ $denah->code }}" aria-expanded="false"
+                                                    aria-controls="collapseExample{{ $denah->code }}">
                                                     {{ $sectionDenah->button }}
                                                 </button>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="collapse" id="collapseExample">
+                                        <td class="collapse" id="collapseExample{{ $denah->code }}">
                                             <div class="">
                                                 {{ $denah->description }}
                                             </div>
                                         </td>
-                                    </tr>                               
-                                @endforeach                                
+                                    </tr>
+                                @endforeach
                                 {{-- <tr>
                                     <td class="d-flex justify-content-between align-items-center">
                                         <div class="d-flex justify-content-center w-100">B</div>
