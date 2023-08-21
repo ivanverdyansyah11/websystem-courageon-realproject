@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Employee;
 use App\Models\HeaderHome;
+use App\Models\HeaderProfile;
 use App\Models\HistoryHome;
+use App\Models\Logo;
+use App\Models\Mars;
+use App\Models\Motto;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
+use App\Models\SectionContact;
+use App\Models\SectionManagement;
+use App\Models\SectionStaff;
+use App\Models\SectionTeacher;
+use App\Models\VisionMission;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -25,6 +36,19 @@ class HomepageController extends Controller
     {
         return view('homepage.profil.index', [
             'title' => 'Profil',
+            'headerProfile' => HeaderProfile::first(),
+            'visiMision' => VisionMission::first(),
+            'motto' => Motto::first(),
+            'logo' => Logo::first(),
+            'mars' => Mars::first(),
+            'sectionManagement' => SectionManagement::first(),
+            'managements' => Employee::where('id', '1')->get(),
+            'sectionTeacher' => SectionTeacher::first(),
+            'teachers' => Employee::where('id', '2')->get(),
+            'sectionStaff' => SectionStaff::first(),
+            'staffs' => Employee::where('id', '3')->get(),
+            'sectionContact' => SectionContact::first(),
+            'contacts' => Contact::all(),
         ]);
     }
 
