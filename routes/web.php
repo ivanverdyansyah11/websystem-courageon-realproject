@@ -113,6 +113,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/beranda/edit-remark', 'updateRemark');
             Route::get('/beranda/edit-history', 'editHistory');
             Route::post('/beranda/edit-history', 'updateHistory');
+            Route::get('/beranda/edit-navigasi', 'editNavigasi');
+            Route::post('/beranda/edit-navigasi', 'updateNavigasi');
         });
 
         // PROFIL

@@ -149,4 +149,39 @@ class BerandaController extends Controller
             return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Sejarah!');
         }
     }
+
+    function editNavigasi()
+    {
+        $navigasi = Navigasi::first();
+        return response()->json($navigasi);
+    }
+
+    function updateNavigasi(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_header' => 'required|string|max:255',
+            'description' => 'required|string',
+            'button' => 'required|string|max:255',
+        ]);
+
+        if ($request->file('banner')) {
+            $oldImagePath = public_path('assets/img/beranda-images/header-image/') . $request->oldImage;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/beranda-images/header-image/'), $imageName);
+            $validatedData['banner'] = $imageName;
+        } else {
+            $validatedData['banner'] = $request->oldImage;
+        }
+
+        $headerHome = HeaderHome::first()->update($validatedData);
+
+        if ($headerHome) {
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Header!');
+        } else {
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Header!');
+        }
+    }
 }
