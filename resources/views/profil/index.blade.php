@@ -395,7 +395,7 @@
                 url: '/admin/profil/edit-course/' + id,
                 success: function(data) {
                     $('[data-value="name_course"]').val(data.name);
-                    $('[data-value="hours_course"]').val(data.hours_per_week + ' hours');
+                    $('[data-value="hours_course"]').val(data.hours_per_week + ' Jam');
                 }
             });
         });

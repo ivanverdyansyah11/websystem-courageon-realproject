@@ -122,6 +122,31 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Selengkapnya',
         ]);
 
+        Course::create([
+            'name' => 'Matematika',
+            'hours_per_week' => '12',
+        ]);
+
+        Course::create([
+            'name' => 'IPA',
+            'hours_per_week' => '8',
+        ]);
+
+        Course::create([
+            'name' => 'PPKN',
+            'hours_per_week' => '10',
+        ]);
+
+        Course::create([
+            'name' => 'Bahasa Indonesia',
+            'hours_per_week' => '11',
+        ]);
+
+        Course::create([
+            'name' => 'Bahasa Inggris',
+            'hours_per_week' => '9',
+        ]);
+
         VisionMission::create([
             'banner' => 'banner-visi-misi.jpg',
             'title_vision' => 'Visi sekolah',
@@ -159,31 +184,6 @@ class DatabaseSeeder extends Seeder
 
         RoleEmployee::create([
             'role' => 'employee',
-        ]);
-
-        Course::create([
-            'name' => 'Matematika',
-            'hours_per_week' => '12',
-        ]);
-
-        Course::create([
-            'name' => 'IPA',
-            'hours_per_week' => '8',
-        ]);
-
-        Course::create([
-            'name' => 'PPKN',
-            'hours_per_week' => '10',
-        ]);
-
-        Course::create([
-            'name' => 'Bahasa Indonesia',
-            'hours_per_week' => '11',
-        ]);
-
-        Course::create([
-            'name' => 'Bahasa Inggris',
-            'hours_per_week' => '9',
         ]);
 
         SectionManagement::create([
