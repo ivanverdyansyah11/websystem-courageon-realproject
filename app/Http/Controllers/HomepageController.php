@@ -11,6 +11,7 @@ use App\Models\Extracurricular;
 use App\Models\Gallery;
 use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
+use App\Models\HeaderHumas;
 use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
@@ -19,6 +20,7 @@ use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
+use App\Models\Partnership;
 use App\Models\Prasarana;
 use App\Models\Program;
 use App\Models\Project;
@@ -31,6 +33,7 @@ use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
 use App\Models\SectionJournal;
+use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
 use App\Models\SectionPrasarana;
 use App\Models\SectionProgram;
@@ -126,6 +129,10 @@ class HomepageController extends Controller
     {
         return view('homepage.humas.index', [
             'title' => 'Humas',
+            'headerHumas' => HeaderHumas::first(),
+            'SectionKemitraan' => SectionKemitraan::first(),
+            'partnerships' => Partnership::all(),
+            'sectionJournal' => SectionJournal::first(),
         ]);
     }
 
