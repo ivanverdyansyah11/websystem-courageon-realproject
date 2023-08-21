@@ -282,6 +282,14 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/siswa', 'index')->name('siswa-index');
             Route::get('/kesiswaan/siswa/detail-section', 'detailSectionStudent');
             Route::post('/kesiswaan/siswa/edit-section', 'updateSectionStudent');
+
+            Route::get('/kesiswaan/siswa/data-siswa/{id}', 'studentIndex')->name('data-siswa-index');
+            Route::get('/kesiswaan/siswa/data-siswa/tambah/{id}', 'studentCreate')->name('data-siswa-create');
+            Route::post('/kesiswaan/siswa/data-siswa/tambah/{id}', 'studentStore')->name('data-siswa-store');
+            Route::get('/kesiswaan/siswa/data-siswa/detail/{id}', 'studentDetail')->name('data-siswa-detail');
+            Route::get('/kesiswaan/siswa/data-siswa/edit/{id}', 'studentEdit')->name('data-siswa-edit');
+            Route::post('/kesiswaan/siswa/data-siswa/edit/{id}', 'studentUpdate')->name('data-siswa-update');
+            Route::post('/kesiswaan/siswa/data-siswa/delete/{id}', 'studentDelete')->name('data-siswa-delete');
         });
 
         Route::controller(EkstrakurikulerController::class)->group(function () {

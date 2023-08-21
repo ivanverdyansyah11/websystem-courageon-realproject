@@ -605,7 +605,7 @@
                         @enderror
                     </div>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Kelas</button>
+                        <button type="submit" class="button-default-solid">Tambah Jurusan</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
                     </div>
                 </form>
