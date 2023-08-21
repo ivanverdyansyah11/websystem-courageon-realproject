@@ -26,6 +26,7 @@ use App\Models\Kelas;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
+use App\Models\Navigasi;
 use App\Models\OpeningHome;
 use App\Models\Partnership;
 use App\Models\Prasarana;
@@ -103,6 +104,15 @@ class DatabaseSeeder extends Seeder
             'title_history' => 'Sejarah Singkat Tentang SMA Negeri 1 Selat',
             'description' => 'SMA Negeri 1 Selat didirikan pada tahun 1995 oleh sekelompok pendidik visioner yang percaya bahwa pendidikan sejati tidak hanya tentang akademik, tetapi juga tentang memupuk keberanian dan semangat dalam setiap siswa. Berlokasi di sebuah desa kecil yang indah, sekolah ini berkomitmen untuk menciptakan lingkungan pembelajaran yang inklusif dan inspiratif.',
             'button' => 'Lihat Profile',
+        ]);
+
+        Navigasi::create([
+            'link_1' => 'Beranda',
+            'link_2' => 'Profil',
+            'link_3' => 'Akademik',
+            'link_4' => 'Kesiswaan',
+            'link_5' => 'Sarana Prasarana',
+            'link_6' => 'Humas',
         ]);
 
         HeaderProfile::create([

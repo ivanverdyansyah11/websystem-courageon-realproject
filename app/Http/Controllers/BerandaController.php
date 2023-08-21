@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HeaderHome;
 use App\Models\HistoryHome;
+use App\Models\Navigasi;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class BerandaController extends Controller
             'section_opening' => OpeningHome::first(),
             'section_remark' => RemarkHome::first(),
             'section_history' => HistoryHome::first(),
+            'navigasi' => Navigasi::first(),
         ]);
     }
 
