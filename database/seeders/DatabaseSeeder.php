@@ -48,6 +48,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\Semester;
+use App\Models\Student;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -443,6 +444,10 @@ class DatabaseSeeder extends Seeder
 
         Semester::create([
             'semester' => 'Genap',
+        ]);
+
+        Student::create([
+            'nama_lengkap' => 'Aditya'
         ]);
     }
 }

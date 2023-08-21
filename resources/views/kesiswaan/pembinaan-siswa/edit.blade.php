@@ -13,10 +13,10 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Edit Pelayanan Karir Sekolah</h5>
+                <h5 class="subtitle">Edit Pembinaan Siswa Sekolah</h5>
             </div>
             <div class="col-12">
-                <form action="{{ route('pelayanan-karir-update', $pelayanan->id) }}" method="post"
+                <form action="{{ route('pembinaan-siswa-update', $pembinaan->id) }}" method="post"
                     class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -26,9 +26,9 @@
                                     <div class="input-wrapper">
                                         <label for="image">Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
-                                            @if ($pelayanan->dokumentasi)
-                                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $pelayanan->dokumentasi) }}"
-                                                    class="img-fluid tag-edit-image" alt="Image Pelayanan Karir"
+                                            @if ($pembinaan->dokumentasi)
+                                                <img src="{{ asset('assets/img/kesiswaan-images/pembinaan-siswa-image/' . $pembinaan->dokumentasi) }}"
+                                                    class="img-fluid tag-edit-image" alt="Image Pembinaan Siswa"
                                                     width="80">
                                             @else
                                                 <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
@@ -50,7 +50,7 @@
                                         <select name="students_id" id="students_id" class="input" autocomplete="off">
                                             @foreach ($students as $student)
                                                 <option value="{{ $student->id }}"
-                                                    {{ $student->id === $pelayanan->id ? 'selected' : '' }}>
+                                                    {{ $student->id === $pembinaan->id ? 'selected' : '' }}>
                                                     {{ $student->nama_lengkap }}</option>
                                             @endforeach
                                         </select>
@@ -63,7 +63,7 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="date" id="tanggal" class="input" autocomplete="off"
-                                            value="{{ $pelayanan->tanggal }}" name="tanggal">
+                                            value="{{ $pembinaan->tanggal }}" name="tanggal">
                                         @error('tanggal')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -72,7 +72,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea name="masalah" id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah ? $pelayanan->masalah : '' }}</textarea>
+                                        <textarea name="masalah" id="masalah" rows="4" class="input" autocomplete="off">{{ $pembinaan->masalah ? $pembinaan->masalah : '' }}</textarea>
                                         @error('masalah')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -81,7 +81,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea name="solusi" id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi ? $pelayanan->solusi : '' }}</textarea>
+                                        <textarea name="solusi" id="solusi" rows="4" class="input" autocomplete="off">{{ $pembinaan->solusi ? $pembinaan->solusi : '' }}</textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

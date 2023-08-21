@@ -27,13 +27,13 @@
                                         <label for="image">Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                class="img-fluid tag-edit-image" alt="Gambar Profil" width="80">
+                                                class="img-fluid tag-add-image" alt="Gambar Profil" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="image" class="input-edit-image"
-                                                    name="image">
+                                                <input type="file" id="image" class="input-add-image"
+                                                    name="dokumentasi">
                                             </div>
                                         </div>
-                                        @error('image')
+                                        @error('dokumentasi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -44,7 +44,7 @@
                                         <select name="students_id" id="students_id" class="input" autocomplete="off">
                                             <option value="-">Pilih siswa</option>
                                             @foreach ($students as $student)
-                                                <option value="{{ $student->id }}">{{ $student->name }}</option>
+                                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
                                             @endforeach
                                         </select>
                                         @error('students_id')
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="solusi">solusi</label>
+                                        <label for="solusi">Solusi</label>
                                         <textarea name="solusi" id="solusi" rows="4" class="input" autocomplete="off"></textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -86,8 +86,8 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="button-wrapper d-flex gap-2">
-                                <button type="submit" class="button-default-solid">Tambah Guru</button>
-                                <a href="{{ route('guru-index') }}" class="button-default">Batal Tambah</a>
+                                <button type="submit" class="button-default-solid">Tambah Pelayanan Karir</button>
+                                <a href="{{ route('pelayanan-karir-index') }}" class="button-default">Batal Tambah</a>
                             </div>
                         </div>
                     </div>
@@ -97,11 +97,11 @@
     </div>
 
     <script>
-        const tagEdit = document.querySelector('.tag-edit-image');
-        const inputEdit = document.querySelector('.input-edit-image');
+        const tagAdd = document.querySelector('.tag-add-image');
+        const inputAdd = document.querySelector('.input-add-image');
 
-        inputEdit.addEventListener('change', function() {
-            tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
+        inputAdd.addEventListener('change', function() {
+            tagAdd.src = URL.createObjectURL(inputAdd.files[0]);
         });
     </script>
 @endsection

@@ -13,7 +13,7 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Detail Pelayanan Karir Sekolah</h5>
+                <h5 class="subtitle">Detail Pembinaan Siswa Sekolah</h5>
             </div>
             <div class="col-12">
                 <form class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
@@ -24,9 +24,9 @@
                                     <div class="input-wrapper">
                                         <label>Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
-                                            @if ($pelayanan->dokumentasi)
-                                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $pelayanan->dokumentasi) }}"
-                                                    class="img-fluid" alt="Image Pelayanan Karir" width="80">
+                                            @if ($pembinaan->dokumentasi)
+                                                <img src="{{ asset('assets/img/kesiswaan-images/pembinaan-siswa-image/' . $pembinaan->dokumentasi) }}"
+                                                    class="img-fluid" alt="Image Pembinaan Siswa" width="80">
                                             @else
                                                 <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                                     class="img-fluid" alt="Image Not Found" width="80">
@@ -40,7 +40,7 @@
                                         @foreach ($students as $student)
                                             <input type="text" id="students_id" class="input" autocomplete="off"
                                                 disabled
-                                                value="{{ $pelayanan->id === $student->id ? $student->nama_lengkap : '' }}">
+                                                value="{{ $pembinaan->id === $student->id ? $student->nama_lengkap : '' }}">
                                         @endforeach
                                     </div>
                                 </div>
@@ -48,19 +48,19 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="text" id="tanggal" class="input" autocomplete="off" disabled
-                                            value="{{ $pelayanan->tanggal }}">
+                                            value="{{ $pembinaan->tanggal }}">
                                     </div>
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea disabled id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah }}</textarea>
+                                        <textarea disabled id="masalah" rows="4" class="input" autocomplete="off">{{ $pembinaan->masalah }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea disabled id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi }}</textarea>
+                                        <textarea disabled id="solusi" rows="4" class="input" autocomplete="off">{{ $pembinaan->solusi }}</textarea>
                                     </div>
                                 </div>
                             </div>
