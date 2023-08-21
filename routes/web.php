@@ -242,6 +242,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/kelulusan', 'index')->name('kelulusan-index');
             Route::get('/akademik/kelulusan/detail-section', 'detailSectionGraduation');
             Route::post('/akademik/kelulusan/edit-section', 'updateSectionGraduation');
+
+            Route::get('/akademik/kelulusan/detail-kenaikan-siswa/{id}', 'detailKenaikanSiswa');
+            Route::post('/akademik/kelulusan/tambah-kenaikan-siswa', 'storeKenaikanSiswa')->name('kenaikan-siswa-store');
+            Route::post('/akademik/kelulusan/edit-kenaikan-siswa/{id}', 'updateKenaikanSiswa');
+            Route::post('/akademik/kelulusan/delete-kenaikan-siswa/{id}', 'deleteKenaikanSiswa');
         });
 
         // KESISWAAN

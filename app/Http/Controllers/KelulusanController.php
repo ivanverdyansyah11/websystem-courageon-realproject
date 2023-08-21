@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HistoryKenaikanSiswa;
+use App\Models\Index;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use App\Models\SectionGraduation;
+use App\Models\Semester;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class KelulusanController extends Controller
@@ -12,7 +18,12 @@ class KelulusanController extends Controller
         return view('akademik.kelulusan.index', [
             'title' => 'Akademik > Kelulusan',
             'section_graduation' => SectionGraduation::first(),
-            // 'partnerships' => Partnership::all(),
+            'kenaikan_siswa' => HistoryKenaikanSiswa::paginate(6),
+            'students' => Student::all(),
+            'jurusans' => Jurusan::all(),
+            'kelases' => Kelas::all(),
+            'indexes' => Index::all(),
+            'semesters' => Semester::all(),
         ]);
     }
 
@@ -40,6 +51,98 @@ class KelulusanController extends Controller
             return redirect(route('kelulusan-index'))->with('success', 'Berhasil Update Section Kelulusan!');
         } else {
             return redirect(route('kelulusan-index'))->with('failed', 'Gagal Update Section Kelulusan!');
+        }
+    }
+
+    function storeKenaikanSiswa(Request $request)
+    {
+        $validatedData = $request->validate([
+            'students_id' => 'required|string',
+            'jurusans_id' => 'required|string',
+            'kelases_id' => 'required|string',
+            'indexes_id' => 'required|string',
+            'semesters_id' => 'required|string',
+        ]);
+
+        $kenaikanSiswa = HistoryKenaikanSiswa::create($validatedData);
+
+        if ($kenaikanSiswa) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Tambah Kenaikan Siswa!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Tambah Kenaikan Siswa!');
+        }
+    }
+
+    function detailKenaikanSiswa($id)
+    {
+        $kenaikanSiswa = HistoryKenaikanSiswa::where('id', $id)->first();
+        $students = Student::all();
+        $jurusans = Jurusan::all();
+        $kelases = Kelas::all();
+        $indexes = Index::all();
+        $semesters = Semester::all();
+
+        foreach ($students as $student) {
+            if ($student->id === $kenaikanSiswa->students_id) {
+                $kenaikanSiswa->student_nama = $student->nama_lengkap;
+            }
+        }
+
+        foreach ($jurusans as $jurusan) {
+            if ($jurusan->id === $kenaikanSiswa->jurusans_id) {
+                $kenaikanSiswa->jurusan_nama = $jurusan->name;
+            }
+        }
+
+        foreach ($kelases as $kelas) {
+            if ($kelas->id === $kenaikanSiswa->kelases_id) {
+                $kenaikanSiswa->kelas_nama = $kelas->name;
+            }
+        }
+
+        foreach ($indexes as $index) {
+            if ($index->id === $kenaikanSiswa->indexes_id) {
+                $kenaikanSiswa->index_nama = $index->name;
+            }
+        }
+
+        foreach ($semesters as $semester) {
+            if ($semester->id === $kenaikanSiswa->semesters_id) {
+                $kenaikanSiswa->semester_nama = $semester->semester;
+            }
+        }
+
+        return response()->json($kenaikanSiswa);
+    }
+
+    function updateKenaikanSiswa($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'students_id' => 'required|string',
+            'jurusans_id' => 'required|string',
+            'kelases_id' => 'required|string',
+            'indexes_id' => 'required|string',
+            'semesters_id' => 'required|string',
+        ]);
+
+        $kenaikanSiswa = HistoryKenaikanSiswa::where('id', $id)->first()->update($validatedData);
+
+        if ($kenaikanSiswa) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Edit Kenaikan Siswa!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Edit Kenaikan Siswa!');
+        }
+    }
+
+    function deleteKenaikanSiswa($id)
+    {
+        $kenaikanSiswa = HistoryKenaikanSiswa::where('id', $id)->first();
+        $kenaikanSiswa = $kenaikanSiswa->delete();
+
+        if ($kenaikanSiswa) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Hapus Kenaikan Siswa!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Hapus Kenaikan Siswa!');
         }
     }
 }
