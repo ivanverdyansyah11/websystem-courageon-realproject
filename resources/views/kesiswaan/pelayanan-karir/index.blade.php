@@ -53,32 +53,31 @@
             </div>
         </div>
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Majalah Sekolah</h5>
+                <h5 class="subtitle">Pelayanan Karir Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addJournalModal">Tambah
-                    Majalah</button>
+                    data-bs-target="#addPelayananKarirModal">Tambah
+                    Pelayanan Karir</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             <div class="d-none d-md-inline-block col data-header col-2">Thumbnail</span></div>
-                            <div class="col data-header">Judul</div>
-                            <div class="col data-header">Tanggal Dibuat</div>
-                            <div class="col data-header">Deskripsi</div>
+                            <div class="col data-header">Siswa</div>
+                            <div class="col data-header">Tanggal</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($journals->count() == 0)
+                    @if ($pelayanan_karir->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Majalah!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Pelayanan Karir!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($journals as $journal)
+                        @foreach ($pelayanan_karir as $pelayanan)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="d-none d-md-inline-block col-2 data-value">
@@ -97,19 +96,19 @@
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailJournalModal"
+                                                data-bs-toggle="modal" data-bs-target="#detailPelayananKarirModal"
                                                 data-id="{{ $journal->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editJournalModal"
+                                                data-bs-toggle="modal" data-bs-target="#editPelayananKarirModal"
                                                 data-id="{{ $journal->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteJournalModal"
+                                                data-bs-toggle="modal" data-bs-target="#deletePelayananKarirModal"
                                                 data-id="{{ $journal->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
@@ -124,7 +123,7 @@
             <div class="col-12 d-flex justify-content-end mt-4">
                 {{ $journals->links() }}
             </div>
-        </div> --}}
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION HEADER --}}
@@ -141,12 +140,13 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" rows="4" class="input" autocomplete="off" data-value="description_section" disabled></textarea>
+                        <textarea id="deskripsi" rows="4" class="input" autocomplete="off" data-value="description_section"
+                            disabled></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -158,7 +158,8 @@
     {{-- END MODAL DETAIL SECTION HEADER --}}
 
     {{-- MODAL EDIT SECTION HEADER --}}
-    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
@@ -166,16 +167,16 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            name="button">
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" name="button">
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

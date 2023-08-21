@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HeaderHome;
+use App\Models\HistoryHome;
+use App\Models\OpeningHome;
+use App\Models\RemarkHome;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -10,6 +14,10 @@ class HomepageController extends Controller
     {
         return view('homepage.beranda.index', [
             'title' => 'Beranda',
+            'headerHome' => HeaderHome::first(),
+            'openingHome' => OpeningHome::first(),
+            'remarkHome' => RemarkHome::first(),
+            'historyHome' => HistoryHome::first(),
         ]);
     }
 

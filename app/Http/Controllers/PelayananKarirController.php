@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PelayananKarir;
 use App\Models\SectionService;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class PelayananKarirController extends Controller
@@ -12,7 +14,7 @@ class PelayananKarirController extends Controller
         return view('kesiswaan.pelayanan-karir.index', [
             'title' => 'Kesiswaan > Pelayanan Karir',
             'section_service' => SectionService::first(),
-            // 'extracurriculars' => Extracurricular::paginate(6),
+            'pelayanan_karir' => PelayananKarir::paginate(6),
         ]);
     }
 
@@ -37,6 +39,15 @@ class PelayananKarirController extends Controller
         } else {
             return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Update Section Pelayanan Karir!');
         }
+    }
+
+    function createPelayananKarir()
+    {
+        return view('kesiswaan.pelayanan-karir.create', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'section_service' => SectionService::first(),
+            'students' => Student::all(),
+        ]);
     }
 
     function createExtracurriculer()
