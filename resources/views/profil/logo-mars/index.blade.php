@@ -159,21 +159,23 @@
     {{-- END MODAL DETAIL LOGO --}}
 
     {{-- MODAL EDIT LOGO --}}
-    <div class="modal fade" id="editLogoModal" tabindex="-1" aria-labelledby="editLogoModalLabel" aria-hidden="true">
+    <div class="modal fade modal-xl" id="editLogoModal" tabindex="-1" aria-labelledby="editLogoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Logo Sekolah</h3>
                 <form id="editLogo" method="post" class="form d-flex flex-column justify-content-center"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
+                    <div class="row gy-4">
+                        <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="logo">Logo</label>
-                                <div class="wrapper d-flex flex-column">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_logo">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-logo" alt="Logo" width="140" data-value="logo">
+                                <div class="wrapper d-flex justify-content-between align-items-end">
+                                    <div class="w-100">
+                                        <input type="hidden" name="oldImage" data-value="oldImage_logo">
+                                        <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                            class="img-fluid tag-edit-logo" alt="Logo" width="140" data-value="logo">
+                                    </div>
                                     <div class="wrapper-image w-100">
                                         <input type="file" id="logo" class="input-edit-logo" name="logo">
                                     </div>
@@ -183,7 +185,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="inputEditLogoMeaning">Makna Logo</label>
                                 <textarea id="inputEditLogoMeaning" autocomplete="off" name="logo_meaning">
@@ -194,7 +196,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="col-12 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="inputEditFontMeaning">Makna Font</label>
                                 <textarea id="inputEditFontMeaning" autocomplete="off" name="font_meaning">
@@ -205,7 +207,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="inputEditColorMeaning">Makna Warna</label>
                                 <textarea id="inputEditColorMeaning" autocomplete="off" name="color_meaning">
