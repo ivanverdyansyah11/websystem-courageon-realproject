@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
+use App\Models\Prestasi;
 use App\Models\SectionAchievement;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,7 @@ class PrestasiController extends Controller
         return view('kesiswaan.prestasi.index', [
             'title' => 'Kesiswaan > Prestasi',
             'section_achievement' => SectionAchievement::first(),
-            // 'extracurriculars' => Extracurricular::paginate(6),
+            'allPrestasi' => Prestasi::paginate(6),
         ]);
     }
 
@@ -39,123 +41,118 @@ class PrestasiController extends Controller
         }
     }
 
-    function createExtracurriculer()
+    function createAchievement()
     {
-        return view('kesiswaan.ekstrakurikuler.create', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
+        return view('kesiswaan.prestasi.create', [
+            'title' => 'Kesiswaan > Prestasi',
+            'kelases' => Kelas::all(),
         ]);
     }
 
-    function storeExtracurriculer(Request $request)
+    function storeAchievement(Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'dokumentasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'tanggal' => 'required|date',
+            'status' => 'required|string|max:255',
+            'nama_kegiatan' => 'required|string|max:255',
+            'penyelenggara' => 'required|string|max:255',
+            'nama_peserta' => 'required|string|max:255',
+            'nis' => 'required|string',
+            'kelases_id' => 'required|string',
+            'hasil' => 'required|string|max:255',
+            'tingkat' => 'required|string|max:255',
+            'pembina' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
-
-        if ($validatedData['icon']) {
-            $image = $request->file('icon');
+        if ($validatedData['dokumentasi']) {
+            $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/prestasi-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
         }
 
-        $extracurricular = Extracurricular::create($validatedData);
+        $prestasi = Prestasi::create($validatedData);
 
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
+        if ($prestasi) {
+            return redirect(route('prestasi-index'))->with('success', 'Berhasil Tambah Prestasi Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
+            return redirect(route('prestasi-index'))->with('failed', 'Gagal Tambah Prestasi Sekolah!');
         }
     }
 
-    function detailExtracurriculer($id)
+    function detailAchievement($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
-
-        return view('kesiswaan.ekstrakurikuler.detail', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
+        return view('kesiswaan.prestasi.detail', [
+            'title' => 'Kesiswaan > Prestasi',
+            'kelases' => Kelas::all(),
+            'prestasi' => Prestasi::where('id', $id)->first(),
         ]);
     }
 
-    function editExtracurriculer($id)
+    function editAchievement($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
-
-        return view('kesiswaan.ekstrakurikuler.edit', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
+        return view('kesiswaan.prestasi.edit', [
+            'title' => 'Kesiswaan > Prestasi',
+            'kelases' => Kelas::all(),
+            'prestasi' => Prestasi::where('id', $id)->first(),
         ]);
     }
 
-    function updateExtracurriculer($id, Request $request)
+    function updateAchievement($id, Request $request)
     {
-        $extracurriculer = Extracurricular::where('id', $id)->first();
+        $achievement = Prestasi::where('id', $id)->first();
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'tanggal' => 'required|date',
+            'status' => 'required|string|max:255',
+            'nama_kegiatan' => 'required|string|max:255',
+            'penyelenggara' => 'required|string|max:255',
+            'nama_peserta' => 'required|string|max:255',
+            'nis' => 'required|string',
+            'kelases_id' => 'required|string',
+            'hasil' => 'required|string|max:255',
+            'tingkat' => 'required|string|max:255',
+            'pembina' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
-
-        if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
+        if ($request->file('dokumentasi')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $achievement['dokumentasi'];
             unlink($oldImagePath);
 
-            $image = $request->file('icon');
+            $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/prestasi-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
         } else {
-            $validatedData['icon'] = $request->oldImage;
+            $validatedData['dokumentasi'] = $achievement['dokumentasi'];
         }
 
-        $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
+        $prestasi = Prestasi::where('id', $id)->first()->update($validatedData);
 
-        if ($extracurricularAction) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Edit Ekstrakurikuler Sekolah!');
+        if ($prestasi) {
+            return redirect(route('prestasi-index'))->with('success', 'Berhasil Edit Prestasi Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
+            return redirect(route('prestasi-index'))->with('failed', 'Gagal Edit Prestasi Sekolah!');
         }
     }
 
-    function deleteExtracurriculer($id)
+    function deleteAchievement($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
+        $prestasi = Prestasi::where('id', $id)->first();
 
-        if ($extracurricular->icon) {
-            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
+        if ($prestasi->icon) {
+            $imagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->icon;
             unlink($imagePath);
         }
 
-        $extracurricular = $extracurricular->delete();
+        $prestasi = $prestasi->delete();
 
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Hapus Ekstrakurikuler Sekolah!');
+        if ($prestasi) {
+            return redirect(route('prestasi-index'))->with('success', 'Berhasil Hapus Prestasi Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Hapus Ekstrakurikuler Sekolah!');
+            return redirect(route('prestasi-index'))->with('failed', 'Gagal Hapus Prestasi Sekolah!');
         }
     }
 }

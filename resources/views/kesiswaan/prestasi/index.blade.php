@@ -51,6 +51,70 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Prestasi Sekolah</h5>
+                <a href="{{ route('prestasi-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Prestasi</a>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama <span class="d-none d-md-inline-block">Kegiatan</span></div>
+                            <div class="col data-header">Tanggal</div>
+                            <div class="d-none d-md-inline-block col data-header">Hasil</div>
+                            <div class="d-none d-md-inline-block col data-header">Tingkat</div>
+                            <div class="d-none d-md-inline-block col data-header">Deskripsi</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($allPrestasi->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Prestasi!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($allPrestasi as $prestasi)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">{{ $prestasi->nama_kegiatan }}</div>
+                                    <div class="col data-value data-length">{{ $prestasi->tanggal }}</div>
+                                    <div class="d-none col data-value data-length">{{ $prestasi->hasil }}
+                                    </div>
+                                    <div class="d-none col data-value data-length">{{ $prestasi->tingkat }}</div>
+                                    <div class="d-none col data-value data-length">{{ $prestasi->deskripsi }}
+                                    </div>
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <a href="{{ route('prestasi-detail', $prestasi->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
+                                                <div class="detail-icon"></div>
+                                            </a>
+                                            <a href="{{ route('prestasi-edit', $prestasi->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
+                                                <div class="edit-icon"></div>
+                                            </a>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteAchievementModal"
+                                                data-id="{{ $prestasi->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $allPrestasi->links() }}
+            </div>
+        </div>
     </div>
 
     {{-- MODAL DETAIL SECTION ACHIEVEMENT --}}
@@ -72,7 +136,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
+                            autocomplete="off"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -93,16 +158,16 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            name="title_section">
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            name="button">
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" name="button">
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -125,30 +190,30 @@
     </div>
     {{-- END MODAL EDIT SECTION ACHIEVEMENT --}}
 
-    {{-- MODAL DELETE EXTRACURRICULAR --}}
-    {{-- <div class="modal fade" id="deleteExtracurricularModal" tabindex="-1" aria-labelledby="deleteExtracurricularModalLabel"
+    {{-- MODAL DELETE ACHIEVEMENT --}}
+    <div class="modal fade" id="deleteAchievementModal" tabindex="-1" aria-labelledby="deleteAchievementModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Ekstrakurikuler Sekolah</h3>
-                <form id="deleteExtracurricular" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Prestasi Sekolah</h3>
+                <form id="deleteAchievement" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Ekstrakurikuler Sekolah: Apakah Anda yakin
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Prestasi Sekolah: Apakah Anda yakin
                         ingin
-                        menghapus ekstrakurikuler sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan ekstrakurikuler sekolah akan dihapus secara permanen dari
+                        menghapus prestasi sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan prestasi sekolah akan dihapus secara permanen dari
                         sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Ekstrakurikuler</button>
+                        <button type="submit" class="button-default-solid">Hapus Prestasi</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div> --}}
-    {{-- END MODAL DELETE EXTRACURRICULAR --}}
+    </div>
+    {{-- END MODAL DELETE ACHIEVEMENT --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionAchievementModal"]', function() {
@@ -178,21 +243,7 @@
 
         $(document).on('click', '[data-bs-target="#deleteAchievementModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteAchievement').attr('action', '/admin/kesiswaan/prestasi/delete-prestasi/' +
-                id);
-        });
-
-        const tagAddImage = document.querySelector('.tag-add-image');
-        const inputAddImage = document.querySelector('.input-add-image');
-        const tagEditImage = document.querySelector('.tag-edit-image');
-        const inputEditImage = document.querySelector('.input-edit-image');
-
-        inputAddImage.addEventListener('change', function() {
-            tagAddImage.src = URL.createObjectURL(inputAddImage.files[0]);
-        });
-
-        inputEditImage.addEventListener('change', function() {
-            tagEditImage.src = URL.createObjectURL(inputEditImage.files[0]);
+            $('#deleteAchievement').attr('action', '/admin/kesiswaan/prestasi/delete-prestasi/' + id);
         });
     </script>
 @endsection
