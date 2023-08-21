@@ -356,6 +356,9 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
         max-width: 295px;
     }
 }
+.pin-img img{
+    border-radius: 8px !important;
+}
 /*pinterest layout style*/
 
 

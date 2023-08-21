@@ -45,7 +45,7 @@
                         <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $remarkHome->banner) }}" alt="hero-section image" class="w-100">
                     @else
                         <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image" class="w-100">
-                    @endif                    
+                    @endif
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-xl-6 col-lg-7 col-12">
@@ -376,7 +376,7 @@
           spaceBetween: 10
         },
         500:{
-          slidesPerView: 2,
+          slidesPerView: 1.2,
           spaceBetween: 20
         }
       }

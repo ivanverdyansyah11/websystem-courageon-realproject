@@ -166,26 +166,251 @@ class DatabaseSeeder extends Seeder
             'hours_per_week' => '10',
         ]);
 
+        Course::create([
+            'name' => 'Bahasa Indonesia',
+            'hours_per_week' => '11',
+        ]);
+
+        Course::create([
+            'name' => 'Bahasa Inggris',
+            'hours_per_week' => '9',
+        ]);
+
         SectionManagement::create([
             'title_section' => 'Data Manajemen SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
 
-  
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Komang Wirasatya',
+            'place_of_birth' => 'karangasem',
+            'date_of_birth' => '1995-11-23',
+            'highest_rank' => 'SMKN 2014',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Made Satyawan',
+            'place_of_birth' => 'bangli',
+            'date_of_birth' => '1985-10-23',
+            'highest_rank' => 'SMKN 2000',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Kadek Satria',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1996-12-21',
+            'highest_rank' => 'SMKN 2018',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Putu Adiawan',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1990-10-11',
+            'highest_rank' => 'SMKN 2011',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'Ida Bagus Darmawangsa',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1989-12-31',
+            'highest_rank' => 'SMKN 2001',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Gusti Agung Sucipta',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1999-11-14',
+            'highest_rank' => 'SMKN 2017',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Gede Arya Sucipta',
+            'place_of_birth' => 'Negara',
+            'date_of_birth' => '1982-10-19',
+            'highest_rank' => 'SMKN 2001',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
 
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
 
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'Drs. I Wayan Cenik, M.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19650428 199512 1 002',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
 
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'Ida Bagus Nyoman Gelgel, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19670110 199203 1 012',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'P',
+            'course_id' => '2',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Wayan Suarsana, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19680517 199512 1 003',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Wayan Mudayasa, S.Pd',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19700622 199512 1 001',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'Dra. Ni Wayan Mastriani.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19650428 199512 1 005',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'P',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Gusti Bagus Jelantik, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19680713 199002 1 003',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina / IVa',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Nyoman Pasek Suadnyana, S.Pd',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19641231 198403 1 029',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
 
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
 
-
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Nengah Sumerta, S.Sos.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata / IIIc',
+            'position' => 'Analis SDM / KTU',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Gusti Agung Putra, S.E.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Tk.1/ III/.d',
+            'position' => 'Pengelola Data',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'Putu Ari Setiawati.,S.E.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata/ III/.c',
+            'position' => 'Pengelola BMD',
+            'gender' => 'P',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Wayan Putu Adi Jenar, S.Pd',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Muda /III/a',
+            'position' => 'Pengelola Keuangan',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Ketut Yasa',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Muda/III/a',
+            'position' => 'Pengadminitrasian Umum',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'Komang Asri, A.Md.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Pengatur II.c',
+            'position' => 'Analis SDM / KTU',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Komang Sumerta',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Pengatur III.c',
+            'position' => 'Pengadminitrasian Kesiswaan',
+            'gender' => 'L',
+        ]);
 
         SectionContact::create([
             'title_section' => 'Hubungi Kami',
@@ -238,14 +463,6 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua Berita',
         ]);
 
-        Journal::create([
-            'thumbnail' => 'sample-majalah.jpg',
-            'title' => 'Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota',
-            'description' => 'Prestasi ini menyoroti ketekunan, dedikasi, dan kemampuan siswa dalam menghadapi tantangan matematika yang kompetitif. Kemenangan ini bukan hanya menjadi kebanggaan sekolah, tetapi juga mencerminkan upaya keras siswa dalam mempertajam kemampuan akademiknya serta membuktikan bahwa pendidikan yang berkualitas menghasilkan hasil yang gemilang.',
-            'document_pdf' => 'sample-dokumen.pdf',
-            'author' => 'Aditya Prayatna',
-            'created_date' => '2023-08-11',
-        ]);
 
         HeaderSaranaPrasarana::create([
             'banner' => 'banner-header.jpg',
@@ -326,15 +543,32 @@ class DatabaseSeeder extends Seeder
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
         ]);
 
+        Project::create([
+            'image' => 'sample-proyek.jpg',
+            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Gaya Hidup Berkelanjutan',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
+        ]);
+
+        Project::create([
+            'image' => 'sample-proyek.jpg',
+            'title' => 'Kearifan Lokal, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Kearifan Lokal',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema kearifan lokal di sekolah merupakan upaya yang bertujuan untuk mengintegrasikan nilai-nilai luhur Pancasila dengan nilai-nilai kearifan lokal dalam pendidikan. Tujuan dari proyek ini adalah menghasilkan generasi muda yang tidak hanya mengerti dan menghargai prinsip-prinsip dasar negara Indonesia, tetapi juga memiliki pemahaman yang mendalam terhadap budaya dan tradisi lokal yang kaya.',
+        ]);
+
+        Project::create([
+            'image' => 'sample-proyek.jpg',
+            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
+            'topic' => 'Gaya Hidup Berkelanjutan',
+            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
+        ]);
+
         SectionGallery::create([
             'title_section' => 'Galeri Dokumentasi Sekolah',
             'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
         ]);
 
-        Gallery::create([
-            'image' => 'sample-galeri.jpg',
-            'title' => 'Sample Gambar Galeri Pertama',
-        ]);
 
         SectionGraduation::create([
             'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
@@ -467,6 +701,125 @@ class DatabaseSeeder extends Seeder
 
         Index::create([
             'name' => 'E',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'Aditya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'andika satya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'komang adi',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'ngurah',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'satria mahatama',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'saputra ',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+        Student::create([
+            'nis' => '123456789',
+            'nisn' => '12345',
+            'nama_lengkap' => 'Aditya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2023/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Ayani',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '1',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
         ]);
     }
 }
