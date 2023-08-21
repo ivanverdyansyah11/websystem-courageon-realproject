@@ -12,7 +12,7 @@
                     <div class="alert alert-danger mb-4" role="alert">
                         {{ session('failed') }}
                     </div>
-                @endif
+                @endif  
             </div>
         </div>
         <div class="row row-gap">

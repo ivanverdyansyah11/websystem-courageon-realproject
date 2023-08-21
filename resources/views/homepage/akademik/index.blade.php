@@ -7,47 +7,47 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        Inovasi Peningkatan Prestasi Akademik di Sekolah!
+                        {{ $headerAcademic->title_header }}
                     </p>
                     <p class="mt-4 desc">
-                        Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah.
-                        Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas
-                        disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan
-                        keluarga dalam mencapai hasil akademik yang lebih baik.
+                        {{ $headerAcademic->description }}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#kurikulum" class="btn btn-color">lihat selengkapnya</a>
+                        <a href="#kurikulum" class="btn btn-color">{{ $headerAcademic->button }}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image"
-                        class="w-100">
+                    @if ($headerAcademic->banner)
+                        <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}" alt="akademik section image" class="w-100">                        
+                    @else
+                        <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image" class="w-100">
+                    @endif
                 </div>
             </div>
         </section>
         <section class="kurikulum-section container section-margin-top" id="kurikulum">
             <div class="row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image"
-                        class="w-100">
+                    @if ($curriculum->banner)
+                        <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}" alt="kurikulum section image" class="w-100">                        
+                    @else
+                        <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image" class="w-100">
+                    @endif
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black display-5 fw-bold text-capitalize">
-                        Langkah kami Menghadapi Pendidikan Abad ke-21
+                        {{ $curriculum->title_section }}
                     </p>
                     <article class="mt-3">
                         <p class="desc">
-                            Kurikulum di sekolah merupakan inti dari pendidikan formal, dan terus mengalami transformasi
-                            untuk menghadapi perubahan zaman dan tantangan abad ke-21. Deskripsi ini akan mengeksplorasi
-                            perubahan signifikan dalam kurikulum yang dilakukan oleh institusi pendidikan guna mempersiapkan
-                            generasi muda untuk menghadapi dunia yang cepat berubah dan kompleks.
+                            {!! $curriculum->description !!}
                         </p>
-                        <p class="desc mt-1">
+                        {{-- <p class="desc mt-1">
                             Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam
                             mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21
                             seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.
-                        </p>
+                        </p> --}}
                     </article>
                 </div>
             </div>
@@ -55,7 +55,7 @@
         <section class="program-akademik-section container section-margin-top">
             <div class="d-flex justify-content-center">
                 <p class="title-section-text text-center fw-bold text-capitalize text-black display-5">
-                    Program akademik sekolah
+                    {{ $sectionProgram->title_section }}
                 </p>
             </div>
             <div class="d-flex flex-column gap-5 mt-5">
@@ -128,59 +128,29 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="long-title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Pelaksanaan 5P (Projek Penguatan profile pelajar pancasila) di SMA Negeri 1 Selat
+                        {{ $sectionProyek->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat
-                        pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini
-                        dalam kehidupan sehari-hari dan masyarakat.
+                        {{ $sectionProyek->description }}
                     </p>
                 </div>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <a href="" class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Kearifan Lokal" class="w-100">
-                            <div class="mt-3 text-center">
-                                <p class="text-black fw-bold">Kearifan Lokal</p>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
+                    @foreach ($projects as $project)
+                        <a href="" class="col">
+                            <div class="card-p5">
+                                <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Kearifan Lokal" class="w-100">
+                                <div class="mt-3 text-center">
+                                    <p class="text-black fw-bold">{{ $project->topic }}</p>
+                                    <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="" class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p53.png') }}" alt="Bhinneka Tunggal Ika" class="w-100">
-                            <div class="mt-3 text-center">
-                                <p class="text-black fw-bold">Bhinneka Tunggal Ika</p>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p51.png') }}" alt="Bangunlah Jiwa dan Raganya"
-                                class="w-100">
-                            <div class="mt-3 text-center">
-                                <p class="text-black fw-bold">Bhinneka Tunggal Ika</p>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="col">
-                        <div class="card-p5">
-                            <img src="{{ asset('assets-homepage/img/p54.png') }}" alt="Bangunlah Jiwa dan Raganya"
-                                class="w-100">
-                            <div class="mt-3 text-center">
-                                <p class="text-black fw-bold">Bhinneka Tunggal Ika</p>
-                                <p class="desc fs-13 text-capitalize">Proyek penguatan profil pelajar...</p>
-                            </div>
-                        </div>
-                    </a>
-
+                        </a>
+                    @endforeach
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('projek') }}" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('projek') }}" class="btn btn-color">{{ $sectionProyek->button }}</a>
                 </div>
             </div>
         </section>
@@ -188,20 +158,21 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Galeri Dokumentasi sekolah
+                        {{ $sectionGallery->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan
-                        ekspresi berani dari para siswa dan seniman berbakat kami.
+                        {{ $sectionGallery->description }}
                     </p>
                 </div>
             </div>
             <div class="mt-2">
                 <div class="pin-container">
-                    <a href="{{ asset('assets-homepage/img/gallery1.png') }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
-                        <img src="{{ asset('assets-homepage/img/gallery1.png') }}" class="w-100" alt="gallery 1">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
+                    @foreach ($galleries as $gallery)
+                        <a href="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}" class="w-100" alt="gallery {{ $loop->index + 1 }}">
+                        </a>
+                    @endforeach
+                    {{-- <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
                     </a>
                     <a href="{{ asset('assets-homepage/img/gallery3.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
@@ -209,7 +180,7 @@
                     </a>
                     <a href="{{ asset('assets-homepage/img/gallery4.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery4.png') }}" class="w-100" alt="gallery 4">
-                    </a>
+                    </a> 
                     <a href="{{ asset('assets-homepage/img/gallery5.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery5.png') }}" class="w-100" alt="gallery 5">
                     </a>
@@ -221,7 +192,7 @@
                     </a>
                     <a href="{{ asset('assets-homepage/img/gallery8.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
                         <img src="{{ asset('assets-homepage/img/gallery8.png') }}" class="w-100" alt="gallery 8">
-                    </a>
+                    </a> --}}
 
                 </div>
             </div>

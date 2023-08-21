@@ -43,7 +43,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class HomepageController extends Controller
 {
@@ -56,8 +56,8 @@ class HomepageController extends Controller
             'remarkHome' => RemarkHome::first(),
             'sectionAchievement' => SectionAchievement::first(),
             'sectionAlumni' => SectionAlumni::first(),
-            'sectionJournal' => SectionJournal::first(),
             'historyHome' => HistoryHome::first(),
+            'sectionJournal' => SectionJournal::first(),
         ]);
     }
 
@@ -71,11 +71,11 @@ class HomepageController extends Controller
             'logo' => Logo::first(),
             'mars' => Mars::first(),
             'sectionManagement' => SectionManagement::first(),
-            'managements' => Employee::where('id', '1')->get(),
+            'managements' => Employee::where('role_employees_id', '1')->get(),
             'sectionTeacher' => SectionTeacher::first(),
-            'teachers' => Employee::where('id', '2')->get(),
+            'teachers' => Employee::where('role_employees_id', '2')->get(),
             'sectionStaff' => SectionStaff::first(),
-            'staffs' => Employee::where('id', '3')->get(),
+            'staffs' => Employee::where('role_employees_id', '3')->get(),
             'sectionContact' => SectionContact::first(),
             'contacts' => Contact::all(),
         ]);
@@ -89,9 +89,9 @@ class HomepageController extends Controller
             'curriculum' => Curriculum::first(),
             'sectionProgram' => SectionProgram::first(),
             'programs' => Program::all(),
-            'sectionProyek' => SectionProyek::all(),
+            'sectionProyek' => SectionProyek::first(),
             'projects' => Project::all(),
-            'sectionGallery' => SectionGallery::all(),
+            'sectionGallery' => SectionGallery::first(),
             'galleries' => Gallery::all(),
             'SectionAlumni' => SectionAlumni::all(),
         ]);
