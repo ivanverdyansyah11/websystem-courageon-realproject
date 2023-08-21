@@ -23,6 +23,7 @@
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
+                            <div class="d-none d-md-inline-block col data-header">Denah Sekolah</div>
                             <div class="col data-header">Judul Section</div>
                             <div class="d-none d-md-inline-block col data-header">Judul Kode</div>
                             <div class="d-none d-md-inline-block col data-header">Judul Ruangan</div>
@@ -31,6 +32,15 @@
                     </div>
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center justify-content-between">
+                            <div class="d-none d-md-inline-block col-2 data-value">
+                                @if ($section->map)
+                                    <img src="{{ asset('assets/img/sarana-prasarana-images/denah-image/' . $section->map) }}"
+                                        class="img-fluid" alt="Denah Sekolah" width="80">
+                                @else
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Image Not Found" width="80">
+                                @endif
+                            </div>
                             <div class="col data-value data-length">{{ $section->title_section }}</div>
                             <div class="d-none d-md-inline-block col data-value data-length">{{ $section->title_code }}
                             </div>
@@ -124,29 +134,48 @@
     {{-- MODAL DETAIL SECTION MAP --}}
     <div class="modal fade" id="detailSectionDenahModal" tabindex="-1" aria-labelledby="detailSectionDenahModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Denah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="input-wrapper">
-                        <label for="judul_section">Judul Section</label>
-                        <input type="text" id="judul_section" class="input" autocomplete="off"
-                            data-value="title_section" disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul_kode">Judul Kode</label>
-                        <input type="text" id="judul_kode" class="input" autocomplete="off" data-value="title_code"
-                            disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul_ruangan">Judul Ruangan</label>
-                        <input type="text" id="judul_ruangan" class="input" autocomplete="off"
-                            data-value="title_room" disabled>
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" disabled>
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label>Denah Sekolah</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Image Not Found" width="80" data-value="map">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul_section">Judul Section</label>
+                                <input type="text" id="judul_section" class="input" autocomplete="off"
+                                    data-value="title_section" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul_kode">Judul Kode</label>
+                                <input type="text" id="judul_kode" class="input" autocomplete="off"
+                                    data-value="title_code" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-6 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="judul_ruangan">Judul Ruangan</label>
+                                <input type="text" id="judul_ruangan" class="input" autocomplete="off"
+                                    data-value="title_room" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" autocomplete="off"
+                                    data-value="button_section" disabled>
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -160,42 +189,69 @@
     {{-- MODAL EDIT SECTION MAP --}}
     <div class="modal fade" id="editSectionDenahModal" tabindex="-1" aria-labelledby="editSectionDenahModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Prasarana</h3>
-                <form id="editSectionDenah" method="post" class="form d-flex flex-column justify-content-center">
+                <form id="editSectionDenah" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
                     @csrf
-                    <div class="input-wrapper">
-                        <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
-                            data-value="title_section">
-                        @error('title_section')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul_kode">Judul Kode</label>
-                        <input type="text" id="judul_kode" class="input" autocomplete="off" data-value="title_code"
-                            name="title_code">
-                        @error('title_code')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="judul_ruangan">Judul Ruangan</label>
-                        <input type="text" id="judul_ruangan" class="input" autocomplete="off"
-                            data-value="title_room" name="title_room">
-                        @error('title_room')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="input-wrapper">
-                        <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" name="button" autocomplete="off"
-                            data-value="button_section">
-                        @error('button')
-                            <p class="caption-error mt-2">{{ $message }}</p>
-                        @enderror
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="map">Denah Sekolah</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-map" alt="Denah Sekolah" width="80"
+                                        data-value="map">
+                                    <div class="wrapper-image w-100">
+                                        <input type="file" id="map" class="input-edit-map" name="map">
+                                    </div>
+                                </div>
+                                @error('map')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul">Judul Section</label>
+                                <input type="text" id="judul" class="input" name="title_section"
+                                    autocomplete="off" data-value="title_section">
+                                @error('title_section')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="judul_kode">Judul Kode</label>
+                                <input type="text" id="judul_kode" class="input" autocomplete="off"
+                                    data-value="title_code" name="title_code">
+                                @error('title_code')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-6 mb-md-0">
+                            <div class="input-wrapper">
+                                <label for="judul_ruangan">Judul Ruangan</label>
+                                <input type="text" id="judul_ruangan" class="input" autocomplete="off"
+                                    data-value="title_room" name="title_room">
+                                @error('title_room')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-wrapper">
+                                <label for="button">Button Label</label>
+                                <input type="text" id="button" class="input" name="button" autocomplete="off"
+                                    data-value="button_section">
+                                @error('button')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -350,6 +406,8 @@
                     $('[data-value="title_code"]').val(data.title_code);
                     $('[data-value="title_room"]').val(data.title_room);
                     $('[data-value="button_section"]').val(data.button);
+                    $('[data-value="map"]').attr("src",
+                        "/assets/img/sarana-prasarana-images/denah-image/" + data.map);
                 }
             });
         });
@@ -364,6 +422,8 @@
                     $('[data-value="title_code"]').val(data.title_code);
                     $('[data-value="title_room"]').val(data.title_room);
                     $('[data-value="button_section"]').val(data.button);
+                    $('[data-value="map"]').attr("src",
+                        "/assets/img/sarana-prasarana-images/denah-image/" + data.map);
                 }
             });
         });
@@ -400,18 +460,11 @@
             $('#deleteRoom').attr('action', '/admin/sarana-prasarana/denah/delete-ruangan/' + id);
         });
 
-        const tagAddIcon = document.querySelector('.tag-add-icon');
-        const inputAddIcon = document.querySelector('.input-add-icon');
+        const tagEditMap = document.querySelector('.tag-edit-map');
+        const inputEditMap = document.querySelector('.input-edit-map');
 
-        const tagEditIcon = document.querySelector('.tag-edit-icon');
-        const inputEditIcon = document.querySelector('.input-edit-icon');
-
-        inputAddIcon.addEventListener('change', function() {
-            tagAddIcon.src = URL.createObjectURL(inputAddIcon.files[0]);
-        });
-
-        inputEditIcon.addEventListener('change', function() {
-            tagEditIcon.src = URL.createObjectURL(inputEditIcon.files[0]);
+        inputEditMap.addEventListener('change', function() {
+            tagEditMap.src = URL.createObjectURL(inputEditMap.files[0]);
         });
     </script>
 @endsection

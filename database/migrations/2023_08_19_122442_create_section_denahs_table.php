@@ -15,6 +15,7 @@ class CreateSectionDenahsTable extends Migration
     {
         Schema::create('section_denahs', function (Blueprint $table) {
             $table->id();
+            $table->string('map');
             $table->string('title_section');
             $table->string('title_code');
             $table->string('title_room');

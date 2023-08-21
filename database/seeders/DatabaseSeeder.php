@@ -475,6 +475,120 @@ class DatabaseSeeder extends Seeder
             'link' => '0274 - 513454',
         ]);
 
+        HeaderSaranaPrasarana::create([
+            'banner' => 'banner-header.jpg',
+            'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
+            'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
+            'button' => 'Lihat Selengkapnya',
+        ]);
+
+        SectionPrasarana::create([
+            'title_section' => 'Pentingnya Peningkatan Sarana Dan Prasarana Di Sekolah',
+            'description' => 'Peningkatan sarana dan prasarana di sekolah untuk menciptakan lingkungan belajar yang optimal. Infrastruktur fisik, teknologi pendidikan, keamanan, dan aksesibilitas.',
+            'button' => 'Lihat Semua',
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-1.jpg',
+            'name' => 'Ruang Kelas',
+            'description' => 'Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas',
+            'total' => 26,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-2.jpg',
+            'name' => 'Ruang Guru',
+            'description' => 'Ruang Guru yang modern dan dilengkapi dengan teknologi canggih menjadi tempat inspirasi bagi pendidik untuk mengembangkan metode pengajaran yang inovatif, memastikan pembelajaran berjalan efektif dan dinamis di Courageon School.',
+            'total' => 3,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-3.jpg',
+            'name' => 'Ruang Perpustakaan',
+            'description' => 'Ruang Perpustakaan kami adalah tempat yang nyaman dan inspiratif bagi siswa untuk menjelajahi dunia pengetahuan melalui koleksi buku-buku bermutu tinggi serta fasilitas modern yang mendukung proses pembelajaran dan eksplorasi.',
+            'total' => 2,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-4.jpg',
+            'name' => 'Tempat Beribadah',
+            'description' => 'Tempat beribadah kami adalah ruang yang disediakan dengan penuh hormat, menciptakan lingkungan yang tenang dan khusyuk bagi siswa untuk melaksanakan praktik agama mereka dengan hikmat dan damai.',
+            'total' => 1,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-5.jpg',
+            'name' => 'Laboratorium Sains',
+            'description' => 'Laboratorium Sains kami adalah tempat di mana siswa dapat menjalankan eksperimen ilmiah dengan peralatan canggih, memfasilitasi penemuan, eksplorasi, dan pemahaman mendalam tentang konsep-konsep ilmiah dalam lingkungan yang aman dan terarah.',
+            'total' => 2,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-6.jpg',
+            'name' => 'Kantin Sekolah',
+            'description' => 'Kantin sekolah kami menyediakan pilihan makanan yang sehat dan lezat bagi siswa, menciptakan ruang yang nyaman untuk makan bersama dan berinteraksi, mendukung gaya hidup sehat dan sosial di antara komunitas sekolah kami.',
+            'total' => 3,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-7.jpg',
+            'name' => 'Lapangan Basket',
+            'description' => 'Lapangan basket kami merupakan tempat yang dinamis dan energik, menginspirasi siswa untuk berolahraga, bekerja sama dalam tim, dan mengembangkan keterampilan atletik dalam suasana yang penuh semangat dan kompetitif.',
+            'total' => 1,
+        ]);
+
+        Prasarana::create([
+            'image' => 'sarana-prasarana-8.jpg',
+            'name' => 'Kamar mandi Siswa',
+            'description' => 'Kamar mandi siswa kami dirancang untuk memberikan kenyamanan dan kebersihan, menciptakan lingkungan yang mendukung kebutuhan praktis siswa dalam menjaga kebersihan dan kesehatan mereka selama jam sekolah.',
+            'total' => 6,
+        ]);
+
+        SectionDenah::create([
+            'map' => 'denah-map.jpg',
+            'title_section' => 'Kode Denah',
+            'title_code' => 'Kode Ruangan',
+            'title_room' => 'Nama Ruangan',
+            'button' => 'Detail',
+        ]);
+
+        Denah::create([
+            'code' => 'A',
+            'name' => 'Ruang Kelas',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+        Denah::create([
+            'code' => 'B',
+            'name' => 'Ruang Guru',
+            'description' => '
+            Ruang guru adalah tempat di mana para guru berkumpul untuk merencanakan pelajaran, berkolaborasi dengan kolega, dan beristirahat. Biasanya terletak di dekat kantor kepala sekolah atau dekan, dan sering kali memiliki akses ke komputer, printer, dan sumber daya lainnya. Ruang guru juga dapat digunakan untuk pertemuan dengan orang tua atau wali murid, dan kadang-kadang digunakan untuk kegiatan ekstrakurikuler.',
+        ]);
+        Denah::create([
+            'code' => 'C',
+            'name' => 'Ruang Waka',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+        Denah::create([
+            'code' => 'D',
+            'name' => 'Ruang BK',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+        Denah::create([
+            'code' => 'E',
+            'name' => 'Ruang Kepala Sekolah',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+        Denah::create([
+            'code' => 'F',
+            'name' => 'Kantin',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+        Denah::create([
+            'code' => 'G',
+            'name' => 'Lapangan Basket',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
+
         HeaderHumas::create([
             'banner' => 'banner-header.jpg',
             'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
@@ -607,70 +721,6 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'journal-pdf-8.pdf',
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
-        ]);
-
-        HeaderSaranaPrasarana::create([
-            'banner' => 'banner-header.jpg',
-            'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
-            'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
-            'button' => 'Lihat Selengkapnya',
-        ]);
-
-        SectionPrasarana::create([
-            'title_section' => 'Pentingnya Peningkatan Sarana Dan Prasarana Di Sekolah',
-            'description' => 'Peningkatan sarana dan prasarana di sekolah untuk menciptakan lingkungan belajar yang optimal. Infrastruktur fisik, teknologi pendidikan, keamanan, dan aksesibilitas.',
-            'button' => 'Lihat Semua',
-        ]);
-
-        Prasarana::create([
-            'image' => 'sample-sarana-prasarana.jpg',
-            'name' => 'Ruang Kelas',
-            'description' => 'Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas',
-            'total' => 38,
-        ]);
-
-        SectionDenah::create([
-            'title_section' => 'Kode Denah',
-            'title_code' => 'Kode Ruangan',
-            'title_room' => 'Nama Ruangan',
-            'button' => 'Detail',
-        ]);
-
-        Denah::create([
-            'code' => 'A',
-            'name' => 'Ruang Kelas',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
-        ]);
-        Denah::create([
-            'code' => 'B',
-            'name' => 'Ruang Guru',
-            'description' => '
-            Ruang guru adalah tempat di mana para guru berkumpul untuk merencanakan pelajaran, berkolaborasi dengan kolega, dan beristirahat. Biasanya terletak di dekat kantor kepala sekolah atau dekan, dan sering kali memiliki akses ke komputer, printer, dan sumber daya lainnya. Ruang guru juga dapat digunakan untuk pertemuan dengan orang tua atau wali murid, dan kadang-kadang digunakan untuk kegiatan ekstrakurikuler.',
-        ]);
-        Denah::create([
-            'code' => 'C',
-            'name' => 'Ruang Waka',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
-        ]);
-        Denah::create([
-            'code' => 'D',
-            'name' => 'Ruang BK',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
-        ]);
-        Denah::create([
-            'code' => 'E',
-            'name' => 'Ruang Kepala Sekolah',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
-        ]);
-        Denah::create([
-            'code' => 'F',
-            'name' => 'Kantin',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
-        ]);
-        Denah::create([
-            'code' => 'G',
-            'name' => 'Lapangan Basket',
-            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
 
         HeaderAcademic::create([

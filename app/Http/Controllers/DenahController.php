@@ -25,12 +25,25 @@ class DenahController extends Controller
 
     function updateSection(Request $request)
     {
+        $denah = SectionDenah::first();
         $validatedData = $request->validate([
             'title_section' => 'required|string|max:255',
             'title_code' => 'required|string|max:255',
             'title_room' => 'required|string|max:255',
             'button' => 'required|string|max:255',
         ]);
+
+        if ($request->file('map')) {
+            $oldImagePath = public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'];
+            unlink($oldImagePath);
+
+            $image = $request->file('map');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/sarana-prasarana-images/denah-image/'), $imageName);
+            $validatedData['map'] = $imageName;
+        } else {
+            $validatedData['map'] = $denah['map'];
+        }
 
         $sectionDenah = SectionDenah::first()->update($validatedData);
 

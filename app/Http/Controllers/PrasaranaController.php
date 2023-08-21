@@ -104,8 +104,8 @@ class PrasaranaController extends Controller
     {
         $prasarana = Prasarana::where('id', $id)->first();
 
-        if ($prasarana->icon) {
-            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->icon;
+        if ($prasarana->image) {
+            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image;
             unlink($imagePath);
         }
 
