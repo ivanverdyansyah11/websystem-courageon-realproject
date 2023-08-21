@@ -6,21 +6,22 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        Kesiswaan Membentuk Karakter & Kreativitas di Sekolah
+                        {{ $headerStudent->title_header }}
                     </p>
                     <p class="mt-4 desc">
-                        Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan
-                        ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama
-                        tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.
+                        {{ $headerStudent->description }}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#grafik" class="btn btn-color">lihat selengkapnya</a>
+                        <a href="#grafik" class="btn btn-color">{{ $headerStudent->button }}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}" alt="kesiswaan section image"
-                        class="w-100">
+                  @if ($headerStudent->banner)
+                    <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}" alt="kesiswaan section image" class="w-100">
+                  @else
+                    <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}" alt="kesiswaan section image" class="w-100">
+                  @endif
                 </div>
             </div>
         </section>
@@ -28,19 +29,19 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Grafik Data kesiswaan
+                        {{ $sectionStudent->title_section }}
                     </p>
                 </div>
             </div>
             <div class="mt-4 d-flex justify-content-center gap-3">
                 <button class="btn btn-text category-name active" onclick="showItems('category1')">
-                    semua siswa
+                    {{ $sectionStudent->button_1 }}
                 </button>
                 <button class="btn btn-text category-name" onclick="showItems('category2')">
-                    SISWA LAKI-LAKI
+                    {{ $sectionStudent->button_2 }}
                 </button>
                 <button class="btn btn-text category-name" onclick="showItems('category3')">
-                    SISWA PEREMPUAN
+                    {{ $sectionStudent->button_3 }}
                 </button>
             </div>
             <div class="mt-4">
@@ -94,21 +95,21 @@
                             fill="none">
                             <ellipse cx="8.02157" cy="7.5" rx="7.48935" ry="7.5" fill="#F94144" />
                         </svg>
-                        <p class="text-black fw-medium">Kelas X</p>
+                        <p class="text-black fw-medium">{{ $sectionStudent->caption_1 }}</p>
                     </div>
                     <div class="d-flex gap-2 align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                             fill="none">
                             <ellipse cx="8.00009" cy="7.5" rx="7.48935" ry="7.5" fill="#90BE6D" />
                         </svg>
-                        <p class="text-black fw-medium">Kelas XI</p>
+                        <p class="text-black fw-medium">{{ $sectionStudent->caption_2 }}</p>
                     </div>
                     <div class="d-flex gap-2 align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
                             fill="none">
                             <ellipse cx="7.9786" cy="7.5" rx="7.48935" ry="7.5" fill="#2D9CDB" />
                         </svg>
-                        <p class="text-black fw-medium">Kelas XII</p>
+                        <p class="text-black fw-medium">{{ $sectionStudent->caption_3 }}</p>
                     </div>
                 </div>
             </div>
@@ -117,22 +118,23 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Ekstrakulikuler Membuka Potensi dan Meningkatkan Kolaborasi
+                        {{ $sectionExtracurricular->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi
-                        mereka di luar lingkup pembelajaran akademis.
+                      {{ $sectionExtracurricular->description }}
                     </p>
                 </div>
             </div>
             <div class="content-section row mt-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
+                @foreach ($extracurriculars as $extra)
+                  <a href="{{ route('detail-ekstrakurikuler', $extra->id) }}" class="col">
                     <div class="card-extra d-flex gap-3 align-items-center">
-                        <img src="{{ asset('assets-homepage/img/extra1.svg') }}" alt="gambar sepak bola" class="">
-                        <p class="card-extra-text text-black fs-18">Sepak Bola</p>
+                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extra->icon) }}" alt="gambar {{ $extra->name }}" class="">
+                        <p class="card-extra-text text-black fs-18">{{ $extra->name }}</p>
                     </div>
-                </a>
-                <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
+                  </a>
+                @endforeach
+                {{-- <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                     <div class="card-extra d-flex gap-3 align-items-center">
                         <img src="{{ asset('assets-homepage/img/extra2.svg') }}" alt="gambar basket" class="">
                         <p class="card-extra-text text-black fs-18">Basket</p>
@@ -176,19 +178,17 @@
                             class="">
                         <p class="card-extra-text text-black fs-18">Klub Sastra</p>
                     </div>
-                </a>
+                </a> --}}
             </div>
         </section>
         <section class="pelayanan-karir-section container section-margin-top">
             <div class="d-flex justify-content-center header-section">
                 <div class="long-title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Kami Mengarahkan Siswa Menuju Kesuksesan Karir
+                        {{ $sectionService->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sapien ut ipsum dapibus,
-                        sed blandit ante condimentum. Maecenas rutrum nulla nulla, sit amet fringilla nulla elementum id.
-                        Phasellus vitae convallis enim, eget pulvinar ex. Donec sit amet commodo velit. In a tortor
+                        {{ $sectionService->description }}
                     </p>
                 </div>
             </div>
@@ -289,11 +289,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Mencetak Prestasi Gemilang, Kisah Sukses Siswa Inspiratif di Sekolah Kami
+                        {{ $sectionAchievement->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi
-                        mereka di luar lingkup pembelajaran akademis.
+                        {{ $sectionAchievement->description }}
                     </p>
                 </div>
             </div>
@@ -417,37 +416,35 @@
             <div class="top-section row align-items-center gy-4">
                 <div class="col-lg-6 col-xl-5 col-12">
                     <p class="display-5 fw-bold">
-                        Ayo dapatkan Peluang Beasiswa di Sekolah!
+                        {{ $sectionBeasiswa->title_section }}
                     </p>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-6 col-12">
                     <p class="desc">
-                        Dengan adanya beasiswa di sekolah, para siswa berpeluang untuk mengakses pendidikan yang berkualitas
-                        tanpa memandang latar belakang ekonomi. Ini juga membuka pintu bagi mereka untuk mengembangkan
-                        potensi diri
+                      {{ $sectionBeasiswa->description }}
                     </p>
                 </div>
             </div>
             <div class="content-section mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <div class="col">
+                @foreach ($beasiswas as $beasiswa)
+                  <div class="col">
                     <div class="card-beasiswa">
                         <div class="d-flex flex-column gap-3">
                             <div class="d-flex gap-3 align-items-center">
                                 <div class="number-beasiswa-wrapper d-flex justify-content-center align-items-center">
                                     <p class="fs-4 text-white fw-black">1</p>
                                 </div>
-                                <p class="fs-5 fw-semibold">Beasiswa Akademik Unggulan</p>
+                                <p class="fs-5 fw-semibold">{{ $beasiswa->title }}</p>
                             </div>
                             <p class="desc">
-                                Siswa yang mendapatkan beasiswa ini akan menerima dukungan finansial untuk biaya pendidikan
-                                selama satu tahun ajaran, sebagai penghargaan atas dedikasi dan kerja keras mereka dalam
-                                prestasi akademik.
+                                {{ $beasiswa->description }}
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
+                  </div>
+                @endforeach
+                {{-- <div class="col">
                     <div class="card-beasiswa">
                         <div class="d-flex flex-column gap-3">
                             <div class="d-flex gap-3 align-items-center">
@@ -480,7 +477,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="d-flex justify-content-center mt-4">
             </div>
@@ -489,11 +486,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Jejak Karir Alumni, Inspirasi Sukses dari Sekolah Kami!
+                        {{ $sectionAlumni->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni
-                        kami telah mencapai kesuksesan dalam berbagai bidang profesi.
+                        {{ $sectionAlumni->description }}
                     </p>
                 </div>
             </div>

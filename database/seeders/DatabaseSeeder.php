@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Auth;
+use App\Models\Beasiswa;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Curriculum;
@@ -64,6 +65,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'Manajemen Admin',
             'email' => 'admin123@gmail.com',
             'password' => bcrypt('admin123'),
+        ]);
+
+        Beasiswa::create([
+            "title" => "Beasiswa Akademik Unggulan",
+            "description" => "Siswa yang mendapatkan beasiswa ini akan menerima dukungan finansial untuk biaya pendidikan
+            selama satu tahun ajaran, sebagai penghargaan atas dedikasi dan kerja keras mereka dalam
+            prestasi akademik."
         ]);
 
         HeaderHome::create([
