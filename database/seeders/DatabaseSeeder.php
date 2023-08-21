@@ -180,6 +180,90 @@ class DatabaseSeeder extends Seeder
             'first_number_skp' => '1553/03-A/HK/2014',
             'first_date_skp' => '2014-08-01',
         ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Made Satyawan',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'bangli',
+            'date_of_birth' => '1985-10-23',
+            'highest_rank' => 'SMKN 2000',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Kadek Satria',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1996-12-21',
+            'highest_rank' => 'SMKN 2018',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Putu Adiawan',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1990-10-11',
+            'highest_rank' => 'SMKN 2011',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'Ida Bagus Darmawangsa',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1989-12-31',
+            'highest_rank' => 'SMKN 2001',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Gusti Agung Sucipta',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'Denpasar',
+            'date_of_birth' => '1999-11-14',
+            'highest_rank' => 'SMKN 2017',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
+        Employee::create([
+            'role_employees_id' => '1',
+            'fullname' => 'I Gede Arya Sucipta',
+            'image' => 'sample-manajemen.jpg',
+            'place_of_birth' => 'Negara',
+            'date_of_birth' => '1982-10-19',
+            'highest_rank' => 'SMKN 2001',
+            'position' => 'Kontrak Provinsi',
+            'gender' => 'L',
+            'last_number_skp' => '5/04.C/HK/2022',
+            'last_date_skp' => '2022-01-03',
+            'first_number_skp' => '1553/03-A/HK/2014',
+            'first_date_skp' => '2014-08-01',
+        ]);
 
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
@@ -192,7 +276,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'sample-guru.jpg',
             'nip' => '19650428 199512 1 002',
             'position' => 'Guru Ahli Madya',
-            'gender' => 'P',
+            'gender' => 'L',
             'course_id' => '1',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
@@ -207,6 +291,56 @@ class DatabaseSeeder extends Seeder
             'course_id' => '2',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Wayan Suarsana, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19680517 199512 1 003',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Wayan Mudayasa, S.Pd',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19700622 199512 1 001',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'Dra. Ni Wayan Mastriani.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19650428 199512 1 005',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'P',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Gusti Bagus Jelantik, S.Pd.',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19680713 199002 1 003',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina / IVa',
+        ]);
+        Employee::create([
+            'role_employees_id' => '2',
+            'fullname' => 'I Nyoman Pasek Suadnyana, S.Pd',
+            'image' => 'sample-guru.jpg',
+            'nip' => '19641231 198403 1 029',
+            'position' => 'Guru Ahli Madya',
+            'gender' => 'L',
+            'course_id' => '1',
+            'room_type' => 'Pembina Tk. I / IVb',
+        ]);
 
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
@@ -219,6 +353,54 @@ class DatabaseSeeder extends Seeder
             'image' => 'sample-pegawai.jpg',
             'rank' => 'Penata / IIIc',
             'position' => 'Analis SDM / KTU',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Gusti Agung Putra, S.E.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Tk.1/ III/.d',
+            'position' => 'Pengelola Data',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'Putu Ari Setiawati.,S.E.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata/ III/.c',
+            'position' => 'Pengelola BMD',
+            'gender' => 'P',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Wayan Putu Adi Jenar, S.Pd',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Muda /III/a',
+            'position' => 'Pengelola Keuangan',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Ketut Yasa',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Penata Muda/III/a',
+            'position' => 'Pengadminitrasian Umum',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'Komang Asri, A.Md.',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Pengatur II.c',
+            'position' => 'Analis SDM / KTU',
+            'gender' => 'L',
+        ]);
+        Employee::create([
+            'role_employees_id' => '3',
+            'fullname' => 'I Komang Sumerta',
+            'image' => 'sample-pegawai.jpg',
+            'rank' => 'Pengatur III.c',
+            'position' => 'Pengadminitrasian Kesiswaan',
             'gender' => 'L',
         ]);
 
@@ -447,7 +629,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nama_lengkap' => 'Aditya'
+            'nama_lengkap' => 'Aditya',
+
         ]);
     }
 }
