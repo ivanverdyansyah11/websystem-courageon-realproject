@@ -14,6 +14,7 @@ class PelayananKarirController extends Controller
         return view('kesiswaan.pelayanan-karir.index', [
             'title' => 'Kesiswaan > Pelayanan Karir',
             'section_service' => SectionService::first(),
+            'students' => Student::all(),
             'pelayanan_karir' => PelayananKarir::paginate(6),
         ]);
     }
@@ -41,7 +42,7 @@ class PelayananKarirController extends Controller
         }
     }
 
-    function createPelayananKarir()
+    function createService()
     {
         return view('kesiswaan.pelayanan-karir.create', [
             'title' => 'Kesiswaan > Pelayanan Karir',
@@ -50,123 +51,96 @@ class PelayananKarirController extends Controller
         ]);
     }
 
-    function createExtracurriculer()
-    {
-        return view('kesiswaan.ekstrakurikuler.create', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-        ]);
-    }
-
-    function storeExtracurriculer(Request $request)
+    function storeService(Request $request)
     {
         $validatedData = $request->validate([
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'dokumentasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'tanggal' => 'required|date',
+            'masalah' => 'required|string',
+            'solusi' => 'required|string',
+            'students_id' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
-
-        if ($validatedData['icon']) {
-            $image = $request->file('icon');
+        if ($validatedData['dokumentasi']) {
+            $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/pelayanan-karir-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
         }
 
-        $extracurricular = Extracurricular::create($validatedData);
+        $pelayananKarir = PelayananKarir::create($validatedData);
 
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
+        if ($pelayananKarir) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Tambah Pelayanan Karir Sekolah!');
         }
     }
 
-    function detailExtracurriculer($id)
+    function detailService($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
-
-        return view('kesiswaan.ekstrakurikuler.detail', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
+        return view('kesiswaan.pelayanan-karir.detail', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'pelayanan' => PelayananKarir::where('id', $id)->first(),
+            'students' => Student::all(),
         ]);
     }
 
-    function editExtracurriculer($id)
+    function editService($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
-        $schedule_days = explode(', ', $extracurricular->schedule_day);
-
-        return view('kesiswaan.ekstrakurikuler.edit', [
-            'title' => 'Kesiswaan > Ekstrakurikuler',
-            'extracurricular' => Extracurricular::where('id', $id)->first(),
-            'schedule_days' => $schedule_days,
+        return view('kesiswaan.pelayanan-karir.edit', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'pelayanan' => PelayananKarir::where('id', $id)->first(),
+            'students' => Student::all(),
         ]);
     }
 
-    function updateExtracurriculer($id, Request $request)
+    function updateService($id, Request $request)
     {
-        $extracurriculer = Extracurricular::where('id', $id)->first();
+        $pelayanan = PelayananKarir::where('id', $id)->first();
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'schedule_day' => 'required',
-            'start_time' => 'required|string',
-            'end_time' => 'required|string',
-            'coach' => 'required|string|max:255',
-            'number_phone_coach' => 'required|string||max:11',
-            'link_register' => 'required|string||max:255',
+            'tanggal' => 'required|date',
+            'masalah' => 'required|string',
+            'solusi' => 'required|string',
+            'students_id' => 'required|string',
         ]);
 
-        $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
-
-        if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
+        if ($request->file('dokumentasi')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
             unlink($oldImagePath);
 
-            $image = $request->file('icon');
+            $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
-            $validatedData['icon'] = $imageName;
+            $image->move(public_path('assets/img/kesiswaan-images/pelayanan-karir-image/'), $imageName);
+            $validatedData['dokumentasi'] = $imageName;
         } else {
-            $validatedData['icon'] = $request->oldImage;
+            $validatedData['dokumentasi'] = $pelayanan->dokumentasi;
         }
 
-        $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
+        $pelayananKarir = PelayananKarir::where('id', $id)->first()->update($validatedData);
 
-        if ($extracurricularAction) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Edit Ekstrakurikuler Sekolah!');
+        if ($pelayananKarir) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Edit Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Edit Pelayanan Karir Sekolah!');
         }
     }
 
-    function deleteExtracurriculer($id)
+    function deleteService($id)
     {
-        $extracurricular = Extracurricular::where('id', $id)->first();
+        $pelayanan = PelayananKarir::where('id', $id)->first();
 
-        if ($extracurricular->icon) {
-            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
+        if ($pelayanan->dokumentasi) {
+            $imagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
             unlink($imagePath);
         }
 
-        $extracurricular = $extracurricular->delete();
+        $pelayanan = $pelayanan->delete();
 
-        if ($extracurricular) {
-            return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Hapus Ekstrakurikuler Sekolah!');
+        if ($pelayanan) {
+            return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Hapus Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Hapus Ekstrakurikuler Sekolah!');
+            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Hapus Pelayanan Karir Sekolah!');
         }
     }
 }

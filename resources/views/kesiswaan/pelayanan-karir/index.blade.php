@@ -56,15 +56,14 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pelayanan Karir Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addPelayananKarirModal">Tambah
-                    Pelayanan Karir</button>
+                <a href="{{ route('pelayanan-karir-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Pelayanan Karir</a>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="d-none d-md-inline-block col data-header col-2">Thumbnail</span></div>
+                            <div class="d-none d-md-inline-block col data-header col-2">Image</span></div>
                             <div class="col data-header">Siswa</div>
                             <div class="col data-header">Tanggal</div>
                             <div class="col-3 col-xl-2 data-header"></div>
@@ -81,35 +80,34 @@
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="d-none d-md-inline-block col-2 data-value">
-                                        @if ($journal->thumbnail)
-                                            <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                                class="img-fluid" alt="Thumbnail Journal" width="80">
+                                        @if ($pelayanan->dokumentasi)
+                                            <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $pelayanan->dokumentasi) }}"
+                                                class="img-fluid" alt="Image Pelayanan Karir" width="80">
                                         @else
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
                                                 alt="Image Not Found" width="80">
                                         @endif
                                     </div>
-                                    <div class="col data-value data-length">{{ $journal->title }}</div>
-                                    <div class="col data-value data-length">{{ $journal->created_date }}</div>
-                                    <div class="col data-value data-length">{{ $journal->description }}</div>
+                                    @foreach ($students as $student)
+                                        @if ($student->id === $pelayanan->students_id)
+                                            <div class="col data-value data-length">{{ $student->nama_lengkap }}</div>
+                                        @endif
+                                    @endforeach
+                                    <div class="col data-value data-length">{{ $pelayanan->tanggal }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailPelayananKarirModal"
-                                                data-id="{{ $journal->id }}">
+                                            <a href="{{ route('pelayanan-karir-detail', $pelayanan->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editPelayananKarirModal"
-                                                data-id="{{ $journal->id }}">
+                                            </a>
+                                            <a href="{{ route('pelayanan-karir-edit', $pelayanan->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deletePelayananKarirModal"
-                                                data-id="{{ $journal->id }}">
+                                                data-id="{{ $pelayanan->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -121,7 +119,7 @@
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-end mt-4">
-                {{ $journals->links() }}
+                {{ $pelayanan_karir->links() }}
             </div>
         </div>
     </div>
@@ -140,8 +138,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
@@ -199,28 +197,30 @@
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
 
-    {{-- MODAL DELETE JOURNAL --}}
-    <div class="modal fade" id="deleteJournalModal" tabindex="-1" aria-labelledby="deleteJournalModalLabel"
-        aria-hidden="true">
+    {{-- MODAL DELETE PELAYANAN KARIR --}}
+    <div class="modal fade" id="deletePelayananKarirModal" tabindex="-1"
+        aria-labelledby="deletePelayananKarirModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Majalah Sekolah</h3>
-                <form id="deleteJournal" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Pelayanan Karir Sekolah</h3>
+                <form id="deletePelayananKarir" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Majalah Sekolah: Apakah Anda yakin ingin
-                        menghapus majalah sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan majalah sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Pelayanan Karir Sekolah: Apakah Anda yakin
+                        ingin
+                        menghapus pelayanan karir sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan pelayanan karir sekolah akan dihapus secara permanen dari
+                        sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Majalah</button>
+                        <button type="submit" class="button-default-solid">Hapus Pelayanan Karir</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE JOURNAL --}}
+    {{-- END MODAL DELETE PELAYANAN KARIR --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
@@ -248,22 +248,10 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
+        $(document).on('click', '[data-bs-target="#deletePelayananKarirModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteJournal').attr('action', '/admin/humas/majalah/delete-majalah/' + id);
+            $('#deletePelayananKarir').attr('action', '/admin/kesiswaan/pelayanan-karir/delete-pelayanan-karir/' +
+                id);
         });
-
-        // const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');
-        // const inputAddThumbnail = document.querySelector('.input-add-thumbnail');
-        // const tagEditThumbnail = document.querySelector('.tag-edit-thumbnail');
-        // const inputEditThumbnail = document.querySelector('.input-edit-thumbnail');
-
-        // inputAddThumbnail.addEventListener('change', function() {
-        //     tagAddThumbnail.src = URL.createObjectURL(inputAddThumbnail.files[0]);
-        // });
-
-        // inputEditThumbnail.addEventListener('change', function() {
-        //     tagEditThumbnail.src = URL.createObjectURL(inputEditThumbnail.files[0]);
-        // });
     </script>
 @endsection

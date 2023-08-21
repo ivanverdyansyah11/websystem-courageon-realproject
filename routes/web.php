@@ -315,7 +315,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'storeService')->name('pelayanan-karir-store');
             Route::get('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'editService')->name('pelayanan-karir-edit');
             Route::post('/kesiswaan/pelayanan-karir/edit-pelayanan-karir/{id}', 'updateService')->name('pelayanan-karir-update');
-            Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService')->name('pelayanan-karir-delete');
+            Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService');
         });
 
         Route::controller(PrestasiController::class)->group(function () {

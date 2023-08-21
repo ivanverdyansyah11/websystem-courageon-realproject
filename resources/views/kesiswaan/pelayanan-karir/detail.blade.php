@@ -13,240 +13,68 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Detail Guru Sekolah</h5>
+                <h5 class="subtitle">Detail Pelayanan Karir Sekolah</h5>
             </div>
             <div class="col-12">
-                <div class="row">
-                    <div class="col-xl-10">
-                        <div class="row align-items-end">
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label>Gambar Profil</label>
-                                    <div class="wrapper d-flex gap-3 align-items-end">
-                                        @if ($teacher->image)
-                                            <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
-                                                class="img-fluid" alt="Guru Image" width="80">
-                                        @else
-                                            <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                                alt="Image Not Found" width="80">
-                                        @endif
+                <form class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <div class="row align-items-end">
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label>Dokumentasi</label>
+                                        <div class="wrapper d-flex gap-3 align-items-end">
+                                            @if ($pelayanan->dokumentasi)
+                                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $pelayanan->dokumentasi) }}"
+                                                    class="img-fluid" alt="Image Pelayanan Karir" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                    class="img-fluid" alt="Image Not Found" width="80">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="students_id">Siswa</label>
+                                        @foreach ($students as $student)
+                                            <input type="text" id="students_id" class="input" autocomplete="off"
+                                                disabled
+                                                value="{{ $pelayanan->id === $student->id ? $student->nama_lengkap : '' }}">
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="tanggal">Tanggal</label>
+                                        <input type="text" id="tanggal" class="input" autocomplete="off" disabled
+                                            value="{{ $pelayanan->tanggal }}">
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="masalah">Masalah</label>
+                                        <textarea disabled id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="solusi">Solusi</label>
+                                        <textarea disabled id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi }}</textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="fullname">Nama Lengkap</label>
-                                    @if ($teacher->fullname)
-                                        <input disabled type="text" id="fullname" class="input"
-                                            value="{{ $teacher->fullname }}">
-                                    @else
-                                        <input disabled type="text" id="fullname" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="nip">NIP</label>
-                                    @if ($teacher->nip)
-                                        <input disabled type="text" id="nip" class="input"
-                                            value="{{ $teacher->nip }}">
-                                    @else
-                                        <input disabled type="text" id="nip" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="place_of_birth">Tempat Lahir</label>
-                                    @if ($teacher->place_of_birth)
-                                        <input disabled type="text" id="place_of_birth" class="input"
-                                            value="{{ $teacher->place_of_birth }}">
-                                    @else
-                                        <input disabled type="text" id="place_of_birth" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="date_of_birth">Tanggal Lahir</label>
-                                    @if ($teacher->date_of_birth)
-                                        <input disabled type="date" id="date_of_birth" class="input"
-                                            value="{{ $teacher->date_of_birth }}">
-                                    @else
-                                        <input disabled type="text" id="date_of_birth" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="position">Jabatan</label>
-                                    @if ($teacher->position)
-                                        <input disabled type="text" id="position" class="input"
-                                            value="{{ $teacher->position }}">
-                                    @else
-                                        <input disabled type="text" id="position" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="gender">Jenis Kelamin</label>
-                                    <select name="gender" id="gender" class="input" disabled>
-                                        @if ($teacher->gender == 'L')
-                                            <option>Laki Laki</option>
-                                        @elseif($teacher->gender == 'P')
-                                            <option>Perempuan</option>
-                                        @else
-                                            <option selected>-</option>
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="status">Status</label>
-                                    <select name="status" id="status" class="input" disabled>
-                                        @if ($teacher->status == 'pns')
-                                            <option>Manajemen pns</option>
-                                        @elseif($teacher->status == 'pppk')
-                                            <option>Manajemen pppk</option>
-                                        @elseif($teacher->status == 'honorer')
-                                            <option>Manajemen honorer</option>
-                                        @else
-                                            <option>-</option>
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="mata_elajaran">Mata Pelajaran</label>
-                                    <select name="course_id" id="mata_elajaran" class="input" disabled>
-                                        <option>{{ $teacher->course->name }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="highest_rank">Pangkat Tertinggi</label>
-                                    @if ($teacher->highest_rank)
-                                        <input disabled type="text" id="highest_rank" class="input"
-                                            value="{{ $teacher->highest_rank }}">
-                                    @else
-                                        <input disabled type="text" id="highest_rank" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="room_type">Golongan Ruangan</label>
-                                    @if ($teacher->room_type)
-                                        <input disabled type="text" id="room_type" class="input"
-                                            value="{{ $teacher->room_type }}">
-                                    @else
-                                        <input disabled type="text" id="room_type" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="tmt">TMT</label>
-                                    @if ($teacher->tmt)
-                                        <input disabled type="date" id="tmt" class="input"
-                                            value="{{ $teacher->tmt }}">
-                                    @else
-                                        <input disabled type="text" id="tmt" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="last_number_skp">Nomor SKP Terakhir</label>
-                                    @if ($teacher->last_number_skp)
-                                        <input disabled type="text" id="last_number_skp" class="input"
-                                            value="{{ $teacher->last_number_skp }}">
-                                    @else
-                                        <input disabled type="text" id="last_number_skp" class="input"
-                                            value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="last_date_skp">Tanggal SKP Terakhir</label>
-                                    @if ($teacher->last_date_skp)
-                                        <input disabled type="date" id="last_date_skp" class="input"
-                                            value="{{ $teacher->last_date_skp }}">
-                                    @else
-                                        <input disabled type="text" id="last_date_skp" class="input" value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="work_tenure">Masa Kerja</label>
-                                    <input disabled type="text" id="work_tenure" class="input"
-                                        value="{{ $work_tenure }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="first_number_skp">Nomor SKP Pertama</label>
-                                    @if ($teacher->first_number_skp)
-                                        <input disabled type="text" id="first_number_skp" class="input"
-                                            value="{{ $teacher->first_number_skp }}">
-                                    @else
-                                        <input disabled type="text" id="first_number_skp" class="input"
-                                            value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="first_date_skp">Tanggal SKP Pertama</label>
-                                    @if ($teacher->first_date_skp)
-                                        <input disabled type="date" id="first_date_skp" class="input"
-                                            value="{{ $teacher->first_date_skp }}">
-                                    @else
-                                        <input disabled type="text" id="first_date_skp" class="input"
-                                            value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="salary_increase">Kenaikan Gaji Berskala</label>
-                                    @if ($teacher->salary_increase)
-                                        <input disabled type="date" id="salary_increase" class="input"
-                                            value="{{ $teacher->salary_increase }}">
-                                    @else
-                                        <input disabled type="text" id="salary_increase" class="input"
-                                            value="-">
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="input-wrapper">
-                                    <label for="employee_card_number">Nomor Kartu Pegawai</label>
-                                    @if ($teacher->employee_card_number)
-                                        <input disabled type="text" id="employee_card_number" class="input"
-                                            value="{{ $teacher->employee_card_number }}">
-                                    @else
-                                        <input disabled type="text" id="employee_card_number" class="input"
-                                            value="-">
-                                    @endif
-                                </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="button-wrapper d-flex gap-2">
+                                <a href="{{ route('pelayanan-karir-index') }}" class="button-default-solid">Kembali ke
+                                    Page</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-10">
-                        <div class="button-wrapper d-flex gap-2">
-                            <a href="{{ route('guru-index') }}" class="button-default-solid">Kembali ke Halaman</a>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
