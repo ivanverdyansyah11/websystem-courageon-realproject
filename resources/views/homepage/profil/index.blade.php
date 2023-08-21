@@ -6,29 +6,33 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        Profile Dan informasi mengenai SMA Negeri 1 Selat
+                        {{ $headerProfile->title_header }}
                     </p>
                     <p class="mt-4 desc">
-                        SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad
-                        kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi
-                        kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan
-                        dunia global.
+                        {{ $headerProfile->description }}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#visiMisi" class="btn btn-color">lihat selengkapnya</a>
+                        <a href="#visiMisi" class="btn btn-color">{{ $headerProfile->button }}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image"
-                        class="w-100">
+                    @if ($headerProfile->banner)
+                        <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}" alt="profile section image" class="w-100">
+                    @else
+                        <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image" class="w-100">
+                    @endif
                 </div>
             </div>
         </section>
         <section class="vision-section container section-margin-top" id="visiMisi">
             <div class="row">
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image" class="w-100">
+                    @if ($visiMision->banner)
+                        <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}" alt="visi misi image" class="w-100">
+                    @else                        
+                        <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image" class="w-100">
+                    @endif
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <div class="d-flex flex-column gap-4">
@@ -37,15 +41,14 @@
                                 <h2 class="accordion-header" id="headingOne">
                                     <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
                                         data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                        <p class="fw-semibold">Visi Sekolah</p>
+                                        <p class="fw-semibold">{{ $visiMision->title_vision }}</p>
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     data-bs-parent="#myAccordion">
                                     <div class="card-body">
                                         <p class="fs-15 desc">
-                                            Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin
-                                            masa depan yang berintegritas dan berbudaya global.
+                                            {{ $visiMision->description_vision }}
                                         </p>
                                     </div>
                                 </div>
@@ -56,19 +59,12 @@
                                 <h2 class="accordion-header" id="heading2">
                                     <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
                                         data-bs-toggle="collapse" data-bs-target="#collapse2">
-                                        <p class="fw-semibold">Misi Sekolah</p>
+                                        <p class="fw-semibold">{{ $visiMision->title_mission }}</p>
                                     </button>
                                 </h2>
                                 <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
                                     <div class="card-body">
-                                        <p class="fs-15 desc-color">Misi SMA Negeri 1 Selat adalah menyediakan pendidikan
-                                            yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode
-                                            pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk
-                                            mengembangkan keberanian dan kreativitas mereka melalui berbagai program
-                                            ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan
-                                            tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter
-                                            unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi
-                                            masyarakat dan dunia.
+                                        <p class="fs-15 desc-color">{{ $visiMision->description_mission }}
                                         </p>
                                     </div>
                                 </div>
@@ -90,7 +86,7 @@
                 </svg>
                 <div class="title-section-text">
                     <p class="display-3 fw-bold text-black text-center text-capitalize">
-                        Bangsa yang malas belajar tidak akan bisa berkembang!
+                        {{ $motto->motto }}
                     </p>
                 </div>
                 <div class="mt-2 text-center">
@@ -108,9 +104,7 @@
                     <div class="logo-meaning-card">
                         <p class="fs-5 fw-bold text-black text-capitalize">Makna Logo</p>
                         <p class="mt-2 desc fs-6">
-                            Buku dalam logo menggambarkan komitmen sekolah untuk memberikan pendidikan yang berkualitas
-                            tinggi kepada siswa. Ini mengandung pesan bahwa sekolah adalah tempat belajar dan pengetahuan
-                            yang didorong untuk membekali siswa dengan bekal yang kuat untuk masa depan.
+                            {{ $logo->logo_meaning }}
                         </p>
                     </div>
                 </div>
@@ -118,9 +112,7 @@
                     <div class="logo-meaning-card">
                         <p class="fs-5 fw-bold text-black text-capitalize">Makna Font</p>
                         <p class="mt-2 desc fs-6">
-                            Penggunaan font sans serif capitalize menunjukkan kesan modern dan progresif dari sekolah
-                            tersebut. Logo ini ingin menyampaikan bahwa sekolah memiliki pendekatan yang inovatif dalam
-                            pendidikan dan selalu berada di garis depan perkembangan pendidikan.
+                            {{ $logo->font_meaning }}
                         </p>
                     </div>
                 </div>
@@ -128,9 +120,7 @@
                     <div class="logo-meaning-card">
                         <p class="fs-5 fw-bold text-black text-capitalize">Makna Warna</p>
                         <p class="mt-2 desc fs-6">
-                            Warna biru tua sering dikaitkan dengan keberlanjutan dan konsistensi. Logo ini ingin
-                            menyampaikan bahwa sekolah memiliki dedikasi yang kuat untuk memberikan pendidikan berkualitas
-                            dan berkomitmen untuk mencapai tujuan jangka panjang.
+                            {{ $logo->color_meaning }}
                         </p>
                     </div>
                 </div>
@@ -139,52 +129,47 @@
         <section class="mars-section container section-margin-top">
             <div class="row">
                 <div class="col-lg-5 d-lg-block d-none">
-                    <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image" class="w-100 h-100">
+                    @if ($mars->banner)
+                        <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}" alt="mars section image" class="w-100">
+                    @else                        
+                        <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image" class="w-100 h-100">
+                    @endif
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black display-5 fw-bold text-capitalize">
-                        Mars SMA Negeri 1 Selat
+                        {{ $mars->title_section }}
                     </p>
                     <div class="song-wrapper mt-3">
                         <p class="desc song-lyric ">
-                            Disini Tempat Kami Berkreasi
-                            Tuk’ Jadi Siswa Yang Kreatif
-                            Bertaqwa Landasan Hidup Kami
-                            Berprestasi Tujuan Kami SMANEBA
-                            Tempat kami Belajar
-                            Pencetak Insan Muda Bangsa
-                            Berpribadi Luhur Dan Berakhlaq Mulia
-                            Mutu Berdaya Saing Global
-                            Ayo …… Ayo Semua
-                            Torehkan Prestasi Tuk’ SMANEBA
-                            Jadikan Dia Gudang Juara Skolah
-                            Tercinta Kita Semua
-                            Sayangi , Cintai, SMANEBA slalu dihati
+                            {!! $mars->mars !!}
                         </p>
                     </div>
                     <p class="mt-3 desc fs-6">
-                        Ciptaan: <span class="fw-semibold text-black"> Dr. Andi Pranoto, M.Pd. (Founder Of SMA Negeri 1
-                            Selat)</span>
+                        Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
                     </p>
                 </div>
             </div>
         </section>
         <section class="management-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Manajemen SMA Negeri 1
-                    Selat</p>
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionManagement->title_section }}</p>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/management1.png') }}" alt="Dr. Andi Pranoto, M.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Dr. Andi Pranoto, M.Pd.</p>
-                            <p class="desc">Kepala Sekolah</p>
+                    @foreach ($managements as $management)
+                        <div class="col">
+                            <div class="card-school-people text-center">
+                                @if ($management->image)
+                                    <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}" alt="{{ $management->fullname }}" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/management1.png') }}" alt="{{ $management->fullname }}" class="w-100">
+                                @endif
+                                <p class="text-black fw-bold fs-18 mt-3">{{ $management->fullname }}</p>
+                                <p class="desc">{{ $management->position }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    @endforeach
+                    {{-- <div class="col">
                         <div class="card-school-people text-center">
                             <img src="{{ asset('assets-homepage/img/management2.png') }}" alt="Ibu Rina Widya, S.Pd."
                                 class="w-100">
@@ -207,29 +192,34 @@
                             <p class="text-black fw-bold fs-18 mt-3">Siti Nurul, M.Pd.</p>
                             <p class="desc">Kepala Program Studi Matematika</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a href="{{ route('manajemen') }}" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('manajemen') }}" class="btn btn-color">{{ $sectionManagement->button }}</a>
                 </div>
             </div>
         </section>
         <section class="teacher-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Guru SMA Negeri 1 Selat
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionTeacher->title_section }}
                 </p>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/teacher1.png') }}" alt="Dewi Permata, M.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Dewi Permata, M.Pd.</p>
-                            <p class="desc">Guru Matematika</p>
+                    @foreach ($teachers as $teacher)
+                        <div class="col">
+                            <div class="card-school-people text-center">
+                                @if ($teacher->image)
+                                    <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}" alt="{{ $teacher->fullname }}" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/teacher1.png') }}" alt="{{ $teacher->fullname }}" class="w-100">
+                                @endif
+                                <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
+                                <p class="desc">{{ $teacher->position }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    @endforeach
+                    {{-- <div class="col">
                         <div class="card-school-people text-center">
                             <img src="{{ asset('assets-homepage/img/teacher2.png') }}" alt="Rudi Setiawan, S.Pd."
                                 class="w-100">
@@ -250,31 +240,35 @@
                             <img src="{{ asset('assets-homepage/img/teacher4.png') }}" alt="Deni Sutomo, S.Pd."
                                 class="w-100">
                             <p class="text-black fw-bold fs-18 mt-3">Deni Sutomo, S.Pd.</p>
-                            <p class="desc">Guru IPA(Ilmu Pengetahuan Alam</p>
+                            <p class="desc">Guru IPA (Ilmu Pengetahuan Alam)</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('guru') }}" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('guru') }}" class="btn btn-color">{{ $sectionTeacher->button }}</a>
                 </div>
             </div>
         </section>
         <section class="employee-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">Data Pegawai SMA Negeri 1 Selat
-                </p>
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionStaff->title_section }}</p>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/employee1.png') }}" alt="Siti Wulandari"
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Siti Wulandari</p>
-                            <p class="desc">Staf Administrasi Keuangan</p>
+                    @foreach ($staffs as $staff)
+                        <div class="col">
+                            <div class="card-school-people text-center">
+                                @if ($staff->image)
+                                    <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}" alt="{{ $staff->fullname }}" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/employee1.png') }}" alt="{{ $staff->fullname }}" class="w-100">
+                                @endif
+                                <p class="text-black fw-bold fs-18 mt-3">{{ $staff->fullname }}</p>
+                                <p class="desc">{{ $staff->position }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
+                    @endforeach
+                    {{-- <div class="col">
                         <div class="card-school-people text-center">
                             <img src="{{ asset('assets-homepage/img/employee2.png') }}" alt="Andi Pratama"
                                 class="w-100">
@@ -297,10 +291,10 @@
                             <p class="text-black fw-bold fs-18 mt-3">Dina Wulandari</p>
                             <p class="desc">Staf Laboratorium Sains</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('pegawai') }}" class="btn btn-color">lihat semua</a>
+                    <a href="{{ route('pegawai') }}" class="btn btn-color">{{ $sectionStaff->button }}</a>
                 </div>
             </div>
         </section>
@@ -308,33 +302,31 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-12">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.576504957393!2d115.48273847492702!3d-8.44318009159662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2053a75a7b143%3A0x5e66d8200f7bf2a2!2sSMA%20Negeri%201%20Selat!5e0!3m2!1sid!2sid!4v1692022962270!5m2!1sid!2sid"
+                        src="{{ $sectionContact->url_maps }}"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black fw-bold text-capitalize display-5">
-                        Hubungi kami
+                        {{ $sectionContact->title_section }}
                     </p>
                     <div class="mt-4 d-flex flex-column gap-4">
-                        <div class="d-flex gap-3">
-                            <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-location" width="20"
-                                    height="20" viewBox="0 0 20 20" fill="none">
-                                    <path
-                                        d="M10.5078 0C10.9196 0.0525781 11.3355 0.0838281 11.7427 0.161211C14.6007 0.704453 16.8191 2.21566 18.4287 4.62691C18.8485 5.25574 19.1712 5.9384 19.4293 6.65C19.5848 7.07898 19.4077 7.50512 19.0079 7.67145C18.6021 7.84023 18.1545 7.6609 17.9837 7.22656C17.6849 6.46672 17.3296 5.73988 16.8452 5.07969C15.6507 3.45176 14.0871 2.34 12.1297 1.84996C9.29215 1.13953 6.72 1.72797 4.48598 3.62508C2.89699 4.97445 1.9527 6.71133 1.6543 8.77527C1.36891 10.7494 1.72637 12.6116 2.77379 14.3194C4.05207 16.4035 5.88547 17.7396 8.27961 18.2514C10.375 18.6993 12.3634 18.3559 14.2275 17.2988C14.3689 17.2186 14.5037 17.1266 14.6467 17.0496C15.0356 16.84 15.4885 16.957 15.704 17.3177C15.9244 17.6865 15.8314 18.1453 15.4524 18.3765C15.0259 18.6367 14.5899 18.8873 14.1375 19.0978C13.0423 19.6074 11.8853 19.8922 10.679 19.9728C10.6346 19.9758 10.5909 19.9907 10.547 20C10.1693 20 9.79176 20 9.41414 20C9.36379 19.9891 9.31387 19.9716 9.26301 19.9684C8.23539 19.9036 7.23625 19.6928 6.29098 19.2902C2.93012 17.8587 0.875039 15.3512 0.159102 11.762C0.0843751 11.3873 0.0520312 11.0042 0 10.625C0 10.2214 0 9.8177 0 9.41406C0.0113281 9.35137 0.0255469 9.28902 0.0335547 9.2259C0.0785938 8.87129 0.104453 8.51328 0.168906 8.1623C0.954922 3.88207 4.48633 0.582344 8.81855 0.0725389C9.0043 0.0506639 9.18953 0.0242969 9.375 0C9.75262 0 10.1302 0 10.5078 0Z"
-                                        fill="#0160C9" />
-                                    <path
-                                        d="M19.9996 11.1723C19.9239 11.4665 19.8773 11.772 19.7676 12.053C19.2711 13.3255 18.341 14.1131 16.9945 14.3209C15.5993 14.5363 14.4546 14.0375 13.5861 12.9192C13.5464 12.8682 13.5065 12.8175 13.455 12.7516C12.466 13.9067 11.2238 14.4858 9.70585 14.3979C8.60378 14.334 7.65472 13.8923 6.87586 13.1111C5.28343 11.5138 5.15828 9.04693 6.5589 7.24111C7.83707 5.59322 10.6856 4.8124 12.883 6.63803C12.8873 6.57174 12.8891 6.51666 12.8947 6.4619C12.9362 6.05276 13.285 5.73799 13.6857 5.74729C14.0918 5.7567 14.423 6.07819 14.4497 6.49053C14.4543 6.56186 14.4525 6.63365 14.4526 6.70522C14.4529 8.08494 14.4454 9.46475 14.4557 10.8444C14.464 11.9448 15.3853 12.828 16.4842 12.8118C17.5158 12.7965 18.3919 11.9373 18.4371 10.9024C18.4427 10.7744 18.4564 10.6389 18.5041 10.5222C18.6287 10.2165 18.8724 10.0517 19.2005 10.0441C19.5287 10.0365 19.7721 10.1933 19.9217 10.4881C19.9507 10.5453 19.9738 10.6056 19.9996 10.6644C19.9996 10.8337 19.9996 11.003 19.9996 11.1723ZM9.99605 12.8513C11.5592 12.8538 12.8426 11.578 12.8505 10.0138C12.8584 8.44326 11.5744 7.15154 10.0032 7.14947C8.43988 7.14744 7.15691 8.42279 7.14863 9.98717C7.14031 11.5573 8.42437 12.8489 9.99605 12.8513Z"
-                                        fill="#0160C9" />
-                                </svg>
+                        @foreach ($contacts as $contact)
+                            <div class="d-flex gap-3">
+                                <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
+                                    @if ($contact->icon)
+                                        <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}" alt="{{ $contact->fullname }}" class="w-30">
+                                    @else
+                                        <img src="{{ asset('assets-homepage/img/employee1.png') }}" alt="{{ $contact->fullname }}" class="w-100">
+                                    @endif
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <p class="desc fs-6">{{ $contact->name }}</p>
+                                    <p class="fw-semibold fs-5">{{ $contact->link }}</p>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column">
-                                <p class="desc fs-6">Email</p>
-                                <p class="fw-semibold fs-5">courageonschool@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3">
+                        @endforeach
+                        {{-- <div class="d-flex gap-3">
                             <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-location" width="20"
                                     height="20" viewBox="0 0 20 20" fill="none">
@@ -411,7 +403,7 @@
                                 <p class="desc fs-6">No Fax</p>
                                 <p class="fw-semibold fs-5">0274 - 513454</p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
