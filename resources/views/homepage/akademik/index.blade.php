@@ -1,7 +1,6 @@
 @extends('templates.main')
 
 @section('container')
-
     <main class="mt-3">
         <section class="hero-section container">
             <div class="row align-items-center">
@@ -19,9 +18,11 @@
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($headerAcademic->banner)
-                        <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}" alt="akademik section image" class="w-100">                        
+                        <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}"
+                            alt="akademik section image" class="w-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image"
+                            class="w-100">
                     @endif
                 </div>
             </div>
@@ -30,9 +31,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($curriculum->banner)
-                        <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}" alt="kurikulum section image" class="w-100">                        
+                        <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}"
+                            alt="kurikulum section image" class="w-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image"
+                            class="w-100">
                     @endif
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
@@ -93,7 +96,8 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-5 d-lg-block d-none">
-                        <img src="{{ asset('assets-homepage/img/eassesment.png') }}" alt="e-asessment image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/eassesment.png') }}" alt="e-asessment image"
+                            class="w-100">
                     </div>
                     <div class="col-xl-6 col-lg-7 offset-xl-1 col-12">
                         <p class="fs-5 text-black fw-bold">E-Asessment SMA Negeri 1 Selat</p>
@@ -140,7 +144,8 @@
                     @foreach ($projects as $project)
                         <a href="" class="col">
                             <div class="card-p5">
-                                <img src="{{ asset('assets-homepage/img/p52.png') }}" alt="Kearifan Lokal" class="w-100">
+                                <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
+                                    alt="Kearifan Lokal" class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">{{ $project->topic }}</p>
                                     <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
@@ -168,8 +173,10 @@
             <div class="mt-2">
                 <div class="pin-container">
                     @foreach ($galleries as $gallery)
-                        <a href="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}" data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
-                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}" class="w-100" alt="gallery {{ $loop->index + 1 }}">
+                        <a href="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
+                            data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
+                                class="w-100" alt="gallery {{ $loop->index + 1 }}">
                         </a>
                     @endforeach
                     {{-- <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">

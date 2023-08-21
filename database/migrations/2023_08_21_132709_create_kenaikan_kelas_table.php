@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistoryKenaikanSiswasTable extends Migration
+class CreateKenaikanKelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateHistoryKenaikanSiswasTable extends Migration
      */
     public function up()
     {
-        Schema::create('history_kenaikan_siswas', function (Blueprint $table) {
+        Schema::create('kenaikan_kelas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('students_id');
-            $table->bigInteger('jurusans_id');
-            $table->bigInteger('kelases_id');
-            $table->bigInteger('indexes_id');
-            $table->bigInteger('semesters_id');
+            $table->string('nilai_tertinggi');
+            $table->string('nilai_terendah');
+            $table->string('rata_nilai');
+            $table->string('total_siswa');
+            $table->bigInteger('tahun_ajarans_id');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateHistoryKenaikanSiswasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_kenaikan_siswas');
+        Schema::dropIfExists('kenaikan_kelas');
     }
 }

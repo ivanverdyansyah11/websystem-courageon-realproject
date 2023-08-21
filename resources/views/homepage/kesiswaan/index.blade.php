@@ -17,11 +17,13 @@
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                  @if ($headerStudent->banner)
-                    <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}" alt="kesiswaan section image" class="w-100">
-                  @else
-                    <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}" alt="kesiswaan section image" class="w-100">
-                  @endif
+                    @if ($headerStudent->banner)
+                        <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}"
+                            alt="kesiswaan section image" class="w-100">
+                    @else
+                        <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}" alt="kesiswaan section image"
+                            class="w-100">
+                    @endif
                 </div>
             </div>
         </section>
@@ -121,18 +123,19 @@
                         {{ $sectionExtracurricular->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                      {{ $sectionExtracurricular->description }}
+                        {{ $sectionExtracurricular->description }}
                     </p>
                 </div>
             </div>
             <div class="content-section row mt-5 row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 @foreach ($extracurriculars as $extra)
-                  <a href="{{ route('detail-ekstrakurikuler', $extra->id) }}" class="col">
-                    <div class="card-extra d-flex gap-3 align-items-center">
-                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extra->icon) }}" alt="gambar {{ $extra->name }}" class="">
-                        <p class="card-extra-text text-black fs-18">{{ $extra->name }}</p>
-                    </div>
-                  </a>
+                    <a href="{{ route('detail-ekstrakurikuler', $extra->id) }}" class="col">
+                        <div class="card-extra d-flex gap-3 align-items-center">
+                            <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extra->icon) }}"
+                                alt="gambar {{ $extra->name }}" class="">
+                            <p class="card-extra-text text-black fs-18">{{ $extra->name }}</p>
+                        </div>
+                    </a>
                 @endforeach
                 {{-- <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
                     <div class="card-extra d-flex gap-3 align-items-center">
@@ -422,27 +425,27 @@
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-6 col-12">
                     <p class="desc">
-                      {{ $sectionBeasiswa->description }}
+                        {{ $sectionBeasiswa->description }}
                     </p>
                 </div>
             </div>
             <div class="content-section mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 @foreach ($beasiswas as $beasiswa)
-                  <div class="col">
-                    <div class="card-beasiswa">
-                        <div class="d-flex flex-column gap-3">
-                            <div class="d-flex gap-3 align-items-center">
-                                <div class="number-beasiswa-wrapper d-flex justify-content-center align-items-center">
-                                    <p class="fs-4 text-white fw-black">1</p>
+                    <div class="col">
+                        <div class="card-beasiswa">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="number-beasiswa-wrapper d-flex justify-content-center align-items-center">
+                                        <p class="fs-4 text-white fw-black">1</p>
+                                    </div>
+                                    <p class="fs-5 fw-semibold">{{ $beasiswa->title }}</p>
                                 </div>
-                                <p class="fs-5 fw-semibold">{{ $beasiswa->title }}</p>
+                                <p class="desc">
+                                    {{ $beasiswa->description }}
+                                </p>
                             </div>
-                            <p class="desc">
-                                {{ $beasiswa->description }}
-                            </p>
                         </div>
                     </div>
-                  </div>
                 @endforeach
                 {{-- <div class="col">
                     <div class="card-beasiswa">
@@ -521,13 +524,14 @@
                                     <img src="{{ asset('assets-homepage/img/testi1.png') }}" alt="testimonial image">
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <p class="fs-5 fw-semibold text-capitalize">I Made Arya Saputra - Lulusan 2020</p>
-                                    <p class="desc fs-15">Part Of Carnival Cruise Line (CCL) as a Commis</p>
+                                    <p class="fs-5 fw-semibold text-capitalize">Aditya Prayatna - Lulusan 2022</p>
+                                    <p class="desc fs-15">Part Of Agency of School</p>
                                 </div>
                             </div>
                             <p class="desc mt-3">
                                 “Halo teman-teman alumni sekolah! Saya sangat senang ingin berbagi kabar baik. Saat ini,
-                                saya bekerja sebagai Komisaris di Carnival Cruise Line. Selama perjalanan karier ini, banyak
+                                saya bekerja sebagai Web Developer di Agency pada sebuah sekolah. Selama perjalanan karier
+                                ini, banyak
                                 pelajaran berharga yang saya pelajari. Bersama-sama, mari kita berikan kontribusi positif
                                 bagi masa depan sekolah kita.”
                             </p>
@@ -541,367 +545,368 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js">
+    </script>
 
     <script>
-     const swiperTesti = new Swiper('.swiper-testi',{
-      speed: 500,
-      loop:true,
-      pagination: {
-        el: ".swiper-pagination",
-        // clickable: true
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      breakpoints: {
-        1: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        500:{
-          slidesPerView: 2,
-          spaceBetween: 20
-        }
-      }
-    } )
+        const swiperTesti = new Swiper('.swiper-testi', {
+            speed: 500,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                // clickable: true
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                500: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        })
 
         document.addEventListener('DOMContentLoaded', function() {
-    var showCategory = 'category1';
-    var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
-    showAllCategory.classList.add('active');
-    showCategory.style.display='flex';
-    showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
-  });
+            var showCategory = 'category1';
+            var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+            showAllCategory.classList.add('active');
+            showCategory.style.display = 'flex';
+            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+        });
 
-  function showItems(category) {
-    // Menghapus kelas "active" dari semua kategori
-    var categories = document.getElementsByClassName('category-name');
-    for (var i = 0; i < categories.length; i++) {
-      categories[i].classList.remove('active');
-    }
+        function showItems(category) {
+            // Menghapus kelas "active" dari semua kategori
+            var categories = document.getElementsByClassName('category-name');
+            for (var i = 0; i < categories.length; i++) {
+                categories[i].classList.remove('active');
+            }
 
-    // Menambahkan kelas "active" ke kategori yang dipilih
-    var selectedCategory = event.target;
-    if (!selectedCategory.classList.contains('active')) {
-      selectedCategory.classList.add('active');
-    }
+            // Menambahkan kelas "active" ke kategori yang dipilih
+            var selectedCategory = event.target;
+            if (!selectedCategory.classList.contains('active')) {
+                selectedCategory.classList.add('active');
+            }
 
-    // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
-    var items = document.getElementsByClassName('item');
-    for (var j = 0; j < items.length; j++) {
-      items[j].style.display = 'none';
-      if (items[j].classList.contains(category)) {
-        items[j].style.display = 'flex';
-      }
-    }
-  }
-  const chart1 = document.getElementById('chart1');
-  const chart2 = document.getElementById('chart2');
-  const chart3 = document.getElementById('chart3');
-  const chart4 = document.getElementById('chart4');
-  const chart5 = document.getElementById('chart5');
-  const chart6 = document.getElementById('chart6');
-  const chart7 = document.getElementById('chart7');
-  const chart8 = document.getElementById('chart8');
-  const chart9 = document.getElementById('chart9');
-
-  new Chart(chart1, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [30, 40, 30],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
+            // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+            var items = document.getElementsByClassName('item');
+            for (var j = 0; j < items.length; j++) {
+                items[j].style.display = 'none';
+                if (items[j].classList.contains(category)) {
+                    items[j].style.display = 'flex';
+                }
+            }
         }
-      },
+        const chart1 = document.getElementById('chart1');
+        const chart2 = document.getElementById('chart2');
+        const chart3 = document.getElementById('chart3');
+        const chart4 = document.getElementById('chart4');
+        const chart5 = document.getElementById('chart5');
+        const chart6 = document.getElementById('chart6');
+        const chart7 = document.getElementById('chart7');
+        const chart8 = document.getElementById('chart8');
+        const chart9 = document.getElementById('chart9');
+
+        new Chart(chart1, {
+            type: 'pie',
+            data: {
+                datasets: [{
+
+                    data: [30, 40, 30],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
 
 
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
 
-  new Chart(chart2, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart2, {
+            type: 'pie',
+            data: {
+                datasets: [{
 
-        data: [33, 33, 34],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                    data: [33, 33, 34],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart3, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [50, 25, 25],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
 
 
-      scale: {
-        ticks: {
-          // display: false
-        }
-      },
-    }
-  });
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
 
-  new Chart(chart4, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart3, {
+            type: 'pie',
+            data: {
+                datasets: [{
 
-        data: [35, 30, 35],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                    data: [50, 25, 25],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart5, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [25, 40, 35],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
 
 
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
+                scale: {
+                    ticks: {
+                        // display: false
+                    }
+                },
+            }
+        });
 
-  new Chart(chart6, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart4, {
+            type: 'pie',
+            data: {
+                datasets: [{
 
-        data: [50, 35, 15],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                    data: [35, 30, 35],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          // display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart7, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [40, 40, 20],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
 
 
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
 
-  new Chart(chart8, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart5, {
+            type: 'pie',
+            data: {
+                datasets: [{
 
-        data: [33, 53, 24],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                    data: [25, 40, 35],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart9, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [70, 25, 5],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
 
 
-      scale: {
-        ticks: {
-          // display: false
-        }
-      },
-    }
-  });
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
+
+        new Chart(chart6, {
+            type: 'pie',
+            data: {
+                datasets: [{
+
+                    data: [50, 35, 15],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
+
+
+                scale: {
+                    ticks: {
+                        // display: false
+                    }
+                },
+            }
+        });
+
+        new Chart(chart7, {
+            type: 'pie',
+            data: {
+                datasets: [{
+
+                    data: [40, 40, 20],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
+
+
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
+
+        new Chart(chart8, {
+            type: 'pie',
+            data: {
+                datasets: [{
+
+                    data: [33, 53, 24],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
+
+
+                scale: {
+                    ticks: {
+                        display: false
+                    }
+                },
+            }
+        });
+
+        new Chart(chart9, {
+            type: 'pie',
+            data: {
+                datasets: [{
+
+                    data: [70, 25, 5],
+                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    labels: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        precision: 2,
+                        fontSize: [24]
+                    }
+                },
+
+
+                scale: {
+                    ticks: {
+                        // display: false
+                    }
+                },
+            }
+        });
     </script>
 @endsection

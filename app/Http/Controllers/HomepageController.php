@@ -43,7 +43,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
@@ -71,11 +71,11 @@ class HomepageController extends Controller
             'logo' => Logo::first(),
             'mars' => Mars::first(),
             'sectionManagement' => SectionManagement::first(),
-            'managements' => Employee::where('role_employees_id', '1')->get(),
+            'managements' => Employee::where('role_employees_id', '1')->take(4)->get(),
             'sectionTeacher' => SectionTeacher::first(),
-            'teachers' => Employee::where('role_employees_id', '2')->get(),
+            'teachers' => Employee::where('role_employees_id', '2')->take(4)->get(),
             'sectionStaff' => SectionStaff::first(),
-            'staffs' => Employee::where('role_employees_id', '3')->get(),
+            'staffs' => Employee::where('role_employees_id', '3')->take(4)->get(),
             'sectionContact' => SectionContact::first(),
             'contacts' => Contact::all(),
         ]);

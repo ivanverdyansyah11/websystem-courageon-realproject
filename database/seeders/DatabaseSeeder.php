@@ -185,6 +185,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Komang Wirasatya',
+            'image' => 'manajemen-1.jpg',
             'place_of_birth' => 'karangasem',
             'date_of_birth' => '1995-11-23',
             'highest_rank' => 'SMKN 2014',
@@ -198,6 +199,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Made Satyawan',
+            'image' => 'manajemen-2.jpg',
             'place_of_birth' => 'bangli',
             'date_of_birth' => '1985-10-23',
             'highest_rank' => 'SMKN 2000',
@@ -211,6 +213,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Kadek Satria',
+            'image' => 'manajemen-3.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1996-12-21',
             'highest_rank' => 'SMKN 2018',
@@ -224,6 +227,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Putu Adiawan',
+            'image' => 'manajemen-4.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1990-10-11',
             'highest_rank' => 'SMKN 2011',
@@ -237,6 +241,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'Ida Bagus Darmawangsa',
+            'image' => 'manajemen-1.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1989-12-31',
             'highest_rank' => 'SMKN 2001',
@@ -250,6 +255,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Gusti Agung Sucipta',
+            'image' => 'manajemen-1.jpg',
             'place_of_birth' => 'Denpasar',
             'date_of_birth' => '1999-11-14',
             'highest_rank' => 'SMKN 2017',
@@ -263,6 +269,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '1',
             'fullname' => 'I Gede Arya Sucipta',
+            'image' => 'manajemen-1.jpg',
             'place_of_birth' => 'Negara',
             'date_of_birth' => '1982-10-19',
             'highest_rank' => 'SMKN 2001',
@@ -284,7 +291,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'Drs. I Wayan Cenik, M.Pd.',
-            'image' => 'sample-guru.jpg',
+            'image' => 'guru-1.jpg',
             'nip' => '19650428 199512 1 002',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
@@ -295,7 +302,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'Ida Bagus Nyoman Gelgel, S.Pd.',
-            'image' => 'sample-guru.jpg',
+            'image' => 'guru-2.jpg',
             'nip' => '19670110 199203 1 012',
             'position' => 'Guru Ahli Madya',
             'gender' => 'P',
@@ -305,7 +312,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'I Wayan Suarsana, S.Pd.',
-            'image' => 'sample-guru.jpg',
+            'image' => 'guru-3.jpg',
             'nip' => '19680517 199512 1 003',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
@@ -315,7 +322,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'I Wayan Mudayasa, S.Pd',
-            'image' => 'sample-guru.jpg',
+            'image' => 'guru-4.jpg',
             'nip' => '19700622 199512 1 001',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
@@ -325,7 +332,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'Dra. Ni Wayan Mastriani.',
-            'image' => 'sample-guru.jpg',
+            'image' => 'guru-4.jpg',
             'nip' => '19650428 199512 1 005',
             'position' => 'Guru Ahli Madya',
             'gender' => 'P',
@@ -335,7 +342,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'I Gusti Bagus Jelantik, S.Pd.',
-            'image' => 'sample-guru.jpg',
+            'image' => 'manajemen-1.jpg',
             'nip' => '19680713 199002 1 003',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
@@ -345,7 +352,7 @@ class DatabaseSeeder extends Seeder
         Employee::create([
             'role_employees_id' => '2',
             'fullname' => 'I Nyoman Pasek Suadnyana, S.Pd',
-            'image' => 'sample-guru.jpg',
+            'image' => 'manajemen-1.jpg',
             'nip' => '19641231 198403 1 029',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
@@ -359,59 +366,64 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
-
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'I Nengah Sumerta, S.Sos.',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'pegawai-1.jpg',
             'rank' => 'Penata / IIIc',
             'position' => 'Analis SDM / KTU',
             'gender' => 'L',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'I Gusti Agung Putra, S.E.',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'pegawai-2.jpg',
             'rank' => 'Penata Tk.1/ III/.d',
             'position' => 'Pengelola Data',
             'gender' => 'L',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'Putu Ari Setiawati.,S.E.',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'pegawai-3.jpg',
             'rank' => 'Penata/ III/.c',
             'position' => 'Pengelola BMD',
             'gender' => 'P',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'I Wayan Putu Adi Jenar, S.Pd',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'pegawai-4.jpg',
             'rank' => 'Penata Muda /III/a',
             'position' => 'Pengelola Keuangan',
             'gender' => 'L',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'I Ketut Yasa',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'manajemen-1.jpg',
             'rank' => 'Penata Muda/III/a',
             'position' => 'Pengadminitrasian Umum',
             'gender' => 'L',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'Komang Asri, A.Md.',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'manajemen-1.jpg',
             'rank' => 'Pengatur II.c',
             'position' => 'Analis SDM / KTU',
             'gender' => 'L',
         ]);
+
         Employee::create([
             'role_employees_id' => '3',
             'fullname' => 'I Komang Sumerta',
-            'image' => 'sample-pegawai.jpg',
+            'image' => 'manajemen-1.jpg',
             'rank' => 'Pengatur III.c',
             'position' => 'Pengadminitrasian Kesiswaan',
             'gender' => 'L',
@@ -570,28 +582,28 @@ class DatabaseSeeder extends Seeder
 
 
         Project::create([
-            'image' => 'sample-proyek.jpg',
+            'image' => 'proyek-1.jpg',
             'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
             'topic' => 'Gaya Hidup Berkelanjutan',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
         ]);
 
         Project::create([
-            'image' => 'sample-proyek.jpg',
+            'image' => 'proyek-2.jpg',
             'title' => 'Bhinneka Tunggal Ika, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
             'topic' => 'Bhinneka Tunggal Ika',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
         ]);
 
         Project::create([
-            'image' => 'sample-proyek.jpg',
+            'image' => 'proyek-3.jpg',
             'title' => 'Kearifan Lokal, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
             'topic' => 'Kearifan Lokal',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema kearifan lokal di sekolah merupakan upaya yang bertujuan untuk mengintegrasikan nilai-nilai luhur Pancasila dengan nilai-nilai kearifan lokal dalam pendidikan. Tujuan dari proyek ini adalah menghasilkan generasi muda yang tidak hanya mengerti dan menghargai prinsip-prinsip dasar negara Indonesia, tetapi juga memiliki pemahaman yang mendalam terhadap budaya dan tradisi lokal yang kaya.',
         ]);
 
         Project::create([
-            'image' => 'sample-proyek.jpg',
+            'image' => 'proyek-4.jpg',
             'title' => 'Bangunlah Jiwa dan Raganya, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
             'topic' => 'Bangunlah Jiwa dan Raganya',
             'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',

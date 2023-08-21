@@ -18,7 +18,8 @@
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($headerHome->banner)
-                        <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}" alt="hero-section image" class="w-100">
+                        <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
+                            alt="hero-section image" class="w-100">
                     @else
                         <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image" class="w-100">
                     @endif
@@ -42,9 +43,11 @@
             <div class="content-section mt-5 row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($remarkHome->banner)
-                        <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $remarkHome->banner) }}" alt="hero-section image" class="w-100">
+                        <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $remarkHome->banner) }}"
+                            alt="hero-section image" class="w-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image"
+                            class="w-100">
                     @endif
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
@@ -244,9 +247,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($historyHome->banner)
-                        <img src="{{ asset('assets/img/sejarah-images/sambutan-image/' . $historyHome->banner) }}" alt="hero-section image" class="w-100">
+                        <img src="{{ asset('assets/img/beranda-images/sejarah-image/' . $historyHome->banner) }}"
+                            alt="hero-section image" class="w-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/history-img.png') }}" alt="history section image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/history-img.png') }}" alt="history section image"
+                            class="w-100">
                     @endif
                 </div>
                 <div class="col-lg-7 col-xl-6 col-12 offset-xl-1">
@@ -359,27 +364,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
-          const swiperTesti = new Swiper('.swiper-testi',{
-      speed: 500,
-      loop:true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      navigation: {
-        nextEl: ".btn-next",
-        prevEl: ".btn-prev",
-      },
-      breakpoints: {
-        1: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        },
-        500:{
-          slidesPerView: 1.2,
-          spaceBetween: 20
-        }
-      }
-    } )
+        const swiperTesti = new Swiper('.swiper-testi', {
+            speed: 500,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                500: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20
+                }
+            }
+        })
     </script>
 @endsection

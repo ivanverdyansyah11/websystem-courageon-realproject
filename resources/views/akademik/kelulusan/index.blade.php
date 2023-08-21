@@ -50,6 +50,84 @@
             </div>
         </div>
 
+        <div class="row row-step">
+            <div class="col-12 d-flex justify-content-between align-items-center content-title">
+                <h5 class="subtitle">Laporan Kenaikan Siswa Sekolah</h5>
+                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                    data-bs-target="#addKenaikanSiswaModal">Tambah
+                    Kenaikan Siswa</button>
+            </div>
+            <div class="col-12">
+                <div class="row table-default">
+                    <div class="col-12 table-row">
+                        <div class="row table-data gap-4">
+                            <div class="col data-header">Nama</div>
+                            <div class="col data-header">Semester</div>
+                            <div class="d-none d-md-inline-block col data-header">Jurusan</div>
+                            <div class="d-none d-md-inline-block col data-header">Kelas</div>
+                            <div class="col-3 col-xl-2 data-header"></div>
+                        </div>
+                    </div>
+                    @if ($kenaikan_siswa->count() == 0)
+                        <div class="col-12 table-row table-border">
+                            <div class="row table-data gap-4 align-items-center justify-content-between">
+                                <div class="col-12 data-value">Tidak Ada Data Laporan Kenaikan Siswa!</div>
+                            </div>
+                        </div>
+                    @else
+                        @foreach ($kenaikan_siswa as $siswa)
+                            <div class="col-12 table-row table-border">
+                                <div class="row table-data gap-4 align-items-center">
+                                    @foreach ($students as $student)
+                                        @if ($student->id === $siswa->students_id)
+                                            <div class="col data-value data-length">{{ $student->nama_lengkap }}</div>
+                                        @endif
+                                    @endforeach
+                                    @foreach ($semesters as $semester)
+                                        @if ($semester->id === $siswa->semesters_id)
+                                            <div class="col data-value data-length">{{ $semester->semester }}</div>
+                                        @endif
+                                    @endforeach
+                                    @foreach ($jurusans as $jurusan)
+                                        @if ($jurusan->id === $siswa->jurusans_id)
+                                            <div class="col data-value data-length">{{ $jurusan->name }}</div>
+                                        @endif
+                                    @endforeach
+                                    @foreach ($kelases as $kelas)
+                                        @if ($kelas->id === $siswa->kelases_id)
+                                            <div class="col data-value data-length">{{ $kelas->name }}</div>
+                                        @endif
+                                    @endforeach
+                                    <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
+                                        <div class="wrapper-action d-flex">
+                                            <button type="button"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#detailKenaikanSiswaModal"
+                                                data-id="{{ $siswa->id }}">
+                                                <div class="detail-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#editKenaikanSiswaModal"
+                                                data-id="{{ $siswa->id }}">
+                                                <div class="edit-icon"></div>
+                                            </button>
+                                            <button type="button"
+                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
+                                                data-bs-toggle="modal" data-bs-target="#deleteKenaikanSiswaModal"
+                                                data-id="{{ $siswa->id }}">
+                                                <div class="delete-icon"></div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Laporan Kenaikan Siswa Sekolah</h5>
