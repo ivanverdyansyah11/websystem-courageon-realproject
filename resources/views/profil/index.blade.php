@@ -12,7 +12,7 @@
                     <div class="alert alert-danger mb-4" role="alert">
                         {{ session('failed') }}
                     </div>
-                @endif  
+                @endif
             </div>
         </div>
         <div class="row row-gap">
@@ -91,7 +91,7 @@
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="col data-value data-length">{{ $course->name }}</div>
                                     <div class="col data-value d-none d-md-inline-block data-length">
-                                        {{ $course->hours_per_week }} Hours</div>
+                                        {{ $course->hours_per_week }} Jam</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
