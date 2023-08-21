@@ -5,18 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Beasiswa;
 use App\Models\Contact;
 use App\Models\Curriculum;
+use App\Models\Denah;
 use App\Models\Employee;
 use App\Models\Extracurricular;
 use App\Models\Gallery;
 use App\Models\HeaderAcademic;
 use App\Models\HeaderHome;
 use App\Models\HeaderProfile;
+use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
 use App\Models\OpeningHome;
+use App\Models\Prasarana;
 use App\Models\Program;
 use App\Models\Project;
 use App\Models\RemarkHome;
@@ -24,10 +27,12 @@ use App\Models\SectionAchievement;
 use App\Models\SectionAlumni;
 use App\Models\SectionBeasiswa;
 use App\Models\SectionContact;
+use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
 use App\Models\SectionJournal;
 use App\Models\SectionManagement;
+use App\Models\SectionPrasarana;
 use App\Models\SectionProgram;
 use App\Models\SectionProyek;
 use App\Models\SectionService;
@@ -109,6 +114,11 @@ class HomepageController extends Controller
     {
         return view('homepage.sarana-prasarana.index', [
             'title' => 'Sarana Prasarana',
+            'headerSaranaPrasarana' => HeaderSaranaPrasarana::first(),
+            'sectionPrasarana' => SectionPrasarana::first(),
+            'prasaranas' => Prasarana::all(),
+            'sectionDenah' => SectionDenah::first(),
+            'denahs' => Denah::all(),
         ]);
     }
 
