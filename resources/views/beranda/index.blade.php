@@ -690,61 +690,72 @@
         {{-- MODAL EDIT NAVIGASI --}}
         <div class="modal fade" id="editNavigasiModal" tabindex="-1" aria-labelledby="editNavigasiModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <h3 class="title">Edit Navigasi</h3>
                     <form id="editNavigasi" method="post" class="form d-flex flex-column justify-content-center">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6 mb-4"></div>
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_1">Link 1</label>
-                            <input type="text" id="link_1" class="input" name="link_1" autocomplete="off"
-                                data-value="link_1">
-                            @error('link_1')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_2">Link 2</label>
-                            <input type="text" id="link_2" class="input" name="link_2" autocomplete="off"
-                                data-value="link_2">
-                            @error('link_2')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_3">Link 3</label>
-                            <input type="text" id="link_3" class="input" name="link_3" autocomplete="off"
-                                data-value="link_3">
-                            @error('link_3')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_4">Link 4</label>
-                            <input type="text" id="link_4" class="input" name="link_4" autocomplete="off"
-                                data-value="link_4">
-                            @error('link_4')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_5">Link 5</label>
-                            <input type="text" id="link_5" class="input" name="link_5" autocomplete="off"
-                                data-value="link_5">
-                            @error('link_5')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="link_6">Link 6</label>
-                            <input type="text" id="link_6" class="input" name="link_6" autocomplete="off"
-                                data-value="link_6">
-                            @error('link_6')
-                                <p class="caption-error mt-2">{{ $message }}</p>
-                            @enderror
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_1">Link 1</label>
+                                    <input type="text" id="link_1" class="input" name="link_1"
+                                        autocomplete="off" data-value="link_1">
+                                    @error('link_1')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_2">Link 2</label>
+                                    <input type="text" id="link_2" class="input" name="link_2"
+                                        autocomplete="off" data-value="link_2">
+                                    @error('link_2')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_3">Link 3</label>
+                                    <input type="text" id="link_3" class="input" name="link_3"
+                                        autocomplete="off" data-value="link_3">
+                                    @error('link_3')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_4">Link 4</label>
+                                    <input type="text" id="link_4" class="input" name="link_4"
+                                        autocomplete="off" data-value="link_4">
+                                    @error('link_4')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_5">Link 5</label>
+                                    <input type="text" id="link_5" class="input" name="link_5"
+                                        autocomplete="off" data-value="link_5">
+                                    @error('link_5')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="input-wrapper">
+                                    <label for="link_6">Link 6</label>
+                                    <input type="text" id="link_6" class="input" name="link_6"
+                                        autocomplete="off" data-value="link_6">
+                                    @error('link_6')
+                                        <p class="caption-error mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="button-wrapper d-flex flex-column">
                             <button type="submit" class="button-default-solid">Simpan Perubahan</button>
@@ -889,12 +900,12 @@
                     type: 'get',
                     url: '/admin/beranda/edit-navigasi',
                     success: function(data) {
-                        $('[data-value="title_header"]').val(data.title_header);
-                        $('[data-value="description_header"]').val(data.description);
-                        $('[data-value="button_header"]').val(data.button);
-                        $('[data-value="oldImage_header"]').val(data.banner);
-                        $('[data-value="banner_header"]').attr("src",
-                            "/assets/img/beranda-images/header-image/" + data.banner);
+                        $('[data-value="link_1"]').val(data.link_1);
+                        $('[data-value="link_2"]').val(data.link_2);
+                        $('[data-value="link_3"]').val(data.link_3);
+                        $('[data-value="link_4"]').val(data.link_4);
+                        $('[data-value="link_5"]').val(data.link_5);
+                        $('[data-value="link_6"]').val(data.link_6);
                     }
                 });
             });

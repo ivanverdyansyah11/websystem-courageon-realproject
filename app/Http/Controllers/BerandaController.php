@@ -159,29 +159,20 @@ class BerandaController extends Controller
     function updateNavigasi(Request $request)
     {
         $validatedData = $request->validate([
-            'title_header' => 'required|string|max:255',
-            'description' => 'required|string',
-            'button' => 'required|string|max:255',
+            'link_1' => 'required|string|max:255',
+            'link_2' => 'required|string|max:255',
+            'link_3' => 'required|string|max:255',
+            'link_4' => 'required|string|max:255',
+            'link_5' => 'required|string|max:255',
+            'link_6' => 'required|string|max:255',
         ]);
 
-        if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/beranda-images/header-image/') . $request->oldImage;
-            unlink($oldImagePath);
+        $navigasi = Navigasi::first()->update($validatedData);
 
-            $image = $request->file('banner');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/beranda-images/header-image/'), $imageName);
-            $validatedData['banner'] = $imageName;
+        if ($navigasi) {
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Navigasi!');
         } else {
-            $validatedData['banner'] = $request->oldImage;
-        }
-
-        $headerHome = HeaderHome::first()->update($validatedData);
-
-        if ($headerHome) {
-            return redirect(route('beranda-index'))->with('success', 'Berhasil Update Section Header!');
-        } else {
-            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Section Header!');
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Update Navigasi!');
         }
     }
 }
