@@ -18,6 +18,7 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\Journuse;
 use App\Models\Index;
 use App\Models\Journal;
 use App\Models\Jurusan;
@@ -111,7 +112,32 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Selengkapnya',
         ]);
 
+        VisionMission::create([
+            'banner' => 'banner-visi-misi.jpg',
+            'title_vision' => 'Visi sekolah',
+            'description_vision' => 'Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.',
+            'title_mission' => 'Misi sekolah',
+            'description_mission' => 'Misi Courageon School adalah menyediakan pendidikan yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk mengembangkan keberanian dan kreativitas mereka melalui berbagai program ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi masyarakat dan dunia.',
+        ]);
 
+        Motto::create([
+            'speaker' => 'Courageon',
+            'motto' => 'Bangsa yang malas belajar tidak akan bisa berkembang!',
+        ]);
+
+        Logo::create([
+            'logo' => 'brand-logo.png',
+            'logo_meaning' => 'Buku dalam logo menggambarkan komitmen sekolah untuk memberikan pendidikan yang berkualitas tinggi kepada siswa. Ini mengandung pesan bahwa sekolah adalah tempat belajar dan pengetahuan yang didorong untuk membekali siswa dengan bekal yang kuat untuk masa depan.',
+            'font_meaning' => 'Penggunaan font sans serif capitalize menunjukkan kesan modern dan progresif dari sekolah tersebut. Logo ini ingin menyampaikan bahwa sekolah memiliki pendekatan yang inovatif dalam pendidikan dan selalu berada di garis depan perkembangan pendidikan.',
+            'color_meaning' => 'Warna biru tua sering dikaitkan dengan keberlanjutan dan konsistensi. Logo ini ingin menyampaikan bahwa sekolah memiliki dedikasi yang kuat untuk memberikan pendidikan berkualitas dan berkomitmen untuk mencapai tujuan jangka panjang.',
+        ]);
+
+        Mars::create([
+            'banner' => 'banner-mars.jpg',
+            'title_section' => 'Mars SMA Negeri 1 Selat',
+            'mars' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
+            'creation' => 'Dr. Andi Pranoto, M.Pd.',
+        ]);
 
         RoleEmployee::create([
             'role' => 'management',
@@ -125,12 +151,27 @@ class DatabaseSeeder extends Seeder
             'role' => 'employee',
         ]);
 
+        Course::create([
+            'name' => 'Matematika',
+            'hours_per_week' => '12',
+        ]);
+
+        Course::create([
+            'name' => 'IPA',
+            'hours_per_week' => '8',
+        ]);
+
+        Course::create([
+            'name' => 'PPKN',
+            'hours_per_week' => '10',
+        ]);
+
         SectionManagement::create([
             'title_section' => 'Data Manajemen SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
 
-
+  
 
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
@@ -138,10 +179,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
         ]);
+
 
 
         SectionContact::create([
@@ -185,10 +228,23 @@ class DatabaseSeeder extends Seeder
             'description' => 'Manfaat kemitraan sekolah-industri dalam mempersiapkan siswa untuk masa depan dunia kerja. Dengan menjalin hubungan erat antara sekolah.',
         ]);
 
+        Partnership::create([
+            'logo' => 'sample-kemitraan.svg',
+            'name' => 'Radius Company',
+        ]);
 
         SectionJournal::create([
             'title_header' => 'Berbagai Berita Mengenai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua Berita',
+        ]);
+
+        Journal::create([
+            'thumbnail' => 'sample-majalah.jpg',
+            'title' => 'Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota',
+            'description' => 'Prestasi ini menyoroti ketekunan, dedikasi, dan kemampuan siswa dalam menghadapi tantangan matematika yang kompetitif. Kemenangan ini bukan hanya menjadi kebanggaan sekolah, tetapi juga mencerminkan upaya keras siswa dalam mempertajam kemampuan akademiknya serta membuktikan bahwa pendidikan yang berkualitas menghasilkan hasil yang gemilang.',
+            'document_pdf' => 'sample-dokumen.pdf',
+            'author' => 'Aditya Prayatna',
+            'created_date' => '2023-08-11',
         ]);
 
         HeaderSaranaPrasarana::create([
@@ -204,6 +260,13 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
+        Prasarana::create([
+            'image' => 'sample-sarana-prasarana.jpg',
+            'name' => 'Ruang Kelas',
+            'description' => 'Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru. Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada dalam ruangan kelas',
+            'total' => 38,
+        ]);
+
         SectionDenah::create([
             'title_section' => 'Kode Denah',
             'title_code' => 'Kode Ruangan',
@@ -211,6 +274,11 @@ class DatabaseSeeder extends Seeder
             'button' => 'Detail',
         ]);
 
+        Denah::create([
+            'code' => 'A',
+            'name' => 'Ruang Kelas',
+            'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
+        ]);
 
         HeaderAcademic::create([
             'banner' => 'banner-header.jpg',
@@ -263,6 +331,11 @@ class DatabaseSeeder extends Seeder
             'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
         ]);
 
+        Gallery::create([
+            'image' => 'sample-galeri.jpg',
+            'title' => 'Sample Gambar Galeri Pertama',
+        ]);
+
         SectionGraduation::create([
             'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
             'button_1' => 'Semua Siswa',
@@ -295,6 +368,19 @@ class DatabaseSeeder extends Seeder
             'description' => 'Ekstrakulikuler di sekolah merupakan wadah yang penting bagi para siswa untuk mengembangkan potensi mereka di luar lingkup pembelajaran akademis.',
         ]);
 
+        Extracurricular::create([
+            'icon' => 'sample-ekstrakurikuler.svg',
+            'name' => 'Sepak Bola',
+            'title' => 'Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola',
+            'description' => 'Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter positif pada siswa.',
+            'schedule_day' => 'jumat',
+            'start_time' => '15:00',
+            'end_time' => '16:00',
+            'coach' => 'Ahmad Fatoni',
+            'number_phone_coach' => '08123456789',
+            'link_register' => 'https://translate.google.co.id/?hl=id',
+        ]);
+
         SectionService::create([
             'title_section' => 'Kami Mengarahkan Siswa Menuju Kesuksesan Karir',
             'description' => 'Kami memandu setiap siswa menuju pencapaian kesuksesan yang berkelanjutan dalam berbagai bidang karir yang mereka pilih. Visi kami adalah membantu siswa mengembangkan potensi terbaik mereka untuk meraih prestasi luar biasa dalam perjalanan karir mereka yang penuh prestasi.',
@@ -314,9 +400,73 @@ class DatabaseSeeder extends Seeder
 
         SectionAlumni::create([
             'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
-            'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang profesi.',
+            'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang pro'
         ]);
 
+        TahunAjaran::create([
+            'tahun' => '2022/2023',
+        ]);
 
+        TahunAjaran::create([
+            'tahun' => '2023/2024',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2024/2025',
+        ]);
+
+        TahunAjaran::create([
+            'tahun' => '2026/2027',
+        ]);
+
+        Semester::create([
+            'semester' => 'Ganjil',
+        ]);
+
+        Semester::create([
+            'semester' => 'Genap',
+        ]);
+
+        Kelas::create([
+            'name' => 'X',
+        ]);
+
+        Kelas::create([
+            'name' => 'XI',
+        ]);
+
+        Kelas::create([
+            'name' => 'XII',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Alam',
+            'code' => 'IPA',
+        ]);
+
+        Jurusan::create([
+            'name' => 'Ilmu Pengetahuan Sosial',
+            'code' => 'IPS',
+        ]);
+
+        Index::create([
+            'name' => 'A',
+        ]);
+
+        Index::create([
+            'name' => 'B',
+        ]);
+
+        Index::create([
+            'name' => 'C',
+        ]);
+
+        Index::create([
+            'name' => 'D',
+        ]);
+
+        Index::create([
+            'name' => 'E',
+        ]);
     }
 }
