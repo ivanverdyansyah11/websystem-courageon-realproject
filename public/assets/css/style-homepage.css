@@ -260,6 +260,9 @@ section .row .col-lg-5 img{
     max-height: 32px;
     height: 100%;
 }
+.row-program:nth-child(even){
+    flex-direction: row-reverse;
+}
 /*all section setting*/
 
 
@@ -317,6 +320,9 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 .img-modal{
     border-radius: 8px !important;
+}
+.card-school-people img, .card-p5 img{
+    border-radius: 8px;
 }
 /*card styles*/
 
