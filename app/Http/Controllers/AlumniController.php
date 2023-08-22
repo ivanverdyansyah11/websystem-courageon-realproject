@@ -66,11 +66,19 @@ class AlumniController extends Controller
     function storeAlumni(Request $request)
     {
         $validatedData = $request->validate([
+            'profile' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'tahun_ajaran_lulus' => 'required|string',
             'pekerjaan' => 'required|string|max:255',
             'students_id' => 'required|string',
             'testimoni' => 'required|string',
         ]);
+
+        if ($validatedData['profile']) {
+            $image = $request->file('profile');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/kesiswaan-images/alumni-image/'), $imageName);
+            $validatedData['profile'] = $imageName;
+        }
 
         $alumni = Alumni::create($validatedData);
 
@@ -83,6 +91,8 @@ class AlumniController extends Controller
 
     function updateAlumni($id, Request $request)
     {
+        $alumni = Alumni::where('id', $id)->first();
+
         $validatedData = $request->validate([
             'tahun_ajaran_lulus' => 'required|string',
             'pekerjaan' => 'required|string|max:255',
@@ -90,9 +100,21 @@ class AlumniController extends Controller
             'testimoni' => 'required|string',
         ]);
 
-        $alumni = Alumni::where('id', $id)->update($validatedData);
+        if ($request->file('profile')) {
+            $oldImagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'];
+            unlink($oldImagePath);
 
-        if ($alumni) {
+            $image = $request->file('profile');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/kesiswaan-images/alumni-image/'), $imageName);
+            $validatedData['profile'] = $imageName;
+        } else {
+            $validatedData['profile'] = $alumni['profile'];
+        }
+
+        $alumniAction = Alumni::where('id', $id)->update($validatedData);
+
+        if ($alumniAction) {
             return redirect(route('alumni-index'))->with('success', 'Berhasil Edit Alumni Sekolah!');
         } else {
             return redirect(route('alumni-index'))->with('failed', 'Gagal Edit Alumni Sekolah!');
@@ -102,6 +124,10 @@ class AlumniController extends Controller
     function deleteAlumni($id)
     {
         $alumni = Alumni::where('id', $id)->first();
+        if ($alumni->profile) {
+            $imagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni->profile;
+            unlink($imagePath);
+        }
         $alumni = $alumni->delete();
 
         if ($alumni) {

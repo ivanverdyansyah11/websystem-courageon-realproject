@@ -215,10 +215,25 @@
             <div class="modal-content">
                 <h3 class="title">Tambah Alumni Sekolah</h3>
                 <form action="{{ route('alumni-store') }}" method="post"
-                    class="form d-flex flex-column justify-content-center">
+                    class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="profile">Profile</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-add-profile" alt="Profile Alumni" width="80">
+                                    <div class="wrapper-profile w-100">
+                                        <input type="file" id="profile" class="input-add-profile" name="profile">
+                                    </div>
+                                </div>
+                                @error('profile')
+                                    <p class="caption-error mt-4">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Siswa</label>
                                 <select name="students_id" id="students_id" class="input" autocomplete="off">
@@ -282,10 +297,19 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <h3 class="title">Detail Journal Sekolah</h3>
+                <h3 class="title">Detail Alumni Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="profile">Profile</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
+                                        alt="Profile Alumni" width="80" data-value="profile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Siswa</label>
                                 <input type="text" id="students_id" class="input" autocomplete="off" disabled
@@ -331,10 +355,27 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Alumni Sekolah</h3>
-                <form id="editAlumni" method="post" class="form d-flex flex-column justify-content-center">
+                <form id="editAlumni" method="post" class="form d-flex flex-column justify-content-center"
+                    enctype="multipart/form-data">
                     @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
+                    <div class="row align-items-end">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="profile">Profile</label>
+                                <div class="wrapper d-flex align-items-end">
+                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                        class="img-fluid tag-edit-profile" alt="Profile Alumni" width="80"
+                                        data-value="profile">
+                                    <div class="wrapper-profile w-100">
+                                        <input type="file" id="profile" class="input-edit-profile" name="profile">
+                                    </div>
+                                </div>
+                                @error('profile')
+                                    <p class="caption-error mt-4">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Siswa</label>
                                 <select name="students_id" id="students_id" class="input">
@@ -444,11 +485,12 @@
                 type: 'get',
                 url: '/admin/kesiswaan/alumni/detail-alumni/' + id,
                 success: function(data) {
-                    console.log(data);
-                    $('[data-value="students_id"]').val(data.students_id);
+                    $('[data-value="students_id"]').val(data.students_nama);
                     $('[data-value="pekerjaan"]').val(data.pekerjaan);
                     $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);
                     $('[data-value="testimoni"]').val(data.testimoni);
+                    $('[data-value="profile"]').attr("src",
+                        "/assets/img/kesiswaan-images/alumni-image/" + data.profile);
                 }
             });
         });
@@ -467,6 +509,8 @@
                     $('[data-value="tahun_ajaran_lulus"]').html(data.tahun_ajaran_lulus);
                     $('[data-value="pekerjaan"]').val(data.pekerjaan);
                     $('[data-value="testimoni"]').val(data.testimoni);
+                    $('[data-value="profile"]').attr("src",
+                        "/assets/img/kesiswaan-images/alumni-image/" + data.profile);
                 }
             });
         });
@@ -474,6 +518,19 @@
         $(document).on('click', '[data-bs-target="#deleteAlumniModal"]', function() {
             let id = $(this).data('id');
             $('#deleteAlumni').attr('action', '/admin/kesiswaan/alumni/delete-alumni/' + id);
+        });
+
+        const tagAddProfile = document.querySelector('.tag-add-profile');
+        const inputAddProfile = document.querySelector('.input-add-profile');
+        const tagEditProfile = document.querySelector('.tag-edit-profile');
+        const inputEditProfile = document.querySelector('.input-edit-profile');
+
+        inputAddProfile.addEventListener('change', function() {
+            tagAddProfile.src = URL.createObjectURL(inputAddProfile.files[0]);
+        });
+
+        inputEditProfile.addEventListener('change', function() {
+            tagEditProfile.src = URL.createObjectURL(inputEditProfile.files[0]);
         });
     </script>
 @endsection
