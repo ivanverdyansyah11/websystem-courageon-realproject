@@ -476,7 +476,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HeaderAcademic::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
             'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
             'button' => 'Lihat Selengkapnya',
