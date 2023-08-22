@@ -142,10 +142,10 @@
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                     @foreach ($projects as $project)
-                        <a href="" class="col">
+                        <a href="{{ route('detail-projek', $project->id) }}" class="col">
                             <div class="card-p5">
                                 <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
-                                    alt="Kearifan Lokal" class="w-100">
+                                    alt="{{ $project->title }}" class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">{{ $project->topic }}</p>
                                     <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
@@ -179,28 +179,6 @@
                                 class="w-100" alt="gallery {{ $loop->index + 1 }}">
                         </a>
                     @endforeach
-                    {{-- <a href="{{ asset('assets-homepage/img/gallery2.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery2.png') }}" class="w-100" alt="gallery 2">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery3.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery3.png') }}" class="w-100" alt="gallery 3">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery4.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery4.png') }}" class="w-100" alt="gallery 4">
-                    </a> 
-                    <a href="{{ asset('assets-homepage/img/gallery5.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery5.png') }}" class="w-100" alt="gallery 5">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery6.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery6.png') }}" class="w-100" alt="gallery 6">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery7.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery7.png') }}" class="w-100" alt="gallery 7">
-                    </a>
-                    <a href="{{ asset('assets-homepage/img/gallery8.png') }}" data-toggle="lightbox" data-gallery="example-gallery" class="pin-img">
-                        <img src="{{ asset('assets-homepage/img/gallery8.png') }}" class="w-100" alt="gallery 8">
-                    </a> --}}
-
                 </div>
             </div>
         </section>
@@ -471,4 +449,5 @@
             }
         });
     </script>
+
 @endsection
