@@ -25,6 +25,7 @@ use App\Models\Journuse;
 use App\Models\Index;
 use App\Models\Journal;
 use App\Models\Jurusan;
+use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
 use App\Models\KenaikanKelas;
 use App\Models\Logo;
@@ -1032,6 +1033,14 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Semua',
         ]);
 
+        KategoriPrestasi::create([
+            'nama' => 'Akademik'
+        ]);
+
+        KategoriPrestasi::create([
+            'nama' => 'Non Akademik'
+        ]);
+
         Prestasi::create([
             'dokumentasi' => 'prestasi-1.jpg',
             'status' => 'Siswa',
@@ -1043,6 +1052,7 @@ class DatabaseSeeder extends Seeder
             'tingkat' => 'Provinsi',
             'pembina' => 'Putra Rizky',
             'deskripsi' => 'Dengan dedikasi dan pemahaman yang mendalam terhadap konsep-konsep fisika, siswa kami berhasil meraih prestasi sebagai juara pertama dalam Olimpiade Fisika, menegaskan keunggulan mereka dalam bidang ilmu pengetahuan alam ini.',
+            'kategori_prestasis_id' => '1',
         ]);
 
         Prestasi::create([
@@ -1056,6 +1066,7 @@ class DatabaseSeeder extends Seeder
             'tingkat' => 'Provinsi',
             'pembina' => 'Siti Rahma',
             'deskripsi' => 'Prestasi luar biasa siswa kami dalam Olimpiade Sains terbukti dengan peraihan juara kedua, memperlihatkan dedikasi mereka terhadap pembelajaran ilmiah dan semangat kompetitif yang kuat.',
+            'kategori_prestasis_id' => '1',
         ]);
 
         Prestasi::create([
@@ -1069,6 +1080,7 @@ class DatabaseSeeder extends Seeder
             'tingkat' => 'Kecamatan',
             'pembina' => 'Jessi Nanda Putra',
             'deskripsi' => 'Dalam lomba renang tingkat sekolah, siswa-siswa kami memamerkan keterampilan renang yang handal dan semangat sportivitas, menciptakan momen yang penuh kegembiraan dan kebersamaan di dalam air.',
+            'kategori_prestasis_id' => '2',
         ]);
 
         Prestasi::create([
@@ -1082,6 +1094,7 @@ class DatabaseSeeder extends Seeder
             'tingkat' => 'Provinsi',
             'pembina' => 'Putra Rizky',
             'deskripsi' => 'Dalam Olimpiade Biologi, siswa-siswa kami menunjukkan pemahaman mendalam terhadap ilmu biologi dan kemampuan analisis yang unggul, meraih prestasi yang gemilang dalam ajang kompetisi ilmiah tersebut.',
+            'kategori_prestasis_id' => '1',
         ]);
 
         SectionBeasiswa::create([

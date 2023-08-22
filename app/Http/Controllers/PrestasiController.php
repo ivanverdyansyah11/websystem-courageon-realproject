@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
 use App\Models\Prestasi;
 use App\Models\SectionAchievement;
@@ -45,6 +46,7 @@ class PrestasiController extends Controller
     {
         return view('kesiswaan.prestasi.create', [
             'title' => 'Kesiswaan > Prestasi',
+            'categories' => KategoriPrestasi::all(),
         ]);
     }
 
@@ -61,6 +63,7 @@ class PrestasiController extends Controller
             'tingkat' => 'required|string|max:255',
             'pembina' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'kategori_prestasis_id' => 'required',
         ]);
 
         if ($validatedData['dokumentasi']) {
@@ -84,6 +87,7 @@ class PrestasiController extends Controller
         return view('kesiswaan.prestasi.detail', [
             'title' => 'Kesiswaan > Prestasi',
             'prestasi' => Prestasi::where('id', $id)->first(),
+            'categories' => KategoriPrestasi::all(),
         ]);
     }
 
@@ -92,6 +96,7 @@ class PrestasiController extends Controller
         return view('kesiswaan.prestasi.edit', [
             'title' => 'Kesiswaan > Prestasi',
             'prestasi' => Prestasi::where('id', $id)->first(),
+            'categories' => KategoriPrestasi::all(),
         ]);
     }
 
@@ -108,6 +113,7 @@ class PrestasiController extends Controller
             'tingkat' => 'required|string|max:255',
             'pembina' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'kategori_prestasis_id' => 'required',
         ]);
 
         if ($request->file('dokumentasi')) {

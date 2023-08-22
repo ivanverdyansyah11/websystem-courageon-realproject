@@ -25,6 +25,7 @@ class CreatePrestasisTable extends Migration
             $table->enum('tingkat', ['Kecamatan', 'Kabupaten', 'Provinsi', 'Negara']);
             $table->string('pembina');
             $table->text('deskripsi');
+            $table->bigInteger('kategori_prestasis_id');
             $table->timestamps();
         });
     }

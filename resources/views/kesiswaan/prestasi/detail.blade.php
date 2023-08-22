@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="image">Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
@@ -32,6 +32,17 @@
                                                     class="img-fluid" alt="Image Not Found" width="80">
                                             @endif
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="kategori_prestasis_id">Kategori Prestasi</label>
+                                        @foreach ($categories as $category)
+                                            @if ($category->id == $prestasi->kategori_prestasis_id)
+                                                <input type="text" id="kategori_prestasis_id" class="input"
+                                                    autocomplete="off" disabled value="{{ $category->nama }}">
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">

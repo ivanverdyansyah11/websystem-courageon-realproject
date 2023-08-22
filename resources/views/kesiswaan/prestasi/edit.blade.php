@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="image">Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
@@ -45,6 +45,22 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
+                                        <label for="kategori_prestasis_id">Kategori Prestasi</label>
+                                        <select id="kategori_prestasis_id" class="input" autocomplete="off"
+                                            name="kategori_prestasis_id">
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                    {{ $category->id == $prestasi->kategori_prestasis_id ? 'selected' : '' }}>
+                                                    {{ $category->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('kategori_prestasis_id')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="date" id="tanggal" class="input" autocomplete="off"
                                             name="tanggal" value="{{ $prestasi->tanggal }}">
@@ -57,9 +73,11 @@
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
                                         <select name="status" id="status" class="input">
-                                            <option value="Guru" {{ $prestasi->status === 'Guru' ? 'selected' : '' }}>Guru
+                                            <option value="Guru" {{ $prestasi->status === 'Guru' ? 'selected' : '' }}>
+                                                Guru
                                             </option>
-                                            <option value="Pegawai" {{ $prestasi->status === 'Pegawai' ? 'selected' : '' }}>
+                                            <option value="Pegawai"
+                                                {{ $prestasi->status === 'Pegawai' ? 'selected' : '' }}>
                                                 Pegawai</option>
                                             <option value="Siswa" {{ $prestasi->status === 'Siswa' ? 'selected' : '' }}>
                                                 Siswa</option>

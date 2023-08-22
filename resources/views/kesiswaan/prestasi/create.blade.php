@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="image">Dokumentasi</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
@@ -34,6 +34,21 @@
                                             </div>
                                         </div>
                                         @error('dokumentasi')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="kategori_prestasis_id">Kategori Prestasi</label>
+                                        <select id="kategori_prestasis_id" class="input" autocomplete="off"
+                                            name="kategori_prestasis_id">
+                                            <option>Pilih kategori prestasi</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('kategori_prestasis_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
