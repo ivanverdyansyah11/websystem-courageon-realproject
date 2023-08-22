@@ -163,6 +163,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
+            'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
             'dataSiswa1TahunKebelakang' => $dataSiswaFirst,
             'dataSiswa2TahunKebelakang' => $dataSiswaSecond,
             'dataSiswa3TahunKebelakang' => $dataSiswaThird,

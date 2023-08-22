@@ -1,9 +1,9 @@
-@dd($dataSiswa1TahunKebelakang)
+{{-- @dd($dataSiswa1TahunKebelakang) --}}
 @extends('templates.main')
 
 @section('container')
-    @dd($dataSiswa1TahunKebelakang)
     <main class="mt-3">
+
         <section class="hero-section container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
@@ -37,59 +37,20 @@
                     </p>
                 </div>
             </div>
-            <div class="mt-4 d-flex justify-content-center gap-3">
-                <button class="btn btn-text category-name active" onclick="showItems('category1')">
-                    {{ $sectionStudent->button_1 }}
-                </button>
-                <button class="btn btn-text category-name" onclick="showItems('category2')">
-                    {{ $sectionStudent->button_2 }}
-                </button>
-                <button class="btn btn-text category-name" onclick="showItems('category3')">
-                    {{ $sectionStudent->button_3 }}
-                </button>
-            </div>
             <div class="mt-4">
                 <div class="category-content">
                     <div class="category1 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                         <div class="col d-flex align-items-center gap-3 flex-column">
                             <canvas id="chart1" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2021</p>
+                            <p class="fs-6 desc fw-medium">Tahun Ajaran {{ $tahunAjaran[0]->tahun }}</p>
                         </div>
                         <div class="col d-flex align-items-center gap-3 flex-column">
                             <canvas id="chart2" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2022</p>
+                            <p class="fs-6 desc fw-medium">Tahun Ajaran {{ $tahunAjaran[1]->tahun }}</p>
                         </div>
                         <div class="col d-flex align-items-center gap-3 flex-column">
                             <canvas id="chart3" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2023</p>
-                        </div>
-                    </div>
-                    <div class="category2 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart4" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2021</p>
-                        </div>
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart5" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2022</p>
-                        </div>
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart6" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2023</p>
-                        </div>
-                    </div>
-                    <div class="category3 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart7" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2021</p>
-                        </div>
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart8" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2022</p>
-                        </div>
-                        <div class="col d-flex align-items-center gap-3 flex-column">
-                            <canvas id="chart9" class="w-75 h-75"></canvas>
-                            <p class="fs-6 desc fw-medium">Tahun 2023</p>
+                            <p class="fs-6 desc fw-medium">Tahun Ajaran {{ $tahunAjaran[2]->tahun }}</p>
                         </div>
                     </div>
                 </div>
@@ -312,6 +273,9 @@
             </div>
         </section>
     </main>
+    <p id="label1" class="d-none">{{ $tahunAjaran[0]->tahun }}</p>
+    <p id="label2" class="d-none">{{ $tahunAjaran[1]->tahun }}</p>
+    <p id="label3" class="d-none">{{ $tahunAjaran[2]->tahun }}</p>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -342,59 +306,31 @@
             }
         })
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var showCategory = 'category1';
-            var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
-            showAllCategory.classList.add('active');
-            showCategory.style.display = 'flex';
-            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
-        });
-
-        function showItems(category) {
-            // Menghapus kelas "active" dari semua kategori
-            var categories = document.getElementsByClassName('category-name');
-            for (var i = 0; i < categories.length; i++) {
-                categories[i].classList.remove('active');
-            }
-
-            // Menambahkan kelas "active" ke kategori yang dipilih
-            var selectedCategory = event.target;
-            if (!selectedCategory.classList.contains('active')) {
-                selectedCategory.classList.add('active');
-            }
-
-            // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
-            var items = document.getElementsByClassName('item');
-            for (var j = 0; j < items.length; j++) {
-                items[j].style.display = 'none';
-                if (items[j].classList.contains(category)) {
-                    items[j].style.display = 'flex';
-                }
-            }
-        }
 
         const label1 = document.getElementById('label1').textContent;
         const label2 =  document.getElementById('label2').textContent;
         const label3 =  document.getElementById('label3').textContent;
 
-        const data1 = {{ $kenaikanKelas[0]->jumlah_siswa_x }};
-        const data2 = {{ $kenaikanKelas[0]->jumlah_siswa_xi }};
-        const data3= {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
+        const data1 = {{ $dataSiswa1TahunKebelakang[1] }}
+        const data2 = {{ $dataSiswa1TahunKebelakang[2] }}
+        const data3 = {{ $dataSiswa1TahunKebelakang[3] }}
 
-        const data4 = {{ $kenaikanKelas[1]->jumlah_siswa_x }};
-        const data5 = {{ $kenaikanKelas[1]->jumlah_siswa_xi }};
-        const data6 = {{ $kenaikanKelas[1]->jumlah_siswa_xii }};
+        const data4 = {{ $dataSiswa2TahunKebelakang[1] }}
+        const data5 = {{ $dataSiswa2TahunKebelakang[2] }}
+        const data6 = {{ $dataSiswa2TahunKebelakang[3] }}
 
-        const data7 = {{ $kenaikanKelas[2]->jumlah_siswa_x }};
-        const data8 = {{ $kenaikanKelas[2]->jumlah_siswa_xi }};
-        const data9 = {{ $kenaikanKelas[2]->jumlah_siswa_xii }};
+        const data7 = {{ $dataSiswa3TahunKebelakang[1] }}
+        const data8 = {{ $dataSiswa3TahunKebelakang[2] }}
+        const data9 = {{ $dataSiswa3TahunKebelakang[3] }}
+
 
         new Chart(chart1, {
             type: 'pie',
+            labels: [label1, label2, label3],
             data: {
                 datasets: [{
 
-                    data: [30, 40, 30],
+                    data: [data1, data2, data3],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
@@ -423,11 +359,12 @@
         });
 
         new Chart(chart2, {
+            labels: [label1, label2, label3],
             type: 'pie',
             data: {
                 datasets: [{
 
-                    data: [33, 33, 34],
+                    data: [data4, data5, data6],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
@@ -456,209 +393,12 @@
         });
 
         new Chart(chart3, {
+            labels: [label1, label2, label3],
             type: 'pie',
             data: {
                 datasets: [{
 
-                    data: [50, 25, 25],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        // display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart4, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [35, 30, 35],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart5, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [25, 40, 35],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart6, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [50, 35, 15],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        // display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart7, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [40, 40, 20],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart8, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [33, 53, 24],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart9, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [70, 25, 5],
+                    data: [data7, data8, data9],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
