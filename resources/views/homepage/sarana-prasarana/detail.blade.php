@@ -19,7 +19,8 @@
                         <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#modalSapras{{ $prasarana->id }}">
                             @if ($prasarana->image)
-                                <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}" alt="ruang kelas" class="w-100">
+                                <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}"
+                                    alt="ruang kelas" class="w-100">
                             @else
                                 <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
                             @endif
@@ -28,8 +29,8 @@
                             </p>
                             <div class="mt-1 d-flex gap-3 justify-content-center align-items-center">
                                 <div class="d-flex gap-2 justify-content-center align-items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"
-                                        fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
+                                        viewBox="0 0 17 16" fill="none">
                                         <path
                                             d="M13.3816 10.9685C13.3903 10.9294 13.3946 10.912 13.3946 10.899C13.3946 9.60829 13.3946 8.32195 13.399 7.03126C13.399 6.93131 13.3468 6.90089 13.273 6.87481C12.9383 6.75313 12.6037 6.6271 12.2691 6.50108C12.1605 6.46197 12.0518 6.41851 11.9432 6.37939C11.9345 6.40547 11.9301 6.40982 11.9301 6.41416C11.9301 7.71789 11.9258 9.02596 11.9258 10.3297C11.9258 10.3688 11.9605 10.4253 11.991 10.4383C12.4473 10.6209 12.9079 10.7903 13.3816 10.9685Z"
                                             fill="white" />
@@ -65,18 +66,20 @@
         </section>
     </main>
     @foreach ($prasaranas as $prasarana)
-            <div class="modal fade" id="modalSapras{{ $prasarana->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}" alt="{{ $prasarana->name }}" class="w-100 img-modal">
-                            <p class="mt-3 fs-4 fw-semibold text-black">{{ $prasarana->name }}</p>
-                            <p class="mt-1 desc">
-                                {{ $prasarana->description }}
-                            </p>
-                        </div>
+        <div class="modal fade" id="modalSapras{{ $prasarana->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}"
+                            alt="{{ $prasarana->name }}" class="w-100 img-modal">
+                        <p class="mt-3 fs-4 fw-semibold text-black">{{ $prasarana->name }}</p>
+                        <p class="mt-1 desc">
+                            {{ $prasarana->description }}
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
     @endforeach
 @endsection

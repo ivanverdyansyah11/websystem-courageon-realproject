@@ -156,6 +156,7 @@ class HomepageController extends Controller
             'headerSaranaPrasarana' => HeaderSaranaPrasarana::first(),
             'sectionPrasarana' => SectionPrasarana::first(),
             'prasaranas' => Prasarana::take(4)->get(),
+            'prasaranaCount' => Prasarana::count(),
             'sectionDenah' => SectionDenah::first(),
             'denahs' => Denah::all(),
         ]);
@@ -172,6 +173,7 @@ class HomepageController extends Controller
             'partnerships' => Partnership::all(),
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
+            'journalCount' => Journal::count(),
         ]);
     }
 
@@ -179,8 +181,22 @@ class HomepageController extends Controller
     {
         return view('homepage.prestasi.index', [
             'title' => 'Prestasi',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'sectionAchievement' => SectionAchievement::first(),
             'achievements' => Prestasi::all(),
+            'kategori_prestasi' => KategoriPrestasi::all(),
+        ]);
+    }
+
+    function kategoriPrestasi($id)
+    {
+        return view('homepage.prestasi.index', [
+            'title' => 'Prestasi',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'sectionAchievement' => SectionAchievement::first(),
+            'achievements' => Prestasi::where('kategori_prestasis_id', $id)->get(),
             'kategori_prestasi' => KategoriPrestasi::all(),
         ]);
     }

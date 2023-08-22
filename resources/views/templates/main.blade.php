@@ -15,6 +15,7 @@
 
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
+            Request::is('kategori-prestasi*') ||
             Request::is('berita*') ||
             Request::is('manajemen*') ||
             Request::is('guru*') ||
@@ -46,6 +47,7 @@
     @if (
         !Request::is('beranda') ||
             !Request::is('prestasi*') ||
+            !Request::is('kategori-prestasi*') ||
             !Request::is('berita*') ||
             !Request::is('manajemen*') ||
             !Request::is('guru*') ||
@@ -72,6 +74,7 @@
         @yield('container')
     @elseif(Request::is('beranda') ||
             Request::is('prestasi*') ||
+            Request::is('kategori-prestasi*') ||
             Request::is('berita*') ||
             Request::is('manajemen*') ||
             Request::is('guru*') ||
