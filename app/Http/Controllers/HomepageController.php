@@ -176,6 +176,7 @@ class HomepageController extends Controller
         return view('homepage.prestasi.detail', [
             'title' => 'Detail Prestasi',
             'achievement' => Prestasi::where('id', $id)->first(),
+            'rekomendasi' => Prestasi::whereNotIn('id', [$id])->get(),
         ]);
     }
 

@@ -13,7 +13,7 @@
                     <input type="text" class="input-text w-100 desc" name="" placeholder="masukkan prestasi">
                     <button class="btn btn-color btn-input">cari</button>
                 </div>
-                <div class="mt-3 d-flex justify-content-center gap-3">
+                <div class="mt-4 d-flex justify-content-center gap-3">
                     <button class="btn btn-text category-name active">
                         semua prestasi
                     </button>
