@@ -228,13 +228,17 @@ class HomepageController extends Controller
     {
         return view('homepage.projek.detail', [
             'title' => 'Detail Projek 5P',
+            'project' => Project::where('id', $id)->first(),
+            'rekomendasi' => Project::whereNotIn('id', [$id])->get(),
         ]);
     }
 
-    function detailEkstrakurikuler()
+    function detailEkstrakurikuler($id)
     {
         return view('homepage.ekstrakurikuler.detail', [
             'title' => 'Detail Ekstrakurikuler',
+            'extracurriculars' => Extracurricular::where('id', $id)->first(),
+            'rekomendasi' => Extracurricular::whereNotIn('id', [$id])->get(),
         ]);
     }
 
@@ -242,6 +246,8 @@ class HomepageController extends Controller
     {
         return view('homepage.pelayanan.index', [
             'title' => 'Pelayanan Karir',
+            'sectionService' => SectionService::first(),
+            'pelayananKarir' => PelayananKarir::all(),
         ]);
     }
 
@@ -249,6 +255,8 @@ class HomepageController extends Controller
     {
         return view('homepage.pelayanan.detail', [
             'title' => 'Detail Pelayanan Karir',
+            'pelayananKarir' => PelayananKarir::where('id', $id)->first(),
+            'rekomendasi' => PelayananKarir::whereNotIn('id', [$id])->get(),
         ]);
     }
 
@@ -256,6 +264,8 @@ class HomepageController extends Controller
     {
         return view('homepage.sarana-prasarana.detail', [
             'title' => 'Detail Sarana Prasarana Karir',
+            'sectionPrasarana' => SectionPrasarana::first(),
+            'prasaranas' => Prasarana::all(),
         ]);
     }
 }
