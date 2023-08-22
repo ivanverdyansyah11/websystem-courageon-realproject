@@ -1,3 +1,4 @@
+@dd($dataSiswa1TahunKebelakang)
 @extends('templates.main')
 
 @section('container')
@@ -370,15 +371,22 @@
                 }
             }
         }
-        const chart1 = document.getElementById('chart1');
-        const chart2 = document.getElementById('chart2');
-        const chart3 = document.getElementById('chart3');
-        const chart4 = document.getElementById('chart4');
-        const chart5 = document.getElementById('chart5');
-        const chart6 = document.getElementById('chart6');
-        const chart7 = document.getElementById('chart7');
-        const chart8 = document.getElementById('chart8');
-        const chart9 = document.getElementById('chart9');
+
+        const label1 = document.getElementById('label1').textContent;
+        const label2 =  document.getElementById('label2').textContent;
+        const label3 =  document.getElementById('label3').textContent;
+
+        const data1 = {{ $kenaikanKelas[0]->jumlah_siswa_x }};
+        const data2 = {{ $kenaikanKelas[0]->jumlah_siswa_xi }};
+        const data3= {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
+
+        const data4 = {{ $kenaikanKelas[1]->jumlah_siswa_x }};
+        const data5 = {{ $kenaikanKelas[1]->jumlah_siswa_xi }};
+        const data6 = {{ $kenaikanKelas[1]->jumlah_siswa_xii }};
+
+        const data7 = {{ $kenaikanKelas[2]->jumlah_siswa_x }};
+        const data8 = {{ $kenaikanKelas[2]->jumlah_siswa_xi }};
+        const data9 = {{ $kenaikanKelas[2]->jumlah_siswa_xii }};
 
         new Chart(chart1, {
             type: 'pie',

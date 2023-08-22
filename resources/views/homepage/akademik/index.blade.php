@@ -156,18 +156,7 @@
                     </p>
                 </div>
             </div>
-            <div class="mt-4 d-flex justify-content-center gap-3">
-                <button class="btn btn-text category-name active" onclick="showItems('category1')">
-                    {{ $sectionGraduation->button_1 }}
-                </button>
-                <button class="btn btn-text category-name" onclick="showItems('category2')">
-                    {{ $sectionGraduation->button_2 }}
-                </button>
-                <button class="btn btn-text category-name" onclick="showItems('category3')">
-                    {{ $sectionGraduation->button_3 }}
-                </button>
-            </div>
-            <div class="mt-4">
+            <div class="mt-5">
                 <div class="category-content">
                     <div class="category1 item">
                         <canvas id="chart1" class="w-100"></canvas>
@@ -240,6 +229,7 @@
         }
 
         const chart1 = document.getElementById('chart1');
+        
         const label1 = document.getElementById('label1').textContent;
         const label2 =  document.getElementById('label2').textContent;
         const label3 =  document.getElementById('label3').textContent;
