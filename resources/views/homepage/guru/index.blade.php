@@ -8,38 +8,21 @@
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/teacher1.png') }}" alt="Dewi Permata, M.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Dewi Permata, M.Pd.</p>
-                            <p class="desc">Guru Matematika</p>
+                    @foreach ($teachers as $teacher)
+                        <div class="col">
+                            <div class="card-school-people text-center">
+                                @if ($teacher->image)
+                                    <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
+                                        alt="{{ $teacher->fullname }}" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/teacher1.png') }}"
+                                        alt="{{ $teacher->fullname }}" class="w-100">
+                                @endif
+                                <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
+                                <p class="desc">{{ $teacher->position }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/teacher2.png') }}" alt="Rudi Setiawan, S.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Rudi Setiawan, S.Pd.</p>
-                            <p class="desc">Guru Bahasa Inggris</p>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/teacher3.png') }}" alt="Siti Rahayu, M.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Siti Rahayu, M.Pd.</p>
-                            <p class="desc">Guru Bahasa Indonesia</p>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card-school-people text-center">
-                            <img src="{{ asset('assets-homepage/img/teacher4.png') }}" alt="Deni Sutomo, S.Pd."
-                                class="w-100">
-                            <p class="text-black fw-bold fs-18 mt-3">Deni Sutomo, S.Pd.</p>
-                            <p class="desc">Guru IPA(Ilmu Pengetahuan Alam</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

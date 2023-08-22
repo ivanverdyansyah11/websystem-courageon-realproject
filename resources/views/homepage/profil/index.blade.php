@@ -18,9 +18,11 @@
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($headerProfile->banner)
-                        <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}" alt="profile section image" class="w-100">
+                        <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
+                            alt="profile section image" class="w-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image" class="w-100">
+                        <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image"
+                            class="w-100">
                     @endif
                 </div>
             </div>
@@ -29,7 +31,8 @@
             <div class="row">
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($visiMision->banner)
-                        <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}" alt="visi misi image" class="w-100">
+                        <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}"
+                            alt="visi misi image" class="w-100">
                     @else
                         <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image" class="w-100">
                     @endif
@@ -90,7 +93,7 @@
                     </p>
                 </div>
                 <div class="mt-2 text-center">
-                    <p class="desc fs-5">By Kepala Sekolah <span class="main-color fw-semibold">SMA Negeri 1 Selat</span>
+                    <p class="desc fs-5">By <span class="main-color fw-semibold">{{ $motto->speaker }}</span>
                     </p>
                 </div>
             </div>
@@ -130,9 +133,11 @@
             <div class="row">
                 <div class="col-lg-5 d-lg-block d-none">
                     @if ($mars->banner)
-                        <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}" alt="mars section image" class="w-100 h-100">
+                        <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
+                            alt="mars section image" class="w-100 h-100">
                     @else
-                        <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image" class="w-100 h-100">
+                        <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
+                            class="w-100 h-100">
                     @endif
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
@@ -152,7 +157,8 @@
         </section>
         <section class="management-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionManagement->title_section }}</p>
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                    {{ $sectionManagement->title_section }}</p>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
@@ -160,9 +166,11 @@
                         <div class="col">
                             <div class="card-school-people text-center">
                                 @if ($management->image)
-                                    <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}" alt="{{ $management->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
+                                        alt="{{ $management->fullname }}" class="w-100">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/management1.png') }}" alt="{{ $management->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/management1.png') }}"
+                                        alt="{{ $management->fullname }}" class="w-100">
                                 @endif
                                 <p class="text-black fw-bold fs-18 mt-3">{{ $management->fullname }}</p>
                                 <p class="desc">{{ $management->position }}</p>
@@ -171,13 +179,16 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a href="{{ route('manajemen') }}" class="btn btn-color">{{ $sectionManagement->button }}</a>
+                    @if ($managementCount > 4)
+                        <a href="{{ route('manajemen') }}" class="btn btn-color">{{ $sectionManagement->button }}</a>
+                    @endif
                 </div>
             </div>
         </section>
         <section class="teacher-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionTeacher->title_section }}
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                    {{ $sectionTeacher->title_section }}
                 </p>
             </div>
             <div class="mt-5">
@@ -186,9 +197,11 @@
                         <div class="col">
                             <div class="card-school-people text-center">
                                 @if ($teacher->image)
-                                    <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}" alt="{{ $teacher->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
+                                        alt="{{ $teacher->fullname }}" class="w-100">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/teacher1.png') }}" alt="{{ $teacher->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/teacher1.png') }}"
+                                        alt="{{ $teacher->fullname }}" class="w-100">
                                 @endif
                                 <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
                                 <p class="desc">{{ $teacher->position }}</p>
@@ -197,13 +210,16 @@
                     @endforeach
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('guru') }}" class="btn btn-color">{{ $sectionTeacher->button }}</a>
+                    @if ($teacherCount > 4)
+                        <a href="{{ route('guru') }}" class="btn btn-color">{{ $sectionTeacher->button }}</a>
+                    @endif
                 </div>
             </div>
         </section>
         <section class="employee-section container section-margin-top">
             <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">{{ $sectionStaff->title_section }}</p>
+                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                    {{ $sectionStaff->title_section }}</p>
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
@@ -211,9 +227,11 @@
                         <div class="col">
                             <div class="card-school-people text-center">
                                 @if ($staff->image)
-                                    <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}" alt="{{ $staff->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}"
+                                        alt="{{ $staff->fullname }}" class="w-100">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/employee1.png') }}" alt="{{ $staff->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/employee1.png') }}"
+                                        alt="{{ $staff->fullname }}" class="w-100">
                                 @endif
                                 <p class="text-black fw-bold fs-18 mt-3">{{ $staff->fullname }}</p>
                                 <p class="desc">{{ $staff->position }}</p>
@@ -222,17 +240,17 @@
                     @endforeach
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('pegawai') }}" class="btn btn-color">{{ $sectionStaff->button }}</a>
+                    @if ($staffCount > 4)
+                        <a href="{{ route('pegawai') }}" class="btn btn-color">{{ $sectionStaff->button }}</a>
+                    @endif
                 </div>
             </div>
         </section>
         <section class="location-section container section-margin-top">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-12">
-                    <iframe
-                        src="{{ $sectionContact->url_maps }}"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="{{ $sectionContact->url_maps }}" width="600" height="450" style="border:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black fw-bold text-capitalize display-5">
@@ -243,9 +261,11 @@
                             <div class="d-flex gap-3">
                                 <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
                                     @if ($contact->icon)
-                                        <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}" alt="{{ $contact->fullname }}" class="w-30">
+                                        <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}"
+                                            alt="{{ $contact->fullname }}" class="w-30">
                                     @else
-                                        <img src="{{ asset('assets-homepage/img/employee1.png') }}" alt="{{ $contact->fullname }}" class="w-100">
+                                        <img src="{{ asset('assets-homepage/img/employee1.png') }}"
+                                            alt="{{ $contact->fullname }}" class="w-100">
                                     @endif
                                 </div>
                                 <div class="d-flex flex-column">

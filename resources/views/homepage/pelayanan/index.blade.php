@@ -15,11 +15,11 @@
             </div>
             <div class="mt-5">
                 <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
-                         @foreach ($pelayananKarir as $karir)
+                    @foreach ($pelayananKarir as $karir)
                         <a href="{{ route('detail-pelayanan', $karir->id) }}" class="col">
                             <div class="card-p5">
-                                <img src="{{  asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}" alt="{{ $karir->judul }}"
-                                    class="w-100">
+                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}"
+                                    alt="{{ $karir->judul }}" class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">
                                         {{ Str::limit($karir->judul, 26) }}

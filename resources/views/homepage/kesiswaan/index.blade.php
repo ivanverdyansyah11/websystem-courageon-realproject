@@ -155,9 +155,8 @@
                     @foreach ($pelayananKarir as $karir)
                         <a href="{{ route('detail-pelayanan', $karir->id) }}" class="col">
                             <div class="card-p5">
-                                <img src="{{  asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}"
-                                    alt="{{ $karir->judul }}"
-                                    class="w-100">
+                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}"
+                                    alt="{{ $karir->judul }}" class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">
                                         {{ Str::limit($karir->judul, 26) }}
@@ -180,49 +179,47 @@
                     @endforeach
                 </div>
                 <div class="mt-4 d-flex justify-content-center">
-                    <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
+                    @if ($pelayananKarirCount > 4)
+                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
+                    @endif
+
                 </div>
             </div>
         </section>
-        <section class="prestasi-section container section-margin-top">
-            <div class="d-flex justify-content-center header-section">
-                <div class="title-section-text">
-                    <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionAchievement->title_section }}
-                    </p>
-                    <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionAchievement->description }}
-                    </p>
-                </div>
+        <section class="prestation-section container section-margin-top">
+            <div class="d-flex justify-content-center">
+                <p class="text-md-center text-start fw-bold display-5 title-section-text">
+                    {{ $sectionAchievement->title_section }}
+                </p>
             </div>
             <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-5 gy-4">
-                @php
-                    $iForPrestasi = 1;
-                @endphp
-                @foreach ($achievements as $achievement)
+                @foreach ($achievements as $key => $achievement)
                     <div class="col prestasi">
                         <a href="{{ route('detail-prestasi', $achievement->id) }}" class="">
                             <div class="image-wrapper position-relative">
                                 <div class="position-relative">
-                                    <img src="{{  asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                        alt="{{ $achievement->hasil }} {{ $achievement->nama_kegiatan }}" class="w-100 img-prestasi">
+                                    <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
+                                        alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
                                 </div>
                                 <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                                    <div class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                        {{ $iForPrestasi++ }}
-                                    </div>
+                                    <div
+                                        class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
+                                        {{ $key + 1 }}</div>
                                 </div>
                                 <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                                    <div class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                        {{ $achievement->kategori_prestasis_id }}
-                                    </div>
+                                    @foreach ($kategori_prestasi as $kategori)
+                                        @if ($kategori->id == $achievement->kategori_prestasis_id)
+                                            <div
+                                                class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
+                                                {{ $kategori->nama }}</div>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="mt-3">
                                 <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
-                                <p class="text-center fw-semibold text-capitalize">
-                                    {{ $achievement->nama_kegiatan }}
-                                </p>
+                                <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
+                                    tingkat {{ $achievement->tingkat }}</p>
                             </div>
                             <div class="mt-2 d-flex gap-3 justify-content-center">
                                 <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
@@ -231,10 +228,11 @@
                         </a>
                     </div>
                 @endforeach
-
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">{{ $sectionAchievement->button }}</a>
+                @if ($achievementCount > 4)
+                    <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
+                @endif
             </div>
         </section>
         <section class="beasiswa-section container section-margin-top">
@@ -252,16 +250,13 @@
                 </div>
             </div>
             <div class="content-section mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                @php
-                    $iForBeasiswa=1;
-                @endphp
-                @foreach ($beasiswas as $beasiswa)
+                @foreach ($beasiswas as $key => $beasiswa)
                     <div class="col">
                         <div class="card-beasiswa">
                             <div class="d-flex flex-column gap-3">
                                 <div class="d-flex gap-3 align-items-center">
                                     <div class="number-beasiswa-wrapper d-flex justify-content-center align-items-center">
-                                        <p class="fs-4 text-white fw-black">{{ $iForBeasiswa++ }}</p>
+                                        <p class="fs-4 text-white fw-black">{{ $key + 1 }}</p>
                                     </div>
                                     <p class="fs-5 fw-semibold">{{ $beasiswa->title }}</p>
                                 </div>
@@ -272,8 +267,6 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
-            <div class="d-flex justify-content-center mt-4">
             </div>
         </section>
         <section class="testi-section container section-margin-top">
@@ -290,28 +283,28 @@
             <div class="swiper swiper-testi mt-5">
                 <div class="swiper-wrapper">
                     @foreach ($alumnis as $alumni)
-                    <div class="swiper-slide">
-                        <div class="card-testi">
-                            <div class="d-flex gap-3 align-items-center">
-                                <div class="img-testi-wrapper">
-                                    <img src="{{ asset('assets-homepage/img/testi1.png') }}"
-                                        alt="testimonial image">
+                        <div class="swiper-slide">
+                            <div class="card-testi">
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="img-testi-wrapper">
+                                        <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
+                                            alt="testimonial image">
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <p class="fs-5 fw-semibold text-capitalize">
+                                            {{ $alumni->students->nama_lengkap }}
+                                        </p>
+                                        <p class="desc fs-15">
+                                            {{ $alumni->pekerjaan }}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="d-flex flex-column">
-                                    <p class="fs-5 fw-semibold text-capitalize">
-                                       {{ $alumni->students_id}}
-                                    </p>
-                                    <p class="desc fs-15">
-                                        {{ $alumni->pekerjaan }}
-                                    </p>
-                                </div>
+                                <p class="desc mt-3">
+                                    {{ $alumni->testimoni }}
+                                </p>
                             </div>
-                            <p class="desc mt-3">
-                               {{ $alumni->testimoni }}
-                            </p>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 </div>
                 <div class="swiper-pagination position-relative mt-4 pt-3"></div>
             </div>
