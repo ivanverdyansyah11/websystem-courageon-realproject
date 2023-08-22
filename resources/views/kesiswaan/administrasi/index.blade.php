@@ -127,9 +127,9 @@
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Kelas Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                {{-- <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
                     data-bs-target="#addKelasModal">Tambah
-                    Kelas</button>
+                    Kelas</button> --}}
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -164,12 +164,12 @@
                                                 data-id="{{ $kelas->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
-                                            <button type="button"
+                                            {{-- <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deleteKelasModal"
                                                 data-id="{{ $kelas->id }}">
                                                 <div class="delete-icon"></div>
-                                            </button>
+                                            </button> --}}
                                         </div>
                                     </div>
                                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
 use App\Models\Beasiswa;
 use App\Models\Contact;
 use App\Models\Curriculum;
@@ -16,12 +17,16 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\Journal;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
+use App\Models\Navigasi;
 use App\Models\OpeningHome;
 use App\Models\Partnership;
+use App\Models\PelayananKarir;
 use App\Models\Prasarana;
+use App\Models\Prestasi;
 use App\Models\Program;
 use App\Models\Project;
 use App\Models\RemarkHome;
@@ -32,6 +37,7 @@ use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
 use App\Models\SectionGallery;
+use App\Models\SectionGraduation;
 use App\Models\SectionJournal;
 use App\Models\SectionKemitraan;
 use App\Models\SectionManagement;
@@ -43,6 +49,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\VisionMission;
+use CreateSectionGraduationsTable;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -51,13 +58,18 @@ class HomepageController extends Controller
     {
         return view('homepage.beranda.index', [
             'title' => 'Beranda',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerHome' => HeaderHome::first(),
             'openingHome' => OpeningHome::first(),
             'remarkHome' => RemarkHome::first(),
             'sectionAchievement' => SectionAchievement::first(),
+            'achievements' => Prestasi::take(4)->get(),
             'sectionAlumni' => SectionAlumni::first(),
+            'alumnis' => Alumni::all(),
             'historyHome' => HistoryHome::first(),
             'sectionJournal' => SectionJournal::first(),
+            'journals' => Journal::take(4)->get(),
         ]);
     }
 
@@ -65,6 +77,8 @@ class HomepageController extends Controller
     {
         return view('homepage.profil.index', [
             'title' => 'Profil',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerProfile' => HeaderProfile::first(),
             'visiMision' => VisionMission::first(),
             'motto' => Motto::first(),
@@ -85,15 +99,17 @@ class HomepageController extends Controller
     {
         return view('homepage.akademik.index', [
             'title' => 'Akademik',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerAcademic' => HeaderAcademic::first(),
             'curriculum' => Curriculum::first(),
             'sectionProgram' => SectionProgram::first(),
             'programs' => Program::all(),
             'sectionProyek' => SectionProyek::first(),
-            'projects' => Project::all(),
+            'projects' => Project::take(4)->get(),
             'sectionGallery' => SectionGallery::first(),
             'galleries' => Gallery::all(),
-            'SectionAlumni' => SectionAlumni::all(),
+            'sectionGraduation' => SectionGraduation::first(),
         ]);
     }
 
@@ -101,15 +117,20 @@ class HomepageController extends Controller
     {
         return view('homepage.kesiswaan.index', [
             'title' => 'Kesiswaan',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
             'sectionService' => SectionService::first(),
+            'pelayananKarir' => PelayananKarir::take(4)->get(),
             'sectionAchievement' => SectionAchievement::first(),
+            'achievements' => Prestasi::take(4)->get(),
             'sectionBeasiswa' => SectionBeasiswa::first(),
             'beasiswas' => Beasiswa::all(),
             'sectionAlumni' => SectionAlumni::first(),
+            'alumnis' => Alumni::all(),
         ]);
     }
 
@@ -117,9 +138,11 @@ class HomepageController extends Controller
     {
         return view('homepage.sarana-prasarana.index', [
             'title' => 'Sarana Prasarana',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerSaranaPrasarana' => HeaderSaranaPrasarana::first(),
             'sectionPrasarana' => SectionPrasarana::first(),
-            'prasaranas' => Prasarana::all(),
+            'prasaranas' => Prasarana::take(4)->get(),
             'sectionDenah' => SectionDenah::first(),
             'denahs' => Denah::all(),
         ]);
@@ -129,10 +152,13 @@ class HomepageController extends Controller
     {
         return view('homepage.humas.index', [
             'title' => 'Humas',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
             'headerHumas' => HeaderHumas::first(),
             'SectionKemitraan' => SectionKemitraan::first(),
             'partnerships' => Partnership::all(),
             'sectionJournal' => SectionJournal::first(),
+            'journals' => Journal::take(4)->get(),
         ]);
     }
 
@@ -140,6 +166,8 @@ class HomepageController extends Controller
     {
         return view('homepage.prestasi.index', [
             'title' => 'Prestasi',
+            'sectionAchievement' => SectionAchievement::first(),
+            'achievements' => Prestasi::all(),
         ]);
     }
 
@@ -147,6 +175,7 @@ class HomepageController extends Controller
     {
         return view('homepage.prestasi.detail', [
             'title' => 'Detail Prestasi',
+            'achievement' => Prestasi::where('id', $id)->first(),
         ]);
     }
 
@@ -154,6 +183,8 @@ class HomepageController extends Controller
     {
         return view('homepage.berita.index', [
             'title' => 'Berita',
+            'sectionJournal' => SectionJournal::first(),
+            'journals' => Journal::all(),
         ]);
     }
 
@@ -161,6 +192,8 @@ class HomepageController extends Controller
     {
         return view('homepage.manajemen.index', [
             'title' => 'Manajemen',
+            'sectionManagement' => SectionManagement::first(),
+            'managements' => Employee::where('role_employees_id', '1')->get(),
         ]);
     }
 
@@ -168,6 +201,8 @@ class HomepageController extends Controller
     {
         return view('homepage.guru.index', [
             'title' => 'Guru',
+            'sectionTeacher' => SectionTeacher::first(),
+            'teachers' => Employee::where('role_employees_id', '2')->take(4)->get(),
         ]);
     }
 
@@ -175,6 +210,8 @@ class HomepageController extends Controller
     {
         return view('homepage.pegawai.index', [
             'title' => 'Pegawai',
+            'sectionStaff' => SectionStaff::first(),
+            'staffs' => Employee::where('role_employees_id', '3')->take(4)->get(),
         ]);
     }
 
@@ -182,6 +219,8 @@ class HomepageController extends Controller
     {
         return view('homepage.projek.index', [
             'title' => 'Projek 5P',
+            'sectionProyek' => SectionProyek::first(),
+            'projects' => Project::all(),
         ]);
     }
 

@@ -19,7 +19,7 @@ class CreateKenaikanKelasTable extends Migration
             $table->string('nilai_terendah');
             $table->string('rata_nilai');
             $table->string('total_siswa');
-            $table->bigInteger('tahun_ajarans_id');
+            $table->string('tahun_ajaran');
             $table->timestamps();
         });
     }

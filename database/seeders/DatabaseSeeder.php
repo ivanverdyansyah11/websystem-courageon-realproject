@@ -20,11 +20,13 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\HistoryKenaikanSiswa;
 use App\Models\Journuse;
 use App\Models\Index;
 use App\Models\Journal;
 use App\Models\Jurusan;
 use App\Models\Kelas;
+use App\Models\KenaikanKelas;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
@@ -593,6 +595,38 @@ class DatabaseSeeder extends Seeder
             'caption_1' => 'Kelas X',
             'caption_2' => 'Kelas XI',
             'caption_3' => 'Kelas XII',
+        ]);
+
+        HistoryKenaikanSiswa::create([
+            'students_id' => '7',
+            'jurusans_id' => '2',
+            'kelases_id' => '3',
+            'indexes_id' => '2',
+            'semesters_id' => '1',
+        ]);
+
+        HistoryKenaikanSiswa::create([
+            'students_id' => '6',
+            'jurusans_id' => '2',
+            'kelases_id' => '3',
+            'indexes_id' => '2',
+            'semesters_id' => '1',
+        ]);
+
+        HistoryKenaikanSiswa::create([
+            'students_id' => '6',
+            'jurusans_id' => '2',
+            'kelases_id' => '3',
+            'indexes_id' => '2',
+            'semesters_id' => '1',
+        ]);
+
+        KenaikanKelas::create([
+            'nilai_tertinggi' => '90',
+            'nilai_terendah' => '70',
+            'rata_nilai' => '82',
+            'total_siswa' => '248',
+            'tahun_ajaran' => '2022/2023',
         ]);
 
 

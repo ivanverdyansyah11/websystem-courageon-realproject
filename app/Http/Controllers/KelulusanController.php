@@ -6,9 +6,11 @@ use App\Models\HistoryKenaikanSiswa;
 use App\Models\Index;
 use App\Models\Jurusan;
 use App\Models\Kelas;
+use App\Models\KenaikanKelas;
 use App\Models\SectionGraduation;
 use App\Models\Semester;
 use App\Models\Student;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 
 class KelulusanController extends Controller
@@ -19,11 +21,13 @@ class KelulusanController extends Controller
             'title' => 'Akademik > Kelulusan',
             'section_graduation' => SectionGraduation::first(),
             'kenaikan_siswa' => HistoryKenaikanSiswa::paginate(6),
+            'kenaikan_kelas' => KenaikanKelas::all(),
             'students' => Student::all(),
             'jurusans' => Jurusan::all(),
             'kelases' => Kelas::all(),
             'indexes' => Index::all(),
             'semesters' => Semester::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
         ]);
     }
 
@@ -143,6 +147,70 @@ class KelulusanController extends Controller
             return redirect(route('kelulusan-index'))->with('success', 'Berhasil Hapus Kenaikan Siswa!');
         } else {
             return redirect(route('kelulusan-index'))->with('failed', 'Gagal Hapus Kenaikan Siswa!');
+        }
+    }
+
+    function storeKenaikanKelas(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nilai_tertinggi' => 'required',
+            'nilai_terendah' => 'required',
+            'total_siswa' => 'required',
+            'rata_nilai' => 'required',
+            'tahun_ajaran' => 'required',
+        ]);
+
+        $kenaikanKelas = KenaikanKelas::create($validatedData);
+
+        if ($kenaikanKelas) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Tambah Kenaikan Kelas!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Tambah Kenaikan Kelas!');
+        }
+    }
+
+    function detailKenaikanKelas($id)
+    {
+        $kenaikanKelas = KenaikanKelas::where('id', $id)->first();
+        $tahun_ajarans = TahunAjaran::all();
+
+        foreach ($tahun_ajarans as $tahun_ajaran) {
+            if ($tahun_ajaran->id === $kenaikanKelas->tahun_ajarans_id) {
+                $kenaikanKelas->tahun = $tahun_ajaran->tahun;
+            }
+        }
+
+        return response()->json($kenaikanKelas);
+    }
+
+    function updateKenaikanKelas($id, Request $request)
+    {
+        $validatedData = $request->validate([
+            'nilai_tertinggi' => 'required|string',
+            'nilai_terendah' => 'required|string',
+            'total_siswa' => 'required',
+            'rata_nilai' => 'required|string',
+            'tahun_ajaran' => 'required|string',
+        ]);
+
+        $kenaikanKelas = KenaikanKelas::where('id', $id)->first()->update($validatedData);
+
+        if ($kenaikanKelas) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Edit Kenaikan Kelas!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Edit Kenaikan Kelas!');
+        }
+    }
+
+    function deleteKenaikanKelas($id)
+    {
+        $kenaikanKelas = KenaikanKelas::where('id', $id)->first();
+        $kenaikanKelas = $kenaikanKelas->delete();
+
+        if ($kenaikanKelas) {
+            return redirect(route('kelulusan-index'))->with('success', 'Berhasil Hapus Kenaikan Kelas!');
+        } else {
+            return redirect(route('kelulusan-index'))->with('failed', 'Gagal Hapus Kenaikan Kelas!');
         }
     }
 }

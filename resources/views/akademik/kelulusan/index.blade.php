@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="row row-step">
+        <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Laporan Kenaikan Siswa Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
@@ -126,74 +126,63 @@
                     @endif
                 </div>
             </div>
+            <div class="col-12 d-flex justify-content-end mt-4">
+                {{ $kenaikan_siswa->links() }}
+            </div>
         </div>
 
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Laporan Kenaikan Siswa Sekolah</h5>
+                <h5 class="subtitle">Kenaikan Kelas Sekolah</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addKenaikanSiswaModal">Tambah
-                    Kenaikan Siswa</button>
+                    data-bs-target="#addKenaikanKelasModal">Tambah
+                    Kenaikan Kelas</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
-                            <div class="col data-header">Nama</div>
-                            <div class="col data-header">Semester</div>
-                            <div class="d-none d-md-inline-block col data-header">Jurusan</div>
-                            <div class="d-none d-md-inline-block col data-header">Kelas</div>
+                            <div class="col data-header">Nilai Tertinggi</div>
+                            <div class="col data-header">Nilai Terendah</div>
+                            <div class="col data-header">Rata Rata Nilai</div>
+                            <div class="d-none d-md-inline-block col data-header">Total Siswa</div>
+                            <div class="d-none d-md-inline-block col data-header">Tahun Ajaran</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
-                    @if ($kenaikan_siswa->count() == 0)
+                    @if ($kenaikan_kelas->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Laporan Kenaikan Siswa!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Laporan Kenaikan Kelas!</div>
                             </div>
                         </div>
                     @else
-                        @foreach ($kenaikan_siswa as $siswa)
+                        @foreach ($kenaikan_kelas as $kelas)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
-                                    @foreach ($students as $student)
-                                        @if ($student->id === $siswa->students_id)
-                                            <div class="col data-value data-length">{{ $student->nama_lengkap }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($semesters as $semester)
-                                        @if ($semester->id === $siswa->semesters_id)
-                                            <div class="col data-value data-length">{{ $semester->semester }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($jurusans as $jurusan)
-                                        @if ($jurusan->id === $siswa->jurusans_id)
-                                            <div class="col data-value data-length">{{ $jurusan->name }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($kelases as $kelas)
-                                        @if ($kelas->id === $siswa->kelases_id)
-                                            <div class="col data-value data-length">{{ $kelas->name }}</div>
-                                        @endif
-                                    @endforeach
+                                    <div class="col data-value data-length">{{ $kelas->nilai_tertinggi }}</div>
+                                    <div class="col data-value data-length">{{ $kelas->nilai_terendah }}</div>
+                                    <div class="col data-value data-length">{{ $kelas->rata_nilai }}</div>
+                                    <div class="col data-value data-length">{{ $kelas->total_siswa }}</div>
+                                    <div class="col data-value data-length">{{ $kelas->tahun_ajaran }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailKenaikanSiswaModal"
-                                                data-id="{{ $siswa->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#detailKenaikanKelasModal"
+                                                data-id="{{ $kelas->id }}">
                                                 <div class="detail-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editKenaikanSiswaModal"
-                                                data-id="{{ $siswa->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#editKenaikanKelasModal"
+                                                data-id="{{ $kelas->id }}">
                                                 <div class="edit-icon"></div>
                                             </button>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteKenaikanSiswaModal"
-                                                data-id="{{ $siswa->id }}">
+                                                data-bs-toggle="modal" data-bs-target="#deleteKenaikanKelasModal"
+                                                data-id="{{ $kelas->id }}">
                                                 <div class="delete-icon"></div>
                                             </button>
                                         </div>
@@ -523,7 +512,7 @@
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Siswa</label>
                                 <select name="students_id" id="students_id" class="input">
-                                    <option selectedstudents_id" data-value="student_nama"></option>
+                                    <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
                                     @endforeach
@@ -625,6 +614,233 @@
     </div>
     {{-- END MODAL DELETE KENAIKAN SISWA --}}
 
+    {{-- MODAL ADD KENAIKAN KELAS --}}
+    <div class="modal fade" id="addKenaikanKelasModal" tabindex="-1" aria-labelledby="addKenaikanKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Tambah Kenaikan Kelas Sekolah</h3>
+                <form action="{{ route('kenaikan-kelas-store') }}" method="post"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_tertinggi">Nilai Tertinggi</label>
+                                <input type="text" name="nilai_tertinggi" id="nilai_tertinggi" class="input"
+                                    autocomplete="off">
+                                @error('nilai_tertinggi')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_terendah">Nilai Terendah</label>
+                                <input type="text" name="nilai_terendah" id="nilai_terendah" class="input"
+                                    autocomplete="off">
+                                @error('nilai_terendah')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="rata_nilai">Rata Rata Nilai</label>
+                                <input type="text" name="rata_nilai" id="rata_nilai" class="input"
+                                    autocomplete="off">
+                                @error('rata_nilai')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="total_siswa">Total Siswa</label>
+                                <input type="text" name="total_siswa" id="total_siswa" class="input"
+                                    autocomplete="off">
+                                @error('total_siswa')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran">Tahun Ajaran</label>
+                                <select name="tahun_ajaran" id="tahun_ajaran" class="input">
+                                    <option selected>Pilih tahun ajaran</option>
+                                    @foreach ($tahun_ajarans as $tahun_ajaran)
+                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tahun_ajaran')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Tambah Kenaikan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL ADD KENAIKAN KELAS --}}
+
+    {{-- MODAL DETAIL KENAIKAN KELAS --}}
+    <div class="modal fade" id="detailKenaikanKelasModal" tabindex="-1" aria-labelledby="detailKenaikanKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Detail Kenaikan Kelas Sekolah</h3>
+                <form class="form d-flex flex-column justify-content-center">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_tertinggi">Nilai Tertinggi</label>
+                                <input type="text" data-value="nilai_tertinggi" id="nilai_tertinggi" class="input"
+                                    autocomplete="off" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_terendah">Nilai Terendah</label>
+                                <input type="text" data-value="nilai_terendah" id="nilai_terendah" class="input"
+                                    autocomplete="off" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="rata_nilai">Rata Rata Nilai</label>
+                                <input type="text" data-value="rata_nilai" id="rata_nilai" class="input"
+                                    autocomplete="off" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="total_siswa">Total Siswa</label>
+                                <input type="text" data-value="total_siswa" id="total_siswa" class="input"
+                                    autocomplete="off" disabled>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran">Tahun Ajaran</label>
+                                <input type="text" data-value="tahun_ajaran" id="tahun_ajaran" class="input"
+                                    autocomplete="off" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DETAIL KENAIKAN KELAS --}}
+
+    {{-- MODAL EDIT KENAIKAN KELAS --}}
+    <div class="modal fade" id="editKenaikanKelasModal" tabindex="-1" aria-labelledby="editKenaikanKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <h3 class="title">Edit Kenaikan Kelas Sekolah</h3>
+                <form id="editKenaikanKelas" method="post" class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_tertinggi">Nilai Tertinggi</label>
+                                <input type="text" data-value="nilai_tertinggi" name="nilai_tertinggi"
+                                    id="nilai_tertinggi" class="input" autocomplete="off">
+                                @error('nilai_tertinggi')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="nilai_terendah">Nilai Terendah</label>
+                                <input type="text" data-value="nilai_terendah" name="nilai_terendah"
+                                    id="nilai_terendah" class="input" autocomplete="off">
+                                @error('nilai_terendah')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="rata_nilai">Rata Rata Nilai</label>
+                                <input type="text" data-value="rata_nilai" name="rata_nilai" id="rata_nilai"
+                                    class="input" autocomplete="off">
+                                @error('rata_nilai')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="total_siswa">Total Siswa</label>
+                                <input type="text" data-value="total_siswa" name="total_siswa" id="total_siswa"
+                                    class="input" autocomplete="off">
+                                @error('total_siswa')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrapper">
+                                <label for="tahun_ajaran">Tahun Ajaran</label>
+                                <select name="tahun_ajaran" id="tahun_ajaran" class="input">
+                                    <option data-value="tahun_ajaran"></option>
+                                    @foreach ($tahun_ajarans as $tahun_ajaran)
+                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tahun_ajaran')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL EDIT KENAIKAN KELAS --}}
+
+    {{-- MODAL DELETE KENAIKAN KELAS --}}
+    <div class="modal fade" id="deleteKenaikanKelasModal" tabindex="-1" aria-labelledby="deleteKenaikanKelasModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="title">Hapus Kenaikan Kelas Sekolah</h3>
+                <form id="deleteKenaikanKelas" method="post" enctype="multipart/form-data"
+                    class="form d-flex flex-column justify-content-center">
+                    @csrf
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Kenaikan Kelas Sekolah: Apakah Anda yakin
+                        ingin
+                        menghapus kenaikan kelas sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan kenaikan kelas sekolah akan dihapus secara permanen dari
+                        sistem.
+                    </p>
+                    <div class="button-wrapper d-flex flex-column">
+                        <button type="submit" class="button-default-solid">Hapus Kenaikan</button>
+                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- END MODAL DELETE KENAIKAN KELAS --}}
+
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionGraduationModal"]', function() {
             $.ajax({
@@ -683,20 +899,15 @@
                 url: '/admin/akademik/kelulusan/detail-kenaikan-siswa/' + id,
                 success: function(data) {
                     $('[data-value="student_nama"]').html(data.student_nama);
-                    $('[data-value="student_nama"]').val(data.student_id);
-
+                    $('[data-value="student_nama"]').val(data.students_id);
                     $('[data-value="jurusan_nama"]').html(data.jurusan_nama);
                     $('[data-value="jurusan_nama"]').val(data.jurusans_id);
-
                     $('[data-value="kelas_nama"]').html(data.kelas_nama);
                     $('[data-value="kelas_nama"]').val(data.kelases_id);
-
                     $('[data-value="index_nama"]').html(data.index_nama);
                     $('[data-value="index_nama"]').val(data.indexes_id);
-
                     $('[data-value="semester_nama"]').html(data.semester_nama);
                     $('[data-value="semester_nama"]').val(data.semesters_id);
-
                 }
             });
         });
@@ -704,6 +915,44 @@
         $(document).on('click', '[data-bs-target="#deleteKenaikanSiswaModal"]', function() {
             let id = $(this).data('id');
             $('#deleteKenaikanSiswa').attr('action', '/admin/akademik/kelulusan/delete-kenaikan-siswa/' + id);
+        });
+
+        $(document).on('click', '[data-bs-target="#detailKenaikanKelasModal"]', function() {
+            let id = $(this).data('id');
+            $.ajax({
+                type: 'get',
+                url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
+                success: function(data) {
+                    console.log(data);
+                    $('[data-value="nilai_tertinggi"]').val(data.nilai_tertinggi);
+                    $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
+                    $('[data-value="rata_nilai"]').val(data.rata_nilai);
+                    $('[data-value="total_siswa"]').val(data.total_siswa);
+                    $('[data-value="tahun_ajaran"]').val(data.tahun_ajaran);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#editKenaikanKelasModal"]', function() {
+            let id = $(this).data('id');
+            $('#editKenaikanKelas').attr('action', '/admin/akademik/kelulusan/edit-kenaikan-kelas/' + id);
+            $.ajax({
+                type: 'get',
+                url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
+                success: function(data) {
+                    $('[data-value="nilai_tertinggi"]').val(data.nilai_tertinggi);
+                    $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
+                    $('[data-value="rata_nilai"]').val(data.rata_nilai);
+                    $('[data-value="total_siswa"]').val(data.total_siswa);
+                    $('[data-value="tahun_ajaran"]').val(data.tahun_ajaran);
+                    $('[data-value="tahun_ajaran"]').html(data.tahun_ajaran);
+                }
+            });
+        });
+
+        $(document).on('click', '[data-bs-target="#deleteKenaikanKelasModal"]', function() {
+            let id = $(this).data('id');
+            $('#deleteKenaikanKelas').attr('action', '/admin/akademik/kelulusan/delete-kenaikan-kelas/' + id);
         });
     </script>
 @endsection
