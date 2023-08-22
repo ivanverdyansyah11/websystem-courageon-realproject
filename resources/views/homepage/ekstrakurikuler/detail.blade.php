@@ -7,12 +7,11 @@
                 <div class="col-lg-8 col-12">
                     <div class="prestasi-detail-section">
                         <div class="header-article">
-                            <img src="{{ asset('assets-homepage/img/detailExtra1.png') }}"
-                                alt="Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola"
+                            <img src="{{  asset('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/' . $extracurriculars->banner) }}"
+                                alt="{{ $extracurriculars->name }}"
                                 class="img-detail">
                             <h2 class="fs-2 fw-bold text-black mt-4">
-                                Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif
-                                Melalui Ekstrakurikuler Sepak Bola
+                                {{ $extracurriculars->title }}
                             </h2>
                         </div>
                         <div class="mt-4 d-flex flex-column gap-4">
@@ -54,7 +53,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Ekstrakurikuler :</p>
-                                <p class="desc">Sepak Bola</p>
+                                <p class="desc">{{ $extracurriculars->name }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -85,7 +84,38 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Pembina :</p>
-                                <p class="desc text-capitalize">Ahmad Fatoni</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->coach }}</p>
+                            </div>
+                            <div class="d-flex flex-row align-items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
+                                    fill="none">
+                                    <path
+                                        d="M10.7731 0C10.9752 0.0516971 11.182 0.0939948 11.3794 0.164491C12.3428 0.516971 13.1183 1.57441 13.1183 2.61305C13.1183 3.15352 13.0055 3.69399 12.935 4.23446C12.8927 4.55875 12.8316 4.88303 12.7611 5.20731C12.5073 4.57755 12.2301 3.95718 12.3428 3.25222C12.3898 2.94673 12.2113 2.79634 11.9011 2.86684C11.417 2.97493 10.9329 3.09713 10.4395 3.16762C9.25042 3.34151 8.08018 3.22402 6.92405 2.90444C6.84415 2.88094 6.76895 2.85274 6.68436 2.84334C6.48227 2.81514 6.31308 2.95613 6.34598 3.14412C6.43997 3.69399 6.28958 4.20156 6.11569 4.70914C6.06399 4.86423 6.0029 5.01462 5.9183 5.16971C5.85721 4.78433 5.80081 4.39426 5.73971 4.00888C5.69741 3.72689 5.65982 3.44021 5.61752 3.15822C5.39193 1.64961 6.39768 0.281984 7.90629 0.0375973C7.93449 0.0328976 7.96269 0.0187967 7.98619 0.00939718C8.91674 -2.29493e-06 9.84258 0 10.7731 0Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M2.8457 12.0694C3.61646 11.8344 4.38252 11.6041 5.14388 11.3738C5.87704 13.4981 7.32456 14.706 9.59453 14.6026C11.6436 14.5133 12.9454 13.3242 13.5799 11.3691C14.3413 11.5994 15.1073 11.8297 15.8781 12.06C15.77 12.3749 15.6525 12.671 15.5585 12.9765C15.2577 13.954 15.1214 14.955 15.1026 15.9702C15.0932 16.6281 15.1026 17.2814 15.1026 17.9535C11.2817 17.9535 7.46555 17.9535 3.62586 17.9535C3.62586 17.9018 3.62586 17.8407 3.62586 17.7796C3.61646 17.0041 3.62586 16.2334 3.59296 15.4579C3.54597 14.33 3.31568 13.2396 2.888 12.1963C2.8786 12.1681 2.8645 12.1258 2.8457 12.0694Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M11.8069 3.49219C11.8351 4.48383 12.2957 5.32039 12.5777 6.20864C12.6247 6.34963 12.6529 6.50472 12.6576 6.65041C12.667 7.00759 12.6623 7.36477 12.6482 7.72195C12.6294 8.12143 12.4602 8.46921 12.1782 8.7559C11.9385 9.00028 11.6941 9.23527 11.4591 9.47965C11.163 9.78984 10.8012 9.99193 10.3782 10.006C9.70612 10.0295 9.02936 10.0201 8.3573 9.99662C7.98132 9.98253 7.66174 9.79924 7.39385 9.53605C7.14007 9.29166 6.89098 9.04258 6.6466 8.78879C6.32701 8.45981 6.16252 8.06033 6.15782 7.59976C6.15312 7.23788 6.15312 6.8713 6.15782 6.50942C6.15782 6.42483 6.18132 6.33553 6.20952 6.25563C6.43981 5.59297 6.68889 4.93501 6.90508 4.26764C6.98498 4.02796 7.00378 3.76477 7.05547 3.49219C8.62989 3.90576 10.209 3.90576 11.8069 3.49219Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M11.7371 10.3867C12.0191 10.8849 12.4985 11.0635 12.9778 11.2374C12.7146 12.4452 11.5162 13.935 9.56582 14.0337C7.56843 14.1324 6.09741 12.7742 5.74023 11.228C6.23841 11.0823 6.69428 10.8614 6.97627 10.4055C7.24415 10.5324 7.48384 10.6828 7.74702 10.7721C7.98671 10.852 8.2499 10.899 8.50368 10.9037C9.07235 10.9225 9.64102 10.9131 10.2097 10.9084C10.722 10.9084 11.1872 10.7439 11.6102 10.4619C11.6431 10.4431 11.6807 10.4196 11.7371 10.3867Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M2.2671 12.2988C3.13185 14.127 3.04726 16.0586 3.02376 17.9996C2.18721 17.9996 1.35535 17.9996 0.5 17.9996C0.523499 17.7223 0.546998 17.445 0.575196 17.1678C0.664491 16.2231 0.734987 15.2785 0.85718 14.3385C0.979374 13.4362 1.46815 12.7594 2.2671 12.2988Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M15.6981 17.9957C15.6981 16.4448 15.6135 14.8986 16.0459 13.3947C16.1493 13.0328 16.2856 12.6756 16.4125 12.2949C16.7837 12.4923 17.0657 12.7367 17.3007 13.0375C17.6532 13.484 17.8177 13.9962 17.8694 14.5602C17.9775 15.6787 18.0997 16.7973 18.2172 17.9158C18.2219 17.9393 18.2172 17.9628 18.2172 17.9957C17.3853 17.9957 16.5535 17.9957 15.6981 17.9957Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M5.30236 5.13713C5.46685 5.81859 5.55145 6.71154 5.48095 7.10162C5.41986 7.05462 5.35406 7.02642 5.31176 6.97943C4.92638 6.50945 4.81359 5.96898 4.94518 5.38151C4.98748 5.21232 5.09088 5.09953 5.30236 5.13713Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                    <path
+                                        d="M13.2403 7.09643C13.1651 6.41967 13.3248 5.7852 13.4141 5.14134C13.5645 5.09904 13.6632 5.15074 13.729 5.28703C13.9593 5.74761 13.7666 6.69695 13.3671 7.03063C13.3342 7.05413 13.2919 7.06823 13.2403 7.09643Z"
+                                        fill="#232323" fill-opacity="0.46" />
+                                </svg>
+                                <p class="desc">Nomor Hp :</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->number_phone_coach }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -98,7 +128,7 @@
                                         fill="#9A9A9A" />
                                 </svg>
                                 <p class="desc">Jadwal Extra :</p>
-                                <p class="desc text-capitalize">Jumat, Sabtu</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->schedule_day }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -111,109 +141,29 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Jam pelaksanaan :</p>
-                                <p class="desc text-capitalize">14.00 - 15.00 WITA</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->start_time }} - {{ $extracurriculars->end_time }} WITA</p>
                             </div>
                         </div>
                         <article class="mt-4 article-content desc">
-                            <p>
-                                Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh
-                                sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk
-                                berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan
-                                keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter
-                                positif pada siswa.
-                            </p>
-                            <ol class="mt-4 ps-0 list-detail-p5">
-                                <li>
-                                    <span class="fw-bold">Tujuan Pembentukan :</span><br>Ekstrakulikuler Sepak Bola
-                                    bertujuan untuk memberikan kesempatan bagi siswa untuk mengembangkan keterampilan sepak
-                                    bola mereka. Selain itu, kegiatan ini juga bertujuan untuk mempromosikan semangat
-                                    sportivitas, kerja tim, disiplin, kejujuran, dan tanggung jawab pada setiap anggota tim.
-                                </li>
-                                <li>
-                                    <span class="fw-bold">Pelatihan Keterampilan :</span><br>Peserta ekstrakulikuler akan
-                                    diberi pelatihan dan pembinaan oleh pelatih berpengalaman untuk mengembangkan
-                                    keterampilan dasar seperti tendangan, dribel, umpan, dan teknik bertahan. Latihan fisik
-                                    dan taktis juga akan menjadi bagian dari program pelatihan untuk meningkatkan performa
-                                    dan strategi permainan.
-                                </li>
-                                <li>
-                                    <span class="fw-bold">Kompetisi dan Pertandingan :</span><br>Para siswa akan dihadapkan
-                                    pada berbagai kompetisi dan pertandingan sepak bola dengan sekolah lain atau lembaga
-                                    olahraga lainnya. Partisipasi dalam kompetisi ini akan membantu meningkatkan semangat
-                                    kompetitif, memupuk rasa percaya diri, serta memahami arti kerjasama dalam mencapai
-                                    tujuan bersama.
-
-                                </li>
-                            </ol>
-                            <p class="mt-2">
-                                Ekstrakulikuler Sepak Bola adalah pilihan yang tepat bagi siswa yang tertarik untuk
-                                mengembangkan keterampilan sepak bola mereka, mengeksplorasi semangat kompetitif, dan
-                                membentuk karakter yang kuat. Dengan melibatkan diri dalam kegiatan ini, siswa akan meraih
-                                manfaat fisik, emosional, dan sosial yang berharga untuk masa depan mereka.
-                            </p>
+                            {{ $extracurriculars->description }}
                         </article>
+                        <a href="{{ $extracurriculars->link_register }}" class="btn btn-color mt-4">daftar sekarang</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
-                    <div class="ms-xl-3">
+                    <div class="ms-xl-3 me-xl-5">
                         <p class="text-black fs-3 fw-bold text-capitalize">ekstrakulikuler Lainnya :</p>
                         <div class="mt-3 row row-cols-lg-1 row-cols-md-2 row-cols-1 gy-4">
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra1.svg') }}" alt="gambar sepak bola"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Sepak Bola</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra2.svg') }}" alt="gambar basket"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Basket</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra3.svg') }}" alt="gambar paduan suara"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Paduan Suara</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra4.svg') }}" alt="gambar Teater & Drama"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Teater & Drama</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra5.svg') }}" alt="gambar Pramuka"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Pramuka</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra6.svg') }}" alt="gambar lukis"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Melukis</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra7.svg') }}" alt="gambar debat"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Debat</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra8.svg') }}" alt="gambar klub sastra"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Klub Sastra</p>
-                                </div>
-                            </a>
+                            @foreach ($rekomendasi as $rekomen)
+                                <a href="{{ route('detail-ekstrakurikuler', $rekomen->id) }}" class="col">
+                                    <div class="card-extra d-flex gap-3 align-items-center">
+                                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $rekomen->icon) }}"
+                                            alt="gambar {{ $rekomen->name }}" class="">
+                                        <p class="card-extra-text text-black fs-18">{{ $rekomen->name }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

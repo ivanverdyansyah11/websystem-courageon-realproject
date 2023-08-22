@@ -40,7 +40,7 @@ x @extends('templates.main')
                 @foreach ($prasaranas as $prasarana)
                     <div class="col">
                         <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal"
-                            data-bs-target="#modalSapras">
+                            data-bs-target="#modalSapras{{ $prasarana->id }}">
                             @if ($prasarana->image)
                                 <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}" alt="ruang kelas" class="w-100">
                             @else
@@ -131,29 +131,6 @@ x @extends('templates.main')
                                         </td>
                                     </tr>
                                 @endforeach
-                                {{-- <tr>
-                                    <td class="d-flex justify-content-between align-items-center">
-                                        <div class="d-flex justify-content-center w-100">B</div>
-                                        <div class="d-flex justify-content-center w-100">Ruang Guru</div>
-                                        <div class="d-flex justify-content-center w-100">
-                                            <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseExample2" aria-expanded="false"
-                                                aria-controls="collapseExample">
-                                                Detail
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="collapse show" id="collapseExample2">
-                                        <div class="">
-                                            Ruang guru di sekolah ini didesain dengan baik, dilengkapi dengan perabotan
-                                            modern dan fungsional yang menciptakan lingkungan yang nyaman dan baik bagi para
-                                            guru.
-                                        </div>
-                                    </td>
-                                </tr> --}}
-
                             </tbody>
                         </table>
                     </div>
@@ -161,20 +138,19 @@ x @extends('templates.main')
             </div>
         </section>
     </main>
-    <div class="modal fade" id="modalSapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <img src="{{ asset('assets-homepage/img/sapras1.png') }}" alt="ruang kelas" class="w-100">
-                    <p class="mt-3 fs-4 fw-semibold text-black">Ruang Kelas</p>
-                    <p class="mt-1 desc">
-                        Sarana dan prasarana ruangan kelas merujuk pada fasilitas dan perlengkapan yang ada di dalam sebuah
-                        ruangan kelas yang dirancang untuk mendukung proses pembelajaran dan kenyamanan siswa dan guru.
-                        Berikut ini adalah deskripsi singkat mengenai beberapa sarana dan prasarana umum yang biasanya ada
-                        dalam ruangan kelas:
-                    </p>
+    @foreach ($prasaranas as $prasarana)
+            <div class="modal fade" id="modalSapras{{ $prasarana->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}" alt="{{ $prasarana->name }}" class="w-100 img-modal">
+                            <p class="mt-3 fs-4 fw-semibold text-black">{{ $prasarana->name }}</p>
+                            <p class="mt-1 desc">
+                                {{ $prasarana->description }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+    @endforeach
 @endsection

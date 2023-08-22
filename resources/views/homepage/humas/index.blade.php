@@ -51,112 +51,21 @@
                 </div>
             </div>
             <div class="mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita1.png') }}"
+                @foreach ($journals as $journal)
+                <div class="col card-blog">
+                    <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}" class="card-blog text-decoration-none">
+                        <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                             alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
                         <p class="mt-3 text-black fw-semibold text-center">
-                            Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota
+                            {{ $journal->title }}
                         </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">28 Juli 2023</p>
+                        <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
+                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
+                            <p class="desc fs-14 lh-base">{{ $journal->created_date }}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita2.png') }}"
-                            alt="Pengaruh Teknologi dalam Dunia Pendidikan, Tantangan di Sekolah" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Pengaruh Teknologi dalam Dunia Pendidikan, Tantangan di Sekolah
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">26 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita3.png') }}"
-                            alt="Tips untuk Membangun Kemitraan dengan Sekolah" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Tips untuk Membangun Kemitraan dengan Sekolah
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">25 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita4.png') }}"
-                            alt="Menelusuri Jejak Sejarah Sekolah: Kilas Balik 50 Tahun Perjalanan Pendidikan"
-                            class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Menelusuri Jejak Sejarah Sekolah: Kilas Balik 50 Tahun Perjalanan Pendidikan
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">22 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita5.png') }}"
-                            alt="Belajar dari Pengalaman, Siswa Berbagi Cerita tentang Ujian Nasional" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Belajar dari Pengalaman, Siswa Berbagi Cerita tentang Ujian Nasional
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">21 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita6.png') }}"
-                            alt="Pengalaman Program Pertukaran Pelajar di SMA Negeri 1 Selat" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Pengalaman Program Pertukaran Pelajar di SMA Negeri 1 Selat
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">20 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita7.png') }}"
-                            alt="Menjaga Kesehatan Mental di Tengah Tuntutan Sekolah" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Menjaga Kesehatan Mental di Tengah Tuntutan Sekolah
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">18 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card-berita-wrapper">
-                        <img src="{{ asset('assets-homepage/img/berita8.png') }}"
-                            alt="Mengenal Ekstrakurikuler Unggulan di Sekolah, Meraih Potensi Terbaik Siswa!"
-                            class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Mengenal Ekstrakurikuler Unggulan di Sekolah, Meraih Potensi Terbaik Siswa!
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
-                            <p class="desc text-capitalize">13 Juli 2023</p>
-                        </div>
-                    </div>
-                </div>
+             @endforeach
             </div>
             <div class="mt-4 d-flex justify-content-center">
                 <a href="{{ route('berita') }}" class="btn btn-color">{{ $sectionJournal->button }}</a>

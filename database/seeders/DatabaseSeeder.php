@@ -484,7 +484,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Curriculum::create([
-            'banner' => 'banner-kurikulum.jpg',
+            'banner' => 'banner-kurikulum.png',
             'title_section' => 'Langkah Kami Menghadapi Pendidikan Abad Ke-21',
             'description' => 'Kurikulum di sekolah merupakan inti dari pendidikan formal, dan terus mengalami transformasi untuk menghadapi perubahan zaman dan tantangan abad ke-21. Deskripsi ini akan mengeksplorasi perubahan signifikan dalam kurikulum yang dilakukan oleh institusi pendidikan guna mempersiapkan generasi muda untuk menghadapi dunia yang cepat berubah dan kompleks. Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21 seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.',
         ]);
@@ -648,7 +648,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderStudent::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
             'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
             'button' => 'Lihat Selengkapnya',
@@ -1192,7 +1192,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderSaranaPrasarana::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
             'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
             'button' => 'Lihat Selengkapnya',
@@ -1328,7 +1328,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderHumas::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
             'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
             'button' => 'Lihat Selengkapnya',
