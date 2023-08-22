@@ -52,6 +52,7 @@ use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
 use App\Models\Student;
+use App\Models\TahunAjaran;
 use App\Models\VisionMission;
 use CreateSectionGraduationsTable;
 use Illuminate\Http\Request;
@@ -127,13 +128,44 @@ class HomepageController extends Controller
 
     function kesiswaan()
     {
+
+
+
+        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('id')->toArray();
+
+        $dataSiswaFirst = [];
+        $kelasArray = ['1', '2', '3'];
+        foreach ($kelasArray as $kelas) {
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->get();
+
+            $dataSiswaFirst[$kelas] = $siswa;
+        }
+
+        $dataSiswaSecond = [];
+        $kelasArray = ['1', '2', '3'];
+        foreach ($kelasArray as $kelas) {
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->get();
+
+            $dataSiswaSecond[$kelas] = $siswa;
+        }
+
+        $dataSiswaThird = [];
+        $kelasArray = ['1', '2', '3'];
+        foreach ($kelasArray as $kelas) {
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->get();
+
+            $dataSiswaThird[$kelas] = $siswa;
+        }
+
         return view('homepage.kesiswaan.index', [
             'title' => 'Kesiswaan',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
-            // 'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
+            'dataSiswa1TahunKebelakang' => $dataSiswaFirst,
+            'dataSiswa2TahunKebelakang' => $dataSiswaSecond,
+            'dataSiswa3TahunKebelakang' => $dataSiswaThird,
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
             'sectionService' => SectionService::first(),
