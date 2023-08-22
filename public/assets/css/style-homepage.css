@@ -375,7 +375,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 
 /*lightbox style*/
 @media (min-width: 901px){
-    .modal-content{
+    .modal-xl .modal-content{
         height: 100% !important;
         max-height: 600px !important;
     }
@@ -408,13 +408,13 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
         background-size: cover !important;
         transform: translateX(-248%) !important;
     }
-    .modal-content{
+    .modal-xl .modal-dialog .modal-content{
         padding: 50px !important;
     }
 }
 
 @media (min-width: 500px), (max-width:900){
-    .modal-content{
+    .modal-xl .modal-content{
         height: 100% !important;
         max-height: 450px !important;
     }
@@ -447,7 +447,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
         background-size: cover !important;
         transform: translateX(-180%) !important;
     }
-    .modal-content{
+    .modal-xl .modal-content{
         padding: 40px !important;
     }
 }
@@ -470,7 +470,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
         transform: translateX(-62%) !important;
         border-radius: 50% !important;
     }
-    .modal-content{
+    .modal-xl .modal-content{
         padding: 28px 16px!important;
     }
 }

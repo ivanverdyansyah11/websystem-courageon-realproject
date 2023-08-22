@@ -131,29 +131,6 @@ x @extends('templates.main')
                                         </td>
                                     </tr>
                                 @endforeach
-                                {{-- <tr>
-                                    <td class="d-flex justify-content-between align-items-center">
-                                        <div class="d-flex justify-content-center w-100">B</div>
-                                        <div class="d-flex justify-content-center w-100">Ruang Guru</div>
-                                        <div class="d-flex justify-content-center w-100">
-                                            <button class="btn btn-color btn-sm" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseExample2" aria-expanded="false"
-                                                aria-controls="collapseExample">
-                                                Detail
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="collapse show" id="collapseExample2">
-                                        <div class="">
-                                            Ruang guru di sekolah ini didesain dengan baik, dilengkapi dengan perabotan
-                                            modern dan fungsional yang menciptakan lingkungan yang nyaman dan baik bagi para
-                                            guru.
-                                        </div>
-                                    </td>
-                                </tr> --}}
-
                             </tbody>
                         </table>
                     </div>

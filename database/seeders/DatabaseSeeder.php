@@ -1189,7 +1189,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderSaranaPrasarana::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
             'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
             'button' => 'Lihat Selengkapnya',
