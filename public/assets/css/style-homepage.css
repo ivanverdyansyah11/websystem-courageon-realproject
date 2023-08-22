@@ -315,6 +315,9 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
     padding: 22px !important;
     border-radius: 8px !important;
 }
+.img-modal{
+    border-radius: 8px !important;
+}
 /*card styles*/
 
 
