@@ -189,6 +189,24 @@ class HomepageController extends Controller
         ]);
     }
 
+    function prestasiCari(Request $request)
+    {
+        $query = $request->input('query');
+
+        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $query . '%')
+            ->orWhere('status', 'like', '%' . $query . '%')
+            ->get();
+
+        return view('homepage.prestasi.index', [
+            'title' => 'Prestasi',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'sectionAchievement' => SectionAchievement::first(),
+            'achievements' => $results,
+            'kategori_prestasi' => KategoriPrestasi::all(),
+        ]);
+    }
+
     function kategoriPrestasi($id)
     {
         return view('homepage.prestasi.index', [

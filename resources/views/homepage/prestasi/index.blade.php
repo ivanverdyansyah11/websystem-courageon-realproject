@@ -9,10 +9,12 @@
                 </p>
             </div>
             <div class="mt-4 search-filter-wrapper d-flex flex-column align-items-center">
-                <div class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
-                    <input type="text" class="input-text w-100 desc" name="" placeholder="masukkan prestasi">
+                <form action="{{ route('prestasi-cari') }}" method="GET"
+                    class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
+                    @csrf
+                    <input type="text" class="input-text w-100 desc" name="query" placeholder="masukkan prestasi">
                     <button class="btn btn-color btn-input">cari</button>
-                </div>
+                </form>
                 <div class="mt-4 d-flex justify-content-center gap-3">
                     <a href="{{ route('prestasi') }}"
                         class="btn btn-text category-name {{ Request::is('prestasi') ? 'active' : '' }}">

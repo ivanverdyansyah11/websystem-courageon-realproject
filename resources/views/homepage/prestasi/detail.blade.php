@@ -70,17 +70,16 @@
                 <div class="col-lg-4 col-12">
                     <div class="ms-xl-3">
                         <p class="text-black fs-3 fw-bold text-capitalize">Cari Prestasi</p>
-                        <div class="mt-3 input-wrapper d-flex justify-content-between gap-3">
-                            <input type="text" class="input-text w-100 desc" name=""
-                                placeholder="masukkan nama prestasi">
+                        <form action="{{ route('prestasi-cari') }}" method="GET"
+                            class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
+                            @csrf
+                            <input type="text" class="input-text w-100 desc" name="query"
+                                placeholder="Masukkan nama prestasi">
                             <button class="btn btn-color btn-input">cari</button>
-                        </div>
+                        </form>
                         <p class="mt-5 text-black fs-5 fw-bold">Prestasi Lainnya</p>
                         <div class="mt-3 d-flex flex-column gap-4 other-prestasi-wrapper">
-                            @php
-                                $iForPrestasi = 1;
-                            @endphp
-                            @foreach ($rekomendasi as $rekomen)
+                            @foreach ($rekomendasi as $key => $rekomen)
                                 <a href="{{ route('detail-prestasi', $rekomen->id) }}"
                                     class="d-flex gap-3 align-items-center">
                                     <div class="image-wrapper position-relative">
@@ -92,7 +91,7 @@
                                         <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                             <div
                                                 class="number-wrapper-sm d-flex justify-content-center align-items-center fs-14 fw-black text-white">
-                                                {{ $iForPrestasi++ }}</div>
+                                                {{ $key + 1 }}</div>
                                         </div>
                                         <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
                                             @foreach ($kategori_prestasi as $kategori)
