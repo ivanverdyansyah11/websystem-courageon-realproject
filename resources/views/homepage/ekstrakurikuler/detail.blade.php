@@ -7,12 +7,11 @@
                 <div class="col-lg-8 col-12">
                     <div class="prestasi-detail-section">
                         <div class="header-article">
-                            <img src="{{ asset('assets-homepage/img/detailExtra1.png') }}"
-                                alt="Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif Melalui Ekstrakurikuler Sepak Bola"
+                            <img src="{{  asset('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/' . $extracurriculars->banner) }}"
+                                alt="{{ $extracurriculars->name }}"
                                 class="img-detail">
                             <h2 class="fs-2 fw-bold text-black mt-4">
-                                Berkembang Bersama Bola : Membangun Keterampilan Sepak Bola Unggul & Jiwa Kolaboratif
-                                Melalui Ekstrakurikuler Sepak Bola
+                                {{ $extracurriculars->title }}
                             </h2>
                         </div>
                         <div class="mt-4 d-flex flex-column gap-4">
@@ -54,7 +53,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Ekstrakurikuler :</p>
-                                <p class="desc">Sepak Bola</p>
+                                <p class="desc">{{ $extracurriculars->name }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -85,7 +84,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Pembina :</p>
-                                <p class="desc text-capitalize">Ahmad Fatoni</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->coach }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -98,7 +97,7 @@
                                         fill="#9A9A9A" />
                                 </svg>
                                 <p class="desc">Jadwal Extra :</p>
-                                <p class="desc text-capitalize">Jumat, Sabtu</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->schedule_day }}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -111,109 +110,28 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc">Jam pelaksanaan :</p>
-                                <p class="desc text-capitalize">14.00 - 15.00 WITA</p>
+                                <p class="desc text-capitalize">{{ $extracurriculars->start_time }} - {{ $extracurriculars->end_time }} WITA</p>
                             </div>
                         </div>
                         <article class="mt-4 article-content desc">
-                            <p>
-                                Ekstrakulikuler Sepak Bola adalah salah satu kegiatan di luar kurikulum yang ditawarkan oleh
-                                sekolah atau lembaga pendidikan untuk memberikan kesempatan kepada siswa untuk
-                                berpartisipasi dalam olahraga sepak bola. Kegiatan ini bertujuan untuk mengembangkan
-                                keterampilan sepak bola, mempromosikan kesehatan dan kebugaran, serta membentuk karakter
-                                positif pada siswa.
-                            </p>
-                            <ol class="mt-4 ps-0 list-detail-p5">
-                                <li>
-                                    <span class="fw-bold">Tujuan Pembentukan :</span><br>Ekstrakulikuler Sepak Bola
-                                    bertujuan untuk memberikan kesempatan bagi siswa untuk mengembangkan keterampilan sepak
-                                    bola mereka. Selain itu, kegiatan ini juga bertujuan untuk mempromosikan semangat
-                                    sportivitas, kerja tim, disiplin, kejujuran, dan tanggung jawab pada setiap anggota tim.
-                                </li>
-                                <li>
-                                    <span class="fw-bold">Pelatihan Keterampilan :</span><br>Peserta ekstrakulikuler akan
-                                    diberi pelatihan dan pembinaan oleh pelatih berpengalaman untuk mengembangkan
-                                    keterampilan dasar seperti tendangan, dribel, umpan, dan teknik bertahan. Latihan fisik
-                                    dan taktis juga akan menjadi bagian dari program pelatihan untuk meningkatkan performa
-                                    dan strategi permainan.
-                                </li>
-                                <li>
-                                    <span class="fw-bold">Kompetisi dan Pertandingan :</span><br>Para siswa akan dihadapkan
-                                    pada berbagai kompetisi dan pertandingan sepak bola dengan sekolah lain atau lembaga
-                                    olahraga lainnya. Partisipasi dalam kompetisi ini akan membantu meningkatkan semangat
-                                    kompetitif, memupuk rasa percaya diri, serta memahami arti kerjasama dalam mencapai
-                                    tujuan bersama.
-
-                                </li>
-                            </ol>
-                            <p class="mt-2">
-                                Ekstrakulikuler Sepak Bola adalah pilihan yang tepat bagi siswa yang tertarik untuk
-                                mengembangkan keterampilan sepak bola mereka, mengeksplorasi semangat kompetitif, dan
-                                membentuk karakter yang kuat. Dengan melibatkan diri dalam kegiatan ini, siswa akan meraih
-                                manfaat fisik, emosional, dan sosial yang berharga untuk masa depan mereka.
-                            </p>
+                            {{ $extracurriculars->description }}
                         </article>
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
-                    <div class="ms-xl-3">
+                    <div class="ms-xl-3 me-xl-5">
                         <p class="text-black fs-3 fw-bold text-capitalize">ekstrakulikuler Lainnya :</p>
                         <div class="mt-3 row row-cols-lg-1 row-cols-md-2 row-cols-1 gy-4">
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra1.svg') }}" alt="gambar sepak bola"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Sepak Bola</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra2.svg') }}" alt="gambar basket"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Basket</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra3.svg') }}" alt="gambar paduan suara"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Paduan Suara</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra4.svg') }}" alt="gambar Teater & Drama"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Teater & Drama</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra5.svg') }}" alt="gambar Pramuka"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Pramuka</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra6.svg') }}" alt="gambar lukis"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Melukis</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra7.svg') }}" alt="gambar debat"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Debat</p>
-                                </div>
-                            </a>
-                            <a href="{{ route('detail-ekstrakurikuler', '1') }}" class="col">
-                                <div class="card-extra d-flex gap-3 align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/extra8.svg') }}" alt="gambar klub sastra"
-                                        class="">
-                                    <p class="card-extra-text text-black fs-18">Klub Sastra</p>
-                                </div>
-                            </a>
+                            @foreach ($rekomendasi as $rekomen)
+                                <a href="{{ route('detail-ekstrakurikuler', $rekomen->id) }}" class="col">
+                                    <div class="card-extra d-flex gap-3 align-items-center">
+                                        <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $rekomen->icon) }}"
+                                            alt="gambar {{ $rekomen->name }}" class="">
+                                        <p class="card-extra-text text-black fs-18">{{ $rekomen->name }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
