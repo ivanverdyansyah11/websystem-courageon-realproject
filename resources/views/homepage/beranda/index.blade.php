@@ -1,3 +1,4 @@
+
 @extends('templates.main')
 
 @section('container')
@@ -193,50 +194,29 @@
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <div class="swiper swiper-testi">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="card-testi">
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <div class="img-testi-wrapper">
-                                            <img src="{{ asset('assets-homepage/img/testi1.png') }}"
-                                                alt="testimonial image">
+                            @foreach ($alumnis as $alumni)
+                                <div class="swiper-slide">
+                                    <div class="card-testi">
+                                        <div class="d-flex gap-3 align-items-center">
+                                            <div class="img-testi-wrapper">
+                                                <img src="{{ asset('assets-homepage/img/testi1.png') }}"
+                                                    alt="testimonial image">
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <p class="fs-5 fw-semibold text-capitalize">
+                                                   {{ $alumni->students_id}}
+                                                </p>
+                                                <p class="desc fs-15">
+                                                    {{ $alumni->pekerjaan }}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div class="d-flex flex-column">
-                                            <p class="fs-5 fw-semibold text-capitalize">I Made Arya Saputra - Lulusan
-                                                2020</p>
-                                            <p class="desc fs-15">Part Of Carnival Cruise Line (CCL) as a Commis</p>
-                                        </div>
+                                        <p class="desc mt-3">
+                                           {{ $alumni->testimoni }}
+                                        </p>
                                     </div>
-                                    <p class="desc mt-3">
-                                        “Halo teman-teman alumni sekolah! Saya sangat senang ingin berbagi kabar baik.
-                                        Saat ini, saya bekerja sebagai Komisaris di Carnival Cruise Line. Selama
-                                        perjalanan karier ini, banyak pelajaran berharga yang saya pelajari.
-                                        Bersama-sama, mari kita berikan kontribusi positif bagi masa depan sekolah
-                                        kita.”
-                                    </p>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card-testi">
-                                    <div class="d-flex gap-3 align-items-center">
-                                        <div class="img-testi-wrapper">
-                                            <img src="{{ asset('assets-homepage/img/testi1.png') }}"
-                                                alt="testimonial image">
-                                        </div>
-                                        <div class="d-flex flex-column">
-                                            <p class="fs-5 fw-semibold text-capitalize">I Made Arya Saputra - Lulusan
-                                                2020</p>
-                                            <p class="desc fs-15">Part Of Carnival Cruise Line (CCL) as a Commis</p>
-                                        </div>
-                                    </div>
-                                    <p class="desc mt-3">
-                                        “Halo teman-teman alumni SMA Negeri 1 Selat! Saya sangat senang ingin berbagi
-                                        kabar baik. Saat ini, saya bekerja sebagai Komisaris di Carnival Cruise Line.
-                                        Selama perjalanan karier ini, banyak pelajaran berharga yang saya pelajari.
-                                        Bersama-sama, mari kita berikan kontribusi positif bagi masa depan sekolah
-                                        kita.”
-                                    </p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination d-flex justify-content-start position-relative mt-4 pt-3"></div>
                     </div>
@@ -282,59 +262,21 @@
                 </p>
             </div>
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <div class="col card-blog">
-                    <a href="{{ asset('assets-homepage/files/dummies.pdf') }}" class="card-blog text-decoration-none">
-                        <img src="{{ asset('assets-homepage/img/blog1.png') }}"
-                            alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                            <p class="desc fs-14 lh-base">28 Juli 2023</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col card-blog">
-                    <a href="{{ asset('assets-homepage/files/dummies.pdf') }}" class="card-blog text-decoration-none">
-                        <img src="{{ asset('assets-homepage/img/blog2.png') }}"
-                            alt="Pengaruh Teknologi dalam Dunia Pendidikan, Tantangan di Sekolah" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Pengaruh Teknologi dalam Dunia Pendidikan, Tantangan di Sekolah
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                            <p class="desc fs-14 lh-base">3 Juli 2023</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col card-blog">
-                    <a href="{{ asset('assets-homepage/files/dummies.pdf') }}" class="card-blog text-decoration-none">
-                        <img src="{{ asset('assets-homepage/img/blog3.png') }}"
-                            alt="Tips untuk Membangun Kemitraan dengan Sekolah" class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Tips untuk Membangun Kemitraan dengan Sekolah
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                            <p class="desc fs-14 lh-base">1 Juli 2023</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col card-blog">
-                    <a href="" class="card-blog text-decoration-none">
-                        <img src="{{ asset('assets-homepage/img/blog4.png') }}"
-                            alt="Menelusuri Jejak Sejarah Sekolah: Kilas Balik 50 Tahun Perjalanan Pendidikan"
-                            class="w-100">
-                        <p class="mt-3 text-black fw-semibold text-center">
-                            Menelusuri Jejak Sejarah Sekolah: Kilas Balik 50 Tahun Perjalanan Pendidikan
-                        </p>
-                        <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
-                            <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                            <p class="desc fs-14 lh-base">1 Juni 2023</p>
-                        </div>
-                    </a>
-                </div>
+                @foreach ($journals as $journal)
+                    <div class="col card-blog">
+                        <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}" class="card-blog text-decoration-none">
+                            <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
+                                alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
+                            <p class="mt-3 text-black fw-semibold text-center">
+                                {{ $journal->title }}
+                            </p>
+                            <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
+                                <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
+                                <p class="desc fs-14 lh-base">{{ $journal->created_date }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <div class="btn-wrapper d-flex justify-content-center mt-4">
                 <a href="{{ route('berita') }}" class="btn btn-color">

@@ -169,7 +169,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Mars::create([
-            'banner' => 'banner-mars.jpg',
+            'banner' => 'banner-mars.png',
             'title_section' => 'Mars SMA Negeri 1 Selat',
             'mars' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
             'creation' => 'Dr. Andi Pranoto, M.Pd.',
@@ -477,7 +477,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HeaderAcademic::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
             'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
             'button' => 'Lihat Selengkapnya',
