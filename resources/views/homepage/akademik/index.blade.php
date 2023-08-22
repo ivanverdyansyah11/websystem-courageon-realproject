@@ -1,3 +1,4 @@
+
 @extends('templates.main')
 
 @section('container')
@@ -63,7 +64,7 @@
             </div>
             <div class="d-flex flex-column gap-5 mt-5">
                 @foreach ($programs as $program)
-                    <div class="row align-items-center">
+                    <div class="row align-items-center row-program">
                         <div class="col-xl-6 col-lg-7 col-12">
                             <p class="fs-5 text-black fw-bold">{{ $program->title }}</p>
                             <article class="mt-3">
@@ -82,7 +83,8 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="col-lg-5 d-lg-block d-none offset-xl-1">
+                        <div class="col-xl-1 d-xl-block d-none"></div>
+                        <div class="col-lg-5 d-lg-block d-none">
                             <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
                                 alt="Image {{ $program->title }}" class="w-100">
                         </div>
@@ -170,12 +172,6 @@
                     <div class="category1 item">
                         <canvas id="chart1" class="w-100"></canvas>
                     </div>
-                    <div class="category2 item">
-                        <canvas id="chart2" class="w-100"></canvas>
-                    </div>
-                    <div class="category3 item">
-                        <canvas id="chart3" class="w-100"></canvas>
-                    </div>
                 </div>
                 <div class="d-flex gap-4 justify-content-center mt-3">
                     <div class="d-flex gap-2 align-items-center">
@@ -203,6 +199,11 @@
             </div>
         </section>
     </main>
+    <p id="label1" class="d-none">{{ $kenaikanKelas[0]->tahun_ajaran }}</p>
+    <p id="label2" class="d-none">{{ $kenaikanKelas[1]->tahun_ajaran }}</p>
+    <p id="label3" class="d-none">{{ $kenaikanKelas[2]->tahun_ajaran }}</p>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -239,15 +240,27 @@
         }
 
         const chart1 = document.getElementById('chart1');
-        const chart2 = document.getElementById('chart2');
-        const chart3 = document.getElementById('chart3');
+        const label1 = document.getElementById('label1').textContent;
+        const label2 =  document.getElementById('label2').textContent;
+        const label3 =  document.getElementById('label3').textContent;
 
+        const data1 = {{ $kenaikanKelas[0]->jumlah_siswa_x }};
+        const data2 = {{ $kenaikanKelas[0]->jumlah_siswa_xi }};
+        const data3= {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
+
+        const data4 = {{ $kenaikanKelas[1]->jumlah_siswa_x }};
+        const data5 = {{ $kenaikanKelas[1]->jumlah_siswa_xi }};
+        const data6 = {{ $kenaikanKelas[1]->jumlah_siswa_xii }};
+
+        const data7 = {{ $kenaikanKelas[2]->jumlah_siswa_x }};
+        const data8 = {{ $kenaikanKelas[2]->jumlah_siswa_xi }};
+        const data9 = {{ $kenaikanKelas[2]->jumlah_siswa_xii }};
         new Chart(chart1, {
             type: 'bar',
             data: {
-                labels: ['2021', '2022', '2023'],
+                labels: [label1, label2, label3],
                 datasets: [{
-                    data: [1000, 2380, 2853, ],
+                    data: [data1, data4, data7, ],
                     borderWidth: 0.1,
                     backgroundColor: ['#F94144', '#F94144', '#F94144'],
                     categoryPercentage: 0.8,
@@ -255,7 +268,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [2000, 1380, 2453, ],
+                    data: [data2, data5, data8, ],
                     borderWidth: 0.1,
                     backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
                     categoryPercentage: 0.8,
@@ -263,7 +276,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [3000, 1980, 2953, ],
+                    data: [data3, data6, data9, ],
                     borderWidth: 0.1,
                     backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
                     categoryPercentage: 0.8,
@@ -286,123 +299,9 @@
                     y: {
                         beginAtZero: true,
                         min: 0,
-                        max: 3000,
+                        max: 1000,
                         ticks: {
-                            stepSize: 300
-                        }
-                    },
-                    xAxes: [{
-
-                    }]
-
-                }
-            }
-        });
-
-        new Chart(chart2, {
-            type: 'bar',
-            data: {
-                labels: ['2021', '2022', '2023'],
-                datasets: [{
-                    data: [2000, 2180, 2553, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [2300, 1290, 2753, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [1900, 2680, 2253, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-
-
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 3000,
-                        ticks: {
-                            stepSize: 300
-                        }
-                    },
-                    xAxes: [{
-
-                    }]
-
-                }
-            }
-        });
-
-        new Chart(chart3, {
-            type: 'bar',
-            data: {
-                labels: ['2021', '2022', '2023'],
-                datasets: [{
-                    data: [3000, 2880, 2153, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [2800, 1190, 2153, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [1800, 2180, 2653, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-
-
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 3000,
-                        ticks: {
-                            stepSize: 300
+                            stepSize: 100
                         }
                     },
                     xAxes: [{
