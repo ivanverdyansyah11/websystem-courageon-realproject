@@ -6,12 +6,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="long-title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        Kami Mengarahkan Siswa Menuju Kesuksesan Karir
+                        {{ $sectionService->title_section }}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare sapien ut ipsum dapibus,
-                        sed blandit ante condimentum. Maecenas rutrum nulla nulla, sit amet fringilla nulla elementum id.
-                        Phasellus vitae convallis enim, eget pulvinar ex. Donec sit amet commodo velit. In a tortor
+                        {{ $sectionService->description }}
                     </p>
                 </div>
             </div>
