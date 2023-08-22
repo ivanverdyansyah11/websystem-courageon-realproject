@@ -18,7 +18,7 @@
                          @foreach ($pelayananKarir as $karir)
                         <a href="{{ route('detail-pelayanan', $karir->id) }}" class="col">
                             <div class="card-p5">
-                                <img src="{{  asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}" alt="Gaya Hidup Berkelanjutan"
+                                <img src="{{  asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}" alt="{{ $karir->judul }}"
                                     class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">
