@@ -253,6 +253,13 @@ a{
 section .row .col-lg-5 img{
     border-radius: 12px !important;
 }
+.card-extra img{
+    border-radius: 8px;
+    max-width: 56px;
+    width: 100%;
+    max-height: 56px;
+    height: 100%;
+}
 /*all section setting*/
 
 
