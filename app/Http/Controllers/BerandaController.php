@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HeaderHome;
 use App\Models\HistoryHome;
+use App\Models\Logo;
 use App\Models\Navigasi;
 use App\Models\OpeningHome;
 use App\Models\RemarkHome;

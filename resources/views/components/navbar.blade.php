@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets-homepage/img/logo.png') }}"
+        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/img/brand/' . $logo->logo) }}"
                 class="logo-size-navbar" alt="" draggable="false" style="width: 52px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,27 +10,27 @@
             <ul class="navbar-nav gap-4">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('beranda') ? 'active' : '' }}"
-                        href="{{ route('beranda') }}">Beranda</a>
+                        href="{{ route('beranda') }}">{{ $navigations['link_1'] }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('profil') ? 'active' : '' }}"
-                        href="{{ route('profil') }}">Profile</a>
+                        href="{{ route('profil') }}">{{ $navigations['link_2'] }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'active' : '' }}"
-                        href="{{ route('akademik') }}">Akademik</a>
+                        href="{{ route('akademik') }}">{{ $navigations['link_3'] }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('kesiswaan') || Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') ? 'active' : '' }}"
-                        href="{{ route('kesiswaan') }}">Kesiswaan</a>
+                        href="{{ route('kesiswaan') }}">{{ $navigations['link_4'] }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('sarana-prasarana*') ? 'active' : '' }}"
-                        href="{{ route('sarana-prasarana') }}">Sarana Prasarana</a>
+                        href="{{ route('sarana-prasarana') }}">{{ $navigations['link_5'] }}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('humas') ? 'active' : '' }}"
-                        href="{{ route('humas') }}">Humas</a>
+                        href="{{ route('humas') }}">{{ $navigations['link_6'] }}</a>
                 </li>
             </ul>
         </div>

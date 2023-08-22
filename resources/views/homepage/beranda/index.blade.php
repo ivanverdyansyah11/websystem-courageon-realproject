@@ -68,119 +68,46 @@
                 </p>
             </div>
             <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 mt-5 gy-4">
-                <div class="col prestasi">
-                    <a href="{{ route('detail-prestasi', '1') }}" class="">
-                        <div class="image-wrapper position-relative">
-                            <div class="position-relative">
-                                <img src="{{ asset('assets-homepage/img/prestasi1.png') }}" alt="juara 1 olimpiade fisika"
-                                    class="w-100 img-prestasi">
+                @foreach ($achievements as $key => $achievement)
+                    <div class="col prestasi">
+                        <a href="{{ route('detail-prestasi', $achievement->id) }}" class="">
+                            <div class="image-wrapper position-relative">
+                                <div class="position-relative">
+                                    <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
+                                        alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
+                                </div>
+                                <div class="position-absolute top-0 start-0" style="z-index: 999999">
+                                    <div
+                                        class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
+                                        {{ $key + 1 }}</div>
+                                </div>
+                                <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
+                                    @foreach ($kategori_prestasi as $kategori)
+                                        @if ($kategori->id == $achievement->kategori_prestasis_id)
+                                            <div
+                                                class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
+                                                {{ $kategori->nama }}</div>
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
-                            <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                                <div
-                                    class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                    1</div>
+                            <div class="mt-3">
+                                <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
+                                <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
+                                    tingkat {{ $achievement->tingkat }}</p>
                             </div>
-                            <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                                <div
-                                    class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                    Akademik</div>
+                            <div class="mt-2 d-flex gap-3 justify-content-center">
+                                <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
+                                <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
                             </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-center fs-5 fw-bold">Juara 1</p>
-                            <p class="text-center fw-semibold text-capitalize">Olimpiade Fisika tingkat Regional</p>
-                        </div>
-                        <div class="mt-2 d-flex gap-3 justify-content-center">
-                            <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                            <p class="text-secondary fs-15">Rizky Putra</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col prestasi">
-                    <div class="image-wrapper position-relative">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets-homepage/img/prestasi2.png') }}" alt="juara 3 olimpiade sains"
-                                class="w-100 img-prestasi">
-                        </div>
-                        <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                            <div
-                                class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                2</div>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                            <div
-                                class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                Akademik</div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="mt-3">
-                        <p class="text-center fs-5 fw-bold">Juara 3</p>
-                        <p class="text-center fw-semibold text-capitalize">Olimpiade Sains tingkat Provinsi</p>
-                    </div>
-                    <div class="mt-2 d-flex gap-3 justify-content-center">
-                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                        <p class="text-secondary fs-15">Siti Rahma</p>
-                    </div>
-                </div>
-                <div class="col prestasi">
-                    <div class="image-wrapper position-relative">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets-homepage/img/prestasi3.png') }}" alt="juara 1 lomba renang"
-                                class="w-100 img-prestasi">
-                        </div>
-                        <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                            <div
-                                class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                3</div>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                            <div
-                                class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                Non Akademik</div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <p class="text-center fs-5 fw-bold">Juara 3</p>
-                        <p class="text-center fw-semibold text-capitalize">
-                            Lomba Renang tingkat Sekolah
-                        </p>
-                    </div>
-                    <div class="mt-2 d-flex gap-3 justify-content-center">
-                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                        <p class="text-secondary fs-15">Siti Rahma</p>
-                    </div>
-                </div>
-                <div class="col prestasi">
-                    <div class="image-wrapper position-relative">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets-homepage/img/prestasi4.png') }}" alt="juara 2 Olimpiade Biologi"
-                                class="w-100 img-prestasi">
-                        </div>
-                        <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                            <div
-                                class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                4</div>
-                        </div>
-                        <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                            <div
-                                class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                Akademik</div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <p class="text-center fs-5 fw-bold">Juara 2</p>
-                        <p class="text-center fw-semibold text-capitalize">
-                            Olimpiade Biologi tingkat Provinsi
-                        </p>
-                    </div>
-                    <div class="mt-2 d-flex gap-3 justify-content-center">
-                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                        <p class="text-secondary fs-15">Desi Puspitasari</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
+                @if ($achievementCount > 4)
+                    <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
+                @endif
             </div>
         </section>
         <section class="testi-section container section-margin-top">
@@ -198,7 +125,7 @@
                                     <div class="card-testi">
                                         <div class="d-flex gap-3 align-items-center">
                                             <div class="img-testi-wrapper">
-                                                <img src="{{ asset('assets-homepage/img/testi1.png') }}"
+                                                <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
                                                     alt="testimonial image">
                                             </div>
                                             <div class="d-flex flex-column">
@@ -263,7 +190,8 @@
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 @foreach ($journals as $journal)
                     <div class="col card-blog">
-                        <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
+                        <a target="_block"
+                            href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                             class="card-blog text-decoration-none">
                             <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                                 alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
@@ -279,9 +207,11 @@
                 @endforeach
             </div>
             <div class="btn-wrapper d-flex justify-content-center mt-4">
-                <a href="{{ route('berita') }}" class="btn btn-color">
-                    {{ $sectionJournal->button }}
-                </a>
+                @if ($journalCount > 4)
+                    <a href="{{ route('berita') }}" class="btn btn-color">
+                        {{ $sectionJournal->button }}
+                    </a>
+                @endif
             </div>
         </section>
         <section class="cta-section container section-margin-top">

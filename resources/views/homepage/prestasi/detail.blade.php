@@ -7,12 +7,12 @@
                 <div class="col-lg-8 col-12">
                     <div class="prestasi-detail-section">
                         <div class="header-article">
-                            <img src="{{  asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                    alt="{{ $achievement->hasil }} {{ $achievement->nama_kegiatan }}" class="img-detail"
-                            >
+                            <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
+                                alt="{{ $achievement->hasil }} {{ $achievement->nama_kegiatan }}" class="img-detail">
                             <h2 class="fs-2 fw-bold text-black mt-4">
-                                Prestasi {{ $achievement->status }} : {{ $achievement->hasil }} Pada {{ $achievement->nama_kegiatan }}, {{ $achievement->nama_peserta }}
-                                </h2>
+                                Prestasi {{ $achievement->status }} : {{ $achievement->hasil }} Pada
+                                {{ $achievement->nama_kegiatan }}, {{ $achievement->nama_peserta }}
+                            </h2>
                         </div>
                         <div class="mt-4 d-flex flex-column gap-4">
                             <div class="d-flex flex-row align-items-center gap-2">
@@ -55,7 +55,11 @@
                                         fill="#9A9A9A" />
                                 </svg>
                                 <p class="desc">Jenis Prestasi :</p>
-                                <p class="desc text-capitalize">{{ $achievement->kategori_prestasis_id }}</p>
+                                @foreach ($kategori_prestasi as $kategori)
+                                    @if ($kategori->id == $achievement->kategori_prestasis_id)
+                                        <p class="desc text-capitalize">{{ $kategori->nama }}</p>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                         <article class="mt-4 article-content desc">
@@ -77,44 +81,50 @@
                                 $iForPrestasi = 1;
                             @endphp
                             @foreach ($rekomendasi as $rekomen)
-                            <a href="{{ route('detail-prestasi',  $rekomen->id)  }}" class="d-flex gap-3 align-items-center">
-                                <div class="image-wrapper position-relative">
-                                    <div class="position-relative">
-                                        <img src="{{  asset('assets/img/kesiswaan-images/prestasi-image/' . $rekomen->dokumentasi) }}"
-                                        alt="{{ $achievement->hasil }} {{ $achievement->nama_kegiatan }}" class="w-100 img-prestasi img-prestasi-sm">
+                                <a href="{{ route('detail-prestasi', $rekomen->id) }}"
+                                    class="d-flex gap-3 align-items-center">
+                                    <div class="image-wrapper position-relative">
+                                        <div class="position-relative">
+                                            <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $rekomen->dokumentasi) }}"
+                                                alt="{{ $achievement->hasil }} {{ $achievement->nama_kegiatan }}"
+                                                class="w-100 img-prestasi img-prestasi-sm">
+                                        </div>
+                                        <div class="position-absolute top-0 start-0" style="z-index: 999999">
+                                            <div
+                                                class="number-wrapper-sm d-flex justify-content-center align-items-center fs-14 fw-black text-white">
+                                                {{ $iForPrestasi++ }}</div>
+                                        </div>
+                                        <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
+                                            @foreach ($kategori_prestasi as $kategori)
+                                                @if ($kategori->id == $achievement->kategori_prestasis_id)
+                                                    <div
+                                                        class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
+                                                        {{ $kategori->nama }}</div>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                                        <div
-                                            class="number-wrapper-sm d-flex justify-content-center align-items-center fs-14 fw-black text-white">
-                                            {{ $iForPrestasi++ }}</div>
+                                    <div class="">
+                                        <div>
+                                            <p class="text-start fs-18 fw-bold">{{ $rekomen->hasil }}</p>
+                                            <p class="text-start fw-semibold text-capitalize fs-15">
+                                                {{ $rekomen->nama_kegiatan }} tingkat {{ $rekomen->tingkat }}
+                                            </p>
+                                        </div>
+                                        <div class="mt-2 d-flex gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19"
+                                                viewBox="0 0 15 19" fill="none">
+                                                <path
+                                                    d="M7.62927 0.941692C7.85758 0.98776 8.09019 1.02545 8.31419 1.07571C9.87357 1.43169 11.2046 2.87656 11.4157 4.42613C11.5536 5.44382 11.4028 6.40706 10.8083 7.26979C10.02 8.41313 8.9345 9.07902 7.49573 9.17535C5.60466 9.30099 4.05389 8.22047 3.34744 6.75048C2.68405 5.37262 2.95113 3.53826 3.99359 2.39493C4.63112 1.69553 5.39789 1.20972 6.34989 1.02126C6.51358 0.987756 6.67296 0.962628 6.83666 0.9375C7.10373 0.941688 7.3665 0.941692 7.62927 0.941692Z"
+                                                    fill="#232323" fill-opacity="0.46" />
+                                                <path
+                                                    d="M7.33633 18.0624C5.94495 18.0624 4.54926 18.0624 3.15788 18.0624C2.44281 18.0624 1.77081 17.9242 1.17635 17.5138C0.50435 17.0447 0.108043 16.4039 0.0391205 15.6124C-0.0858023 14.1968 0.0821974 12.8064 0.63358 11.483C0.960964 10.6957 1.44773 10.013 2.24896 9.5984C2.74865 9.33874 3.28711 9.2131 3.85142 9.22147C4.02803 9.22566 4.21757 9.30942 4.37695 9.39318C4.64403 9.53558 4.88957 9.71148 5.14803 9.86224C6.61695 10.7375 8.08587 10.7375 9.55048 9.85387C9.75294 9.73241 9.96402 9.61096 10.1536 9.47276C10.5068 9.21729 10.8902 9.17959 11.3123 9.24241C12.4539 9.40575 13.2637 10.013 13.8065 10.9804C14.2932 11.8474 14.5129 12.7855 14.6077 13.7571C14.6594 14.2513 14.6809 14.7455 14.6766 15.2397C14.6594 16.7641 13.604 17.8697 12.0446 18.0289C11.8551 18.0498 11.6655 18.0582 11.4803 18.0582C10.0976 18.0624 8.71479 18.0624 7.33633 18.0624Z"
+                                                    fill="#232323" fill-opacity="0.46" />
+                                            </svg>
+                                            <p class="text-secondary fs-14">{{ $rekomen->nama_peserta }}</p>
+                                        </div>
                                     </div>
-                                    <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                                        <div
-                                            class="prestasi-category-wrapper-sm d-flex justify-content-center align-items-center fs-10 fw-medium text-white">
-                                            {{ $rekomen->kategori_prestasis_id }}</div>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <div>
-                                        <p class="text-start fs-18 fw-bold">{{ $rekomen->hasil }}</p>
-                                        <p class="text-start fw-semibold text-capitalize fs-15">
-                                            {{ $rekomen->nama_kegiatan }}
-                                        </p>
-                                    </div>
-                                    <div class="mt-2 d-flex gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19"
-                                            viewBox="0 0 15 19" fill="none">
-                                            <path
-                                                d="M7.62927 0.941692C7.85758 0.98776 8.09019 1.02545 8.31419 1.07571C9.87357 1.43169 11.2046 2.87656 11.4157 4.42613C11.5536 5.44382 11.4028 6.40706 10.8083 7.26979C10.02 8.41313 8.9345 9.07902 7.49573 9.17535C5.60466 9.30099 4.05389 8.22047 3.34744 6.75048C2.68405 5.37262 2.95113 3.53826 3.99359 2.39493C4.63112 1.69553 5.39789 1.20972 6.34989 1.02126C6.51358 0.987756 6.67296 0.962628 6.83666 0.9375C7.10373 0.941688 7.3665 0.941692 7.62927 0.941692Z"
-                                                fill="#232323" fill-opacity="0.46" />
-                                            <path
-                                                d="M7.33633 18.0624C5.94495 18.0624 4.54926 18.0624 3.15788 18.0624C2.44281 18.0624 1.77081 17.9242 1.17635 17.5138C0.50435 17.0447 0.108043 16.4039 0.0391205 15.6124C-0.0858023 14.1968 0.0821974 12.8064 0.63358 11.483C0.960964 10.6957 1.44773 10.013 2.24896 9.5984C2.74865 9.33874 3.28711 9.2131 3.85142 9.22147C4.02803 9.22566 4.21757 9.30942 4.37695 9.39318C4.64403 9.53558 4.88957 9.71148 5.14803 9.86224C6.61695 10.7375 8.08587 10.7375 9.55048 9.85387C9.75294 9.73241 9.96402 9.61096 10.1536 9.47276C10.5068 9.21729 10.8902 9.17959 11.3123 9.24241C12.4539 9.40575 13.2637 10.013 13.8065 10.9804C14.2932 11.8474 14.5129 12.7855 14.6077 13.7571C14.6594 14.2513 14.6809 14.7455 14.6766 15.2397C14.6594 16.7641 13.604 17.8697 12.0446 18.0289C11.8551 18.0498 11.6655 18.0582 11.4803 18.0582C10.0976 18.0624 8.71479 18.0624 7.33633 18.0624Z"
-                                                fill="#232323" fill-opacity="0.46" />
-                                        </svg>
-                                        <p class="text-secondary fs-14">{{ $rekomen->nama_peserta }}</p>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
                             @endforeach
                         </div>
                     </div>

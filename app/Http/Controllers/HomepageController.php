@@ -18,6 +18,7 @@ use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
 use App\Models\Journal;
+use App\Models\KategoriPrestasi;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
@@ -64,12 +65,15 @@ class HomepageController extends Controller
             'openingHome' => OpeningHome::first(),
             'remarkHome' => RemarkHome::first(),
             'sectionAchievement' => SectionAchievement::first(),
+            'achievementCount' => Prestasi::count(),
             'achievements' => Prestasi::take(4)->get(),
+            'kategori_prestasi' => KategoriPrestasi::all(),
             'sectionAlumni' => SectionAlumni::first(),
             'alumnis' => Alumni::with('students')->get(),
             'historyHome' => HistoryHome::first(),
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
+            'journalCount' => Journal::count(),
         ]);
     }
 
@@ -168,6 +172,7 @@ class HomepageController extends Controller
             'title' => 'Prestasi',
             'sectionAchievement' => SectionAchievement::first(),
             'achievements' => Prestasi::all(),
+            'kategori_prestasi' => KategoriPrestasi::all(),
         ]);
     }
 
@@ -176,6 +181,7 @@ class HomepageController extends Controller
         return view('homepage.prestasi.detail', [
             'title' => 'Detail Prestasi',
             'achievement' => Prestasi::where('id', $id)->first(),
+            'kategori_prestasi' => KategoriPrestasi::all(),
             'rekomendasi' => Prestasi::whereNotIn('id', [$id])->get(),
         ]);
     }

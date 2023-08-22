@@ -4,6 +4,8 @@
             <a href="{{ route('dashboard-index') }}">
                 <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo" alt="Brand Logo"
                     draggable="false">
+                {{-- <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" class="img-fluid brand-logo" alt="Brand Logo"
+                    draggable="false"> --}}
             </a>
             <div class="link-wrapper d-flex flex-column w-100">
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/dashboard') ? 'active' : '' }}">
