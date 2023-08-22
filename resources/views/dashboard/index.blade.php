@@ -7,7 +7,7 @@
                 <div class="card-default d-flex align-items-start justify-content-between">
                     <div class="card-caption">
                         <p class="caption-name">Total Siswa</p>
-                        <h4 class="caption-value">953</h4>
+                        <h4 class="caption-value">{{ $totalSiswa }}</h4>
                     </div>
                     <div class="wrapper-icon d-flex justify-content-center align-items-center">
                         <img src="{{ asset('assets/img/dashboard/student.svg') }}" class="img-fluid card-image"
@@ -19,7 +19,7 @@
                 <div class="card-default d-flex align-items-start justify-content-between">
                     <div class="card-caption">
                         <p class="caption-name">Total Manajemen</p>
-                        <h4 class="caption-value">1</h4>
+                        <h4 class="caption-value">{{ $totalManajemen }}</h4>
                     </div>
                     <div class="wrapper-icon d-flex justify-content-center align-items-center">
                         <img src="{{ asset('assets/img/dashboard/student.svg') }}" class="img-fluid card-image"
@@ -31,7 +31,7 @@
                 <div class="card-default d-flex align-items-start justify-content-between">
                     <div class="card-caption">
                         <p class="caption-name">Total Guru</p>
-                        <h4 class="caption-value">58</h4>
+                        <h4 class="caption-value">{{ $totalGuru }}</h4>
                     </div>
                     <div class="wrapper-icon d-flex justify-content-center align-items-center">
                         <img src="{{ asset('assets/img/dashboard/student.svg') }}" class="img-fluid card-image"
@@ -43,7 +43,7 @@
                 <div class="card-default d-flex align-items-start justify-content-between">
                     <div class="card-caption">
                         <p class="caption-name">Total Pegawai</p>
-                        <h4 class="caption-value">32</h4>
+                        <h4 class="caption-value">{{ $totalPegawai }}</h4>
                     </div>
                     <div class="wrapper-icon d-flex justify-content-center align-items-center">
                         <img src="{{ asset('assets/img/dashboard/student.svg') }}" class="img-fluid card-image"
