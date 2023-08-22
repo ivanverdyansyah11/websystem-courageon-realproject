@@ -1325,7 +1325,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderHumas::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
             'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
             'button' => 'Lihat Selengkapnya',
