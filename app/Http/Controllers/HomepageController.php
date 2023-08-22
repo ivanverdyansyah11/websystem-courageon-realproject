@@ -242,6 +242,23 @@ class HomepageController extends Controller
         ]);
     }
 
+    function beritaCari(Request $request)
+    {
+        $query = $request->input('query');
+
+        $results = Journal::where('title', 'like', '%' . $query . '%')
+            ->orWhere('author', 'like', '%' . $query . '%')
+            ->get();
+
+        return view('homepage.berita.index', [
+            'title' => 'Berita',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'sectionJournal' => SectionJournal::first(),
+            'journals' => $results,
+        ]);
+    }
+
     function manajemen()
     {
         return view('homepage.manajemen.index', [
