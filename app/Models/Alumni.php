@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Alumni extends Model
 {
     protected $guarded = [];
+
+    public function students()
+    {
+        return $this->belongsTo(Student::class, 'id');
+    }
 }

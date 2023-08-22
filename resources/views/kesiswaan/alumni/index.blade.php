@@ -502,7 +502,6 @@
                 type: 'get',
                 url: '/admin/kesiswaan/alumni/detail-alumni/' + id,
                 success: function(data) {
-                    console.log(data);
                     $('[data-value="students_id"]').val(data.students_id);
                     $('[data-value="students_id"]').html(data.students_nama);
                     $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);

@@ -66,7 +66,7 @@ class HomepageController extends Controller
             'sectionAchievement' => SectionAchievement::first(),
             'achievements' => Prestasi::take(4)->get(),
             'sectionAlumni' => SectionAlumni::first(),
-            'alumnis' => Alumni::all(),
+            'alumnis' => Alumni::with('students')->get(),
             'historyHome' => HistoryHome::first(),
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),

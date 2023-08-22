@@ -1,4 +1,3 @@
-
 @extends('templates.main')
 
 @section('container')
@@ -204,7 +203,7 @@
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <p class="fs-5 fw-semibold text-capitalize">
-                                                   {{ $alumni->students_id}}
+                                                    {{ $alumni->students->nama_lengkap }}
                                                 </p>
                                                 <p class="desc fs-15">
                                                     {{ $alumni->pekerjaan }}
@@ -212,7 +211,7 @@
                                             </div>
                                         </div>
                                         <p class="desc mt-3">
-                                           {{ $alumni->testimoni }}
+                                            {{ $alumni->testimoni }}
                                         </p>
                                     </div>
                                 </div>
@@ -264,7 +263,8 @@
             <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 @foreach ($journals as $journal)
                     <div class="col card-blog">
-                        <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}" class="card-blog text-decoration-none">
+                        <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
+                            class="card-blog text-decoration-none">
                             <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                                 alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
                             <p class="mt-3 text-black fw-semibold text-center">
