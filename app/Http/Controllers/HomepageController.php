@@ -133,7 +133,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
-            'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
+            // 'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
             'sectionService' => SectionService::first(),

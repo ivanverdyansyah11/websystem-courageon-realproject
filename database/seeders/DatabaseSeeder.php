@@ -76,6 +76,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Auth::create([
+            'username' => 'Staff Sekolah',
+            'role' => 'Manajemen Staff',
+            'email' => 'ivanverdyansyah11@gmail.com',
+            'password' => bcrypt('ivan123'),
+        ]);
+
+        Auth::create([
             'username' => 'Admin Sekolah',
             'role' => 'Manajemen Admin',
             'email' => 'admin123@gmail.com',

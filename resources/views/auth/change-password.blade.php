@@ -12,7 +12,7 @@
                     @endif
                     <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo text-center mx-auto"
                         alt="Brand Logo" draggable="false">
-                    <form action="{{ route('forgot-password-action') }}" method="POST"
+                    <form action="{{ route('reset-password-action') }}" method="POST"
                         class="form d-flex flex-column justify-content-center align-items-end">
                         @csrf
                         <div class="input-wrapper w-100">
@@ -22,7 +22,21 @@
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
                         </div>
-                        <button type="submit" class="button-form">Send Email</button>
+                        <div class="input-wrapper w-100">
+                            <input type="password" class="input" autocomplete="off" placeholder="Enter your password.."
+                                name="password">
+                            @error('password')
+                                <p class="caption-error mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="input-wrapper w-100">
+                            <input type="password" class="input" autocomplete="off"
+                                placeholder="Enter your password_confirmation.." name="password_confirmation">
+                            @error('password_confirmation')
+                                <p class="caption-error mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <button type="submit" class="button-form">Submit Password</button>
                     </form>
                     <p>Remember your password account? <a href="{{ route('login') }}" class="link-forgot">Login</a></p>
                 </div>

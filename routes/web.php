@@ -9,6 +9,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenahController;
 use App\Http\Controllers\EkstrakurikulerController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomepageController;
@@ -84,8 +85,17 @@ Route::middleware('guest')->group(function () {
         Route::controller(AuthController::class)->group(function () {
             Route::get('/login', 'index')->name('login');
             Route::post('/login', 'loginAction')->name('login.action');
+
+
             Route::get('/forgot-password', 'forgotPassword')->name('forgot-password');
             Route::post('/forgot-password', 'forgotPasswordAction')->name('forgot-password.action');
+        });
+
+        Route::controller(ForgotPasswordController::class)->group(function () {
+            Route::get('forgot-password', 'showForgetPasswordForm')->name('forgot-password');
+            Route::post('forgot-password', 'submitForgetPasswordForm')->name('forgot-password-action');
+            Route::get('reset-password/{token}', 'showResetPasswordForm')->name('reset-password');
+            Route::post('reset-password', 'submitResetPasswordForm')->name('reset-password-action');
         });
     });
 });
