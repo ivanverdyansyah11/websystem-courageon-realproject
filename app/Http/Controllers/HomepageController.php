@@ -136,7 +136,7 @@ class HomepageController extends Controller
         $dataSiswaFirst = [];
         $kelasArray = ['1', '2', '3'];
         foreach ($kelasArray as $kelas) {
-            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->get();
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->get()->count();
 
             $dataSiswaFirst[$kelas] = $siswa;
         }
@@ -144,7 +144,7 @@ class HomepageController extends Controller
         $dataSiswaSecond = [];
         $kelasArray = ['1', '2', '3'];
         foreach ($kelasArray as $kelas) {
-            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->get();
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->get()->count();
 
             $dataSiswaSecond[$kelas] = $siswa;
         }
@@ -152,7 +152,7 @@ class HomepageController extends Controller
         $dataSiswaThird = [];
         $kelasArray = ['1', '2', '3'];
         foreach ($kelasArray as $kelas) {
-            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->get();
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->get()->count();
 
             $dataSiswaThird[$kelas] = $siswa;
         }

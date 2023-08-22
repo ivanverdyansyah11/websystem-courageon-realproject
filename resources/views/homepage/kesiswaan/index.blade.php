@@ -2,6 +2,7 @@
 @extends('templates.main')
 
 @section('container')
+    @dd($dataSiswa1TahunKebelakang)
     <main class="mt-3">
         <section class="hero-section container">
             <div class="row align-items-center">
