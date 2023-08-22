@@ -20,6 +20,7 @@ use App\Models\HistoryHome;
 use App\Models\Journal;
 use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
+use App\Models\KenaikanKelas;
 use App\Models\Logo;
 use App\Models\Mars;
 use App\Models\Motto;
@@ -120,6 +121,7 @@ class HomepageController extends Controller
             'sectionGallery' => SectionGallery::first(),
             'galleries' => Gallery::all(),
             'sectionGraduation' => SectionGraduation::first(),
+            'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
         ]);
     }
 
@@ -131,6 +133,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
+            'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
             'sectionService' => SectionService::first(),

@@ -153,6 +153,9 @@ class KelulusanController extends Controller
     function storeKenaikanKelas(Request $request)
     {
         $validatedData = $request->validate([
+            'jumlah_siswa_x' => 'required',
+            'jumlah_siswa_xi' => 'required',
+            'jumlah_siswa_xii' => 'required',
             'nilai_tertinggi' => 'required',
             'nilai_terendah' => 'required',
             'total_siswa' => 'required',
@@ -186,11 +189,14 @@ class KelulusanController extends Controller
     function updateKenaikanKelas($id, Request $request)
     {
         $validatedData = $request->validate([
-            'nilai_tertinggi' => 'required|string',
-            'nilai_terendah' => 'required|string',
+            'jumlah_siswa_x' => 'required',
+            'jumlah_siswa_xi' => 'required',
+            'jumlah_siswa_xii' => 'required',
+            'nilai_tertinggi' => 'required',
+            'nilai_terendah' => 'required',
             'total_siswa' => 'required',
-            'rata_nilai' => 'required|string',
-            'tahun_ajaran' => 'required|string',
+            'rata_nilai' => 'required',
+            'tahun_ajaran' => 'required',
         ]);
 
         $kenaikanKelas = KenaikanKelas::where('id', $id)->first()->update($validatedData);

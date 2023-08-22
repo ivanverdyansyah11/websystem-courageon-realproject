@@ -623,11 +623,47 @@ class DatabaseSeeder extends Seeder
         ]);
 
         KenaikanKelas::create([
+            'jumlah_siswa_x' => '300',
+            'jumlah_siswa_xi' => '400',
+            'jumlah_siswa_xii' => '450',
+            'total_siswa' => '1150',
+            'nilai_tertinggi' => '96',
+            'nilai_terendah' => '80',
+            'rata_nilai' => '86',
+            'tahun_ajaran' => '2023/2024',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '150',
+            'jumlah_siswa_xi' => '250',
+            'jumlah_siswa_xii' => '300',
+            'total_siswa' => '800',
+            'nilai_tertinggi' => '92',
+            'nilai_terendah' => '78',
+            'rata_nilai' => '89',
+            'tahun_ajaran' => '2022/2023',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '200',
+            'jumlah_siswa_xi' => '300',
+            'jumlah_siswa_xii' => '400',
+            'total_siswa' => '900',
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '70',
             'rata_nilai' => '82',
-            'total_siswa' => '248',
-            'tahun_ajaran' => '2022/2023',
+            'tahun_ajaran' => '2021/2022',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '100',
+            'jumlah_siswa_xi' => '200',
+            'jumlah_siswa_xii' => '300',
+            'total_siswa' => '600',
+            'nilai_tertinggi' => '90',
+            'nilai_terendah' => '60',
+            'rata_nilai' => '75',
+            'tahun_ajaran' => '2020/2021',
         ]);
 
 
@@ -672,14 +708,6 @@ class DatabaseSeeder extends Seeder
 
         TahunAjaran::create([
             'tahun' => '2023/2024',
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2024/2025',
-        ]);
-
-        TahunAjaran::create([
-            'tahun' => '2026/2027',
         ]);
 
         Semester::create([
@@ -850,7 +878,7 @@ class DatabaseSeeder extends Seeder
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Bypass Ngurah Rai, Jimbaran, Badung, Bali',
             'kelases_id' => '3',
-            'tahun_ajarans_id' => '5',
+            'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
             'semesters_id' => '1',
@@ -868,7 +896,7 @@ class DatabaseSeeder extends Seeder
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Pantai Sindhu, Sanur, Denpasar, Bali',
             'kelases_id' => '3',
-            'tahun_ajarans_id' => '5',
+            'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
             'semesters_id' => '1',
@@ -886,7 +914,7 @@ class DatabaseSeeder extends Seeder
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Hanoman, Ubud, Gianyar, Bali',
             'kelases_id' => '3',
-            'tahun_ajarans_id' => '5',
+            'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
             'semesters_id' => '1',

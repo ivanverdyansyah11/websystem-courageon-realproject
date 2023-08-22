@@ -626,6 +626,36 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
+                                <label for="jumlah_siswa_x">Jumlah Siswa X</label>
+                                <input type="text" name="jumlah_siswa_x" id="jumlah_siswa_x" class="input"
+                                    autocomplete="off">
+                                @error('jumlah_siswa_x')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xi">Jumlah Siswa XI</label>
+                                <input type="text" name="jumlah_siswa_xi" id="jumlah_siswa_xi" class="input"
+                                    autocomplete="off">
+                                @error('jumlah_siswa_xi')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xii">Jumlah Siswa XII</label>
+                                <input type="text" name="jumlah_siswa_xii" id="jumlah_siswa_xii" class="input"
+                                    autocomplete="off">
+                                @error('jumlah_siswa_xii')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
                                 <label for="nilai_tertinggi">Nilai Tertinggi</label>
                                 <input type="text" name="nilai_tertinggi" id="nilai_tertinggi" class="input"
                                     autocomplete="off">
@@ -654,7 +684,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-md-4">
                             <div class="input-wrapper">
                                 <label for="total_siswa">Total Siswa</label>
                                 <input type="text" name="total_siswa" id="total_siswa" class="input"
@@ -664,7 +694,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <select name="tahun_ajaran" id="tahun_ajaran" class="input">
@@ -699,6 +729,27 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
+                                <label for="jumlah_siswa_x">Jumlah Siswa X</label>
+                                <input type="text" disabled data-value="jumlah_siswa_x" id="jumlah_siswa_x"
+                                    class="input" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xi">Jumlah Siswa XI</label>
+                                <input type="text" disabled data-value="jumlah_siswa_xi" id="jumlah_siswa_xi"
+                                    class="input" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xii">Jumlah Siswa XII</label>
+                                <input type="text" disabled data-value="jumlah_siswa_xii" id="jumlah_siswa_xii"
+                                    class="input" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
                                 <label for="nilai_tertinggi">Nilai Tertinggi</label>
                                 <input type="text" data-value="nilai_tertinggi" id="nilai_tertinggi" class="input"
                                     autocomplete="off" disabled>
@@ -718,14 +769,14 @@
                                     autocomplete="off" disabled>
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-md-4">
                             <div class="input-wrapper">
                                 <label for="total_siswa">Total Siswa</label>
                                 <input type="text" data-value="total_siswa" id="total_siswa" class="input"
                                     autocomplete="off" disabled>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <input type="text" data-value="tahun_ajaran" id="tahun_ajaran" class="input"
@@ -740,6 +791,8 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
     {{-- END MODAL DETAIL KENAIKAN KELAS --}}
 
     {{-- MODAL EDIT KENAIKAN KELAS --}}
@@ -751,6 +804,36 @@
                 <form id="editKenaikanKelas" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_x">Jumlah Siswa X</label>
+                                <input type="text" name="jumlah_siswa_x" data-value="jumlah_siswa_x"
+                                    id="jumlah_siswa_x" class="input" autocomplete="off">
+                                @error('jumlah_siswa_x')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xi">Jumlah Siswa XI</label>
+                                <input type="text" name="jumlah_siswa_xi" data-value="jumlah_siswa_xi"
+                                    id="jumlah_siswa_xi" class="input" autocomplete="off">
+                                @error('jumlah_siswa_xi')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="input-wrapper">
+                                <label for="jumlah_siswa_xii">Jumlah Siswa XII</label>
+                                <input type="text" name="jumlah_siswa_xii" data-value="jumlah_siswa_xii"
+                                    id="jumlah_siswa_xii" class="input" autocomplete="off">
+                                @error('jumlah_siswa_xii')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nilai_tertinggi">Nilai Tertinggi</label>
@@ -781,7 +864,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-4 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="total_siswa">Total Siswa</label>
                                 <input type="text" data-value="total_siswa" name="total_siswa" id="total_siswa"
@@ -791,7 +874,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <select name="tahun_ajaran" id="tahun_ajaran" class="input">
@@ -924,6 +1007,9 @@
                 url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
                 success: function(data) {
                     console.log(data);
+                    $('[data-value="jumlah_siswa_x"]').val(data.jumlah_siswa_x);
+                    $('[data-value="jumlah_siswa_xi"]').val(data.jumlah_siswa_xi);
+                    $('[data-value="jumlah_siswa_xii"]').val(data.jumlah_siswa_xii);
                     $('[data-value="nilai_tertinggi"]').val(data.nilai_tertinggi);
                     $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
                     $('[data-value="rata_nilai"]').val(data.rata_nilai);
@@ -940,6 +1026,9 @@
                 type: 'get',
                 url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
                 success: function(data) {
+                    $('[data-value="jumlah_siswa_x"]').val(data.jumlah_siswa_x);
+                    $('[data-value="jumlah_siswa_xi"]').val(data.jumlah_siswa_xi);
+                    $('[data-value="jumlah_siswa_xii"]').val(data.jumlah_siswa_xii);
                     $('[data-value="nilai_tertinggi"]').val(data.nilai_tertinggi);
                     $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
                     $('[data-value="rata_nilai"]').val(data.rata_nilai);

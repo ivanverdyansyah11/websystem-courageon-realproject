@@ -15,6 +15,9 @@ class CreateKenaikanKelasTable extends Migration
     {
         Schema::create('kenaikan_kelas', function (Blueprint $table) {
             $table->id();
+            $table->string('jumlah_siswa_x');
+            $table->string('jumlah_siswa_xi');
+            $table->string('jumlah_siswa_xii');
             $table->string('nilai_tertinggi');
             $table->string('nilai_terendah');
             $table->string('rata_nilai');
