@@ -65,7 +65,7 @@
                         </div>
                     </a>
                 </div>
-            @endforeach
+             @endforeach
             </div>
             <div class="mt-4 d-flex justify-content-center">
                 <a href="{{ route('berita') }}" class="btn btn-color">{{ $sectionJournal->button }}</a>
