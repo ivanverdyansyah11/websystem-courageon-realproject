@@ -648,7 +648,7 @@ class DatabaseSeeder extends Seeder
 
 
         HeaderStudent::create([
-            'banner' => 'banner-header.jpg',
+            'banner' => 'banner-header.png',
             'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
             'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
             'button' => 'Lihat Selengkapnya',
