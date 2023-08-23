@@ -2,6 +2,7 @@
 
 @section('container')
     @dd($dataSiswa1TahunKebelakang)
+
     <main class="mt-3">
         <section class="hero-section container">
             <div class="row align-items-center">
@@ -451,7 +452,6 @@
             type: 'pie',
             data: {
                 datasets: [{
-
                     data: [50, 25, 25],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],

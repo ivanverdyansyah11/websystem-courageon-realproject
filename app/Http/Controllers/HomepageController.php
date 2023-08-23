@@ -128,11 +128,7 @@ class HomepageController extends Controller
 
     function kesiswaan()
     {
-
-
-
         $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('id')->toArray();
-
         $dataSiswaFirst = [];
         $kelasArray = ['1', '2', '3'];
         foreach ($kelasArray as $kelas) {
@@ -163,6 +159,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
+            'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
             'dataSiswa1TahunKebelakang' => $dataSiswaFirst,
             'dataSiswa2TahunKebelakang' => $dataSiswaSecond,
             'dataSiswa3TahunKebelakang' => $dataSiswaThird,
