@@ -15,13 +15,14 @@
                     <form action="{{ route('reset-password-action') }}" method="POST"
                         class="form d-flex flex-column justify-content-center align-items-end">
                         @csrf
-                        <div class="input-wrapper w-100">
+                        <input type="hidden" name="token" value="{{ $token }}">
+                        {{-- <div class="input-wrapper w-100">
                             <input type="email" class="input" autocomplete="off" placeholder="Enter your email.."
                                 name="email">
                             @error('email')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
-                        </div>
+                        </div> --}}
                         <div class="input-wrapper w-100">
                             <input type="password" class="input" autocomplete="off" placeholder="Enter your password.."
                                 name="password">

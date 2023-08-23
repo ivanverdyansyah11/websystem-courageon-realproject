@@ -12,13 +12,13 @@ class ForgotPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $auth;
+    private string $token;
     /**
      * Create a new message instance.
      */
-    public function __construct(Auth $auth)
+    public function __construct(string $token)
     {
-        $this->auth = $auth;
+        $this->token = $token;
     }
 
     /**
@@ -29,9 +29,9 @@ class ForgotPasswordMail extends Mailable
     public function build()
     {
         return $this
-                ->subject("Welcome to Courageon App")
+                ->subject("Reset Password")
                 ->markdown('mail.forgot-pass', [
-            'name' => $this->auth->username,
+            'token' => $this->token
         ]);
     }
 }
