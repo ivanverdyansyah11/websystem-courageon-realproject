@@ -81,6 +81,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'ivanverdyansyah11@gmail.com',
             'password' => bcrypt('ivan123'),
         ]);
+        
+        Auth::create([
+            'username' => 'Staff Sekolah',
+            'role' => 'Manajemen Staff',
+            'email' => 'danuart21@gmail.com',
+            'password' => bcrypt('danu123'),
+        ]);
 
         Auth::create([
             'username' => 'Admin Sekolah',

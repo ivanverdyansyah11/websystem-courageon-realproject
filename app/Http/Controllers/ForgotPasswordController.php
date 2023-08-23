@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ForgotPasswordMail;
 use App\Models\Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -22,22 +23,26 @@ class ForgotPasswordController extends Controller
 
     public function submitForgetPasswordForm(Request $request)
     {
+        Mail::to($request->email)->send(new ForgotPasswordMail(Auth::where('email', $request->email)->first()));
+
+        dd("We have e-mailed your password reset link!");
+        
         $request->validate([
             'email' => 'required|email|exists:auths',
         ]);
 
-        $token = Str::random(64);
+        // $token = Str::random(64);
 
-        DB::table('password_resets')->insert([
-            'email' => $request->email,
-            'token' => $token,
-            'created_at' => Carbon::now()
-        ]);
+        // DB::table('password_resets')->insert([
+        //     'email' => $request->email,
+        //     'token' => $token,
+        //     'created_at' => Carbon::now()
+        // ]);
 
-        Mail::send('auth.change-password', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Reset Password');
-        });
+        // Mail::send('auth.change-password', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Reset Password');
+        // });
 
         return back()->with('message', 'We have e-mailed your password reset link!');
     }
