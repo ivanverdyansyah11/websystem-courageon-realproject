@@ -390,7 +390,8 @@ a.button-default-solid:hover {
 
 .sidebar .menu-link.active .icon-sidebar-wrapper,
 .sidebar .menu-link:hover .icon-sidebar-wrapper {
-    background-color: rgba(var(--dark-color), 0.05);
+    /* background-color: rgba(var(--dark-color), 0.05); */
+    background-color:rgba(28, 163, 222, 1);
 }
 
 .sidebar .sidebar-icon {
