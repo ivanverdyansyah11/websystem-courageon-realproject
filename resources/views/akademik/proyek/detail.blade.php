@@ -24,8 +24,13 @@
                                     <div class="input-wrapper">
                                         <label for="image">Image</label>
                                         <div class="wrapper d-flex align-items-end">
-                                            <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
-                                                class="img-fluid" alt="Image Project" width="80">
+                                            @if ($project->image)
+                                                <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
+                                                    class="img-fluid" alt="Image Project" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                    class="img-fluid" alt="Image Not Found" width="80">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
