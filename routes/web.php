@@ -221,8 +221,9 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(KurikulumController::class)->group(function () {
             Route::get('/akademik/kurikulum', 'index')->name('kurikulum-index');
-            Route::get('/akademik/kurikulum/detail-section', 'detailSection');
-            Route::post('/akademik/kurikulum/edit-section', 'updateSection');
+            Route::get('/akademik/kurikulum/detail-kurikulum', 'detailSection')->name('section-detail');
+            Route::get('/akademik/kurikulum/edit-kurikulum', 'editSection')->name('section-edit');
+            Route::post('/akademik/kurikulum/edit-section', 'updateSection')->name('section-update');
         });
 
         Route::controller(ProgramController::class)->group(function () {

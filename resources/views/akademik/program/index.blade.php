@@ -91,18 +91,14 @@
                                         {{ $program->description }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailProgramModal"
-                                                data-id="{{ $program->id }}">
+                                            <a href="{{ route('program-detail') }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editProgramModal"
-                                                data-id="{{ $program->id }}">
+                                            </a>
+                                            <a href="{{ route('program-edit') }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             {{-- <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deleteProgramModal"
@@ -169,78 +165,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION PROGRAM --}}
-
-    {{-- MODAL ADD PROGRAM --}}
-    <div class="modal fade" id="addProgramModal" tabindex="-1" aria-labelledby="addProgramModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Tambah Program Sekolah</h3>
-                <form action="{{ route('program-store') }}" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-banner" alt="Banner Program" width="80">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-add-banner" name="banner">
-                                    </div>
-                                </div>
-                                @error('banner')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Program</label>
-                                <input type="text" id="judul" class="input" name="title" autocomplete="off">
-                                @error('title')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" name="button" autocomplete="off">
-                                @error('button')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="link">Link</label>
-                                <input type="text" id="link" class="input" name="link" autocomplete="off">
-                                @error('link')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
-                                @error('description')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Program</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL ADD PROGRAM --}}
 
     {{-- MODAL DETAIL PROGRAM --}}
     <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"

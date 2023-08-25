@@ -17,8 +17,18 @@ class KurikulumController extends Controller
 
     function detailSection()
     {
-        $section_curriculum = Curriculum::first();
-        return response()->json($section_curriculum);
+        return view('akademik.kurikulum.detail', [
+            'title' => 'Akademik > Kurikulum',
+            'curriculum' => Curriculum::first(),
+        ]);
+    }
+
+    function editSection()
+    {
+        return view('akademik.kurikulum.edit', [
+            'title' => 'Akademik > Kurikulum',
+            'curriculum' => Curriculum::first(),
+        ]);
     }
 
     function updateSection(Request $request)
