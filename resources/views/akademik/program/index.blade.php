@@ -53,9 +53,6 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Program Sekolah</h5>
-                {{-- <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addProgramModal">Tambah
-                    Program</button> --}}
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -91,20 +88,14 @@
                                         {{ $program->description }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <a href="{{ route('program-detail') }}"
+                                            <a href="{{ route('program-detail', $program->id) }}"
                                                 class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
                                             </a>
-                                            <a href="{{ route('program-edit') }}"
+                                            <a href="{{ route('program-edit', $program->id) }}"
                                                 class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
                                             </a>
-                                            {{-- <button type="button"
-                                                class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#deleteProgramModal"
-                                                data-id="{{ $program->id }}">
-                                                <div class="delete-icon"></div>
-                                            </button> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -165,61 +156,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION PROGRAM --}}
-
-    {{-- MODAL DETAIL PROGRAM --}}
-    <div class="modal fade" id="detailProgramModal" tabindex="-1" aria-labelledby="detailProgramModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Detail Program Sekolah</h3>
-                <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label>Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Banner Program" width="80" data-value="banner_program">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Program</label>
-                                <input type="text" id="judul" class="input" data-value="title_program" disabled
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" data-value="button_program" disabled
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="link">Link</label>
-                                <input type="text" id="link" class="input" data-value="link_program" disabled
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" data-value="description_program" disabled autocomplete="off"
-                                    rows="4"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DETAIL PROGRAM --}}
 
     {{-- MODAL EDIT PROGRAM --}}
     <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
@@ -298,29 +234,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT PROGRAM --}}
-
-    {{-- MODAL DELETE PROGRAM --}}
-    <div class="modal fade" id="deleteProgramModal" tabindex="-1" aria-labelledby="deleteProgramModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Hapus Program Sekolah</h3>
-                <form id="deleteProgram" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Program Sekolah: Apakah Anda yakin ingin
-                        menghapus program sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan program sekolah akan dihapus secara permanen dari sistem.
-                    </p>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Program</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DELETE PROGRAM --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionProgramModal"]', function() {

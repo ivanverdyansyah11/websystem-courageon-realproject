@@ -66,8 +66,18 @@ class ProgramController extends Controller
 
     function detailProgram($id)
     {
-        $program = Program::where('id', $id)->first();
-        return response()->json($program);
+        return view('akademik.program.detail', [
+            'title' => 'Akademik > Program',
+            'program' => Program::where('id', $id)->first(),
+        ]);
+    }
+
+    function editProgram($id)
+    {
+        return view('akademik.program.edit', [
+            'title' => 'Akademik > Program',
+            'program' => Program::where('id', $id)->first(),
+        ]);
     }
 
     function updateProgram($id, Request $request)

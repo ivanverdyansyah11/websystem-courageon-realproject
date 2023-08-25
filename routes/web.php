@@ -233,6 +233,7 @@ Route::middleware('auth')->group(function () {
 
             Route::post('/akademik/program/tambah-program', 'storeProgram')->name('program-store');
             Route::get('/akademik/program/detail-program/{id}', 'detailProgram')->name('program-detail');
+            Route::get('/akademik/program/edit-program/{id}', 'editProgram')->name('program-edit');
             Route::post('/akademik/program/edit-program/{id}', 'updateProgram')->name('program-update');
             Route::post('/akademik/program/delete-program/{id}', 'deleteProgram')->name('program-delete');
         });

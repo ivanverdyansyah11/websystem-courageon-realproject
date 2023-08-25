@@ -13,27 +13,23 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Edit Kurikulum Sekolah</h5>
+                <h5 class="subtitle">Edit Program Sekolah</h5>
             </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-xl-10">
-                        <form action="{{ route('section-update') }}" method="post"
+                        <form action="{{ route('program-update', $program->id) }}" method="post"
                             class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="banner">Banner</label>
-                                        <input type="hidden" value="{{ $curriculum->banner }}" name="oldImage">
-                                        <div class="wrapper d-flex justify-content-between align-items-end">
-                                            @if ($curriculum->banner)
-                                                <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}"
-                                                    class="img-fluid tag-edit-banner" alt="Banner Kurikulum" width="80">
-                                            @else
-                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                    class="img-fluid tag-edit-banner" alt="Image Not Found" width="80">
-                                            @endif
+                                        <input type="hidden" value="{{ $program->banner }}" name="oldImage">
+                                        <div class="wrapper d-flex align-items-end">
+                                            <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
+                                                class="img-fluid tag-edit-banner" alt="Banner Program" width="80"
+                                                data-value="banner">
                                             <div class="wrapper-image w-100">
                                                 <input type="file" id="banner" class="input-edit-banner"
                                                     name="banner">
@@ -46,18 +42,38 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="judul_section">Judul Section</label>
-                                        <input type="text" id="judul_section" class="input" autocomplete="off"
-                                            value="{{ $curriculum->title_section }}" name="title_section">
-                                        @error('title_section')
+                                        <label for="judul">Judul Program</label>
+                                        <input type="text" id="judul" class="input" value="{{ $program->title }}"
+                                            name="title" autocomplete="off">
+                                        @error('title')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="button">Button Label</label>
+                                        <input type="text" id="button" class="input" value="{{ $program->button }}"
+                                            name="button" autocomplete="off">
+                                        @error('button')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="link">Link</label>
+                                        <input type="text" id="link" class="input" value="{{ $program->link }}"
+                                            name="link" autocomplete="off">
+                                        @error('link')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="input-wrapper">
-                                        <label for="deskripsi_kurikulum">Deskripsi Kurikulum</label>
-                                        <textarea id="inputEditCurriculum" autocomplete="off" name="description" class="input">{{ $curriculum->description }}</textarea>
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <textarea id="inputEditProgram" autocomplete="off" name="description" class="input">{{ $program->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -68,7 +84,7 @@
                                 <div class="col-10">
                                     <div class="button-wrapper d-flex gap-2">
                                         <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                                        <a href="{{ route('kurikulum-index') }}" class="button-default">Batal Edit</a>
+                                        <a href="{{ route('program-index') }}" class="button-default">Batal Edit</a>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +96,7 @@
     </div>
 
     <script>
-        const inputEditCurriculum = new RichTextEditor("#inputEditCurriculum");
+        const inputEditProgram = new RichTextEditor("#inputEditProgram");
 
         const tagEdit = document.querySelector('.tag-edit-banner');
         const inputEdit = document.querySelector('.input-edit-banner');
