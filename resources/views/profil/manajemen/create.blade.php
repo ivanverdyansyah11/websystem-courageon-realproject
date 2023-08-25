@@ -48,6 +48,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nip">NIP</label>
@@ -231,6 +232,7 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
         const tagEdit = document.querySelector('.tag-edit-image');
         const inputEdit = document.querySelector('.input-edit-image');

@@ -249,7 +249,7 @@
         <section class="location-section container section-margin-top">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-12">
-                    <iframe src="{{ $sectionContact->url_maps }}" width="600" height="450" style="border:0;"
+                    <iframe src="{{ $sectionContact->url_maps }}" class="w-100" height="450px" style="border:0;"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">

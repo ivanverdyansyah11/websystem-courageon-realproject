@@ -170,6 +170,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/manajemen/edit/{id}', 'edit')->name('manajemen-edit');
             Route::post('/profil/manajemen/edit/{id}', 'update')->name('manajemen-update');
             Route::post('/profil/manajemen/delete/{id}', 'delete')->name('manajemen-delete');
+
+            Route::get('/profil/manajemen/tambah-hobi/{id}', 'createHobi');
         });
 
         Route::controller(GuruController::class)->group(function () {

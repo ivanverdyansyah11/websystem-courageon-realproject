@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Hobi;
+use App\Models\HobiContoh;
 use App\Models\SectionManagement;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

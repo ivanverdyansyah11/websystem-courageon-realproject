@@ -48,9 +48,6 @@
                                         @enderror
                                     </div>
                                 </div>
-                            <div class="col-12">
-                                
-                            </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nip">NIP</label>
