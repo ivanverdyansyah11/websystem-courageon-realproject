@@ -27,14 +27,14 @@ class ForgotPasswordController extends Controller
         $request->validate([
             'email' => 'required|email|exists:auths',
         ]);
-        
+
         $token = Str::random(64);
 
         PasswordReset::create([
             'email' => $request->email,
             'token' => $token,
         ]);
-        
+
         Mail::to($request->email)->send(new ForgotPasswordMail($token));
 
         // Mail::send('auth.change-password', ['token' => $token], function (ForgotPasswordMail $message) use ($request) {
@@ -47,11 +47,12 @@ class ForgotPasswordController extends Controller
 
     public function showResetPasswordForm($token)
     {
-        $user = PasswordReset::where('token', $token)->first();        
-        if($user) {
+        $user = PasswordReset::where('token', $token)->first();
+        if ($user) {
             return view('auth.change-password', [
                 'title' => 'Change Password',
                 'token' => $token,
+                'user' => $user,
             ]);
         } else {
             return redirect()->route('login')->with('failed', 'Token Invalid');
@@ -66,8 +67,8 @@ class ForgotPasswordController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        $userResetPass = PasswordReset::where('token', $request->token)->first();      
-        
+        $userResetPass = PasswordReset::where('token', $request->token)->first();
+
         $updatePassword = PasswordReset::where([
             'email' => $userResetPass->email,
             'token' => $request->token

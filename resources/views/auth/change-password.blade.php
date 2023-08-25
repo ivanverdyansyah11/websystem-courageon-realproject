@@ -16,13 +16,13 @@
                         class="form d-flex flex-column justify-content-center align-items-end">
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
-                        {{-- <div class="input-wrapper w-100">
+                        <div class="input-wrapper w-100">
                             <input type="email" class="input" autocomplete="off" placeholder="Enter your email.."
-                                name="email">
+                                value="{{ $user->email }}" disabled>
                             @error('email')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
-                        </div> --}}
+                        </div>
                         <div class="input-wrapper w-100">
                             <input type="password" class="input" autocomplete="off" placeholder="Enter your password.."
                                 name="password">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="input-wrapper w-100">
                             <input type="password" class="input" autocomplete="off"
-                                placeholder="Enter your password_confirmation.." name="password_confirmation">
+                                placeholder="Enter your password confirmation.." name="password_confirmation">
                             @error('password_confirmation')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror

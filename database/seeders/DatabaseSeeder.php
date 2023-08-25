@@ -1523,52 +1523,5 @@ class DatabaseSeeder extends Seeder
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
         ]);
-
-        Hobi::create([
-            'name' => 'Fotografi Lanskap',
-        ]);
-
-        Hobi::create([
-            'name' => 'Memasak Masakan Eksotis',
-        ]);
-
-        Hobi::create([
-            'name' => 'Koleksi Kertas Perangko',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Mengambil Gambar',
-            'hobis_id' => '1',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Eksplorasi Lokasi',
-            'hobis_id' => '1',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Pengeditan Foto',
-            'hobis_id' => '1',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Eksperimen Kuliner',
-            'hobis_id' => '2',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Pencarian Bahan-Bahan Langka',
-            'hobis_id' => '2',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Pencarian Perangko Langka',
-            'hobis_id' => '3',
-        ]);
-
-        HobiContoh::create([
-            'name' => 'Penelitian Sejarah',
-            'hobis_id' => '3',
-        ]);
     }
 }
