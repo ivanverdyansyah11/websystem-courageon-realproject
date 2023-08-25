@@ -56,9 +56,8 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Alumni Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addAlumniModal">Tambah
-                    Alumni</button>
+                <a href="{{ route('alumni-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Alumni</a>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -91,21 +90,17 @@
                                         @endif
                                     @endforeach
                                     <div class="d-none col data-value data-length">
-                                        {{ $testimonial->testimoni }}</div>
+                                        {!! $testimonial->testimoni !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailAlumniModal"
-                                                data-id="{{ $testimonial->id }}">
+                                            <a href="{{ route('alumni-detail', $testimonial->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editAlumniModal"
-                                                data-id="{{ $testimonial->id }}">
+                                            </a>
+                                            <a href="{{ route('alumni-edit', $testimonial->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deleteAlumniModal"
@@ -185,254 +180,6 @@
     </div>
     {{-- END MODAL EDIT SECTION --}}
 
-    {{-- MODAL DELETE BEASISWA --}}
-    <div class="modal fade" id="deleteBeasiswaModal" tabindex="-1" aria-labelledby="deleteBeasiswaModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <h3 class="title">Hapus Beasiswa Sekolah</h3>
-                <form id="deleteBeasiswa" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Beasiswa Sekolah: Apakah Anda yakin ingin
-                        menghapus beasiswa sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan beasiswa sekolah akan dihapus secara permanen dari sistem.
-                    </p>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Beasiswa</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DELETE BEASISWA --}}
-
-    {{-- MODAL ADD ALUMNI --}}
-    <div class="modal fade" id="addAlumniModal" tabindex="-1" aria-labelledby="addAlumniModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Tambah Alumni Sekolah</h3>
-                <form action="{{ route('alumni-store') }}" method="post"
-                    class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="profile">Profile</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-profile" alt="Profile Alumni" width="80">
-                                    <div class="wrapper-profile w-100">
-                                        <input type="file" id="profile" class="input-add-profile" name="profile">
-                                    </div>
-                                </div>
-                                @error('profile')
-                                    <p class="caption-error mt-4">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="students_id">Siswa</label>
-                                <select name="students_id" id="students_id" class="input" autocomplete="off">
-                                    <option value="-">Pilih siswa</option>
-                                    @foreach ($students as $student)
-                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
-                                    @endforeach
-                                </select>
-                                @error('students_id')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="pekerjaan">Pekerjaan</label>
-                                <input type="text" name="pekerjaan" id="pekerjaan" class="input"
-                                    autocomplete="off">
-                                @error('pekerjaan')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                                <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input"
-                                    autocomplete="off">
-                                    <option value="-">Pilih tahun ajaran lulus</option>
-                                    @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
-                                    @endforeach
-                                </select>
-                                @error('tahun_ajaran_lulus')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="testimoni">Testimoni</label>
-                                <textarea name="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
-                                @error('testimoni')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Alumni</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL ADD ALUMNI --}}
-
-    {{-- MODAL DETAIL ALUMNI --}}
-    <div class="modal fade" id="detailAlumniModal" tabindex="-1" aria-labelledby="detailAlumniModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Detail Alumni Sekolah</h3>
-                <form class="form d-flex flex-column justify-content-center">
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="profile">Profile</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid"
-                                        alt="Profile Alumni" width="80" data-value="profile">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="students_id">Siswa</label>
-                                <input type="text" id="students_id" class="input" autocomplete="off" disabled
-                                    data-value="students_id">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="pekerjaan">Pekerjaan</label>
-                                <input type="text" id="pekerjaan" class="input" autocomplete="off" disabled
-                                    data-value="pekerjaan">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                                <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off" disabled
-                                    data-value="tahun_ajaran_lulus">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="testimoni">Testimoni</label>
-                                <textarea data-value="testimoni" disabled id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DETAIL ALUMNI --}}
-
-    {{-- MODAL EDIT ALUMNI --}}
-    <div class="modal fade" id="editAlumniModal" tabindex="-1" aria-labelledby="editAlumniModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Edit Alumni Sekolah</h3>
-                <form id="editAlumni" method="post" class="form d-flex flex-column justify-content-center"
-                    enctype="multipart/form-data">
-                    @csrf
-                    <div class="row align-items-end">
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="profile">Profile</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-profile" alt="Profile Alumni" width="80"
-                                        data-value="profile">
-                                    <div class="wrapper-profile w-100">
-                                        <input type="file" id="profile" class="input-edit-profile" name="profile">
-                                    </div>
-                                </div>
-                                @error('profile')
-                                    <p class="caption-error mt-4">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="students_id">Siswa</label>
-                                <select name="students_id" id="students_id" class="input">
-                                    <option data-value="students_id"></option>
-                                    @foreach ($students as $student)
-                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
-                                    @endforeach
-                                </select>
-                                @error('students_id')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="pekerjaan">Pekerjaan</label>
-                                <input type="text" name="pekerjaan" data-value="pekerjaan" id="pekerjaan"
-                                    class="input" autocomplete="off">
-                                @error('pekerjaan')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                                <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input">
-                                    <option data-value="tahun_ajaran_lulus"></option>
-                                    @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
-                                    @endforeach
-                                </select>
-                                @error('tahun_ajaran_lulus')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-wrapper">
-                                <label for="testimoni">Testimoni</label>
-                                <textarea name="testimoni" data-value="testimoni" id="testimoni" rows="4" class="input" autocomplete="off"></textarea>
-                                @error('testimoni')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL EDIT ALUMNI --}}
-
     {{-- MODAL DELETE ALUMNI --}}
     <div class="modal fade" id="deleteAlumniModal" tabindex="-1" aria-labelledby="deleteAlumniModalLabel"
         aria-hidden="true">
@@ -479,57 +226,9 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailAlumniModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/alumni/detail-alumni/' + id,
-                success: function(data) {
-                    $('[data-value="students_id"]').val(data.students_nama);
-                    $('[data-value="pekerjaan"]').val(data.pekerjaan);
-                    $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);
-                    $('[data-value="testimoni"]').val(data.testimoni);
-                    $('[data-value="profile"]').attr("src",
-                        "/assets/img/kesiswaan-images/alumni-image/" + data.profile);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editAlumniModal"]', function() {
-            let id = $(this).data('id');
-            $('#editAlumni').attr('action', '/admin/kesiswaan/alumni/edit-alumni/' + id);
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/alumni/detail-alumni/' + id,
-                success: function(data) {
-                    $('[data-value="students_id"]').val(data.students_id);
-                    $('[data-value="students_id"]').html(data.students_nama);
-                    $('[data-value="tahun_ajaran_lulus"]').val(data.tahun_ajaran_lulus);
-                    $('[data-value="tahun_ajaran_lulus"]').html(data.tahun_ajaran_lulus);
-                    $('[data-value="pekerjaan"]').val(data.pekerjaan);
-                    $('[data-value="testimoni"]').val(data.testimoni);
-                    $('[data-value="profile"]').attr("src",
-                        "/assets/img/kesiswaan-images/alumni-image/" + data.profile);
-                }
-            });
-        });
-
         $(document).on('click', '[data-bs-target="#deleteAlumniModal"]', function() {
             let id = $(this).data('id');
             $('#deleteAlumni').attr('action', '/admin/kesiswaan/alumni/delete-alumni/' + id);
-        });
-
-        const tagAddProfile = document.querySelector('.tag-add-profile');
-        const inputAddProfile = document.querySelector('.input-add-profile');
-        const tagEditProfile = document.querySelector('.tag-edit-profile');
-        const inputEditProfile = document.querySelector('.input-edit-profile');
-
-        inputAddProfile.addEventListener('change', function() {
-            tagAddProfile.src = URL.createObjectURL(inputAddProfile.files[0]);
-        });
-
-        inputEditProfile.addEventListener('change', function() {
-            tagEditProfile.src = URL.createObjectURL(inputEditProfile.files[0]);
         });
     </script>
 @endsection

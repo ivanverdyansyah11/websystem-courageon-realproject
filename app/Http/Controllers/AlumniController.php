@@ -43,6 +43,15 @@ class AlumniController extends Controller
         }
     }
 
+    function createAlumni()
+    {
+        return view('kesiswaan.alumni.add', [
+            'title' => 'Kesiswaan > Alumni',
+            'students' => Student::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
+    }
+
     function detailAlumni($id)
     {
         $alumni = Alumni::where('id', $id)->first();
@@ -51,16 +60,34 @@ class AlumniController extends Controller
 
         foreach ($students as $student) {
             if ($student->id === $alumni->students_id) {
-                $alumni->students_nama = $student->nama_lengkap;
+                $students_nama = $student->nama_lengkap;
             }
         }
 
         foreach ($tahun_ajarans as $tahun_ajaran) {
             if ($tahun_ajaran->tahun == $alumni->tahun_ajaran_lulus) {
-                $alumni->tahun_ajaran_lulus = $tahun_ajaran->tahun;
+                $tahun_ajaran_lulus = $tahun_ajaran->tahun;
             }
         }
-        return response()->json($alumni);
+
+        return view('kesiswaan.alumni.detail', [
+            'title' => 'Akademik > Alumni',
+            'alumni' => $alumni,
+            'students_nama' => $students_nama,
+            'tahun_ajaran_lulus' => $tahun_ajaran_lulus,
+        ]);
+    }
+
+    function editAlumni($id)
+    {
+        $alumni = Alumni::where('id', $id)->first();
+
+        return view('kesiswaan.alumni.edit', [
+            'title' => 'Akademik > Alumni',
+            'alumni' => $alumni,
+            'students' => Student::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
     }
 
     function storeAlumni(Request $request)

@@ -391,9 +391,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/alumni/detail-section', 'detailSection');
             Route::post('/kesiswaan/alumni/edit-section', 'updateSection');
 
-            Route::get('/kesiswaan/alumni/detail-alumni/{id}', 'detailAlumni');
+            Route::get('/kesiswaan/alumni/tambah-alumni', 'createAlumni')->name('alumni-create');
             Route::post('/kesiswaan/alumni/tambah-alumni', 'storeAlumni')->name('alumni-store');
-            Route::post('/kesiswaan/alumni/edit-alumni/{id}', 'updateAlumni');
+            Route::get('/kesiswaan/alumni/detail-alumni/{id}', 'detailAlumni')->name('alumni-detail');
+            Route::get('/kesiswaan/alumni/edit-alumni/{id}', 'editAlumni')->name('alumni-edit');
+            Route::post('/kesiswaan/alumni/edit-alumni/{id}', 'updateAlumni')->name('alumni-update');
             Route::post('/kesiswaan/alumni/delete-alumni/{id}', 'deleteAlumni');
         });
 
