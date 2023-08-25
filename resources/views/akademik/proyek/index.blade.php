@@ -55,9 +55,8 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Proyek 5P Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addProjectModal">Tambah
-                    Proyek</button>
+                <a href="{{ route('proyek-tambah') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Proyek</a>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -92,21 +91,17 @@
                                     <div class="col data-value data-length">{{ $project->title }}</div>
                                     <div class="col data-value data-length">{{ $project->topic }}</div>
                                     <div class="d-none col data-value data-length">
-                                        {{ $project->description }}</div>
+                                        {!! $project->description !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailProjectModal"
-                                                data-id="{{ $project->id }}">
+                                            <a href="{{ route('proyek-detail', $project->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editProjectModal"
-                                                data-id="{{ $project->id }}">
+                                            </a>
+                                            <a href="{{ route('proyek-edit', $project->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deleteProjectModal"
@@ -136,8 +131,8 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label>Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button label</label>
@@ -199,69 +194,6 @@
         </div>
     </div>
     {{-- END MODAL EDIT SECTION PROYEK --}}
-
-    {{-- MODAL ADD PROJECT --}}
-    <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Tambah Proyek Sekolah</h3>
-                <form action="{{ route('proyek-store') }}" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="image">Image</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-add-image" alt="Image Project" width="80">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="image" class="input-add-image" name="image">
-                                    </div>
-                                </div>
-                                @error('image')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Proyek</label>
-                                <input type="text" id="judul" class="input" name="title" autocomplete="off">
-                                @error('title')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="topik">Topik</label>
-                                <input type="text" id="topik" class="input" name="topic" autocomplete="off">
-                                @error('topic')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"></textarea>
-                                @error('description')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Tambah Proyek</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Tambah</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL ADD PROJECT --}}
 
     {{-- MODAL DETAIL PROJECT --}}
     <div class="modal fade" id="detailProjectModal" tabindex="-1" aria-labelledby="detailProjectModalLabel"
@@ -428,21 +360,6 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailProjectModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/akademik/proyek/detail-proyek/' + id,
-                success: function(data) {
-                    $('[data-value="image_project"]').attr("src",
-                        "/assets/img/akademik-images/proyek-image/" + data.image);
-                    $('[data-value="title_project"]').val(data.title);
-                    $('[data-value="topic_project"]').val(data.topic);
-                    $('[data-value="description_project"]').val(data.description);
-                }
-            });
-        });
-
         $(document).on('click', '[data-bs-target="#editProjectModal"]', function() {
             let id = $(this).data('id');
             $('#editProject').attr('action', '/admin/akademik/proyek/edit-proyek/' + id);
@@ -465,14 +382,9 @@
             $('#deleteProject').attr('action', '/admin/akademik/proyek/delete-proyek/' + id);
         });
 
-        const tagAddImage = document.querySelector('.tag-add-image');
-        const inputAddImage = document.querySelector('.input-add-image');
+
         const tagEditImage = document.querySelector('.tag-edit-image');
         const inputEditImage = document.querySelector('.input-edit-image');
-
-        inputAddImage.addEventListener('change', function() {
-            tagAddImage.src = URL.createObjectURL(inputAddImage.files[0]);
-        });
 
         inputEditImage.addEventListener('change', function() {
             tagEditImage.src = URL.createObjectURL(inputEditImage.files[0]);

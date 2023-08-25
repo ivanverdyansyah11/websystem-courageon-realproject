@@ -42,7 +42,7 @@
                             </div>
                             <div class="col data-value data-length">{{ $section_section->title_section }}</div>
                             <div class="col data-value data-length">
-                                {{ $section_section->description }}</div>
+                                {!! $section_section->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <a href="{{ route('section-detail') }}"

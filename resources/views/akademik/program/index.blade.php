@@ -85,7 +85,7 @@
                                     </div>
                                     <div class="col data-value data-length">{{ $program->title }}</div>
                                     <div class="d-none col data-value data-length">
-                                        {{ $program->description }}</div>
+                                        {!! $program->description !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <a href="{{ route('program-detail', $program->id) }}"

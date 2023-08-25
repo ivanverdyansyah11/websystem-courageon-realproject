@@ -41,9 +41,9 @@
                                         alt="Image Not Found" width="80">
                                 @endif
                             </div>
-                            <div class="d-none col data-value data-length">{{ $logo->logo_meaning }}</div>
-                            <div class="d-none col data-value data-length">{{ $logo->font_meaning }}</div>
-                            <div class="d-none col data-value data-length">{{ $logo->color_meaning }}</div>
+                            <div class="d-none col data-value data-length">{!! $logo->logo_meaning !!}</div>
+                            <div class="d-none col data-value data-length">{!! $logo->font_meaning !!}</div>
+                            <div class="d-none col data-value data-length">{!! $logo->color_meaning !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <a href="{{ route('logo-detail') }}"
@@ -89,7 +89,7 @@
                                 @endif
                             </div>
                             <div class="d-none col data-value data-length">{{ $mars->title_section }}</div>
-                            <div class="d-none col data-value data-length">{{ $mars->mars }}</div>
+                            <div class="d-none col data-value data-length">{!! $mars->mars !!}</div>
                             <div class="d-none col data-value data-length">{{ $mars->creation }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">

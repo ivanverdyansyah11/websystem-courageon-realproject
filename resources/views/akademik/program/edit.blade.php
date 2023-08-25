@@ -32,7 +32,8 @@
                                                     class="img-fluid tag-edit-banner" alt="Banner Program" width="80">
                                             @else
                                                 <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                    class="img-notfound" alt="Image Not Found" width="80">
+                                                    class="img-notfound tag-edit-banner" alt="Image Not Found"
+                                                    width="80">
                                             @endif
                                             <div class="wrapper-image w-100">
                                                 <input type="file" id="banner" class="input-edit-banner"

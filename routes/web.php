@@ -230,7 +230,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/program', 'index')->name('program-index');
             Route::get('/akademik/program/detail-section', 'detailSection');
             Route::post('/akademik/program/edit-section', 'updateSection');
-
             Route::post('/akademik/program/tambah-program', 'storeProgram')->name('program-store');
             Route::get('/akademik/program/detail-program/{id}', 'detailProgram')->name('program-detail');
             Route::get('/akademik/program/edit-program/{id}', 'editProgram')->name('program-edit');
@@ -242,9 +241,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/proyek', 'index')->name('proyek-index');
             Route::get('/akademik/proyek/detail-section', 'detailSection');
             Route::post('/akademik/proyek/edit-section', 'updateSection');
-
+            Route::get('/akademik/proyek/tambah-proyek', 'createProject')->name('proyek-tambah');
             Route::post('/akademik/proyek/tambah-proyek', 'storeProject')->name('proyek-store');
             Route::get('/akademik/proyek/detail-proyek/{id}', 'detailProject')->name('proyek-detail');
+            Route::get('/akademik/proyek/edit-proyek/{id}', 'editProject')->name('proyek-edit');
             Route::post('/akademik/proyek/edit-proyek/{id}', 'updateProject')->name('proyek-update');
             Route::post('/akademik/proyek/delete-proyek/{id}', 'deleteProject')->name('proyek-delete');
         });

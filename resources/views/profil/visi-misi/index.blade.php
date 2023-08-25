@@ -44,8 +44,8 @@
                             </div>
                             <div class="col data-value data-length">{{ $vision_mission->title_vision }}</div>
                             <div class="d-none col data-value data-length">{{ $vision_mission->description_vision }}</div>
-                            <div class="col data-value data-length">{{ $vision_mission->title_mission }}</div>
-                            <div class="d-none col data-value data-length">{{ $vision_mission->description_mission }}</div>
+                            <div class="col data-value data-length">{!! $vision_mission->title_mission !!}</div>
+                            <div class="d-none col data-value data-length">{!! $vision_mission->description_mission !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <a href="{{ route('visi-misi-detail') }}"

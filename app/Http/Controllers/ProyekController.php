@@ -40,6 +40,13 @@ class ProyekController extends Controller
         }
     }
 
+    function createProject()
+    {
+        return view('akademik.proyek.add', [
+            'title' => 'Akademik > Proyek',
+        ]);
+    }
+
     function storeProject(Request $request)
     {
         $validatedData = $request->validate([
@@ -67,8 +74,18 @@ class ProyekController extends Controller
 
     function detailProject($id)
     {
-        $project = Project::where('id', $id)->first();
-        return response()->json($project);
+        return view('akademik.proyek.detail', [
+            'title' => 'Akademik > Proyek',
+            'project' => Project::where('id', $id)->first(),
+        ]);
+    }
+
+    function editProject($id)
+    {
+        return view('akademik.proyek.edit', [
+            'title' => 'Akademik > Proyek',
+            'project' => Project::where('id', $id)->first(),
+        ]);
     }
 
     function updateProject($id, Request $request)
