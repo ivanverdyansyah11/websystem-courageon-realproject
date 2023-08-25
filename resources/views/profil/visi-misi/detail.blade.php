@@ -24,9 +24,13 @@
                                     <div class="input-wrapper">
                                         <label>Banner</label>
                                         <div class="wrapper d-flex align-items-end">
-                                            <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $vision_mission->banner) }}"
-                                                class="img-notfound" alt="Banner Visi Misi" width="80"
-                                                data-value="banner_vision_mission">
+                                            @if ($vision_mission->banner)
+                                                <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $vision_mission->banner) }}"
+                                                    class="img-fluid tag-edit-banner" alt="Banner Visi Misi" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                    class="img-fluid tag-edit-banner" alt="Image Not Found" width="80">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

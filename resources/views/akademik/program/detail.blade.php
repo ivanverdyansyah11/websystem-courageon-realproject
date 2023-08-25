@@ -24,8 +24,13 @@
                                     <div class="input-wrapper">
                                         <label>Banner</label>
                                         <div class="wrapper d-flex align-items-end">
-                                            <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
-                                                class="img-fluid" alt="Banner Program" width="80">
+                                            @if ($program->banner)
+                                                <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
+                                                    class="img-fluid" alt="Banner Program" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                    class="img-notfound" alt="Image Not Found" width="80">
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

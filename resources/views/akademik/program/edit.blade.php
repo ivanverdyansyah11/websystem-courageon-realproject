@@ -27,9 +27,13 @@
                                         <label for="banner">Banner</label>
                                         <input type="hidden" value="{{ $program->banner }}" name="oldImage">
                                         <div class="wrapper d-flex align-items-end">
-                                            <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
-                                                class="img-fluid tag-edit-banner" alt="Banner Program" width="80"
-                                                data-value="banner">
+                                            @if ($program->banner)
+                                                <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
+                                                    class="img-fluid tag-edit-banner" alt="Banner Program" width="80">
+                                            @else
+                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
+                                                    class="img-notfound" alt="Image Not Found" width="80">
+                                            @endif
                                             <div class="wrapper-image w-100">
                                                 <input type="file" id="banner" class="input-edit-banner"
                                                     name="banner">

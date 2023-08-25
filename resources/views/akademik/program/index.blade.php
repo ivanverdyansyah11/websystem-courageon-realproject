@@ -157,84 +157,6 @@
     </div>
     {{-- END MODAL EDIT SECTION PROGRAM --}}
 
-    {{-- MODAL EDIT PROGRAM --}}
-    <div class="modal fade" id="editProgramModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Edit Program Sekolah</h3>
-                <form id="editProgram" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <input type="hidden" data-value="oldImage_program" name="oldImage">
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-banner" alt="Banner Program" width="80"
-                                        data-value="banner_program">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-banner" name="banner">
-                                    </div>
-                                </div>
-                                @error('banner')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul">Judul Program</label>
-                                <input type="text" id="judul" class="input" data-value="title_program"
-                                    name="title" autocomplete="off">
-                                @error('title')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="button">Button Label</label>
-                                <input type="text" id="button" class="input" data-value="button_program"
-                                    name="button" autocomplete="off">
-                                @error('button')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="link">Link</label>
-                                <input type="text" id="link" class="input" data-value="link_program"
-                                    name="link" autocomplete="off">
-                                @error('link')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" data-value="description_program" name="description" autocomplete="off"
-                                    rows="4"></textarea>
-                                @error('description')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL EDIT PROGRAM --}}
-
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionProgramModal"]', function() {
             $.ajax({
@@ -257,56 +179,9 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#detailProgramModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/akademik/program/detail-program/' + id,
-                success: function(data) {
-                    $('[data-value="banner_program"]').attr("src",
-                        "/assets/img/akademik-images/program-image/" + data.banner);
-                    $('[data-value="title_program"]').val(data.title);
-                    $('[data-value="button_program"]').val(data.button);
-                    $('[data-value="link_program"]').val(data.link);
-                    $('[data-value="description_program"]').val(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editProgramModal"]', function() {
-            let id = $(this).data('id');
-            $('#editProgram').attr('action', '/admin/akademik/program/edit-program/' + id);
-            $.ajax({
-                type: 'get',
-                url: '/admin/akademik/program/detail-program/' + id,
-                success: function(data) {
-                    $('[data-value="banner_program"]').attr("src",
-                        "/assets/img/akademik-images/program-image/" + data.banner);
-                    $('[data-value="oldImage_program"]').val(data.banner);
-                    $('[data-value="title_program"]').val(data.title);
-                    $('[data-value="button_program"]').val(data.button);
-                    $('[data-value="link_program"]').val(data.link);
-                    $('[data-value="description_program"]').val(data.description);
-                }
-            });
-        });
-
         $(document).on('click', '[data-bs-target="#deleteProgramModal"]', function() {
             let id = $(this).data('id');
             $('#deleteProgram').attr('action', '/admin/akademik/program/delete-program/' + id);
-        });
-
-        const tagAddBanner = document.querySelector('.tag-add-banner');
-        const inputAddBanner = document.querySelector('.input-add-banner');
-        const tagEditBanner = document.querySelector('.tag-edit-banner');
-        const inputEditBanner = document.querySelector('.input-edit-banner');
-
-        inputAddBanner.addEventListener('change', function() {
-            tagAddBanner.src = URL.createObjectURL(inputAddBanner.files[0]);
-        });
-
-        inputEditBanner.addEventListener('change', function() {
-            tagEditBanner.src = URL.createObjectURL(inputEditBanner.files[0]);
         });
     </script>
 @endsection
