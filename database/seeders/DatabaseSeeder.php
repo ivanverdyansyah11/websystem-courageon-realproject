@@ -268,51 +268,6 @@ class DatabaseSeeder extends Seeder
             'first_date_skp' => '2014-08-01',
         ]);
 
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'Ida Bagus Darmawangsa',
-            'image' => 'manajemen-5.jpg',
-            'place_of_birth' => 'Denpasar',
-            'date_of_birth' => '1989-12-31',
-            'highest_rank' => 'SMKN 2001',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Gusti Agung Sucipta',
-            'image' => 'manajemen-6.jpg',
-            'place_of_birth' => 'Denpasar',
-            'date_of_birth' => '1999-11-14',
-            'highest_rank' => 'SMKN 2017',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Gede Arya Sucipta',
-            'image' => 'manajemen-7.jpg',
-            'place_of_birth' => 'Negara',
-            'date_of_birth' => '1982-10-19',
-            'highest_rank' => 'SMKN 2001',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
-
         SectionTeacher::create([
             'title_section' => 'Data Guru SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
@@ -362,39 +317,6 @@ class DatabaseSeeder extends Seeder
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
 
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'Dra. Ni Wayan Mastriani.',
-            'image' => 'guru-5.jpg',
-            'nip' => '19650428 199512 1 005',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'P',
-            'course_id' => '1',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'I Gusti Bagus Jelantik, S.Pd.',
-            'image' => 'guru-6.jpg',
-            'nip' => '19680713 199002 1 003',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'L',
-            'course_id' => '1',
-            'room_type' => 'Pembina / IVa',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'I Nyoman Pasek Suadnyana, S.Pd',
-            'image' => 'guru-7.jpg',
-            'nip' => '19641231 198403 1 029',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'L',
-            'course_id' => '1',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
-
         SectionStaff::create([
             'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua',
@@ -433,33 +355,6 @@ class DatabaseSeeder extends Seeder
             'image' => 'pegawai-4.jpg',
             'rank' => 'Penata Muda /III/a',
             'position' => 'Pengelola Keuangan',
-            'gender' => 'L',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'I Ketut Yasa',
-            'image' => 'pegawai-5.jpg',
-            'rank' => 'Penata Muda/III/a',
-            'position' => 'Pengadminitrasian Umum',
-            'gender' => 'L',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'Komang Asri, A.Md.',
-            'image' => 'pegawai-6.jpg',
-            'rank' => 'Pengatur II.c',
-            'position' => 'Analis SDM / KTU',
-            'gender' => 'L',
-        ]);
-
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'I Komang Sumerta',
-            'image' => 'pegawai-7.jpg',
-            'rank' => 'Pengatur III.c',
-            'position' => 'Pengadminitrasian Kesiswaan',
             'gender' => 'L',
         ]);
 
@@ -681,23 +576,6 @@ class DatabaseSeeder extends Seeder
             'rata_nilai' => '75',
             'tahun_ajaran' => '2020/2021',
         ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         HeaderStudent::create([
             'banner' => 'banner-header.png',
@@ -1233,27 +1111,6 @@ class DatabaseSeeder extends Seeder
             'students_id' => '6',
         ]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         HeaderSaranaPrasarana::create([
             'banner' => 'banner-header.png',
             'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah',
@@ -1373,22 +1230,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Lapangan Basket',
             'description' => 'Ruang kelas di sekolah ini didesain dengan baik, dilengkapi dengan perabotan modern dan fungsional yang menciptakan lingkungan belajar yang nyaman dan interaktif bagi para siswa. Papan tulis interaktif, proyektor, serta susunan kursi dan meja yang ergonomis membantu mendukung proses pembelajaran yang efektif.',
         ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         HeaderHumas::create([
             'banner' => 'banner-header.png',

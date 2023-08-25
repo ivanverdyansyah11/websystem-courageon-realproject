@@ -48,16 +48,14 @@
                             <div class="d-none col data-value data-length">{{ $vision_mission->description_mission }}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
-                                    <button type="button"
-                                        class="button-action button-detail d-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#detailVisionMissionModal">
+                                    <a href="{{ route('visi-misi-detail') }}"
+                                        class="button-action button-detail d-flex justify-content-center align-items-center">
                                         <div class="detail-icon"></div>
-                                    </button>
-                                    <button type="button"
-                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                        data-bs-toggle="modal" data-bs-target="#editVisionMissionModal">
+                                    </a>
+                                    <a href="{{ route('visi-misi-edit') }}"
+                                        class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                         <div class="edit-icon"></div>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -104,143 +102,8 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL VISION MISSION --}}
-    <div class="modal fade" id="detailVisionMissionModal" tabindex="-1" aria-labelledby="detailVisionMissionModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Detail Visi Misi Sekolah</h3>
-                <form class="form d-flex flex-column justify-content-center">
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label>Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-notfound"
-                                        alt="Banner Visi Misi" width="80" data-value="banner_vision_mission">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_visi">Judul Visi</label>
-                                <input type="text" id="judul_visi" class="input" autocomplete="off"
-                                    data-value="title_vision" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_misi">Judul Misi</label>
-                                <input type="text" id="judul_misi" class="input" autocomplete="off"
-                                    data-value="title_mission" disabled>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_visi">Deskripsi Visi</label>
-                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="4" data-value="description_vision"
-                                    disabled></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_misi">Deskripsi Misi</label>
-                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="4" data-value="description_mission"
-                                    disabled></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL DETAIL VISION MISSION --}}
-
-    {{-- MODAL EDIT VISION MISSION --}}
-    <div class="modal fade" id="editVisionMissionModal" tabindex="-1" aria-labelledby="editVisionMissionModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <h3 class="title">Edit Visi Misi Sekolah</h3>
-                <form id="editVisionMission" method="post" enctype="multipart/form-data"
-                    class="form d-flex flex-column justify-content-center">
-                    @csrf
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="input-wrapper">
-                                <label for="banner">Banner</label>
-                                <div class="wrapper d-flex align-items-end">
-                                    <input type="hidden" name="oldImage" data-value="oldImage_vision_mission">
-                                    <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                        class="img-fluid tag-edit-vision-mission" alt="Banner Visi Misi" width="80"
-                                        data-value="banner_vision_mission">
-                                    <div class="wrapper-image w-100">
-                                        <input type="file" id="banner" class="input-edit-vision-mission"
-                                            name="banner">
-                                    </div>
-                                </div>
-                                @error('banner')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_visi">Judul Visi</label>
-                                <input type="text" id="judul_visi" class="input" autocomplete="off"
-                                    data-value="title_vision" name="title_vision">
-                                @error('title_vision')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="input-wrapper">
-                                <label for="judul_misi">Judul Misi</label>
-                                <input type="text" id="judul_misi" class="input" autocomplete="off"
-                                    data-value="title_mission" name="title_mission">
-                                @error('title_mission')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_visi">Deskripsi Visi</label>
-                                <textarea id="deskripsi_visi" class="input" autocomplete="off" rows="4" data-value="description_vision"
-                                    name="description_vision"></textarea>
-                                @error('description_vision')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-wrapper">
-                                <label for="deskripsi_misi">Deskripsi Misi</label>
-                                <textarea id="deskripsi_misi" class="input" autocomplete="off" rows="4" data-value="description_mission"
-                                    name="description_mission"></textarea>
-                                @error('description_mission')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                        <button type="button" class="button-default" data-bs-dismiss="modal">Batal Edit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- END MODAL EDIT VISION MISSION --}}
-
     {{-- MODAL DETAIL MOTTO --}}
-    <div class="modal fade" id="detailMottoModal" tabindex="-1" aria-labelledby="detailMottoModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="detailMottoModal" tabindex="-1" aria-labelledby="detailMottoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Detail Motto Sekolah</h3>
@@ -264,8 +127,7 @@
     {{-- END MODAL DETAIL MOTTO --}}
 
     {{-- MODAL EDIT MOTTO --}}
-    <div class="modal fade" id="editMottoModal" tabindex="-1" aria-labelledby="editMottoModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editMottoModal" tabindex="-1" aria-labelledby="editMottoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <h3 class="title">Edit Motto Sekolah</h3>
@@ -298,38 +160,6 @@
     {{-- END MODAL EDIT MOTTO --}}
 
     <script>
-        $(document).on('click', '[data-bs-target="#detailVisionMissionModal"]', function() {
-            $.ajax({
-                type: 'get',
-                url: '/admin/profil/visi-misi/edit-visi-misi',
-                success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src",
-                        "/assets/img/profil-images/visi-misi-image/" + data.banner);
-                    $('[data-value="title_vision"]').val(data.title_vision);
-                    $('[data-value="description_vision"]').val(data.description_vision);
-                    $('[data-value="title_mission"]').val(data.title_mission);
-                    $('[data-value="description_mission"]').val(data.description_mission);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editVisionMissionModal"]', function() {
-            $('#editVisionMission').attr('action', '/admin/profil/visi-misi/edit-visi-misi');
-            $.ajax({
-                type: 'get',
-                url: '/admin/profil/visi-misi/edit-visi-misi',
-                success: function(data) {
-                    $('[data-value="banner_vision_mission"]').attr("src",
-                        "/assets/img/profil-images/visi-misi-image/" + data.banner);
-                    $('[data-value="oldImage_vision_mission"]').val(data.banner);
-                    $('[data-value="title_vision"]').val(data.title_vision);
-                    $('[data-value="description_vision"]').val(data.description_vision);
-                    $('[data-value="title_mission"]').val(data.title_mission);
-                    $('[data-value="description_mission"]').val(data.description_mission);
-                }
-            });
-        });
-
         $(document).on('click', '[data-bs-target="#detailMottoModal"]', function() {
             $.ajax({
                 type: 'get',

@@ -148,13 +148,13 @@ a.button-default:hover {
 
 button.button-default-solid,
 a.button-default-solid {
-    background-color: rgba(var(--dark-color), 1);
+    background-color: #1CA3DE;
     color: rgba(var(--light-color), 1);
 }
 
 button.button-default-solid:hover,
 a.button-default-solid:hover {
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
 .row-gap {

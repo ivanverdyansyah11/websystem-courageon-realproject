@@ -143,8 +143,9 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(VisiMisiController::class)->group(function () {
             Route::get('/profil/visi-misi', 'index')->name('visi-misi-index');
-            Route::get('/profil/visi-misi/edit-visi-misi', 'editVisionMission');
-            Route::post('/profil/visi-misi/edit-visi-misi', 'updateVisionMission');
+            Route::get('/profil/visi-misi/detail-visi-misi', 'detailVisionMission')->name('visi-misi-detail');
+            Route::get('/profil/visi-misi/edit-visi-misi', 'editVisionMission')->name('visi-misi-edit');
+            Route::post('/profil/visi-misi/edit-visi-misi', 'updateVisionMission')->name('visi-misi-update');
             Route::get('/profil/visi-misi/edit-motto', 'editMotto');
             Route::post('/profil/visi-misi/edit-motto', 'updateMotto');
         });

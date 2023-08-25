@@ -18,10 +18,20 @@ class VisiMisiController extends Controller
         ]);
     }
 
+    function detailVisionMission()
+    {
+        return view('profil.visi-misi.detail', [
+            'title' => 'Profil > Visi & Misi',
+            'vision_mission' => VisionMission::first(),
+        ]);
+    }
+
     function editVisionMission()
     {
-        $vision_mission = VisionMission::first();
-        return response()->json($vision_mission);
+        return view('profil.visi-misi.edit', [
+            'title' => 'Profil > Visi & Misi',
+            'vision_mission' => VisionMission::first(),
+        ]);
     }
 
     function updateVisionMission(Request $request)
@@ -33,7 +43,9 @@ class VisiMisiController extends Controller
             'description_mission' => 'required|string',
         ]);
 
-        if ($request->file('banner')) {
+        if (!$request->file('banner')) {
+            $validatedData['banner'] = $request->oldImage;
+        } else {
             $oldImagePath = public_path('assets/img/profil-images/visi-misi-image/') . $request->oldImage;
             unlink($oldImagePath);
 
@@ -41,8 +53,6 @@ class VisiMisiController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/img/profil-images/visi-misi-image/'), $imageName);
             $validatedData['banner'] = $imageName;
-        } else {
-            $validatedData['banner'] = $request->oldImage;
         }
 
         $visionMission = VisionMission::first()->update($validatedData);
