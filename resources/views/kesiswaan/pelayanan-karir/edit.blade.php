@@ -44,27 +44,6 @@
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
-
-                                    {{-- <div class="input-wrapper">
-                                        <label for="image">Dokumentasi</label>
-                                        <div class="wrapper d-flex gap-3 align-items-end">
-                                            @if ($pelayanan->dokumentasi)
-                                                <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $pelayanan->dokumentasi) }}"
-                                                    class="img-fluid tag-edit-image" alt="Image Pelayanan Karir"
-                                                    width="80">
-                                            @else
-                                                <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                    class="img-fluid tag-edit-image" alt="Image Not Found" width="80">
-                                            @endif
-                                            <div class="wrapper-image w-100">
-                                                <input type="file" id="image" class="input-edit-image"
-                                                    name="dokumentasi">
-                                            </div>
-                                        </div>
-                                        @error('dokumentasi')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div> --}}
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
@@ -103,7 +82,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea name="masalah" id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah ? $pelayanan->masalah : '' }}</textarea>
+                                        <textarea name="masalah" id="inputEditMasalah" autocomplete="off" class="input">{{ $pelayanan->masalah }}</textarea>
                                         @error('masalah')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -112,7 +91,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea name="solusi" id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi ? $pelayanan->solusi : '' }}</textarea>
+                                        <textarea name="solusi" id="inputEditSolusi" autocomplete="off" class="input">{{ $pelayanan->solusi }}</textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -135,6 +114,9 @@
     </div>
 
     <script>
+        const inputEditMasalah = new RichTextEditor("#inputEditMasalah");
+        const inputEditSolusi = new RichTextEditor("#inputEditSolusi");
+
         const tagEditDokumentasi = document.querySelector('.tag-edit-dokumentasi');
         const inputEditDokumentasi = document.querySelector('.input-edit-dokumentasi');
 

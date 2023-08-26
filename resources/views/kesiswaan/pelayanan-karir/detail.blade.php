@@ -61,13 +61,13 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea disabled id="masalah" rows="4" class="input" autocomplete="off">{{ $pelayanan->masalah }}</textarea>
+                                        <textarea id="inputDetailMasalah" autocomplete="off" class="input">{{ $pelayanan->masalah }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea disabled id="solusi" rows="4" class="input" autocomplete="off">{{ $pelayanan->solusi }}</textarea>
+                                        <textarea id="inputDetailSolusi" autocomplete="off" class="input">{{ $pelayanan->solusi }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -85,4 +85,9 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const inputDetailMasalah = new RichTextEditor("#inputDetailMasalah");
+        const inputDetailSolusi = new RichTextEditor("#inputDetailSolusi");
+    </script>
 @endsection

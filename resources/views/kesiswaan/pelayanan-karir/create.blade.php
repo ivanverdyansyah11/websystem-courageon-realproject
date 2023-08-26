@@ -74,16 +74,16 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea name="masalah" id="masalah" rows="4" class="input" autocomplete="off"></textarea>
+                                        <textarea id="inputAddMasalah" autocomplete="off" class="input" name="masalah"></textarea>
                                         @error('masalah')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea name="solusi" id="solusi" rows="4" class="input" autocomplete="off"></textarea>
+                                        <textarea id="inputAddSolusi" autocomplete="off" class="input" name="solusi"></textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -106,6 +106,9 @@
     </div>
 
     <script>
+        const inputAddMasalah = new RichTextEditor("#inputAddMasalah");
+        const inputAddSolusi = new RichTextEditor("#inputAddSolusi");
+
         const tagAdd = document.querySelector('.tag-add-image');
         const inputAdd = document.querySelector('.input-add-image');
 

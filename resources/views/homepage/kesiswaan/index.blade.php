@@ -2,11 +2,6 @@
 @extends('templates.main')
 
 @section('container')
-<<<<<<< HEAD
-    @dd($dataSiswa1TahunKebelakang)
-
-=======
->>>>>>> 16578c97f7b47be355e0343b767eca0c3e837696
     <main class="mt-3">
 
         <section class="hero-section container">
@@ -313,8 +308,8 @@
 
 
         const label1 = document.getElementById('label1').textContent;
-        const label2 =  document.getElementById('label2').textContent;
-        const label3 =  document.getElementById('label3').textContent;
+        const label2 = document.getElementById('label2').textContent;
+        const label3 = document.getElementById('label3').textContent;
 
         const data1 = {{ $dataSiswa1TahunKebelakang[1] }}
         const data2 = {{ $dataSiswa1TahunKebelakang[2] }}
@@ -388,7 +383,6 @@
                     }
                 },
 
-
                 scale: {
                     ticks: {
                         display: false
@@ -402,210 +396,7 @@
             type: 'pie',
             data: {
                 datasets: [{
-<<<<<<< HEAD
-                    data: [50, 25, 25],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        // display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart4, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [35, 30, 35],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart5, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [25, 40, 35],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart6, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [50, 35, 15],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        // display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart7, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [40, 40, 20],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart8, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [33, 53, 24],
-                    backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    labels: {
-                        render: 'percentage',
-                        fontColor: 'white',
-                        precision: 2,
-                        fontSize: [24]
-                    }
-                },
-
-
-                scale: {
-                    ticks: {
-                        display: false
-                    }
-                },
-            }
-        });
-
-        new Chart(chart9, {
-            type: 'pie',
-            data: {
-                datasets: [{
-
-                    data: [70, 25, 5],
-=======
-
                     data: [data7, data8, data9],
->>>>>>> 16578c97f7b47be355e0343b767eca0c3e837696
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
