@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,6 +12,7 @@ class AuthController extends Controller
     {
         return view('auth.login', [
             'title' => 'Login',
+            'logo' => Logo::first(),
         ]);
     }
 

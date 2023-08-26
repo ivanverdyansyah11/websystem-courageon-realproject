@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ForgotPasswordMail;
 use App\Models\Auth;
+use App\Models\Logo;
 use App\Models\PasswordReset;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -19,6 +20,7 @@ class ForgotPasswordController extends Controller
     {
         return view('auth.forgot-password', [
             'title' => 'Forgot Password',
+            'logo' => Logo::first(),
         ]);
     }
 
@@ -53,6 +55,7 @@ class ForgotPasswordController extends Controller
                 'title' => 'Change Password',
                 'token' => $token,
                 'user' => $user,
+                'logo' => Logo::first(),
             ]);
         } else {
             return redirect()->route('login')->with('failed', 'Token Invalid');
