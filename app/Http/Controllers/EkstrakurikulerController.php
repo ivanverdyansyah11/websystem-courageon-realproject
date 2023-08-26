@@ -137,7 +137,7 @@ class EkstrakurikulerController extends Controller
             $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $imageName);
             $validatedData['icon'] = $imageName;
         } else {
-            $validatedData['icon'] = $request->$extracurriculer['icon'];
+            $validatedData['icon'] = $extracurriculer['icon'];
         }
 
         if ($request->file('banner')) {
@@ -149,7 +149,7 @@ class EkstrakurikulerController extends Controller
             $image->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/'), $imageName);
             $validatedData['banner'] = $imageName;
         } else {
-            $validatedData['banner'] = $request->$extracurriculer['banner'];
+            $validatedData['banner'] = $extracurriculer['banner'];
         }
 
         $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);

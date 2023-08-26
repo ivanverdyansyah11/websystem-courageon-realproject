@@ -148,13 +148,17 @@
                                             value="{{ $extracurricular->end_time }}" disabled autocomplete="off">
                                     </div>
                                 </div>
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea disabled id="deskripsi" class="input" autocomplete="off" rows="4">{{ $extracurricular->description }}</textarea>
+                                        <textarea id="inputDetailDescription" autocomplete="off" class="input">{{ $extracurricular->description }}</textarea>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
                             <div class="button-wrapper d-flex">
                                 <a href="{{ route('ekstrakurikuler-index') }}" class="button-default-solid">Kembali ke
                                     Page</a>
@@ -165,4 +169,8 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const inputDetailDescription = new RichTextEditor("#inputDetailDescription");
+    </script>
 @endsection

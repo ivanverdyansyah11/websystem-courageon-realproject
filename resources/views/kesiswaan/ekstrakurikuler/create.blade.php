@@ -179,16 +179,20 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea name="description" id="deskripsi" class="input" autocomplete="off" rows="4"></textarea>
+                                        <textarea id="inputAddDescription" autocomplete="off" class="input" name="description"></textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
                             <div class="button-wrapper d-flex gap-2">
                                 <button type="submit" class="button-default-solid">Tambah Ekstrakurikuler</button>
                                 <a href="{{ route('ekstrakurikuler-index') }}" class="button-default">Batal
@@ -201,6 +205,8 @@
         </div>
 
         <script>
+            const inputAddDescription = new RichTextEditor("#inputAddDescription");
+
             const tagAddIcon = document.querySelector('.tag-add-icon');
             const inputAddIcon = document.querySelector('.input-add-icon');
 
