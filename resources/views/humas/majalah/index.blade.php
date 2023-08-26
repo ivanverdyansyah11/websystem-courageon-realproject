@@ -56,9 +56,8 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Majalah Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addJournalModal">Tambah
-                    Majalah</button>
+                <a href="{{ route('majalah-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Majalah</a>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -92,21 +91,17 @@
                                     </div>
                                     <div class="col data-value data-length">{{ $journal->title }}</div>
                                     <div class="col data-value data-length">{{ $journal->created_date }}</div>
-                                    <div class="col data-value data-length">{{ $journal->description }}</div>
+                                    <div class="col data-value data-length">{!! $journal->description !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailJournalModal"
-                                                data-id="{{ $journal->id }}">
+                                            <a href="{{ route('majalah-detail', $journal->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editJournalModal"
-                                                data-id="{{ $journal->id }}">
+                                            </a>
+                                            <a href="{{ route('majalah-edit', $journal->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deleteJournalModal"
@@ -141,8 +136,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_header" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_header"
+                            disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>

@@ -39,6 +39,13 @@ class MajalahController extends Controller
         }
     }
 
+    function createJournal()
+    {
+        return view('humas.majalah.add', [
+            'title' => 'Humas > Majalah',
+        ]);
+    }
+
     function storeJournal(Request $request)
     {
         $validatedData = $request->validate([
@@ -73,8 +80,18 @@ class MajalahController extends Controller
 
     function detailJournal($id)
     {
-        $journal = Journal::where('id', $id)->first();
-        return response()->json($journal);
+        return view('humas.majalah.detail', [
+            'title' => 'Humas > Majalah',
+            'journal' => Journal::where('id', $id)->first(),
+        ]);
+    }
+
+    function editJournal($id)
+    {
+        return view('humas.majalah.edit', [
+            'title' => 'Humas > Majalah',
+            'journal' => Journal::where('id', $id)->first(),
+        ]);
     }
 
     function updateJournal($id, Request $request)

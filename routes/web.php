@@ -452,9 +452,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas/majalah/detail-header', 'detailHeader');
             Route::post('/humas/majalah/edit-header', 'updateHeader');
 
+            Route::get('/humas/majalah/tambah-majalah', 'createJournal')->name('majalah-create');
             Route::post('/humas/majalah/tambah-majalah', 'storeJournal')->name('majalah-store');
-            Route::get('/humas/majalah/detail-majalah/{id}', 'detailJournal');
-            Route::post('/humas/majalah/edit-majalah/{id}', 'updateJournal');
+            Route::get('/humas/majalah/detail-majalah/{id}', 'detailJournal')->name('majalah-detail');
+            Route::get('/humas/majalah/edit-majalah/{id}', 'editJournal')->name('majalah-edit');
+            Route::post('/humas/majalah/edit-majalah/{id}', 'updateJournal')->name('majalah-update');
             Route::post('/humas/majalah/delete-majalah/{id}', 'deleteJournal');
         });
     });
