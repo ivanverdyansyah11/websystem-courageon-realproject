@@ -40,6 +40,13 @@ class PrasaranaController extends Controller
         }
     }
 
+    function createPrasarana()
+    {
+        return view('sarana.prasarana.add', [
+            'title' => 'Sarana Prasarana > Prasarana',
+        ]);
+    }
+
     function storePrasarana(Request $request)
     {
         $validatedData = $request->validate([
@@ -67,8 +74,18 @@ class PrasaranaController extends Controller
 
     function detailPrasarana($id)
     {
-        $prasarana = Prasarana::where('id', $id)->first();
-        return response()->json($prasarana);
+        return view('sarana.prasarana.detail', [
+            'title' => 'Sarana Prasarana > Prasarana',
+            'prasarana' => Prasarana::where('id', $id)->first(),
+        ]);
+    }
+
+    function editPrasarana($id)
+    {
+        return view('sarana.prasarana.edit', [
+            'title' => 'Sarana Prasarana > Prasarana',
+            'prasarana' => Prasarana::where('id', $id)->first(),
+        ]);
     }
 
     function updatePrasarana($id, Request $request)
@@ -105,7 +122,7 @@ class PrasaranaController extends Controller
         $prasarana = Prasarana::where('id', $id)->first();
 
         if ($prasarana->image) {
-            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image;
+            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image);
             unlink($imagePath);
         }
 

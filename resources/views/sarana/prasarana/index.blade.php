@@ -56,9 +56,8 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Sarana Prasarana Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addPrasaranaModal">Tambah
-                    Prasarana</button>
+                <a href="{{ route('prasarana-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                    Prasarana</a>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -91,22 +90,18 @@
                                         @endif
                                     </div>
                                     <div class="col data-value">{{ $prasarana->name }}</div>
-                                    <div class="d-none col data-value data-length">{{ $prasarana->description }}</div>
+                                    <div class="d-none col data-value data-length">{!! $prasarana->description !!}</div>
                                     <div class="col data-value">{{ $prasarana->total }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
-                                            <button type="button"
-                                                class="button-action button-detail d-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#detailPrasaranaModal"
-                                                data-id="{{ $prasarana->id }}">
+                                            <a href="{{ route('prasarana-detail', $prasarana->id) }}"
+                                                class="button-action button-detail d-flex justify-content-center align-items-center">
                                                 <div class="detail-icon"></div>
-                                            </button>
-                                            <button type="button"
-                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center"
-                                                data-bs-toggle="modal" data-bs-target="#editPrasaranaModal"
-                                                data-id="{{ $prasarana->id }}">
+                                            </a>
+                                            <a href="{{ route('prasarana-edit', $prasarana->id) }}"
+                                                class="button-action button-edit d-none d-md-flex justify-content-center align-items-center">
                                                 <div class="edit-icon"></div>
-                                            </button>
+                                            </a>
                                             <button type="button"
                                                 class="button-action button-delete d-none d-md-flex justify-content-center align-items-center"
                                                 data-bs-toggle="modal" data-bs-target="#deletePrasaranaModal"
@@ -141,8 +136,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" disabled>
+                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
+                            disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>

@@ -411,9 +411,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/sarana-prasarana/prasarana/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/prasarana/edit-section', 'updateSection');
 
+            Route::get('/sarana-prasarana/prasarana/tambah-prasarana', 'createPrasarana')->name('prasarana-create');
             Route::post('/sarana-prasarana/prasarana/tambah-prasarana', 'storePrasarana')->name('prasarana-store');
-            Route::get('/sarana-prasarana/prasarana/detail-prasarana/{id}', 'detailPrasarana');
-            Route::post('/sarana-prasarana/prasarana/edit-prasarana/{id}', 'updatePrasarana');
+            Route::get('/sarana-prasarana/prasarana/detail-prasarana/{id}', 'detailPrasarana')->name('prasarana-detail');
+            Route::get('/sarana-prasarana/prasarana/edit-prasarana/{id}', 'editPrasarana')->name('prasarana-edit');
+            Route::post('/sarana-prasarana/prasarana/edit-prasarana/{id}', 'updatePrasarana')->name('prasarana-update');
             Route::post('/sarana-prasarana/prasarana/delete-prasarana/{id}', 'deletePrasarana');
         });
 
