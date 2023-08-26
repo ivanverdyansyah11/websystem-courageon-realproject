@@ -21,9 +21,6 @@ use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
 use App\Models\HistoryKenaikanSiswa;
-use App\Models\Hobi;
-use App\Models\HobiContoh;
-use App\Models\Journuse;
 use App\Models\Index;
 use App\Models\Journal;
 use App\Models\Jurusan;
@@ -78,20 +75,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Auth::create([
-            'username' => 'Staff Sekolah',
-            'role' => 'Manajemen Staff',
-            'email' => 'ivanverdyansyah11@gmail.com',
-            'password' => bcrypt('ivan123'),
-        ]);
-
-        Auth::create([
-            'username' => 'Staff Sekolah',
-            'role' => 'Manajemen Staff',
-            'email' => 'danuart21@gmail.com',
-            'password' => bcrypt('danu123'),
-        ]);
-
-        Auth::create([
+            'profile' => 'profile-admin.png',
             'username' => 'Admin Sekolah',
             'role' => 'Manajemen Admin',
             'email' => 'admin123@gmail.com',

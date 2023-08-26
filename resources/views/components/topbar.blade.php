@@ -3,8 +3,8 @@
     <div class="wrapper-position position-relative d-none d-lg-inline-block">
         <div class="topbar-profile d-flex align-items-center position-relative">
             <div class="wrapper-profile d-flex align-items-center">
-                <img src="{{ asset('assets/img/other/profile-admin.svg') }}" class="img-fluid profile-image"
-                    alt="Profile Admin" draggable="false">
+                <img src="{{ asset('assets/img/pengaturan-images/' . auth()->user()->profile) }}"
+                    class="img-fluid profile-image" alt="Profile Admin" draggable="false">
                 <div class="profile-user">
                     <h6 class="user-name">{{ auth()->user()->username }}</h6>
                     <p class="user-role">{{ auth()->user()->role }}</p>

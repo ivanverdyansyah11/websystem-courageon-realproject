@@ -34,6 +34,12 @@ class LogoMarsController extends Controller
         ]);
     }
 
+    function sendLogo()
+    {
+        $logo = Logo::first();
+        return response()->json($logo);
+    }
+
     function updateLogo(Request $request)
     {
         $logo = Logo::first();

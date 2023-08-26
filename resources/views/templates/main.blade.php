@@ -27,6 +27,7 @@
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
             Request::is('sarana-prasarana*') ||
+            Request::is('pengaturan*') ||
             Request::is('humas*'))
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,6 +60,7 @@
             !Request::is('akademik*') ||
             !Request::is('kesiswaan*') ||
             !Request::is('sarana-prasarana*') ||
+            !Request::is('pengaturan*') ||
             !Request::is('humas*'))
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="{{ asset('assets/js/rte.js') }}"></script>
@@ -86,6 +88,7 @@
             Request::is('akademik*') ||
             Request::is('kesiswaan*') ||
             Request::is('sarana-prasarana*') ||
+            Request::is('pengaturan*') ||
             Request::is('humas*'))
         @include('components.navbar')
         @yield('container')

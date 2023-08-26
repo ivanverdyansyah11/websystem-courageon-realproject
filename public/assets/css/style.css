@@ -430,6 +430,10 @@ a.button-default-solid:hover {
     background-image: url('../img/sidebar/humas.svg');
 }
 
+.sidebar .sidebar-icon.setting-icon {
+    background-image: url('../img/sidebar/setting.svg');
+}
+
 .sidebar .sidebar-icon.logout-icon {
     background-image: url('../img/sidebar/logout.svg');
 }
@@ -467,6 +471,11 @@ a.button-default-solid:hover {
 .sidebar .menu-link.active .sidebar-icon.humas-icon,
 .sidebar .menu-link:hover .sidebar-icon.humas-icon {
     background-image: url('../img/sidebar/humas-active.svg');
+}
+
+.sidebar .menu-link.active .sidebar-icon.setting-icon,
+.sidebar .menu-link:hover .sidebar-icon.setting-icon {
+    background-image: url('../img/sidebar/setting-active.svg');
 }
 
 .sidebar .menu-link.active .sidebar-icon.logout-icon,
@@ -548,6 +557,16 @@ a.button-default-solid:hover {
     height: 46px;
     border-radius: 9999px;
     border: var(--border-style);
+}
+
+.content .border-profile {
+    border: var(--border-style);
+    border-radius: 9999px;
+    padding: 1rem;
+}
+
+.content .border-profile .img-profile {
+    border-radius: 9999px;
 }
 /* END CONTENT DASHBOARD STYLE */
 

@@ -10,7 +10,7 @@
                             {{ Session::get('message') }}
                         </div>
                     @endif
-                    <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo text-center mx-auto"
+                    <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" class="img-fluid brand-logo text-center mx-auto"
                         alt="Brand Logo" draggable="false">
                     <form action="{{ route('forgot-password-action') }}" method="POST"
                         class="form d-flex flex-column justify-content-center align-items-end">

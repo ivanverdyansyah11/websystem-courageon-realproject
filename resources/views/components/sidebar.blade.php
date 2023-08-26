@@ -3,9 +3,7 @@
         <div class="sidebar-menu-top d-flex flex-column align-items-center w-100">
             <a href="{{ route('dashboard-index') }}">
                 <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo" alt="Brand Logo"
-                    draggable="false">
-                {{-- <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" class="img-fluid brand-logo" alt="Brand Logo"
-                    draggable="false"> --}}
+                    draggable="false" data-value="logo_icon">
             </a>
             <div class="link-wrapper d-flex flex-column w-100">
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/dashboard') ? 'active' : '' }}">
@@ -145,6 +143,15 @@
                     <a href="{{ route('majalah-index') }}"
                         class="link-child {{ Request::is('admin/humas/majalah*') ? 'active' : '' }}">Majalah</a>
                 </div>
+
+                <div class="menu-link d-flex flex-column {{ Request::is('admin/pengaturan*') ? 'active' : '' }}">
+                    <a href="{{ route('pengaturan-index') }}" class="link-item d-flex align-items-center">
+                        <div class="icon-sidebar-wrapper">
+                            <div class="sidebar-icon setting-icon"></div>
+                        </div>
+                        <p>Pengaturan</p>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="sidebar-menu-bottom d-inline-block d-lg-none">
@@ -159,3 +166,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    $.ajax({
+        type: 'get',
+        url: '/send-logo',
+        success: function(data) {
+            $('[data-value="logo_icon"]').attr("src",
+                "/assets/img/brand/" + data.logo);
+        }
+    });
+</script>

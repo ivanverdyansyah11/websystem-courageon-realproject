@@ -31,6 +31,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SaranaPrasaranaController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,10 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/pelayanan-karir', 'pelayanan')->name('pelayanan');
     Route::get('/pelayanan-karir/{id}', 'detailPelayanan')->name('detail-pelayanan');
     Route::get('/sarana-prasarana/detail', 'detailSaranaPrasarana')->name('detail-sarana-prasarana');
+});
+
+Route::controller(LogoMarsController::class)->group(function () {
+    Route::get('/send-logo', 'sendLogo');
 });
 
 Route::middleware('guest')->group(function () {
@@ -458,6 +463,13 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas/majalah/edit-majalah/{id}', 'editJournal')->name('majalah-edit');
             Route::post('/humas/majalah/edit-majalah/{id}', 'updateJournal')->name('majalah-update');
             Route::post('/humas/majalah/delete-majalah/{id}', 'deleteJournal');
+        });
+
+        // PENGATURAN
+        Route::controller(SettingController::class)->group(function () {
+            Route::get('/pengaturan', 'index')->name('pengaturan-index');
+            Route::get('/pengaturan/edit-pengaturan', 'editSetting')->name('pengaturan-edit');
+            Route::post('/pengaturan/edit-pengaturan', 'updateSetting')->name('pengaturan-update');
         });
     });
 });
