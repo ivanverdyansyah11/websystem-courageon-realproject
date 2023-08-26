@@ -85,7 +85,7 @@
                                     <div class="d-none col data-value data-length">{{ $prestasi->hasil }}
                                     </div>
                                     <div class="d-none col data-value data-length">{{ $prestasi->tingkat }}</div>
-                                    <div class="d-none col data-value data-length">{{ $prestasi->deskripsi }}
+                                    <div class="d-none col data-value data-length">{!! $prestasi->deskripsi !!}
                                     </div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">

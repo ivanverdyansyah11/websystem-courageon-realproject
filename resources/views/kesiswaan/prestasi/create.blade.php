@@ -145,7 +145,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea name="deskripsi" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                                        <textarea id="inputAddPrestasi" autocomplete="off" class="input" name="deskripsi"></textarea>
                                         @error('deskripsi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -168,6 +168,8 @@
     </div>
 
     <script>
+        const inputAddPrestasi = new RichTextEditor("#inputAddPrestasi");
+
         const tagAdd = document.querySelector('.tag-add-image');
         const inputAdd = document.querySelector('.input-add-image');
 

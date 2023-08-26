@@ -104,7 +104,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="deskripsi" rows="4" class="input" autocomplete="off" disabled>{{ $prestasi->deskripsi }}</textarea>
+                                        <textarea id="inputDetailPrestasi" autocomplete="off" class="input">{{ $prestasi->deskripsi }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -122,4 +122,8 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const inputDetailPrestasi = new RichTextEditor("#inputDetailPrestasi");
+    </script>
 @endsection

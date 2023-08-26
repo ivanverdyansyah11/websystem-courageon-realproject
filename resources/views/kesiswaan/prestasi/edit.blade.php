@@ -163,7 +163,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea name="deskripsi" id="deskripsi" rows="4" class="input" autocomplete="off">{{ $prestasi->pembina ? $prestasi->pembina : '' }}</textarea>
+                                        <textarea id="inputEditPrestasi" autocomplete="off" class="input" name="deskripsi">{{ $prestasi->deskripsi }}</textarea>
                                         @error('deskripsi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -186,6 +186,8 @@
     </div>
 
     <script>
+        const inputEditPrestasi = new RichTextEditor("#inputEditPrestasi");
+
         const tagEdit = document.querySelector('.tag-edit-image');
         const inputEdit = document.querySelector('.input-edit-image');
 
