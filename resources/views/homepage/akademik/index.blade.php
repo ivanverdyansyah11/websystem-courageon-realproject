@@ -1,4 +1,3 @@
-
 @extends('templates.main')
 
 @section('container')
@@ -140,9 +139,9 @@
                 <div class="pin-container">
                     @foreach ($galleries as $gallery)
                         <a href="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
-                            data-toggle="lightbox" class="pin-img" data-gallery="example-gallery">
+                            data-toggle="lightbox" class="pin-img rounded" data-gallery="example-gallery">
                             <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
-                                class="w-100" alt="gallery {{ $loop->index + 1 }}">
+                                class="w-100 rounded" alt="gallery {{ $loop->index + 1 }}">
                         </a>
                     @endforeach
                 </div>
@@ -229,14 +228,14 @@
         }
 
         const chart1 = document.getElementById('chart1');
-        
+
         const label1 = document.getElementById('label1').textContent;
-        const label2 =  document.getElementById('label2').textContent;
-        const label3 =  document.getElementById('label3').textContent;
+        const label2 = document.getElementById('label2').textContent;
+        const label3 = document.getElementById('label3').textContent;
 
         const data1 = {{ $kenaikanKelas[0]->jumlah_siswa_x }};
         const data2 = {{ $kenaikanKelas[0]->jumlah_siswa_xi }};
-        const data3= {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
+        const data3 = {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
 
         const data4 = {{ $kenaikanKelas[1]->jumlah_siswa_x }};
         const data5 = {{ $kenaikanKelas[1]->jumlah_siswa_xi }};

@@ -60,7 +60,7 @@
                             href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                             class="card-blog text-decoration-none">
                             <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
+                                alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100 rounded">
                             <p class="mt-3 text-black fw-semibold text-center">
                                 {{ $journal->title }}
                             </p>

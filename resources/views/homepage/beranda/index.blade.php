@@ -126,7 +126,7 @@
                                         <div class="d-flex gap-3 align-items-center">
                                             <div class="img-testi-wrapper">
                                                 <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
-                                                    alt="testimonial image">
+                                                    alt="testimonial image" class="img-fluid rounded">
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <p class="fs-5 fw-semibold text-capitalize">
@@ -194,7 +194,8 @@
                             href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                             class="card-blog text-decoration-none">
                             <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
+                                alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota"
+                                class="w-100 img-fluid rounded">
                             <p class="mt-3 text-black fw-semibold text-center">
                                 {{ $journal->title }}
                             </p>

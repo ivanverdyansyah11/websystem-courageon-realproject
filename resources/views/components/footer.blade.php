@@ -1,7 +1,7 @@
 <footer class="section-margin-top">
     <div class="top-footer container">
         <div class="img-footer-wrapper d-flex justify-content-center">
-            <img src="{{ asset('assets-homepage/img/logo.png') }}" alt="logo" class="img-fluid mb-3"
+            <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" alt="logo" class="img-fluid mb-3"
                 style="width: 120px;">
         </div>
         <div class="mt-4 d-flex flex-row justify-content-between">

@@ -98,7 +98,8 @@ x @extends('templates.main')
         <section class="denah-section container section-margin-top">
             <div class="row gy-4">
                 <div class="col-xl-6 col-lg-7">
-                    <img src="{{ asset('assets-homepage/img/denah.png') }}" alt="gambar denah sekolah" class="w-100">
+                    <img src="{{ asset('assets/img/sarana-prasarana-images/denah-image/' . $sectionDenah->map) }}"
+                        alt="gambar denah sekolah" class="w-100">
                 </div>
                 <div class="col-lg-5 offset-xl-1">
                     <p class="text-black text-capitalize fs-5 fw-bold">{{ $sectionDenah->title_section }} :</p>

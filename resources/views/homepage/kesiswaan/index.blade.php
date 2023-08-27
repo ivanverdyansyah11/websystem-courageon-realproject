@@ -251,7 +251,7 @@
                                 <div class="d-flex gap-3 align-items-center">
                                     <div class="img-testi-wrapper">
                                         <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
-                                            alt="testimonial image">
+                                            alt="testimonial image" class="img-fluid rounded">
                                     </div>
                                     <div class="d-flex flex-column">
                                         <p class="fs-5 fw-semibold text-capitalize">

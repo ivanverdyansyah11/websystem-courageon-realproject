@@ -100,7 +100,7 @@
         </section>
         <section class="logo-meaning-section container section-margin-top">
             <div class="img-footer-wrapper d-flex justify-content-center">
-                <img src="{{ asset('assets-homepage/img/logo.png') }}" alt="logo" class="big-logo-meaning">
+                <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" alt="logo" class="big-logo-meaning">
             </div>
             <div class="mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 <div class="col">
