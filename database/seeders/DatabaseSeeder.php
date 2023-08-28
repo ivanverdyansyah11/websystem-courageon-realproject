@@ -1067,7 +1067,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         SectionAlumni::create([
-            'title_section' => 'Jejak Karir Alumni, Inspirasi Sukses Dari Sekolah Kami!',
+            'title_section' => 'Apa Kata Alumni di SMA Negeri 1 selat?',
             'description' => 'Sejumlah alumni terbaik dari sekolah kami. Dari berbagai latar belakang dan jurusan studi, alumni kami telah mencapai kesuksesan dalam berbagai bidang pro'
         ]);
 
@@ -1273,7 +1273,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         SectionJournal::create([
-            'title_header' => 'Berbagai Berita Mengenai SMA Negeri 1 Selat',
+            'title_header' => 'Berita Terbaru Mengenai SMA Negeri 1 Selat',
             'button' => 'Lihat Semua Berita',
         ]);
 

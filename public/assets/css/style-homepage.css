@@ -263,11 +263,60 @@ section .row .col-lg-5 img{
 .row-program:nth-child(even){
     flex-direction: row-reverse;
 }
+.hero-decor{
+    z-index: 9999999999999;
+}
+@media  (max-width:1300px) {
+    .img-decor-hero{
+        scale: 0.7;
+        transform: translate(-50%, 20%);
+        /* transform: translateX(-60%); */
+    }
+}
+@media (min-width:1301px) {
+    .img-decor-hero{
+        scale: 0.7;
+        transform: translate(-75%, 20%);
+        /* transform: translateX(-60%); */
+    }
+}
+.right-img-section{
+    transform: translate(-4%, 0%);
+    border-radius: 12px;
+}
+/* .left-img-section{
+
+    border-radius: 12px;
+} */
+.right-img-section-decor{
+    transform: translateY(4%);
+}
+.left-img-section-decor{
+    transform: translate(4%, 4%);
+}
+
+.side-img-section-decor{
+    background: rgba(1, 96, 201, 0.12);
+    border-radius: 12px;
+}
+.section-decor{
+    scale: 0.8;
+    transform: translateY(120%);
+}
+.cta-section{
+    background-image: url('../../assets-homepage/img/cta-bg.svg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+.cta-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
 /*all section setting*/
 
 
 /*card styles*/
-.card-testi{
+.card-testi, .card-desc-section{
     padding: 36px;
     border-radius: 12px;
     border: 1px solid rgba(35, 35, 35, 0.12);
@@ -293,7 +342,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 
 
-.card-extra{
+.card-extra, .card-blog{
     padding: 20px;
     border-radius: 12px;
     transition: 0.2s;
