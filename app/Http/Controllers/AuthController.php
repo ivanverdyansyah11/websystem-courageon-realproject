@@ -27,7 +27,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->intended(route('dashboard-index'));
         } else {
-            return redirect(route('login'))->with('failed', "Email or Password does't match!");
+            return redirect(route('login'))->with('failed', "Email atau Password Tidak Sama!");
         }
     }
 
@@ -43,6 +43,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect(route('login'))->with('logout', 'Successfully Logout Account!');
+        return redirect(route('login'))->with('logout', 'Berhasil Logout Akun!');
     }
 }
