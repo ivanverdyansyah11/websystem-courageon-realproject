@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{-- @dd([$dataSiswaKelasX, $dataSiswaKelasXLaki, $dataSiswaKelasXPerempuan], [$dataSiswaKelasXI, $dataSiswaKelasXILaki, $dataSiswaKelasXIPerempuan], [$dataSiswaKelasXII, $dataSiswaKelasXIILaki, $dataSiswaKelasXIIPerempuan]) --}}
+    @dd([$dataSiswa, $dataSiswaLaki, $dataSiswaPerempuan])
 
     <main class="mt-3">
         <section class="hero-section container position-relative">
