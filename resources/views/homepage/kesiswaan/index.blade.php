@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    @dd([$dataSiswa, $dataSiswaLaki, $dataSiswaPerempuan])
+    {{-- @dd([$dataSiswa, $dataSiswaLaki, $dataSiswaPerempuan]) --}}
 
     <main class="mt-3">
         <section class="hero-section container position-relative">
@@ -397,17 +397,17 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $dataSiswaKelasX }}
-        const data2 = {{ $dataSiswaKelasXI }}
-        const data3 = {{ $$dataSiswaKelasXII }}
+        const data1 = {{ $dataSiswa['1'] }}
+        const data2 = {{ $dataSiswaLaki['1'] }}
+        const data3 = {{ $dataSiswaPerempuan['1'] }}
 
-        const data4 = {{ $dataSiswaKelasXLaki }}
-        const data5 = {{ $dataSiswaKelasXILaki }}
-        const data6 = {{ $dataSiswaKelasXIILaki }}
+        const data4 = {{ $dataSiswa['2'] }}
+        const data5 = {{ $dataSiswaLaki['2'] }}
+        const data6 = {{ $dataSiswaPerempuan['2'] }}
 
-        const data7 = {{ $dataSiswaKelasXPerempuan }}
-        const data8 = {{ $dataSiswaKelasXIPerempuan }}
-        const data9 = {{ $dataSiswaKelasXIIPerempuan }}
+        const data7 = {{ $dataSiswa['3'] }}
+        const data8 = {{ $dataSiswaLaki['3'] }}
+        const data9 = {{ $dataSiswaPerempuan['3'] }}
 
 
 
@@ -417,7 +417,6 @@
             labels: [label1, label2, label3],
             data: {
                 datasets: [{
-
                     data: [data1, data2, data3],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
