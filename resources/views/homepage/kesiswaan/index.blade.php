@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{-- @dd([$dataSiswa, $dataSiswaLaki, $dataSiswaPerempuan]) --}}
+    {{-- @dd($dataSiswaTahunIni[3]) --}}
 
     <main class="mt-3">
         <section class="hero-section container position-relative">
@@ -437,17 +437,17 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $dataSiswa['1'] }}
-        const data2 = {{ $dataSiswaLaki['1'] }}
-        const data3 = {{ $dataSiswaPerempuan['1'] }}
+        const data1 = {{ $dataSiswaTahunIni[1] }}
+        const data2 = {{ $dataSiswaTahunIni[2] }}
+        const data3 = {{ $dataSiswaTahunIni[3] }}
 
-        const data4 = {{ $dataSiswa['2'] }}
-        const data5 = {{ $dataSiswaLaki['2'] }}
-        const data6 = {{ $dataSiswaPerempuan['2'] }}
+        const data4 = {{ $dataSiswaTahunKedua[1] }}
+        const data5 = {{ $dataSiswaTahunKedua[2] }}
+        const data6 = {{ $dataSiswaTahunKedua[3] }}
 
-        const data7 = {{ $dataSiswa['3'] }}
-        const data8 = {{ $dataSiswaLaki['3'] }}
-        const data9 = {{ $dataSiswaPerempuan['3'] }}
+        const data7 = {{ $dataSiswaTahunKetiga[1] }}
+        const data8 = {{ $dataSiswaTahunKetiga[2] }}
+        const data9 = {{ $dataSiswaTahunKetiga[3] }}
 
 
         new Chart(chart1, {
@@ -549,12 +549,24 @@
             }
         });
 
+        const data10 = {{ $dataSiswaTahunIniLaki[1] }}
+        const data11 = {{ $dataSiswaTahunIniLaki[2] }}
+        const data12 = {{ $dataSiswaTahunIniLaki[3] }}
+
+        const data13 = {{ $dataSiswaTahunKeduaLaki[1] }}
+        const data14 = {{ $dataSiswaTahunKeduaLaki[2] }}
+        const data15 = {{ $dataSiswaTahunKeduaLaki[3] }}
+
+        const data16 = {{ $dataSiswaTahunKetigaLaki[1] }}
+        const data17 = {{ $dataSiswaTahunKetigaLaki[2] }}
+        const data18 = {{ $dataSiswaTahunKetigaLaki[3] }}
+
         new Chart(chart4, {
             type: 'pie',
             data: {
                 datasets: [{
 
-                    data: [35, 30, 35],
+                    data: [data10, data11, data12],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
@@ -587,10 +599,9 @@
             data: {
                 datasets: [{
 
-                    data: [25, 40, 35],
+                    data: [data13, data14, data15],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
-
             },
             options: {
                 // responsive: true,
@@ -619,8 +630,7 @@
             type: 'pie',
             data: {
                 datasets: [{
-
-                    data: [50, 35, 15],
+                    data: [data16, data17, data18],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
 
@@ -648,15 +658,26 @@
             }
         });
 
+        const data19 = {{ $dataSiswaTahunIniPerempuan[1] }}
+        const data20 = {{ $dataSiswaTahunIniPerempuan[2] }}
+        const data21 = {{ $dataSiswaTahunIniPerempuan[3] }}
+
+        const data22 = {{ $dataSiswaTahunKeduaPerempuan[1] }}
+        const data23 = {{ $dataSiswaTahunKeduaPerempuan[2] }}
+        const data24 = {{ $dataSiswaTahunKeduaPerempuan[3] }}
+
+        const data25 = {{ $dataSiswaTahunKetigaPerempuan[1] }}
+        const data26 = {{ $dataSiswaTahunKetigaPerempuan[2] }}
+        const data27 = {{ $dataSiswaTahunKetigaPerempuan[3] }}
+
         new Chart(chart7, {
             type: 'pie',
             data: {
                 datasets: [{
 
-                    data: [40, 40, 20],
+                    data: [data19, data20, data21],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
-
             },
             options: {
                 // responsive: true,
@@ -686,10 +707,9 @@
             data: {
                 datasets: [{
 
-                    data: [33, 53, 24],
+                    data: [data22, data23, data24],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
-
             },
             options: {
                 // responsive: true,
@@ -718,11 +738,9 @@
             type: 'pie',
             data: {
                 datasets: [{
-
-                    data: [70, 25, 5],
+                    data: [data25, data26, data27],
                     backgroundColor: ['#F94144', '#90BE6D', '#2D9CDB'],
                 }, ],
-
             },
             options: {
                 // responsive: true,

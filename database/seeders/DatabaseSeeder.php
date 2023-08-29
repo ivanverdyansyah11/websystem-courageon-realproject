@@ -637,6 +637,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
+            'nis' => '28819',
+            'nisn' => '45645768',
+            'nama_lengkap' => 'Aditya Prayatna',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/08/03',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Raya Ahmad Yani, Denpasar, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '3',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
             'nis' => '28820',
             'nisn' => '0065471181',
             'nama_lengkap' => 'Aditya Aji Putra',

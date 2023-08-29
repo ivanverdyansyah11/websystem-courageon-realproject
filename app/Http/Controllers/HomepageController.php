@@ -130,18 +130,47 @@ class HomepageController extends Controller
     function kesiswaan()
     {
         $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('id')->toArray();
-        $dataSiswa = [];
-        $dataSiswaLaki = [];
-        $dataSiswaPerempuan = [];
+
+        $dataSiswaTahunIni = [];
+        $dataSiswaTahunIniLaki = [];
+        $dataSiswaTahunIniPerempuan = [];
         $kelasArray = ['1', '2', '3'];
         foreach ($kelasArray as $i => $kelas) {
-            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[$i])->where('kelases_id', $kelas)->get()->count();
-            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[$i])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
-            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[$i])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
 
-            $dataSiswa[$kelas] = $siswa;
-            $dataSiswaLaki[$kelas] = $siswaLaki;
-            $dataSiswaPerempuan[$kelas] = $siswaPerempuan;
+            $dataSiswaTahunIni[$kelas] = $siswa;
+            $dataSiswaTahunIniLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunIniPerempuan[$kelas] = $siswaPerempuan;
+        }
+
+        $dataSiswaTahunKedua = [];
+        $dataSiswaTahunKeduaLaki = [];
+        $dataSiswaTahunKeduaPerempuan = [];
+        $kelasArray = ['1', '2', '3'];
+        foreach ($kelasArray as $i => $kelas) {
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
+
+            $dataSiswaTahunKedua[$kelas] = $siswa;
+            $dataSiswaTahunKeduaLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunKeduaPerempuan[$kelas] = $siswaPerempuan;
+        }
+
+        $dataSiswaTahunKetiga = [];
+        $dataSiswaTahunKetigaLaki = [];
+        $dataSiswaTahunKetigaPerempuan = [];
+        $kelasArray = ['1', '2', '3'];
+        foreach ($kelasArray as $i => $kelas) {
+            $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
+
+            $dataSiswaTahunKetiga[$kelas] = $siswa;
+            $dataSiswaTahunKetigaLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunKetigaPerempuan[$kelas] = $siswaPerempuan;
         }
 
         return view('homepage.kesiswaan.index', [
@@ -152,9 +181,17 @@ class HomepageController extends Controller
             'sectionStudent' => SectionStudent::first(),
             'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
 
-            'dataSiswa' => $dataSiswa,
-            'dataSiswaLaki' => $dataSiswaLaki,
-            'dataSiswaPerempuan' => $dataSiswaPerempuan,
+            'dataSiswaTahunIni' => $dataSiswaTahunIni,
+            'dataSiswaTahunKedua' => $dataSiswaTahunKedua,
+            'dataSiswaTahunKetiga' => $dataSiswaTahunKetiga,
+
+            'dataSiswaTahunIniLaki' => $dataSiswaTahunIniLaki,
+            'dataSiswaTahunKeduaLaki' => $dataSiswaTahunKeduaLaki,
+            'dataSiswaTahunKetigaLaki' => $dataSiswaTahunKetigaLaki,
+
+            'dataSiswaTahunIniPerempuan' => $dataSiswaTahunIniPerempuan,
+            'dataSiswaTahunKeduaPerempuan' => $dataSiswaTahunKeduaPerempuan,
+            'dataSiswaTahunKetigaPerempuan' => $dataSiswaTahunKetigaPerempuan,
 
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
