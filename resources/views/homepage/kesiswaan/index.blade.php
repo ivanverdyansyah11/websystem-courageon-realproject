@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{-- @dd([$dataSiswaKelasX, $dataSiswaKelasXLaki, $dataSiswaKelasXPerempuan], [$dataSiswaKelasXI, $dataSiswaKelasXILaki, $dataSiswaKelasXIPerempuan], [$dataSiswaKelasXII, $dataSiswaKelasXIILaki, $dataSiswaKelasXIIPerempuan]) --}}
+    @dd([$dataSiswa, $dataSiswaLaki, $dataSiswaPerempuan])
 
     <main class="mt-3">
         <section class="hero-section container position-relative">
@@ -52,91 +52,85 @@
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center gap-3">
-                    <button
-                            class="btn btn-text category-name active"
-                            onclick="showItems('category1')"
-                    >
-                      semua siswa
+                    <button class="btn btn-text category-name active" onclick="showItems('category1')">
+                        semua siswa
                     </button>
-                    <button
-                            class="btn btn-text category-name"
-                            onclick="showItems('category2')"
-                    >
-                      SISWA LAKI-LAKI
+                    <button class="btn btn-text category-name" onclick="showItems('category2')">
+                        SISWA LAKI-LAKI
                     </button>
-                    <button
-                            class="btn btn-text category-name"
-                            onclick="showItems('category3')"
-                    >
-                      SISWA PEREMPUAN
+                    <button class="btn btn-text category-name" onclick="showItems('category3')">
+                        SISWA PEREMPUAN
                     </button>
-                  </div>
-                    <div class="mt-4">
-      <div class="category-content">
-        <div class="category1 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart1" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[0]->tahun}} </p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart2" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[1]->tahun}}</p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart3" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[2]->tahun}}</p>
-          </div>
-        </div>
-        <div class="category2 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart4" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[0]->tahun}}</p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart5" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[1]->tahun}}</p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart6" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[2]->tahun}}</p>
-          </div>
-        </div>
-        <div class="category3 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart7" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[0]->tahun}}</p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart8" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[1]->tahun}}</p>
-          </div>
-          <div class="col d-flex align-items-center gap-3 flex-column">
-            <canvas id="chart9" class="w-75 h-75"></canvas>
-            <p class="fs-6 desc fw-medium">Tahun {{$tahunAjaran[2]->tahun}}</p>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex gap-4 justify-content-center mt-2">
-        <div class="d-flex gap-2 align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
-            <ellipse cx="8.02157" cy="7.5" rx="7.48935" ry="7.5" fill="#F94144"/>
-          </svg>
-          <p class="text-black fw-medium">Kelas X</p>
-        </div>
-        <div class="d-flex gap-2 align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
-            <ellipse cx="8.00009" cy="7.5" rx="7.48935" ry="7.5" fill="#90BE6D"/>
-          </svg>
-          <p class="text-black fw-medium">Kelas XI</p>
-        </div>
-        <div class="d-flex gap-2 align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
-            <ellipse cx="7.9786" cy="7.5" rx="7.48935" ry="7.5" fill="#2D9CDB"/>
-          </svg>
-          <p class="text-black fw-medium">Kelas XII</p>
-        </div>
-      </div>
-    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="category-content">
+                        <div class="category1 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart1" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }} </p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart2" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart3" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                            </div>
+                        </div>
+                        <div class="category2 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart4" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart5" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart6" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                            </div>
+                        </div>
+                        <div class="category3 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart7" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart8" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
+                            </div>
+                            <div class="col d-flex align-items-center gap-3 flex-column">
+                                <canvas id="chart9" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 justify-content-center mt-2">
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="8.02157" cy="7.5" rx="7.48935" ry="7.5" fill="#F94144" />
+                            </svg>
+                            <p class="text-black fw-medium">Kelas X</p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="8.00009" cy="7.5" rx="7.48935" ry="7.5" fill="#90BE6D" />
+                            </svg>
+                            <p class="text-black fw-medium">Kelas XI</p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="7.9786" cy="7.5" rx="7.48935" ry="7.5" fill="#2D9CDB" />
+                            </svg>
+                            <p class="text-black fw-medium">Kelas XII</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -559,202 +553,202 @@
         });
 
         new Chart(chart4, {
-            type: 'pie',
-            data: {
-            datasets: [{
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                data: [35, 30, 35],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
+        data: [35, 30, 35],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
 
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
-
-
-            scale: {
-                ticks: {
-                display: false
-                }
-            },
-            }
-        });
-
-        new Chart(chart5, {
-            type: 'pie',
-            data: {
-            datasets: [{
-
-                data: [25, 40, 35],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
-
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
 
 
-            scale: {
-                ticks: {
-                display: false
-                }
-            },
-            }
-        });
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
 
-        new Chart(chart6, {
-            type: 'pie',
-            data: {
-            datasets: [{
+  new Chart(chart5, {
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                data: [50, 35, 15],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
+        data: [25, 40, 35],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
 
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
-
-
-            scale: {
-                ticks: {
-                // display: false
-                }
-            },
-            }
-        });
-
-        new Chart(chart7, {
-            type: 'pie',
-            data: {
-            datasets: [{
-
-                data: [40, 40, 20],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
-
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
 
 
-            scale: {
-                ticks: {
-                display: false
-                }
-            },
-            }
-        });
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
 
-        new Chart(chart8, {
-            type: 'pie',
-            data: {
-            datasets: [{
+  new Chart(chart6, {
+    type: 'pie',
+    data: {
+      datasets: [{
 
-                data: [33, 53, 24],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
+        data: [50, 35, 15],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
 
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
-
-
-            scale: {
-                ticks: {
-                display: false
-                }
-            },
-            }
-        });
-
-        new Chart(chart9, {
-            type: 'pie',
-            data: {
-            datasets: [{
-
-                data: [70, 25, 5],
-                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-            },],
-
-            },
-            options: {
-            // responsive: true,
-            plugins: {
-                legend: {
-                display: false,
-                },
-                labels: {
-                render: 'percentage',
-                fontColor: 'white',
-                precision: 2,
-                fontSize:[24]
-                }
-            },
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
 
 
-            scale: {
-                ticks: {
-                // display: false
-                }
-            },
-            }
-        });
+      scale: {
+        ticks: {
+          // display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart7, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [40, 40, 20],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart8, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [33, 53, 24],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          display: false
+        }
+      },
+    }
+  });
+
+  new Chart(chart9, {
+    type: 'pie',
+    data: {
+      datasets: [{
+
+        data: [70, 25, 5],
+        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+      },],
+
+    },
+    options: {
+      // responsive: true,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        labels: {
+          render: 'percentage',
+          fontColor: 'white',
+          precision: 2,
+          fontSize:[24]
+        }
+      },
+
+
+      scale: {
+        ticks: {
+          // display: false
+        }
+      },
+    }
+  });
 
     </script>
 @endsection
