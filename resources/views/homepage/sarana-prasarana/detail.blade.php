@@ -13,10 +13,11 @@
                     </p>
                 </div>
             </div>
-            <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+            <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                 @foreach ($prasaranas as $prasarana)
                     <div class="col">
-                        <button class="p-0 btn-sapras card-sapras text-decoration-none" data-bs-toggle="modal"
+                        <div class="card-sapras">
+                            <button class="p-0 btn-sapras  text-decoration-none" data-bs-toggle="modal"
                             data-bs-target="#modalSapras{{ $prasarana->id }}">
                             @if ($prasarana->image)
                                 <img src="{{ asset('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image) }}"
@@ -60,6 +61,7 @@
                                 </div>
                             </div>
                         </button>
+                        </div>
                     </div>
                 @endforeach
             </div>
