@@ -1124,14 +1124,14 @@ class DatabaseSeeder extends Seeder
 
         Prasarana::create([
             'image' => 'sarana-prasarana-3.jpg',
-            'name' => 'Ruang Perpustakaan',
+            'name' => 'Perpustakaan',
             'description' => 'Ruang Perpustakaan kami adalah tempat yang nyaman dan inspiratif bagi siswa untuk menjelajahi dunia pengetahuan melalui koleksi buku-buku bermutu tinggi serta fasilitas modern yang mendukung proses pembelajaran dan eksplorasi.',
             'total' => 2,
         ]);
 
         Prasarana::create([
             'image' => 'sarana-prasarana-4.jpg',
-            'name' => 'Tempat Beribadah',
+            'name' => 'Mushola',
             'description' => 'Tempat beribadah kami adalah ruang yang disediakan dengan penuh hormat, menciptakan lingkungan yang tenang dan khusyuk bagi siswa untuk melaksanakan praktik agama mereka dengan hikmat dan damai.',
             'total' => 1,
         ]);
