@@ -324,6 +324,9 @@ section .row .col-lg-5 img{
 .denah-section .position-absolute .section-decor{
     transform: translateY(180%);
 }
+.blog-humas-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
 .img-section{
     border-radius: 12px !important  ;
 }
