@@ -2,7 +2,10 @@
 
 @section('container')
     <main class="mt-3">
-        <section class="hero-section container">
+        <section class="hero-section container position-relative">
+            <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
+                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+            </div>
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
@@ -17,35 +20,51 @@
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-5 d-lg-block d-none">
-                    @if ($headerAcademic->banner)
-                        <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}"
-                            alt="akademik section image" class="w-100">
-                    @else
-                        <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image"
-                            class="w-100">
-                    @endif
+                    <div class="position-relative">
+                        <div class="position-absolute w-100 h-100">
+                            <div class="side-img-section-decor right-img-section-decor w-100 h-100"></div>
+                        </div>
+                        <div class="position-relative">
+                            @if ($headerAcademic->banner)
+                                <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}"
+                                alt="akademik section image" class="w-100 img-section right-img-section">
+                            @else
+                                <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image"
+                                    class="w-100">
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="kurikulum-section container section-margin-top" id="kurikulum">
+        <section class="kurikulum-section container section-margin-top position-relative" id="kurikulum">
             <div class="row align-items-center">
                 <div class="col-lg-5 d-lg-block d-none">
-                    @if ($curriculum->banner)
-                        <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}"
-                            alt="kurikulum section image" class="w-100">
-                    @else
-                        <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image"
-                            class="w-100">
-                    @endif
+                    <div class="position-relative">
+                        <div class="position-absolute w-100 h-100">
+                            <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                        </div>
+                        <div class="position-relative">
+                            @if ($curriculum->banner)
+                                <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}"
+                                alt="kurikulum section image" class="w-100 img-section left-img-section">
+                            @else
+                                <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image"
+                                    class="w-100">
+                            @endif
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black display-5 fw-bold text-capitalize">
                         {{ $curriculum->title_section }}
                     </p>
                     <article class="mt-3">
-                        <p class="desc">
-                            {!! $curriculum->description !!}
-                        </p>
+                        <div class="card-desc-section">
+                            <p class="desc">
+                                {!! $curriculum->description !!}
+                            </p>
+                        </div>
                         {{-- <p class="desc mt-1">
                             Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam
                             mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21
@@ -55,72 +74,92 @@
                 </div>
             </div>
         </section>
-        <section class="program-akademik-section container section-margin-top">
-            <div class="d-flex justify-content-center">
-                <p class="title-section-text text-center fw-bold text-capitalize text-black display-5">
-                    {{ $sectionProgram->title_section }}
-                </p>
+        <section class="program-akademik-section container section-margin-top position-relative">
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
             </div>
-            <div class="d-flex flex-column gap-5 mt-5">
-                @foreach ($programs as $program)
-                    <div class="row align-items-center row-program">
-                        <div class="col-xl-6 col-lg-7 col-12">
-                            <p class="fs-5 text-black fw-bold">{{ $program->title }}</p>
-                            <article class="mt-3">
-                                <p class="desc">
-                                    {{ $program->description }}
-                                </p>
-                            </article>
-                            <a target="_block" href="{{ $program->link }}"
-                                class="d-flex align-items-center gap-2 mt-4 btn btn-color">
-                                {{ $program->button }}
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
-                                    fill="none">
-                                    <path
-                                        d="M1 4.35C0.641015 4.35 0.35 4.64101 0.35 5C0.35 5.35899 0.641015 5.65 1 5.65V4.35ZM19.4596 5.45962C19.7135 5.20578 19.7135 4.79422 19.4596 4.54038L15.323 0.403806C15.0692 0.149965 14.6576 0.149965 14.4038 0.403806C14.15 0.657647 14.15 1.0692 14.4038 1.32304L18.0808 5L14.4038 8.67696C14.15 8.9308 14.15 9.34235 14.4038 9.59619C14.6576 9.85003 15.0692 9.85003 15.323 9.59619L19.4596 5.45962ZM1 5.65L19 5.65V4.35L1 4.35V5.65Z"
-                                        fill="white" />
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="col-xl-1 d-xl-block d-none"></div>
-                        <div class="col-lg-5 d-lg-block d-none">
-                            <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
-                                alt="Image {{ $program->title }}" class="w-100">
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-        <section class="p5-section container section-margin-top">
-            <div class="d-flex justify-content-center header-section">
-                <div class="long-title-section-text">
-                    <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionProyek->title_section }}
-                    </p>
-                    <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionProyek->description }}
+            <div class="position-relative">
+                <div class="d-flex justify-content-center">
+                    <p class="title-section-text text-center fw-bold text-capitalize text-black display-5">
+                        {{ $sectionProgram->title_section }}
                     </p>
                 </div>
-            </div>
-            <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    @foreach ($projects as $project)
-                        <a href="{{ route('detail-projek', $project->id) }}" class="col">
-                            <div class="card-p5">
-                                <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
-                                    alt="{{ $project->title }}" class="w-100">
-                                <div class="mt-3 text-center">
-                                    <p class="text-black fw-bold">{{ $project->topic }}</p>
-                                    <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
+                <div class="d-flex flex-column gap-5 mt-5">
+                    @foreach ($programs as $program)
+                        <div class="row align-items-center row-program">
+                            <div class="col-xl-6 col-lg-7 col-12">
+                                <p class="fs-5 text-black fw-bold">{{ $program->title }}</p>
+                                <article class="mt-3">
+                                    <div class="card-desc-section">
+                                        <p class="desc">
+                                            {{ $program->description }}
+                                        </p>
+                                    </div>
+                                </article>
+                                <a target="_block" href="{{ $program->link }}"
+                                    class="d-flex align-items-center gap-2 mt-4 btn btn-color">
+                                    {{ $program->button }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
+                                        fill="none">
+                                        <path
+                                            d="M1 4.35C0.641015 4.35 0.35 4.64101 0.35 5C0.35 5.35899 0.641015 5.65 1 5.65V4.35ZM19.4596 5.45962C19.7135 5.20578 19.7135 4.79422 19.4596 4.54038L15.323 0.403806C15.0692 0.149965 14.6576 0.149965 14.4038 0.403806C14.15 0.657647 14.15 1.0692 14.4038 1.32304L18.0808 5L14.4038 8.67696C14.15 8.9308 14.15 9.34235 14.4038 9.59619C14.6576 9.85003 15.0692 9.85003 15.323 9.59619L19.4596 5.45962ZM1 5.65L19 5.65V4.35L1 4.35V5.65Z"
+                                            fill="white" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="col-xl-1 d-xl-block d-none"></div>
+                            <div class="col-lg-5 d-lg-block d-none img-wrapper">
+                                <div class="position-relative">
+                                    <div class="position-absolute w-100 h-100">
+                                        <div class="side-img-section-decor img-section-decor w-100 h-100"></div>
+                                    </div>
+                                    <div class="position-relative">
+                                        <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
+                                        alt="Image {{ $program->title }}" class="w-100 img-section">
+                                    </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     @endforeach
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    @if ($projectCount > 4)
-                        <a href="{{ route('projek') }}" class="btn btn-color">{{ $sectionProyek->button }}</a>
-                    @endif
+            </div>
+
+        </section>
+        <section class="p5-section container section-margin-top position-relative">
+            <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
+                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="d-flex justify-content-center header-section">
+                    <div class="long-title-section-text">
+                        <p class="text-center display-5 fw-bold text-capitalize">
+                            {{ $sectionProyek->title_section }}
+                        </p>
+                        <p class="desc fs-6 text-center mt-3">
+                            {{ $sectionProyek->description }}
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+                        @foreach ($projects as $project)
+                            <a href="{{ route('detail-projek', $project->id) }}" class="col">
+                                <div class="card-p5">
+                                    <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
+                                        alt="{{ $project->title }}" class="w-100">
+                                    <div class="mt-3 text-center">
+                                        <p class="text-black fw-bold">{{ $project->topic }}</p>
+                                        <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        @if ($projectCount > 4)
+                            <a href="{{ route('projek') }}" class="btn btn-color">{{ $sectionProyek->button }}</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </section>
@@ -147,41 +186,46 @@
                 </div>
             </div>
         </section>
-        <section class="grafik-section container section-margin-top d-lg-block d-none">
-            <div class="d-flex justify-content-center header-section">
-                <div class="title-section-text">
-                    <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionGraduation->title_section }}
-                    </p>
-                </div>
+        <section class="grafik-akademik-section container section-margin-top position-relative">
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
             </div>
-            <div class="mt-5">
-                <div class="category-content">
-                    <div class="category1 item">
-                        <canvas id="chart1" class="w-100"></canvas>
+            <div class="position-relative">
+                <div class="d-flex justify-content-center header-section">
+                    <div class="title-section-text">
+                        <p class="text-center display-5 fw-bold text-capitalize">
+                            {{ $sectionGraduation->title_section }}
+                        </p>
                     </div>
                 </div>
-                <div class="d-flex gap-4 justify-content-center mt-3">
-                    <div class="d-flex gap-2 align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                            fill="none">
-                            <ellipse cx="8.02157" cy="7.5" rx="7.48935" ry="7.5" fill="#F94144" />
-                        </svg>
-                        <p class="text-black fw-medium">{{ $sectionGraduation->caption_1 }}</p>
+                <div class="mt-5">
+                    <div class="category-content">
+                        <div class="category1 item">
+                            <canvas id="chart1" class="w-100"></canvas>
+                        </div>
                     </div>
-                    <div class="d-flex gap-2 align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                            fill="none">
-                            <ellipse cx="8.00009" cy="7.5" rx="7.48935" ry="7.5" fill="#90BE6D" />
-                        </svg>
-                        <p class="text-black fw-medium">{{ $sectionGraduation->caption_2 }}</p>
-                    </div>
-                    <div class="d-flex gap-2 align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
-                            fill="none">
-                            <ellipse cx="7.9786" cy="7.5" rx="7.48935" ry="7.5" fill="#2D9CDB" />
-                        </svg>
-                        <p class="text-black fw-medium">{{ $sectionGraduation->caption_3 }}</p>
+                    <div class="d-flex gap-4 justify-content-center mt-3">
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="8.02157" cy="7.5" rx="7.48935" ry="7.5" fill="#F94144" />
+                            </svg>
+                            <p class="text-black fw-medium">{{ $sectionGraduation->caption_1 }}</p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="8.00009" cy="7.5" rx="7.48935" ry="7.5" fill="#90BE6D" />
+                            </svg>
+                            <p class="text-black fw-medium">{{ $sectionGraduation->caption_2 }}</p>
+                        </div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15"
+                                fill="none">
+                                <ellipse cx="7.9786" cy="7.5" rx="7.48935" ry="7.5" fill="#2D9CDB" />
+                            </svg>
+                            <p class="text-black fw-medium">{{ $sectionGraduation->caption_3 }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
