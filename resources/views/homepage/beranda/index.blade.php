@@ -105,7 +105,8 @@
                 </div>
                 <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 mt-5 gy-4">
                     @foreach ($achievements as $key => $achievement)
-                        <div class="col prestasi">
+                        <div class="col">
+                            <div class="prestasi card-prestasi"></div>
                             <a href="{{ route('detail-prestasi', $achievement->id) }}" class="">
                                 <div class="image-wrapper position-relative">
                                     <div class="position-relative">

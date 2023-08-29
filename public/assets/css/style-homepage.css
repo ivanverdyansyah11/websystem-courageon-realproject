@@ -321,6 +321,9 @@ section .row .col-lg-5 img{
 .grafik-akademik-section .position-absolute .section-decor{
     transform: translateY(180%);
 }
+.denah-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
 .img-section{
     border-radius: 12px !important  ;
 }
@@ -357,7 +360,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 
 
-.card-extra, .card-blog, .card-prestasi{
+.card-extra, .card-blog, .card-prestasi, .card-sapras{
     padding: 20px;
     border-radius: 12px;
     transition: 0.2s;
