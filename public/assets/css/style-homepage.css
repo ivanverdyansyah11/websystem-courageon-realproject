@@ -324,7 +324,9 @@ section .row .col-lg-5 img{
 .img-section{
     border-radius: 12px !important  ;
 }
-
+.second-section-decor{
+    transform: translateY(6%);
+}
 /*all section setting*/
 
 
@@ -355,7 +357,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 
 
-.card-extra, .card-blog{
+.card-extra, .card-blog, .card-prestasi{
     padding: 20px;
     border-radius: 12px;
     transition: 0.2s;

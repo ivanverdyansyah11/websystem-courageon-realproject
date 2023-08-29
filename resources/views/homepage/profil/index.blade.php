@@ -168,11 +168,11 @@
             <div class="position-relative">
                 <div class="row">
                     <div class="col-lg-5 d-lg-block d-none">
-                        <div class="position-relative">
+                        <div class="position-relative w-100 h-100">
                             <div class="position-absolute w-100 h-100">
                                 <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
                             </div>
-                            <div class="position-relative">
+                            <div class="position-relative w-100 h-100">
                                 @if ($mars->banner)
                                     <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
                                     alt="mars section image" class="w-100 h-100 img-section left-img-section">
@@ -209,7 +209,7 @@
                         {{ $sectionManagement->title_section }}</p>
                 </div>
                 <div class="mt-5">
-                    <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                         @foreach ($managements as $management)
                             <div class="col">
                                 <div class="card-school-people text-center">
@@ -245,7 +245,7 @@
                     </p>
                 </div>
                 <div class="mt-5">
-                    <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                         @foreach ($teachers as $teacher)
                             <div class="col">
                                 <div class="card-school-people text-center">
@@ -280,7 +280,7 @@
                         {{ $sectionStaff->title_section }}</p>
                 </div>
                 <div class="mt-5">
-                    <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                         @foreach ($staffs as $staff)
                             <div class="col">
                                 <div class="card-school-people text-center">
