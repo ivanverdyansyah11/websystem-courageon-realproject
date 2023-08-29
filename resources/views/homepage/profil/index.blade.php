@@ -183,8 +183,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
-                        <p class="text-black display-5 fw-bold text-capitalize">
+                    <div class="col-xl-6 col-lg-6 col-12 offset-lg-1">
+                        <p class="text-black display-6 fw-bold text-capitalize">
                             {{ $mars->title_section }}
                         </p>
                         <div class="song-wrapper mt-3">
@@ -311,7 +311,7 @@
                 <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
-                <div class="row align-items-center">
+                <div class="row align-items-center gy-5">
                     <div class="col-lg-5 col-12">
                         <div class="position-relative">
                             <div class="position-absolute w-100 h-100">
@@ -325,7 +325,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
+                    <div class="col-xl-6 col-lg-6 col-12 offset-lg-1">
                         <p class="text-black fw-bold text-capitalize display-5">
                             {{ $sectionContact->title_section }}
                         </p>

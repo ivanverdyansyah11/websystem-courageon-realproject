@@ -106,38 +106,40 @@
                 <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 mt-5 gy-4">
                     @foreach ($achievements as $key => $achievement)
                         <div class="col">
-                            <div class="prestasi card-prestasi"></div>
-                            <a href="{{ route('detail-prestasi', $achievement->id) }}" class="">
-                                <div class="image-wrapper position-relative">
-                                    <div class="position-relative">
-                                        <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                            alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
+                            <div class="prestasi card-prestasi">
+                                <a href="{{ route('detail-prestasi', $achievement->id) }}" class="">
+                                    <div class="image-wrapper position-relative">
+                                        <div class="position-relative">
+                                            <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
+                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
+                                        </div>
+                                        <div class="position-absolute top-0 start-0" style="z-index: 999999">
+                                            <div
+                                                class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
+                                                {{ $key + 1 }}</div>
+                                        </div>
+                                        <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
+                                            @foreach ($kategori_prestasi as $kategori)
+                                                @if ($kategori->id == $achievement->kategori_prestasis_id)
+                                                    <div
+                                                        class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
+                                                        {{ $kategori->nama }}</div>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    <div class="position-absolute top-0 start-0" style="z-index: 999999">
-                                        <div
-                                            class="number-wrapper d-flex justify-content-center align-items-center fs-4 fw-black text-white">
-                                            {{ $key + 1 }}</div>
+                                    <div class="mt-3">
+                                        <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
+                                        <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
+                                            tingkat {{ $achievement->tingkat }}</p>
                                     </div>
-                                    <div class="position-absolute bottom-0 end-0" style="z-index: 999999">
-                                        @foreach ($kategori_prestasi as $kategori)
-                                            @if ($kategori->id == $achievement->kategori_prestasis_id)
-                                                <div
-                                                    class="prestasi-category-wrapper d-flex justify-content-center align-items-center fs-15 fw-medium text-white">
-                                                    {{ $kategori->nama }}</div>
-                                            @endif
-                                        @endforeach
+                                    <div class="mt-2 d-flex gap-3 justify-content-center">
+                                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
+                                        <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
                                     </div>
-                                </div>
-                                <div class="mt-3">
-                                    <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
-                                    <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
-                                        tingkat {{ $achievement->tingkat }}</p>
-                                </div>
-                                <div class="mt-2 d-flex gap-3 justify-content-center">
-                                    <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                                    <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
+
                         </div>
                     @endforeach
                 </div>

@@ -264,7 +264,7 @@
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
                 <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
             </div>
-            <div class="position-absolute start-0 top-0  d-lg-block d-none">
+            <div class="position-absolute start-0 top-0  d-xl-block d-none">
                 <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor second-section-decor">
             </div>
             <div class="position-relative">
