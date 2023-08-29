@@ -1,12 +1,12 @@
-{{-- @dd($dataSiswa1TahunKebelakang) --}}
 @extends('templates.main')
 
 @section('container')
-    <main class="mt-3">
+    {{-- @dd([$dataSiswaKelasX, $dataSiswaKelasXLaki, $dataSiswaKelasXPerempuan], [$dataSiswaKelasXI, $dataSiswaKelasXILaki, $dataSiswaKelasXIPerempuan], [$dataSiswaKelasXII, $dataSiswaKelasXIILaki, $dataSiswaKelasXIIPerempuan]) --}}
 
+    <main class="mt-3">
         <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
@@ -29,10 +29,10 @@
                         <div class="position-relative">
                             @if ($headerStudent->banner)
                                 <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}"
-                                alt="kesiswaan section image" class="w-100 img-section right-img-section">
+                                    alt="kesiswaan section image" class="w-100 img-section right-img-section">
                             @else
-                                <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}" alt="kesiswaan section image"
-                                    class="w-100">
+                                <img src="{{ asset('assets-homepage/img/kesiswaan-hero.png') }}"
+                                    alt="kesiswaan section image" class="w-100">
                             @endif
                         </div>
                     </div>
@@ -41,7 +41,7 @@
         </section>
         <section class="grafik-kesiswaan-section container section-margin-top position-relative" id="grafik">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center header-section">
@@ -120,7 +120,7 @@
         </section>
         <section class="pelayanan-karir-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center header-section">
@@ -172,7 +172,7 @@
         </section>
         <section class="prestation-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
@@ -207,11 +207,13 @@
                                     </div>
                                     <div class="mt-3">
                                         <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
-                                        <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
+                                        <p class="text-center fw-semibold text-capitalize">
+                                            {{ $achievement->nama_kegiatan }}
                                             tingkat {{ $achievement->tingkat }}</p>
                                     </div>
                                     <div class="mt-2 d-flex gap-3 justify-content-center">
-                                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
+                                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt=""
+                                            class="">
                                         <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
                                     </div>
                                 </a>
@@ -262,10 +264,11 @@
         </section>
         <section class="testi-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-absolute start-0 top-0  d-xl-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor second-section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt=""
+                    class="section-decor second-section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center header-section">
@@ -319,7 +322,7 @@
     </script>
 
     <script>
-          const swiperTesti = new Swiper('.swiper-testi', {
+        const swiperTesti = new Swiper('.swiper-testi', {
             speed: 500,
             loop: true,
             pagination: {
