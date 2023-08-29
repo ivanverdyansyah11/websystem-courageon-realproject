@@ -361,6 +361,37 @@
     </script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var showCategory = 'category1';
+            var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+            showAllCategory.classList.add('active');
+            showCategory.style.display = 'flex';
+            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+        });
+
+        function showItems(category) {
+            // Menghapus kelas "active" dari semua kategori
+            var categories = document.getElementsByClassName('category-name');
+            for (var i = 0; i < categories.length; i++) {
+                categories[i].classList.remove('active');
+            }
+
+            // Menambahkan kelas "active" ke kategori yang dipilih
+            var selectedCategory = event.target;
+            if (!selectedCategory.classList.contains('active')) {
+                selectedCategory.classList.add('active');
+            }
+
+            // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+            var items = document.getElementsByClassName('item');
+            for (var j = 0; j < items.length; j++) {
+                items[j].style.display = 'none';
+                if (items[j].classList.contains(category)) {
+                    items[j].style.display = 'flex';
+                }
+            }
+        }
+
         const swiperTesti = new Swiper('.swiper-testi', {
             speed: 500,
             loop: true,
@@ -392,6 +423,15 @@
             }
         })
 
+        const chart1 = document.getElementById('chart1');
+        const chart2 = document.getElementById('chart2');
+        const chart3 = document.getElementById('chart3');
+        const chart4 = document.getElementById('chart4');
+        const chart5 = document.getElementById('chart5');
+        const chart6 = document.getElementById('chart6');
+        const chart7 = document.getElementById('chart7');
+        const chart8 = document.getElementById('chart8');
+        const chart9 = document.getElementById('chart9');
 
         const label1 = document.getElementById('label1').textContent;
         const label2 = document.getElementById('label2').textContent;
@@ -408,8 +448,6 @@
         const data7 = {{ $dataSiswa['3'] }}
         const data8 = {{ $dataSiswaLaki['3'] }}
         const data9 = {{ $dataSiswaPerempuan['3'] }}
-
-
 
 
         new Chart(chart1, {
