@@ -367,6 +367,37 @@
     </script>
 
     <script>
+          document.addEventListener('DOMContentLoaded', function() {
+    var showCategory = 'category1';
+    var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
+    showAllCategory.classList.add('active');
+    showCategory.style.display='flex';
+    showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+  });
+
+  function showItems(category) {
+    // Menghapus kelas "active" dari semua kategori
+    var categories = document.getElementsByClassName('category-name');
+    for (var i = 0; i < categories.length; i++) {
+      categories[i].classList.remove('active');
+    }
+
+    // Menambahkan kelas "active" ke kategori yang dipilih
+    var selectedCategory = event.target;
+    if (!selectedCategory.classList.contains('active')) {
+      selectedCategory.classList.add('active');
+    }
+
+    // Menampilkan item-item yang memiliki kategori yang sama dengan kategori yang dipilih
+    var items = document.getElementsByClassName('item');
+    for (var j = 0; j < items.length; j++) {
+      items[j].style.display = 'none';
+      if (items[j].classList.contains(category)) {
+        items[j].style.display = 'flex';
+      }
+    }
+  }
+
         const swiperTesti = new Swiper('.swiper-testi', {
             speed: 500,
             loop: true,
@@ -398,6 +429,15 @@
             }
         })
 
+        const chart1 = document.getElementById('chart1');
+        const chart2 = document.getElementById('chart2');
+        const chart3 = document.getElementById('chart3');
+        const chart4 = document.getElementById('chart4');
+        const chart5 = document.getElementById('chart5');
+        const chart6 = document.getElementById('chart6');
+        const chart7 = document.getElementById('chart7');
+        const chart8 = document.getElementById('chart8');
+        const chart9 = document.getElementById('chart9');
 
         const label1 = document.getElementById('label1').textContent;
         const label2 = document.getElementById('label2').textContent;
@@ -405,7 +445,7 @@
 
         const data1 = {{ $dataSiswaKelasX }}
         const data2 = {{ $dataSiswaKelasXI }}
-        const data3 = {{ $$dataSiswaKelasXII }}
+        const data3 = {{ $dataSiswaKelasXII }}
 
         const data4 = {{ $dataSiswaKelasXLaki }}
         const data5 = {{ $dataSiswaKelasXILaki }}
@@ -519,202 +559,202 @@
         });
 
         new Chart(chart4, {
-    type: 'pie',
-    data: {
-      datasets: [{
+            type: 'pie',
+            data: {
+            datasets: [{
 
-        data: [35, 30, 35],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                data: [35, 30, 35],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart5, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [25, 40, 35],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
 
 
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
+            scale: {
+                ticks: {
+                display: false
+                }
+            },
+            }
+        });
 
-  new Chart(chart6, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart5, {
+            type: 'pie',
+            data: {
+            datasets: [{
 
-        data: [50, 35, 15],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                data: [25, 40, 35],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          // display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart7, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [40, 40, 20],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
 
 
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
+            scale: {
+                ticks: {
+                display: false
+                }
+            },
+            }
+        });
 
-  new Chart(chart8, {
-    type: 'pie',
-    data: {
-      datasets: [{
+        new Chart(chart6, {
+            type: 'pie',
+            data: {
+            datasets: [{
 
-        data: [33, 53, 24],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
+                data: [50, 35, 15],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
 
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
-
-
-      scale: {
-        ticks: {
-          display: false
-        }
-      },
-    }
-  });
-
-  new Chart(chart9, {
-    type: 'pie',
-    data: {
-      datasets: [{
-
-        data: [70, 25, 5],
-        backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
-      },],
-
-    },
-    options: {
-      // responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-        labels: {
-          render: 'percentage',
-          fontColor: 'white',
-          precision: 2,
-          fontSize:[24]
-        }
-      },
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
 
 
-      scale: {
-        ticks: {
-          // display: false
-        }
-      },
-    }
-  });
- 
+            scale: {
+                ticks: {
+                // display: false
+                }
+            },
+            }
+        });
+
+        new Chart(chart7, {
+            type: 'pie',
+            data: {
+            datasets: [{
+
+                data: [40, 40, 20],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
+
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
+
+
+            scale: {
+                ticks: {
+                display: false
+                }
+            },
+            }
+        });
+
+        new Chart(chart8, {
+            type: 'pie',
+            data: {
+            datasets: [{
+
+                data: [33, 53, 24],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
+
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
+
+
+            scale: {
+                ticks: {
+                display: false
+                }
+            },
+            }
+        });
+
+        new Chart(chart9, {
+            type: 'pie',
+            data: {
+            datasets: [{
+
+                data: [70, 25, 5],
+                backgroundColor:['#F94144','#90BE6D','#2D9CDB'],
+            },],
+
+            },
+            options: {
+            // responsive: true,
+            plugins: {
+                legend: {
+                display: false,
+                },
+                labels: {
+                render: 'percentage',
+                fontColor: 'white',
+                precision: 2,
+                fontSize:[24]
+                }
+            },
+
+
+            scale: {
+                ticks: {
+                // display: false
+                }
+            },
+            }
+        });
+
     </script>
 @endsection
