@@ -639,7 +639,7 @@ class DatabaseSeeder extends Seeder
         Student::create([
             'nis' => '28820',
             'nisn' => '0065471181',
-            'nama_lengkap' => 'Putu Lia',
+            'nama_lengkap' => 'Aditya Aji Putra',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2008/08/03',
@@ -657,7 +657,7 @@ class DatabaseSeeder extends Seeder
         Student::create([
             'nis' => '28821',
             'nisn' => '797829542',
-            'nama_lengkap' => 'Tina Kusuma',
+            'nama_lengkap' => 'I Kadek Agung Surya',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2008/05/13',
@@ -665,7 +665,7 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Pantai Kuta, Kuta, Badung, Bali',
-            'kelases_id' => '2',
+            'kelases_id' => '1',
             'tahun_ajarans_id' => '5',
             'jurusans_id' => '2',
             'indices_id' => '1',
@@ -675,7 +675,7 @@ class DatabaseSeeder extends Seeder
         Student::create([
             'nis' => '28822',
             'nisn' => '862701208',
-            'nama_lengkap' => 'I Komang Satyawan',
+            'nama_lengkap' => 'Putu Gede Arya Wijaya',
             'tahun_masuk' => '2023/2024',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2008/05/10',
@@ -683,7 +683,7 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Raya Seminyak, Seminyak, Kuta, Badung, Bali',
-            'kelases_id' => '3',
+            'kelases_id' => '1',
             'tahun_ajarans_id' => '5',
             'jurusans_id' => '1',
             'indices_id' => '1',
@@ -692,6 +692,60 @@ class DatabaseSeeder extends Seeder
 
         Student::create([
             'nis' => '28823',
+            'nisn' => '768565785',
+            'nama_lengkap' => 'Adiyasa Aiswarya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/08/03',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Tukad Citarum, No. 123, Denpasar, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28824',
+            'nisn' => '342565757',
+            'nama_lengkap' => 'Made Ayu Wijaya',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/05/13',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Danau Poso, No. 456, Kuta, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '2',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28825',
+            'nisn' => '45675758',
+            'nama_lengkap' => 'Komang Sari',
+            'tahun_masuk' => '2023/2024',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2008/05/10',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Gunung Batur, No. 789, Ubud, Bali',
+            'kelases_id' => '1',
+            'tahun_ajarans_id' => '5',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28826',
             'nisn' => '973844481',
             'nama_lengkap' => 'Ngurah Agung Putra Pradnya',
             'tahun_masuk' => '2022/2023',
@@ -701,7 +755,7 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Danau Buyan, Sanur, Denpasar, Bali',
-            'kelases_id' => '1',
+            'kelases_id' => '2',
             'tahun_ajarans_id' => '4',
             'jurusans_id' => '1',
             'indices_id' => '1',
@@ -709,7 +763,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nis' => '28824',
+            'nis' => '28827',
             'nisn' => '495433817',
             'nama_lengkap' => 'I Dewa Nyoman Tresna',
             'tahun_masuk' => '2022/2023',
@@ -727,7 +781,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nis' => '28824',
+            'nis' => '28828',
             'nisn' => '495433817',
             'nama_lengkap' => 'I Dewa Nyoman Kusuma',
             'tahun_masuk' => '2022/2023',
@@ -737,7 +791,7 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Desa Pecatu, Uluwatu, Badung, Bali',
-            'kelases_id' => '3',
+            'kelases_id' => '2',
             'tahun_ajarans_id' => '4',
             'jurusans_id' => '1',
             'indices_id' => '1',
@@ -745,10 +799,64 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nis' => '28825',
+            'nis' => '28829',
+            'nisn' => '456375676',
+            'nama_lengkap' => 'Ni Komang Putri Wijaya',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/01/29',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Tukad Citarum No. 123, Denpasar, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28830',
+            'nisn' => '457678689',
+            'nama_lengkap' => 'Putu Ayu Saraswati',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/10/08',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Danau Poso No. 456, Kuta, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28831',
+            'nisn' => '495433817',
+            'nama_lengkap' => 'Ayu Dewi Lestari',
+            'tahun_masuk' => '2022/2023',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2007/10/08',
+            'jenis_kelamin' => 'L',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Gunung Batur No. 789, Ubud, Bali',
+            'kelases_id' => '2',
+            'tahun_ajarans_id' => '4',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28832',
             'nisn' => '744424024',
             'nama_lengkap' => 'Ida Bagus Dewana',
-            'tahun_masuk' => '2022/2023',
+            'tahun_masuk' => '2021/2022',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2007/11/24',
             'jenis_kelamin' => 'L',
@@ -756,14 +864,14 @@ class DatabaseSeeder extends Seeder
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Raya Tegallalang, Tegallalang, Gianyar, Bali',
             'kelases_id' => '3',
-            'tahun_ajarans_id' => '4',
+            'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
             'semesters_id' => '1',
         ]);
 
         Student::create([
-            'nis' => '28826',
+            'nis' => '28833',
             'nisn' => '565765786',
             'nama_lengkap' => 'Kadek Wira',
             'tahun_masuk' => '2021/2022',
@@ -781,7 +889,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nis' => '28827',
+            'nis' => '28834',
             'nisn' => '234234546',
             'nama_lengkap' => 'Hary Suputra',
             'tahun_masuk' => '2021/2022',
@@ -791,7 +899,7 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Pantai Sindhu, Sanur, Denpasar, Bali',
-            'kelases_id' => '2',
+            'kelases_id' => '3',
             'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
@@ -799,23 +907,58 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Student::create([
-            'nis' => '28828',
+            'nis' => '28835',
             'nisn' => '546457567',
             'nama_lengkap' => 'Kadek Padma',
             'tahun_masuk' => '2021/2022',
             'tempat_lahir' => 'Bali',
             'tanggal_lahir' => '2006/02/26',
-            'jenis_kelamin' => 'L',
+            'jenis_kelamin' => 'P',
             'kelurahan' => 'Ubung Kaja',
             'kecamatan' => 'Denpasar Utara',
             'alamat' => 'Jalan Hanoman, Ubud, Gianyar, Bali',
-            'kelases_id' => '1',
+            'kelases_id' => '3',
             'tahun_ajarans_id' => '3',
             'jurusans_id' => '1',
             'indices_id' => '1',
             'semesters_id' => '1',
         ]);
 
+        Student::create([
+            'nis' => '28836',
+            'nisn' => '87688687',
+            'nama_lengkap' => 'Agni Widya',
+            'tahun_masuk' => '2021/2022',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2006/02/26',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Legian No. 543, Kuta, Bali',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '3',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
+
+        Student::create([
+            'nis' => '28837',
+            'nisn' => '345346543',
+            'nama_lengkap' => 'Aiswarya Laksmi',
+            'tahun_masuk' => '2021/2022',
+            'tempat_lahir' => 'Bali',
+            'tanggal_lahir' => '2006/02/26',
+            'jenis_kelamin' => 'P',
+            'kelurahan' => 'Ubung Kaja',
+            'kecamatan' => 'Denpasar Utara',
+            'alamat' => 'Jalan Raya Ubud No. 210, Ubud, Bali',
+            'kelases_id' => '3',
+            'tahun_ajarans_id' => '3',
+            'jurusans_id' => '1',
+            'indices_id' => '1',
+            'semesters_id' => '1',
+        ]);
 
         SectionExtracurricular::create([
             'title_section' => 'Ekstrakulikuler Membuka Potensi Dan Meningkatkan Kolaborasi',
