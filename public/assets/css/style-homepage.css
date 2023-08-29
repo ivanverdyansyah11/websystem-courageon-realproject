@@ -231,7 +231,7 @@ a{
 
 /*all section setting*/
 .section-margin-top {
-    margin-top: 122px;
+    margin-top: 142px;
 }
 .achievement-section{
     background-image: url("../img/achievement-img.png");
@@ -312,6 +312,16 @@ section .row .col-lg-5 img{
 .cta-section .position-absolute .section-decor{
     transform: translateY(180%);
 }
+.vision-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.location-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.img-section{
+    border-radius: 12px !important  ;
+}
+
 /*all section setting*/
 
 
