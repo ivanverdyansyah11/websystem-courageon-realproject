@@ -17,6 +17,7 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\Hymne;
 use App\Models\Journal;
 use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
@@ -71,6 +72,7 @@ class HomepageController extends Controller
             'sectionAchievement' => SectionAchievement::first(),
             'achievementCount' => Prestasi::count(),
             'achievements' => Prestasi::take(4)->get(),
+            'achievements_lg' => Prestasi::take(3)->get(),
             'kategori_prestasi' => KategoriPrestasi::all(),
             'sectionAlumni' => SectionAlumni::first(),
             'alumnis' => Alumni::with('students')->get(),
@@ -92,6 +94,7 @@ class HomepageController extends Controller
             'motto' => Motto::first(),
             'logo' => Logo::first(),
             'mars' => Mars::first(),
+            'hymne' => Hymne::first(),
             'sectionManagement' => SectionManagement::first(),
             'managements' => Employee::where('role_employees_id', '1')->take(4)->get(),
             'managementCount' => Employee::where('role_employees_id', '1')->get()->count(),
@@ -129,28 +132,47 @@ class HomepageController extends Controller
     function kesiswaan()
     {
         $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('id')->toArray();
-        $dataSiswaFirst = [];
+
+        $dataSiswaTahunIni = [];
+        $dataSiswaTahunIniLaki = [];
+        $dataSiswaTahunIniPerempuan = [];
         $kelasArray = ['1', '2', '3'];
-        foreach ($kelasArray as $kelas) {
+        foreach ($kelasArray as $i => $kelas) {
             $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[0])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
 
-            $dataSiswaFirst[$kelas] = $siswa;
+            $dataSiswaTahunIni[$kelas] = $siswa;
+            $dataSiswaTahunIniLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunIniPerempuan[$kelas] = $siswaPerempuan;
         }
 
-        $dataSiswaSecond = [];
+        $dataSiswaTahunKedua = [];
+        $dataSiswaTahunKeduaLaki = [];
+        $dataSiswaTahunKeduaPerempuan = [];
         $kelasArray = ['1', '2', '3'];
-        foreach ($kelasArray as $kelas) {
+        foreach ($kelasArray as $i => $kelas) {
             $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[1])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
 
-            $dataSiswaSecond[$kelas] = $siswa;
+            $dataSiswaTahunKedua[$kelas] = $siswa;
+            $dataSiswaTahunKeduaLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunKeduaPerempuan[$kelas] = $siswaPerempuan;
         }
 
-        $dataSiswaThird = [];
+        $dataSiswaTahunKetiga = [];
+        $dataSiswaTahunKetigaLaki = [];
+        $dataSiswaTahunKetigaPerempuan = [];
         $kelasArray = ['1', '2', '3'];
-        foreach ($kelasArray as $kelas) {
+        foreach ($kelasArray as $i => $kelas) {
             $siswa = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->get()->count();
+            $siswaLaki = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->where('jenis_kelamin', 'L')->get()->count();
+            $siswaPerempuan = Student::where('tahun_ajarans_id', $tahun_ajaran[2])->where('kelases_id', $kelas)->where('jenis_kelamin', 'P')->get()->count();
 
-            $dataSiswaThird[$kelas] = $siswa;
+            $dataSiswaTahunKetiga[$kelas] = $siswa;
+            $dataSiswaTahunKetigaLaki[$kelas] = $siswaLaki;
+            $dataSiswaTahunKetigaPerempuan[$kelas] = $siswaPerempuan;
         }
 
         return view('homepage.kesiswaan.index', [
@@ -160,9 +182,19 @@ class HomepageController extends Controller
             'headerStudent' => HeaderStudent::first(),
             'sectionStudent' => SectionStudent::first(),
             'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
-            'dataSiswa1TahunKebelakang' => $dataSiswaFirst,
-            'dataSiswa2TahunKebelakang' => $dataSiswaSecond,
-            'dataSiswa3TahunKebelakang' => $dataSiswaThird,
+
+            'dataSiswaTahunIni' => $dataSiswaTahunIni,
+            'dataSiswaTahunKedua' => $dataSiswaTahunKedua,
+            'dataSiswaTahunKetiga' => $dataSiswaTahunKetiga,
+
+            'dataSiswaTahunIniLaki' => $dataSiswaTahunIniLaki,
+            'dataSiswaTahunKeduaLaki' => $dataSiswaTahunKeduaLaki,
+            'dataSiswaTahunKetigaLaki' => $dataSiswaTahunKetigaLaki,
+
+            'dataSiswaTahunIniPerempuan' => $dataSiswaTahunIniPerempuan,
+            'dataSiswaTahunKeduaPerempuan' => $dataSiswaTahunKeduaPerempuan,
+            'dataSiswaTahunKetigaPerempuan' => $dataSiswaTahunKetigaPerempuan,
+
             'sectionExtracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => Extracurricular::all(),
             'sectionService' => SectionService::first(),

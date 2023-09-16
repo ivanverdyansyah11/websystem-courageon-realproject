@@ -2,81 +2,111 @@
 
 @section('container')
     <main class="mt-3">
-        <section class="hero-section container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-7 col-12">
-                    <p class="display-4 fw-bold text-black">
-                        {{ $headerProfile->title_header }}
-                    </p>
-                    <p class="mt-4 desc">
-                        {{ $headerProfile->description }}
-                    </p>
-                    <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#visiMisi" class="btn btn-color">{{ $headerProfile->button }}</a>
-                    </div>
-                </div>
-                <div class="col-xl-1 d-xl-block d-none"></div>
-                <div class="col-lg-5 d-lg-block d-none">
-                    @if ($headerProfile->banner)
-                        <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
-                            alt="profile section image" class="w-100">
-                    @else
-                        <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image"
-                            class="w-100">
-                    @endif
-                </div>
+        <section class="hero-section container position-relative">
+            <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
-        </section>
-        <section class="vision-section container section-margin-top" id="visiMisi">
-            <div class="row">
-                <div class="col-lg-5 d-lg-block d-none">
-                    @if ($visiMision->banner)
-                        <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}"
-                            alt="visi misi image" class="w-100">
-                    @else
-                        <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image" class="w-100">
-                    @endif
-                </div>
-                <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
-                    <div class="d-flex flex-column gap-4">
-                        <div class="accordion" id="myAccordion">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                        <p class="fw-semibold">{{ $visiMision->title_vision }}</p>
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    data-bs-parent="#myAccordion">
-                                    <div class="card-body">
-                                        <p class="fs-15 desc">
-                                            {{ $visiMision->description_vision }}
-                                        </p>
-                                    </div>
-                                </div>
+            <div class="position-relative">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-7 col-12">
+                        <p class="display-4 fw-bold text-black">
+                            {{ $headerProfile->title_header }}
+                        </p>
+                        <p class="mt-4 desc">
+                            {{ $headerProfile->description }}
+                        </p>
+                        <div class="mt-4 d-flex gap-3 align-items-center">
+                            <a href="#visiMisi" class="btn btn-color">{{ $headerProfile->button }}</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 d-xl-block d-none"></div>
+                    <div class="col-lg-5 d-lg-block d-none">
+                        <div class="position-relative">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor right-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative">
+                                @if ($headerProfile->banner)
+                                    <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
+                                        alt="profile section image" class="w-100 img-section right-img-section">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/profile-hero.png') }}"
+                                        alt="profile section image" class="w-100">
+                                @endif
                             </div>
                         </div>
-                        <div class="accordion" id="myAccordion2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading2">
-                                    <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
-                                        data-bs-toggle="collapse" data-bs-target="#collapse2">
-                                        <p class="fw-semibold">{{ $visiMision->title_mission }}</p>
-                                    </button>
-                                </h2>
-                                <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
-                                    <div class="card-body">
-                                        <p class="fs-15 desc-color">{{ $visiMision->description_mission }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
+        <section class="vision-section container section-margin-top position-relative" id="visiMisi">
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="row">
+                    <div class="col-lg-5 d-lg-block d-none">
+                        <div class="position-relative">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative">
+                                @if ($visiMision->banner)
+                                    <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}"
+                                        alt="visi misi image" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image"
+                                        class="w-100">
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
+                        <div class="d-flex flex-column gap-4">
+                            <div class="accordion" id="myAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button type="button"
+                                            class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            <p class="fw-semibold">{{ $visiMision->title_vision }}</p>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        data-bs-parent="#myAccordion">
+                                        <div class="card-body">
+                                            <p class="fs-15 desc">
+                                                {!! $visiMision->description_vision !!}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion" id="myAccordion2">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading2">
+                                        <button type="button"
+                                            class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                            <p class="fw-semibold">{{ $visiMision->title_mission }}</p>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2" class="accordion-collapse collapse show"
+                                        data-bs-parent="#myAccordion2">
+                                        <div class="card-body">
+                                            <p class="fs-15 desc-color">{!! $visiMision->description_mission !!}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="quote-section container section-margin-top">
             <div class="d-flex flex-column align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="29" viewBox="0 0 36 29" fill="none">
@@ -98,182 +128,274 @@
                 </div>
             </div>
         </section>
-        <section class="logo-meaning-section container section-margin-top">
-            <div class="img-footer-wrapper d-flex justify-content-center">
-                <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" alt="logo" class="big-logo-meaning">
+
+        <section class="logo-meaning-section container section-margin-top position-relative">
+            <div class="position-absolute start-0 top-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
-            <div class="mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <div class="col">
-                    <div class="logo-meaning-card">
-                        <p class="fs-5 fw-bold text-black text-capitalize">Makna Logo</p>
-                        <p class="mt-2 desc fs-6">
-                            {{ $logo->logo_meaning }}
-                        </p>
-                    </div>
+            <div class="position-relative">
+                <div class="img-footer-wrapper d-flex justify-content-center">
+                    <img src="{{ asset('assets/img/brand/' . $logo->logo) }}" alt="logo" class="big-logo-meaning">
                 </div>
-                <div class="col">
-                    <div class="logo-meaning-card">
-                        <p class="fs-5 fw-bold text-black text-capitalize">Makna Font</p>
-                        <p class="mt-2 desc fs-6">
-                            {{ $logo->font_meaning }}
-                        </p>
+                <div class="mt-5 row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                    <div class="col">
+                        <div class="logo-meaning-card">
+                            <p class="fs-5 fw-bold text-black text-capitalize">Makna Logo</p>
+                            <p class="mt-2 desc fs-6">
+                                {{ $logo->logo_meaning }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="logo-meaning-card">
-                        <p class="fs-5 fw-bold text-black text-capitalize">Makna Warna</p>
-                        <p class="mt-2 desc fs-6">
-                            {{ $logo->color_meaning }}
-                        </p>
+                    <div class="col">
+                        <div class="logo-meaning-card">
+                            <p class="fs-5 fw-bold text-black text-capitalize">Makna Font</p>
+                            <p class="mt-2 desc fs-6">
+                                {{ $logo->font_meaning }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="mars-section container section-margin-top">
-            <div class="row">
-                <div class="col-lg-5 d-lg-block d-none">
-                    @if ($mars->banner)
-                        <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
-                            alt="mars section image" class="w-100 h-100">
-                    @else
-                        <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
-                            class="w-100 h-100">
-                    @endif
-                </div>
-                <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
-                    <p class="text-black display-5 fw-bold text-capitalize">
-                        {{ $mars->title_section }}
-                    </p>
-                    <div class="song-wrapper mt-3">
-                        <p class="desc song-lyric ">
-                            {!! $mars->mars !!}
-                        </p>
+                    <div class="col">
+                        <div class="logo-meaning-card">
+                            <p class="fs-5 fw-bold text-black text-capitalize">Makna Warna</p>
+                            <p class="mt-2 desc fs-6">
+                                {{ $logo->color_meaning }}
+                            </p>
+                        </div>
                     </div>
-                    <p class="mt-3 desc fs-6">
-                        Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
-                    </p>
                 </div>
             </div>
         </section>
-        <section class="management-section container section-margin-top">
-            <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                    {{ $sectionManagement->title_section }}</p>
+
+        <section class="mars-section container section-margin-top position-relative">
+            <div class="position-absolute end-0 bottom-50 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
-            <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    @foreach ($managements as $management)
-                        <div class="col">
-                            <div class="card-school-people text-center">
-                                @if ($management->image)
-                                    <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
-                                        alt="{{ $management->fullname }}" class="w-100">
+            <div class="position-relative">
+                <div class="row">
+                    <div class="col-lg-5 d-lg-block d-none">
+                        <div class="position-relative w-100 h-100">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative w-100 h-100">
+                                @if ($mars->banner)
+                                    <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
+                                        alt="mars section image" class="w-100 h-100 img-section left-img-section">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/management1.png') }}"
-                                        alt="{{ $management->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
+                                        class="w-100 h-100">
                                 @endif
-                                <p class="text-black fw-bold fs-18 mt-3">{{ $management->fullname }}</p>
-                                <p class="desc">{{ $management->position }}</p>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-                <div class="d-flex justify-content-center mt-4">
-                    @if ($managementCount > 4)
-                        <a href="{{ route('manajemen') }}" class="btn btn-color">{{ $sectionManagement->button }}</a>
-                    @endif
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 offset-lg-1">
+                        <p class="text-black display-6 fw-bold text-capitalize">
+                            {{ $mars->title_section }}
+                        </p>
+                        <div class="song-wrapper mt-3">
+                            <p class="desc song-lyric ">
+                                {!! $mars->mars !!}
+                            </p>
+                        </div>
+                        <p class="mt-3 desc fs-6">
+                            Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="teacher-section container section-margin-top">
-            <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                    {{ $sectionTeacher->title_section }}
-                </p>
-            </div>
-            <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    @foreach ($teachers as $teacher)
-                        <div class="col">
-                            <div class="card-school-people text-center">
-                                @if ($teacher->image)
-                                    <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
-                                        alt="{{ $teacher->fullname }}" class="w-100">
+
+        <section class="mars-section container section-margin-top position-relative">
+            <div class="position-relative">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <p class="text-black display-6 fw-bold text-capitalize">
+                            {{ $hymne->title_section }}
+                        </p>
+                        <div class="song-wrapper mt-3">
+                            <p class="desc song-lyric ">
+                                {!! $hymne->hymne !!}
+                            </p>
+                        </div>
+                        <p class="mt-3 desc fs-6">
+                            Ciptaan: <span class="fw-semibold text-black"> {{ $hymne->creation }}</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-5 d-lg-block d-none offset-lg-1">
+                        <div class="position-relative w-100 h-100">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative w-100 h-100">
+                                @if ($hymne->banner)
+                                    <img src="{{ asset('assets/img/profil-images/hymne-image/' . $hymne->banner) }}"
+                                        alt="hymne section image" class="w-100 h-100 img-section left-img-section">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/teacher1.png') }}"
-                                        alt="{{ $teacher->fullname }}" class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/hymne-img.png') }}" alt="hymne section image"
+                                        class="w-100 h-100">
                                 @endif
-                                <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
-                                <p class="desc">{{ $teacher->position }}</p>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    @if ($teacherCount > 4)
-                        <a href="{{ route('guru') }}" class="btn btn-color">{{ $sectionTeacher->button }}</a>
-                    @endif
-                </div>
+            </div>
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
         </section>
-        <section class="employee-section container section-margin-top">
-            <div class="d-flex justify-content-center">
-                <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                    {{ $sectionStaff->title_section }}</p>
+
+        <section class="management-section container section-margin-top position-relative">
+            <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
-            <div class="mt-5">
-                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                    @foreach ($staffs as $staff)
-                        <div class="col">
-                            <div class="card-school-people text-center">
-                                @if ($staff->image)
-                                    <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}"
-                                        alt="{{ $staff->fullname }}" class="w-100">
-                                @else
-                                    <img src="{{ asset('assets-homepage/img/employee1.png') }}"
-                                        alt="{{ $staff->fullname }}" class="w-100">
-                                @endif
-                                <p class="text-black fw-bold fs-18 mt-3">{{ $staff->fullname }}</p>
-                                <p class="desc">{{ $staff->position }}</p>
-                            </div>
-                        </div>
-                    @endforeach
+            <div class="position-relative">
+                <div class="d-flex justify-content-center">
+                    <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                        {{ $sectionManagement->title_section }}</p>
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    @if ($staffCount > 4)
-                        <a href="{{ route('pegawai') }}" class="btn btn-color">{{ $sectionStaff->button }}</a>
-                    @endif
-                </div>
-            </div>
-        </section>
-        <section class="location-section container section-margin-top">
-            <div class="row align-items-center">
-                <div class="col-lg-5 col-12">
-                    <iframe src="{{ $sectionContact->url_maps }}" class="w-100" height="450px" style="border:0;"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
-                    <p class="text-black fw-bold text-capitalize display-5">
-                        {{ $sectionContact->title_section }}
-                    </p>
-                    <div class="mt-4 d-flex flex-column gap-4">
-                        @foreach ($contacts as $contact)
-                            <div class="d-flex gap-3">
-                                <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
-                                    @if ($contact->icon)
-                                        <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}"
-                                            alt="{{ $contact->fullname }}" class="w-30">
+                <div class="mt-5">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+                        @foreach ($managements as $management)
+                            <div class="col">
+                                <div class="card-school-people text-center">
+                                    @if ($management->image)
+                                        <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
+                                            alt="{{ $management->fullname }}" class="w-100">
                                     @else
-                                        <img src="{{ asset('assets-homepage/img/employee1.png') }}"
-                                            alt="{{ $contact->fullname }}" class="w-100">
+                                        <img src="{{ asset('assets-homepage/img/management1.png') }}"
+                                            alt="{{ $management->fullname }}" class="w-100">
                                     @endif
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <p class="desc fs-6">{{ $contact->name }}</p>
-                                    <p class="fw-semibold fs-5">{{ $contact->link }}</p>
+                                    <p class="text-black fw-bold fs-18 mt-3">{{ $management->fullname }}</p>
+                                    <p class="desc">{{ $management->position }}</p>
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                    <div class="d-flex justify-content-center mt-4">
+                        @if ($managementCount > 4)
+                            <a href="{{ route('manajemen') }}"
+                                class="btn btn-color">{{ $sectionManagement->button }}</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="teacher-section container section-margin-top position-relative">
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="d-flex justify-content-center">
+                    <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                        {{ $sectionTeacher->title_section }}
+                    </p>
+                </div>
+                <div class="mt-5">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+                        @foreach ($teachers as $teacher)
+                            <div class="col">
+                                <div class="card-school-people text-center">
+                                    @if ($teacher->image)
+                                        <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
+                                            alt="{{ $teacher->fullname }}" class="w-100">
+                                    @else
+                                        <img src="{{ asset('assets-homepage/img/teacher1.png') }}"
+                                            alt="{{ $teacher->fullname }}" class="w-100">
+                                    @endif
+                                    <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
+                                    <p class="desc">{{ $teacher->position }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        @if ($teacherCount > 4)
+                            <a href="{{ route('guru') }}" class="btn btn-color">{{ $sectionTeacher->button }}</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="employee-section container section-margin-top position-relative">
+            <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="d-flex justify-content-center">
+                    <p class="display-5 fw-bold text-capitalize text-center title-section-text">
+                        {{ $sectionStaff->title_section }}</p>
+                </div>
+                <div class="mt-5">
+                    <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+                        @foreach ($staffs as $staff)
+                            <div class="col">
+                                <div class="card-school-people text-center">
+                                    @if ($staff->image)
+                                        <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}"
+                                            alt="{{ $staff->fullname }}" class="w-100">
+                                    @else
+                                        <img src="{{ asset('assets-homepage/img/employee1.png') }}"
+                                            alt="{{ $staff->fullname }}" class="w-100">
+                                    @endif
+                                    <p class="text-black fw-bold fs-18 mt-3">{{ $staff->fullname }}</p>
+                                    <p class="desc">{{ $staff->position }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-4 d-flex justify-content-center">
+                        @if ($staffCount > 4)
+                            <a href="{{ route('pegawai') }}" class="btn btn-color">{{ $sectionStaff->button }}</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="location-section container section-margin-top position-relative">
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="row align-items-center gy-5">
+                    <div class="col-lg-5 col-12">
+                        <div class="position-relative">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative">
+                                <div class="img-section left-img-section">
+                                    <iframe src="{{ $sectionContact->url_maps }}"
+                                        class="w-100 img-section left-img-section" height="450px" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        class=""></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12 offset-lg-1">
+                        <p class="text-black fw-bold text-capitalize display-5">
+                            {{ $sectionContact->title_section }}
+                        </p>
+                        <div class="mt-4 d-flex flex-column gap-4">
+                            @foreach ($contacts as $contact)
+                                <div class="d-flex gap-3">
+                                    <div class="icon-location-wrapper d-flex justify-content-center align-items-center">
+                                        @if ($contact->icon)
+                                            <img src="{{ asset('assets/img/profil-images/kontak-image/' . $contact->icon) }}"
+                                                alt="{{ $contact->fullname }}" class="w-30">
+                                        @else
+                                            <img src="{{ asset('assets-homepage/img/employee1.png') }}"
+                                                alt="{{ $contact->fullname }}" class="w-100">
+                                        @endif
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <p class="desc fs-6">{{ $contact->name }}</p>
+                                        <p class="fw-semibold fs-5">{{ $contact->link }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

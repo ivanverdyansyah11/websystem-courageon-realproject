@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hymne;
 use App\Models\Logo;
 use App\Models\Mars;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class LogoMarsController extends Controller
             'title' => 'Profil > Logo & Mars',
             'logo' => Logo::first(),
             'mars' => Mars::first(),
+            'hymne' => Hymne::first(),
         ]);
     }
 
@@ -113,6 +115,52 @@ class LogoMarsController extends Controller
             return redirect(route('logo-mars-index'))->with('success', 'Berhasil Update Mars Sekolah!');
         } else {
             return redirect(route('logo-mars-index'))->with('failed', 'Gagal Update Mars Sekolah!');
+        }
+    }
+
+    function detailHymne()
+    {
+        return view('profil.logo-mars.detail-hymne', [
+            'title' => 'Profil > Logo & Mars',
+            'hymne' => Hymne::first(),
+        ]);
+    }
+
+    function editHymne()
+    {
+        return view('profil.logo-mars.edit-hymne', [
+            'title' => 'Profil > Logo & Mars',
+            'hymne' => Hymne::first(),
+        ]);
+    }
+
+    function updateHymne(Request $request)
+    {
+        $hymne = Hymne::first();
+        $validatedData = $request->validate([
+            'title_section' => 'required|string|max:255',
+            'hymne' => 'required|string',
+            'creation' => 'required|string|max:255',
+        ]);
+
+        if ($request->file('banner')) {
+            $oldImagePath = public_path('assets/img/profil-images/hymne-image/') . $hymne->banner;
+            unlink($oldImagePath);
+
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/hymne-image/'), $imageName);
+            $validatedData['banner'] = $imageName;
+        } else {
+            $validatedData['banner'] = $hymne->banner;
+        }
+
+        $hymneAction = Hymne::first()->update($validatedData);
+
+        if ($hymneAction) {
+            return redirect(route('logo-mars-index'))->with('success', 'Berhasil Update Hymne Sekolah!');
+        } else {
+            return redirect(route('logo-mars-index'))->with('failed', 'Gagal Update Hymne Sekolah!');
         }
     }
 }

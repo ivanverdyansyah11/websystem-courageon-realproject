@@ -231,7 +231,7 @@ a{
 
 /*all section setting*/
 .section-margin-top {
-    margin-top: 122px;
+    margin-top: 142px;
 }
 .achievement-section{
     background-image: url("../img/achievement-img.png");
@@ -263,11 +263,81 @@ section .row .col-lg-5 img{
 .row-program:nth-child(even){
     flex-direction: row-reverse;
 }
+.hero-decor{
+    z-index: 9999999999999;
+}
+@media  (max-width:1300px) {
+    .img-decor-hero{
+        scale: 0.7;
+        transform: translate(-50%, 20%);
+        /* transform: translateX(-60%); */
+    }
+}
+@media (min-width:1301px) {
+    .img-decor-hero{
+        scale: 0.7;
+        transform: translate(-75%, 20%);
+        /* transform: translateX(-60%); */
+    }
+}
+.right-img-section , .row-program:nth-child(odd) .img-wrapper .position-relative .position-relative .img-section{
+    transform: translate(-4%, 0%);
+    border-radius: 12px;
+}
+/* .left-img-section{
+
+    border-radius: 12px;
+} */
+.right-img-section-decor,  .row-program:nth-child(odd) .img-wrapper .position-relative .position-absolute .img-section-decor{
+    transform: translateY(4%);
+}
+.left-img-section-decor,  .row-program:nth-child(even) .img-wrapper .position-relative .position-absolute .img-section-decor{
+    transform: translate(4%, 4%);
+}
+
+.side-img-section-decor{
+    background: rgba(1, 96, 201, 0.12);
+    border-radius: 12px;
+}
+.section-decor{
+    scale: 0.8;
+    transform: translateY(120%);
+}
+.cta-section{
+    background-image: url('../../assets-homepage/img/cta-bg.svg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+.cta-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.vision-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.location-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.grafik-akademik-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.denah-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.blog-humas-section .position-absolute .section-decor{
+    transform: translateY(180%);
+}
+.img-section{
+    border-radius: 12px !important  ;
+}
+.second-section-decor{
+    transform: translateY(6%);
+}
 /*all section setting*/
 
 
 /*card styles*/
-.card-testi{
+.card-testi, .card-desc-section{
     padding: 36px;
     border-radius: 12px;
     border: 1px solid rgba(35, 35, 35, 0.12);
@@ -293,7 +363,7 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 
 
-.card-extra{
+.card-extra, .card-blog, .card-prestasi, .card-sapras{
     padding: 20px;
     border-radius: 12px;
     transition: 0.2s;
@@ -329,9 +399,9 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 
 /*pinterest layout style*/
 .pin-container{
-    -moz-column-count: 1 !important;
-    -webkit-column-count: 1 !important;
-    column-count: 1 !important;
+    -moz-column-count: 1;
+    -webkit-column-count: 1 ;
+    column-count: 1;
     -moz-column-gap: 20px;
     -webkit-column-gap: 20px;
     column-gap: 20px;
@@ -342,22 +412,22 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
     margin-top: 20px;
     width: 100%;
 }
-@media (min-width: 500px), (max-width: 900px){
+@media (min-width: 500px) and (max-width: 900px){
     .pin-container{
-        -moz-column-count: 2 !important;
-        -webkit-column-count: 2 !important;
-        column-count: 2 !important;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
         -moz-column-gap: 20px;
         -webkit-column-gap: 20px;
         column-gap: 20px;
         justify-content: center;
     }
 }
-@media (min-width: 901px), (max-width: 1300px){
+@media (min-width: 901px) and (max-width: 1300px){
     .pin-container{
-        -moz-column-count: 4 !important;
-        -webkit-column-count: 4 !important;
-        column-count: 4 !important;
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
         -moz-column-gap: 20px;
         -webkit-column-gap: 20px;
         column-gap: 20px;
@@ -366,9 +436,9 @@ a .card-p5:hover, .prestasi:hover, .card-blog:hover{
 }
 @media (min-width: 1301px){
     .pin-container{
-        -moz-column-count: 4 !important;
-        -webkit-column-count: 4 !important;
-        column-count: 4 !important;
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
         -moz-column-gap: 0px;
         -webkit-column-gap: 0px;
         column-gap: 0px;

@@ -163,6 +163,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/logo-mars/detail-mars', 'detailMars')->name('mars-detail');
             Route::get('/profil/logo-mars/edit-mars', 'editMars')->name('mars-edit');
             Route::post('/profil/logo-mars/edit-mars', 'updateMars')->name('mars-update');
+
+            Route::get('/profil/logo-mars/detail-hymne', 'detailHymne')->name('hymne-detail');
+            Route::get('/profil/logo-mars/edit-hymne', 'editHymne')->name('hymne-edit');
+            Route::post('/profil/logo-mars/edit-hymne', 'updateHymne')->name('hymne-update');
         });
 
         Route::controller(ManajemenController::class)->group(function () {
