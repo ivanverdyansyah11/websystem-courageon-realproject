@@ -4,7 +4,7 @@
     <main class="mt-3">
         <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="row align-items-center">
@@ -27,12 +27,12 @@
                             </div>
                             <div class="position-relative">
                                 @if ($headerProfile->banner)
-                                <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
-                                    alt="profile section image" class="w-100 img-section right-img-section">
-                            @else
-                                <img src="{{ asset('assets-homepage/img/profile-hero.png') }}" alt="profile section image"
-                                    class="w-100">
-                            @endif
+                                    <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
+                                        alt="profile section image" class="w-100 img-section right-img-section">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/profile-hero.png') }}"
+                                        alt="profile section image" class="w-100">
+                                @endif
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
         </section>
         <section class="vision-section container section-margin-top position-relative" id="visiMisi">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="row">
@@ -53,21 +53,22 @@
                             </div>
                             <div class="position-relative">
                                 @if ($visiMision->banner)
-                                <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}"
-                                    alt="visi misi image" class="w-100">
-                            @else
-                                <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image" class="w-100">
-                            @endif
+                                    <img src="{{ asset('assets/img/profil-images/visi-misi-image/' . $visiMision->banner) }}"
+                                        alt="visi misi image" class="w-100">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/visi-img.png') }}" alt="visi misi image"
+                                        class="w-100">
+                                @endif
                             </div>
                         </div>
-
                     </div>
                     <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                         <div class="d-flex flex-column gap-4">
                             <div class="accordion" id="myAccordion">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                        <button type="button"
+                                            class="accordion-button ps-0 gap-4 align-items-center text-white"
                                             data-bs-toggle="collapse" data-bs-target="#collapseOne">
                                             <p class="fw-semibold">{{ $visiMision->title_vision }}</p>
                                         </button>
@@ -85,12 +86,14 @@
                             <div class="accordion" id="myAccordion2">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading2">
-                                        <button type="button" class="accordion-button ps-0 gap-4 align-items-center text-white"
+                                        <button type="button"
+                                            class="accordion-button ps-0 gap-4 align-items-center text-white"
                                             data-bs-toggle="collapse" data-bs-target="#collapse2">
                                             <p class="fw-semibold">{{ $visiMision->title_mission }}</p>
                                         </button>
                                     </h2>
-                                    <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="#myAccordion2">
+                                    <div id="collapse2" class="accordion-collapse collapse show"
+                                        data-bs-parent="#myAccordion2">
                                         <div class="card-body">
                                             <p class="fs-15 desc-color">{{ $visiMision->description_mission }}
                                             </p>
@@ -102,8 +105,8 @@
                     </div>
                 </div>
             </div>
-
         </section>
+
         <section class="quote-section container section-margin-top">
             <div class="d-flex flex-column align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="29" viewBox="0 0 36 29" fill="none">
@@ -125,9 +128,10 @@
                 </div>
             </div>
         </section>
+
         <section class="logo-meaning-section container section-margin-top position-relative">
             <div class="position-absolute start-0 top-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="img-footer-wrapper d-flex justify-content-center">
@@ -161,9 +165,10 @@
                 </div>
             </div>
         </section>
+
         <section class="mars-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-50 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="row">
@@ -175,7 +180,7 @@
                             <div class="position-relative w-100 h-100">
                                 @if ($mars->banner)
                                     <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
-                                    alt="mars section image" class="w-100 h-100 img-section left-img-section">
+                                        alt="mars section image" class="w-100 h-100 img-section left-img-section">
                                 @else
                                     <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
                                         class="w-100 h-100">
@@ -199,9 +204,49 @@
                 </div>
             </div>
         </section>
+
+        <section class="mars-section container section-margin-top position-relative">
+            <div class="position-relative">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <p class="text-black display-6 fw-bold text-capitalize">
+                            {{ $mars->title_section }}
+                        </p>
+                        <div class="song-wrapper mt-3">
+                            <p class="desc song-lyric ">
+                                {!! $mars->mars !!}
+                            </p>
+                        </div>
+                        <p class="mt-3 desc fs-6">
+                            Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-5 d-lg-block d-none offset-lg-1">
+                        <div class="position-relative w-100 h-100">
+                            <div class="position-absolute w-100 h-100">
+                                <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
+                            </div>
+                            <div class="position-relative w-100 h-100">
+                                @if ($mars->banner)
+                                    <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
+                                        alt="mars section image" class="w-100 h-100 img-section left-img-section">
+                                @else
+                                    <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
+                                        class="w-100 h-100">
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
+            </div>
+        </section>
+
         <section class="management-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
@@ -228,7 +273,8 @@
                     </div>
                     <div class="d-flex justify-content-center mt-4">
                         @if ($managementCount > 4)
-                            <a href="{{ route('manajemen') }}" class="btn btn-color">{{ $sectionManagement->button }}</a>
+                            <a href="{{ route('manajemen') }}"
+                                class="btn btn-color">{{ $sectionManagement->button }}</a>
                         @endif
                     </div>
                 </div>
@@ -236,7 +282,7 @@
         </section>
         <section class="teacher-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
@@ -272,7 +318,7 @@
         </section>
         <section class="employee-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
@@ -308,7 +354,7 @@
         </section>
         <section class="location-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="row align-items-center gy-5">
@@ -319,8 +365,10 @@
                             </div>
                             <div class="position-relative">
                                 <div class="img-section left-img-section">
-                                    <iframe src="{{ $sectionContact->url_maps }}" class="w-100 img-section left-img-section" height="450px"
-                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class=""></iframe>
+                                    <iframe src="{{ $sectionContact->url_maps }}"
+                                        class="w-100 img-section left-img-section" height="450px" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        class=""></iframe>
                                 </div>
                             </div>
                         </div>
