@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/img/brand/' . $logo->logo) }}"
+        <a class="navbar-brand" href="/beranda"><img src="{{ asset('assets/img/brand/' . $logo->logo) }}"
                 class="logo-size-navbar" alt="" draggable="false" style="width: 52px;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
