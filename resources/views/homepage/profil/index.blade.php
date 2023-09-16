@@ -77,7 +77,7 @@
                                         data-bs-parent="#myAccordion">
                                         <div class="card-body">
                                             <p class="fs-15 desc">
-                                                {{ $visiMision->description_vision }}
+                                                {!! $visiMision->description_vision !!}
                                             </p>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                     <div id="collapse2" class="accordion-collapse collapse show"
                                         data-bs-parent="#myAccordion2">
                                         <div class="card-body">
-                                            <p class="fs-15 desc-color">{{ $visiMision->description_mission }}
+                                            <p class="fs-15 desc-color">{!! $visiMision->description_mission !!}
                                             </p>
                                         </div>
                                     </div>
