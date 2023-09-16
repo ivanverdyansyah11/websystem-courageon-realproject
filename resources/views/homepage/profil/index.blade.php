@@ -210,15 +210,15 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
                         <p class="text-black display-6 fw-bold text-capitalize">
-                            {{ $mars->title_section }}
+                            {{ $hymne->title_section }}
                         </p>
                         <div class="song-wrapper mt-3">
                             <p class="desc song-lyric ">
-                                {!! $mars->mars !!}
+                                {!! $hymne->hymne !!}
                             </p>
                         </div>
                         <p class="mt-3 desc fs-6">
-                            Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
+                            Ciptaan: <span class="fw-semibold text-black"> {{ $hymne->creation }}</span>
                         </p>
                     </div>
                     <div class="col-lg-5 d-lg-block d-none offset-lg-1">
@@ -227,11 +227,11 @@
                                 <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
                             </div>
                             <div class="position-relative w-100 h-100">
-                                @if ($mars->banner)
-                                    <img src="{{ asset('assets/img/profil-images/mars-image/' . $mars->banner) }}"
-                                        alt="mars section image" class="w-100 h-100 img-section left-img-section">
+                                @if ($hymne->banner)
+                                    <img src="{{ asset('assets/img/profil-images/hymne-image/' . $hymne->banner) }}"
+                                        alt="hymne section image" class="w-100 h-100 img-section left-img-section">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/mars-img.png') }}" alt="mars section image"
+                                    <img src="{{ asset('assets-homepage/img/hymne-img.png') }}" alt="hymne section image"
                                         class="w-100 h-100">
                                 @endif
                             </div>

@@ -17,6 +17,7 @@ use App\Models\HeaderProfile;
 use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
+use App\Models\Hymne;
 use App\Models\Journal;
 use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
@@ -93,6 +94,7 @@ class HomepageController extends Controller
             'motto' => Motto::first(),
             'logo' => Logo::first(),
             'mars' => Mars::first(),
+            'hymne' => Hymne::first(),
             'sectionManagement' => SectionManagement::first(),
             'managements' => Employee::where('role_employees_id', '1')->take(4)->get(),
             'managementCount' => Employee::where('role_employees_id', '1')->get()->count(),

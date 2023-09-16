@@ -21,6 +21,7 @@ use App\Models\HeaderSaranaPrasarana;
 use App\Models\HeaderStudent;
 use App\Models\HistoryHome;
 use App\Models\HistoryKenaikanSiswa;
+use App\Models\Hymne;
 use App\Models\Index;
 use App\Models\Journal;
 use App\Models\Jurusan;
@@ -172,6 +173,13 @@ class DatabaseSeeder extends Seeder
             'banner' => 'banner-mars.png',
             'title_section' => 'Mars SMA Negeri 1 Selat',
             'mars' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
+            'creation' => 'Dr. Andi Pranoto, M.Pd.',
+        ]);
+
+        Hymne::create([
+            'banner' => 'banner-hymne.png',
+            'title_section' => 'Hymne SMA Negeri 1 Selat',
+            'hymne' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
             'creation' => 'Dr. Andi Pranoto, M.Pd.',
         ]);
 
