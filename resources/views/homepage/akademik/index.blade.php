@@ -223,6 +223,12 @@
                         <div class="category1 item">
                             <canvas id="chart1" class="w-100"></canvas>
                         </div>
+                        <div class="category2 item">
+                            <canvas id="chart2" class="w-100"></canvas>
+                        </div>
+                        <div class="category3 item">
+                            <canvas id="chart3" class="w-100"></canvas>
+                        </div>
                     </div>
                     <div class="d-flex gap-4 justify-content-center mt-3">
                         <div class="d-flex gap-2 align-items-center">
