@@ -198,7 +198,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center gap-3">
+                {{-- <div class="mt-4 d-flex justify-content-center gap-3">
                     <button
                             class="btn btn-text category-name active"
                             onclick="showItems('category1')"
@@ -217,7 +217,7 @@
                     >
                       SISWA PEREMPUAN
                     </button>
-                  </div>
+                  </div> --}}
                 <div class="mt-5">
                     <div class="category-content">
                         <div class="category1 item">
@@ -370,117 +370,117 @@
                 }
             }
         });
-        new Chart(chart2, {
-            type: 'bar',
-            data: {
-                labels: [label1, label2, label3],
-                datasets: [{
-                    data: [data1, data4, data7, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [data2, data5, data8, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [data3, data6, data9, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
+        // new Chart(chart2, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: [label1, label2, label3],
+        //         datasets: [{
+        //             data: [data1, data4, data7, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#F94144', '#F94144', '#F94144'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, {
+        //             data: [data2, data5, data8, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, {
+        //             data: [data3, data6, data9, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, ],
 
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-
-
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 1000,
-                        ticks: {
-                            stepSize: 100
-                        }
-                    },
-                    xAxes: [{
-
-                    }]
-
-                }
-            }
-        });
-        new Chart(chart3, {
-            type: 'bar',
-            data: {
-                labels: [label1, label2, label3],
-                datasets: [{
-                    data: [data1, data4, data7, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [data2, data5, data8, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, {
-                    data: [data3, data6, data9, ],
-                    borderWidth: 0.1,
-                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-                    categoryPercentage: 0.8,
-                    barPercentage: 0.6,
-                    borderRadius: '8',
-                    spaceBetween: '10'
-                }, ],
-
-            },
-            options: {
-                // responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
+        //     },
+        //     options: {
+        //         // responsive: true,
+        //         plugins: {
+        //             legend: {
+        //                 display: false,
+        //             },
+        //         },
 
 
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 1000,
-                        ticks: {
-                            stepSize: 100
-                        }
-                    },
-                    xAxes: [{
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true,
+        //                 min: 0,
+        //                 max: 1000,
+        //                 ticks: {
+        //                     stepSize: 100
+        //                 }
+        //             },
+        //             xAxes: [{
 
-                    }]
+        //             }]
 
-                }
-            }
-        });
+        //         }
+        //     }
+        // });
+        // new Chart(chart3, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: [label1, label2, label3],
+        //         datasets: [{
+        //             data: [data1, data4, data7, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#F94144', '#F94144', '#F94144'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, {
+        //             data: [data2, data5, data8, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, {
+        //             data: [data3, data6, data9, ],
+        //             borderWidth: 0.1,
+        //             backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+        //             categoryPercentage: 0.8,
+        //             barPercentage: 0.6,
+        //             borderRadius: '8',
+        //             spaceBetween: '10'
+        //         }, ],
+
+        //     },
+        //     options: {
+        //         // responsive: true,
+        //         plugins: {
+        //             legend: {
+        //                 display: false,
+        //             },
+        //         },
+
+
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true,
+        //                 min: 0,
+        //                 max: 1000,
+        //                 ticks: {
+        //                     stepSize: 100
+        //                 }
+        //             },
+        //             xAxes: [{
+
+        //             }]
+
+        //         }
+        //     }
+        // });
     </script>
 @endsection
