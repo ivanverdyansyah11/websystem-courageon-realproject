@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="ms-xl-3">
-                        <p class="text-black fs-3 fw-bold text-capitalize">Pelaksanaan 5P Lainnya :</p>
+                        <p class="text-black fs-3 fw-bold text-capitalize">Pelaksanaan 5P Lainnya:</p>
                         <div class="mt-3 d-flex flex-column gap-4 other-p5-wrapper">
                             @foreach ($rekomendasi as $rekomen)
                             <a href="{{ route('detail-projek', $rekomen->id) }}" class="d-flex gap-3 align-items-center">
