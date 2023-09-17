@@ -91,7 +91,6 @@ Route::middleware('guest')->group(function () {
             Route::get('/login', 'index')->name('login');
             Route::post('/login', 'loginAction')->name('login.action');
 
-
             Route::get('/forgot-password', 'forgotPassword')->name('forgot-password');
             Route::post('/forgot-password', 'forgotPasswordAction')->name('forgot-password.action');
         });

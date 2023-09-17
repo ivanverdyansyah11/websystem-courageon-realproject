@@ -209,6 +209,7 @@ class DatabaseSeeder extends Seeder
             'highest_rank' => 'SMKN 2014',
             'position' => 'Kontrak Provinsi',
             'gender' => 'L',
+            'status' => 'pns',
             'last_number_skp' => '5/04.C/HK/2022',
             'last_date_skp' => '2022-01-03',
             'first_number_skp' => '1553/03-A/HK/2014',
@@ -224,6 +225,7 @@ class DatabaseSeeder extends Seeder
             'highest_rank' => 'SMKN 2000',
             'position' => 'Kontrak Provinsi',
             'gender' => 'L',
+            'status' => 'pns',
             'last_number_skp' => '5/04.C/HK/2022',
             'last_date_skp' => '2022-01-03',
             'first_number_skp' => '1553/03-A/HK/2014',
@@ -239,6 +241,7 @@ class DatabaseSeeder extends Seeder
             'highest_rank' => 'SMKN 2018',
             'position' => 'Kontrak Provinsi',
             'gender' => 'L',
+            'status' => 'pns',
             'last_number_skp' => '5/04.C/HK/2022',
             'last_date_skp' => '2022-01-03',
             'first_number_skp' => '1553/03-A/HK/2014',
@@ -254,6 +257,7 @@ class DatabaseSeeder extends Seeder
             'highest_rank' => 'SMKN 2011',
             'position' => 'Kontrak Provinsi',
             'gender' => 'L',
+            'status' => 'pns',
             'last_number_skp' => '5/04.C/HK/2022',
             'last_date_skp' => '2022-01-03',
             'first_number_skp' => '1553/03-A/HK/2014',
@@ -272,6 +276,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19650428 199512 1 002',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
+            'status' => 'pns',
             'course_id' => '1',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
@@ -283,6 +288,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19670110 199203 1 012',
             'position' => 'Guru Ahli Madya',
             'gender' => 'P',
+            'status' => 'pns',
             'course_id' => '2',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
@@ -294,6 +300,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19680517 199512 1 003',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
+            'status' => 'pns',
             'course_id' => '1',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
@@ -305,6 +312,7 @@ class DatabaseSeeder extends Seeder
             'nip' => '19700622 199512 1 001',
             'position' => 'Guru Ahli Madya',
             'gender' => 'L',
+            'status' => 'pns',
             'course_id' => '1',
             'room_type' => 'Pembina Tk. I / IVb',
         ]);
@@ -321,6 +329,7 @@ class DatabaseSeeder extends Seeder
             'rank' => 'Penata / IIIc',
             'position' => 'Analis SDM / KTU',
             'gender' => 'L',
+            'status' => 'pns',
         ]);
 
         Employee::create([
@@ -330,6 +339,7 @@ class DatabaseSeeder extends Seeder
             'rank' => 'Penata Tk.1/ III/.d',
             'position' => 'Pengelola Data',
             'gender' => 'L',
+            'status' => 'pns',
         ]);
 
         Employee::create([
@@ -339,6 +349,7 @@ class DatabaseSeeder extends Seeder
             'rank' => 'Penata/ III/.c',
             'position' => 'Pengelola BMD',
             'gender' => 'P',
+            'status' => 'pns',
         ]);
 
         Employee::create([
@@ -348,6 +359,7 @@ class DatabaseSeeder extends Seeder
             'rank' => 'Penata Muda /III/a',
             'position' => 'Pengelola Keuangan',
             'gender' => 'L',
+            'status' => 'pns',
         ]);
 
         SectionContact::create([

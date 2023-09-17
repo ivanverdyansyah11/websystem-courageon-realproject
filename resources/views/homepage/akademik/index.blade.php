@@ -4,7 +4,7 @@
     <main class="mt-3">
         <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
@@ -27,7 +27,7 @@
                         <div class="position-relative">
                             @if ($headerAcademic->banner)
                                 <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}"
-                                alt="akademik section image" class="w-100 img-section right-img-section">
+                                    alt="akademik section image" class="w-100 img-section right-img-section">
                             @else
                                 <img src="{{ asset('assets-homepage/img/akademik-hero.png') }}" alt="akademik section image"
                                     class="w-100">
@@ -47,10 +47,10 @@
                         <div class="position-relative">
                             @if ($curriculum->banner)
                                 <img src="{{ asset('assets/img/akademik-images/kurikulum-image/' . $curriculum->banner) }}"
-                                alt="kurikulum section image" class="w-100 img-section left-img-section">
+                                    alt="kurikulum section image" class="w-100 img-section left-img-section">
                             @else
-                                <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}" alt="kurikulum section image"
-                                    class="w-100">
+                                <img src="{{ asset('assets-homepage/img/kurikulum-img.png') }}"
+                                    alt="kurikulum section image" class="w-100">
                             @endif
                         </div>
                     </div>
@@ -76,7 +76,7 @@
         </section>
         <section class="program-akademik-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
@@ -99,8 +99,8 @@
                                 <a target="_block" href="{{ $program->link }}"
                                     class="d-flex align-items-center gap-2 mt-4 btn btn-color">
                                     {{ $program->button }}
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
-                                        fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10"
+                                        viewBox="0 0 20 10" fill="none">
                                         <path
                                             d="M1 4.35C0.641015 4.35 0.35 4.64101 0.35 5C0.35 5.35899 0.641015 5.65 1 5.65V4.35ZM19.4596 5.45962C19.7135 5.20578 19.7135 4.79422 19.4596 4.54038L15.323 0.403806C15.0692 0.149965 14.6576 0.149965 14.4038 0.403806C14.15 0.657647 14.15 1.0692 14.4038 1.32304L18.0808 5L14.4038 8.67696C14.15 8.9308 14.15 9.34235 14.4038 9.59619C14.6576 9.85003 15.0692 9.85003 15.323 9.59619L19.4596 5.45962ZM1 5.65L19 5.65V4.35L1 4.35V5.65Z"
                                             fill="white" />
@@ -115,7 +115,7 @@
                                     </div>
                                     <div class="position-relative">
                                         <img src="{{ asset('assets/img/akademik-images/program-image/' . $program->banner) }}"
-                                        alt="Image {{ $program->title }}" class="w-100 img-section">
+                                            alt="Image {{ $program->title }}" class="w-100 img-section">
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
         </section>
         <section class="p5-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center header-section">
@@ -149,7 +149,8 @@
                                         alt="{{ $project->title }}" class="w-100">
                                     <div class="mt-3 text-center">
                                         <p class="text-black fw-bold">{{ $project->topic }}</p>
-                                        <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
+                                        <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -188,7 +189,7 @@
         </section>
         <section class="grafik-akademik-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center header-section">
@@ -198,26 +199,17 @@
                         </p>
                     </div>
                 </div>
-                {{-- <div class="mt-4 d-flex justify-content-center gap-3">
-                    <button
-                            class="btn btn-text category-name active"
-                            onclick="showItems('category1')"
-                    >
-                      semua siswa
+                <div class="mt-4 d-flex justify-content-center gap-3">
+                    <button class="btn btn-text category-name active" onclick="showItems('category1')">
+                        semua siswa
                     </button>
-                    <button
-                            class="btn btn-text category-name"
-                            onclick="showItems('category2')"
-                    >
-                      SISWA LAKI-LAKI
+                    <button class="btn btn-text category-name" onclick="showItems('category2')">
+                        SISWA LAKI-LAKI
                     </button>
-                    <button
-                            class="btn btn-text category-name"
-                            onclick="showItems('category3')"
-                    >
-                      SISWA PEREMPUAN
+                    <button class="btn btn-text category-name" onclick="showItems('category3')">
+                        SISWA PEREMPUAN
                     </button>
-                  </div> --}}
+                </div>
                 <div class="mt-5">
                     <div class="category-content">
                         <div class="category1 item">
@@ -370,117 +362,117 @@
                 }
             }
         });
-        // new Chart(chart2, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: [label1, label2, label3],
-        //         datasets: [{
-        //             data: [data1, data4, data7, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#F94144', '#F94144', '#F94144'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, {
-        //             data: [data2, data5, data8, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, {
-        //             data: [data3, data6, data9, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, ],
+        new Chart(chart2, {
+            type: 'bar',
+            data: {
+                labels: [label1, label2, label3],
+                datasets: [{
+                    data: [data1, data4, data7, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [data2, data5, data8, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [data3, data6, data9, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, ],
 
-        //     },
-        //     options: {
-        //         // responsive: true,
-        //         plugins: {
-        //             legend: {
-        //                 display: false,
-        //             },
-        //         },
-
-
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true,
-        //                 min: 0,
-        //                 max: 1000,
-        //                 ticks: {
-        //                     stepSize: 100
-        //                 }
-        //             },
-        //             xAxes: [{
-
-        //             }]
-
-        //         }
-        //     }
-        // });
-        // new Chart(chart3, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: [label1, label2, label3],
-        //         datasets: [{
-        //             data: [data1, data4, data7, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#F94144', '#F94144', '#F94144'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, {
-        //             data: [data2, data5, data8, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, {
-        //             data: [data3, data6, data9, ],
-        //             borderWidth: 0.1,
-        //             backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
-        //             categoryPercentage: 0.8,
-        //             barPercentage: 0.6,
-        //             borderRadius: '8',
-        //             spaceBetween: '10'
-        //         }, ],
-
-        //     },
-        //     options: {
-        //         // responsive: true,
-        //         plugins: {
-        //             legend: {
-        //                 display: false,
-        //             },
-        //         },
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
 
 
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true,
-        //                 min: 0,
-        //                 max: 1000,
-        //                 ticks: {
-        //                     stepSize: 100
-        //                 }
-        //             },
-        //             xAxes: [{
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 1000,
+                        ticks: {
+                            stepSize: 100
+                        }
+                    },
+                    xAxes: [{
 
-        //             }]
+                    }]
 
-        //         }
-        //     }
-        // });
+                }
+            }
+        });
+        new Chart(chart3, {
+            type: 'bar',
+            data: {
+                labels: [label1, label2, label3],
+                datasets: [{
+                    data: [data1, data4, data7, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#F94144', '#F94144', '#F94144'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [data2, data5, data8, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, {
+                    data: [data3, data6, data9, ],
+                    borderWidth: 0.1,
+                    backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
+                    categoryPercentage: 0.8,
+                    barPercentage: 0.6,
+                    borderRadius: '8',
+                    spaceBetween: '10'
+                }, ],
+
+            },
+            options: {
+                // responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 1000,
+                        ticks: {
+                            stepSize: 100
+                        }
+                    },
+                    xAxes: [{
+
+                    }]
+
+                }
+            }
+        });
     </script>
 @endsection
