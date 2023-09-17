@@ -198,6 +198,26 @@
                         </p>
                     </div>
                 </div>
+                <div class="mt-4 d-flex justify-content-center gap-3">
+                    <button
+                            class="btn btn-text category-name active"
+                            onclick="showItems('category1')"
+                    >
+                      semua siswa
+                    </button>
+                    <button
+                            class="btn btn-text category-name"
+                            onclick="showItems('category2')"
+                    >
+                      SISWA LAKI-LAKI
+                    </button>
+                    <button
+                            class="btn btn-text category-name"
+                            onclick="showItems('category3')"
+                    >
+                      SISWA PEREMPUAN
+                    </button>
+                  </div>
                 <div class="mt-5">
                     <div class="category-content">
                         <div class="category1 item">
