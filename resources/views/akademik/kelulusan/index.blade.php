@@ -142,9 +142,10 @@
                 <div class="row table-default">
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
+                            <div class="col data-header">Gender</div>
                             <div class="col data-header">Nilai Tertinggi</div>
                             <div class="col data-header">Nilai Terendah</div>
-                            <div class="col data-header">Rata Rata Nilai</div>
+                            <div class="col d-none d-md-inline-block data-header">Rata Rata Nilai</div>
                             <div class="d-none d-md-inline-block col data-header">Total Siswa</div>
                             <div class="d-none d-md-inline-block col data-header">Tahun Ajaran</div>
                             <div class="col-3 col-xl-2 data-header"></div>
@@ -160,6 +161,13 @@
                         @foreach ($kenaikan_kelas as $kelas)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
+                                    <div class="col data-value data-length">
+                                        @if ($kelas->gender == 'L')
+                                            <div class="col data-value data-length">Laki-Laki</div>
+                                        @elseif($kelas->gender == 'P')
+                                            <div class="col data-value data-length">Perempuan</div>
+                                        @endif
+                                    </div>
                                     <div class="col data-value data-length">{{ $kelas->nilai_tertinggi }}</div>
                                     <div class="col data-value data-length">{{ $kelas->nilai_terendah }}</div>
                                     <div class="col data-value data-length">{{ $kelas->rata_nilai }}</div>
@@ -624,6 +632,19 @@
                     class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="gender">Jenis Kelamin</label>
+                                <select name="gender" id="gender" class="input">
+                                    <option selected value="-">Pilih jenis kelamin</option>
+                                    <option value="L">Laki Laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                                @error('gender')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_x">Jumlah Siswa X</label>
@@ -727,6 +748,13 @@
                 <h3 class="title">Detail Kenaikan Kelas Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="gender">Jenis Kelamin</label>
+                                <input type="text" disabled data-value="gender" id="gender" class="input"
+                                    autocomplete="off">
+                            </div>
+                        </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_x">Jumlah Siswa X</label>
@@ -804,6 +832,19 @@
                 <form id="editKenaikanKelas" method="post" class="form d-flex flex-column justify-content-center">
                     @csrf
                     <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="input-wrapper">
+                                <label for="gender">Jenis Kelamin</label>
+                                <select name="gender" id="gender_select" class="input" name="gender"
+                                    data-value="gender_select">
+                                    {{-- <option value="L">Laki Laki</option>
+                                    <option value="P">Perempuan</option> --}}
+                                </select>
+                                @error('gender')
+                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_x">Jumlah Siswa X</label>
@@ -964,7 +1005,6 @@
                 type: 'get',
                 url: '/admin/akademik/kelulusan/detail-kenaikan-siswa/' + id,
                 success: function(data) {
-                    console.log(data);
                     $('[data-value="student_nama"]').val(data.student_nama);
                     $('[data-value="jurusan_nama"]').val(data.jurusan_nama);
                     $('[data-value="kelas_nama"]').val(data.kelas_nama);
@@ -1000,13 +1040,18 @@
             $('#deleteKenaikanSiswa').attr('action', '/admin/akademik/kelulusan/delete-kenaikan-siswa/' + id);
         });
 
+
         $(document).on('click', '[data-bs-target="#detailKenaikanKelasModal"]', function() {
             let id = $(this).data('id');
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
                 success: function(data) {
-                    console.log(data);
+                    if (data.gender == 'L') {
+                        $('[data-value="gender"]').val('Laki-Laki');
+                    } else {
+                        $('[data-value="gender"]').val('Perempuan');
+                    }
                     $('[data-value="jumlah_siswa_x"]').val(data.jumlah_siswa_x);
                     $('[data-value="jumlah_siswa_xi"]').val(data.jumlah_siswa_xi);
                     $('[data-value="jumlah_siswa_xii"]').val(data.jumlah_siswa_xii);
@@ -1021,11 +1066,27 @@
 
         $(document).on('click', '[data-bs-target="#editKenaikanKelasModal"]', function() {
             let id = $(this).data('id');
+            $('#gender_select').children().remove();
             $('#editKenaikanKelas').attr('action', '/admin/akademik/kelulusan/edit-kenaikan-kelas/' + id);
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
                 success: function(data) {
+                    if (data.gender == 'L') {
+                        $('#gender_select').append(`<option selected value="` + data.gender + `">
+                                            Laki-Laki
+                                      </option>`);
+                        $('#gender_select').append(`<option value="P">
+                                            Perempuan
+                                      </option>`);
+                    } else {
+                        $('#gender_select').append(`<option selected value="` + data.gender + `">
+                                            Perempuan
+                                      </option>`);
+                        $('#gender_select').append(`<option value="L">
+                                            Laki-Laki
+                                      </option>`);
+                    }
                     $('[data-value="jumlah_siswa_x"]').val(data.jumlah_siswa_x);
                     $('[data-value="jumlah_siswa_xi"]').val(data.jumlah_siswa_xi);
                     $('[data-value="jumlah_siswa_xii"]').val(data.jumlah_siswa_xii);

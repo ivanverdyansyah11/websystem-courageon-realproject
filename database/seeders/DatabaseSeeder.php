@@ -541,6 +541,19 @@ class DatabaseSeeder extends Seeder
             'jumlah_siswa_x' => '300',
             'jumlah_siswa_xi' => '400',
             'jumlah_siswa_xii' => '450',
+            'gender' => 'L',
+            'total_siswa' => '1150',
+            'nilai_tertinggi' => '96',
+            'nilai_terendah' => '80',
+            'rata_nilai' => '86',
+            'tahun_ajaran' => '2023/2024',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '400',
+            'jumlah_siswa_xi' => '300',
+            'jumlah_siswa_xii' => '450',
+            'gender' => 'P',
             'total_siswa' => '1150',
             'nilai_tertinggi' => '96',
             'nilai_terendah' => '80',
@@ -552,6 +565,19 @@ class DatabaseSeeder extends Seeder
             'jumlah_siswa_x' => '150',
             'jumlah_siswa_xi' => '250',
             'jumlah_siswa_xii' => '300',
+            'gender' => 'L',
+            'total_siswa' => '800',
+            'nilai_tertinggi' => '92',
+            'nilai_terendah' => '78',
+            'rata_nilai' => '89',
+            'tahun_ajaran' => '2022/2023',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '250',
+            'jumlah_siswa_xi' => '150',
+            'jumlah_siswa_xii' => '300',
+            'gender' => 'P',
             'total_siswa' => '800',
             'nilai_tertinggi' => '92',
             'nilai_terendah' => '78',
@@ -563,6 +589,19 @@ class DatabaseSeeder extends Seeder
             'jumlah_siswa_x' => '200',
             'jumlah_siswa_xi' => '300',
             'jumlah_siswa_xii' => '400',
+            'gender' => 'L',
+            'total_siswa' => '900',
+            'nilai_tertinggi' => '90',
+            'nilai_terendah' => '70',
+            'rata_nilai' => '82',
+            'tahun_ajaran' => '2021/2022',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '300',
+            'jumlah_siswa_xi' => '200',
+            'jumlah_siswa_xii' => '400',
+            'gender' => 'P',
             'total_siswa' => '900',
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '70',
@@ -574,6 +613,19 @@ class DatabaseSeeder extends Seeder
             'jumlah_siswa_x' => '100',
             'jumlah_siswa_xi' => '200',
             'jumlah_siswa_xii' => '300',
+            'gender' => 'L',
+            'total_siswa' => '600',
+            'nilai_tertinggi' => '90',
+            'nilai_terendah' => '60',
+            'rata_nilai' => '75',
+            'tahun_ajaran' => '2020/2021',
+        ]);
+
+        KenaikanKelas::create([
+            'jumlah_siswa_x' => '200',
+            'jumlah_siswa_xi' => '100',
+            'jumlah_siswa_xii' => '300',
+            'gender' => 'P',
             'total_siswa' => '600',
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '60',

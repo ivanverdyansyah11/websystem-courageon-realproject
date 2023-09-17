@@ -152,10 +152,15 @@ class KelulusanController extends Controller
 
     function storeKenaikanKelas(Request $request)
     {
+        if ($request->gender == '-') {
+            return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'jumlah_siswa_x' => 'required',
             'jumlah_siswa_xi' => 'required',
             'jumlah_siswa_xii' => 'required',
+            'gender' => 'required',
             'nilai_tertinggi' => 'required',
             'nilai_terendah' => 'required',
             'total_siswa' => 'required',
@@ -188,10 +193,15 @@ class KelulusanController extends Controller
 
     function updateKenaikanKelas($id, Request $request)
     {
+        if ($request->gender == '-') {
+            return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'jumlah_siswa_x' => 'required',
             'jumlah_siswa_xi' => 'required',
             'jumlah_siswa_xii' => 'required',
+            'gender' => 'required',
             'nilai_tertinggi' => 'required',
             'nilai_terendah' => 'required',
             'total_siswa' => 'required',

@@ -111,6 +111,20 @@ class HomepageController extends Controller
 
     function akademik()
     {
+        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('tahun')->toArray();
+        $kenaikanKelasTahunIniLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[0])->where('gender', 'L')->first();
+        $kenaikanKelasTahunIniPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[0])->where('gender', 'P')->first();
+        $kenaikanKelasTahunLaluLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[1])->where('gender', 'L')->first();
+        $kenaikanKelasTahunLaluPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[1])->where('gender', 'P')->first();
+        $kenaikanKelasTahun2LaluLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'L')->first();
+        $kenaikanKelasTahun2LaluPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'P')->first();
+
+        // $kenaikanKelasTahunIniTotalXII = $kenaikanKelasTahunIniLaki->jumlah_siswa_xii + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii;
+
+        // return $kenaikanKelasTahunIniTotalXII;
+
+        // return $tahun_ajaran[2];
+
         return view('homepage.akademik.index', [
             'title' => 'Akademik',
             'logo' => Logo::first(),
@@ -126,6 +140,13 @@ class HomepageController extends Controller
             'galleries' => Gallery::all(),
             'sectionGraduation' => SectionGraduation::first(),
             'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
+            'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
+            'kenaikanKelasTahunIniLaki' => $kenaikanKelasTahunIniLaki,
+            'kenaikanKelasTahunIniPerempuan' => $kenaikanKelasTahunIniPerempuan,
+            'kenaikanKelasTahunLaluLaki' => $kenaikanKelasTahunLaluLaki,
+            'kenaikanKelasTahunLaluPerempuan' => $kenaikanKelasTahunLaluPerempuan,
+            'kenaikanKelasTahun2LaluLaki' => $kenaikanKelasTahun2LaluLaki,
+            'kenaikanKelasTahun2LaluPerempuan' => $kenaikanKelasTahun2LaluPerempuan,
         ]);
     }
 

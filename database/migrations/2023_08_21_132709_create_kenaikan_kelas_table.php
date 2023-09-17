@@ -18,6 +18,7 @@ class CreateKenaikanKelasTable extends Migration
             $table->string('jumlah_siswa_x');
             $table->string('jumlah_siswa_xi');
             $table->string('jumlah_siswa_xii');
+            $table->enum('gender', ['L', 'P']);
             $table->string('nilai_tertinggi');
             $table->string('nilai_terendah');
             $table->string('rata_nilai');

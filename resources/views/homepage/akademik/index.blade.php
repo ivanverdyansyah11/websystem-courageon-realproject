@@ -249,9 +249,9 @@
             </div>
         </section>
     </main>
-    <p id="label1" class="d-none">{{ $kenaikanKelas[0]->tahun_ajaran }}</p>
-    <p id="label2" class="d-none">{{ $kenaikanKelas[1]->tahun_ajaran }}</p>
-    <p id="label3" class="d-none">{{ $kenaikanKelas[2]->tahun_ajaran }}</p>
+    <p id="label1" class="d-none">{{ $tahunAjaran[2]->tahun }}</p>
+    <p id="label2" class="d-none">{{ $tahunAjaran[1]->tahun }}</p>
+    <p id="label3" class="d-none">{{ $tahunAjaran[0]->tahun }}</p>
 
 
 
@@ -295,23 +295,28 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $kenaikanKelas[0]->jumlah_siswa_x }};
-        const data2 = {{ $kenaikanKelas[0]->jumlah_siswa_xi }};
-        const data3 = {{ $kenaikanKelas[0]->jumlah_siswa_xii }};
+        const data1 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_x + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_x }};
+        const data2 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xi + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xi }};
+        const data3 =
+            {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xii + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii }};
+        const data4 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_x + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_x }};
+        const data5 =
+            {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xi + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xi }};
+        const data6 =
+            {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xii + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xii }};
+        const data7 =
+            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_x + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_x }};
+        const data8 =
+            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xi + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xi }};
+        const data9 =
+            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xii + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xii }};
 
-        const data4 = {{ $kenaikanKelas[1]->jumlah_siswa_x }};
-        const data5 = {{ $kenaikanKelas[1]->jumlah_siswa_xi }};
-        const data6 = {{ $kenaikanKelas[1]->jumlah_siswa_xii }};
-
-        const data7 = {{ $kenaikanKelas[2]->jumlah_siswa_x }};
-        const data8 = {{ $kenaikanKelas[2]->jumlah_siswa_xi }};
-        const data9 = {{ $kenaikanKelas[2]->jumlah_siswa_xii }};
         new Chart(chart1, {
             type: 'bar',
             data: {
                 labels: [label1, label2, label3],
                 datasets: [{
-                    data: [data1, data4, data7, ],
+                    data: [data7, data4, data1],
                     borderWidth: 0.1,
                     backgroundColor: ['#F94144', '#F94144', '#F94144'],
                     categoryPercentage: 0.8,
@@ -319,7 +324,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data2, data5, data8, ],
+                    data: [data8, data5, data2],
                     borderWidth: 0.1,
                     backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
                     categoryPercentage: 0.8,
@@ -327,7 +332,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data3, data6, data9, ],
+                    data: [data9, data6, data3],
                     borderWidth: 0.1,
                     backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
                     categoryPercentage: 0.8,
@@ -352,7 +357,7 @@
                         min: 0,
                         max: 1000,
                         ticks: {
-                            stepSize: 100
+                            stepSize: 200
                         }
                     },
                     xAxes: [{
@@ -362,12 +367,23 @@
                 }
             }
         });
+
+        const data10 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_x }};
+        const data11 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xi }};
+        const data12 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xii }};
+        const data13 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_x }};
+        const data14 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xi }};
+        const data15 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xii }};
+        const data16 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_x }};
+        const data17 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xi }};
+        const data18 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xii }};
+
         new Chart(chart2, {
             type: 'bar',
             data: {
                 labels: [label1, label2, label3],
                 datasets: [{
-                    data: [data1, data4, data7, ],
+                    data: [data16, data13, data10],
                     borderWidth: 0.1,
                     backgroundColor: ['#F94144', '#F94144', '#F94144'],
                     categoryPercentage: 0.8,
@@ -375,7 +391,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data2, data5, data8, ],
+                    data: [data17, data14, data11],
                     borderWidth: 0.1,
                     backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
                     categoryPercentage: 0.8,
@@ -383,7 +399,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data3, data6, data9, ],
+                    data: [data18, data15, data12],
                     borderWidth: 0.1,
                     backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
                     categoryPercentage: 0.8,
@@ -408,7 +424,7 @@
                         min: 0,
                         max: 1000,
                         ticks: {
-                            stepSize: 100
+                            stepSize: 200
                         }
                     },
                     xAxes: [{
@@ -418,12 +434,23 @@
                 }
             }
         });
+
+        const data19 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_x }};
+        const data20 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xi }};
+        const data21 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii }};
+        const data22 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_x }};
+        const data23 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xi }};
+        const data24 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xii }};
+        const data25 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_x }};
+        const data26 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xi }};
+        const data27 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xii }};
+
         new Chart(chart3, {
             type: 'bar',
             data: {
                 labels: [label1, label2, label3],
                 datasets: [{
-                    data: [data1, data4, data7, ],
+                    data: [data25, data22, data19],
                     borderWidth: 0.1,
                     backgroundColor: ['#F94144', '#F94144', '#F94144'],
                     categoryPercentage: 0.8,
@@ -431,7 +458,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data2, data5, data8, ],
+                    data: [data26, data23, data20],
                     borderWidth: 0.1,
                     backgroundColor: ['#90BE6D', '#90BE6D', '#90BE6D'],
                     categoryPercentage: 0.8,
@@ -439,7 +466,7 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, {
-                    data: [data3, data6, data9, ],
+                    data: [data27, data24, data21],
                     borderWidth: 0.1,
                     backgroundColor: ['#2D9CDB', '#2D9CDB', '#2D9CDB'],
                     categoryPercentage: 0.8,
@@ -447,7 +474,6 @@
                     borderRadius: '8',
                     spaceBetween: '10'
                 }, ],
-
             },
             options: {
                 // responsive: true,
@@ -464,7 +490,7 @@
                         min: 0,
                         max: 1000,
                         ticks: {
-                            stepSize: 100
+                            stepSize: 200
                         }
                     },
                     xAxes: [{
