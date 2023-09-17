@@ -78,6 +78,10 @@ class GuruController extends Controller
 
     function store(Request $request)
     {
+        if ($request->gender == '-' || $request->status == '-' || $request->course_id == '-') {
+            return redirect(route('guru-create'))->with('failed', 'Isi Form Jenis Kelamin, Status dan Mata Pelajaran Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
@@ -133,6 +137,10 @@ class GuruController extends Controller
 
     function update($id, Request $request)
     {
+        if ($request->gender == '-' || $request->status == '-' || $request->course_id == '-') {
+            return redirect(route('guru-edit', $id))->with('failed', 'Isi Form Jenis Kelamin, Status dan Mata Pelajaran Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:255',
@@ -175,7 +183,7 @@ class GuruController extends Controller
         if ($employee) {
             return redirect(route('guru-index'))->with('success', 'Berhasil Edit Guru Sekolah!');
         } else {
-            return redirect(route('guru-create'))->with('failed', 'Gagal Edit Guru Sekolah!');
+            return redirect(route('guru-edit', $id))->with('failed', 'Gagal Edit Guru Sekolah!');
         }
     }
 

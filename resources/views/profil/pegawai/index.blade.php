@@ -86,8 +86,20 @@
                                     </div>
                                     <div class="col data-value">{{ $staff->fullname }}</div>
                                     <div class="col data-value">{{ $staff->nip ? $staff->nip : '-' }}</div>
-                                    <div class="d-none d-lg-inline-block col data-value">{{ $staff->place_of_birth }},
-                                        {{ $staff->date_of_birth }}</div>
+                                    <div class="d-none d-lg-inline-block col data-value">
+                                        @if ($staff->place_of_birth)
+                                            {{ $staff->place_of_birth }}
+                                            @if ($staff->date_of_birth)
+                                                ,
+                                            @endif
+                                        @endif
+                                        @if ($staff->date_of_birth)
+                                            {{ $staff->date_of_birth }}
+                                        @endif
+                                        @if (!$staff->place_of_birth && !$staff->date_of_birth)
+                                            -
+                                        @endif
+                                    </div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <a href="{{ route('pegawai-detail', $staff->id) }}"

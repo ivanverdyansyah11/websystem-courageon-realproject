@@ -79,6 +79,10 @@ class ManajemenController extends Controller
 
     function store(Request $request)
     {
+        if ($request->gender == '-' || $request->status == '-') {
+            return redirect(route('manajemen-create'))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'fullname' => 'required|string|max:255',
@@ -132,6 +136,10 @@ class ManajemenController extends Controller
 
     function update($id, Request $request)
     {
+        if ($request->gender == '-' || $request->status == '-') {
+            return redirect(route('manajemen-edit', $id))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'fullname' => 'required|string|max:255',
             'nip' => 'nullable|string|max:255',
@@ -173,7 +181,7 @@ class ManajemenController extends Controller
         if ($employee) {
             return redirect(route('manajemen-index'))->with('success', 'Berhasil Edit Manajemen Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Edit Manajemen Sekolah!');
+            return redirect(route('manajemen-edit', $id))->with('failed', 'Gagal Edit Manajemen Sekolah!');
         }
     }
 

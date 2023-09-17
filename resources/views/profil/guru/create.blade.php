@@ -92,7 +92,7 @@
                                     <div class="input-wrapper">
                                         <label for="gender">Jenis Kelamin</label>
                                         <select name="gender" id="gender" class="input">
-                                            <option selected>Pilih jenis kelamin</option>
+                                            <option selected value="-">Pilih jenis kelamin</option>
                                             <option value="L">Laki Laki</option>
                                             <option value="P">Perempuan</option>
                                         </select>

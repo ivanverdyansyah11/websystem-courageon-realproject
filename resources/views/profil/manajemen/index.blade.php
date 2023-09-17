@@ -86,8 +86,20 @@
                                     </div>
                                     <div class="col data-value">{{ $management->fullname }}</div>
                                     <div class="col data-value">{{ $management->nip ? $management->nip : '-' }}</div>
-                                    <div class="d-none d-lg-inline-block col data-value">{{ $management->place_of_birth }},
-                                        {{ $management->date_of_birth }}</div>
+                                    <div class="d-none d-lg-inline-block col data-value">
+                                        @if ($management->place_of_birth)
+                                            {{ $management->place_of_birth }}
+                                            @if ($management->date_of_birth)
+                                                ,
+                                            @endif
+                                        @endif
+                                        @if ($management->date_of_birth)
+                                            {{ $management->date_of_birth }}
+                                        @endif
+                                        @if (!$management->place_of_birth && !$management->date_of_birth)
+                                            -
+                                        @endif
+                                    </div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <a href="{{ route('manajemen-detail', $management->id) }}"

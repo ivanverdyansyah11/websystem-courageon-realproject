@@ -86,8 +86,20 @@
                                     </div>
                                     <div class="col data-value">{{ $teacher->fullname }}</div>
                                     <div class="col data-value">{{ $teacher->nip ? $teacher->nip : '-' }}</div>
-                                    <div class="d-none d-lg-inline-block col data-value">{{ $teacher->place_of_birth }},
-                                        {{ $teacher->date_of_birth }}</div>
+                                    <div class="d-none d-lg-inline-block col data-value">
+                                        @if ($teacher->place_of_birth)
+                                            {{ $teacher->place_of_birth }}
+                                            @if ($teacher->date_of_birth)
+                                                ,
+                                            @endif
+                                        @endif
+                                        @if ($teacher->date_of_birth)
+                                            {{ $teacher->date_of_birth }}
+                                        @endif
+                                        @if (!$teacher->place_of_birth && !$teacher->date_of_birth)
+                                            -
+                                        @endif
+                                    </div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <a href="{{ route('guru-detail', $teacher->id) }}"
