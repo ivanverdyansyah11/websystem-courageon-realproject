@@ -43,7 +43,7 @@
                                         <label for="kategori_prestasis_id">Kategori Prestasi</label>
                                         <select id="kategori_prestasis_id" class="input" autocomplete="off"
                                             name="kategori_prestasis_id">
-                                            <option>Pilih kategori prestasi</option>
+                                            <option value="-">Pilih kategori prestasi</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->nama }}</option>
                                             @endforeach
@@ -67,7 +67,7 @@
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
                                         <select name="status" id="status" class="input">
-                                            <option selected>Pilih status</option>
+                                            <option selected value="-">Pilih status</option>
                                             <option value="Guru">Guru</option>
                                             <option value="Pegawai">Pegawai</option>
                                             <option value="Siswa">Siswa</option>
@@ -121,10 +121,10 @@
                                     <div class="input-wrapper">
                                         <label for="tingkat">Tingkat</label>
                                         <select name="tingkat" id="tingkat" class="input">
-                                            <option selected>Pilih tingkat</option>
+                                            <option selected value="-">Pilih tingkat</option>
                                             <option value="Kecamatan">Kecamatan</option>
                                             <option value="Kabupaten">Kabupaten</option>
-                                            <option value="Provisi">Provisi</option>
+                                            <option value="Provinsi">Provinsi</option>
                                             <option value="Negara">Negara</option>
                                         </select>
                                         @error('tingkat')

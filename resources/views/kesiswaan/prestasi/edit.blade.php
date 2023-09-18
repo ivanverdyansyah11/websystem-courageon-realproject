@@ -137,9 +137,9 @@
                                             <option value="Kabupaten"
                                                 {{ $prestasi->tingkat === 'Kabupaten' ? 'selected' : '' }}>
                                                 Kabupaten</option>
-                                            <option value="Provisi"
-                                                {{ $prestasi->tingkat === 'Provisi' ? 'selected' : '' }}>
-                                                Provisi</option>
+                                            <option value="Provinsi"
+                                                {{ $prestasi->tingkat === 'Provinsi' ? 'selected' : '' }}>
+                                                Provinsi</option>
                                             <option value="Negara"
                                                 {{ $prestasi->tingkat === 'Negara' ? 'selected' : '' }}>
                                                 Negara

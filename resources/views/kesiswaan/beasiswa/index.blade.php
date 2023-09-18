@@ -537,7 +537,7 @@
                                 <select name="tahun" id="tahun" class="input">
                                     <option data-value="tahun"></option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->value }}">{{ $tahun_ajaran->tahun }}</option>
+                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
                                     @endforeach
                                 </select>
                                 @error('tahun')
@@ -692,7 +692,8 @@
                 type: 'get',
                 url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
                 success: function(data) {
-                    $('[data-value="student_nama"]').val(data.student_id);
+                    console.log(data);
+                    $('[data-value="student_nama"]').val(data.students_id);
                     $('[data-value="student_nama"]').html(data.student_nama);
                     $('[data-value="tahun"]').val(data.tahun);
                     $('[data-value="tahun"]').html(data.tahun);

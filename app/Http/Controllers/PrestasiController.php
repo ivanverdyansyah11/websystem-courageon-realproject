@@ -52,6 +52,10 @@ class PrestasiController extends Controller
 
     function storeAchievement(Request $request)
     {
+        if ($request->kategori_prestasis_id == '-' || $request->status == '-' || $request->tingkat == '-') {
+            return redirect(route('prestasi-create'))->with('failed', 'Isi Form Kategori Prestasi, Status dan Tingkat Terlebih Dahulu!');
+        }
+
         $validatedData = $request->validate([
             'dokumentasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'tanggal' => 'required|date',
@@ -102,6 +106,10 @@ class PrestasiController extends Controller
 
     function updateAchievement($id, Request $request)
     {
+        if ($request->kategori_prestasis_id == '-' || $request->status == '-' || $request->tingkat == '-') {
+            return redirect(route('prestasi-edit', $id))->with('failed', 'Isi Form Kategori Prestasi, Status dan Tingkat Terlebih Dahulu!');
+        }
+
         $achievement = Prestasi::where('id', $id)->first();
         $validatedData = $request->validate([
             'tanggal' => 'required|date',

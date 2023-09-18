@@ -50,7 +50,7 @@
                                         <select name="students_id" id="students_id" class="input" autocomplete="off">
                                             @foreach ($students as $student)
                                                 <option value="{{ $student->id }}"
-                                                    {{ $student->id === $pembinaan->id ? 'selected' : '' }}>
+                                                    {{ $student->id === $pembinaan->students_id ? 'selected' : '' }}>
                                                     {{ $student->nama_lengkap }}</option>
                                             @endforeach
                                         </select>

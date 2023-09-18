@@ -70,7 +70,14 @@ class KelulusanController extends Controller
 
         $kenaikanSiswa = HistoryKenaikanSiswa::create($validatedData);
 
-        if ($kenaikanSiswa) {
+        $siswa = Student::where('id', $validatedData['students_id'])->update([
+            'jurusans_id' => $validatedData['jurusans_id'],
+            'kelases_id' => $validatedData['kelases_id'],
+            'indices_id' => $validatedData['indexes_id'],
+            'semesters_id' => $validatedData['semesters_id'],
+        ]);
+
+        if ($kenaikanSiswa && $siswa) {
             return redirect(route('kelulusan-index'))->with('success', 'Berhasil Tambah Kenaikan Siswa!');
         } else {
             return redirect(route('kelulusan-index'))->with('failed', 'Gagal Tambah Kenaikan Siswa!');
