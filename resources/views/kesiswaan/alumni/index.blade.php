@@ -24,7 +24,7 @@
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             <div class="col data-header">Judul <span class="d-none d-md-inline-block">Section</span></div>
-                            <div class="d-none col data-header">Deskripsi</div>
+                            <div class="d-none d-lg-inline-block col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
