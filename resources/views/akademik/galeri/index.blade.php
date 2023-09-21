@@ -125,7 +125,7 @@
     {{-- MODAL DETAIL SECTION GALLERY --}}
     <div class="modal fade" id="detailSectionGalleryModal" tabindex="-1" aria-labelledby="detailSectionGalleryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Galeri</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -136,8 +136,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaDetailSection">{{ $section_gallery->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -151,7 +150,7 @@
     {{-- MODAL EDIT SECTION GALLERY --}}
     <div class="modal fade" id="editSectionGalleryModal" tabindex="-1" aria-labelledby="editSectionGalleryModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Galeri</h3>
                 <form id="editSectionGallery" method="post" class="form d-flex flex-column justify-content-center">
@@ -166,8 +165,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaEditSection" name="description">{{ $section_gallery->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-4">{{ $message }}</p>
                         @enderror
@@ -182,7 +180,7 @@
     </div>
     {{-- END MODAL EDIT SECTION GALLERY --}}
 
-    {{-- MODAL ADD PROJECT --}}
+    {{-- MODAL ADD GALLERY --}}
     <div class="modal fade" id="addGalleryModal" tabindex="-1" aria-labelledby="addGalleryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -219,7 +217,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL ADD PROJECT --}}
+    {{-- END MODAL ADD GALLERY --}}
 
     {{-- MODAL DETAIL GALLERY --}}
     <div class="modal fade" id="detailGalleryModal" tabindex="-1" aria-labelledby="detailGalleryModalLabel"
@@ -314,6 +312,9 @@
     {{-- END MODAL DELETE GALLERY --}}
 
     <script>
+        const textareaDetailSection = new RichTextEditor("#textareaDetailSection");
+        const textareaEditSection = new RichTextEditor("#textareaEditSection");
+
         $(document).on('click', '[data-bs-target="#detailSectionGalleryModal"]', function() {
             $.ajax({
                 type: 'get',
