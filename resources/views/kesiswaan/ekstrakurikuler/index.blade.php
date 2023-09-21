@@ -127,7 +127,7 @@
     {{-- MODAL DETAIL SECTION EXTRACURRICULAR --}}
     <div class="modal fade" id="detailSectionExtracurricularModal" tabindex="-1"
         aria-labelledby="detailSectionExtracurricularModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Ekstrakurikuler</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -138,8 +138,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaDetailSection">{{ $section_extracurricular->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -153,7 +152,7 @@
     {{-- MODAL EDIT SECTION EXTRACURRICULAR --}}
     <div class="modal fade" id="editSectionExtracurricularModal" tabindex="-1"
         aria-labelledby="editSectionExtracurricularModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Ekstrakurikuler</h3>
                 <form id="editSectionExtracurricular" method="post"
@@ -169,8 +168,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaEditSection" name="description">{{ $section_extracurricular->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -211,6 +209,9 @@
     {{-- END MODAL DELETE EXTRACURRICULAR --}}
 
     <script>
+        const textareaDetailSection = new RichTextEditor("#textareaDetailSection");
+        const textareaEditSection = new RichTextEditor("#textareaEditSection");
+
         $(document).on('click', '[data-bs-target="#detailSectionExtracurricularModal"]', function() {
             $.ajax({
                 type: 'get',
