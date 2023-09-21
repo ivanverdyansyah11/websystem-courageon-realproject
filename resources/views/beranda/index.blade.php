@@ -246,7 +246,6 @@
             </div>
         </div>
 
-
         {{-- MODAL DETAIL SECTION HEADER --}}
         <div class="modal fade" id="detailSectionHeaderModal" tabindex="-1"
             aria-labelledby="detailSectionHeaderModalLabel" aria-hidden="true">
@@ -281,7 +280,7 @@
                             <div class="col-12">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
+                                    <textarea id="textareaDetailHeader">{{ $section_header->description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -346,8 +345,7 @@
                             <div class="col-12 mb-4">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                        data-value="description_header"></textarea>
+                                    <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
                                     @error('description')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -367,7 +365,7 @@
         {{-- MODAL DETAIL SECTION OPENING --}}
         <div class="modal fade" id="detailSectionOpeningModal" tabindex="-1"
             aria-labelledby="detailSectionOpeningModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <h3 class="title">Detail Section Pembuka</h3>
                     <form class="form d-flex flex-column justify-content-center">
@@ -378,8 +376,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_opening"
-                                disabled></textarea>
+                            <textarea id="textareaDetailOpening">{{ $section_opening->description }}</textarea>
                         </div>
                         <div class="button-wrapper d-flex flex-column">
                             <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup
@@ -394,7 +391,7 @@
         {{-- MODAL EDIT SECTION OPENING --}}
         <div class="modal fade" id="editSectionOpeningModal" tabindex="-1"
             aria-labelledby="editSectionOpeningModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <h3 class="title">Edit Section Pembuka</h3>
                     <form id="editSectionOpening" method="post" class="form d-flex flex-column justify-content-center">
@@ -409,8 +406,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                data-value="description_opening"></textarea>
+                            <textarea id="textareaEditOpening" name="description">{{ $section_opening->description }}</textarea>
                             @error('description')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
@@ -428,7 +424,7 @@
         {{-- MODAL DETAIL SECTION REMARK --}}
         <div class="modal fade" id="detailSectionRemarkModal" tabindex="-1"
             aria-labelledby="detailSectionRemarkModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <h3 class="title">Detail Section Sambutan</h3>
                     <form class="form d-flex flex-column justify-content-center">
@@ -446,7 +442,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label for="pesan">Pesan</label>
-                            <textarea id="pesan" class="input" autocomplete="off" rows="4" data-value="message_remark" disabled></textarea>
+                            <textarea id="textareaDetailRemark">{{ $section_remark->message }}</textarea>
                         </div>
                         <div class="button-wrapper d-flex flex-column">
                             <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup
@@ -461,7 +457,7 @@
         {{-- MODAL EDIT SECTION REMARK --}}
         <div class="modal fade" id="editSectionRemarkModal" tabindex="-1" aria-labelledby="editSectionRemarkModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <h3 class="title">Edit Section Sambutan</h3>
                     <form id="editSectionRemark" method="post" enctype="multipart/form-data"
@@ -492,8 +488,7 @@
                         </div>
                         <div class="input-wrapper">
                             <label for="pesan">Pesan</label>
-                            <textarea id="pesan" class="input" name="message" autocomplete="off" rows="4"
-                                data-value="message_remark"></textarea>
+                            <textarea id="textareaEditRemark" name="message">{{ $section_remark->message }}</textarea>
                             @error('message')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
@@ -542,8 +537,7 @@
                             <div class="col-12">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_history"
-                                        disabled></textarea>
+                                    <textarea id="textareaDetailHistory">{{ $section_history->description }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -608,8 +602,7 @@
                             <div class="col-12">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                        data-value="description_history"></textarea>
+                                    <textarea id="textareaEditHistory" name="description">{{ $section_history->description }}</textarea>
                                     @error('description')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -768,6 +761,16 @@
         {{-- END MODAL EDIT NAVIGASI --}}
 
         <script>
+            const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+            const textareaDetailOpening = new RichTextEditor("#textareaDetailOpening");
+            const textareaDetailRemark = new RichTextEditor("#textareaDetailRemark");
+            const textareaDetailHistory = new RichTextEditor("#textareaDetailHistory");
+
+            const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+            const textareaEditOpening = new RichTextEditor("#textareaEditOpening");
+            const textareaEditRemark = new RichTextEditor("#textareaEditRemark");
+            const textareaEditHistory = new RichTextEditor("#textareaEditHistory");
+
             $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
                 $.ajax({
                     type: 'get',
