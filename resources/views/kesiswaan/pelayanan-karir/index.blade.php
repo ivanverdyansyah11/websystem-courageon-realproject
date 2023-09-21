@@ -197,7 +197,7 @@
     {{-- MODAL DETAIL SECTION HEADER --}}
     <div class="modal fade" id="detailSectionModal" tabindex="-1" aria-labelledby="detailSectionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -213,8 +213,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" rows="4" class="input" autocomplete="off" data-value="description_section"
-                            disabled></textarea>
+                        <textarea id="textareaDetailHeader">{{ $section_service->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -228,7 +227,7 @@
     {{-- MODAL EDIT SECTION HEADER --}}
     <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
                 <form id="editSection" method="post" class="form d-flex flex-column justify-content-center">
@@ -251,8 +250,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" rows="4" class="input" autocomplete="off" data-value="description_section"
-                            name="description"></textarea>
+                        <textarea id="textareaEditHeader" name="description">{{ $section_service->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -318,6 +316,9 @@
     {{-- END MODAL DELETE PEMBINAAN SISWA --}}
 
     <script>
+        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
             $.ajax({
                 type: 'get',
