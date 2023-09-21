@@ -32,7 +32,7 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="col data-value data-length">{{ $section_header->title_header }}</div>
                             <div class="col data-value data-length">
-                                {{ $section_header->description }}</div>
+                                {!! $section_header->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
@@ -126,7 +126,7 @@
     {{-- MODAL DETAIL SECTION HEADER --}}
     <div class="modal fade" id="detailSectionHeaderModal" tabindex="-1" aria-labelledby="detailSectionHeaderModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Header</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
+                        <textarea id="textareaDetailHeader">{{ $section_header->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -151,7 +151,7 @@
     {{-- MODAL EDIT SECTION HEADER --}}
     <div class="modal fade" id="editSectionHeaderModal" tabindex="-1" aria-labelledby="editSectionHeaderModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Header</h3>
                 <form id="editSectionHeader" method="post" class="form d-flex flex-column justify-content-center">
@@ -166,8 +166,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header"
-                            name="description"></textarea>
+                        <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -314,6 +313,9 @@
     {{-- END MODAL DELETE PARTNERSHIP --}}
 
     <script>
+        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
                 type: 'get',
