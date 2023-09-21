@@ -124,7 +124,7 @@
     {{-- MODAL DETAIL SECTION --}}
     <div class="modal fade" id="detailSectionModal" tabindex="-1" aria-labelledby="detailSectionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Alumni</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -135,7 +135,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" class="input" autocomplete="off" id="deskripsi" rows="4" disabled></textarea>
+                        <textarea id="textareaDetailHeader">{{ $section_alumni->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -147,9 +147,8 @@
     {{-- END MODAL DETAIL SECTION --}}
 
     {{-- MODAL EDIT SECTION --}}
-    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Alumni</h3>
                 <form id="editSection" method="post" class="form d-flex flex-column justify-content-center">
@@ -164,8 +163,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" class="input" autocomplete="off" id="deskripsi"
-                            rows="4"></textarea>
+                        <textarea id="textareaEditHeader" name="description">{{ $section_alumni->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -203,6 +201,9 @@
     {{-- END MODAL DELETE ALUMNI --}}
 
     <script>
+        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
             $.ajax({
                 type: 'get',
