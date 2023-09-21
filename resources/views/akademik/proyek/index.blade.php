@@ -125,7 +125,7 @@
     {{-- MODAL DETAIL SECTION PROYEK --}}
     <div class="modal fade" id="detailSectionProyekModal" tabindex="-1" aria-labelledby="detailSectionProyekModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Program</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -141,8 +141,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaDetailSection">{{ $section_proyek->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -156,7 +155,7 @@
     {{-- MODAL EDIT SECTION PROYEK --}}
     <div class="modal fade" id="editSectionProyekModal" tabindex="-1" aria-labelledby="editSectionProyekModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Proyek</h3>
                 <form id="editSectionProyek" method="post" class="form d-flex flex-column justify-content-center">
@@ -179,8 +178,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaEditSection" name="description">{{ $section_proyek->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -219,6 +217,9 @@
     {{-- END MODAL DELETE PROJECT --}}
 
     <script>
+        const textareaDetailSection = new RichTextEditor("#textareaDetailSection");
+        const textareaEditSection = new RichTextEditor("#textareaEditSection");
+
         $(document).on('click', '[data-bs-target="#detailSectionProyekModal"]', function() {
             $.ajax({
                 type: 'get',
