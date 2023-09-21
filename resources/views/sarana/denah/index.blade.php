@@ -96,7 +96,7 @@
                                     <div class="col data-value">{{ $room->code }}</div>
                                     <div class="col data-value">{{ $room->name }}</div>
                                     <div class="col d-none d-md-inline-block data-value data-length">
-                                        {{ $room->description }}</div>
+                                        {!! $room->description !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
@@ -265,7 +265,7 @@
 
     {{-- MODAL ADD ROOM MAP --}}
     <div class="modal fade" id="addRoomModal" tabindex="-1" aria-labelledby="addRoomModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Ruangan Sekolah</h3>
                 <form action="{{ route('ruangan-store') }}" method="post"
@@ -287,7 +287,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea name="description" id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea id="textareaTambahRoom" name="description"></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -305,7 +305,7 @@
     {{-- MODAL DETAIL ROOM MAP --}}
     <div class="modal fade" id="detailRoomModal" tabindex="-1" aria-labelledby="detailRoomModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Ruangan Sekolah</h3>
                 <form id="detailRoom" method="post" class="form d-flex flex-column justify-content-center">
@@ -321,7 +321,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_room" disabled id="deskripsi" rows="4" class="input" autocomplete="off"></textarea>
+                        <textarea id="textareaDetailRoom"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -334,7 +334,7 @@
 
     {{-- MODAL EDIT ROOM MAP --}}
     <div class="modal fade" id="editRoomModal" tabindex="-1" aria-labelledby="editRoomModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Kontak Sekolah</h3>
                 <form id="editRoom" method="post" class="form d-flex flex-column justify-content-center">
@@ -357,8 +357,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_room" name="description" id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaEditRoom" name="description"></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -397,6 +396,10 @@
     {{-- END MODAL DELETE ROOM MAP --}}
 
     <script>
+        const textareaTambahRoom = new RichTextEditor("#textareaTambahRoom");
+        const textareaDetailRoom = new RichTextEditor("#textareaDetailRoom");
+        const textareaEditRoom = new RichTextEditor("#textareaEditRoom");
+
         $(document).on('click', '[data-bs-target="#detailSectionDenahModal"]', function() {
             $.ajax({
                 type: 'get',
@@ -436,7 +439,7 @@
                 success: function(data) {
                     $('[data-value="code_room"]').val(data.code);
                     $('[data-value="name_room"]').val(data.name);
-                    $('[data-value="description_room"]').val(data.description);
+                    textareaDetailRoom.setHTMLCode(data.description);
                 }
             });
         });
@@ -450,7 +453,7 @@
                 success: function(data) {
                     $('[data-value="code_room"]').val(data.code);
                     $('[data-value="name_room"]').val(data.name);
-                    $('[data-value="description_room"]').val(data.description);
+                    textareaEditRoom.setHTMLCode(data.description);
                 }
             });
         });
