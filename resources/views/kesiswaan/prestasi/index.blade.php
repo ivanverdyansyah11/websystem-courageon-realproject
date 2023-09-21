@@ -120,7 +120,7 @@
     {{-- MODAL DETAIL SECTION ACHIEVEMENT --}}
     <div class="modal fade" id="detailSectionAchievementModal" tabindex="-1"
         aria-labelledby="detailSectionAchievementModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Section Ekstrakurikuler</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -136,8 +136,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" disabled id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaDetailHeader">{{ $section_achievement->description }}</textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -151,7 +150,7 @@
     {{-- MODAL EDIT SECTION ACHIEVEMENT --}}
     <div class="modal fade" id="editSectionAchievementModal" tabindex="-1"
         aria-labelledby="editSectionAchievementModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Ekstrakurikuler</h3>
                 <form id="editSectionAchievement" method="post" class="form d-flex flex-column justify-content-center">
@@ -174,8 +173,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" id="deskripsi" rows="4" class="input"
-                            autocomplete="off"></textarea>
+                        <textarea id="textareaEditHeader" name="description">{{ $section_achievement->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -216,6 +214,9 @@
     {{-- END MODAL DELETE ACHIEVEMENT --}}
 
     <script>
+        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
         $(document).on('click', '[data-bs-target="#detailSectionAchievementModal"]', function() {
             $.ajax({
                 type: 'get',
