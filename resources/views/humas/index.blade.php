@@ -42,7 +42,7 @@
                             </div>
                             <div class="col data-value data-length">{{ $section_header->title_header }}</div>
                             <div class="col data-value data-length">
-                                {{ $section_header->description }}</div>
+                                {!! $section_header->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
@@ -98,7 +98,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" autocomplete="off" rows="4" data-value="description_header" disabled></textarea>
+                                <textarea id="textareaDetailHeader">{{ $section_header->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -161,8 +161,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="deskripsi" class="input" name="description" autocomplete="off" rows="4"
-                                    data-value="description_header"></textarea>
+                                <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
                                 @error('description')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -180,6 +179,9 @@
     {{-- END MODAL EDIT SECTION HEADER --}}
 
     <script>
+        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
             $.ajax({
                 type: 'get',

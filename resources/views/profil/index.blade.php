@@ -42,7 +42,7 @@
                             </div>
                             <div class="col data-value data-length">{{ $section_header->title_header }}</div>
                             <div class="col data-value data-length">
-                                {{ $section_header->description }}</div>
+                                {!! $section_header->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"

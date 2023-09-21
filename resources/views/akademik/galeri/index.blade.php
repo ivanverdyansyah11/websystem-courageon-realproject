@@ -31,7 +31,7 @@
                     <div class="col-12 table-row table-border">
                         <div class="row table-data gap-4 align-items-center">
                             <div class="col data-value data-length">{{ $section_gallery->title_section }}</div>
-                            <div class="d-none col data-value data-length">{{ $section_gallery->description }}</div>
+                            <div class="d-none col data-value data-length">{!! $section_gallery->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
