@@ -32,7 +32,7 @@
                         <div class="row table-data gap-4 align-items-center">
                             <div class="col data-value data-length">{{ $section_beasiswa->title_section }}</div>
                             <div class="d-none col data-value data-length">
-                                {{ $section_beasiswa->description }}</div>
+                                {!! $section_beasiswa->description !!}</div>
                             <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                 <div class="wrapper-action d-flex">
                                     <button type="button"
@@ -65,7 +65,7 @@
                     <div class="col-12 table-row">
                         <div class="row table-data gap-4">
                             <div class="col data-header">Nama</div>
-                            <div class="d-none col data-header">Deskripsi</div>
+                            <div class="d-none d-md-inline-block col data-header">Deskripsi</div>
                             <div class="col-3 col-xl-2 data-header"></div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 <div class="row table-data gap-4 align-items-center">
                                     <div class="col data-value data-length">{{ $beasiswa->title }}</div>
                                     <div class="d-none col data-value data-length">
-                                        {{ $beasiswa->description }}</div>
+                                        {!! $beasiswa->description !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
@@ -154,7 +154,7 @@
                                             <div class="col data-value data-length">{{ $singleBeasiswa->title }}</div>
                                         @endif
                                     @endforeach
-                                    <div class="d-none col data-value data-length">{{ $beasiswa->digunakan_untuk }}</div>
+                                    <div class="d-none col data-value data-length">{!! $beasiswa->digunakan_untuk !!}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
@@ -250,7 +250,7 @@
     {{-- MODAL ADD BEASISWA --}}
     <div class="modal fade" id="addBeasiswaModal" tabindex="-1" aria-labelledby="addBeasiswaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Tambah Beasiswa Sekolah</h3>
                 <form action="{{ route('beasiswa-store') }}" method="post"
@@ -265,8 +265,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_section" name="description" class="input" autocomplete="off" id="deskripsi"
-                            rows="4"></textarea>
+                        <textarea id="textareaTambahBeasiswa" name="description"></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -284,7 +283,7 @@
     {{-- MODAL DETAIL BEASISWA --}}
     <div class="modal fade" id="detailBeasiswaModal" tabindex="-1" aria-labelledby="detailBeasiswaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Detail Beasiswa Sekolah</h3>
                 <form class="form d-flex flex-column justify-content-center">
@@ -295,8 +294,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_beasiswa" disabled class="input" autocomplete="off" id="deskripsi"
-                            rows="4"></textarea>
+                        <textarea id="textareaDetailBeasiswa"></textarea>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -310,7 +308,7 @@
     {{-- MODAL EDIT BEASISWA --}}
     <div class="modal fade" id="editBeasiswaModal" tabindex="-1" aria-labelledby="editBeasiswaModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Beasiswa Sekolah</h3>
                 <form id="editBeasiswa" method="post" class="form d-flex flex-column justify-content-center">
@@ -325,8 +323,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea data-value="description_beasiswa" data-value="description_beasiswa" name="description" class="input"
-                            autocomplete="off" id="deskripsi" rows="4"></textarea>
+                        <textarea id="textareaEditBeasiswa" name="description"></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -429,7 +426,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="digunakan_untuk">Digunakan Untuk</label>
-                                <textarea name="digunakan_untuk" class="input" autocomplete="off" id="digunakan_untuk" rows="4"></textarea>
+                                <textarea id="textareaTambahBeasiswaPenerima" name="digunakan_untuk"></textarea>
                                 @error('digunakan_untuk')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -492,8 +489,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="digunakan_untuk">Digunakan Untuk</label>
-                                <textarea type="text" id="digunakan_untuk" class="input" autocomplete="off" data-value="digunakan_untuk"
-                                    disabled rows="4"></textarea>
+                                <textarea id="textareaDetailBeasiswaPenerima"></textarea>
                             </div>
                         </div>
                     </div>
@@ -570,8 +566,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="digunakan_untuk">Digunakan Untuk</label>
-                                <textarea name="digunakan_untuk" data-value="digunakan_untuk" class="input" autocomplete="off"
-                                    id="digunakan_untuk" rows="4"></textarea>
+                                <textarea id="textareaEditBeasiswaPenerima" name="digunakan_untuk"></textarea>
                                 @error('digunakan_untuk')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -617,6 +612,14 @@
         const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
         const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
 
+        const textareaTambahBeasiswa = new RichTextEditor("#textareaTambahBeasiswa");
+        const textareaDetailBeasiswa = new RichTextEditor("#textareaDetailBeasiswa");
+        const textareaEditBeasiswa = new RichTextEditor("#textareaEditBeasiswa");
+
+        const textareaTambahBeasiswaPenerima = new RichTextEditor("#textareaTambahBeasiswaPenerima");
+        const textareaDetailBeasiswaPenerima = new RichTextEditor("#textareaDetailBeasiswaPenerima");
+        const textareaEditBeasiswaPenerima = new RichTextEditor("#textareaEditBeasiswaPenerima");
+
         $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
             $.ajax({
                 type: 'get',
@@ -647,7 +650,7 @@
                 url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
                 success: function(data) {
                     $('[data-value="title_beasiswa"]').val(data.title);
-                    $('[data-value="description_beasiswa"]').val(data.description);
+                    textareaDetailBeasiswa.setHTMLCode(data.description);
                 }
             });
         });
@@ -660,7 +663,7 @@
                 url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
                 success: function(data) {
                     $('[data-value="title_beasiswa"]').val(data.title);
-                    $('[data-value="description_beasiswa"]').val(data.description);
+                    textareaEditBeasiswa.setHTMLCode(data.description);
                 }
             });
         });
@@ -681,7 +684,7 @@
                     $('[data-value="tahun_beasiswa"]').val(data.tahun_beasiswa);
                     $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
                     $('[data-value="nama_beasiswa"]').val(data.nama_beasiswa);
-                    $('[data-value="digunakan_untuk"]').val(data.digunakan_untuk);
+                    textareaDetailBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
                 }
             });
         });
@@ -701,7 +704,7 @@
                     $('[data-value="beasiswas_id"]').val(data.beasiswas_id);
                     $('[data-value="beasiswas_id"]').html(data.nama_beasiswa);
                     $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
-                    $('[data-value="digunakan_untuk"]').val(data.digunakan_untuk);
+                    textareaEditBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
                 }
             });
         });
