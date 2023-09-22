@@ -5,7 +5,7 @@
         <section class="blog-section container">
             <div class="d-flex justify-content-center flex-column align-items-center">
                 <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                    {{ $sectionJournal->title_header }}
+                    {!! $sectionJournal->title_header !!}
                 </p>
                 <form action="{{ route('berita-cari') }}" method="GET"
                     class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
@@ -23,7 +23,7 @@
                                 <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                                     alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
                                 <p class="mt-3 text-black fw-semibold text-center">
-                                    {{ $journal->title }}
+                                    {!! $journal->title !!}
                                 </p>
                                 <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                     <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">

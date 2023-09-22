@@ -210,7 +210,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
                         <p class="text-black display-6 fw-bold text-capitalize">
-                            {{ $hymne->title_section }}
+                            {!! $hymne->title_section !!}
                         </p>
                         <div class="song-wrapper mt-3">
                             <p class="desc song-lyric ">
@@ -218,7 +218,7 @@
                             </p>
                         </div>
                         <p class="mt-3 desc fs-6">
-                            Ciptaan: <span class="fw-semibold text-black"> {{ $hymne->creation }}</span>
+                            Ciptaan: <span class="fw-semibold text-black">{!! $hymne->creation !!}</span>
                         </p>
                     </div>
                     <div class="col-lg-5 d-lg-block d-none offset-lg-1">
@@ -251,7 +251,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                        {{ $sectionManagement->title_section }}</p>
+                        {!! $sectionManagement->title_section !!}</p>
                 </div>
                 <div class="mt-5">
                     <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
@@ -287,7 +287,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                        {{ $sectionTeacher->title_section }}
+                        {!! $sectionTeacher->title_section !!}
                     </p>
                 </div>
                 <div class="mt-5">
@@ -303,7 +303,7 @@
                                             alt="{{ $teacher->fullname }}" class="w-100">
                                     @endif
                                     <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
-                                    <p class="desc">{{ $teacher->position }}</p>
+                                    <p class="desc">{!! $teacher->position !!}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -323,7 +323,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                        {{ $sectionStaff->title_section }}</p>
+                       {!! $sectionStaff->title_section !!}</p>
                 </div>
                 <div class="mt-5">
                     <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">

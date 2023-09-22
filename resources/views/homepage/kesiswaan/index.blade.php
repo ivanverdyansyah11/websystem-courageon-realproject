@@ -11,13 +11,13 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        {{ $headerStudent->title_header }}
+                        {!! $headerStudent->title_header !!}
                     </p>
                     <p class="mt-4 desc">
-                        {{ $headerStudent->description }}
+                        {!! $headerStudent->description !!}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
-                        <a href="#grafik" class="btn btn-color">{{ $headerStudent->button }}</a>
+                        <a href="#grafik" class="btn btn-color">{!! $headerStudent->button !!}</a>
                     </div>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
@@ -47,13 +47,13 @@
                 <div class="d-flex justify-content-center header-section">
                     <div class="title-section-text">
                         <p class="text-center display-5 fw-bold text-capitalize">
-                            {{ $sectionStudent->title_section }}
+                            {!! $sectionStudent->title_section !!}
                         </p>
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center gap-3">
                     <button class="btn btn-text category-name active" onclick="showItems('category1')">
-                        semua siswa
+                        SEMUA SISWA
                     </button>
                     <button class="btn btn-text category-name" onclick="showItems('category2')">
                         SISWA LAKI-LAKI
@@ -138,10 +138,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionExtracurricular->title_section }}
+                        {!! $sectionExtracurricular->title_section !!}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionExtracurricular->description }}
+                        {!! $sectionExtracurricular->description !!}
                     </p>
                 </div>
             </div>
@@ -165,10 +165,10 @@
                 <div class="d-flex justify-content-center header-section">
                     <div class="long-title-section-text">
                         <p class="text-center display-5 fw-bold text-capitalize">
-                            {{ $sectionService->title_section }}
+                            {!! $sectionService->title_section !!}
                         </p>
                         <p class="desc fs-6 text-center mt-3">
-                            {{ $sectionService->description }}
+                            {!! $sectionService->description !!}
                         </p>
                     </div>
                 </div>
@@ -216,7 +216,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                        {{ $sectionAchievement->title_section }}
+                        {!! $sectionAchievement->title_section !!}
                     </p>
                 </div>
                 <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 mt-5 gy-4">
@@ -271,13 +271,13 @@
             <div class="top-section row align-items-center gy-4">
                 <div class="col-lg-6 col-xl-5 col-12">
                     <p class="display-5 fw-bold">
-                        {{ $sectionBeasiswa->title_section }}
+                        {!! $sectionBeasiswa->title_section !!}
                     </p>
                 </div>
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-lg-6 col-12">
                     <p class="desc">
-                        {{ $sectionBeasiswa->description }}
+                        {!! $sectionBeasiswa->description !!}
                     </p>
                 </div>
             </div>
@@ -313,10 +313,10 @@
                 <div class="d-flex justify-content-center header-section">
                     <div class="title-section-text">
                         <p class="text-center display-5 fw-bold text-capitalize">
-                            {{ $sectionAlumni->title_section }}
+                            {!! $sectionAlumni->title_section !!}
                         </p>
                         <p class="desc fs-6 text-center mt-3">
-                            {{ $sectionAlumni->description }}
+                            {!! $sectionAlumni->description !!}
                         </p>
                     </div>
                 </div>
@@ -340,7 +340,7 @@
                                         </div>
                                     </div>
                                     <p class="desc mt-3">
-                                        {{ $alumni->testimoni }}
+                                        {!! $alumni->testimoni !!}
                                     </p>
                                 </div>
                             </div>

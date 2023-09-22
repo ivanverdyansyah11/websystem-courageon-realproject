@@ -6,10 +6,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="long-title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionService->title_section }}
+                        {!! $sectionService->title_section !!}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionService->description }}
+                        {!! $sectionService->description !!}
                     </p>
                 </div>
             </div>

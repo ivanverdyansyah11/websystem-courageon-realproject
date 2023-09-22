@@ -10,7 +10,7 @@
                             <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/' . $extracurriculars->banner) }}"
                                 alt="{{ $extracurriculars->name }}" class="img-detail">
                             <h2 class="fs-2 fw-bold text-black mt-4">
-                                {{ $extracurriculars->title }}
+                                {!! $extracurriculars->title !!}
                             </h2>
                         </div>
                         <div class="mt-4 d-flex flex-column gap-4">
@@ -52,7 +52,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc d-md-flex d-none">Ekstrakurikuler :</p>
-                                <p class="desc">{{ $extracurriculars->name }}</p>
+                                <p class="desc">{!! $extracurriculars->name !!}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -83,7 +83,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc d-md-flex d-none">Pembina :</p>
-                                <p class="desc text-capitalize">{{ $extracurriculars->coach }}</p>
+                                <p class="desc text-capitalize">{!! $extracurriculars->coach !!}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18"
@@ -114,7 +114,7 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc d-md-flex d-none">Nomor Hp :</p>
-                                <p class="desc text-capitalize">{{ $extracurriculars->number_phone_coach }}</p>
+                                <p class="desc text-capitalize">{!! $extracurriculars->number_phone_coach !!}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
@@ -127,7 +127,7 @@
                                         fill="#9A9A9A" />
                                 </svg>
                                 <p class="desc d-md-flex d-none">Jadwal Extra :</p>
-                                <p class="desc text-capitalize">{{ $extracurriculars->schedule_day }}</p>
+                                <p class="desc text-capitalize">{!! $extracurriculars->schedule_day !!}</p>
                             </div>
                             <div class="d-flex flex-row align-items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
@@ -140,12 +140,12 @@
                                         fill="#232323" fill-opacity="0.46" />
                                 </svg>
                                 <p class="desc d-md-flex d-none">Jam pelaksanaan :</p>
-                                <p class="desc text-capitalize">{{ $extracurriculars->start_time }} -
-                                    {{ $extracurriculars->end_time }} WITA</p>
+                                <p class="desc text-capitalize">{!! $extracurriculars->start_time !!} -
+                                   {!! $extracurriculars->end_time !!} WITA</p>
                             </div>
                         </div>
                         <article class="mt-4 article-content desc">
-                            {{ $extracurriculars->description }}
+                            {!! $extracurriculars->description !!}
                         </article>
                         <a target="_block" href="{{ $extracurriculars->link_register }}"
                             class="btn btn-color mt-4">daftar sekarang</a>

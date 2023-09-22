@@ -6,10 +6,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="long-title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionProyek->title_section }}
+                        {!! $sectionProyek->title_section !!}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionProyek->description }}
+                        {!! $sectionProyek->description !!}
                     </p>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                                     alt="{{ $project->title }}" class="w-100">
                                 <div class="mt-3 text-center">
                                     <p class="text-black fw-bold">{{ $project->topic }}</p>
-                                    <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}</p>
+                                    <p class="desc fs-13 text-capitalize">{!! Str::limit($project->description, 31) !!}</p>
                                 </div>
                             </div>
                         </a>

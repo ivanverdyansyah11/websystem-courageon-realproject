@@ -10,10 +10,10 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-7 col-12">
                         <p class="display-4 fw-bold text-black">
-                            {{ $headerHumas->title_header }}
+                            {!! $headerHumas->title_header !!}
                         </p>
                         <p class="mt-4 desc">
-                            {{ $headerHumas->description }}
+                            {!! $headerHumas->description !!}
                         </p>
                         <div class="mt-4 d-flex gap-3 align-items-center">
                             <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
@@ -44,10 +44,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold">
-                        {{ $SectionKemitraan->title_header }}
+                        {!! $SectionKemitraan->title_header !!}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        {{ $SectionKemitraan->description }}
+                        {!! $SectionKemitraan->description !!}
                     </p>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                        {{ $sectionJournal->title_header }}
+                        {!! $sectionJournal->title_header !!}
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">

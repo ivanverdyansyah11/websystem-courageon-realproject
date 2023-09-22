@@ -4,16 +4,16 @@
     <main class="mt-3">
         <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="row position-relative">
                 <div class="col-xl-6 col-lg-7 col-12 position-relative d-flex align-items-center">
                     <div class="d-flex justify-content-center flex-column">
                         <p class="display-4 fw-bold text-black text-capitalize">
-                            {{ $headerHome->title_header }}
+                            {!! $headerHome->title_header !!}
                         </p>
                         <p class="mt-4 desc">
-                            {{ $headerHome->description }}
+                            {!! $headerHome->description !!}
                         </p>
                         <div class="mt-4 d-flex gap-3 align-items-center">
                             <a href="{{ route('profil') }}" class="btn btn-color">{{ $headerHome->button }}</a>
@@ -22,7 +22,8 @@
                 </div>
                 <div class="col-xl-1 d-xl-flex d-none h-100 position-relative">
                     <div class="position-absolute end-0 hero-decor">
-                        <img src="{{asset('assets-homepage/img/hero-decoration-img.svg')}}" alt="" class="img-decor-hero">
+                        <img src="{{ asset('assets-homepage/img/hero-decoration-img.svg') }}" alt=""
+                            class="img-decor-hero">
                     </div>
                 </div>
                 <div class="col-lg-5 d-lg-block d-none">
@@ -31,12 +32,13 @@
                             <div class="side-img-section-decor right-img-section-decor w-100 h-100"></div>
                         </div>
                         <div class="position-relative">
-                                @if ($headerHome->banner)
-                                    <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
-                                        alt="hero-section image" class="w-100 img-section right-img-section po">
-                                @else
-                                    <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image" class="w-100">
-                                @endif
+                            @if ($headerHome->banner)
+                                <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
+                                    alt="hero-section image" class="w-100 img-section right-img-section po">
+                            @else
+                                <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image"
+                                    class="w-100">
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -44,20 +46,20 @@
         </section>
         <section class="welcome-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="top-section row align-items-center gy-4">
                     <div class="col-lg-6 col-xl-5 col-12">
                         <p class="display-5 fw-bold">
-                            {{ $openingHome->title_opening }}
+                            {!! $openingHome->title_opening !!}
                         </p>
                     </div>
                     <div class="col-xl-1 d-xl-block d-none"></div>
                     <div class="col-lg-6 col-12">
-                            <p class="desc">
-                                {{ $openingHome->description }}
-                            </p>
+                        <p class="desc">
+                            {!! $openingHome->description !!}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -69,12 +71,12 @@
                             <div class="side-img-section-decor left-img-section-decor w-100 h-100"></div>
                         </div>
                         <div class="position-relative">
-                                    @if ($remarkHome->banner)
+                            @if ($remarkHome->banner)
                                 <img src="{{ asset('assets/img/beranda-images/sambutan-image/' . $remarkHome->banner) }}"
                                     alt="hero-section image" class="w-100 img-section left-img-section">
                             @else
-                                <img src="{{ asset('assets-homepage/img/welcome-section.png') }}" alt="welcome section image"
-                                    class="w-100">
+                                <img src="{{ asset('assets-homepage/img/welcome-section.png') }}"
+                                    alt="welcome section image" class="w-100">
                             @endif
                         </div>
                     </div>
@@ -83,11 +85,11 @@
                 <div class="col-xl-1 d-xl-block d-none"></div>
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="fw-bold display-5 text-black text-capitalize">
-                        {{ $remarkHome->title_remark }}
+                        {!! $remarkHome->title_remark !!}
                     </p>
                     <div class="card-desc-section mt-3">
                         <p class="desc">
-                            {{ $remarkHome->message }}
+                            {!! $remarkHome->message !!}
                         </p>
                     </div>
                 </div>
@@ -95,12 +97,12 @@
         </section>
         <section class="prestation-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                        {{ $sectionAchievement->title_section }}
+                        {!! $sectionAchievement->title_section !!}
                     </p>
                 </div>
                 <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 mt-5 gy-4">
@@ -129,13 +131,15 @@
                                         </div>
                                     </div>
                                     <div class="mt-3">
-                                        <p class="text-center fs-5 fw-bold">{{ $achievement->hasil }}</p>
-                                        <p class="text-center fw-semibold text-capitalize">{{ $achievement->nama_kegiatan }}
-                                            tingkat {{ $achievement->tingkat }}</p>
+                                        <p class="text-center fs-5 fw-bold">{!! $achievement->hasil !!}</p>
+                                        <p class="text-center fw-semibold text-capitalize">
+                                            {!! $achievement->nama_kegiatan !!}
+                                            tingkat {!! $achievement->tingkat !!}</p>
                                     </div>
                                     <div class="mt-2 d-flex gap-3 justify-content-center">
-                                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
-                                        <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
+                                        <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt=""
+                                            class="">
+                                        <p class="text-secondary fs-15">{!! $achievement->nama_peserta !!}</p>
                                     </div>
                                 </a>
                             </div>
@@ -239,7 +243,7 @@
                 <div class="col-12">
                     <div class="d-flex justify-content-center">
                         <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                            {{ $sectionAlumni->title_section }}
+                            {!! $sectionAlumni->title_section !!}
                         </p>
                     </div>
                 </div>
@@ -256,15 +260,15 @@
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <p class="fs-5 fw-semibold text-capitalize">
-                                                    {{ $alumni->students->nama_lengkap }}
+                                                    {!! $alumni->students->nama_lengkap !!}
                                                 </p>
                                                 <p class="desc fs-15">
-                                                    {{ $alumni->pekerjaan }}
+                                                    {!! $alumni->pekerjaan !!}
                                                 </p>
                                             </div>
                                         </div>
                                         <p class="desc mt-3">
-                                            {{ $alumni->testimoni }}
+                                            {!! $alumni->testimoni !!}
                                         </p>
                                     </div>
                                 </div>
@@ -277,21 +281,21 @@
         </section>
         <section class="history-section container section-margin-top position-relative">
             <div class="position-absolute start-50 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-xl-6 col-12 ">
                         <p class="display-5 text-black fw-bold text-capitalize">
-                            {{ $historyHome->title_history }}
+                            {!! $historyHome->title_history !!}
                         </p>
                         <article class="mt-3">
                             <p class="desc">
-                                {{ $historyHome->description }}
+                                {!! $historyHome->description !!}
                             </p>
                         </article>
                         <a href="{{ route('profil') }}" class="btn mt-4 btn-color d-flex gap-3 align-items-center">
-                            {{ $historyHome->button }}
+                            {!! $historyHome->button !!}
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"
                                 fill="none">
                                 <path
@@ -310,8 +314,8 @@
                                     <img src="{{ asset('assets/img/beranda-images/sejarah-image/' . $historyHome->banner) }}"
                                         alt="hero-section image" class="w-100 img-section right-img-section">
                                 @else
-                                    <img src="{{ asset('assets-homepage/img/history-img.png') }}" alt="history section image"
-                                        class="w-100">
+                                    <img src="{{ asset('assets-homepage/img/history-img.png') }}"
+                                        alt="history section image" class="w-100">
                                 @endif
                             </div>
                         </div>
@@ -322,30 +326,29 @@
         </section>
         <section class="blog-section section-margin-top container position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                        {{ $sectionJournal->title_header }}
+                        {!! $sectionJournal->title_header !!}
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                     @foreach ($journals as $journal)
                         <div class="col">
                             <div class="card-blog">
-                                    <a target="_block"
+                                <a target="_block"
                                     href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                                     class="text-decoration-none">
                                     <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                        alt="{{ $journal->title }}"
-                                        class="w-100 img-fluid rounded">
+                                        alt="{{ $journal->title }}" class="w-100 img-fluid rounded">
                                     <p class="mt-3 text-black fw-semibold text-center">
-                                        {{ $journal->title }}
+                                        {!! $journal->title !!}
                                     </p>
                                     <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                         <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                                        <p class="desc fs-14 lh-base">{{ $journal->created_date }}</p>
+                                        <p class="desc fs-14 lh-base">{!! $journal->created_date !!}</p>
                                     </div>
                                 </a>
                             </div>
@@ -356,7 +359,7 @@
                 <div class="btn-wrapper d-flex justify-content-center mt-4">
                     @if ($journalCount > 4)
                         <a href="{{ route('berita') }}" class="btn btn-color">
-                            {{ $sectionJournal->button }}
+                            {!! $sectionJournal->button !!}
                         </a>
                     @endif
                 </div>
@@ -364,7 +367,7 @@
         </section>
         <section class="cta-section container section-margin-top position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
-                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
             <div class="position-relative">
                 <div class="d-flex justify-content-center text-center">

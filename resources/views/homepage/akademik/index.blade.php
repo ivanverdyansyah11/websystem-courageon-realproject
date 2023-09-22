@@ -9,10 +9,10 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-7 col-12">
                     <p class="display-4 fw-bold text-black">
-                        {{ $headerAcademic->title_header }}
+                        {!! $headerAcademic->title_header !!}
                     </p>
                     <p class="mt-4 desc">
-                        {{ $headerAcademic->description }}
+                        {!! $headerAcademic->description !!}
                     </p>
                     <div class="mt-4 d-flex gap-3 align-items-center">
                         <a href="#kurikulum" class="btn btn-color">{{ $headerAcademic->button }}</a>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-7 col-12 offset-xl-1">
                     <p class="text-black display-5 fw-bold text-capitalize">
-                        {{ $curriculum->title_section }}
+                        {!! $curriculum->title_section !!}
                     </p>
                     <article class="mt-3">
                         <div class="card-desc-section">
@@ -81,7 +81,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center fw-bold text-capitalize text-black display-5">
-                        {{ $sectionProgram->title_section }}
+                        {!! $sectionProgram->title_section !!}
                     </p>
                 </div>
                 <div class="d-flex flex-column gap-5 mt-5">
@@ -92,13 +92,13 @@
                                 <article class="mt-3">
                                     <div class="card-desc-section">
                                         <p class="desc">
-                                            {{ $program->description }}
+                                            {!! $program->description !!}
                                         </p>
                                     </div>
                                 </article>
                                 <a target="_block" href="{{ $program->link }}"
                                     class="d-flex align-items-center gap-2 mt-4 btn btn-color">
-                                    {{ $program->button }}
+                                    {!! $program->button !!}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10"
                                         viewBox="0 0 20 10" fill="none">
                                         <path
@@ -133,10 +133,10 @@
                 <div class="d-flex justify-content-center header-section">
                     <div class="long-title-section-text">
                         <p class="text-center display-5 fw-bold text-capitalize">
-                            {{ $sectionProyek->title_section }}
+                            {!! $sectionProyek->title_section !!}
                         </p>
                         <p class="desc fs-6 text-center mt-3">
-                            {{ $sectionProyek->description }}
+                            {!! $sectionProyek->description !!}
                         </p>
                     </div>
                 </div>
@@ -168,10 +168,10 @@
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
                     <p class="text-center display-5 fw-bold text-capitalize">
-                        {{ $sectionGallery->title_section }}
+                        {!! $sectionGallery->title_section !!}
                     </p>
                     <p class="desc fs-6 text-center mt-3">
-                        {{ $sectionGallery->description }}
+                        {!! $sectionGallery->description !!}
                     </p>
                 </div>
             </div>
@@ -195,13 +195,13 @@
                 <div class="d-flex justify-content-center header-section">
                     <div class="title-section-text">
                         <p class="text-center display-5 fw-bold text-capitalize">
-                            {{ $sectionGraduation->title_section }}
+                            {!! $sectionGraduation->title_section !!}
                         </p>
                     </div>
                 </div>
                 <div class="mt-4 d-flex justify-content-center gap-3">
                     <button class="btn btn-text category-name active" onclick="showItems('category1')">
-                        semua siswa
+                        SEMUA SISWA
                     </button>
                     <button class="btn btn-text category-name" onclick="showItems('category2')">
                         SISWA LAKI-LAKI

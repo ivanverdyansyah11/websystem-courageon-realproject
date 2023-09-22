@@ -47,10 +47,10 @@
                         </div>
                         <article class="mt-4 article-content desc">
                             <p>
-                                <span class="fw-bold">Deskripsi Masalah :</span> {{ $pelayananKarir->masalah }}
+                                <span class="fw-bold">Deskripsi Masalah :</span> {!! $pelayananKarir->masalah !!}
                             </p>
                             <p class="mt-2">
-                                <span class="fw-bold">Solusi :</span> {{ $pelayananKarir->solusi }}
+                                <span class="fw-bold">Solusi :</span> {!! $pelayananKarir->solusi !!}
                             </p>
                         </article>
                     </div>

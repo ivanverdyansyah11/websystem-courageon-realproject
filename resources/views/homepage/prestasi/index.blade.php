@@ -5,7 +5,7 @@
         <section class="prestation-section container">
             <div class="d-flex justify-content-center">
                 <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                    {{ $sectionAchievement->title_section }}
+                    {!! $sectionAchievement->title_section !!}
                 </p>
             </div>
             <div class="mt-4 search-filter-wrapper d-flex flex-column align-items-center">
