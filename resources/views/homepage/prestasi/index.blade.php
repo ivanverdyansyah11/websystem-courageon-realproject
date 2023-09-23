@@ -9,10 +9,10 @@
                 </p>
             </div>
             <div class="mt-4 search-filter-wrapper d-flex flex-column align-items-center">
-                <form action="{{ route('prestasi-cari') }}" method="GET"
+                <form action="{{ route('prestasi-cari') }}" method="POST"
                     class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
                     @csrf
-                    <input type="text" class="input-text w-100 desc" name="query" placeholder="masukkan prestasi">
+                    <input type="search" class="input-text w-100 desc" name="search" placeholder="masukkan prestasi">
                     <button class="btn btn-color btn-input">cari</button>
                 </form>
                 <div class="mt-4 d-flex justify-content-center gap-3">
@@ -59,7 +59,8 @@
                                         tingkat {{ $achievement->tingkat }}</p>
                                 </div>
                                 <div class="mt-2 d-flex gap-3 justify-content-center">
-                                    <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt="" class="">
+                                    <img src="{{ asset('assets-homepage/img/profile.svg') }}" alt=""
+                                        class="">
                                     <p class="text-secondary fs-15">{{ $achievement->nama_peserta }}</p>
                                 </div>
                             </a>

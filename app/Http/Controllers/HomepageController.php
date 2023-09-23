@@ -119,12 +119,6 @@ class HomepageController extends Controller
         $kenaikanKelasTahun2LaluLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'L')->first();
         $kenaikanKelasTahun2LaluPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'P')->first();
 
-        // $kenaikanKelasTahunIniTotalXII = $kenaikanKelasTahunIniLaki->jumlah_siswa_xii + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii;
-
-        // return $kenaikanKelasTahunIniTotalXII;
-
-        // return $tahun_ajaran[2];
-
         return view('homepage.akademik.index', [
             'title' => 'Akademik',
             'logo' => Logo::first(),
@@ -276,10 +270,14 @@ class HomepageController extends Controller
 
     function prestasiCari(Request $request)
     {
-        $query = $request->input('query');
-
-        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $query . '%')
-            ->orWhere('status', 'like', '%' . $query . '%')
+        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('hasil', 'like', '%' . $request->search . '%')
+            ->orWhere('tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('nama_peserta', 'like', '%' . $request->search . '%')
+            ->orWhere('pembina', 'like', '%' . $request->search . '%')
+            ->orWhere('penyelenggara', 'like', '%' . $request->search . '%')
+            ->orWhere('tingkat', 'like', '%' . $request->search . '%')
             ->get();
 
         return view('homepage.prestasi.index', [
@@ -290,6 +288,22 @@ class HomepageController extends Controller
             'achievements' => $results,
             'kategori_prestasi' => KategoriPrestasi::all(),
         ]);
+    }
+
+    function seacrchingAchievement(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $query . '%')
+            ->orWhere('status', 'like', '%' . $query . '%')
+            ->orWhere('hasil', 'like', '%' . $query . '%')
+            ->orWhere('tingkat', 'like', '%' . $query . '%')
+            ->get('query');
+
+        if ($results) {
+            return redirect(route('prestasi-cari'));
+        } else {
+            return redirect(route('prestasi-cari'));
+        }
     }
 
     function kategoriPrestasi($id)
