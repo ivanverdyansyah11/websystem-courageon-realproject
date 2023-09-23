@@ -70,11 +70,11 @@
                 <div class="col-lg-4 col-12">
                     <div class="ms-xl-3">
                         <p class="text-black fs-3 fw-bold text-capitalize">Cari Prestasi</p>
-                        <form action="{{ route('prestasi-cari') }}" method="GET"
+                        <form action="{{ route('prestasi-cari') }}" method="POST"
                             class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
                             @csrf
-                            <input type="text" class="input-text w-100 desc" name="query"
-                                placeholder="Masukkan nama prestasi">
+                            <input type="search" class="input-text w-100 desc" name="search"
+                                placeholder="masukkan prestasi">
                             <button class="btn btn-color btn-input">cari</button>
                         </form>
                         <p class="mt-5 text-black fs-5 fw-bold">Prestasi Lainnya</p>

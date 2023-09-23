@@ -61,13 +61,11 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/sarana-prasarana', 'saranaPrasarana')->name('sarana-prasarana');
     Route::get('/humas', 'humas')->name('humas');
     Route::get('/prestasi', 'prestasi')->name('prestasi');
-
     Route::post('/prestasi/cari', 'prestasiCari')->name('prestasi-cari');
-
     Route::get('/kategori-prestasi/{id}', 'kategoriPrestasi')->name('kategori-prestasi');
     Route::get('/prestasi/{id}', 'detailPrestasi')->name('detail-prestasi');
     Route::get('/berita', 'berita')->name('berita');
-    Route::get('/berita/cari', 'beritaCari')->name('berita-cari');
+    Route::post('/berita/cari', 'beritaCari')->name('berita-cari');
     Route::get('/manajemen', 'manajemen')->name('manajemen');
     Route::get('/guru', 'guru')->name('guru');
     Route::get('/pegawai', 'pegawai')->name('pegawai');

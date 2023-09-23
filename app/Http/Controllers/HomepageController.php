@@ -290,22 +290,6 @@ class HomepageController extends Controller
         ]);
     }
 
-    function seacrchingAchievement(Request $request)
-    {
-        $query = $request->input('query');
-        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $query . '%')
-            ->orWhere('status', 'like', '%' . $query . '%')
-            ->orWhere('hasil', 'like', '%' . $query . '%')
-            ->orWhere('tingkat', 'like', '%' . $query . '%')
-            ->get('query');
-
-        if ($results) {
-            return redirect(route('prestasi-cari'));
-        } else {
-            return redirect(route('prestasi-cari'));
-        }
-    }
-
     function kategoriPrestasi($id)
     {
         return view('homepage.prestasi.index', [
@@ -343,10 +327,9 @@ class HomepageController extends Controller
 
     function beritaCari(Request $request)
     {
-        $query = $request->input('query');
-
-        $results = Journal::where('title', 'like', '%' . $query . '%')
-            ->orWhere('author', 'like', '%' . $query . '%')
+        $results = Journal::where('title', 'like', '%' . $request->search . '%')
+            ->orWhere('author', 'like', '%' . $request->search . '%')
+            ->orWhere('created_date', 'like', '%' . $request->search . '%')
             ->get();
 
         return view('homepage.berita.index', [

@@ -7,10 +7,10 @@
                 <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
                     {!! $sectionJournal->title_header !!}
                 </p>
-                <form action="{{ route('berita-cari') }}" method="GET"
+                <form action="{{ route('berita-cari') }}" method="POST"
                     class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
                     @csrf
-                    <input type="text" class="input-text w-100 desc" name="query" placeholder="Masukkan judul berita">
+                    <input type="search" class="input-text w-100 desc" name="search" placeholder="Masukkan judul berita">
                     <button class="btn btn-color btn-input">cari</button>
                 </form>
             </div>
