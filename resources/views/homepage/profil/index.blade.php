@@ -119,11 +119,11 @@
                 </svg>
                 <div class="title-section-text">
                     <p class="display-3 fw-bold text-black text-center text-capitalize">
-                        {{ $motto->motto }}
+                        {!! $motto->motto !!}
                     </p>
                 </div>
                 <div class="mt-2 text-center">
-                    <p class="desc fs-5">By <span class="main-color fw-semibold">{{ $motto->speaker }}</span>
+                    <p class="desc fs-5">By <span class="main-color fw-semibold">{!! $motto->speaker !!}</span>
                     </p>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                         <div class="logo-meaning-card">
                             <p class="fs-5 fw-bold text-black text-capitalize">Makna Logo</p>
                             <p class="mt-2 desc fs-6">
-                                {{ $logo->logo_meaning }}
+                                {!! $logo->logo_meaning !!}
                             </p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                         <div class="logo-meaning-card">
                             <p class="fs-5 fw-bold text-black text-capitalize">Makna Font</p>
                             <p class="mt-2 desc fs-6">
-                                {{ $logo->font_meaning }}
+                                {!! $logo->font_meaning !!}
                             </p>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                         <div class="logo-meaning-card">
                             <p class="fs-5 fw-bold text-black text-capitalize">Makna Warna</p>
                             <p class="mt-2 desc fs-6">
-                                {{ $logo->color_meaning }}
+                                {!! $logo->color_meaning !!}
                             </p>
                         </div>
                     </div>
@@ -323,7 +323,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="display-5 fw-bold text-capitalize text-center title-section-text">
-                       {!! $sectionStaff->title_section !!}</p>
+                        {!! $sectionStaff->title_section !!}</p>
                 </div>
                 <div class="mt-5">
                     <div class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
