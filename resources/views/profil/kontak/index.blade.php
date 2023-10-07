@@ -70,7 +70,7 @@
                     @if ($contacts->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Guru!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Kontak!</div>
                             </div>
                         </div>
                     @else
@@ -156,7 +156,7 @@
                     <div class="input-wrapper">
                         <label for="judul_section">Judul Section</label>
                         <input type="text" id="judul_section" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" name="title_section" required>
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -164,7 +164,7 @@
                     <div class="input-wrapper">
                         <label for="url_maps">URL Lokasi</label>
                         <input type="text" id="url_maps" class="input" autocomplete="off" data-value="url_maps"
-                            name="url_maps">
+                            name="url_maps" required>
                         @error('url_maps')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -203,14 +203,16 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
-                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        <input type="text" id="nama" class="input" autocomplete="off" name="name" required
+                            value="{{ old('name') }}">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="link">Link</label>
-                        <input type="text" id="link" class="input" autocomplete="off" name="link">
+                        <input type="text" id="link" class="input" autocomplete="off" name="link" required
+                            value="{{ old('link') }}">
                         @error('link')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -284,7 +286,7 @@
                     <div class="input-wrapper">
                         <label for="nama">Judul Kontak</label>
                         <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_contact" name="name">
+                            data-value="name_contact" name="name" required>
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -292,7 +294,7 @@
                     <div class="input-wrapper">
                         <label for="link">Link</label>
                         <input type="text" id="link" class="input" autocomplete="off"
-                            data-value="link_contact" name="link">
+                            data-value="link_contact" name="link" required>
                         @error('link')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

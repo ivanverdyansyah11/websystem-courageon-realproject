@@ -82,7 +82,7 @@
                     @if ($courses->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Manajemen!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Mata Pelajaran!</div>
                             </div>
                         </div>
                     @else
