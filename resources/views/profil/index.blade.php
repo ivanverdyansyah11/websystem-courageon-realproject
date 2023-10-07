@@ -201,7 +201,7 @@
                             <div class="input-wrapper">
                                 <label for="judul">Judul Header</label>
                                 <input type="text" id="judul" class="input" name="title_header"
-                                    autocomplete="off" data-value="title_header">
+                                    autocomplete="off" data-value="title_header" required>
                                 @error('title_header')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -211,7 +211,7 @@
                             <div class="input-wrapper">
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_header">
+                                    data-value="button_header" required>
                                 @error('button')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -220,7 +220,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
+                                <textarea id="textareaEditHeader" name="description" required>{{ $section_header->description }}</textarea>
                                 @error('description')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -248,15 +248,16 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="nama">Nama</label>
-                        <input type="text" id="nama" class="input" name="name" autocomplete="off">
+                        <input type="text" id="nama" class="input" name="name" autocomplete="off"
+                            value="{{ old('name') }}" required>
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="jam_per_minggu">Jam Per Minggu</label>
-                        <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
-                            autocomplete="off">
+                        <input type="number" id="jam_per_minggu" class="input" name="hours_per_week"
+                            autocomplete="off" value="{{ old('hours_per_week') }}" required>
                         @error('hours_per_week')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -308,15 +309,15 @@
                     <div class="input-wrapper">
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" class="input" autocomplete="off" name="name"
-                            data-value="name_course">
+                            data-value="name_course" required>
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="jam_per_minggu">Jam Per Minggu</label>
-                        <input type="text" id="jam_per_minggu" class="input" name="hours_per_week"
-                            autocomplete="off" data-value="hours_course">
+                        <input type="number" id="jam_per_minggu" class="input" name="hours_per_week"
+                            autocomplete="off" data-value="hours_course" required>
                         @error('hours_per_week')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
