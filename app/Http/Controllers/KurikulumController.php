@@ -39,8 +39,10 @@ class KurikulumController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/akademik-images/kurikulum-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/akademik-images/kurikulum-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/akademik-images/kurikulum-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();

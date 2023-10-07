@@ -48,7 +48,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul_section">Judul Section</label>
                                         <input type="text" id="judul_section" class="input" autocomplete="off"
-                                            value="{{ $curriculum->title_section }}" name="title_section">
+                                            value="{{ $curriculum->title_section }}" required name="title_section">
                                         @error('title_section')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -57,7 +57,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi_kurikulum">Deskripsi Kurikulum</label>
-                                        <textarea id="inputEditCurriculum" autocomplete="off" name="description" class="input">{{ $curriculum->description }}</textarea>
+                                        <textarea id="inputEditCurriculum" autocomplete="off" required name="description" class="input">{{ $curriculum->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
