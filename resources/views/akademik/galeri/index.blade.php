@@ -158,14 +158,14 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" required name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-4">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditSection" name="description">{{ $section_gallery->description }}</textarea>
+                        <textarea id="textareaEditSection" required name="description">{{ $section_gallery->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-4">{{ $message }}</p>
                         @enderror
@@ -195,7 +195,7 @@
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-image"
                                 alt="Image Gallery" width="80">
                             <div class="wrapper-image w-100">
-                                <input type="file" id="gambar" class="input-add-image" name="image">
+                                <input type="file" id="gambar" class="input-add-image" name="image" required>
                             </div>
                         </div>
                         @error('image')
@@ -204,7 +204,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="judul">Judul Gambar</label>
-                        <input type="text" id="judul" class="input" name="title" autocomplete="off">
+                        <input type="text" id="judul" class="input" name="title" autocomplete="off"
+                            value="{{ old('title') }}" required>
                         @error('title')
                             <p class="caption-error mt-4">{{ $message }}</p>
                         @enderror
@@ -273,7 +274,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Gambar</label>
                         <input type="text" id="judul" class="input" data-value="title_gallery" name="title"
-                            autocomplete="off">
+                            required autocomplete="off">
                         @error('title')
                             <p class="caption-error mt-4">{{ $message }}</p>
                         @enderror

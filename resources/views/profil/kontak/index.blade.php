@@ -194,7 +194,7 @@
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-icon"
                                 alt="icon Section Sejarah" width="80">
                             <div class="wrapper-image w-100">
-                                <input type="file" id="icon" class="input-add-icon" name="icon">
+                                <input type="file" id="icon" class="input-add-icon" name="icon" required>
                             </div>
                         </div>
                         @error('icon')
