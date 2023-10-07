@@ -216,7 +216,7 @@
                             <div class="input-wrapper">
                                 <label for="judul">Judul Section</label>
                                 <input type="text" id="judul" class="input" name="title_section"
-                                    autocomplete="off" data-value="title_section">
+                                    autocomplete="off" required data-value="title_section">
                                 @error('title_section')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -225,7 +225,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="judul_kode">Judul Kode</label>
-                                <input type="text" id="judul_kode" class="input" autocomplete="off"
+                                <input type="text" id="judul_kode" class="input" autocomplete="off" required
                                     data-value="title_code" name="title_code">
                                 @error('title_code')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -235,7 +235,7 @@
                         <div class="col-md-6 mb-6 mb-md-0">
                             <div class="input-wrapper">
                                 <label for="judul_ruangan">Judul Ruangan</label>
-                                <input type="text" id="judul_ruangan" class="input" autocomplete="off"
+                                <input type="text" id="judul_ruangan" class="input" autocomplete="off" required
                                     data-value="title_room" name="title_room">
                                 @error('title_room')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -246,7 +246,7 @@
                             <div class="input-wrapper">
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_section">
+                                    required data-value="button_section">
                                 @error('button')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -273,21 +273,23 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="kode">Kode Ruangan</label>
-                        <input type="text" id="kode" class="input" autocomplete="off" name="code">
+                        <input type="text" id="kode" class="input" autocomplete="off" required name="code"
+                            value="{{ old('code') }}">
                         @error('code')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="nama">Nama Ruangan</label>
-                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        <input type="text" id="nama" class="input" autocomplete="off" required name="name"
+                            value="{{ old('name') }}">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaTambahRoom" name="description"></textarea>
+                        <textarea id="textareaTambahRoom" required name="description">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -342,7 +344,7 @@
                     <div class="input-wrapper">
                         <label for="kode">Kode Ruangan</label>
                         <input type="text" id="kode" class="input" autocomplete="off" data-value="code_room"
-                            name="code">
+                            required name="code">
                         @error('code')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -350,14 +352,14 @@
                     <div class="input-wrapper">
                         <label for="nama">Nama Ruangan</label>
                         <input type="text" id="nama" class="input" autocomplete="off" data-value="name_room"
-                            name="name">
+                            required name="name">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditRoom" name="description"></textarea>
+                        <textarea id="textareaEditRoom" required name="description"></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

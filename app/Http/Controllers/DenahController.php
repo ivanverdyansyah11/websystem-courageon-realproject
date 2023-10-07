@@ -34,8 +34,10 @@ class DenahController extends Controller
         ]);
 
         if ($request->file('map')) {
-            $oldImagePath = public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'];
-            unlink($oldImagePath);
+            if (public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'] && $denah['map']) {
+                $oldImagePath = public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'];
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('map');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
