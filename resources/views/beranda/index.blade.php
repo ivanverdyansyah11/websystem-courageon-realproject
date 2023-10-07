@@ -326,7 +326,7 @@
                                 <div class="input-wrapper">
                                     <label for="judul">Judul Header</label>
                                     <input type="text" id="judul" class="input" name="title_header"
-                                        autocomplete="off" data-value="title_header">
+                                        autocomplete="off" data-value="title_header" required>
                                     @error('title_header')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -336,7 +336,7 @@
                                 <div class="input-wrapper">
                                     <label for="button">Button Label</label>
                                     <input type="text" id="button" class="input" autocomplete="off"
-                                        data-value="button_header" name="button">
+                                        data-value="button_header" name="button" required>
                                     @error('button')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -345,7 +345,7 @@
                             <div class="col-12 mb-4">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
+                                    <textarea id="textareaEditHeader" name="description" required>{{ $section_header->description }}</textarea>
                                     @error('description')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -399,14 +399,14 @@
                         <div class="input-wrapper">
                             <label for="judul">Judul Pembuka</label>
                             <input type="text" id="judul" class="input" name="title_opening" autocomplete="off"
-                                data-value="title_opening">
+                                data-value="title_opening" required>
                             @error('title_opening')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="input-wrapper">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea id="textareaEditOpening" name="description">{{ $section_opening->description }}</textarea>
+                            <textarea id="textareaEditOpening" name="description" required>{{ $section_opening->description }}</textarea>
                             @error('description')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
@@ -481,14 +481,14 @@
                         <div class="input-wrapper">
                             <label for="judul">Judul Sambutan</label>
                             <input type="text" id="judul" class="input" name="title_remark" autocomplete="off"
-                                data-value="title_remark">
+                                data-value="title_remark" required>
                             @error('title_remark')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="input-wrapper">
                             <label for="pesan">Pesan</label>
-                            <textarea id="textareaEditRemark" name="message">{{ $section_remark->message }}</textarea>
+                            <textarea id="textareaEditRemark" name="message" required>{{ $section_remark->message }}</textarea>
                             @error('message')
                                 <p class="caption-error mt-2">{{ $message }}</p>
                             @enderror
@@ -583,7 +583,7 @@
                                 <div class="input-wrapper">
                                     <label for="judul">Judul Sejarah</label>
                                     <input type="text" id="judul" class="input" name="title_history"
-                                        autocomplete="off" data-value="title_history">
+                                        autocomplete="off" data-value="title_history" required>
                                     @error('title_history')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -593,7 +593,7 @@
                                 <div class="input-wrapper">
                                     <label for="button">Button Label</label>
                                     <input type="text" id="button" class="input" name="button"
-                                        autocomplete="off" data-value="button_history">
+                                        autocomplete="off" data-value="button_history" required>
                                     @error('button')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -602,7 +602,7 @@
                             <div class="col-12">
                                 <div class="input-wrapper">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea id="textareaEditHistory" name="description">{{ $section_history->description }}</textarea>
+                                    <textarea id="textareaEditHistory" name="description" required>{{ $section_history->description }}</textarea>
                                     @error('description')
                                         <p class="caption-error mt-2">{{ $message }}</p>
                                     @enderror
@@ -655,14 +655,14 @@
                                         data-value="link_4" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label>Link 5</label>
                                     <input type="text" id="judul" class="input" autocomplete="off"
                                         data-value="link_5" disabled>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label>Link 6</label>
                                     <input type="text" id="judul" class="input" autocomplete="off"
@@ -692,7 +692,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_1">Link 1</label>
-                                    <input type="text" id="link_1" class="input" name="link_1"
+                                    <input type="text" id="link_1" class="input" required name="link_1"
                                         autocomplete="off" data-value="link_1">
                                     @error('link_1')
                                         <p class="caption-error mt-2">{{ $message }}</p>
@@ -702,7 +702,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_2">Link 2</label>
-                                    <input type="text" id="link_2" class="input" name="link_2"
+                                    <input type="text" id="link_2" class="input" required name="link_2"
                                         autocomplete="off" data-value="link_2">
                                     @error('link_2')
                                         <p class="caption-error mt-2">{{ $message }}</p>
@@ -712,7 +712,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_3">Link 3</label>
-                                    <input type="text" id="link_3" class="input" name="link_3"
+                                    <input type="text" id="link_3" class="input" required name="link_3"
                                         autocomplete="off" data-value="link_3">
                                     @error('link_3')
                                         <p class="caption-error mt-2">{{ $message }}</p>
@@ -722,7 +722,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_4">Link 4</label>
-                                    <input type="text" id="link_4" class="input" name="link_4"
+                                    <input type="text" id="link_4" class="input" required name="link_4"
                                         autocomplete="off" data-value="link_4">
                                     @error('link_4')
                                         <p class="caption-error mt-2">{{ $message }}</p>
@@ -732,7 +732,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_5">Link 5</label>
-                                    <input type="text" id="link_5" class="input" name="link_5"
+                                    <input type="text" id="link_5" class="input" required name="link_5"
                                         autocomplete="off" data-value="link_5">
                                     @error('link_5')
                                         <p class="caption-error mt-2">{{ $message }}</p>
@@ -742,7 +742,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="input-wrapper">
                                     <label for="link_6">Link 6</label>
-                                    <input type="text" id="link_6" class="input" name="link_6"
+                                    <input type="text" id="link_6" class="input" required name="link_6"
                                         autocomplete="off" data-value="link_6">
                                     @error('link_6')
                                         <p class="caption-error mt-2">{{ $message }}</p>

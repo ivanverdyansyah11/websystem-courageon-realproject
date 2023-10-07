@@ -65,11 +65,6 @@
                                 {!! $curriculum->description !!}
                             </p>
                         </div>
-                        {{-- <p class="desc mt-1">
-                            Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam
-                            mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21
-                            seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.
-                        </p> --}}
                     </article>
                 </div>
             </div>
