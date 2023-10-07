@@ -46,8 +46,10 @@ class VisiMisiController extends Controller
         if (!$request->file('banner')) {
             $validatedData['banner'] = $request->oldImage;
         } else {
-            $oldImagePath = public_path('assets/img/profil-images/visi-misi-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/visi-misi-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/profil-images/visi-misi-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();

@@ -48,7 +48,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul_visi">Judul Visi</label>
                                         <input type="text" id="judul_visi" class="input" autocomplete="off"
-                                            value="{{ $vision_mission->title_vision }}" name="title_vision">
+                                            value="{{ $vision_mission->title_vision }}" name="title_vision" required>
                                         @error('title_vision')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -58,7 +58,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul_misi">Judul Misi</label>
                                         <input type="text" id="judul_misi" class="input" autocomplete="off"
-                                            value="{{ $vision_mission->title_mission }}" name="title_mission">
+                                            value="{{ $vision_mission->title_mission }}" name="title_mission" required>
                                         @error('title_mission')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -67,16 +67,16 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi_visi">Deskripsi Visi</label>
-                                        <textarea id="inputEditVision" autocomplete="off" name="description_vision" class="input">{{ $vision_mission->description_vision }}</textarea>
+                                        <textarea id="inputEditVision" name="description_vision" class="input" required>{{ $vision_mission->description_vision }}</textarea>
                                         @error('description_vision')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi_misi">Deskripsi Misi</label>
-                                        <textarea id="inputEditMission" autocomplete="off" name="description_mission" class="input">{{ $vision_mission->description_mission }}</textarea>
+                                        <textarea id="inputEditMission" name="description_mission" class="input" required>{{ $vision_mission->description_mission }}</textarea>
                                         @error('description_mission')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

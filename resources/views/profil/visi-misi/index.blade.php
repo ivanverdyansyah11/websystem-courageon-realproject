@@ -137,14 +137,15 @@
                     <div class="input-wrapper">
                         <label for="pembicara">Pembicara</label>
                         <input type="text" id="pembicara" class="input" autocomplete="off" data-value="speaker"
-                            name="speaker">
+                            required name="speaker">
                         @error('speaker')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="motto">Motto</label>
-                        <textarea id="motto" class="input" autocomplete="off" rows="4" data-value="motto" name="motto"></textarea>
+                        <textarea id="motto" class="input" autocomplete="off" rows="4" data-value="motto" required
+                            name="motto"></textarea>
                         @error('motto')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

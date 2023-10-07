@@ -54,7 +54,7 @@
                                         <textarea id="inputDetailVision" autocomplete="off" class="input">{{ $vision_mission->description_vision }}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi_misi">Deskripsi Misi</label>
                                         <textarea id="inputDetailMission" autocomplete="off" class="input">{{ $vision_mission->description_mission }}</textarea>
