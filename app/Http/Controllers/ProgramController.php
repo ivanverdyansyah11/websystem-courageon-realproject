@@ -90,8 +90,10 @@ class ProgramController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/akademik-images/program-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/akademik-images/program-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/akademik-images/program-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -115,8 +117,10 @@ class ProgramController extends Controller
         $program = Program::where('id', $id)->first();
 
         if ($program->banner) {
-            $imagePath = public_path('assets/img/akademik-images/program-image/') . $program->banner;
-            unlink($imagePath);
+            if (public_path('assets/img/akademik-images/program-image/') . $program->banner && $program->banner) {
+                $imagePath = public_path('assets/img/akademik-images/program-image/') . $program->banner;
+                unlink($imagePath);
+            }
         }
 
         $program = $program->delete();

@@ -49,7 +49,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Program</label>
                                         <input type="text" id="judul" class="input" value="{{ $program->title }}"
-                                            name="title" autocomplete="off">
+                                            required name="title" autocomplete="off">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -59,7 +59,7 @@
                                     <div class="input-wrapper">
                                         <label for="button">Button Label</label>
                                         <input type="text" id="button" class="input" value="{{ $program->button }}"
-                                            name="button" autocomplete="off">
+                                            required name="button" autocomplete="off">
                                         @error('button')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -69,7 +69,7 @@
                                     <div class="input-wrapper">
                                         <label for="link">Link</label>
                                         <input type="text" id="link" class="input" value="{{ $program->link }}"
-                                            name="link" autocomplete="off">
+                                            required name="link" autocomplete="off">
                                         @error('link')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -78,7 +78,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputEditProgram" autocomplete="off" name="description" class="input">{{ $program->description }}</textarea>
+                                        <textarea id="inputEditProgram" required name="description" class="input">{{ $program->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

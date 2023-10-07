@@ -142,7 +142,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
-                            data-value="title_section">
+                            data-value="title_section" required>
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
