@@ -29,7 +29,8 @@
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                                 class="img-fluid tag-add-image" alt="Image Prasarana" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="image" class="input-add-image" name="image">
+                                                <input type="file" id="image" class="input-add-image" name="image"
+                                                    required>
                                             </div>
                                         </div>
                                         @error('image')
@@ -40,7 +41,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nama">Nama Sarana Prasarana</label>
-                                        <input type="text" id="nama" class="input" autocomplete="off"
+                                        <input type="text" id="nama" class="input" autocomplete="off" required
                                             name="name">
                                         @error('name')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -50,7 +51,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="total">Total Sarana Prasarana</label>
-                                        <input type="text" id="total" class="input" autocomplete="off"
+                                        <input type="number" id="total" class="input" autocomplete="off" required
                                             name="total">
                                         @error('total')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -60,7 +61,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="description">Deskripsi</label>
-                                        <textarea id="inputAddPrasarana" autocomplete="off" class="input" name="description"></textarea>
+                                        <textarea id="inputAddPrasarana" autocomplete="off" class="input" required name="description"></textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

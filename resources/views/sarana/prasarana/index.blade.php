@@ -162,15 +162,15 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" name="title_section" autocomplete="off"
-                            data-value="title_section">
+                        <input type="text" id="judul" class="input" required name="title_section"
+                            autocomplete="off" data-value="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" name="button" autocomplete="off"
+                        <input type="text" id="button" class="input" required name="button" autocomplete="off"
                             data-value="button_section">
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -178,7 +178,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

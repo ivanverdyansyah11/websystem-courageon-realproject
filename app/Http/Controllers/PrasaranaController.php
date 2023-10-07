@@ -97,8 +97,10 @@ class PrasaranaController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -122,8 +124,10 @@ class PrasaranaController extends Controller
         $prasarana = Prasarana::where('id', $id)->first();
 
         if ($prasarana->image) {
-            $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/' . $prasarana->image);
-            unlink($imagePath);
+            if (public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image && $prasarana->image) {
+                $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image;
+                unlink($imagePath);
+            }
         }
 
         $prasarana = $prasarana->delete();
