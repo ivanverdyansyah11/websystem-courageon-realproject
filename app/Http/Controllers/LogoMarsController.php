@@ -52,8 +52,10 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('logo')) {
-            $oldImagePath = public_path('assets/img/brand/') . $logo->logo;
-            unlink($oldImagePath);
+            if (public_path('assets/img/brand/') . $logo->logo && $logo->logo) {
+                $oldImagePath = public_path('assets/img/brand/') . $logo->logo;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('logo');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -98,8 +100,10 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $mars->banner;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/mars-image/') . $mars->banner && $mars->banner) {
+                $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $mars->banner;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -144,8 +148,10 @@ class LogoMarsController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/profil-images/hymne-image/') . $hymne->banner;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/hymne-image/') . $hymne->banner && $hymne->banner) {
+                $oldImagePath = public_path('assets/img/profil-images/hymne-image/') . $hymne->banner;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();

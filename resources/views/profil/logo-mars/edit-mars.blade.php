@@ -48,7 +48,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul_section">Judul Section</label>
                                         <input type="text" id="judul_section" class="input" autocomplete="off"
-                                            value="{{ $mars->title_section }}" name="title_section">
+                                            value="{{ $mars->title_section }}" required name="title_section">
                                         @error('title_section')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -58,7 +58,7 @@
                                     <div class="input-wrapper">
                                         <label for="pencipta">Pencipta</label>
                                         <input type="text" id="pencipta" class="input" autocomplete="off"
-                                            value="{{ $mars->creation }}" name="creation">
+                                            value="{{ $mars->creation }}" required name="creation">
                                         @error('creation')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -67,7 +67,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="mars">Mars</label>
-                                        <textarea id="inputEditMars" autocomplete="off" name="mars">
+                                        <textarea id="inputEditMars" autocomplete="off" required name="mars">
                                             {{ $mars->mars }}
                                         </textarea>
                                         @error('mars')

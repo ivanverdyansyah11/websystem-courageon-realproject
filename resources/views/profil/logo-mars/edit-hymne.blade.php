@@ -48,7 +48,7 @@
                                     <div class="input-wrapper">
                                         <label for="judul_section">Judul Section</label>
                                         <input type="text" id="judul_section" class="input" autocomplete="off"
-                                            value="{{ $hymne->title_section }}" name="title_section">
+                                            value="{{ $hymne->title_section }}" required name="title_section">
                                         @error('title_section')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -58,7 +58,7 @@
                                     <div class="input-wrapper">
                                         <label for="pencipta">Pencipta</label>
                                         <input type="text" id="pencipta" class="input" autocomplete="off"
-                                            value="{{ $hymne->creation }}" name="creation">
+                                            value="{{ $hymne->creation }}" required name="creation">
                                         @error('creation')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -67,7 +67,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="hymne">Hymne</label>
-                                        <textarea id="inputEditHymne" autocomplete="off" name="hymne">
+                                        <textarea id="inputEditHymne" autocomplete="off" required name="hymne">
                                     {{ $hymne->hymne }}
                                     </textarea>
                                         @error('hymne')

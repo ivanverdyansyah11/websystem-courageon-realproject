@@ -46,7 +46,7 @@
                             <div class="col-12 mb-4">
                                 <div class="input-wrapper">
                                     <label for="logo_meaning">Makna Logo</label>
-                                    <textarea id="inputDetailLogo" autocomplete="off" class="input" name="logo_meaning">{{ $logo->logo_meaning }}</textarea>
+                                    <textarea id="inputDetailLogo" autocomplete="off" class="input" required name="logo_meaning">{{ $logo->logo_meaning }}</textarea>
                                 </div>
                                 @error('logo_meaning')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -55,7 +55,7 @@
                             <div class="col-12 mb-4">
                                 <div class="input-wrapper">
                                     <label for="font_meaning">Makna Font</label>
-                                    <textarea id="inputDetailFont" autocomplete="off" class="input" name="font_meaning">{{ $logo->font_meaning }}</textarea>
+                                    <textarea id="inputDetailFont" autocomplete="off" class="input" required name="font_meaning">{{ $logo->font_meaning }}</textarea>
                                 </div>
                                 @error('font_meaning')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -64,7 +64,7 @@
                             <div class="col-12">
                                 <div class="input-wrapper">
                                     <label for="color_meaning">Makna Warna</label>
-                                    <textarea id="inputDetailColor" autocomplete="off" class="input" name="color_meaning">{{ $logo->color_meaning }}</textarea>
+                                    <textarea id="inputDetailColor" autocomplete="off" class="input" required name="color_meaning">{{ $logo->color_meaning }}</textarea>
                                 </div>
                                 @error('color_meaning')
                                     <p class="caption-error mt-2">{{ $message }}</p>
