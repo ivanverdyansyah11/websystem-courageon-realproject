@@ -29,8 +29,8 @@
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                                 class="img-fluid tag-edit-image" alt="Gambar Profil" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="image" class="input-edit-image"
-                                                    name="image">
+                                                <input type="file" id="image" class="input-edit-image" name="image"
+                                                    required>
                                             </div>
                                         </div>
                                         @error('image')
@@ -42,7 +42,7 @@
                                     <div class="input-wrapper">
                                         <label for="fullname">Nama Lengkap</label>
                                         <input type="text" id="fullname" class="input" autocomplete="off"
-                                            name="fullname">
+                                            name="fullname" required value="{{ old('fullname') }}">
                                         @error('fullname')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -52,7 +52,7 @@
                                     <div class="input-wrapper">
                                         <label for="nip">NIP</label>
                                         <input type="text" id="nip" class="input" autocomplete="off"
-                                            name="nip">
+                                            name="nip" value="{{ old('nip') }}">
                                         @error('nip')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -62,7 +62,7 @@
                                     <div class="input-wrapper">
                                         <label for="place_of_birth">Tempat Lahir</label>
                                         <input type="text" id="place_of_birth" class="input" autocomplete="off"
-                                            name="place_of_birth">
+                                            name="place_of_birth" value="{{ old('place_of_birth') }}">
                                         @error('place_of_birth')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -72,7 +72,7 @@
                                     <div class="input-wrapper">
                                         <label for="date_of_birth">Tanggal Lahir</label>
                                         <input type="date" id="date_of_birth" class="input" autocomplete="off"
-                                            name="date_of_birth">
+                                            name="date_of_birth" value="{{ old('date_of_birth') }}">
                                         @error('date_of_birth')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -82,7 +82,7 @@
                                     <div class="input-wrapper">
                                         <label for="position">Jabatan</label>
                                         <input type="text" id="position" class="input" autocomplete="off"
-                                            name="position">
+                                            name="position" value="{{ old('position') }}">
                                         @error('position')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -91,10 +91,12 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="gender">Jenis Kelamin</label>
-                                        <select name="gender" id="gender" class="input">
-                                            <option selected value="-">Pilih jenis kelamin</option>
-                                            <option value="L">Laki Laki</option>
-                                            <option value="P">Perempuan</option>
+                                        <select name="gender" id="gender" class="input" required>
+                                            <option value="">Pilih jenis kelamin</option>
+                                            <option value="L" {{ old('gender') == 'L' ? 'selected' : '' }}>Laki Laki
+                                            </option>
+                                            <option value="P" {{ old('gender') == 'P' ? 'selected' : '' }}>Perempuan
+                                            </option>
                                         </select>
                                         @error('gender')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -104,11 +106,14 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input">
-                                            <option value="-">Pilih status guru</option>
-                                            <option value="pns">Guru pns</option>
-                                            <option value="pppk">Guru pppk</option>
-                                            <option value="honorer">Guru honorer</option>
+                                        <select name="status" id="status" class="input" required>
+                                            <option value="">Pilih status guru</option>
+                                            <option value="pns" {{ old('status') == 'pns' ? 'selected' : '' }}>Manajemen
+                                                pns</option>
+                                            <option value="pppk" {{ old('status') == 'pppk' ? 'selected' : '' }}>
+                                                Manajemen pppk</option>
+                                            <option value="honorer" {{ old('status') == 'honorer' ? 'selected' : '' }}>
+                                                Manajemen honorer</option>
                                         </select>
                                         @error('status')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -118,10 +123,12 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="mata_pelajaran">Mata Pelajaran</label>
-                                        <select name="course_id" id="mata_pelajaran" class="input">
-                                            <option value="-">Pilih Mata Pelajaran</option>
+                                        <select name="course_id" id="mata_pelajaran" class="input" required>
+                                            <option value="">Pilih Mata Pelajaran</option>
                                             @foreach ($courses as $course)
-                                                <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                                <option value="{{ $course->id }}"
+                                                    {{ old('course_id') == $course->id ? 'selected' : '' }}>
+                                                    {{ $course->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('course_id')

@@ -51,8 +51,21 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Guru Sekolah</h5>
-                <a href="{{ route('guru-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Guru</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('guru-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari guru..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('guru-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Guru</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -139,13 +152,13 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label>Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_teacher"
-                            disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_teacher" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_teacher"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_teacher" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
@@ -168,7 +181,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_teacher" name="title_section">
+                            data-value="title_teacher" name="title_section" required>
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -176,7 +189,7 @@
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_teacher" name="button">
+                            data-value="button_teacher" name="button" required>
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -191,7 +204,7 @@
     </div>
     {{-- END MODAL EDIT SECTION TEACHER --}}
 
-    {{-- MODAL DELETE SECTION HEADER --}}
+    {{-- MODAL DELETE GURU --}}
     <div class="modal fade" id="deleteTeacherModal" tabindex="-1" aria-labelledby="deleteTeacherModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -212,7 +225,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE SECTION HEADER --}}
+    {{-- END MODAL DELETE GURU --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionTeacherModal"]', function() {

@@ -50,7 +50,7 @@
                                     <div class="input-wrapper">
                                         <label for="fullname">Nama Lengkap</label>
                                         <input type="text" id="fullname" class="input" value="{{ $teacher->fullname }}"
-                                            name="fullname">
+                                            name="fullname" required>
                                         @error('fullname')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -99,7 +99,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="gender">Jenis Kelamin</label>
-                                        <select name="gender" id="gender" class="input" name="gender">
+                                        <select name="gender" id="gender" class="input" name="gender" required>
                                             @if ($teacher->gender == 'L')
                                                 <option value="L" selected>Laki Laki</option>
                                                 <option value="P">Perempuan</option>
@@ -107,7 +107,7 @@
                                                 <option value="L">Laki Laki</option>
                                                 <option value="P" selected>Perempuan</option>
                                             @else
-                                                <option value="-" selected>Pilih jenis kelamin</option>
+                                                <option value="" selected>Pilih jenis kelamin</option>
                                                 <option value="L">Laki Laki</option>
                                                 <option value="P">Perempuan</option>
                                             @endif
@@ -120,7 +120,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input" name="status">
+                                        <select name="status" id="status" class="input" name="status" required>
                                             @if ($teacher->status == 'pns')
                                                 <option value="pns" selected>Manajemen pns</option>
                                                 <option value="pppk">Manajemen pppk</option>
@@ -134,7 +134,7 @@
                                                 <option value="pppk">Manajemen pppk</option>
                                                 <option value="honorer" selected>Manajemen honorer</option>
                                             @else
-                                                <option value="-" selected>Pilih status manajemen</option>
+                                                <option value="" selected>Pilih status manajemen</option>
                                                 <option value="pns">Manajemen pns</option>
                                                 <option value="pppk">Manajemen pppk</option>
                                                 <option value="honorer">Manajemen honorer</option>
@@ -148,7 +148,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="mata_pelajaran">Mata Pelajaran</label>
-                                        <select name="course_id" id="mata_pelajaran" class="input">
+                                        <select name="course_id" id="mata_pelajaran" class="input" required>
                                             @foreach ($courses as $course)
                                                 <option value="{{ $course->id }}"
                                                     {{ $teacher->course->id == $course->id ? 'selected' : '' }}>

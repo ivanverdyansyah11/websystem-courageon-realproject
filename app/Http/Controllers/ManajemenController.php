@@ -232,7 +232,7 @@ class ManajemenController extends Controller
         if ($employee) {
             return redirect(route('manajemen-index'))->with('success', 'Berhasil Hapus Manajemen Sekolah!');
         } else {
-            return redirect(route('manajemen-create'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
+            return redirect(route('manajemen-index'))->with('failed', 'Gagal Hapus Manajemen Sekolah!');
         }
     }
 }

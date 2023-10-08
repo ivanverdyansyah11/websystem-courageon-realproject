@@ -19,6 +19,35 @@ class GuruController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $teachers = Employee::where('role_employees_id', 2)
+            ->where('fullname', 'like', '%' . $request->search . '%')
+            ->orWhere('nip', 'like', '%' . $request->search . '%')
+            ->orWhere('place_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('date_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('rank', 'like', '%' . $request->search . '%')
+            ->orWhere('position', 'like', '%' . $request->search . '%')
+            ->orWhere('room_type', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('highest_rank', 'like', '%' . $request->search . '%')
+            ->orWhere('tmt', 'like', '%' . $request->search . '%')
+            ->orWhere('last_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('last_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('work_tenure', 'like', '%' . $request->search . '%')
+            ->orWhere('first_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('first_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('salary_increase', 'like', '%' . $request->search . '%')
+            ->orWhere('employee_card_number', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('profil.guru.index', [
+            'title' => 'Profil > Guru',
+            'section' => SectionTeacher::first(),
+            'teachers' => $teachers,
+        ]);
+    }
+
     function detailSection()
     {
         $section_teacher = SectionTeacher::first();
@@ -78,7 +107,7 @@ class GuruController extends Controller
 
     function store(Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-' || $request->course_id == '-') {
+        if ($request->gender == '' || $request->status == '' || $request->course_id == '') {
             return redirect(route('guru-create'))->with('failed', 'Isi Form Jenis Kelamin, Status dan Mata Pelajaran Terlebih Dahulu!');
         }
 
@@ -137,7 +166,7 @@ class GuruController extends Controller
 
     function update($id, Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-' || $request->course_id == '-') {
+        if ($request->gender == '' || $request->status == '' || $request->course_id == '') {
             return redirect(route('guru-edit', $id))->with('failed', 'Isi Form Jenis Kelamin, Status dan Mata Pelajaran Terlebih Dahulu!');
         }
 
@@ -163,8 +192,10 @@ class GuruController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/guru-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/guru-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/profil-images/guru-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -192,8 +223,10 @@ class GuruController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/guru-image/') . $employee->image;
-            unlink($imagePath);
+            if (public_path('assets/img/profil-images/guru-image/') . $employee->image && $employee->image) {
+                $imagePath = public_path('assets/img/profil-images/guru-image/') . $employee->image;
+                unlink($imagePath);
+            }
         }
 
         $employee = $employee->delete();
@@ -201,7 +234,7 @@ class GuruController extends Controller
         if ($employee) {
             return redirect(route('guru-index'))->with('success', 'Berhasil Hapus Guru Sekolah!');
         } else {
-            return redirect(route('guru-create'))->with('failed', 'Gagal Hapus Guru Sekolah!');
+            return redirect(route('guru-index'))->with('failed', 'Gagal Hapus Guru Sekolah!');
         }
     }
 }
