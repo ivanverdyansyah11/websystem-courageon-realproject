@@ -103,7 +103,7 @@ class PrestasiController extends Controller
         if ($prestasi) {
             return redirect(route('prestasi-index'))->with('success', 'Berhasil Tambah Prestasi Sekolah!');
         } else {
-            return redirect(route('prestasi-index'))->with('failed', 'Gagal Tambah Prestasi Sekolah!');
+            return redirect(route('prestasi-create'))->with('failed', 'Gagal Tambah Prestasi Sekolah!');
         }
     }
 
@@ -164,7 +164,7 @@ class PrestasiController extends Controller
         if ($prestasi) {
             return redirect(route('prestasi-index'))->with('success', 'Berhasil Edit Prestasi Sekolah!');
         } else {
-            return redirect(route('prestasi-index'))->with('failed', 'Gagal Edit Prestasi Sekolah!');
+            return redirect(route('prestasi-edit'))->with('failed', 'Gagal Edit Prestasi Sekolah!');
         }
     }
 
