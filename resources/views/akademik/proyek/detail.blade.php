@@ -38,20 +38,20 @@
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Proyek</label>
                                         <input type="text" id="judul" class="input" value="{{ $project->title }}"
-                                            autocomplete="off">
+                                            autocomplete="off" disabled>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="topik">Topik</label>
                                         <input type="text" id="topik" class="input" value="{{ $project->topic }}"
-                                            autocomplete="off">
+                                            autocomplete="off" disabled>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputAddProject" autocomplete="off" class="input">{{ $project->description }}</textarea>
+                                        <textarea id="inputAddProject" autocomplete="off" disabled class="input">{{ $project->description }}</textarea>
                                     </div>
                                 </div>
                             </div>

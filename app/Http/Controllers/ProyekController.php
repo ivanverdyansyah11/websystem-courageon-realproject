@@ -83,7 +83,7 @@ class ProyekController extends Controller
         if ($project) {
             return redirect(route('proyek-index'))->with('success', 'Berhasil Tambah Proyek Sekolah!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Tambah Proyek Sekolah!');
+            return redirect(route('proyek-create'))->with('failed', 'Gagal Tambah Proyek Sekolah!');
         }
     }
 
@@ -112,7 +112,7 @@ class ProyekController extends Controller
         ]);
 
         if ($request->file('image')) {
-            if (public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -130,7 +130,7 @@ class ProyekController extends Controller
         if ($project) {
             return redirect(route('proyek-index'))->with('success', 'Berhasil Edit Proyek Sekolah!');
         } else {
-            return redirect(route('proyek-index'))->with('failed', 'Gagal Edit Proyek Sekolah!');
+            return redirect(route('proyek-edit'))->with('failed', 'Gagal Edit Proyek Sekolah!');
         }
     }
 
@@ -139,7 +139,7 @@ class ProyekController extends Controller
         $project = Project::where('id', $id)->first();
 
         if ($project->image) {
-            if (public_path('assets/img/akademik-images/proyek-image/') . $project->image && $project->image) {
+            if (file_exists(public_path('assets/img/akademik-images/proyek-image/') . $project->image) && $project->image) {
                 $imagePath = public_path('assets/img/akademik-images/proyek-image/') . $project->image;
                 unlink($imagePath);
             }
