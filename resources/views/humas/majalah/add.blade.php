@@ -29,7 +29,7 @@
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                                 class="img-fluid tag-add-thumbnail" alt="Thumbnail Journal" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="thumbnail" class="input-add-thumbnail"
+                                                <input type="file" id="thumbnail" class="input-add-thumbnail" required
                                                     name="thumbnail">
                                             </div>
                                         </div>
@@ -41,7 +41,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper d-flex flex-column">
                                         <label for="document_pdf">Document PDF</label>
-                                        <input type="file" id="document_pdf" name="document_pdf">
+                                        <input type="file" id="document_pdf" required name="document_pdf">
                                         @error('document_pdf')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -50,8 +50,8 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="title">Judul</label>
-                                        <input type="text" id="title" class="input" autocomplete="off"
-                                            name="title">
+                                        <input type="text" id="title" class="input" autocomplete="off" required
+                                            name="title" value="{{ old('title') }}">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -60,8 +60,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="penulis">Penulis</label>
-                                        <input type="text" id="penulis" class="input" autocomplete="off"
-                                            name="author">
+                                        <input type="text" id="penulis" class="input" autocomplete="off" required
+                                            name="author" value="{{ old('author') }}">
                                         @error('author')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -70,17 +70,17 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                                        <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
-                                            name="created_date">
+                                        <input type="date" id="tanggal_dibuat" class="input" autocomplete="off" required
+                                            name="created_date" value="{{ old('created_date') }}">
                                         @error('created_date')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi Singkat</label>
-                                        <textarea id="inputAddMajalah" autocomplete="off" class="input" name="description"></textarea>
+                                        <textarea id="inputAddMajalah" autocomplete="off" class="input" required name="description">{{ old('description') }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

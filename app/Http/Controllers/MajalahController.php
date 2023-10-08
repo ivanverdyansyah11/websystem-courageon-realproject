@@ -104,8 +104,10 @@ class MajalahController extends Controller
         ]);
 
         if ($request->file('thumbnail')) {
-            $oldImagePath = public_path('assets/img/humas-images/majalah-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/humas-images/majalah-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/humas-images/majalah-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('thumbnail');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -116,8 +118,10 @@ class MajalahController extends Controller
         }
 
         if ($request->file('document_pdf')) {
-            $oldDocumentPath = public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument;
-            unlink($oldDocumentPath);
+            if (public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument && $request->oldDocument) {
+                $oldDocumentPath = public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument;
+                unlink($oldDocumentPath);
+            }
 
             $document = $request->file('document_pdf');
             $documentName = time() . '.' . $document->getClientOriginalExtension();
@@ -141,10 +145,14 @@ class MajalahController extends Controller
         $journal = Journal::where('id', $id)->first();
 
         if ($journal->thumbnail && $journal->document_pdf) {
-            $imagePath = public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail;
-            $documentPath = public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf;
-            unlink($imagePath);
-            unlink($documentPath);
+            if (public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail && $journal->thumbnail) {
+                $imagePath = public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail;
+                unlink($imagePath);
+            }
+            if (public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf && $journal->document_pdf) {
+                $documentPath = public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf;
+                unlink($documentPath);
+            }
         }
 
         $journal = $journal->delete();

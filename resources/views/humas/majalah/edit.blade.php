@@ -66,7 +66,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="title">Judul</label>
-                                        <input type="text" id="title" class="input" autocomplete="off"
+                                        <input type="text" id="title" class="input" autocomplete="off" required
                                             name="title" value="{{ $journal->title }}">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -76,7 +76,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="penulis">Penulis</label>
-                                        <input type="text" id="penulis" class="input" autocomplete="off"
+                                        <input type="text" id="penulis" class="input" autocomplete="off" required
                                             name="author" value="{{ $journal->author }}">
                                         @error('author')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -86,7 +86,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tanggal_dibuat">Tanggal Dibuat</label>
-                                        <input type="date" id="tanggal_dibuat" class="input" autocomplete="off"
+                                        <input type="date" id="tanggal_dibuat" class="input" autocomplete="off" required
                                             name="created_date" value="{{ $journal->created_date }}">
                                         @error('created_date')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -96,7 +96,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi Singkat</label>
-                                        <textarea id="inputEditMajalah" autocomplete="off" class="input" name="description">{{ $journal->description }}</textarea>
+                                        <textarea id="inputEditMajalah" autocomplete="off" class="input" required name="description">{{ $journal->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
