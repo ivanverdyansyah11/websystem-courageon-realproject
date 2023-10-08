@@ -75,7 +75,7 @@ class KemitraanController extends Controller
         ]);
 
         if ($request->file('logo')) {
-            if (public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -102,7 +102,7 @@ class KemitraanController extends Controller
         $partnership = Partnership::where('id', $id)->first();
 
         if ($partnership->logo) {
-            if (public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo && $partnership->logo) {
+            if (file_exists(public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo) && $partnership->logo) {
                 $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
                 unlink($imagePath);
             }
