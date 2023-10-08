@@ -9,8 +9,8 @@ class Alumni extends Model
 {
     protected $guarded = [];
 
-    public function students()
+    public function student()
     {
-        return $this->belongsTo(Student::class, 'id');
+        return $this->belongsTo(Student::class, 'students_id');
     }
 }

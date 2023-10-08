@@ -401,6 +401,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(AlumniController::class)->group(function () {
             Route::get('/kesiswaan/alumni', 'index')->name('alumni-index');
+            Route::post('/kesiswaan/alumni/cari', 'search')->name('alumni-search');
             Route::get('/kesiswaan/alumni/detail-section', 'detailSection');
             Route::post('/kesiswaan/alumni/edit-section', 'updateSection');
 

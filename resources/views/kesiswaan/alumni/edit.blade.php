@@ -47,7 +47,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <select name="students_id" id="students_id" class="input" autocomplete="off">
+                                        <select name="students_id" id="students_id" class="input" autocomplete="off"
+                                            required>
                                             @foreach ($students as $student)
                                                 @if ($student->id == $alumni->students_id)
                                                     <option value="{{ $student->id }}" selected>
@@ -65,7 +66,7 @@
                                     <div class="input-wrapper">
                                         <label for="pekerjaan">Pekerjaan</label>
                                         <input type="text" name="pekerjaan" id="pekerjaan" class="input"
-                                            autocomplete="off" value="{{ $alumni->pekerjaan }}">
+                                            autocomplete="off" value="{{ $alumni->pekerjaan }}" required>
                                         @error('pekerjaan')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -75,7 +76,7 @@
                                     <div class="input-wrapper">
                                         <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
                                         <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input"
-                                            autocomplete="off">
+                                            autocomplete="off" required>
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
                                                 @if ($tahun_ajaran->id == $alumni->tahun_ajarans_id)
                                                     <option value="{{ $tahun_ajaran->id }}" selected>
@@ -90,10 +91,10 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="testimoni">Testimoni</label>
-                                        <textarea id="inputEditTestimoni" autocomplete="off" class="input" name="testimoni">{{ $alumni->testimoni }}</textarea>
+                                        <textarea id="inputEditTestimoni" autocomplete="off" class="input" name="testimoni" required>{{ $alumni->testimoni }}</textarea>
                                         @error('testimoni')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

@@ -30,7 +30,7 @@
                                                 class="img-fluid tag-add-profile" alt="Profile Alumni" width="80">
                                             <div class="wrapper-profile w-100">
                                                 <input type="file" id="profile" class="input-add-profile"
-                                                    name="profile">
+                                                    name="profile" required>
                                             </div>
                                         </div>
                                         @error('profile')
@@ -41,10 +41,13 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <select name="students_id" id="students_id" class="input" autocomplete="off">
-                                            <option value="-">Pilih siswa</option>
+                                        <select name="students_id" id="students_id" class="input" autocomplete="off"
+                                            required>
+                                            <option value="">Pilih siswa</option>
                                             @foreach ($students as $student)
-                                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                                <option value="{{ $student->id }}"
+                                                    {{ old('students_id') == $student->id ? 'selected' : '' }}>
+                                                    {{ $student->nama_lengkap }}</option>
                                             @endforeach
                                         </select>
                                         @error('students_id')
@@ -56,7 +59,7 @@
                                     <div class="input-wrapper">
                                         <label for="pekerjaan">Pekerjaan</label>
                                         <input type="text" name="pekerjaan" id="pekerjaan" class="input"
-                                            autocomplete="off">
+                                            autocomplete="off" required value="{{ old('pekerjaan') }}">
                                         @error('pekerjaan')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -66,10 +69,12 @@
                                     <div class="input-wrapper">
                                         <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
                                         <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input"
-                                            autocomplete="off">
-                                            <option value="-">Pilih tahun ajaran lulus</option>
+                                            autocomplete="off" required>
+                                            <option value="">Pilih tahun ajaran lulus</option>
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
-                                                <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}
+                                                <option value="{{ $tahun_ajaran->tahun }}"
+                                                    {{ old('tahun_ajaran_lulus') == $tahun_ajaran->tahun ? 'selected' : '' }}>
+                                                    {{ $tahun_ajaran->tahun }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -78,10 +83,10 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="testimoni">Testimoni</label>
-                                        <textarea id="inputAddTestimoni" autocomplete="off" class="input" name="testimoni"></textarea>
+                                        <textarea id="inputAddTestimoni" autocomplete="off" class="input" name="testimoni" required></textarea>
                                         @error('testimoni')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

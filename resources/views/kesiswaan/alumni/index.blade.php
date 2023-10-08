@@ -56,8 +56,21 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Alumni Sekolah</h5>
-                <a href="{{ route('alumni-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Alumni</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('alumni-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari alumni..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('alumni-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Alumni</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -79,11 +92,7 @@
                         @foreach ($testimonials as $testimonial)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
-                                    @foreach ($students as $student)
-                                        @if ($student->id === $testimonial->students_id)
-                                            <div class="col data-value data-length">{{ $student->nama_lengkap }}</div>
-                                        @endif
-                                    @endforeach
+                                    <div class="col data-value data-length">{{ $testimonial->student->nama_lengkap }}</div>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         @if ($tahun_ajaran->tahun === $testimonial->tahun_ajaran_lulus)
                                             <div class="col data-value data-length">{{ $tahun_ajaran->tahun }}</div>
@@ -147,7 +156,8 @@
     {{-- END MODAL DETAIL SECTION --}}
 
     {{-- MODAL EDIT SECTION --}}
-    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editSectionModal" tabindex="-1" aria-labelledby="editSectionModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <h3 class="title">Edit Section Alumni</h3>
@@ -156,14 +166,14 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" required name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section_alumni->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section_alumni->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

@@ -15,7 +15,30 @@ class AlumniController extends Controller
         return view('kesiswaan.alumni.index', [
             'title' => 'Kesiswaan > Alumni',
             'section_alumni' => SectionAlumni::first(),
-            'testimonials' => Alumni::paginate(6),
+            'testimonials' => Alumni::with('student')->paginate(6),
+            'students' => Student::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        // $testimonials = Alumni::with('student', function ($query) use ($keyword) {
+        //     $query->where('nama_lengkap', 'like', '%' . $keyword . '%');
+        // })->where('tahun_ajaran_lulus', 'like', '%' . $request->search . '%')
+        //     ->orWhere('pekerjaan', 'like', '%' . $request->search . '%')
+        //     ->orWhere('testimoni', 'like', '%' . $request->search . '%')
+        //     ->paginate(6);
+
+        $testimonials = Alumni::where('tahun_ajaran_lulus', 'like', '%' . $request->search . '%')
+            ->orWhere('pekerjaan', 'like', '%' . $request->search . '%')
+            ->orWhere('testimoni', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.alumni.index', [
+            'title' => 'Kesiswaan > Alumni',
+            'section_alumni' => SectionAlumni::first(),
+            'testimonials' => $testimonials,
             'students' => Student::all(),
             'tahun_ajarans' => TahunAjaran::all(),
         ]);
@@ -128,8 +151,10 @@ class AlumniController extends Controller
         ]);
 
         if ($request->file('profile')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'];
-            unlink($oldImagePath);
+            if (public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'] && $alumni['profile']) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'];
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('profile');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -152,9 +177,12 @@ class AlumniController extends Controller
     {
         $alumni = Alumni::where('id', $id)->first();
         if ($alumni->profile) {
-            $imagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni->profile;
-            unlink($imagePath);
+            if (public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni->profile && $alumni->profile) {
+                $imagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni->profile;
+                unlink($imagePath);
+            }
         }
+
         $alumni = $alumni->delete();
 
         if ($alumni) {
