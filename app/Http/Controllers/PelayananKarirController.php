@@ -7,6 +7,7 @@ use App\Models\PembinaanSiswa;
 use App\Models\SectionService;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PelayananKarirController extends Controller
 {
@@ -23,11 +24,13 @@ class PelayananKarirController extends Controller
 
     public function searchKarir(Request $request)
     {
-        $pelayanans = PelayananKarir::where('tanggal', 'like', '%' . $request->search . '%')
-            ->orWhere('judul', 'like', '%' . $request->search . '%')
-            ->orWhere('masalah', 'like', '%' . $request->search . '%')
-            ->orWhere('solusi', 'like', '%' . $request->search . '%')
-            ->paginate(6);
+        $pelayanans = DB::table("pelayanan_karirs")->join("students", "students.id", "=", "pelayanan_karirs.students_id")
+            ->where('pelayanan_karirs.tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('pelayanan_karirs.judul', 'like', '%' . $request->search . '%')
+            ->orWhere('pelayanan_karirs.masalah', 'like', '%' . $request->search . '%')
+            ->orWhere('pelayanan_karirs.solusi', 'like', '%' . $request->search . '%')
+            ->orWhere('students.nama_lengkap', 'like', '%' . $request->search . '%')
+            ->select('pelayanan_karirs.*', 'students.nama_lengkap')->paginate(6);
 
         return view('kesiswaan.pelayanan-karir.index', [
             'title' => 'Kesiswaan > Pelayanan Karir',
@@ -40,10 +43,12 @@ class PelayananKarirController extends Controller
 
     public function searchSiswa(Request $request)
     {
-        $pembinaans = PembinaanSiswa::where('tanggal', 'like', '%' . $request->search . '%')
-            ->orWhere('masalah', 'like', '%' . $request->search . '%')
-            ->orWhere('solusi', 'like', '%' . $request->search . '%')
-            ->paginate(6);
+        $pembinaans = DB::table("pembinaan_siswas")->join("students", "students.id", "=", "pembinaan_siswas.students_id")
+            ->where('pembinaan_siswas.tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('pembinaan_siswas.masalah', 'like', '%' . $request->search . '%')
+            ->orWhere('pembinaan_siswas.solusi', 'like', '%' . $request->search . '%')
+            ->orWhere('students.nama_lengkap', 'like', '%' . $request->search . '%')
+            ->select('pembinaan_siswas.*', 'students.nama_lengkap')->paginate(6);
 
         return view('kesiswaan.pelayanan-karir.index', [
             'title' => 'Kesiswaan > Pelayanan Karir',
@@ -108,7 +113,7 @@ class PelayananKarirController extends Controller
         if ($pelayananKarir) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-store'))->with('failed', 'Gagal Tambah Pelayanan Karir Sekolah!');
+            return redirect(route('pelayanan-karir-create'))->with('failed', 'Gagal Tambah Pelayanan Karir Sekolah!');
         }
     }
 
@@ -214,7 +219,7 @@ class PelayananKarirController extends Controller
         if ($pembinaanSiswa) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pembinaan Siswa Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-store'))->with('failed', 'Gagal Tambah Pembinaan Siswa Sekolah!');
+            return redirect(route('pelayanan-karir-create'))->with('failed', 'Gagal Tambah Pembinaan Siswa Sekolah!');
         }
     }
 
