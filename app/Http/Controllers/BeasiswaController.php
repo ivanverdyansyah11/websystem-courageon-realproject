@@ -24,6 +24,24 @@ class BeasiswaController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $beasiswaPenerima = BeasiswaPenerima::where('tahun', 'like', '%' . $request->search . '%')
+            ->orWhere('digunakan_untuk', 'like', '%' . $request->search . '%')
+            ->orWhere('jumlah_beasiswa', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.beasiswa.index', [
+            'title' => 'Kesiswaan > Beasiswa',
+            'section_beasiswa' => SectionBeasiswa::first(),
+            'beasiswas' => Beasiswa::paginate(6),
+            'penerima_beasiswa' => $beasiswaPenerima,
+            'allBeasiswa' => Beasiswa::all(),
+            'students' => Student::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
+    }
+
     function detailSection()
     {
         $section_beasiswa = SectionBeasiswa::first();

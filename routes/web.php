@@ -393,6 +393,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/beasiswa/edit-beasiswa/{id}', 'updateBeasiswa');
             Route::post('/kesiswaan/beasiswa/delete-beasiswa/{id}', 'deleteBeasiswa');
 
+            Route::post('/kesiswaan/beasiswa/cari', 'search')->name('penerima-beasiswa-search');
             Route::get('/kesiswaan/beasiswa/detail-penerima-beasiswa/{id}', 'detailPenerimaBeasiswa');
             Route::post('/kesiswaan/beasiswa/tambah-penerima-beasiswa', 'storePenerimaBeasiswa')->name('penerima-beasiswa-store');
             Route::post('/kesiswaan/beasiswa/edit-penerima-beasiswa/{id}', 'updatePenerimaBeasiswa');

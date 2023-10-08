@@ -118,9 +118,23 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Penerima Beasiswa Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addPenerimaBeasiswaModal">Tambah
-                    Penerima Beasiswa</button>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST"
+                        action="{{ route('penerima-beasiswa-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari beasiswa penerima..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                        data-bs-target="#addPenerimaBeasiswaModal">Tambah
+                        Penerima Beasiswa</button>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -225,14 +239,14 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" required name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section_beasiswa->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section_beasiswa->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -258,14 +272,15 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="name">Nama Beasiswa</label>
-                        <input type="text" id="name" class="input" autocomplete="off" name="title">
+                        <input type="text" id="name" class="input" autocomplete="off" name="title" required
+                            value="{{ old('title') }}">
                         @error('title')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaTambahBeasiswa" name="description"></textarea>
+                        <textarea id="textareaTambahBeasiswa" name="description" required>{{ old('description') }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -316,14 +331,14 @@
                     <div class="input-wrapper">
                         <label for="name">Nama Beasiswa</label>
                         <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="title_beasiswa" name="title">
+                            data-value="title_beasiswa" name="title" required>
                         @error('title')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditBeasiswa" name="description"></textarea>
+                        <textarea id="textareaEditBeasiswa" name="description" required></textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -374,10 +389,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input">
-                                    <option selected>Pilih penerima beasiswa</option>
+                                <select name="students_id" id="students_id" class="input" required>
+                                    <option value="">Pilih penerima beasiswa</option>
                                     @foreach ($students as $student)
-                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                        <option value="{{ $student->id }}"
+                                            {{ old('students_id') == $student->id ? 'selected' : '' }}>
+                                            {{ $student->nama_lengkap }}</option>
                                     @endforeach
                                 </select>
                                 @error('students_id')
@@ -388,10 +405,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input">
-                                    <option selected>Pilih tahun</option>
+                                <select name="tahun" id="tahun" class="input" required>
+                                    <option value="">Pilih tahun</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                        <option value="{{ $tahun_ajaran->tahun }}"
+                                            {{ old('tahun') == $tahun_ajaran->tahun ? 'selected' : '' }}>
+                                            {{ $tahun_ajaran->tahun }}</option>
                                     @endforeach
                                 </select>
                                 @error('tahun')
@@ -403,7 +422,7 @@
                             <div class="input-wrapper">
                                 <label for="jumlah_beasiswa">Jumlah Beasiswa</label>
                                 <input type="text" id="jumlah_beasiswa" class="input" autocomplete="off"
-                                    name="jumlah_beasiswa">
+                                    name="jumlah_beasiswa" required>
                                 @error('jumlah_beasiswa')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -412,10 +431,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <select name="beasiswas_id" id="beasiswas_id" class="input">
-                                    <option selected>Pilih jenis beasiswa</option>
+                                <select name="beasiswas_id" id="beasiswas_id" class="input" required>
+                                    <option value="">Pilih jenis beasiswa</option>
                                     @foreach ($allBeasiswa as $beasiswa)
-                                        <option value="{{ $beasiswa->id }}">{{ $beasiswa->title }}</option>
+                                        <option value="{{ $beasiswa->id }}"
+                                            {{ old('beasiswas_id') == $beasiswa->id ? 'selected' : '' }}>
+                                            {{ $beasiswa->title }}</option>
                                     @endforeach
                                 </select>
                                 @error('beasiswas_id')
@@ -423,10 +444,10 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="digunakan_untuk">Digunakan Untuk</label>
-                                <textarea id="textareaTambahBeasiswaPenerima" name="digunakan_untuk"></textarea>
+                                <textarea id="textareaTambahBeasiswaPenerima" name="digunakan_untuk" required></textarea>
                                 @error('digunakan_untuk')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -514,7 +535,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input">
+                                <select name="students_id" id="students_id" class="input" required>
                                     <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
@@ -528,7 +549,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input">
+                                <select name="tahun" id="tahun" class="input" required>
                                     <option data-value="tahun"></option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
@@ -543,7 +564,7 @@
                             <div class="input-wrapper">
                                 <label for="jumlah_beasiswa">Jumlah Beasiswa</label>
                                 <input type="text" id="jumlah_beasiswa" class="input" autocomplete="off"
-                                    name="jumlah_beasiswa" data-value="jumlah_beasiswa">
+                                    name="jumlah_beasiswa" data-value="jumlah_beasiswa" required>
                                 @error('jumlah_beasiswa')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -552,7 +573,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <select name="beasiswas_id" id="beasiswas_id" class="input">
+                                <select name="beasiswas_id" id="beasiswas_id" class="input" required>
                                     <option data-value="beasiswas_id"></option>
                                     @foreach ($allBeasiswa as $beasiswa)
                                         <option value="{{ $beasiswa->id }}">{{ $beasiswa->title }}</option>
@@ -566,7 +587,7 @@
                         <div class="col-12">
                             <div class="input-wrapper">
                                 <label for="digunakan_untuk">Digunakan Untuk</label>
-                                <textarea id="textareaEditBeasiswaPenerima" name="digunakan_untuk"></textarea>
+                                <textarea id="textareaEditBeasiswaPenerima" name="digunakan_untuk" required></textarea>
                                 @error('digunakan_untuk')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
