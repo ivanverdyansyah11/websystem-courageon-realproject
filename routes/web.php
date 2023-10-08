@@ -441,6 +441,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(DenahController::class)->group(function () {
             Route::get('/sarana-prasarana/denah', 'index')->name('denah-index');
+            Route::post('/sarana-prasarana/denah/cari', 'search')->name('denah-search');
             Route::get('/sarana-prasarana/denah/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/denah/edit-section', 'updateSection');
 

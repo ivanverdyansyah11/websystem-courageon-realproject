@@ -69,9 +69,22 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Denah Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addRoomModal">Tambah
-                    Ruangan Denah</button>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('denah-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari ruangan..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                        data-bs-target="#addRoomModal">Tambah
+                        Ruangan Denah</button>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">

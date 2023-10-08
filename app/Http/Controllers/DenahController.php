@@ -17,6 +17,20 @@ class DenahController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $denahs = Denah::where('code', 'like', '%' . $request->search . '%')
+            ->orWhere('name', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('sarana.denah.index', [
+            'title' => 'Sarana Prasarana > Denah',
+            'section' => SectionDenah::first(),
+            'rooms' => $denahs,
+        ]);
+    }
+
     function detailSection()
     {
         $section_denah = SectionDenah::first();
@@ -34,7 +48,7 @@ class DenahController extends Controller
         ]);
 
         if ($request->file('map')) {
-            if (public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'] && $denah['map']) {
+            if (file_exists(public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map']) && $denah['map']) {
                 $oldImagePath = public_path('assets/img/sarana-prasarana-images/denah-image/') . $denah['map'];
                 unlink($oldImagePath);
             }
