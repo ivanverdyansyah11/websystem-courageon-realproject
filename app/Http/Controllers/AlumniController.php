@@ -7,6 +7,7 @@ use App\Models\SectionAlumni;
 use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AlumniController extends Controller
 {
@@ -23,17 +24,12 @@ class AlumniController extends Controller
 
     public function search(Request $request)
     {
-        // $testimonials = Alumni::with('student', function ($query) use ($keyword) {
-        //     $query->where('nama_lengkap', 'like', '%' . $keyword . '%');
-        // })->where('tahun_ajaran_lulus', 'like', '%' . $request->search . '%')
-        //     ->orWhere('pekerjaan', 'like', '%' . $request->search . '%')
-        //     ->orWhere('testimoni', 'like', '%' . $request->search . '%')
-        //     ->paginate(6);
-
-        $testimonials = Alumni::where('tahun_ajaran_lulus', 'like', '%' . $request->search . '%')
-            ->orWhere('pekerjaan', 'like', '%' . $request->search . '%')
-            ->orWhere('testimoni', 'like', '%' . $request->search . '%')
-            ->paginate(6);
+        $testimonials = DB::table("alumnis")->join("students", "students.id", "=", "alumnis.students_id")
+            ->where('alumnis.tahun_ajaran_lulus', 'like', '%' . $request->search . '%')
+            ->orWhere('alumnis.pekerjaan', 'like', '%' . $request->search . '%')
+            ->orWhere('alumnis.testimoni', 'like', '%' . $request->search . '%')
+            ->orWhere('students.nama_lengkap', 'like', '%' . $request->search . '%')
+            ->select('alumnis.*', 'students.nama_lengkap')->paginate(6);
 
         return view('kesiswaan.alumni.index', [
             'title' => 'Kesiswaan > Alumni',
@@ -151,7 +147,7 @@ class AlumniController extends Controller
         ]);
 
         if ($request->file('profile')) {
-            if (public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'] && $alumni['profile']) {
+            if (file_exists(public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile']) && $alumni['profile']) {
                 $oldImagePath = public_path('assets/img/kesiswaan-images/alumni-image/') . $alumni['profile'];
                 unlink($oldImagePath);
             }

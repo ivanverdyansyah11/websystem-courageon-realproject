@@ -92,7 +92,8 @@
                         @foreach ($testimonials as $testimonial)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
-                                    <div class="col data-value data-length">{{ $testimonial->student->nama_lengkap }}</div>
+                                    <div class="col data-value data-length">
+                                        {{ $testimonial->nama_lengkap ?: $testimonial->student->nama_lengkap }}</div>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         @if ($tahun_ajaran->tahun === $testimonial->tahun_ajaran_lulus)
                                             <div class="col data-value data-length">{{ $tahun_ajaran->tahun }}</div>
