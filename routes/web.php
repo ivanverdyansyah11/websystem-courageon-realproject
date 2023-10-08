@@ -282,6 +282,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/akademik/kelulusan/edit-kenaikan-siswa/{id}', 'updateKenaikanSiswa');
             Route::post('/akademik/kelulusan/delete-kenaikan-siswa/{id}', 'deleteKenaikanSiswa');
 
+            Route::post('/akademik/kelulusan/cari', 'search')->name('kenaikanKelas-search');
             Route::get('/akademik/kelulusan/detail-kenaikan-kelas/{id}', 'detailKenaikanKelas');
             Route::post('/akademik/kelulusan/tambah-kenaikan-kelas', 'storeKenaikanKelas')->name('kenaikan-kelas-store');
             Route::post('/akademik/kelulusan/edit-kenaikan-kelas/{id}', 'updateKenaikanKelas');

@@ -21,7 +21,33 @@ class KelulusanController extends Controller
             'title' => 'Akademik > Kelulusan',
             'section_graduation' => SectionGraduation::first(),
             'kenaikan_siswa' => HistoryKenaikanSiswa::paginate(6),
-            'kenaikan_kelas' => KenaikanKelas::all(),
+            'kenaikan_kelas' => KenaikanKelas::paginate(6),
+            'students' => Student::all(),
+            'jurusans' => Jurusan::all(),
+            'kelases' => Kelas::all(),
+            'indexes' => Index::all(),
+            'semesters' => Semester::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $KenaikanKelas = KenaikanKelas::where('jumlah_siswa_x', 'like', '%' . $request->search . '%')
+            ->orWhere('jumlah_siswa_xi', 'like', '%' . $request->search . '%')
+            ->orWhere('jumlah_siswa_xii', 'like', '%' . $request->search . '%')
+            ->orWhere('nilai_tertinggi', 'like', '%' . $request->search . '%')
+            ->orWhere('nilai_terendah', 'like', '%' . $request->search . '%')
+            ->orWhere('rata_nilai', 'like', '%' . $request->search . '%')
+            ->orWhere('total_siswa', 'like', '%' . $request->search . '%')
+            ->orWhere('tahun_ajaran', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('akademik.kelulusan.index', [
+            'title' => 'Akademik > Kelulusan',
+            'section_graduation' => SectionGraduation::first(),
+            'kenaikan_siswa' => HistoryKenaikanSiswa::paginate(6),
+            'kenaikan_kelas' => $KenaikanKelas,
             'students' => Student::all(),
             'jurusans' => Jurusan::all(),
             'kelases' => Kelas::all(),
@@ -159,7 +185,7 @@ class KelulusanController extends Controller
 
     function storeKenaikanKelas(Request $request)
     {
-        if ($request->gender == '-') {
+        if ($request->gender == '') {
             return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
         }
 
@@ -200,7 +226,7 @@ class KelulusanController extends Controller
 
     function updateKenaikanKelas($id, Request $request)
     {
-        if ($request->gender == '-') {
+        if ($request->gender == '') {
             return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
         }
 

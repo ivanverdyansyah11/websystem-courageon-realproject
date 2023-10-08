@@ -134,9 +134,22 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Kenaikan Kelas Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addKenaikanKelasModal">Tambah
-                    Kenaikan Kelas</button>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('kenaikanKelas-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari kenaikan kelas..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                        data-bs-target="#addKenaikanKelasModal">Tambah
+                        Kenaikan Kelas</button>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -202,7 +215,7 @@
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-end mt-4">
-                {{ $kenaikan_siswa->links() }}
+                {{ $kenaikan_kelas->links() }}
             </div>
         </div>
     </div>
@@ -288,7 +301,7 @@
                             <div class="input-wrapper">
                                 <label for="judul">Judul Section</label>
                                 <input type="text" id="judul" class="input" autocomplete="off"
-                                    data-value="title_section" name="title_section">
+                                    data-value="title_section" name="title_section" value="{{ old('title_section') }}">
                                 @error('title_section')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -298,7 +311,7 @@
                             <div class="input-wrapper">
                                 <label for="button_1">Button Label 1</label>
                                 <input type="text" id="button_1" class="input" autocomplete="off"
-                                    data-value="button_section_1" name="button_1">
+                                    data-value="button_section_1" name="button_1" value="{{ old('button_1') }}">
                                 @error('button_1')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -308,7 +321,7 @@
                             <div class="input-wrapper">
                                 <label for="button_2">Button Label 2</label>
                                 <input type="text" id="button_2" class="input" autocomplete="off"
-                                    data-value="button_section_2" name="button_2">
+                                    data-value="button_section_2" name="button_2" value="{{ old('button_2') }}">
                                 @error('button_2')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -318,7 +331,7 @@
                             <div class="input-wrapper">
                                 <label for="button_3">Button Label 3</label>
                                 <input type="text" id="button_3" class="input" autocomplete="off"
-                                    data-value="button_section_3" name="button_3">
+                                    data-value="button_section_3" name="button_3" value="{{ old('button_3') }}">
                                 @error('button_3')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -328,7 +341,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_1">Caption 1</label>
                                 <input type="text" id="caption_1" class="input" autocomplete="off"
-                                    data-value="caption_section_1" name="caption_1">
+                                    data-value="caption_section_1" name="caption_1" value="{{ old('caption_1') }}">
                                 @error('caption_1')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -338,7 +351,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_2">Caption 2</label>
                                 <input type="text" id="caption_2" class="input" autocomplete="off"
-                                    data-value="caption_section_2" name="caption_2">
+                                    data-value="caption_section_2" name="caption_2" value="{{ old('caption_2') }}">
                                 @error('caption_')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -348,7 +361,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_3">Caption 3</label>
                                 <input type="text" id="caption_3" class="input" autocomplete="off"
-                                    data-value="caption_section_3" name="caption_3">
+                                    data-value="caption_section_3" name="caption_3" value="{{ old('caption_3') }}">
                                 @error('caption_3')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -378,10 +391,12 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Siswa</label>
-                                <select name="students_id" id="students_id" class="input">
-                                    <option selected>Pilih siswa</option>
+                                <select name="students_id" id="students_id" class="input" required>
+                                    <option value="">Pilih siswa</option>
                                     @foreach ($students as $student)
-                                        <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                        <option value="{{ $student->id }}"
+                                            {{ old('students_id') == $student->id ? 'selected' : '' }}>
+                                            {{ $student->nama_lengkap }}</option>
                                     @endforeach
                                 </select>
                                 @error('students_id')
@@ -392,10 +407,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="semesters_id">Semester</label>
-                                <select name="semesters_id" id="semesters_id" class="input">
-                                    <option selected>Pilih semester</option>
+                                <select name="semesters_id" id="semesters_id" class="input" required>
+                                    <option value="">Pilih semester</option>
                                     @foreach ($semesters as $semester)
-                                        <option value="{{ $semester->id }}">{{ $semester->semester }}</option>
+                                        <option value="{{ $semester->id }}"
+                                            {{ old('semesters_id') == $semester->id ? 'selected' : '' }}>
+                                            {{ $semester->semester }}</option>
                                     @endforeach
                                 </select>
                                 @error('semesters_id')
@@ -406,10 +423,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jurusans_id">Jurusan</label>
-                                <select name="jurusans_id" id="jurusans_id" class="input">
-                                    <option selected>Pilih jurusan</option>
+                                <select name="jurusans_id" id="jurusans_id" class="input" required>
+                                    <option value="">Pilih jurusan</option>
                                     @foreach ($jurusans as $jurusan)
-                                        <option value="{{ $jurusan->id }}">{{ $jurusan->name }}</option>
+                                        <option value="{{ $jurusan->id }}"
+                                            {{ old('jurusans_id') == $jurusan->id ? 'selected' : '' }}>
+                                            {{ $jurusan->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('jurusans_id')
@@ -420,10 +439,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="kelases_id">Kelas</label>
-                                <select name="kelases_id" id="kelases_id" class="input">
-                                    <option selected>Pilih kelas</option>
+                                <select name="kelases_id" id="kelases_id" class="input" required>
+                                    <option value="">Pilih kelas</option>
                                     @foreach ($kelases as $kelas)
-                                        <option value="{{ $kelas->id }}">{{ $kelas->name }}</option>
+                                        <option value="{{ $kelas->id }}"
+                                            {{ old('kelases_id') == $kelas->id ? 'selected' : '' }}>{{ $kelas->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('kelases_id')
@@ -434,10 +455,12 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="indexes_id">Index</label>
-                                <select name="indexes_id" id="indexes_id" class="input">
-                                    <option selected>Pilih index</option>
+                                <select name="indexes_id" id="indexes_id" class="input" required>
+                                    <option value="">Pilih index</option>
                                     @foreach ($indexes as $index)
-                                        <option value="{{ $index->id }}">{{ $index->name }}</option>
+                                        <option value="{{ $index->id }}"
+                                            {{ old('indexes_id') == $index->id ? 'selected' : '' }}>{{ $index->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('indexes_id')
@@ -519,7 +542,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Siswa</label>
-                                <select name="students_id" id="students_id" class="input">
+                                <select name="students_id" id="students_id" class="input" required>
                                     <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
@@ -533,7 +556,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="semesters_id">Semester</label>
-                                <select name="semesters_id" id="semesters_id" class="input">
+                                <select name="semesters_id" id="semesters_id" class="input" required>
                                     <option data-value="semester_nama"></option>
                                     @foreach ($semesters as $semester)
                                         <option value="{{ $semester->id }}">{{ $semester->semester }}</option>
@@ -547,7 +570,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jurusans_id">Jurusan</label>
-                                <select name="jurusans_id" id="jurusans_id" class="input">
+                                <select name="jurusans_id" id="jurusans_id" class="input" required>
                                     <option data-value="jurusan_nama"></option>
                                     @foreach ($jurusans as $jurusan)
                                         <option value="{{ $jurusan->id }}">{{ $jurusan->name }}</option>
@@ -561,7 +584,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="kelases_id">Kelas</label>
-                                <select name="kelases_id" id="kelases_id" class="input">
+                                <select name="kelases_id" id="kelases_id" class="input" required>
                                     <option data-value="kelas_nama"></option>
                                     @foreach ($kelases as $kelas)
                                         <option value="{{ $kelas->id }}">{{ $kelas->name }}</option>
@@ -575,7 +598,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="indexes_id">Index</label>
-                                <select name="indexes_id" id="indexes_id" class="input">
+                                <select name="indexes_id" id="indexes_id" class="input" required>
                                     <option data-value="index_nama"></option>
                                     @foreach ($indexes as $index)
                                         <option value="{{ $index->id }}">{{ $index->name }}</option>
@@ -635,10 +658,12 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="gender">Jenis Kelamin</label>
-                                <select name="gender" id="gender" class="input">
-                                    <option selected value="-">Pilih jenis kelamin</option>
-                                    <option value="L">Laki Laki</option>
-                                    <option value="P">Perempuan</option>
+                                <select name="gender" id="gender" class="input" required>
+                                    <option value="">Pilih jenis kelamin</option>
+                                    <option value="L" {{ old('gender') == 'L' ? 'selected' : '' }}>Laki Laki
+                                    </option>
+                                    <option value="P" {{ old('gender') == 'P' ? 'selected' : '' }}>Perempuan
+                                    </option>
                                 </select>
                                 @error('gender')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -648,8 +673,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_x">Jumlah Siswa X</label>
-                                <input type="text" name="jumlah_siswa_x" id="jumlah_siswa_x" class="input"
-                                    autocomplete="off">
+                                <input type="number" required name="jumlah_siswa_x" value="{{ old('jumlah_siswa_x') }}"
+                                    id="jumlah_siswa_x" class="input" autocomplete="off">
                                 @error('jumlah_siswa_x')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -658,7 +683,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_xi">Jumlah Siswa XI</label>
-                                <input type="text" name="jumlah_siswa_xi" id="jumlah_siswa_xi" class="input"
+                                <input type="number" required name="jumlah_siswa_xi"
+                                    value="{{ old('jumlah_siswa_xi') }}" id="jumlah_siswa_xi" class="input"
                                     autocomplete="off">
                                 @error('jumlah_siswa_xi')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -668,7 +694,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_xii">Jumlah Siswa XII</label>
-                                <input type="text" name="jumlah_siswa_xii" id="jumlah_siswa_xii" class="input"
+                                <input type="number" required name="jumlah_siswa_xii"
+                                    value="{{ old('jumlah_siswa_xii') }}" id="jumlah_siswa_xii" class="input"
                                     autocomplete="off">
                                 @error('jumlah_siswa_xii')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -678,7 +705,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nilai_tertinggi">Nilai Tertinggi</label>
-                                <input type="text" name="nilai_tertinggi" id="nilai_tertinggi" class="input"
+                                <input type="number" required name="nilai_tertinggi"
+                                    value="{{ old('nilai_tertinggi') }}" id="nilai_tertinggi" class="input"
                                     autocomplete="off">
                                 @error('nilai_tertinggi')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -688,8 +716,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nilai_terendah">Nilai Terendah</label>
-                                <input type="text" name="nilai_terendah" id="nilai_terendah" class="input"
-                                    autocomplete="off">
+                                <input type="number" required name="nilai_terendah" value="{{ old('nilai_terendah') }}"
+                                    id="nilai_terendah" class="input" autocomplete="off">
                                 @error('nilai_terendah')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -698,8 +726,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="rata_nilai">Rata Rata Nilai</label>
-                                <input type="text" name="rata_nilai" id="rata_nilai" class="input"
-                                    autocomplete="off">
+                                <input type="number" required name="rata_nilai" value="{{ old('rata_nilai') }}"
+                                    id="rata_nilai" class="input" autocomplete="off">
                                 @error('rata_nilai')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -708,20 +736,22 @@
                         <div class="col-md-6 mb-md-4">
                             <div class="input-wrapper">
                                 <label for="total_siswa">Total Siswa</label>
-                                <input type="text" name="total_siswa" id="total_siswa" class="input"
-                                    autocomplete="off">
+                                <input type="number" required name="total_siswa" value="{{ old('total_siswa') }}"
+                                    id="total_siswa" class="input" autocomplete="off">
                                 @error('total_siswa')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
-                                <select name="tahun_ajaran" id="tahun_ajaran" class="input">
-                                    <option selected>Pilih tahun ajaran</option>
+                                <select required name="tahun_ajaran" id="tahun_ajaran" class="input">
+                                    <option value="">Pilih tahun ajaran</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                        <option value="{{ $tahun_ajaran->tahun }}"
+                                            {{ old('tahun_ajaran') == $tahun_ajaran->tahun ? 'selected' : '' }}>
+                                            {{ $tahun_ajaran->tahun }}</option>
                                     @endforeach
                                 </select>
                                 @error('tahun_ajaran')
@@ -836,9 +866,7 @@
                             <div class="input-wrapper">
                                 <label for="gender">Jenis Kelamin</label>
                                 <select name="gender" id="gender_select" class="input" name="gender"
-                                    data-value="gender_select">
-                                    {{-- <option value="L">Laki Laki</option>
-                                    <option value="P">Perempuan</option> --}}
+                                    data-value="gender_select" required>
                                 </select>
                                 @error('gender')
                                     <p class="caption-error mt-2">{{ $message }}</p>
@@ -848,8 +876,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_x">Jumlah Siswa X</label>
-                                <input type="text" name="jumlah_siswa_x" data-value="jumlah_siswa_x"
-                                    id="jumlah_siswa_x" class="input" autocomplete="off">
+                                <input type="number" name="jumlah_siswa_x" data-value="jumlah_siswa_x"
+                                    id="jumlah_siswa_x" class="input" autocomplete="off" required>
                                 @error('jumlah_siswa_x')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -858,8 +886,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_xi">Jumlah Siswa XI</label>
-                                <input type="text" name="jumlah_siswa_xi" data-value="jumlah_siswa_xi"
-                                    id="jumlah_siswa_xi" class="input" autocomplete="off">
+                                <input type="number" name="jumlah_siswa_xi" data-value="jumlah_siswa_xi"
+                                    id="jumlah_siswa_xi" class="input" autocomplete="off" required>
                                 @error('jumlah_siswa_xi')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -868,8 +896,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jumlah_siswa_xii">Jumlah Siswa XII</label>
-                                <input type="text" name="jumlah_siswa_xii" data-value="jumlah_siswa_xii"
-                                    id="jumlah_siswa_xii" class="input" autocomplete="off">
+                                <input type="number" name="jumlah_siswa_xii" data-value="jumlah_siswa_xii"
+                                    id="jumlah_siswa_xii" class="input" autocomplete="off" required>
                                 @error('jumlah_siswa_xii')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -878,8 +906,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nilai_tertinggi">Nilai Tertinggi</label>
-                                <input type="text" data-value="nilai_tertinggi" name="nilai_tertinggi"
-                                    id="nilai_tertinggi" class="input" autocomplete="off">
+                                <input type="number" data-value="nilai_tertinggi" name="nilai_tertinggi"
+                                    id="nilai_tertinggi" class="input" autocomplete="off" required>
                                 @error('nilai_tertinggi')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -888,8 +916,8 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="nilai_terendah">Nilai Terendah</label>
-                                <input type="text" data-value="nilai_terendah" name="nilai_terendah"
-                                    id="nilai_terendah" class="input" autocomplete="off">
+                                <input type="number" data-value="nilai_terendah" name="nilai_terendah"
+                                    id="nilai_terendah" class="input" autocomplete="off" required>
                                 @error('nilai_terendah')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -898,27 +926,27 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="rata_nilai">Rata Rata Nilai</label>
-                                <input type="text" data-value="rata_nilai" name="rata_nilai" id="rata_nilai"
-                                    class="input" autocomplete="off">
+                                <input type="number" data-value="rata_nilai" name="rata_nilai" id="rata_nilai"
+                                    class="input" autocomplete="off" required>
                                 @error('rata_nilai')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="total_siswa">Total Siswa</label>
-                                <input type="text" data-value="total_siswa" name="total_siswa" id="total_siswa"
-                                    class="input" autocomplete="off">
+                                <input type="number" data-value="total_siswa" name="total_siswa" id="total_siswa"
+                                    class="input" autocomplete="off" required>
                                 @error('total_siswa')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
-                                <select name="tahun_ajaran" id="tahun_ajaran" class="input">
+                                <select name="tahun_ajaran" id="tahun_ajaran" class="input" required>
                                     <option data-value="tahun_ajaran"></option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
