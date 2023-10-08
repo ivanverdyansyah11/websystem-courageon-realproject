@@ -250,6 +250,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(ProyekController::class)->group(function () {
             Route::get('/akademik/proyek', 'index')->name('proyek-index');
+            Route::post('/akademik/proyek/cari', 'search')->name('proyek-search');
             Route::get('/akademik/proyek/detail-section', 'detailSection');
             Route::post('/akademik/proyek/edit-section', 'updateSection');
             Route::get('/akademik/proyek/tambah-proyek', 'createProject')->name('proyek-tambah');

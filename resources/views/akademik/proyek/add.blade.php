@@ -29,7 +29,8 @@
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                                 class="img-fluid tag-add-image" alt="Image Project" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="image" class="input-add-image" name="image">
+                                                <input type="file" id="image" class="input-add-image" name="image"
+                                                    required>
                                             </div>
                                         </div>
                                         @error('image')
@@ -40,8 +41,8 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Proyek</label>
-                                        <input type="text" id="judul" class="input" name="title"
-                                            autocomplete="off">
+                                        <input type="text" id="judul" class="input" required
+                                            value="{{ old('title') }}" name="title" autocomplete="off">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -50,17 +51,17 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="topik">Topik</label>
-                                        <input type="text" id="topik" class="input" name="topic"
-                                            autocomplete="off">
+                                        <input type="text" id="topik" class="input" required
+                                            value="{{ old('topic') }}" name="topic" autocomplete="off">
                                         @error('topic')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputAddProject" autocomplete="off" class="input" name="description"></textarea>
+                                        <textarea id="inputAddProject" autocomplete="off" class="input" required name="description">{{ old('description') }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

@@ -17,6 +17,21 @@ class ProyekController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $projects = Project::where('image', 'like', '%' . $request->search . '%')
+            ->orWhere('title', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%')
+            ->orWhere('topic', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('akademik.proyek.index', [
+            'title' => 'Akademik > Proyek',
+            'section_proyek' => SectionProyek::first(),
+            'projects' => $projects,
+        ]);
+    }
+
     function detailSection()
     {
         $section_project = SectionProyek::first();
@@ -97,8 +112,10 @@ class ProyekController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/akademik-images/proyek-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -122,8 +139,10 @@ class ProyekController extends Controller
         $project = Project::where('id', $id)->first();
 
         if ($project->image) {
-            $imagePath = public_path('assets/img/akademik-images/proyek-image/') . $project->image;
-            unlink($imagePath);
+            if (public_path('assets/img/akademik-images/proyek-image/') . $project->image && $project->image) {
+                $imagePath = public_path('assets/img/akademik-images/proyek-image/') . $project->image;
+                unlink($imagePath);
+            }
         }
 
         $project = $project->delete();

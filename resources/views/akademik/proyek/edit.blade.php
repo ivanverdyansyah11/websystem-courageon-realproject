@@ -47,7 +47,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Proyek</label>
-                                        <input type="text" id="judul" class="input" name="title"
+                                        <input type="text" id="judul" class="input" name="title" required
                                             value="{{ $project->title }}" autocomplete="off">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -57,17 +57,17 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="topik">Topik</label>
-                                        <input type="text" id="topik" class="input" name="topic"
+                                        <input type="text" id="topik" class="input" name="topic" required
                                             value="{{ $project->topic }}" autocomplete="off">
                                         @error('topic')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputEditProject" autocomplete="off" class="input" name="description">{{ $project->description }}</textarea>
+                                        <textarea id="inputEditProject" autocomplete="off" class="input" required name="description">{{ $project->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
