@@ -98,7 +98,7 @@ class BerandaController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            if (public_path('assets/img/beranda-images/sambutan-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/beranda-images/sambutan-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/beranda-images/sambutan-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -135,7 +135,7 @@ class BerandaController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            if (public_path('assets/img/beranda-images/sejarah-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/beranda-images/sejarah-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/beranda-images/sejarah-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
