@@ -142,7 +142,7 @@
                             <div class="input-wrapper">
                                 <label for="judul">Judul Header</label>
                                 <input type="text" id="judul" class="input" name="title_header"
-                                    autocomplete="off" data-value="title_header">
+                                    autocomplete="off" required data-value="title_header">
                                 @error('title_header')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -152,7 +152,7 @@
                             <div class="input-wrapper">
                                 <label for="button">Button Label</label>
                                 <input type="text" id="button" class="input" name="button" autocomplete="off"
-                                    data-value="button_header">
+                                    required data-value="button_header">
                                 @error('button')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -161,7 +161,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="deskripsi">Deskripsi</label>
-                                <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
+                                <textarea id="textareaEditHeader" required name="description">{{ $section_header->description }}</textarea>
                                 @error('description')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
