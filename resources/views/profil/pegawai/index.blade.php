@@ -51,8 +51,21 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pegawai Sekolah</h5>
-                <a href="{{ route('pegawai-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Pegawai</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('pegawai-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari pegawai..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('pegawai-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Pegawai</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -144,8 +157,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_staff"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_staff" disabled>
                     </div>
                     <div class="button-wrapper d-flex flex-column">
                         <button type="button" class="button-default-solid" data-bs-dismiss="modal">Tutup Modal</button>
