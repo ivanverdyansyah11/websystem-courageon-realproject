@@ -192,7 +192,7 @@ class GuruController extends Controller
         ]);
 
         if ($request->file('image')) {
-            if (public_path('assets/img/profil-images/guru-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(file_exists(public_path('assets/img/profil-images/guru-image/') . $request->oldImage)) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/profil-images/guru-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -223,7 +223,7 @@ class GuruController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            if (public_path('assets/img/profil-images/guru-image/') . $employee->image && $employee->image) {
+            if (file_exists(public_path('assets/img/profil-images/guru-image/') . $employee->image) && $employee->image) {
                 $imagePath = public_path('assets/img/profil-images/guru-image/') . $employee->image;
                 unlink($imagePath);
             }

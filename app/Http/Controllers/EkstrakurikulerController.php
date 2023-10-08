@@ -103,7 +103,7 @@ class EkstrakurikulerController extends Controller
         if ($extracurricular) {
             return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-store'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
+            return redirect(route('ekstrakurikuler-create'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
         }
     }
 

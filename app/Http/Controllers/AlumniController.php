@@ -131,7 +131,7 @@ class AlumniController extends Controller
         if ($alumni) {
             return redirect(route('alumni-index'))->with('success', 'Berhasil Tambah Alumni Sekolah!');
         } else {
-            return redirect(route('alumni-index'))->with('failed', 'Gagal Tambah Alumni Sekolah!');
+            return redirect(route('alumni-create'))->with('failed', 'Gagal Tambah Alumni Sekolah!');
         }
     }
 
@@ -165,7 +165,7 @@ class AlumniController extends Controller
         if ($alumniAction) {
             return redirect(route('alumni-index'))->with('success', 'Berhasil Edit Alumni Sekolah!');
         } else {
-            return redirect(route('alumni-index'))->with('failed', 'Gagal Edit Alumni Sekolah!');
+            return redirect(route('alumni-edit'))->with('failed', 'Gagal Edit Alumni Sekolah!');
         }
     }
 

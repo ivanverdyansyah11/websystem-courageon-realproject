@@ -75,8 +75,10 @@ class GaleriController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/akademik-images/galeri-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/akademik-images/galeri-image/') . $request->oldImage) && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/akademik-images/galeri-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -100,8 +102,10 @@ class GaleriController extends Controller
         $gallery = Gallery::where('id', $id)->first();
 
         if ($gallery->image) {
-            $imagePath = public_path('assets/img/akademik-images/galeri-image/') . $gallery->image;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/akademik-images/galeri-image/') . $gallery->image) && $gallery->image) {
+                $imagePath = public_path('assets/img/akademik-images/galeri-image/') . $gallery->image;
+                unlink($imagePath);
+            }
         }
 
         $gallery = $gallery->delete();
