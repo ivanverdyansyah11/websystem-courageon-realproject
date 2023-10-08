@@ -8,6 +8,7 @@ use App\Models\SectionBeasiswa;
 use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BeasiswaController extends Controller
 {
@@ -26,16 +27,18 @@ class BeasiswaController extends Controller
 
     public function search(Request $request)
     {
-        $beasiswaPenerima = BeasiswaPenerima::where('tahun', 'like', '%' . $request->search . '%')
-            ->orWhere('digunakan_untuk', 'like', '%' . $request->search . '%')
-            ->orWhere('jumlah_beasiswa', 'like', '%' . $request->search . '%')
-            ->paginate(6);
+        $beasiswas = DB::table("beasiswa_penerimas")->join("students", "students.id", "=", "beasiswa_penerimas.students_id")
+            ->where('beasiswa_penerimas.tahun', 'like', '%' . $request->search . '%')
+            ->orWhere('beasiswa_penerimas.digunakan_untuk', 'like', '%' . $request->search . '%')
+            ->orWhere('beasiswa_penerimas.jumlah_beasiswa', 'like', '%' . $request->search . '%')
+            ->orWhere('students.nama_lengkap', 'like', '%' . $request->search . '%')
+            ->select('beasiswa_penerimas.*', 'students.nama_lengkap')->paginate(6);
 
         return view('kesiswaan.beasiswa.index', [
             'title' => 'Kesiswaan > Beasiswa',
             'section_beasiswa' => SectionBeasiswa::first(),
             'beasiswas' => Beasiswa::paginate(6),
-            'penerima_beasiswa' => $beasiswaPenerima,
+            'penerima_beasiswa' => $beasiswas,
             'allBeasiswa' => Beasiswa::all(),
             'students' => Student::all(),
             'tahun_ajarans' => TahunAjaran::all(),
