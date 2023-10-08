@@ -190,7 +190,7 @@ class ManajemenController extends Controller
         ]);
 
         if ($request->file('image')) {
-            if (public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -221,7 +221,7 @@ class ManajemenController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            if (public_path('assets/img/profil-images/manajemen-image/') . $employee->image && $employee->image) {
+            if (file_exists(public_path('assets/img/profil-images/manajemen-image/') . $employee->image) && $employee->image) {
                 $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
                 unlink($imagePath);
             }
