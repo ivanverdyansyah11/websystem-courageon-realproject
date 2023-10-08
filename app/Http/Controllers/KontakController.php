@@ -78,7 +78,7 @@ class KontakController extends Controller
         ]);
 
         if ($request->file('icon')) {
-            if (public_path('assets/img/profil-images/kontak-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/profil-images/kontak-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/profil-images/kontak-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -105,7 +105,7 @@ class KontakController extends Controller
         $contact = Contact::where('id', $id)->first();
 
         if ($contact->icon) {
-            if (public_path('assets/img/profil-images/kontak-image/') . $contact->icon && $contact->icon) {
+            if (file_exists(public_path('assets/img/profil-images/kontak-image/') . $contact->icon) && $contact->icon) {
                 $imagePath = public_path('assets/img/profil-images/kontak-image/') . $contact->icon;
                 unlink($imagePath);
             }
