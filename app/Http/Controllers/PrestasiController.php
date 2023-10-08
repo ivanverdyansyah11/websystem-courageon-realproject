@@ -19,6 +19,27 @@ class PrestasiController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $prestasis = Prestasi::where('status', 'like', '%' . $request->search . '%')
+            ->orWhere('tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('nama_kegiatan', 'like', '%' . $request->search . '%')
+            ->orWhere('penyelenggara', 'like', '%' . $request->search . '%')
+            ->orWhere('nama_peserta', 'like', '%' . $request->search . '%')
+            ->orWhere('hasil', 'like', '%' . $request->search . '%')
+            ->orWhere('tingkat', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('pembina', 'like', '%' . $request->search . '%')
+            ->orWhere('deskripsi', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.prestasi.index', [
+            'title' => 'Kesiswaan > Prestasi',
+            'section_achievement' => SectionAchievement::first(),
+            'allPrestasi' => $prestasis,
+        ]);
+    }
+
     function detailSection()
     {
         $section_achievement = SectionAchievement::first();

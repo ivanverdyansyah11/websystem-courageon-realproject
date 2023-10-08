@@ -55,8 +55,21 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Prestasi Sekolah</h5>
-                <a href="{{ route('prestasi-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Prestasi</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('prestasi-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari prestasi..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('prestasi-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Prestasi</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -126,13 +139,13 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_section"
-                            disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_section" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
