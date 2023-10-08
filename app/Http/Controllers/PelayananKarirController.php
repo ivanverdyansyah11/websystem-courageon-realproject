@@ -21,6 +21,40 @@ class PelayananKarirController extends Controller
         ]);
     }
 
+    public function searchKarir(Request $request)
+    {
+        $pelayanans = PelayananKarir::where('tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('judul', 'like', '%' . $request->search . '%')
+            ->orWhere('masalah', 'like', '%' . $request->search . '%')
+            ->orWhere('solusi', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.pelayanan-karir.index', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'section_service' => SectionService::first(),
+            'students' => Student::all(),
+            'pelayanan_karir' => $pelayanans,
+            'pembinaan_siswa' => PembinaanSiswa::paginate(6),
+        ]);
+    }
+
+    public function searchSiswa(Request $request)
+    {
+        $pelayanans = PelayananKarir::where('tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('judul', 'like', '%' . $request->search . '%')
+            ->orWhere('masalah', 'like', '%' . $request->search . '%')
+            ->orWhere('solusi', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.pelayanan-karir.index', [
+            'title' => 'Kesiswaan > Pelayanan Karir',
+            'section_service' => SectionService::first(),
+            'students' => Student::all(),
+            'pelayanan_karir' => $pelayanans,
+            'pembinaan_siswa' => PembinaanSiswa::paginate(6),
+        ]);
+    }
+
     function detailSection()
     {
         $section_service = SectionService::first();
@@ -75,7 +109,7 @@ class PelayananKarirController extends Controller
         if ($pelayananKarir) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Tambah Pelayanan Karir Sekolah!');
+            return redirect(route('pelayanan-karir-store'))->with('failed', 'Gagal Tambah Pelayanan Karir Sekolah!');
         }
     }
 
@@ -109,8 +143,10 @@ class PelayananKarirController extends Controller
         ]);
 
         if ($request->file('dokumentasi')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi) && $pelayanan->dokumentasi) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -125,7 +161,7 @@ class PelayananKarirController extends Controller
         if ($pelayananKarir) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Edit Pelayanan Karir Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Edit Pelayanan Karir Sekolah!');
+            return redirect(route('pelayanan-karir-edit'))->with('failed', 'Gagal Edit Pelayanan Karir Sekolah!');
         }
     }
 
@@ -134,8 +170,10 @@ class PelayananKarirController extends Controller
         $pelayanan = PelayananKarir::where('id', $id)->first();
 
         if ($pelayanan->dokumentasi) {
-            $imagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi) && $pelayanan->dokumentasi) {
+                $imagePath = public_path('assets/img/kesiswaan-images/pelayanan-karir-image/') . $pelayanan->dokumentasi;
+                unlink($imagePath);
+            }
         }
 
         $pelayanan = $pelayanan->delete();
@@ -177,7 +215,7 @@ class PelayananKarirController extends Controller
         if ($pembinaanSiswa) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Tambah Pembinaan Siswa Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Tambah Pembinaan Siswa Sekolah!');
+            return redirect(route('pelayanan-karir-store'))->with('failed', 'Gagal Tambah Pembinaan Siswa Sekolah!');
         }
     }
 
@@ -210,8 +248,10 @@ class PelayananKarirController extends Controller
         ]);
 
         if ($request->file('dokumentasi')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi) && $pembinaan->dokumentasi) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -226,7 +266,7 @@ class PelayananKarirController extends Controller
         if ($pembinaanSiswa) {
             return redirect(route('pelayanan-karir-index'))->with('success', 'Berhasil Edit Pembinaan Siswa Sekolah!');
         } else {
-            return redirect(route('pelayanan-karir-index'))->with('failed', 'Gagal Edit Pembinaan Siswa Sekolah!');
+            return redirect(route('pelayanan-karir-edit'))->with('failed', 'Gagal Edit Pembinaan Siswa Sekolah!');
         }
     }
 
@@ -235,8 +275,10 @@ class PelayananKarirController extends Controller
         $pembinaan = PembinaanSiswa::where('id', $id)->first();
 
         if ($pembinaan->dokumentasi) {
-            $imagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi) && $pembinaan->dokumentasi) {
+                $imagePath = public_path('assets/img/kesiswaan-images/pembinaan-siswa-image/') . $pembinaan->dokumentasi;
+                unlink($imagePath);
+            }
         }
 
         $pembinaan = $pembinaan->delete();

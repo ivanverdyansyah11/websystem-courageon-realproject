@@ -30,7 +30,7 @@
                                                 class="img-fluid tag-add-image" alt="Gambar Profil" width="80">
                                             <div class="wrapper-image w-100">
                                                 <input type="file" id="image" class="input-add-image"
-                                                    name="dokumentasi">
+                                                    name="dokumentasi" required>
                                             </div>
                                         </div>
                                         @error('dokumentasi')
@@ -41,10 +41,13 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <select name="students_id" id="students_id" class="input" autocomplete="off">
-                                            <option value="-">Pilih siswa</option>
+                                        <select required name="students_id" id="students_id" class="input"
+                                            autocomplete="off">
+                                            <option value="">Pilih siswa</option>
                                             @foreach ($students as $student)
-                                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
+                                                <option value="{{ $student->id }}"
+                                                    {{ old('students_id') == $student->id ? 'selected' : '' }}>
+                                                    {{ $student->nama_lengkap }}</option>
                                             @endforeach
                                         </select>
                                         @error('students_id')
@@ -55,8 +58,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
-                                        <input type="date" id="tanggal" class="input" autocomplete="off"
-                                            name="tanggal">
+                                        <input type="date" id="tanggal" class="input" autocomplete="off" required
+                                            name="tanggal" value="{{ old('tanggal') }}">
                                         @error('tanggal')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -65,7 +68,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul">Judul</label>
-                                        <textarea name="judul" id="judul" rows="4" class="input" autocomplete="off"></textarea>
+                                        <textarea required name="judul" id="judul" rows="4" class="input" autocomplete="off">{{ old('judul') }}</textarea>
                                         @error('judul')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -74,7 +77,7 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea id="inputAddMasalah" autocomplete="off" class="input" name="masalah"></textarea>
+                                        <textarea id="inputAddMasalah" autocomplete="off" class="input" required name="masalah">{{ old('masalah') }}</textarea>
                                         @error('masalah')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -83,7 +86,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea id="inputAddSolusi" autocomplete="off" class="input" name="solusi"></textarea>
+                                        <textarea id="inputAddSolusi" autocomplete="off" class="input" required name="solusi">{{ old('solusi') }}</textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

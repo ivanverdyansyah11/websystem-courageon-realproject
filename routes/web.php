@@ -355,6 +355,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/kesiswaan/pelayanan-karir/detail-section', 'detailSection');
             Route::post('/kesiswaan/pelayanan-karir/edit-section', 'updateSection');
 
+            Route::post('/kesiswaan/pelayanan-karir/cari', 'searchKarir')->name('pelayanan-karir-search');
             Route::get('/kesiswaan/pelayanan-karir/detail-pelayanan-karir/{id}', 'detailService')->name('pelayanan-karir-detail');
             Route::get('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'createService')->name('pelayanan-karir-create');
             Route::post('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'storeService')->name('pelayanan-karir-store');

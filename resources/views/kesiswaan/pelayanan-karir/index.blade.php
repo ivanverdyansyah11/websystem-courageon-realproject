@@ -56,8 +56,21 @@
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pelayanan Karir Sekolah</h5>
-                <a href="{{ route('pelayanan-karir-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Pelayanan Karir</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('pelayanan-karir-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari pelayanan karir..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('pelayanan-karir-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Pelayanan Karir</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -235,7 +248,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" required name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -243,14 +256,14 @@
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" name="button">
+                            data-value="button_section" required name="button">
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section_service->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section_service->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

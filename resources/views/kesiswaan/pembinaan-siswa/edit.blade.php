@@ -47,7 +47,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <select name="students_id" id="students_id" class="input" autocomplete="off">
+                                        <select name="students_id" id="students_id" class="input" autocomplete="off"
+                                            required>
                                             @foreach ($students as $student)
                                                 <option value="{{ $student->id }}"
                                                     {{ $student->id === $pembinaan->students_id ? 'selected' : '' }}>
@@ -63,7 +64,7 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="date" id="tanggal" class="input" autocomplete="off"
-                                            value="{{ $pembinaan->tanggal }}" name="tanggal">
+                                            value="{{ $pembinaan->tanggal }}" required name="tanggal">
                                         @error('tanggal')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -72,16 +73,16 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="masalah">Masalah</label>
-                                        <textarea name="masalah" id="inputEditMasalah" autocomplete="off" class="input">{{ $pembinaan->masalah }}</textarea>
+                                        <textarea required name="masalah" id="inputEditMasalah" autocomplete="off" class="input">{{ $pembinaan->masalah }}</textarea>
                                         @error('masalah')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="solusi">Solusi</label>
-                                        <textarea name="solusi" id="inputEditSolusi" autocomplete="off" class="input">{{ $pembinaan->solusi }}</textarea>
+                                        <textarea required name="solusi" id="inputEditSolusi" autocomplete="off" class="input">{{ $pembinaan->solusi }}</textarea>
                                         @error('solusi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
