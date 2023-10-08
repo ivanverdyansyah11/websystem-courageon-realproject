@@ -68,7 +68,7 @@ class PrasaranaController extends Controller
         if ($prasarana) {
             return redirect(route('prasarana-index'))->with('success', 'Berhasil Tambah Sarana Prasarana Sekolah!');
         } else {
-            return redirect(route('prasarana-index'))->with('failed', 'Gagal Tambah Sarana Prasarana Sekolah!');
+            return redirect(route('prasarana-create'))->with('failed', 'Gagal Tambah Sarana Prasarana Sekolah!');
         }
     }
 
@@ -97,7 +97,7 @@ class PrasaranaController extends Controller
         ]);
 
         if ($request->file('image')) {
-            if (public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -115,7 +115,7 @@ class PrasaranaController extends Controller
         if ($prasarana) {
             return redirect(route('prasarana-index'))->with('success', 'Berhasil Edit Sarana Prasarana Sekolah!');
         } else {
-            return redirect(route('prasarana-index'))->with('failed', 'Gagal Edit Sarana Prasarana Sekolah!');
+            return redirect(route('prasarana-edit'))->with('failed', 'Gagal Edit Sarana Prasarana Sekolah!');
         }
     }
 
@@ -124,7 +124,7 @@ class PrasaranaController extends Controller
         $prasarana = Prasarana::where('id', $id)->first();
 
         if ($prasarana->image) {
-            if (public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image && $prasarana->image) {
+            if (file_exists(public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image) && $prasarana->image) {
                 $imagePath = public_path('assets/img/sarana-prasarana-images/sarana-prasarana-image/') . $prasarana->image;
                 unlink($imagePath);
             }
