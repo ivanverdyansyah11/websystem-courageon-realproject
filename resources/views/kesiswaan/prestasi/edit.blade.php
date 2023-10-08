@@ -47,7 +47,7 @@
                                     <div class="input-wrapper">
                                         <label for="kategori_prestasis_id">Kategori Prestasi</label>
                                         <select id="kategori_prestasis_id" class="input" autocomplete="off"
-                                            name="kategori_prestasis_id">
+                                            name="kategori_prestasis_id" required>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}"
                                                     {{ $category->id == $prestasi->kategori_prestasis_id ? 'selected' : '' }}>
@@ -63,7 +63,7 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="date" id="tanggal" class="input" autocomplete="off"
-                                            name="tanggal" value="{{ $prestasi->tanggal }}">
+                                            name="tanggal" value="{{ $prestasi->tanggal }}" required>
                                         @error('tanggal')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -72,7 +72,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input">
+                                        <select name="status" id="status" class="input" required>
                                             <option value="Guru" {{ $prestasi->status === 'Guru' ? 'selected' : '' }}>
                                                 Guru
                                             </option>
@@ -90,7 +90,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nama_kegiatan">Nama Kegiatan</label>
-                                        <input type="text" id="nama_kegiatan" class="input" autocomplete="off"
+                                        <input type="text" id="nama_kegiatan" class="input" autocomplete="off" required
                                             name="nama_kegiatan" value="{{ $prestasi->nama_kegiatan }}">
                                         @error('nama_kegiatan')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -100,7 +100,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="penyelenggara">Penyelenggara</label>
-                                        <input type="text" id="penyelenggara" class="input" autocomplete="off"
+                                        <input type="text" id="penyelenggara" class="input" autocomplete="off" required
                                             name="penyelenggara" value="{{ $prestasi->penyelenggara }}">
                                         @error('penyelenggara')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -110,7 +110,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nama_peserta">Nama Peserta</label>
-                                        <input type="text" id="nama_peserta" class="input" autocomplete="off"
+                                        <input type="text" id="nama_peserta" class="input" autocomplete="off" required
                                             name="nama_peserta" value="{{ $prestasi->nama_peserta }}">
                                         @error('nama_peserta')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -120,7 +120,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="hasil">Hasil</label>
-                                        <input type="text" id="hasil" class="input" autocomplete="off"
+                                        <input type="text" id="hasil" class="input" autocomplete="off" required
                                             name="hasil" value="{{ $prestasi->hasil }}">
                                         @error('hasil')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -130,7 +130,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tingkat">Tingkat</label>
-                                        <select name="tingkat" id="tingkat" class="input">
+                                        <select required name="tingkat" id="tingkat" class="input">
                                             <option value="Kecamatan"
                                                 {{ $prestasi->tingkat === 'Kecamatan' ? 'selected' : '' }}>
                                                 Kecamatan</option>
@@ -153,17 +153,17 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="pembina">Pembina</label>
-                                        <input type="text" id="pembina" class="input" autocomplete="off"
+                                        <input type="text" id="pembina" class="input" autocomplete="off" required
                                             name="pembina" value="{{ $prestasi->pembina }}">
                                         @error('pembina')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputEditPrestasi" autocomplete="off" class="input" name="deskripsi">{{ $prestasi->deskripsi }}</textarea>
+                                        <textarea id="inputEditPrestasi" autocomplete="off" class="input" required name="deskripsi">{{ $prestasi->deskripsi }}</textarea>
                                         @error('deskripsi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

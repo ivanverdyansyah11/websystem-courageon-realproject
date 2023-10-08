@@ -52,7 +52,7 @@ class PrestasiController extends Controller
 
     function storeAchievement(Request $request)
     {
-        if ($request->kategori_prestasis_id == '-' || $request->status == '-' || $request->tingkat == '-') {
+        if ($request->kategori_prestasis_id == '' || $request->status == '' || $request->tingkat == '') {
             return redirect(route('prestasi-create'))->with('failed', 'Isi Form Kategori Prestasi, Status dan Tingkat Terlebih Dahulu!');
         }
 
@@ -106,7 +106,7 @@ class PrestasiController extends Controller
 
     function updateAchievement($id, Request $request)
     {
-        if ($request->kategori_prestasis_id == '-' || $request->status == '-' || $request->tingkat == '-') {
+        if ($request->kategori_prestasis_id == '' || $request->status == '' || $request->tingkat == '') {
             return redirect(route('prestasi-edit', $id))->with('failed', 'Isi Form Kategori Prestasi, Status dan Tingkat Terlebih Dahulu!');
         }
 
@@ -125,8 +125,10 @@ class PrestasiController extends Controller
         ]);
 
         if ($request->file('dokumentasi')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $achievement['dokumentasi'];
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/prestasi-image/') . $achievement['dokumentasi']) && $achievement['dokumentasi']) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $achievement['dokumentasi'];
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('dokumentasi');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -150,8 +152,10 @@ class PrestasiController extends Controller
         $prestasi = Prestasi::where('id', $id)->first();
 
         if ($prestasi->dokumentasi) {
-            $imagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->dokumentasi;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->dokumentasi) && $prestasi->dokumentasi) {
+                $imagePath = public_path('assets/img/kesiswaan-images/prestasi-image/') . $prestasi->dokumentasi;
+                unlink($imagePath);
+            }
         }
 
         $prestasi = $prestasi->delete();

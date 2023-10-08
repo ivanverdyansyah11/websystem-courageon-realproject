@@ -30,7 +30,7 @@
                                                 class="img-fluid tag-add-image" alt="Gambar Profil" width="80">
                                             <div class="wrapper-image w-100">
                                                 <input type="file" id="image" class="input-add-image"
-                                                    name="dokumentasi">
+                                                    name="dokumentasi" required>
                                             </div>
                                         </div>
                                         @error('dokumentasi')
@@ -42,8 +42,8 @@
                                     <div class="input-wrapper">
                                         <label for="kategori_prestasis_id">Kategori Prestasi</label>
                                         <select id="kategori_prestasis_id" class="input" autocomplete="off"
-                                            name="kategori_prestasis_id">
-                                            <option value="-">Pilih kategori prestasi</option>
+                                            name="kategori_prestasis_id" required>
+                                            <option value="">Pilih kategori prestasi</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->nama }}</option>
                                             @endforeach
@@ -57,7 +57,7 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal">Tanggal</label>
                                         <input type="date" id="tanggal" class="input" autocomplete="off"
-                                            name="tanggal">
+                                            name="tanggal" required value="{{ old('tanggal') }}">
                                         @error('tanggal')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -66,8 +66,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input">
-                                            <option selected value="-">Pilih status</option>
+                                        <select name="status" id="status" class="input" required>
+                                            <option selected value="">Pilih status</option>
                                             <option value="Guru">Guru</option>
                                             <option value="Pegawai">Pegawai</option>
                                             <option value="Siswa">Siswa</option>
@@ -81,7 +81,7 @@
                                     <div class="input-wrapper">
                                         <label for="nama_kegiatan">Nama Kegiatan</label>
                                         <input type="text" id="nama_kegiatan" class="input" autocomplete="off"
-                                            name="nama_kegiatan">
+                                            name="nama_kegiatan" required value="{{ old('nama_kegiatan') }}">
                                         @error('nama_kegiatan')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -91,7 +91,7 @@
                                     <div class="input-wrapper">
                                         <label for="penyelenggara">Penyelenggara</label>
                                         <input type="text" id="penyelenggara" class="input" autocomplete="off"
-                                            name="penyelenggara">
+                                            name="penyelenggara" required value="{{ old('penyelenggara') }}">
                                         @error('penyelenggara')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -101,7 +101,7 @@
                                     <div class="input-wrapper">
                                         <label for="nama_peserta">Nama Peserta</label>
                                         <input type="text" id="nama_peserta" class="input" autocomplete="off"
-                                            name="nama_peserta">
+                                            name="nama_peserta" required value="{{ old('nama_peserta') }}">
                                         @error('nama_peserta')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -111,7 +111,7 @@
                                     <div class="input-wrapper">
                                         <label for="hasil">Hasil</label>
                                         <input type="text" id="hasil" class="input" autocomplete="off"
-                                            name="hasil">
+                                            name="hasil" required value="{{ old('hasil') }}">
                                         @error('hasil')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -120,8 +120,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tingkat">Tingkat</label>
-                                        <select name="tingkat" id="tingkat" class="input">
-                                            <option selected value="-">Pilih tingkat</option>
+                                        <select name="tingkat" id="tingkat" class="input" required>
+                                            <option selected value="">Pilih tingkat</option>
                                             <option value="Kecamatan">Kecamatan</option>
                                             <option value="Kabupaten">Kabupaten</option>
                                             <option value="Provinsi">Provinsi</option>
@@ -136,7 +136,7 @@
                                     <div class="input-wrapper">
                                         <label for="pembina">Pembina</label>
                                         <input type="text" id="pembina" class="input" autocomplete="off"
-                                            name="pembina">
+                                            name="pembina" required value="{{ old('pembina') }}">
                                         @error('pembina')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -145,7 +145,7 @@
                                 <div class="col-12">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputAddPrestasi" autocomplete="off" class="input" name="deskripsi"></textarea>
+                                        <textarea id="inputAddPrestasi" required autocomplete="off" class="input" name="deskripsi">{{ old('deskripsi') }}</textarea>
                                         @error('deskripsi')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

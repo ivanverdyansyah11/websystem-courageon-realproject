@@ -158,7 +158,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_section" name="title_section">
+                            data-value="title_section" required name="title_section">
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -166,14 +166,14 @@
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_section" name="button">
+                            data-value="button_section" required name="button">
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section_achievement->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section_achievement->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
