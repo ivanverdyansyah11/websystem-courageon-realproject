@@ -139,8 +139,22 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pembinaan Siswa Sekolah</h5>
-                <a href="{{ route('pembinaan-siswa-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Pembinaan Siswa</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('pembinaan-siswa-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari pembinaan siswa..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('pembinaan-siswa-create') }}"
+                        class="d-none d-md-inline-block button-default">Tambah
+                        Pembinaan Siswa</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">

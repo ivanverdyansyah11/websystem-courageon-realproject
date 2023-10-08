@@ -40,8 +40,7 @@ class PelayananKarirController extends Controller
 
     public function searchSiswa(Request $request)
     {
-        $pelayanans = PelayananKarir::where('tanggal', 'like', '%' . $request->search . '%')
-            ->orWhere('judul', 'like', '%' . $request->search . '%')
+        $pembinaans = PembinaanSiswa::where('tanggal', 'like', '%' . $request->search . '%')
             ->orWhere('masalah', 'like', '%' . $request->search . '%')
             ->orWhere('solusi', 'like', '%' . $request->search . '%')
             ->paginate(6);
@@ -50,8 +49,8 @@ class PelayananKarirController extends Controller
             'title' => 'Kesiswaan > Pelayanan Karir',
             'section_service' => SectionService::first(),
             'students' => Student::all(),
-            'pelayanan_karir' => $pelayanans,
-            'pembinaan_siswa' => PembinaanSiswa::paginate(6),
+            'pelayanan_karir' => PelayananKarir::paginate(6),
+            'pembinaan_siswa' => $pembinaans,
         ]);
     }
 
