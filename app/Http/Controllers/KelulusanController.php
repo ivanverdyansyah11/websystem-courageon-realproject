@@ -12,6 +12,7 @@ use App\Models\Semester;
 use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KelulusanController extends Controller
 {
@@ -20,7 +21,7 @@ class KelulusanController extends Controller
         return view('akademik.kelulusan.index', [
             'title' => 'Akademik > Kelulusan',
             'section_graduation' => SectionGraduation::first(),
-            'kenaikan_siswa' => HistoryKenaikanSiswa::paginate(6),
+            'kenaikan_siswa' => HistoryKenaikanSiswa::with('student', 'jurusan', 'kelas', 'index', 'semesters')->paginate(6),
             'kenaikan_kelas' => KenaikanKelas::paginate(6),
             'students' => Student::all(),
             'jurusans' => Jurusan::all(),
@@ -31,7 +32,36 @@ class KelulusanController extends Controller
         ]);
     }
 
-    public function search(Request $request)
+    public function searchSiswa(Request $request)
+    {
+        $histories = DB::table("history_kenaikan_siswas")
+            ->join("students", "students.id", "=", "history_kenaikan_siswas.students_id")
+            ->join("jurusans", "jurusans.id", "=", "history_kenaikan_siswas.jurusans_id")
+            ->join("kelas", "kelas.id", "=", "history_kenaikan_siswas.kelases_id")
+            ->join("indices", "indices.id", "=", "history_kenaikan_siswas.indexes_id")
+            ->join("semesters", "semesters.id", "=", "history_kenaikan_siswas.semesters_id")
+            ->where('students.nama_lengkap', 'like', '%' . $request->search . '%')
+            ->orWhere('jurusans.name', 'like', '%' . $request->search . '%')
+            ->orWhere('kelas.name', 'like', '%' . $request->search . '%')
+            ->orWhere('indices.name', 'like', '%' . $request->search . '%')
+            ->orWhere('semesters.semester', 'like', '%' . $request->search . '%')
+            ->select('history_kenaikan_siswas.id', 'students.nama_lengkap', 'jurusans.name as nama_jurusan', 'kelas.name as nama_kelas', 'indices.name as nama_index', 'semesters.semester')->paginate(6);
+
+        return view('akademik.kelulusan.index', [
+            'title' => 'Akademik > Kelulusan',
+            'section_graduation' => SectionGraduation::first(),
+            'kenaikan_siswa' => $histories,
+            'kenaikan_kelas' => KenaikanKelas::paginate(6),
+            'students' => Student::all(),
+            'jurusans' => Jurusan::all(),
+            'kelases' => Kelas::all(),
+            'indexes' => Index::all(),
+            'semesters' => Semester::all(),
+            'tahun_ajarans' => TahunAjaran::all(),
+        ]);
+    }
+
+    public function searchKelas(Request $request)
     {
         $KenaikanKelas = KenaikanKelas::where('jumlah_siswa_x', 'like', '%' . $request->search . '%')
             ->orWhere('jumlah_siswa_xi', 'like', '%' . $request->search . '%')

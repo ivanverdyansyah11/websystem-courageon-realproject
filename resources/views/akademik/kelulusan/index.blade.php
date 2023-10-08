@@ -53,9 +53,22 @@
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Laporan Kenaikan Siswa Sekolah</h5>
-                <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
-                    data-bs-target="#addKenaikanSiswaModal">Tambah
-                    Kenaikan Siswa</button>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('kenaikanSiswa-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari kenaikan siswa..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
+                        data-bs-target="#addKenaikanSiswaModal">Tambah
+                        Kenaikan Siswa</button>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -78,26 +91,14 @@
                         @foreach ($kenaikan_siswa as $siswa)
                             <div class="col-12 table-row table-border">
                                 <div class="row table-data gap-4 align-items-center">
-                                    @foreach ($students as $student)
-                                        @if ($student->id === $siswa->students_id)
-                                            <div class="col data-value data-length">{{ $student->nama_lengkap }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($semesters as $semester)
-                                        @if ($semester->id === $siswa->semesters_id)
-                                            <div class="col data-value data-length">{{ $semester->semester }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($jurusans as $jurusan)
-                                        @if ($jurusan->id === $siswa->jurusans_id)
-                                            <div class="col data-value data-length">{{ $jurusan->name }}</div>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($kelases as $kelas)
-                                        @if ($kelas->id === $siswa->kelases_id)
-                                            <div class="col data-value data-length">{{ $kelas->name }}</div>
-                                        @endif
-                                    @endforeach
+                                    <div class="col data-value data-length">
+                                        {{ $siswa->nama_lengkap ?: $siswa->student->nama_lengkap }}</div>
+                                    <div class="col data-value data-length">
+                                        {{ $siswa->semester ?: $siswa->semesters->semester }}</div>
+                                    <div class="col data-value data-length">
+                                        {{ $siswa->nama_jurusan ?: $siswa->jurusan->name }}</div>
+                                    <div class="col data-value data-length">{{ $siswa->nama_kelas ?: $siswa->kelas->name }}
+                                    </div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
