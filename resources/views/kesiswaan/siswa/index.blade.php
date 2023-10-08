@@ -160,7 +160,7 @@
                             <div class="input-wrapper">
                                 <label for="judul">Judul Section</label>
                                 <input type="text" id="judul" class="input" autocomplete="off"
-                                    data-value="title_section" name="title_section">
+                                    data-value="title_section" required name="title_section">
                                 @error('title_section')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -170,7 +170,7 @@
                             <div class="input-wrapper">
                                 <label for="button_1">Button Label 1</label>
                                 <input type="text" id="button_1" class="input" autocomplete="off"
-                                    data-value="button_section_1" name="button_1">
+                                    data-value="button_section_1" required name="button_1">
                                 @error('button_1')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -180,7 +180,7 @@
                             <div class="input-wrapper">
                                 <label for="button_2">Button Label 2</label>
                                 <input type="text" id="button_2" class="input" autocomplete="off"
-                                    data-value="button_section_2" name="button_2">
+                                    data-value="button_section_2" required name="button_2">
                                 @error('button_2')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -190,7 +190,7 @@
                             <div class="input-wrapper">
                                 <label for="button_3">Button Label 3</label>
                                 <input type="text" id="button_3" class="input" autocomplete="off"
-                                    data-value="button_section_3" name="button_3">
+                                    data-value="button_section_3" required name="button_3">
                                 @error('button_3')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -200,7 +200,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_1">Caption 1</label>
                                 <input type="text" id="caption_1" class="input" autocomplete="off"
-                                    data-value="caption_section_1" name="caption_1">
+                                    data-value="caption_section_1" required name="caption_1">
                                 @error('caption_1')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -210,7 +210,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_2">Caption 2</label>
                                 <input type="text" id="caption_2" class="input" autocomplete="off"
-                                    data-value="caption_section_2" name="caption_2">
+                                    data-value="caption_section_2" required name="caption_2">
                                 @error('caption_2')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -220,7 +220,7 @@
                             <div class="input-wrapper">
                                 <label for="caption_3">Caption 3</label>
                                 <input type="text" id="caption_3" class="input" autocomplete="off"
-                                    data-value="caption_section_3" name="caption_3">
+                                    data-value="caption_section_3" required name="caption_3">
                                 @error('caption_3')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror

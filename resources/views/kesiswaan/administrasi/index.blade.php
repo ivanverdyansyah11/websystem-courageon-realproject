@@ -317,7 +317,8 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <input type="text" id="tahun" class="input" autocomplete="off" name="tahun">
+                                <input type="text" id="tahun" class="input" autocomplete="off" name="tahun"
+                                    required>
                                 @error('tahun')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -373,7 +374,7 @@
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
                                 <input type="text" id="tahun" class="input" autocomplete="off"
-                                    data-value="tahun_ajaran" name="tahun">
+                                    data-value="tahun_ajaran" name="tahun" required>
                                 @error('tahun')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -454,7 +455,7 @@
                             <div class="input-wrapper">
                                 <label for="semester">Semester</label>
                                 <input type="text" id="semester" class="input" autocomplete="off"
-                                    data-value="semester" name="semester">
+                                    data-value="semester" name="semester" required>
                                 @error('semester')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -483,7 +484,8 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="nama">Nama Kelas</label>
-                                <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                                <input type="text" id="nama" class="input" autocomplete="off" name="name"
+                                    required>
                                 @error('name')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -539,7 +541,7 @@
                             <div class="input-wrapper">
                                 <label for="nama">Nama</label>
                                 <input type="text" id="nama" class="input" autocomplete="off"
-                                    data-value="name_kelas" name="name">
+                                    data-value="name_kelas" name="name" required>
                                 @error('name')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -592,14 +594,14 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="nama">Nama Jurusan</label>
-                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        <input type="text" id="nama" class="input" autocomplete="off" required name="name">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="kode">Kode Jurusan</label>
-                        <input type="text" id="kode" class="input" autocomplete="off" name="code">
+                        <input type="text" id="kode" class="input" autocomplete="off" required name="code">
                         @error('code')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -652,7 +654,7 @@
                     <div class="input-wrapper">
                         <label for="nama">Nama Jurusan</label>
                         <input type="text" id="nama" class="input" autocomplete="off"
-                            data-value="name_jurusan" name="name">
+                            data-value="name_jurusan" required name="name">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -660,7 +662,7 @@
                     <div class="input-wrapper">
                         <label for="kode">Kode Jurusan</label>
                         <input type="text" id="kode" class="input" autocomplete="off"
-                            data-value="code_jurusan" name="code">
+                            data-value="code_jurusan" required name="code">
                         @error('code')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -710,7 +712,7 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="nama">Nama</label>
-                        <input type="text" id="nama" class="input" autocomplete="off" name="name">
+                        <input type="text" id="nama" class="input" autocomplete="off" required name="name">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -757,8 +759,8 @@
                     @csrf
                     <div class="input-wrapper">
                         <label for="nama">Nama</label>
-                        <input type="text" id="nama" class="input" autocomplete="off" data-value="name_index"
-                            name="name">
+                        <input type="text" id="nama" class="input" autocomplete="off" required
+                            data-value="name_index" name="name">
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
