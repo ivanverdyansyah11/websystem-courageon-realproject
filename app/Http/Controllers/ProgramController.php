@@ -90,7 +90,7 @@ class ProgramController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            if (public_path('assets/img/akademik-images/program-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/akademik-images/program-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/akademik-images/program-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -117,7 +117,7 @@ class ProgramController extends Controller
         $program = Program::where('id', $id)->first();
 
         if ($program->banner) {
-            if (public_path('assets/img/akademik-images/program-image/') . $program->banner && $program->banner) {
+            if (file_exists(public_path('assets/img/akademik-images/program-image/') . $program->banner) && $program->banner) {
                 $imagePath = public_path('assets/img/akademik-images/program-image/') . $program->banner;
                 unlink($imagePath);
             }
