@@ -17,6 +17,21 @@ class MajalahController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $journals = Journal::where('title', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%')
+            ->orWhere('author', 'like', '%' . $request->search . '%')
+            ->orWhere('created_date', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('humas.majalah.index', [
+            'title' => 'Humas > Majalah',
+            'section_header' => SectionJournal::first(),
+            'journals' => $journals,
+        ]);
+    }
+
     function detailHeader()
     {
         $section_journal = SectionJournal::first();
@@ -104,7 +119,7 @@ class MajalahController extends Controller
         ]);
 
         if ($request->file('thumbnail')) {
-            if (public_path('assets/img/humas-images/majalah-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/humas-images/majalah-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/humas-images/majalah-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
@@ -118,7 +133,7 @@ class MajalahController extends Controller
         }
 
         if ($request->file('document_pdf')) {
-            if (public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument && $request->oldDocument) {
+            if (file_exists(public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument) && $request->oldDocument) {
                 $oldDocumentPath = public_path('assets/img/humas-images/majalah-image/') . $request->oldDocument;
                 unlink($oldDocumentPath);
             }
@@ -145,11 +160,11 @@ class MajalahController extends Controller
         $journal = Journal::where('id', $id)->first();
 
         if ($journal->thumbnail && $journal->document_pdf) {
-            if (public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail && $journal->thumbnail) {
+            if (file_exists(public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail) && $journal->thumbnail) {
                 $imagePath = public_path('assets/img/humas-images/majalah-image/') . $journal->thumbnail;
                 unlink($imagePath);
             }
-            if (public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf && $journal->document_pdf) {
+            if (file_exists(public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf) && $journal->document_pdf) {
                 $documentPath = public_path('assets/img/humas-images/majalah-image/') . $journal->document_pdf;
                 unlink($documentPath);
             }

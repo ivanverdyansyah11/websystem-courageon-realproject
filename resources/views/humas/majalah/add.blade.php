@@ -13,7 +13,7 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Tambah Proyek 5P Sekolah</h5>
+                <h5 class="subtitle">Tambah Majalah Sekolah</h5>
             </div>
             <div class="col-12">
                 <div class="row">

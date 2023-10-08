@@ -471,6 +471,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(MajalahController::class)->group(function () {
             Route::get('/humas/majalah', 'index')->name('majalah-index');
+            Route::post('/humas/majalah/cari', 'search')->name('majalah-search');
             Route::get('/humas/majalah/detail-header', 'detailHeader');
             Route::post('/humas/majalah/edit-header', 'updateHeader');
 
