@@ -17,6 +17,26 @@ class EkstrakurikulerController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $ekstrakurikulers = Extracurricular::where('name', 'like', '%' . $request->search . '%')
+            ->orWhere('title', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%')
+            ->orWhere('schedule_day', 'like', '%' . $request->search . '%')
+            ->orWhere('start_time', 'like', '%' . $request->search . '%')
+            ->orWhere('end_time', 'like', '%' . $request->search . '%')
+            ->orWhere('coach', 'like', '%' . $request->search . '%')
+            ->orWhere('number_phone_coach', 'like', '%' . $request->search . '%')
+            ->orWhere('link_register', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('kesiswaan.ekstrakurikuler.index', [
+            'title' => 'Kesiswaan > Ekstrakurikuler',
+            'section_extracurricular' => SectionExtracurricular::first(),
+            'extracurriculars' => $ekstrakurikulers,
+        ]);
+    }
+
     function detailSection()
     {
         $section_extracurricular = SectionExtracurricular::first();
@@ -83,7 +103,7 @@ class EkstrakurikulerController extends Controller
         if ($extracurricular) {
             return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Tambah Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
+            return redirect(route('ekstrakurikuler-store'))->with('failed', 'Gagal Tambah Ekstrakurikuler Sekolah!');
         }
     }
 
@@ -129,8 +149,10 @@ class EkstrakurikulerController extends Controller
         $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
 
         if ($request->file('icon')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon']) && $extracurriculer['icon']) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['icon'];
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('icon');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -141,8 +163,10 @@ class EkstrakurikulerController extends Controller
         }
 
         if ($request->file('banner')) {
-            $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurriculer['banner'];
-            unlink($oldImagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurriculer['banner']) && $extracurriculer['banner']) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurriculer['banner'];
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('banner');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -157,7 +181,7 @@ class EkstrakurikulerController extends Controller
         if ($extracurricularAction) {
             return redirect(route('ekstrakurikuler-index'))->with('success', 'Berhasil Edit Ekstrakurikuler Sekolah!');
         } else {
-            return redirect(route('ekstrakurikuler-index'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
+            return redirect(route('ekstrakurikuler-edit'))->with('failed', 'Gagal Edit Ekstrakurikuler Sekolah!');
         }
     }
 
@@ -166,13 +190,17 @@ class EkstrakurikulerController extends Controller
         $extracurricular = Extracurricular::where('id', $id)->first();
 
         if ($extracurricular->icon) {
-            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon) && $extracurricular->icon) {
+                $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->icon;
+                unlink($imagePath);
+            }
         }
 
         if ($extracurricular->banner) {
-            $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner;
-            unlink($imagePath);
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner) && $extracurricular->banner) {
+                $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner;
+                unlink($imagePath);
+            }
         }
 
         $extracurricular = $extracurricular->delete();

@@ -37,7 +37,7 @@
                                                         class="img-fluid tag-add-icon" alt="Icon Extracurricular"
                                                         width="80">
                                                     <div class="wrapper-image w-100">
-                                                        <input type="file" id="icon" class="input-add-icon"
+                                                        <input type="file" id="icon" class="input-add-icon" required
                                                             name="icon">
                                                     </div>
                                                 </div>
@@ -55,7 +55,7 @@
                                                         width="80">
                                                     <div class="wrapper-image w-100">
                                                         <input type="file" id="banner" class="input-add-banner"
-                                                            name="banner">
+                                                            required name="banner">
                                                     </div>
                                                 </div>
                                                 @error('banner')
@@ -68,8 +68,8 @@
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nama">Nama</label>
-                                        <input type="text" id="nama" class="input" name="name"
-                                            autocomplete="off">
+                                        <input type="text" id="nama" class="input" required name="name"
+                                            value="{{ old('name') }}" autocomplete="off">
                                         @error('name')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -78,8 +78,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Ekstrakurikuler</label>
-                                        <input type="text" id="judul" class="input" name="title"
-                                            autocomplete="off">
+                                        <input type="text" id="judul" class="input" required name="title"
+                                            value="{{ old('title') }}" autocomplete="off">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -88,8 +88,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="link">Link Pendaftaran</label>
-                                        <input type="text" id="link" class="input" name="link_register"
-                                            autocomplete="off">
+                                        <input type="text" id="link" class="input" required name="link_register"
+                                            value="{{ old('link_register') }}" autocomplete="off">
                                         @error('link_register')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -98,8 +98,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="pembina">Pembina</label>
-                                        <input type="text" id="pembina" class="input" name="coach"
-                                            autocomplete="off">
+                                        <input type="text" id="pembina" class="input" required name="coach"
+                                            value="{{ old('coach') }}" autocomplete="off">
                                         @error('coach')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -108,7 +108,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nomor">Nomor Telepon Pembina</label>
-                                        <input type="text" id="nomor" class="input" name="number_phone_coach"
+                                        <input type="text" id="nomor" class="input" required
+                                            name="number_phone_coach" value="{{ old('number_phone_coach') }}"
                                             autocomplete="off">
                                         @error('number_phone_coach')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -120,7 +121,8 @@
                                         <label>Jadwal Ekstrakurikuler</label>
                                         <div class="row">
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
-                                                <input type="checkbox" name="schedule_day[]" id="senin" value="Senin">
+                                                <input type="checkbox" name="schedule_day[]" id="senin"
+                                                    value="Senin">
                                                 <label class="mb-0" for="senin">Senin</label>
                                             </div>
                                             <div class="col-3 d-flex align-items-center gap-2 mb-2">
@@ -162,8 +164,8 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jam_mulai">Jam Mulai</label>
-                                        <input type="time" id="jam_mulai" class="input" name="start_time"
-                                            autocomplete="off">
+                                        <input type="time" id="jam_mulai" class="input" required name="start_time"
+                                            value="{{ old('start_time') }}" autocomplete="off">
                                         @error('start_time')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -172,17 +174,17 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jam_selesai">Jam Selesai</label>
-                                        <input type="time" id="jam_selesai" class="input" name="end_time"
-                                            autocomplete="off">
+                                        <input type="time" id="jam_selesai" class="input" required name="end_time"
+                                            value="{{ old('end_time') }}" autocomplete="off">
                                         @error('end_time')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputAddDescription" autocomplete="off" class="input" name="description"></textarea>
+                                        <textarea id="inputAddDescription" autocomplete="off" class="input" required name="description">{{ old('description') }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

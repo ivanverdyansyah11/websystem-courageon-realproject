@@ -81,7 +81,7 @@
                                     <div class="input-wrapper">
                                         <label for="nama">Nama</label>
                                         <input type="text" id="nama" class="input"
-                                            value="{{ $extracurricular->name }}" name="name" autocomplete="off">
+                                            value="{{ $extracurricular->name }}" required name="name" autocomplete="off">
                                         @error('name')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -91,7 +91,8 @@
                                     <div class="input-wrapper">
                                         <label for="judul">Judul Ekstrakurikuler</label>
                                         <input type="text" id="judul" class="input"
-                                            value="{{ $extracurricular->title }}" name="title" autocomplete="off">
+                                            value="{{ $extracurricular->title }}" required name="title"
+                                            autocomplete="off">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -101,7 +102,7 @@
                                     <div class="input-wrapper">
                                         <label for="link">Link Pendaftaran</label>
                                         <input type="text" id="link" class="input"
-                                            value="{{ $extracurricular->link_register }}" name="link_register"
+                                            value="{{ $extracurricular->link_register }}" required name="link_register"
                                             autocomplete="off">
                                         @error('link_register')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -112,7 +113,8 @@
                                     <div class="input-wrapper">
                                         <label for="pembina">Pembina</label>
                                         <input type="text" id="pembina" class="input"
-                                            value="{{ $extracurricular->coach }}" name="coach" autocomplete="off">
+                                            value="{{ $extracurricular->coach }}" required name="coach"
+                                            autocomplete="off">
                                         @error('coach')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -122,8 +124,8 @@
                                     <div class="input-wrapper">
                                         <label for="nomor">Nomor Telepon Pembina</label>
                                         <input type="text" id="nomor" class="input"
-                                            value="{{ $extracurricular->number_phone_coach }}" name="number_phone_coach"
-                                            autocomplete="off">
+                                            value="{{ $extracurricular->number_phone_coach }}" required
+                                            name="number_phone_coach" autocomplete="off">
                                         @error('number_phone_coach')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -185,7 +187,7 @@
                                     <div class="input-wrapper">
                                         <label for="jam_mulai">Jam Mulai</label>
                                         <input type="time" id="jam_mulai" class="input"
-                                            value="{{ $extracurricular->start_time }}" name="start_time"
+                                            value="{{ $extracurricular->start_time }}" required name="start_time"
                                             autocomplete="off">
                                         @error('start_time')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -196,16 +198,17 @@
                                     <div class="input-wrapper">
                                         <label for="jam_selesai">Jam Selesai</label>
                                         <input type="time" id="jam_selesai" class="input"
-                                            value="{{ $extracurricular->end_time }}" name="end_time" autocomplete="off">
+                                            value="{{ $extracurricular->end_time }}" required name="end_time"
+                                            autocomplete="off">
                                         @error('end_time')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="deskripsi">Deskripsi</label>
-                                        <textarea id="inputEditDescription" autocomplete="off" class="input" name="description">{{ $extracurricular->description }}</textarea>
+                                        <textarea id="inputEditDescription" autocomplete="off" class="input" required name="description">{{ $extracurricular->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
