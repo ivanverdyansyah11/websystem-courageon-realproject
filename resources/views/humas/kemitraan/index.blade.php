@@ -72,7 +72,7 @@
                     @if ($partnerships->count() == 0)
                         <div class="col-12 table-row table-border">
                             <div class="row table-data gap-4 align-items-center justify-content-between">
-                                <div class="col-12 data-value">Tidak Ada Data Partnership!</div>
+                                <div class="col-12 data-value">Tidak Ada Data Kemitraan!</div>
                             </div>
                         </div>
                     @else
@@ -159,14 +159,14 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Header</label>
                         <input type="text" id="judul" class="input" autocomplete="off"
-                            data-value="title_header" name="title_header">
+                            data-value="title_header" required name="title_header">
                         @error('title_header')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea id="textareaEditHeader" name="description">{{ $section_header->description }}</textarea>
+                        <textarea id="textareaEditHeader" required name="description">{{ $section_header->description }}</textarea>
                         @error('description')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -196,7 +196,7 @@
                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}" class="img-fluid tag-add-logo"
                                 alt="Logo Partnership" width="80">
                             <div class="wrapper-image w-100">
-                                <input type="file" id="logo" class="input-add-logo" name="logo">
+                                <input type="file" d="logo" class="input-add-logo" name="logo" required>
                             </div>
                         </div>
                         @error('logo')
@@ -205,7 +205,7 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="name">Nama</label>
-                        <input type="text" id="name" class="input" autocomplete="off" name="name">
+                        <input type="text" id="name" class="input" autocomplete="off" name="name" required>
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -274,7 +274,7 @@
                     <div class="input-wrapper">
                         <label for="name">Nama</label>
                         <input type="text" id="name" class="input" autocomplete="off"
-                            data-value="name_partnership" name="name">
+                            data-value="name_partnership" name="name" required>
                         @error('name')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror

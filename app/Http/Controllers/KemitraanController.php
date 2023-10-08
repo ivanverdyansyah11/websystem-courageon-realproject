@@ -75,8 +75,10 @@ class KemitraanController extends Controller
         ]);
 
         if ($request->file('logo')) {
-            $oldImagePath = public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/humas-images/kemitraan-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('logo');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -100,8 +102,10 @@ class KemitraanController extends Controller
         $partnership = Partnership::where('id', $id)->first();
 
         if ($partnership->logo) {
-            $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
-            unlink($imagePath);
+            if (public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo && $partnership->logo) {
+                $imagePath = public_path('assets/img/humas-images/kemitraan-image/') . $partnership->logo;
+                unlink($imagePath);
+            }
         }
 
         $partnership = $partnership->delete();

@@ -1,4 +1,4 @@
-x @extends('templates.main')
+@extends('templates.main')
 
 @section('container')
     <main class="mt-3">
