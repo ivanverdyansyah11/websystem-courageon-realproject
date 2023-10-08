@@ -30,7 +30,7 @@ class SaranaController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            if (public_path('assets/img/sarana-prasarana-images/header-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/sarana-prasarana-images/header-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/sarana-prasarana-images/header-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
