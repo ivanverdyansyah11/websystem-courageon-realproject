@@ -130,7 +130,7 @@
         </div>
     </div>
 
-    {{-- MODAL DETAIL SECTION STAFF --}}
+    {{-- MODAL DETAIL SECTION HEADER --}}
     <div class="modal fade" id="detailSectionStaffModal" tabindex="-1" aria-labelledby="detailSectionStaffModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -154,9 +154,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DETAIL SECTION STAFF --}}
+    {{-- END MODAL DETAIL SECTION HEADER --}}
 
-    {{-- MODAL EDIT SECTION STAFF --}}
+    {{-- MODAL EDIT SECTION HEADER --}}
     <div class="modal fade" id="editSectionStaffModal" tabindex="-1" aria-labelledby="editSectionStaffModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -168,7 +168,7 @@
                     <div class="input-wrapper">
                         <label for="judul">Judul Section</label>
                         <input type="text" id="judul" class="input" autocomplete="off" data-value="title_staff"
-                            name="title_section">
+                            name="title_section" required>
                         @error('title_section')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -176,7 +176,7 @@
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
                         <input type="text" id="button" class="input" autocomplete="off"
-                            data-value="button_staff" name="button">
+                            data-value="button_staff" name="button" required>
                         @error('button')
                             <p class="caption-error mt-2">{{ $message }}</p>
                         @enderror
@@ -189,9 +189,9 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL EDIT SECTION STAFF --}}
+    {{-- END MODAL EDIT SECTION HEADER --}}
 
-    {{-- MODAL DELETE SECTION HEADER --}}
+    {{-- MODAL DELETE SECTION PEGAWAI --}}
     <div class="modal fade" id="deletestaffModal" tabindex="-1" aria-labelledby="deletestaffModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -212,7 +212,7 @@
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE SECTION HEADER --}}
+    {{-- END MODAL DELETE SECTION PEGAWAI --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionStaffModal"]', function() {

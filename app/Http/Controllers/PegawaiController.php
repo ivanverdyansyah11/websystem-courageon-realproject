@@ -18,6 +18,35 @@ class PegawaiController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $staffs = Employee::where('role_employees_id', 3)
+            ->where('fullname', 'like', '%' . $request->search . '%')
+            ->orWhere('nip', 'like', '%' . $request->search . '%')
+            ->orWhere('place_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('date_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('rank', 'like', '%' . $request->search . '%')
+            ->orWhere('position', 'like', '%' . $request->search . '%')
+            ->orWhere('room_type', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('highest_rank', 'like', '%' . $request->search . '%')
+            ->orWhere('tmt', 'like', '%' . $request->search . '%')
+            ->orWhere('last_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('last_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('work_tenure', 'like', '%' . $request->search . '%')
+            ->orWhere('first_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('first_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('salary_increase', 'like', '%' . $request->search . '%')
+            ->orWhere('employee_card_number', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('profil.pegawai.index', [
+            'title' => 'Profil > Pegawai',
+            'section' => SectionStaff::first(),
+            'staffs' => $staffs,
+        ]);
+    }
+
     function detailSection()
     {
         $section_staff = SectionStaff::first();
@@ -76,7 +105,7 @@ class PegawaiController extends Controller
 
     function store(Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-') {
+        if ($request->gender == '' || $request->status == '') {
             return redirect(route('pegawai-create'))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
         }
 
@@ -134,7 +163,7 @@ class PegawaiController extends Controller
 
     function update($id, Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-') {
+        if ($request->gender == '' || $request->status == '') {
             return redirect(route('pegawai-edit', $id))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
         }
 
@@ -160,8 +189,10 @@ class PegawaiController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/pegawai-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/pegawai-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/profil-images/pegawai-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -189,8 +220,10 @@ class PegawaiController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/pegawai-image/') . $employee->image;
-            unlink($imagePath);
+            if (public_path('assets/img/profil-images/pegawai-image/') . $employee->image && $employee->image) {
+                $imagePath = public_path('assets/img/profil-images/pegawai-image/') . $employee->image;
+                unlink($imagePath);
+            }
         }
 
         $employee = $employee->delete();
@@ -198,7 +231,7 @@ class PegawaiController extends Controller
         if ($employee) {
             return redirect(route('pegawai-index'))->with('success', 'Berhasil Hapus Pegawai Sekolah!');
         } else {
-            return redirect(route('pegawai-create'))->with('failed', 'Gagal Hapus Pegawai Sekolah!');
+            return redirect(route('pegawai-index'))->with('failed', 'Gagal Hapus Pegawai Sekolah!');
         }
     }
 }
