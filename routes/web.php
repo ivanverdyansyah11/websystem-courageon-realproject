@@ -170,6 +170,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(ManajemenController::class)->group(function () {
             Route::get('/profil/manajemen', 'index')->name('manajemen-index');
+            Route::post('/profil/manajemen/cari', 'search')->name('manajemen-search');
             Route::get('/profil/manajemen/detail-section', 'detailSection')->name('section-manajemen-detail');
             Route::post('/profil/manajemen/edit-section', 'updateSection')->name('section-manajemen-update');
 
@@ -185,6 +186,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(GuruController::class)->group(function () {
             Route::get('/profil/guru', 'index')->name('guru-index');
+            Route::post('/profil/guru/cari', 'search')->name('guru-search');
             Route::get('/profil/guru/detail-section', 'detailSection')->name('section-guru-detail');
             Route::post('/profil/guru/edit-section', 'updateSection')->name('section-guru-update');
 
@@ -198,6 +200,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(PegawaiController::class)->group(function () {
             Route::get('/profil/pegawai', 'index')->name('pegawai-index');
+            Route::post('/profil/pegawai/cari', 'search')->name('pegawai-search');
             Route::get('/profil/pegawai/detail-section', 'detailSection')->name('section-pegawai-detail');
             Route::post('/profil/pegawai/edit-section', 'updateSection')->name('section-pegawai-update');
 

@@ -21,6 +21,35 @@ class ManajemenController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $managements = Employee::where('role_employees_id', '1')
+            ->where('fullname', 'like', '%' . $request->search . '%')
+            ->orWhere('nip', 'like', '%' . $request->search . '%')
+            ->orWhere('place_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('date_of_birth', 'like', '%' . $request->search . '%')
+            ->orWhere('rank', 'like', '%' . $request->search . '%')
+            ->orWhere('position', 'like', '%' . $request->search . '%')
+            ->orWhere('room_type', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('highest_rank', 'like', '%' . $request->search . '%')
+            ->orWhere('tmt', 'like', '%' . $request->search . '%')
+            ->orWhere('last_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('last_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('work_tenure', 'like', '%' . $request->search . '%')
+            ->orWhere('first_number_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('first_date_skp', 'like', '%' . $request->search . '%')
+            ->orWhere('salary_increase', 'like', '%' . $request->search . '%')
+            ->orWhere('employee_card_number', 'like', '%' . $request->search . '%')
+            ->paginate(6);
+
+        return view('profil.manajemen.index', [
+            'title' => 'Profil > Manajemen',
+            'section' => SectionManagement::first(),
+            'managements' => $managements,
+        ]);
+    }
+
     function detailSection()
     {
         $section_management = SectionManagement::first();
@@ -79,7 +108,7 @@ class ManajemenController extends Controller
 
     function store(Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-') {
+        if ($request->gender == '' || $request->status == '') {
             return redirect(route('manajemen-create'))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
         }
 
@@ -136,7 +165,7 @@ class ManajemenController extends Controller
 
     function update($id, Request $request)
     {
-        if ($request->gender == '-' || $request->status == '-') {
+        if ($request->gender == '' || $request->status == '') {
             return redirect(route('manajemen-edit', $id))->with('failed', 'Isi Form Jenis Kelamin dan Status Terlebih Dahulu!');
         }
 
@@ -161,8 +190,10 @@ class ManajemenController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
-            unlink($oldImagePath);
+            if (public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage && $request->oldImage) {
+                $oldImagePath = public_path('assets/img/profil-images/manajemen-image/') . $request->oldImage;
+                unlink($oldImagePath);
+            }
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -190,8 +221,10 @@ class ManajemenController extends Controller
         $employee = Employee::where('id', $id)->first();
 
         if ($employee->image) {
-            $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
-            unlink($imagePath);
+            if (public_path('assets/img/profil-images/manajemen-image/') . $employee->image && $employee->image) {
+                $imagePath = public_path('assets/img/profil-images/manajemen-image/') . $employee->image;
+                unlink($imagePath);
+            }
         }
 
         $employee = $employee->delete();

@@ -51,8 +51,21 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Manajemen Sekolah</h5>
-                <a href="{{ route('manajemen-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Manajemen</a>
+                <div class="wrapper d-flex gap-2">
+                    <form class="form-search d-inline-block" method="POST" action="{{ route('manajemen-search') }}">
+                        @csrf
+                        <div class="wrapper-search">
+                            <input type="text" class="input-search" placeholder=" " name="search">
+                            <label class="d-flex align-items-center">
+                                <img src="{{ asset('assets/img/icon/search.svg') }}" alt="Searcing Icon"
+                                    class="img-fluid search-icon">
+                                <p class="ms-2">Cari manajemen..</p>
+                            </label>
+                        </div>
+                    </form>
+                    <a href="{{ route('manajemen-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Manajemen</a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -139,8 +152,8 @@
                 <form class="form d-flex flex-column justify-content-center">
                     <div class="input-wrapper">
                         <label>Judul Section</label>
-                        <input type="text" id="judul" class="input" autocomplete="off" data-value="title_management"
-                            disabled>
+                        <input type="text" id="judul" class="input" autocomplete="off"
+                            data-value="title_management" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
