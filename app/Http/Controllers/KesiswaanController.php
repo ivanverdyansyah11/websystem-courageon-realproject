@@ -30,7 +30,7 @@ class KesiswaanController extends Controller
         ]);
 
         if ($request->file('banner')) {
-            if (public_path('assets/img/kesiswaan-images/header-image/') . $request->oldImage && $request->oldImage) {
+            if (file_exists(public_path('assets/img/kesiswaan-images/header-image/') . $request->oldImage) && $request->oldImage) {
                 $oldImagePath = public_path('assets/img/kesiswaan-images/header-image/') . $request->oldImage;
                 unlink($oldImagePath);
             }
