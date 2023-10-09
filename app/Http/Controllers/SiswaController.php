@@ -23,19 +23,21 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function searchX($id, Request $request)
+    public function search($id, Request $request)
     {
-        $students = Student::where('kelases_id', 1)
-            ->where('nis', 'like', '%' . $request->search . '%')
-            // ->orWhere('nisn', 'like', '%' . $request->search . '%')
-            // ->orWhere('nama_lengkap', 'like', '%' . $request->search . '%')
-            // ->orWhere('tahun_masuk', 'like', '%' . $request->search . '%')
-            // ->orWhere('tempat_lahir', 'like', '%' . $request->search . '%')
-            // ->orWhere('tanggal_lahir', 'like', '%' . $request->search . '%')
-            // ->orWhere('jenis_kelamin', 'like', '%' . $request->search . '%')
-            // ->orWhere('kelurahan', 'like', '%' . $request->search . '%')
-            // ->orWhere('kecamatan', 'like', '%' . $request->search . '%')
-            // ->orWhere('alamat', 'like', '%' . $request->search . '%')
+        $students = Student::where('kelases_id', $id)
+            ->where(function ($query) use ($request) {
+                $query->where('nis', 'like', '%' . $request->search . '%')
+                    ->orWhere('nisn', 'like', '%' . $request->search . '%')
+                    ->orWhere('nama_lengkap', 'like', '%' . $request->search . '%')
+                    ->orWhere('tahun_masuk', 'like', '%' . $request->search . '%')
+                    ->orWhere('tempat_lahir', 'like', '%' . $request->search . '%')
+                    ->orWhere('tanggal_lahir', 'like', '%' . $request->search . '%')
+                    ->orWhere('jenis_kelamin', 'like', '%' . $request->search . '%')
+                    ->orWhere('kelurahan', 'like', '%' . $request->search . '%')
+                    ->orWhere('kecamatan', 'like', '%' . $request->search . '%')
+                    ->orWhere('alamat', 'like', '%' . $request->search . '%');
+            })
             ->paginate(6);
 
         return view('kesiswaan.siswa.student-index', [

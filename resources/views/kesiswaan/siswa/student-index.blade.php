@@ -20,7 +20,7 @@
                 <h5 class="subtitle">Data Siswa {{ $kelas->name }}</h5>
                 <div class="wrapper d-flex gap-2">
                     <form class="form-search d-inline-block" method="POST"
-                        action="{{ route('siswa-search-x', $kelas->id) }}">
+                        action="{{ route('siswa-search', $kelas->id) }}">
                         @csrf
                         <div class="wrapper-search">
                             <input type="hidden" name="class" value="{{ $kelas->id }}">
