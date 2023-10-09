@@ -60,7 +60,7 @@
                                                             {!! $headerHumas->description !!}
                                                         </p>
                                                         <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
+                                                            <a href="#majalah" class="btn btn-color">{{ $headerHumas->button }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@
                                                             {!! $headerHumas->description !!} 2
                                                         </p>
                                                         <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
+                                                            <a href="#majalah" class="btn btn-color">{{ $headerHumas->button }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,6 +113,47 @@
             </div>
 
         </section>
+        <section class="blog-humas-section section-margin-top container position-relative" id="majalah">
+            <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
+                <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
+            </div>
+            <div class="position-relative">
+                <div class="d-flex justify-content-center">
+                    <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
+                       majalah {!! $sectionJournal->title_header !!}
+                    </p>
+                </div>
+                <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
+                    @foreach ($journals as $journal)
+                        <div class="col">
+                            <div class="card-blog">
+                                <a target="_block"
+                                href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
+                                class="text-decoration-none">
+                                <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
+                                    alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100 rounded">
+                                <p class="mt-3 text-black fw-semibold text-center">
+                                    {{ $journal->title }}
+                                </p>
+                                <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
+                                    <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
+                                    <p class="desc fs-14 lh-base">{{ $journal->created_date }}</p>
+                                </div>
+                            </a>
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+                <div class="btn-wrapper d-flex justify-content-center mt-4">
+                    @if ($journalCount > 4)
+                        <a href="{{ route('berita') }}" class="btn btn-color">
+                            {{ $sectionJournal->button }}
+                        </a>
+                    @endif
+                </div>
+            </div>
+        </section>
         <section class="mitra-section container section-margin-top" id="mitra">
             <div class="d-flex justify-content-center header-section">
                 <div class="title-section-text">
@@ -133,6 +174,7 @@
                 @endforeach
             </div>
         </section>
+
         <section class="blog-humas-section section-margin-top container position-relative">
             <div class="position-absolute start-0 bottom-0 d-lg-block d-none">
                 <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
