@@ -65,6 +65,11 @@
                     </form>
                     <a href="{{ route('pegawai-create') }}" class="d-none d-md-inline-block button-default">Tambah
                         Pegawai</a>
+                    <a href="{{ route('pegawai-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">

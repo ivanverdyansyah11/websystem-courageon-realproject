@@ -206,6 +206,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/pegawai/detail-section', 'detailSection')->name('section-pegawai-detail');
             Route::post('/profil/pegawai/edit-section', 'updateSection')->name('section-pegawai-update');
 
+            Route::get('/profil/pegawai/download', 'generate')->name('pegawai-generate');
             Route::get('/profil/pegawai/detail/{id}', 'detail')->name('pegawai-detail');
             Route::get('/profil/pegawai/tambah', 'create')->name('pegawai-create');
             Route::post('/profil/pegawai/tambah', 'store')->name('pegawai-store');
