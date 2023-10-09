@@ -122,10 +122,64 @@
 
     {{-- SCRIPT JS --}}
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script>
+        const swiperHero = new Swiper('.swiper-hero', {
+            speed: 1200,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            autoplay: {
+                delay: 5000,
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 4
+                },
+            }
+        })
+        const swiperTesti = new Swiper('.swiper-testi', {
+            speed: 500,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                500: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20
+                },
+                900: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                1100: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                }
+            }
+        })
+    </script>
     {{-- END SCRIPT JS --}}
 </body>
 

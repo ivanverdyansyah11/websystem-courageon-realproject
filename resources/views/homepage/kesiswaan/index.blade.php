@@ -3,8 +3,8 @@
 @section('container')
     {{-- @dd($dataSiswaTahunIni[3]) --}}
 
-    <main class="mt-3">
-        <section class="hero-section container position-relative">
+    <main class="">
+        {{-- <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
                 <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
             </div>
@@ -38,6 +38,79 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+        <section class="hero-section position-relative">
+            <div class="position-relative ">
+
+                <div class="">
+                    <div class="swiper swiper-hero">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="">
+                                    <div class="position-relative">
+                                        <div class="position-absolute w-100" style="z-index: 99999">
+                                            <div class="container">
+                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                    <div class="content-hero-wrapper">
+                                                        <p class="display-4 fw-bold text-white text-capitalize">
+                                                            {!! $headerStudent->title_header !!}
+                                                        </p>
+                                                        <p class="mt-4 desc text-white">
+                                                            {!! $headerStudent->description !!}
+                                                        </p>
+                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                            <a href="#grafik" class="btn btn-color">{{ $headerStudent->button }}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative w-100">
+                                            <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}"
+                                            alt="studefnt section image" class="w-100 hero-img">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="">
+                                    <div class="position-relative">
+                                        <div class="position-absolute w-100" style="z-index: 99999">
+                                            <div class="container">
+                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                    <div class="content-hero-wrapper">
+                                                        <p class="display-4 fw-bold text-white text-capitalize">
+                                                            {!! $headerStudent->title_header !!} 2
+                                                        </p>
+                                                        <p class="mt-4 desc text-white">
+                                                            {!! $headerStudent->description !!} 2
+                                                        </p>
+                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                            <a href="#grafik" class="btn btn-color">{{ $headerStudent->button }}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative w-100">
+                                            <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}"
+                                            alt="hero-section image" class="w-100 hero-img">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
         </section>
         <section class="grafik-kesiswaan-section container section-margin-top position-relative" id="grafik">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
@@ -201,8 +274,8 @@
                         @endforeach
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
+                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @if ($pelayananKarirCount > 4)
-                            <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @endif
 
                     </div>
@@ -261,8 +334,8 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center mt-4">
+                    <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
                     @if ($achievementCount > 4)
-                        <a href="{{ route('prestasi') }}" class="btn btn-color btn-more">lihat semua</a>
                     @endif
                 </div>
             </div>
@@ -355,12 +428,35 @@
     <p id="label2" class="d-none">{{ $tahunAjaran[1]->tahun }}</p>
     <p id="label3" class="d-none">{{ $tahunAjaran[2]->tahun }}</p>
 
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js">
     </script>
 
     <script>
+         const swiperHero = new Swiper('.swiper-hero', {
+            speed: 1200,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            autoplay: {
+                delay: 5000,
+            },
+            navigation: {
+                nextEl: ".btn-next",
+                prevEl: ".btn-prev",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 4
+                },
+            }
+        })
+
         document.addEventListener('DOMContentLoaded', function() {
             var showCategory = 'category1';
             var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);

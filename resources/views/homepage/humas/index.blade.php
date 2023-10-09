@@ -1,8 +1,8 @@
 @extends('templates.main')
 
 @section('container')
-    <main class="mt-3">
-        <section class="hero-section container position-relative">
+    <main class="">
+        {{-- <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
                 <img src="{{asset('assets-homepage/img/section-decor.svg')}}" alt="" class="section-decor">
             </div>
@@ -39,6 +39,79 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+        <section class="hero-section position-relative">
+            <div class="position-relative ">
+
+                <div class="">
+                    <div class="swiper swiper-hero">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="">
+                                    <div class="position-relative">
+                                        <div class="position-absolute w-100" style="z-index: 99999">
+                                            <div class="container">
+                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                    <div class="content-hero-wrapper">
+                                                        <p class="display-4 fw-bold text-white text-capitalize">
+                                                            {!! $headerHumas->title_header !!}
+                                                        </p>
+                                                        <p class="mt-4 desc text-white">
+                                                            {!! $headerHumas->description !!}
+                                                        </p>
+                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                            <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative w-100">
+                                            <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}"
+                                            alt="hero-section image" class="w-100 hero-img">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="">
+                                    <div class="position-relative">
+                                        <div class="position-absolute w-100" style="z-index: 99999">
+                                            <div class="container">
+                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                    <div class="content-hero-wrapper">
+                                                        <p class="display-4 fw-bold text-white text-capitalize">
+                                                            {!! $headerHumas->title_header !!} 2
+                                                        </p>
+                                                        <p class="mt-4 desc text-white">
+                                                            {!! $headerHumas->description !!} 2
+                                                        </p>
+                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                            <a href="#mitra" class="btn btn-color">{{ $headerHumas->button }}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative w-100">
+                                            <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}"
+                                            alt="hero-section image" class="w-100 hero-img">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
         </section>
         <section class="mitra-section container section-margin-top" id="mitra">
             <div class="d-flex justify-content-center header-section">
