@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentXExport;
+use App\Exports\StudentXIExport;
+use App\Exports\StudentXIIExport;
 use App\Models\Index;
 use App\Models\Jurusan;
 use App\Models\Kelas;
@@ -11,6 +14,7 @@ use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -48,50 +52,19 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function generate($id)
+    public function generateX()
     {
-        // $pdf = FacadePdf::loadView('kesiswaan.siswa.generate-siswa');
-        // return $pdf->download('invoice.pdf');
+        return Excel::download(new StudentXExport, 'data-siswa-kelas-x.xlsx');
+    }
 
-        $students = Student::all();
+    public function generateXI()
+    {
+        return Excel::download(new StudentXIExport, 'data-siswa-kelas-xi.xlsx');
+    }
 
-        $pdf = FacadePdf::loadview('kesiswaan.siswa.generate-siswa', ['students' => $students]);
-        return $pdf->download('laporan-pegawai.pdf');
-
-        // $data = Student::where('kelases_id', $id)->get();
-
-        // // Buat objek PDF
-        // $pdf = new TCPDF();
-        // $pdf->AddPage();
-        // $pdf->SetFont('helvetica', 'B', 12);
-
-        // // Tambahkan data ke PDF
-        // foreach ($data as $item) {
-        //     $pdf->Cell(0, 10, $item->nama_lengkap, 0, 1);
-        // }
-
-        // // Simpan PDF ke file
-        // $pdf->Output('example.pdf');
-
-        // $filename = 'demo.pdf';
-
-        // $data = [
-        //     'students' => Student::where('kelases_id', $id)->get(),
-        // ];
-
-        // $html = view()->make('kesiswaan.siswa.generate-siswa', $data)->render();
-
-        // $pdf = new PDF();
-
-        // $pdf::SetTitle('Hello World');
-        // $pdf::AddPage();
-        // $pdf::WriteHTML($html, true, false, true, false, '');
-
-        // return $pdf->Output('example.pdf', 'D');
-
-        // $pdf::Output(public_path($filename), 'F');
-
-        // return response()->downlaod(public_path($filename));
+    public function generateXII()
+    {
+        return Excel::download(new StudentXIIExport, 'data-siswa-kelas-xii.xlsx');
     }
 
     function detailSectionStudent()

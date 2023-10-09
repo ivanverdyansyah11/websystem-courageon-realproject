@@ -74,7 +74,7 @@ class HomepageController extends Controller
             'achievements_lg' => Prestasi::take(3)->get(),
             'kategori_prestasi' => KategoriPrestasi::all(),
             'sectionAlumni' => SectionAlumni::first(),
-            'alumnis' => Alumni::with('students')->get(),
+            'alumnis' => Alumni::with('student')->get(),
             'historyHome' => HistoryHome::first(),
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),

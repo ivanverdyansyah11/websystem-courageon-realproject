@@ -34,11 +34,25 @@
                     </form>
                     <a href="{{ route('data-siswa-create', $kelas->id) }}"
                         class="d-none d-md-inline-block button-default">Tambah Siswa</a>
-                    <a href="{{ route('siswa-generate', $kelas->id) }}"
-                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
-                        <div class="icon-export"></div>
-                        Download
-                    </a>
+                    @if ($kelas->id == 1)
+                        <a href="{{ route('siswa-generate-x') }}"
+                            class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                            <div class="icon-export"></div>
+                            Download
+                        </a>
+                    @elseif($kelas->id == 2)
+                        <a href="{{ route('siswa-generate-xi') }}"
+                            class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                            <div class="icon-export"></div>
+                            Download
+                        </a>
+                    @elseif($kelas->id == 3)
+                        <a href="{{ route('siswa-generate-xii') }}"
+                            class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                            <div class="icon-export"></div>
+                            Download
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="col-12">

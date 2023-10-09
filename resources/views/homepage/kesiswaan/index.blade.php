@@ -332,7 +332,7 @@
                                         </div>
                                         <div class="d-flex flex-column">
                                             <p class="fs-5 fw-semibold text-capitalize">
-                                                {{ $alumni->students->nama_lengkap }}
+                                                {{ $alumni->student->nama_lengkap }}
                                             </p>
                                             <p class="desc fs-15">
                                                 {{ $alumni->pekerjaan }}
