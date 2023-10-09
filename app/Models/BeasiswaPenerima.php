@@ -13,4 +13,9 @@ class BeasiswaPenerima extends Model
     {
         return $this->belongsTo(Student::class, 'students_id');
     }
+
+    public function beasiswa()
+    {
+        return $this->belongsTo(Beasiswa::class, 'beasiswas_id');
+    }
 }

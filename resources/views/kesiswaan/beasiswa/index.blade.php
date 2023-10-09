@@ -134,6 +134,11 @@
                     <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
                         data-bs-target="#addPenerimaBeasiswaModal">Tambah
                         Penerima Beasiswa</button>
+                    <a href="{{ route('penerima-beasiswa-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">

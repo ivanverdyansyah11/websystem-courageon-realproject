@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PenerimaBeasiswaExport;
 use App\Models\Beasiswa;
 use App\Models\BeasiswaPenerima;
 use App\Models\SectionBeasiswa;
@@ -9,6 +10,7 @@ use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BeasiswaController extends Controller
 {
@@ -43,6 +45,11 @@ class BeasiswaController extends Controller
             'students' => Student::all(),
             'tahun_ajarans' => TahunAjaran::all(),
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new PenerimaBeasiswaExport, 'data-penerima-beasiswa.xlsx');
     }
 
     function detailSection()
