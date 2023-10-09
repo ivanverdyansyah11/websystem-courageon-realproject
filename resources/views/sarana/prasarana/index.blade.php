@@ -56,8 +56,15 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Sarana Prasarana Sekolah</h5>
-                <a href="{{ route('prasarana-create') }}" class="d-none d-md-inline-block button-default">Tambah
-                    Prasarana</a>
+                <div class="wrapper d-flex gap-2 align-items-center">
+                    <a href="{{ route('prasarana-create') }}" class="d-none d-md-inline-block button-default">Tambah
+                        Prasarana</a>
+                    <a href="{{ route('prasarana-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
+                </div>
             </div>
             <div class="col-12">
                 <div class="row table-default">
@@ -136,8 +143,8 @@
                     </div>
                     <div class="input-wrapper">
                         <label for="button">Button Label</label>
-                        <input type="text" id="button" class="input" autocomplete="off" data-value="button_section"
-                            disabled>
+                        <input type="text" id="button" class="input" autocomplete="off"
+                            data-value="button_section" disabled>
                     </div>
                     <div class="input-wrapper">
                         <label for="deskripsi">Deskripsi</label>

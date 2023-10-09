@@ -438,6 +438,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(PrasaranaController::class)->group(function () {
             Route::get('/sarana-prasarana/prasarana', 'index')->name('prasarana-index');
+            Route::get('/sarana-prasarana/prasarana/download', 'generate')->name('prasarana-generate');
             Route::get('/sarana-prasarana/prasarana/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/prasarana/edit-section', 'updateSection');
 
