@@ -11,7 +11,7 @@
 
 <body>
 
-    <h2>Data Manajemen</h2>
+    <h2>Data Guru</h2>
 
     <table class="table">
         <thead>
@@ -31,6 +31,7 @@
                 <th scope="col">Jabatan</th>
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Status</th>
+                <th scope="col">Mata Pelajaran</th>
                 <th scope="col">Pangkat Tertinggi</th>
                 <th scope="col">Golongan Ruang</th>
                 <th scope="col">TMT</th>
@@ -44,30 +45,32 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($manajemens as $i => $manajemen)
+            @foreach ($gurus as $i => $guru)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $manajemen->fullname }}</td>
-                    <td>{{ $manajemen->nip }}</td>
-                    <td>{{ $manajemen->place_of_birth }}</td>
-                    <td>{{ $manajemen->date_of_birth }}</td>
-                    <td>{{ $manajemen->rank }}</td>
-                    <td>{{ $manajemen->position }}</td>
-                    @if ($manajemen->gender == 'L')
+                    <td>{{ $guru->fullname }}</td>
+                    <td>{{ $guru->nip }}</td>
+                    <td>{{ $guru->place_of_birth }}</td>
+                    <td>{{ $guru->date_of_birth }}</td>
+                    <td>{{ $guru->rank }}</td>
+                    <td>{{ $guru->position }}</td>
+                    @if ($guru->gender == 'L')
                         <td>Laki-Laki</td>
-                    @elseif($manajemen->gender == 'P')
+                    @elseif($guru->gender == 'P')
                         <td>Perempuan</td>
                     @endif
-                    <td>{{ $manajemen->highest_rank }}</td>
-                    <td>{{ $manajemen->room_type }}</td>
-                    <td>{{ $manajemen->tmt }}</td>
-                    <td>{{ $manajemen->last_number_skp }}</td>
-                    <td>{{ $manajemen->last_date_skp }}</td>
-                    <td>{{ $manajemen->work_tenure }}</td>
-                    <td>{{ $manajemen->first_number_skp }}</td>
-                    <td>{{ $manajemen->first_date_skp }}</td>
-                    <td>{{ $manajemen->salary_increase }}</td>
-                    <td>{{ $manajemen->employee_card_number }}</td>
+                    <td>{{ $guru->status }}</td>
+                    <td>{{ $guru->course->name }}</td>
+                    <td>{{ $guru->highest_rank }}</td>
+                    <td>{{ $guru->room_type }}</td>
+                    <td>{{ $guru->tmt }}</td>
+                    <td>{{ $guru->last_number_skp }}</td>
+                    <td>{{ $guru->last_date_skp }}</td>
+                    <td>{{ $guru->work_tenure }}</td>
+                    <td>{{ $guru->first_number_skp }}</td>
+                    <td>{{ $guru->first_date_skp }}</td>
+                    <td>{{ $guru->salary_increase }}</td>
+                    <td>{{ $guru->employee_card_number }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\GuruExport;
 use App\Models\Course;
 use App\Models\Employee;
 use App\Models\SectionTeacher;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GuruController extends Controller
 {
@@ -46,6 +48,11 @@ class GuruController extends Controller
             'section' => SectionTeacher::first(),
             'teachers' => $teachers,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new GuruExport, 'data-guru.xlsx');
     }
 
     function detailSection()
