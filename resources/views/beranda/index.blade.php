@@ -275,7 +275,6 @@
                                 <div class="input-wrapper">
                                     <label for="banner">Banner</label>
                                     <div class="wrapper d-flex align-items-end">
-                                        <input type="hidden" name="oldImage" data-value="oldImage_header">
                                         <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
                                             class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
                                             data-value="banner_header">

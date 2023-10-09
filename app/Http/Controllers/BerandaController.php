@@ -101,9 +101,9 @@ class BerandaController extends Controller
         $headerHome = $headerHome->delete();
 
         if ($headerHome) {
-            return redirect(route('beranda-index'))->with('success', 'Berhasil Hapus Section Sekolah!');
+            return redirect(route('beranda-index'))->with('success', 'Berhasil Hapus Section Header!');
         } else {
-            return redirect(route('beranda-index'))->with('failed', 'Gagal Hapus Section Sekolah!');
+            return redirect(route('beranda-index'))->with('failed', 'Gagal Hapus Section Header!');
         }
     }
 

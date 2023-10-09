@@ -140,8 +140,10 @@ Route::middleware('auth')->group(function () {
         // PROFIL
         Route::controller(ProfilController::class)->group(function () {
             Route::get('/profil', 'index')->name('profil-index');
-            Route::get('/profil/edit-header', 'editHeader');
-            Route::post('/profil/edit-header', 'updateHeader');
+            Route::get('/profil/detail-header/{id}', 'detailHeader');
+            Route::post('/profil/store-header', 'storeHeader')->name('profil.store');
+            Route::post('/profil/edit-header/{id}', 'updateHeader');
+            Route::post('/profil/delete-header/{id}', 'deleteHeader')->name('profil.delete');
             Route::post('/profil/add-course', 'storeCourse')->name('mata-pelajaran-store');
             Route::get('/profil/edit-course/{id}', 'editCourse');
             Route::post('/profil/edit-course/{id}', 'updateCourse');
