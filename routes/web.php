@@ -234,8 +234,10 @@ Route::middleware('auth')->group(function () {
         // AKADEMIK
         Route::controller(AkademikController::class)->group(function () {
             Route::get('/akademik', 'index')->name('akademik-index');
-            Route::get('/akademik/detail-header', 'detailHeader');
-            Route::post('/akademik/edit-header', 'updateHeader');
+            Route::get('/akademik/detail-header/{id}', 'detailHeader');
+            Route::post('/akademik/store-header', 'storeHeader')->name('akademik.store');
+            Route::post('/akademik/edit-header/{id}', 'updateHeader');
+            Route::post('/akademik/delete-header/{id}', 'deleteHeader')->name('akademik.delete');
         });
 
         Route::controller(KurikulumController::class)->group(function () {
