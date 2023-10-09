@@ -378,7 +378,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService');
 
             Route::post('/kesiswaan/pelayanan-karir/cari-pembinaan', 'searchSiswa')->name('pembinaan-siswa-search');
-            Route::post('/kesiswaan/pelayanan-karir/download-pembinaan', 'generatePembinaan')->name('pembinaan-siswa-generate');
+            Route::get('/kesiswaan/pelayanan-karir/download-pembinaan', 'generatePembinaan')->name('pembinaan-siswa-generate');
             Route::get('/kesiswaan/pelayanan-karir/detail-pembinaan-siswa/{id}', 'detailDevelopment')->name('pembinaan-siswa-detail');
             Route::get('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'createDevelopment')->name('pembinaan-siswa-create');
             Route::post('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'storeDevelopment')->name('pembinaan-siswa-store');

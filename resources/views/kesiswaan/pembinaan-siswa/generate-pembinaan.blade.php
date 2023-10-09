@@ -11,7 +11,7 @@
 
 <body>
 
-    <h2>Data Ekstrakurikuler</h2>
+    <h2>Data Pembinaan Siswa</h2>
 
     <table class="table">
         <thead>
@@ -23,30 +23,20 @@
         <thead>
             <tr>
                 <th scope="col">No.</th>
-                <th scope="col">Nama Ekstrakurikuler</th>
-                <th scope="col">Tema</th>
-                <th scope="col">Hari Ekstra</th>
-                <th scope="col">Jam Mulai</th>
-                <th scope="col">Jam Berakhir</th>
-                <th scope="col">Pembina</th>
-                <th scope="col">Nomor Pembina</th>
-                <th scope="col">Link Pendaftaran</th>
-                <th scope="col">Deskripsi</th>
+                <th scope="col">Nama Siswa</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Masalah</th>
+                <th scope="col">Solusi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($ekstrakurikulers as $i => $ekstrakurikuler)
+            @foreach ($pembinaans as $i => $pembinaan)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $ekstrakurikuler->name }}</td>
-                    <td>{{ $ekstrakurikuler->title }}</td>
-                    <td>{{ $ekstrakurikuler->schedule_day }}</td>
-                    <td>{{ $ekstrakurikuler->start_time }}</td>
-                    <td>{{ $ekstrakurikuler->end_time }}</td>
-                    <td>{{ $ekstrakurikuler->coach }}</td>
-                    <td>{{ $ekstrakurikuler->number_phone_coach }}</td>
-                    <td>{{ $ekstrakurikuler->link_register }}</td>
-                    <td>{{ $ekstrakurikuler->description }}</td>
+                    <td>{{ $pembinaan->student->nama_lengkap }}</td>
+                    <td>{{ $pembinaan->tanggal }}</td>
+                    <td>{{ $pembinaan->masalah }}</td>
+                    <td>{{ $pembinaan->solusi }}</td>
                 </tr>
             @endforeach
         </tbody>
