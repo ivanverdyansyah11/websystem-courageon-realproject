@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ManajemenExport;
 use App\Models\Employee;
 use App\Models\Hobi;
 use App\Models\HobiContoh;
@@ -9,6 +10,7 @@ use App\Models\SectionManagement;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManajemenController extends Controller
 {
@@ -48,6 +50,11 @@ class ManajemenController extends Controller
             'section' => SectionManagement::first(),
             'managements' => $managements,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new ManajemenExport, 'data-manajemen.xlsx');
     }
 
     function detailSection()
