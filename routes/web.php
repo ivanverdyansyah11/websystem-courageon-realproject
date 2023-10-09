@@ -123,8 +123,10 @@ Route::middleware('auth')->group(function () {
         // BERANDA
         Route::controller(BerandaController::class)->group(function () {
             Route::get('/beranda', 'index')->name('beranda-index');
-            Route::get('/beranda/edit-header', 'editHeader');
-            Route::post('/beranda/edit-header', 'updateHeader');
+            Route::get('/beranda/detail-header/{id}', 'detailHeader');
+            Route::post('/beranda/store-header', 'storeHeader')->name('beranda.store');
+            Route::post('/beranda/edit-header/{id}', 'updateHeader');
+            Route::post('/beranda/delete-header/{id}', 'deleteHeader')->name('beranda.delete');
             Route::get('/beranda/edit-opening', 'editOpening');
             Route::post('/beranda/edit-opening', 'updateOpening');
             Route::get('/beranda/edit-remark', 'editRemark');
