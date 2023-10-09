@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AlumniExport;
 use App\Models\Alumni;
 use App\Models\SectionAlumni;
 use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AlumniController extends Controller
 {
@@ -38,6 +40,11 @@ class AlumniController extends Controller
             'students' => Student::all(),
             'tahun_ajarans' => TahunAjaran::all(),
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new AlumniExport, 'data-alumni.xlsx');
     }
 
     function detailSection()

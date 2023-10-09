@@ -70,6 +70,11 @@
                     </form>
                     <a href="{{ route('alumni-create') }}" class="d-none d-md-inline-block button-default">Tambah
                         Alumni</a>
+                    <a href="{{ route('alumni-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">
