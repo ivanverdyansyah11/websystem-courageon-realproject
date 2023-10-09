@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KenaikanSiswaExport;
 use App\Models\HistoryKenaikanSiswa;
 use App\Models\Index;
 use App\Models\Jurusan;
@@ -13,6 +14,7 @@ use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KelulusanController extends Controller
 {
@@ -85,6 +87,11 @@ class KelulusanController extends Controller
             'semesters' => Semester::all(),
             'tahun_ajarans' => TahunAjaran::all(),
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new KenaikanSiswaExport, 'data-kenaikan-siswa.xlsx');
     }
 
     function detailSectionGraduation()

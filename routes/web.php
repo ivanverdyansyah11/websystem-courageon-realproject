@@ -281,6 +281,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/kelulusan/detail-section', 'detailSectionGraduation');
             Route::post('/akademik/kelulusan/edit-section', 'updateSectionGraduation');
 
+            Route::get('/akademik/kelulusan/download', 'generate')->name('kenaikanSiswa-generate');
             Route::post('/akademik/kelulusan/cari-kenaikan-siswa', 'searchSiswa')->name('kenaikanSiswa-search');
             Route::get('/akademik/kelulusan/detail-kenaikan-siswa/{id}', 'detailKenaikanSiswa');
             Route::post('/akademik/kelulusan/tambah-kenaikan-siswa', 'storeKenaikanSiswa')->name('kenaikan-siswa-store');
