@@ -36,7 +36,7 @@
                     <td>{{ $majalah->title }}</td>
                     <td>{{ $majalah->author }}</td>
                     <td>{{ $majalah->created_date }}</td>
-                    <td>{{ $majalah->description }}</td>
+                    <td>{!! $majalah->description !!}</td>
                 </tr>
             @endforeach
         </tbody>

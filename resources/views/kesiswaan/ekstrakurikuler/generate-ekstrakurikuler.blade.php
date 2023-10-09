@@ -46,7 +46,7 @@
                     <td>{{ $ekstrakurikuler->coach }}</td>
                     <td>{{ $ekstrakurikuler->number_phone_coach }}</td>
                     <td>{{ $ekstrakurikuler->link_register }}</td>
-                    <td>{{ $ekstrakurikuler->description }}</td>
+                    <td>{!! $ekstrakurikuler->description !!}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -34,7 +34,7 @@
                     <th scope="row">{{ $i + 1 }}</th>
                     <td>{{ $proyek->title }}</td>
                     <td>{{ $proyek->topic }}</td>
-                    <td>{{ $proyek->description }}</td>
+                    <td>{!! $proyek->description !!}</td>
                 </tr>
             @endforeach
         </tbody>

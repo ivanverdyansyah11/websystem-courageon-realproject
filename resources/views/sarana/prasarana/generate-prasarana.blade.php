@@ -34,7 +34,7 @@
                     <th scope="row">{{ $i + 1 }}</th>
                     <td>{{ $prasarana->name }}</td>
                     <td>{{ $prasarana->total }}</td>
-                    <td>{{ $prasarana->description }}</td>
+                    <td>{!! $prasarana->description !!}</td>
                 </tr>
             @endforeach
         </tbody>

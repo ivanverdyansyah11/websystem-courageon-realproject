@@ -38,7 +38,7 @@
                     <td>{{ $beasiswa->beasiswa->title }}</td>
                     <td>{{ $beasiswa->tahun }}</td>
                     <td>{{ $beasiswa->jumlah_beasiswa }}</td>
-                    <td>{{ $beasiswa->digunakan_untuk }}</td>
+                    <td>{!! $beasiswa->digunakan_untuk !!}</td>
                 </tr>
             @endforeach
         </tbody>

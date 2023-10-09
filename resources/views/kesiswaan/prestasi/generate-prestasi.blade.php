@@ -45,7 +45,7 @@
                     <td>{{ $prestasi->hasil }}</td>
                     <td>{{ $prestasi->tingkat }}</td>
                     <td>{{ $prestasi->pembina }}</td>
-                    <td>{{ $prestasi->deskripsi }}</td>
+                    <td>{!! $prestasi->deskripsi !!}</td>
                 </tr>
             @endforeach
         </tbody>

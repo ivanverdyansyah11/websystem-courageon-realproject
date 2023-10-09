@@ -36,7 +36,7 @@
                     <td>{{ $alumni->student->nama_lengkap }}</td>
                     <td>{{ $alumni->tahun_ajaran_lulus }}</td>
                     <td>{{ $alumni->pekerjaan }}</td>
-                    <td>{{ $alumni->testimoni }}</td>
+                    <td>{!! $alumni->testimoni !!}</td>
                 </tr>
             @endforeach
         </tbody>

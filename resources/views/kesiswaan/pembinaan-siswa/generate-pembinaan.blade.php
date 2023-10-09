@@ -35,8 +35,8 @@
                     <th scope="row">{{ $i + 1 }}</th>
                     <td>{{ $pembinaan->student->nama_lengkap }}</td>
                     <td>{{ $pembinaan->tanggal }}</td>
-                    <td>{{ $pembinaan->masalah }}</td>
-                    <td>{{ $pembinaan->solusi }}</td>
+                    <td>{!! $pembinaan->masalah !!}</td>
+                    <td>{!! $pembinaan->solusi !!}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -37,8 +37,8 @@
                     <td>{{ $pelayanan->student->nama_lengkap }}</td>
                     <td>{{ $pelayanan->judul }}</td>
                     <td>{{ $pelayanan->tanggal }}</td>
-                    <td>{{ $pelayanan->masalah }}</td>
-                    <td>{{ $pelayanan->solusi }}</td>
+                    <td>{!! $pelayanan->masalah !!}</td>
+                    <td>{!! $pelayanan->solusi !!}</td>
                 </tr>
             @endforeach
         </tbody>
