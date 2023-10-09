@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PrasaranaExport;
 use App\Models\Prasarana;
 use App\Models\SectionPrasarana;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PrasaranaController extends Controller
 {
@@ -15,6 +17,11 @@ class PrasaranaController extends Controller
             'section' => SectionPrasarana::first(),
             'prasaranas' => Prasarana::paginate(6),
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new PrasaranaExport, 'data-prasarana.xlsx');
     }
 
     function detailSection()

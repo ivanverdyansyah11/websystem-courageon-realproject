@@ -174,6 +174,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/manajemen/detail-section', 'detailSection')->name('section-manajemen-detail');
             Route::post('/profil/manajemen/edit-section', 'updateSection')->name('section-manajemen-update');
 
+            Route::get('/profil/manajemen/download', 'generate')->name('manajemen-generate');
             Route::get('/profil/manajemen/detail/{id}', 'detail')->name('manajemen-detail');
             Route::get('/profil/manajemen/tambah', 'create')->name('manajemen-create');
             Route::post('/profil/manajemen/tambah', 'store')->name('manajemen-store');
@@ -190,6 +191,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/guru/detail-section', 'detailSection')->name('section-guru-detail');
             Route::post('/profil/guru/edit-section', 'updateSection')->name('section-guru-update');
 
+            Route::get('/profil/guru/download', 'generate')->name('guru-generate');
             Route::get('/profil/guru/detail/{id}', 'detail')->name('guru-detail');
             Route::get('/profil/guru/tambah', 'create')->name('guru-create');
             Route::post('/profil/guru/tambah', 'store')->name('guru-store');
@@ -204,6 +206,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/pegawai/detail-section', 'detailSection')->name('section-pegawai-detail');
             Route::post('/profil/pegawai/edit-section', 'updateSection')->name('section-pegawai-update');
 
+            Route::get('/profil/pegawai/download', 'generate')->name('pegawai-generate');
             Route::get('/profil/pegawai/detail/{id}', 'detail')->name('pegawai-detail');
             Route::get('/profil/pegawai/tambah', 'create')->name('pegawai-create');
             Route::post('/profil/pegawai/tambah', 'store')->name('pegawai-store');
@@ -251,6 +254,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(ProyekController::class)->group(function () {
             Route::get('/akademik/proyek', 'index')->name('proyek-index');
             Route::post('/akademik/proyek/cari', 'search')->name('proyek-search');
+            Route::get('/akademik/proyek/download', 'generate')->name('proyek-generate');
             Route::get('/akademik/proyek/detail-section', 'detailSection');
             Route::post('/akademik/proyek/edit-section', 'updateSection');
             Route::get('/akademik/proyek/tambah-proyek', 'createProject')->name('proyek-tambah');
@@ -277,6 +281,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/akademik/kelulusan/detail-section', 'detailSectionGraduation');
             Route::post('/akademik/kelulusan/edit-section', 'updateSectionGraduation');
 
+            Route::get('/akademik/kelulusan/download', 'generate')->name('kenaikanSiswa-generate');
             Route::post('/akademik/kelulusan/cari-kenaikan-siswa', 'searchSiswa')->name('kenaikanSiswa-search');
             Route::get('/akademik/kelulusan/detail-kenaikan-siswa/{id}', 'detailKenaikanSiswa');
             Route::post('/akademik/kelulusan/tambah-kenaikan-siswa', 'storeKenaikanSiswa')->name('kenaikan-siswa-store');
@@ -433,6 +438,7 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(PrasaranaController::class)->group(function () {
             Route::get('/sarana-prasarana/prasarana', 'index')->name('prasarana-index');
+            Route::get('/sarana-prasarana/prasarana/download', 'generate')->name('prasarana-generate');
             Route::get('/sarana-prasarana/prasarana/detail-section', 'detailSection');
             Route::post('/sarana-prasarana/prasarana/edit-section', 'updateSection');
 
@@ -476,6 +482,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(MajalahController::class)->group(function () {
             Route::get('/humas/majalah', 'index')->name('majalah-index');
             Route::post('/humas/majalah/cari', 'search')->name('majalah-search');
+            Route::get('/humas/majalah/download', 'generate')->name('majalah-generate');
             Route::get('/humas/majalah/detail-header', 'detailHeader');
             Route::post('/humas/majalah/edit-header', 'updateHeader');
 

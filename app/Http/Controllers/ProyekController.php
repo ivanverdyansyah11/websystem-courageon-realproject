@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProyekExport;
 use App\Models\Project;
 use App\Models\SectionProyek;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProyekController extends Controller
 {
@@ -30,6 +32,11 @@ class ProyekController extends Controller
             'section_proyek' => SectionProyek::first(),
             'projects' => $projects,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new ProyekExport, 'data-proyek.xlsx');
     }
 
     function detailSection()

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MajalahExport;
 use App\Models\Journal;
 use App\Models\SectionJournal;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MajalahController extends Controller
 {
@@ -30,6 +32,11 @@ class MajalahController extends Controller
             'section_header' => SectionJournal::first(),
             'journals' => $journals,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new MajalahExport, 'data-majalah.xlsx');
     }
 
     function detailHeader()

@@ -70,6 +70,11 @@
                     </form>
                     <a href="{{ route('majalah-create') }}" class="d-none d-md-inline-block button-default">Tambah
                         Majalah</a>
+                    <a href="{{ route('majalah-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">

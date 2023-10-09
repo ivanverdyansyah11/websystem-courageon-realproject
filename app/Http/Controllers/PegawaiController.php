@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PegawaiExport;
 use App\Models\Employee;
 use App\Models\SectionStaff;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PegawaiController extends Controller
 {
@@ -45,6 +47,10 @@ class PegawaiController extends Controller
             'section' => SectionStaff::first(),
             'staffs' => $staffs,
         ]);
+    }
+    public function generate()
+    {
+        return Excel::download(new PegawaiExport, 'data-pegawai.xlsx');
     }
 
     function detailSection()

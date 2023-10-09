@@ -65,6 +65,11 @@
                     </form>
                     <a href="{{ route('manajemen-create') }}" class="d-none d-md-inline-block button-default">Tambah
                         Manajemen</a>
+                    <a href="{{ route('manajemen-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">

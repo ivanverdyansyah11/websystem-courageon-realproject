@@ -69,6 +69,11 @@
                     </form>
                     <a href="{{ route('proyek-tambah') }}" class="d-none d-md-inline-block button-default">Tambah
                         Proyek</a>
+                    <a href="{{ route('proyek-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">
