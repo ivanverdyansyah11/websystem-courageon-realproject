@@ -6,6 +6,7 @@ use App\Models\Alumni;
 use App\Models\Auth;
 use App\Models\Beasiswa;
 use App\Models\BeasiswaPenerima;
+use App\Models\Berita;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Curriculum;
@@ -45,6 +46,7 @@ use App\Models\RoleEmployee;
 use App\Models\SectionAchievement;
 use App\Models\SectionAlumni;
 use App\Models\SectionBeasiswa;
+use App\Models\SectionBerita;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
@@ -2158,8 +2160,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         SectionJournal::create([
-            'title_header' => 'Berita Terbaru Mengenai SMA Negeri 1 Selat',
-            'button' => 'Lihat Semua Berita',
+            'title_header' => 'Majalah Terbaru Mengenai SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua Majalah',
         ]);
 
         Journal::create([
@@ -2232,6 +2234,46 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'journal-pdf-8.pdf',
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
+        ]);
+
+        SectionBerita::create([
+            'title_header' => 'Berita Terbaru Mengenai SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua Berita',
+        ]);
+
+        Berita::create([
+            'banner' => 'berita-1.jpg',
+            'title' => 'Berita Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, nulla?',
+            'author' => 'I Made Artana',
+            'description' => 'Siswa kami berhasil mencapai prestasi gemilang dalam kompetisi matematika tingkat kota, memperkuat dedikasi mereka terhadap penguasaan matematika dan penyelesaian masalah.',
+        ]);
+
+        Berita::create([
+            'banner' => 'berita-2.jpg',
+            'title' => 'Berita 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, nulla?',
+            'author' => 'I Made Artana 2',
+            'description' => 'Siswa 2 kami berhasil mencapai prestasi gemilang dalam kompetisi matematika tingkat kota, memperkuat dedikasi mereka terhadap penguasaan matematika dan penyelesaian masalah.',
+        ]);
+
+        Berita::create([
+            'banner' => 'berita-3.jpg',
+            'title' => 'Berita 3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, nulla?',
+            'author' => 'I Made Artana 3',
+            'description' => 'Siswa 3 kami berhasil mencapai prestasi gemilang dalam kompetisi matematika tingkat kota, memperkuat dedikasi mereka terhadap penguasaan matematika dan penyelesaian masalah.',
+        ]);
+
+        Berita::create([
+            'banner' => 'berita-4.jpg',
+            'title' => 'Berita 4 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, nulla?',
+            'author' => 'I Made Artana 4',
+            'description' => 'Siswa 4 kami berhasil mencapai prestasi gemilang dalam kompetisi matematika tingkat kota, memperkuat dedikasi mereka terhadap penguasaan matematika dan penyelesaian masalah.',
+        ]);
+
+        Berita::create([
+            'banner' => 'berita-5.jpg',
+            'title' => 'Berita 5 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, nulla?',
+            'author' => 'I Made Artana 5',
+            'description' => 'Siswa 5 kami berhasil mencapai prestasi gemilang dalam kompetisi matematika tingkat kota, memperkuat dedikasi mereka terhadap penguasaan matematika dan penyelesaian masalah.',
         ]);
     }
 }

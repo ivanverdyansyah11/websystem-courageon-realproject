@@ -142,6 +142,8 @@
                         class="link-child {{ Request::is('admin/humas/kemitraan*') ? 'active' : '' }}">Kemitraan</a>
                     <a href="{{ route('majalah-index') }}"
                         class="link-child {{ Request::is('admin/humas/majalah*') ? 'active' : '' }}">Majalah</a>
+                    <a href="{{ route('berita-index') }}"
+                        class="link-child {{ Request::is('admin/humas/berita*') ? 'active' : '' }}">Berita</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/pengaturan*') ? 'active' : '' }}">

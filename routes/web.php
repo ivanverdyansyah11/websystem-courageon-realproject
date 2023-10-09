@@ -6,6 +6,7 @@ use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeasiswaController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenahController;
 use App\Http\Controllers\EkstrakurikulerController;
@@ -498,6 +499,21 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas/majalah/edit-majalah/{id}', 'editJournal')->name('majalah-edit');
             Route::post('/humas/majalah/edit-majalah/{id}', 'updateJournal')->name('majalah-update');
             Route::post('/humas/majalah/delete-majalah/{id}', 'deleteJournal');
+        });
+
+        Route::controller(BeritaController::class)->group(function () {
+            Route::get('/humas/berita', 'index')->name('berita-index');
+            Route::post('/humas/berita/cari', 'search')->name('berita-search');
+            Route::get('/humas/berita/download', 'generate')->name('berita-generate');
+            Route::get('/humas/berita/detail-header', 'detailHeader');
+            Route::post('/humas/berita/edit-header', 'updateHeader');
+
+            Route::get('/humas/berita/tambah-berita', 'createJournal')->name('berita-create');
+            Route::post('/humas/berita/tambah-berita', 'storeJournal')->name('berita-store');
+            Route::get('/humas/berita/detail-berita/{id}', 'detailJournal')->name('berita-detail');
+            Route::get('/humas/berita/edit-berita/{id}', 'editJournal')->name('berita-edit');
+            Route::post('/humas/berita/edit-berita/{id}', 'updateJournal')->name('berita-update');
+            Route::post('/humas/berita/delete-berita/{id}', 'deleteJournal');
         });
 
         // PENGATURAN
