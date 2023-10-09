@@ -393,6 +393,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/prestasi/edit-section', 'updateSection');
 
             Route::post('/kesiswaan/prestasi/cari', 'search')->name('prestasi-search');
+            Route::get('/kesiswaan/prestasi/download', 'generate')->name('prestasi-generate');
             Route::get('/kesiswaan/prestasi/detail-prestasi/{id}', 'detailAchievement')->name('prestasi-detail');
             Route::get('/kesiswaan/prestasi/tambah-prestasi', 'createAchievement')->name('prestasi-create');
             Route::post('/kesiswaan/prestasi/tambah-prestasi', 'storeAchievement')->name('prestasi-store');

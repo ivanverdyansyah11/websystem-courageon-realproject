@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PrestasiExport;
 use App\Models\KategoriPrestasi;
 use App\Models\Kelas;
 use App\Models\Prestasi;
 use App\Models\SectionAchievement;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PrestasiController extends Controller
 {
@@ -38,6 +40,11 @@ class PrestasiController extends Controller
             'section_achievement' => SectionAchievement::first(),
             'allPrestasi' => $prestasis,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new PrestasiExport, 'data-prestasi.xlsx');
     }
 
     function detailSection()
