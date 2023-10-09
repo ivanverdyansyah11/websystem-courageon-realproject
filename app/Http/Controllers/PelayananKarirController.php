@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PelayananExport;
+use App\Exports\PembinaanExport;
 use App\Models\PelayananKarir;
 use App\Models\PembinaanSiswa;
 use App\Models\SectionService;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PelayananKarirController extends Controller
 {
@@ -57,6 +60,16 @@ class PelayananKarirController extends Controller
             'pelayanan_karir' => PelayananKarir::paginate(6),
             'pembinaan_siswa' => $pembinaans,
         ]);
+    }
+
+    public function generatePelayanan()
+    {
+        return Excel::download(new PelayananExport, 'data-pelayanan-karir.xlsx');
+    }
+
+    public function generatePembinaan()
+    {
+        return Excel::download(new PembinaanExport, 'data-pembinaan-siswa.xlsx');
     }
 
     function detailSection()

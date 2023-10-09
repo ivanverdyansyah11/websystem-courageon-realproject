@@ -369,6 +369,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/pelayanan-karir/edit-section', 'updateSection');
 
             Route::post('/kesiswaan/pelayanan-karir/cari-pelayanan', 'searchKarir')->name('pelayanan-karir-search');
+            Route::get('/kesiswaan/pelayanan-karir/download-pelayanan', 'generatePelayanan')->name('pelayanan-karir-generate');
             Route::get('/kesiswaan/pelayanan-karir/detail-pelayanan-karir/{id}', 'detailService')->name('pelayanan-karir-detail');
             Route::get('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'createService')->name('pelayanan-karir-create');
             Route::post('/kesiswaan/pelayanan-karir/tambah-pelayanan-karir', 'storeService')->name('pelayanan-karir-store');
@@ -377,6 +378,7 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/pelayanan-karir/delete-pelayanan-karir/{id}', 'deleteService');
 
             Route::post('/kesiswaan/pelayanan-karir/cari-pembinaan', 'searchSiswa')->name('pembinaan-siswa-search');
+            Route::post('/kesiswaan/pelayanan-karir/download-pembinaan', 'generatePembinaan')->name('pembinaan-siswa-generate');
             Route::get('/kesiswaan/pelayanan-karir/detail-pembinaan-siswa/{id}', 'detailDevelopment')->name('pembinaan-siswa-detail');
             Route::get('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'createDevelopment')->name('pembinaan-siswa-create');
             Route::post('/kesiswaan/pelayanan-karir/tambah-pembinaan-siswa', 'storeDevelopment')->name('pembinaan-siswa-store');

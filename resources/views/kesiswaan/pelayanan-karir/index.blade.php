@@ -70,6 +70,11 @@
                     </form>
                     <a href="{{ route('pelayanan-karir-create') }}" class="d-none d-md-inline-block button-default">Tambah
                         Pelayanan Karir</a>
+                    <a href="{{ route('pelayanan-karir-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">
@@ -140,7 +145,8 @@
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
                 <h5 class="subtitle">Pembinaan Siswa Sekolah</h5>
                 <div class="wrapper d-flex gap-2">
-                    <form class="form-search d-inline-block" method="POST" action="{{ route('pembinaan-siswa-search') }}">
+                    <form class="form-search d-inline-block" method="POST"
+                        action="{{ route('pembinaan-siswa-search') }}">
                         @csrf
                         <div class="wrapper-search">
                             <input type="text" class="input-search" placeholder=" " name="search">
@@ -154,6 +160,11 @@
                     <a href="{{ route('pembinaan-siswa-create') }}"
                         class="d-none d-md-inline-block button-default">Tambah
                         Pembinaan Siswa</a>
+                    <a href="{{ route('pembinaan-siswa-generate') }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">
