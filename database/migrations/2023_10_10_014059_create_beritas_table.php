@@ -18,6 +18,7 @@ class CreateBeritasTable extends Migration
             $table->string('banner');
             $table->string('title');
             $table->string('author');
+            $table->date('created_date');
             $table->text('description');
             $table->timestamps();
         });

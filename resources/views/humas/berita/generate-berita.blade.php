@@ -11,7 +11,7 @@
 
 <body>
 
-    <h2>Data Majalah</h2>
+    <h2>Data Berita</h2>
 
     <table class="table">
         <thead>
@@ -30,13 +30,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($majalahs as $i => $majalah)
+            @foreach ($beritas as $i => $berita)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $majalah->title }}</td>
-                    <td>{{ $majalah->author }}</td>
-                    <td>{{ $majalah->created_date }}</td>
-                    <td>{{ $majalah->description }}</td>
+                    <td>{{ $berita->title }}</td>
+                    <td>{{ $berita->author }}</td>
+                    <td>{{ $berita->created_at }}</td>
+                    <td>{!! $berita->description !!}</td>
                 </tr>
             @endforeach
         </tbody>

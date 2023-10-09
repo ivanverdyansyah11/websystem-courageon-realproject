@@ -13,36 +13,27 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Tambah Majalah Sekolah</h5>
+                <h5 class="subtitle">Tambah Berita Sekolah</h5>
             </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-xl-10">
-                        <form action="{{ route('majalah-store') }}" method="post"
+                        <form action="{{ route('berita-store') }}" method="post"
                             class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                             @csrf
                             <div class="row align-items-end">
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="thumbnail">Thumbnail</label>
+                                        <label for="banner">Banner</label>
                                         <div class="wrapper d-flex align-items-end">
                                             <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                class="img-fluid tag-add-thumbnail" alt="Thumbnail Journal" width="80">
+                                                class="img-fluid tag-add-banner" alt="Banner Berita" width="80">
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="thumbnail" class="input-add-thumbnail" required
-                                                    name="thumbnail">
+                                                <input type="file" id="banner" class="input-add-banner" required
+                                                    name="banner">
                                             </div>
                                         </div>
-                                        @error('thumbnail')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper d-flex flex-column">
-                                        <label for="document_pdf">Document PDF</label>
-                                        <input type="file" id="document_pdf" required name="document_pdf">
-                                        @error('document_pdf')
+                                        @error('banner')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -79,8 +70,8 @@
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="deskripsi">Deskripsi Singkat</label>
-                                        <textarea id="inputAddMajalah" autocomplete="off" class="input" required name="description">{{ old('description') }}</textarea>
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <textarea id="inputAddBerita" autocomplete="off" class="input" required name="description">{{ old('description') }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -88,8 +79,8 @@
                                 </div>
                             </div>
                             <div class="button-wrapper d-flex gap-2">
-                                <button type="submit" class="button-default-solid">Tambah Majalah</button>
-                                <a href="{{ route('majalah-index') }}" class="button-default">Batal Tambah</a>
+                                <button type="submit" class="button-default-solid">Tambah Berita</button>
+                                <a href="{{ route('berita-index') }}" class="button-default">Batal Tambah</a>
                             </div>
                         </form>
                     </div>
@@ -99,13 +90,13 @@
     </div>
 
     <script>
-        const inputAddMajalah = new RichTextEditor("#inputAddMajalah");
+        const inputAddBerita = new RichTextEditor("#inputAddBerita");
 
-        const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');
-        const inputAddThumbnail = document.querySelector('.input-add-thumbnail');
+        const tagAddBanner = document.querySelector('.tag-add-banner');
+        const inputAddBanner = document.querySelector('.input-add-banner');
 
-        inputAddThumbnail.addEventListener('change', function() {
-            tagAddThumbnail.src = URL.createObjectURL(inputAddThumbnail.files[0]);
+        inputAddBanner.addEventListener('change', function() {
+            tagAddBanner.src = URL.createObjectURL(inputAddBanner.files[0]);
         });
     </script>
 @endsection

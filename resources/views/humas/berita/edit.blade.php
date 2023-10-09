@@ -13,52 +13,33 @@
         </div>
         <div class="row row-gap">
             <div class="col-12 d-flex justify-content-between align-items-center content-title">
-                <h5 class="subtitle">Edit Majalah Sekolah</h5>
+                <h5 class="subtitle">Edit Berita Sekolah</h5>
             </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-xl-10">
-                        <form action="{{ route('majalah-update', $journal->id) }}" method="post"
+                        <form action="{{ route('berita-update', $berita->id) }}" method="post"
                             class="form d-flex flex-column justify-content-center" enctype="multipart/form-data">
                             @csrf
                             <div class="row align-items-end">
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
-                                        <label for="thumbnail">Thumbnail</label>
-                                        <input type="hidden" name="oldImage" value="{{ $journal->thumbnail }}">
+                                        <label for="banner">Banner</label>
+                                        <input type="hidden" name="oldImage" value="{{ $berita->banner }}">
                                         <div class="wrapper d-flex align-items-end">
-                                            @if ($journal->thumbnail)
-                                                <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                                    class="img-fluid tag-edit-thumbnail" alt="Thumbnail Majalah"
-                                                    width="80">
+                                            @if ($berita->banner)
+                                                <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
+                                                    class="img-fluid tag-edit-banner" alt="Banner berita" width="80">
                                             @else
                                                 <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                                    class="img-fluid tag-edit-thumbnail" alt="Image Not Found"
-                                                    width="80">
+                                                    class="img-fluid tag-edit-banner" alt="Image Not Found" width="80">
                                             @endif
                                             <div class="wrapper-image w-100">
-                                                <input type="file" id="thumbnail" class="input-edit-thumbnail"
-                                                    name="thumbnail">
+                                                <input type="file" id="banner" class="input-edit-banner"
+                                                    name="banner">
                                             </div>
                                         </div>
-                                        @error('thumbnail')
-                                            <p class="caption-error mt-2">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="input-wrapper d-flex flex-column">
-                                        <input type="hidden" name="oldDocument" value="{{ $journal->document_pdf }}">
-                                        @if ($journal->document_pdf)
-                                            <label for="document_pdf">Document PDF (File Choosen:
-                                                {{ $journal->document_pdf }})</label>
-                                            <input type="file" id="document_pdf" name="document_pdf">
-                                        @else
-                                            <label for="document_pdf">Document PDF</label>
-                                            <input type="file" id="document_pdf" value="Belum Dipilih"
-                                                name="document_pdf">
-                                        @endif
-                                        @error('document_pdf')
+                                        @error('banner')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -67,7 +48,7 @@
                                     <div class="input-wrapper">
                                         <label for="title">Judul</label>
                                         <input type="text" id="title" class="input" autocomplete="off" required
-                                            name="title" value="{{ $journal->title }}">
+                                            name="title" value="{{ $berita->title }}">
                                         @error('title')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -77,7 +58,7 @@
                                     <div class="input-wrapper">
                                         <label for="penulis">Penulis</label>
                                         <input type="text" id="penulis" class="input" autocomplete="off" required
-                                            name="author" value="{{ $journal->author }}">
+                                            name="author" value="{{ $berita->author }}">
                                         @error('author')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -87,7 +68,7 @@
                                     <div class="input-wrapper">
                                         <label for="tanggal_dibuat">Tanggal Dibuat</label>
                                         <input type="date" id="tanggal_dibuat" class="input" autocomplete="off" required
-                                            name="created_date" value="{{ $journal->created_date }}">
+                                            name="created_date" value="{{ $berita->created_date }}">
                                         @error('created_date')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -95,8 +76,8 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="input-wrapper">
-                                        <label for="deskripsi">Deskripsi Singkat</label>
-                                        <textarea id="inputEditMajalah" autocomplete="off" class="input" required name="description">{{ $journal->description }}</textarea>
+                                        <label for="deskripsi">Deskripsi</label>
+                                        <textarea id="inputEditBerita" autocomplete="off" class="input" required name="description">{{ $berita->description }}</textarea>
                                         @error('description')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror
@@ -105,7 +86,7 @@
                             </div>
                             <div class="button-wrapper d-flex gap-2">
                                 <button type="submit" class="button-default-solid">Simpan Perubahan</button>
-                                <a href="{{ route('majalah-index') }}" class="button-default">Batal Edit</a>
+                                <a href="{{ route('berita-index') }}" class="button-default">Batal Edit</a>
                             </div>
                         </form>
                     </div>
@@ -115,10 +96,10 @@
     </div>
 
     <script>
-        const inputEditMajalah = new RichTextEditor("#inputEditMajalah");
+        const inputEditBerita = new RichTextEditor("#inputEditBerita");
 
-        const tagEdit = document.querySelector('.tag-edit-thumbnail');
-        const inputEdit = document.querySelector('.input-edit-thumbnail');
+        const tagEdit = document.querySelector('.tag-edit-banner');
+        const inputEdit = document.querySelector('.input-edit-banner');
 
         inputEdit.addEventListener('change', function() {
             tagEdit.src = URL.createObjectURL(inputEdit.files[0]);

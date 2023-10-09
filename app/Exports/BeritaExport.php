@@ -13,7 +13,7 @@ class BeritaExport implements FromView
 {
     public function view(): View
     {
-        return view('kesiswaan.berita.generate-berita', [
+        return view('humas.berita.generate-berita', [
             'beritas' => Berita::all(),
         ]);
     }

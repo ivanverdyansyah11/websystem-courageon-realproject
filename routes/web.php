@@ -508,12 +508,12 @@ Route::middleware('auth')->group(function () {
             Route::get('/humas/berita/detail-header', 'detailHeader');
             Route::post('/humas/berita/edit-header', 'updateHeader');
 
-            Route::get('/humas/berita/tambah-berita', 'createJournal')->name('berita-create');
-            Route::post('/humas/berita/tambah-berita', 'storeJournal')->name('berita-store');
-            Route::get('/humas/berita/detail-berita/{id}', 'detailJournal')->name('berita-detail');
-            Route::get('/humas/berita/edit-berita/{id}', 'editJournal')->name('berita-edit');
-            Route::post('/humas/berita/edit-berita/{id}', 'updateJournal')->name('berita-update');
-            Route::post('/humas/berita/delete-berita/{id}', 'deleteJournal');
+            Route::get('/humas/berita/tambah-berita', 'createBerita')->name('berita-create');
+            Route::post('/humas/berita/tambah-berita', 'storeBerita')->name('berita-store');
+            Route::get('/humas/berita/detail-berita/{id}', 'detailBerita')->name('berita-detail');
+            Route::get('/humas/berita/edit-berita/{id}', 'editBerita')->name('berita-edit');
+            Route::post('/humas/berita/edit-berita/{id}', 'updateBerita')->name('berita-update');
+            Route::post('/humas/berita/delete-berita/{id}', 'deleteBerita');
         });
 
         // PENGATURAN

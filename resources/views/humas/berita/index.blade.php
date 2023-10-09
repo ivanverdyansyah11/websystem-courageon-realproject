@@ -200,28 +200,28 @@
     </div>
     {{-- END MODAL EDIT SECTION HEADER --}}
 
-    {{-- MODAL DELETE JOURNAL --}}
-    <div class="modal fade" id="deleteJournalModal" tabindex="-1" aria-labelledby="deleteJournalModalLabel"
+    {{-- MODAL DELETE BERITA --}}
+    <div class="modal fade" id="deleteBeritaModal" tabindex="-1" aria-labelledby="deleteBeritaModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <h3 class="title">Hapus Majalah Sekolah</h3>
-                <form id="deleteJournal" method="post" enctype="multipart/form-data"
+                <h3 class="title">Hapus Berita Sekolah</h3>
+                <form id="deleteBerita" method="post" enctype="multipart/form-data"
                     class="form d-flex flex-column justify-content-center">
                     @csrf
-                    <p class="caption-description mb-2">Konfirmasi Penghapusan Majalah Sekolah: Apakah Anda yakin ingin
-                        menghapus majalah sekolah ini?
-                        Tindakan ini tidak dapat diurungkan, dan majalah sekolah akan dihapus secara permanen dari sistem.
+                    <p class="caption-description mb-2">Konfirmasi Penghapusan Berita Sekolah: Apakah Anda yakin ingin
+                        menghapus berita sekolah ini?
+                        Tindakan ini tidak dapat diurungkan, dan berita sekolah akan dihapus secara permanen dari sistem.
                     </p>
                     <div class="button-wrapper d-flex flex-column">
-                        <button type="submit" class="button-default-solid">Hapus Majalah</button>
+                        <button type="submit" class="button-default-solid">Hapus Berita</button>
                         <button type="button" class="button-default" data-bs-dismiss="modal">Batal Hapus</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    {{-- END MODAL DELETE JOURNAL --}}
+    {{-- END MODAL DELETE BERITA --}}
 
     <script>
         $(document).on('click', '[data-bs-target="#detailSectionHeaderModal"]', function() {
@@ -247,22 +247,9 @@
             });
         });
 
-        $(document).on('click', '[data-bs-target="#deleteJournalModal"]', function() {
+        $(document).on('click', '[data-bs-target="#deleteBeritaModal"]', function() {
             let id = $(this).data('id');
-            $('#deleteJournal').attr('action', '/admin/humas/berita/delete-berita/' + id);
-        });
-
-        const tagAddThumbnail = document.querySelector('.tag-add-thumbnail');
-        const inputAddThumbnail = document.querySelector('.input-add-thumbnail');
-        const tagEditThumbnail = document.querySelector('.tag-edit-thumbnail');
-        const inputEditThumbnail = document.querySelector('.input-edit-thumbnail');
-
-        inputAddThumbnail.addEventListener('change', function() {
-            tagAddThumbnail.src = URL.createObjectURL(inputAddThumbnail.files[0]);
-        });
-
-        inputEditThumbnail.addEventListener('change', function() {
-            tagEditThumbnail.src = URL.createObjectURL(inputEditThumbnail.files[0]);
+            $('#deleteBerita').attr('action', '/admin/humas/berita/delete-berita/' + id);
         });
     </script>
 @endsection
