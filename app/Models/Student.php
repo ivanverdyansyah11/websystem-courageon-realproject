@@ -14,7 +14,7 @@ class Student extends Model
         return $this->belongsTo(Kelas::class, 'kelases_id');
     }
 
-    public function tahun_ajarans()
+    public function tahun_ajaran()
     {
         return $this->belongsTo(TahunAjaran::class, 'tahun_ajarans_id');
     }
@@ -31,6 +31,6 @@ class Student extends Model
 
     public function semesters()
     {
-        return $this->hasMany(Index::class, 'semesters_id');
+        return $this->belongsTo(Semester::class, 'semesters_id');
     }
 }

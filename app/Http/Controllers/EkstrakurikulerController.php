@@ -69,8 +69,9 @@ class EkstrakurikulerController extends Controller
     function storeExtracurriculer(Request $request)
     {
         $validatedData = $request->validate([
-            'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'icon' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'banner' => 'required|image|mimes:jpeg,png,jpg',
+            'icon' => 'required|image|mimes:jpeg,png,jpg',
+            'data_siswa' => 'required|mimes:pdf',
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -83,6 +84,13 @@ class EkstrakurikulerController extends Controller
         ]);
 
         $validatedData['schedule_day'] = implode(', ', $validatedData['schedule_day']);
+
+        if ($validatedData['data_siswa']) {
+            $document = $request->file('data_siswa');
+            $documentName = time() . '.' . $document->getClientOriginalExtension();
+            $document->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $documentName);
+            $validatedData['data_siswa'] = $documentName;
+        }
 
         if ($validatedData['icon']) {
             $image = $request->file('icon');
@@ -176,6 +184,20 @@ class EkstrakurikulerController extends Controller
             $validatedData['banner'] = $extracurriculer['banner'];
         }
 
+        if ($request->file('data_siswa')) {
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['data_siswa']) && $extracurriculer['data_siswa']) {
+                $oldImagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurriculer['data_siswa'];
+                unlink($oldImagePath);
+            }
+
+            $document = $request->file('data_siswa');
+            $documentName = time() . '.' . $document->getClientOriginalExtension();
+            $document->move(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/'), $documentName);
+            $validatedData['data_siswa'] = $documentName;
+        } else {
+            $validatedData['data_siswa'] = $extracurriculer['data_siswa'];
+        }
+
         $extracurricularAction = Extracurricular::where('id', $id)->first()->update($validatedData);
 
         if ($extracurricularAction) {
@@ -199,6 +221,13 @@ class EkstrakurikulerController extends Controller
         if ($extracurricular->banner) {
             if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner) && $extracurricular->banner) {
                 $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/banner/') . $extracurricular->banner;
+                unlink($imagePath);
+            }
+        }
+
+        if ($extracurricular->data_siswa) {
+            if (file_exists(public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->data_siswa) && $extracurricular->data_siswa) {
+                $imagePath = public_path('assets/img/kesiswaan-images/ekstrakurikuler-image/') . $extracurricular->data_siswa;
                 unlink($imagePath);
             }
         }

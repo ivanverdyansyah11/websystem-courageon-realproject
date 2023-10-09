@@ -49,7 +49,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper d-flex flex-column">
                                         <input type="hidden" name="oldDocument" value="{{ $journal->document_pdf }}">
-                                        @if ($journal->thumbnail)
+                                        @if ($journal->document_pdf)
                                             <label for="document_pdf">Document PDF (File Choosen:
                                                 {{ $journal->document_pdf }})</label>
                                             <input type="file" id="document_pdf" name="document_pdf">

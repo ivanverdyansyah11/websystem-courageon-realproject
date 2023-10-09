@@ -330,6 +330,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/kesiswaan/siswa/edit-section', 'updateSectionStudent');
 
             Route::post('/kesiswaan/siswa/data-siswa/{id}/cari-siswa', 'search')->name('siswa-search');
+            Route::get('/kesiswaan/siswa/data-siswa/{id}/download', 'generate')->name('siswa-generate');
+
             Route::get('/kesiswaan/siswa/data-siswa/{id}', 'studentIndex')->name('data-siswa-index');
             Route::get('/kesiswaan/siswa/data-siswa/tambah/{id}', 'studentCreate')->name('data-siswa-create');
             Route::post('/kesiswaan/siswa/data-siswa/tambah/{id}', 'studentStore')->name('data-siswa-store');

@@ -25,9 +25,9 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="row">
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="row align-items-end">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label>Icon</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -41,7 +41,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label>Banner</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -53,6 +53,18 @@
                                                             class="img-fluid" alt="Image Not Found" width="80">
                                                     @endif
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="input-wrapper d-flex flex-column">
+                                                <label for="data_siswa">Data Siswa</label>
+                                                @if ($extracurricular->data_siswa)
+                                                    <input type="text" class="input" id="data_siswa"
+                                                        value="{{ $extracurricular->data_siswa }}" disabled>
+                                                @else
+                                                    <input type="text" class="input" id="data_siswa"
+                                                        value="Belum Dipilih" disabled>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

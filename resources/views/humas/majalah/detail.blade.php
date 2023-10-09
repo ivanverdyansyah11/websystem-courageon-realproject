@@ -37,7 +37,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper d-flex flex-column">
                                         <label for="document_pdf">Document PDF</label>
-                                        @if ($journal->thumbnail)
+                                        @if ($journal->document_pdf)
                                             <input type="text" class="input" id="document_pdf"
                                                 value="{{ $journal->document_pdf }}" disabled>
                                         @else

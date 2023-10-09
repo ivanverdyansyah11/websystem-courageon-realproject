@@ -27,9 +27,9 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="row">
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="row align-items-end">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label for="icon">Icon</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -46,7 +46,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label for="banner">Banner</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -59,6 +59,15 @@
                                                     </div>
                                                 </div>
                                                 @error('banner')
+                                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="input-wrapper d-flex flex-column">
+                                                <label for="data_siswa">Data Siswa</label>
+                                                <input type="file" id="data_siswa" required name="data_siswa">
+                                                @error('data_siswa')
                                                     <p class="caption-error mt-2">{{ $message }}</p>
                                                 @enderror
                                             </div>

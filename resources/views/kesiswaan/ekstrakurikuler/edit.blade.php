@@ -27,9 +27,9 @@
                     <div class="row">
                         <div class="col-10">
                             <div class="row">
-                                <div class="col-12 mb-4">
+                                <div class="col-12">
                                     <div class="row align-items-end">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label for="icon">Icon</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -52,7 +52,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4 mb-4">
                                             <div class="input-wrapper">
                                                 <label for="banner">Banner</label>
                                                 <div class="wrapper d-flex align-items-end">
@@ -75,13 +75,32 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="input-wrapper d-flex flex-column">
+                                                <input type="hidden" name="oldDocument"
+                                                    value="{{ $extracurricular->data_siswa }}">
+                                                @if ($extracurricular->data_siswa)
+                                                    <label for="data_siswa">Document PDF (File Choosen:
+                                                        {{ $extracurricular->data_siswa }})</label>
+                                                    <input type="file" id="data_siswa" name="data_siswa">
+                                                @else
+                                                    <label for="data_siswa">Document PDF</label>
+                                                    <input type="file" id="data_siswa" value="Belum Dipilih"
+                                                        name="data_siswa">
+                                                @endif
+                                                @error('data_siswa')
+                                                    <p class="caption-error mt-2">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-4">
                                     <div class="input-wrapper">
                                         <label for="nama">Nama</label>
                                         <input type="text" id="nama" class="input"
-                                            value="{{ $extracurricular->name }}" required name="name" autocomplete="off">
+                                            value="{{ $extracurricular->name }}" required name="name"
+                                            autocomplete="off">
                                         @error('name')
                                             <p class="caption-error mt-2">{{ $message }}</p>
                                         @enderror

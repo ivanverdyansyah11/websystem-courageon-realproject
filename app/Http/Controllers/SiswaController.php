@@ -10,6 +10,7 @@ use App\Models\Semester;
 use App\Models\Student;
 use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class SiswaController extends Controller
 {
@@ -45,6 +46,52 @@ class SiswaController extends Controller
             'kelas' => Kelas::where('id', $id)->first(),
             'students' => $students,
         ]);
+    }
+
+    public function generate($id)
+    {
+        // $pdf = FacadePdf::loadView('kesiswaan.siswa.generate-siswa');
+        // return $pdf->download('invoice.pdf');
+
+        $students = Student::all();
+
+        $pdf = FacadePdf::loadview('kesiswaan.siswa.generate-siswa', ['students' => $students]);
+        return $pdf->download('laporan-pegawai.pdf');
+
+        // $data = Student::where('kelases_id', $id)->get();
+
+        // // Buat objek PDF
+        // $pdf = new TCPDF();
+        // $pdf->AddPage();
+        // $pdf->SetFont('helvetica', 'B', 12);
+
+        // // Tambahkan data ke PDF
+        // foreach ($data as $item) {
+        //     $pdf->Cell(0, 10, $item->nama_lengkap, 0, 1);
+        // }
+
+        // // Simpan PDF ke file
+        // $pdf->Output('example.pdf');
+
+        // $filename = 'demo.pdf';
+
+        // $data = [
+        //     'students' => Student::where('kelases_id', $id)->get(),
+        // ];
+
+        // $html = view()->make('kesiswaan.siswa.generate-siswa', $data)->render();
+
+        // $pdf = new PDF();
+
+        // $pdf::SetTitle('Hello World');
+        // $pdf::AddPage();
+        // $pdf::WriteHTML($html, true, false, true, false, '');
+
+        // return $pdf->Output('example.pdf', 'D');
+
+        // $pdf::Output(public_path($filename), 'F');
+
+        // return response()->downlaod(public_path($filename));
     }
 
     function detailSectionStudent()

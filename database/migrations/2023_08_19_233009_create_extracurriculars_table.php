@@ -17,6 +17,7 @@ class CreateExtracurricularsTable extends Migration
             $table->id();
             $table->string('icon');
             $table->string('banner');
+            $table->string('data_siswa');
             $table->string('name');
             $table->string('title');
             $table->text('description');

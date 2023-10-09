@@ -34,6 +34,11 @@
                     </form>
                     <a href="{{ route('data-siswa-create', $kelas->id) }}"
                         class="d-none d-md-inline-block button-default">Tambah Siswa</a>
+                    <a href="{{ route('siswa-generate', $kelas->id) }}"
+                        class="d-none d-md-flex button-solid-default align-items-center gap-2">
+                        <div class="icon-export"></div>
+                        Download
+                    </a>
                 </div>
             </div>
             <div class="col-12">
