@@ -351,6 +351,7 @@ Route::middleware('auth')->group(function () {
         Route::controller(EkstrakurikulerController::class)->group(function () {
             Route::get('/kesiswaan/ekstrakurikuler', 'index')->name('ekstrakurikuler-index');
             Route::post('/kesiswaan/ekstrakurikuler/cari', 'search')->name('ekstrakurikuler-search');
+            Route::get('/kesiswaan/ekstrakurikuler/download', 'generate')->name('ekstrakurikuler-generate');
             Route::get('/kesiswaan/ekstrakurikuler/detail-section', 'detailSection');
             Route::post('/kesiswaan/ekstrakurikuler/edit-section', 'updateSection');
 

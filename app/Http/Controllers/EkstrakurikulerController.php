@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EkstrakurikulerExport;
 use App\Models\Extracurricular;
 use App\Models\SectionExtracurricular;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EkstrakurikulerController extends Controller
 {
@@ -35,6 +37,11 @@ class EkstrakurikulerController extends Controller
             'section_extracurricular' => SectionExtracurricular::first(),
             'extracurriculars' => $ekstrakurikulers,
         ]);
+    }
+
+    public function generate()
+    {
+        return Excel::download(new EkstrakurikulerExport, 'data-ekstrakurikuler.xlsx');
     }
 
     function detailSection()
