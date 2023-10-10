@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumni;
 use App\Models\Beasiswa;
+use App\Models\Berita;
 use App\Models\Contact;
 use App\Models\Curriculum;
 use App\Models\Denah;
@@ -65,7 +66,7 @@ class HomepageController extends Controller
             'title' => 'Beranda',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerHome' => HeaderHome::first(),
+            'headerHomes' => HeaderHome::all(),
             'openingHome' => OpeningHome::first(),
             'remarkHome' => RemarkHome::first(),
             'sectionAchievement' => SectionAchievement::first(),
@@ -79,6 +80,8 @@ class HomepageController extends Controller
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
             'journalCount' => Journal::count(),
+            'beritas' => Berita::take(4)->get(),
+            'beritaCount' => Berita::count(),
         ]);
     }
 
@@ -88,7 +91,7 @@ class HomepageController extends Controller
             'title' => 'Profil',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerProfile' => HeaderProfile::first(),
+            'headerProfiles' => HeaderProfile::all(),
             'visiMision' => VisionMission::first(),
             'motto' => Motto::first(),
             'logo' => Logo::first(),
@@ -122,7 +125,7 @@ class HomepageController extends Controller
             'title' => 'Akademik',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerAcademic' => HeaderAcademic::first(),
+            'headerAcademics' => HeaderAcademic::all(),
             'curriculum' => Curriculum::first(),
             'sectionProgram' => SectionProgram::first(),
             'programs' => Program::all(),
@@ -193,7 +196,7 @@ class HomepageController extends Controller
             'title' => 'Kesiswaan',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerStudent' => HeaderStudent::first(),
+            'headerStudents' => HeaderStudent::all(),
             'sectionStudent' => SectionStudent::first(),
             'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
 
@@ -231,7 +234,7 @@ class HomepageController extends Controller
             'title' => 'Sarana Prasarana',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerSaranaPrasarana' => HeaderSaranaPrasarana::first(),
+            'headerSaranaPrasaranas' => HeaderSaranaPrasarana::all(),
             'sectionPrasarana' => SectionPrasarana::first(),
             'prasaranas' => Prasarana::take(4)->get(),
             'prasaranaCount' => Prasarana::count(),
@@ -246,12 +249,14 @@ class HomepageController extends Controller
             'title' => 'Humas',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'headerHumas' => HeaderHumas::first(),
+            'headerHumases' => HeaderHumas::all(),
             'SectionKemitraan' => SectionKemitraan::first(),
             'partnerships' => Partnership::all(),
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
             'journalCount' => Journal::count(),
+            'beritas' => Berita::take(4)->get(),
+            'beritaCount' => Berita::count(),
         ]);
     }
 

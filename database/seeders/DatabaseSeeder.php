@@ -62,9 +62,11 @@ use App\Models\SectionService;
 use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
+use App\Models\SectionVideo;
 use App\Models\Semester;
 use App\Models\Student;
 use App\Models\TahunAjaran;
+use App\Models\Video;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -90,6 +92,13 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'SMA Negeri 1 Selat, Wujudkan Impianmu Yang Tinggi Di Sini!',
             'description' => 'Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
             'button' => 'Lihat Profile',
+        ]);
+
+        HeaderHome::create([
+            'banner' => 'banner-header-2.png',
+            'title_header' => 'SMA Negeri 1 Selat, Wujudkan Impianmu Yang Tinggi Di Sini! 2',
+            'description' => '123 Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
+            'button' => 'Lihat Profile 123',
         ]);
 
         OpeningHome::create([
@@ -124,6 +133,13 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'Profile Dan informasi mengenai SMA Negeri 1 Selat',
             'description' => 'SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
             'button' => 'Lihat Selengkapnya',
+        ]);
+
+        HeaderProfile::create([
+            'banner' => 'banner-header-2.jpg',
+            'title_header' => 'Profile Dan informasi mengenai SMA Negeri 1 Selat 2',
+            'description' => 'SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
+            'button' => 'Lihat Selengkapnya 2',
         ]);
 
         Course::create([
@@ -400,6 +416,13 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Selengkapnya',
         ]);
 
+        HeaderAcademic::create([
+            'banner' => 'banner-header-2.png',
+            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah! 2',
+            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
+            'button' => 'Lihat Selengkapnya 2',
+        ]);
+
         Curriculum::create([
             'banner' => 'banner-kurikulum.png',
             'title_section' => 'Langkah Kami Menghadapi Pendidikan Abad Ke-21',
@@ -640,6 +663,13 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah',
             'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
             'button' => 'Lihat Selengkapnya',
+        ]);
+
+        HeaderStudent::create([
+            'banner' => 'banner-header-2.png',
+            'title_header' => 'Kesiswaan Membentuk Karakter & Kreativitas di Sekolah 2',
+            'description' => 'Kesiswaan di sekolah merupakan peran penting dalam membentuk karakter siswa. Melalui kegiatan ekstrakurikuler dan edukatif, siswa dapat mengasah keterampilan sosial, kepemimpinan, dan kerjasama tim. Program kesiswaan juga membantu mengembangkan ketahanan mental dan emosional.',
+            'button' => 'Lihat Selengkapnya 2',
         ]);
 
         TahunAjaran::create([
@@ -1989,6 +2019,13 @@ class DatabaseSeeder extends Seeder
             'button' => 'Lihat Selengkapnya',
         ]);
 
+        HeaderSaranaPrasarana::create([
+            'banner' => 'banner-header-2.png',
+            'title_header' => 'Lingkungan Belajar Unggul melalui Sarana & Prasarana Sekolah 2',
+            'description' => 'Pentingnya sarana dan prasarana dalam menciptakan lingkungan belajar yang unggul di sekolah. Dalam tulisan ini, akan dipaparkan bagaimana infrastruktur fisik yang baik, pemanfaatan teknologi modern, keselamatan siswa, inklusivitas, dan manajemen fasilitas yang efektif berkontribusi dalam meningkatkan kualitas pendidikan.',
+            'button' => 'Lihat Selengkapnya 2',
+        ]);
+
         SectionPrasarana::create([
             'title_section' => 'Pentingnya Peningkatan Sarana Dan Prasarana Di Sekolah',
             'description' => 'Peningkatan sarana dan prasarana di sekolah untuk menciptakan lingkungan belajar yang optimal. Infrastruktur fisik, teknologi pendidikan, keamanan, dan aksesibilitas.',
@@ -2107,6 +2144,13 @@ class DatabaseSeeder extends Seeder
             'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah',
             'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
             'button' => 'Lihat Selengkapnya',
+        ]);
+
+        HeaderHumas::create([
+            'banner' => 'banner-header-2.png',
+            'title_header' => 'Kemitraan Sekolah-Industri untuk Masa Depan Sekolah 2',
+            'description' => 'Kemitraan antara sekolah dan industri menjadi kunci untuk mempersiapkan generasi muda menghadapi tuntutan dunia kerja. Artikel ini membahas pentingnya kemitraan ini dalam menciptakan kurikulum yang relevan dan mengembangkan keterampilan berdaya saing. Berbagai model kemitraan sukses, manfaatnya, serta cara mengatasi tantangan.',
+            'button' => 'Lihat Selengkapnya 2',
         ]);
 
         SectionKemitraan::create([
@@ -2234,6 +2278,15 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'journal-pdf-8.pdf',
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
+        ]);
+
+        SectionVideo::create([
+            'title' => 'Mempersembahkan tarian kebesaran SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua Video',
+        ]);
+
+        Video::create([
+            'link' => 'https://www.youtube.com/embed/D0UnqGm_miA?si=iZkOKj3FrwbuWIaY',
         ]);
 
         SectionBerita::create([

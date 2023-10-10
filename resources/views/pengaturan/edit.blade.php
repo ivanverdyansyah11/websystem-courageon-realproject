@@ -48,7 +48,7 @@
                             <div class="input-wrapper mb-4">
                                 <label for="username">Nama Pengguna</label>
                                 <input type="text" id="username" class="input" autocomplete="off" name="username"
-                                    value="{{ $user->username }}">
+                                    value="{{ $user->username }}" required>
                                 @error('username')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -56,7 +56,7 @@
                             <div class="input-wrapper mb-3">
                                 <label for="role">Role</label>
                                 <input type="text" id="role" class="input" autocomplete="off" name="role"
-                                    value="{{ $user->role }}">
+                                    value="{{ $user->role }}" required>
                                 @error('role')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
@@ -64,21 +64,14 @@
                             <div class="input-wrapper mb-3">
                                 <label for="email">Email</label>
                                 <input type="text" id="email" class="input" autocomplete="off" name="email"
-                                    value="{{ $user->email }}">
+                                    value="{{ $user->email }}" required>
                                 @error('email')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="input-wrapper mb-3">
-                                <label for="oldPassword">Password Lama</label>
-                                <input type="text" id="oldPassword" class="input" autocomplete="off" name="oldPassword">
-                                @error('oldPassword')
-                                    <p class="caption-error mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-                            <div class="input-wrapper mb-4">
-                                <label for="newPassword">Password Baru</label>
-                                <input type="text" id="newPassword" class="input" autocomplete="off" name="password">
+                                <label for="password">Password Baru</label>
+                                <input type="text" id="password" class="input" autocomplete="off" name="password">
                                 @error('password')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
