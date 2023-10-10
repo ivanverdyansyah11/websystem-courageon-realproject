@@ -32,6 +32,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\SaranaPrasaranaController;
+use App\Http\Controllers\SectionVideoController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\VisiMisiController;
@@ -229,6 +230,17 @@ Route::middleware('auth')->group(function () {
             Route::get('/profil/kontak/detail-contact/{id}', 'detailContact')->name('kontak-detail');
             Route::post('/profil/kontak/edit-contact/{id}', 'updateContact')->name('kontak-update');
             Route::post('/profil/kontak/delete-contact/{id}', 'deleteContact')->name('kontak-delete');
+        });
+
+        Route::controller(SectionVideoController::class)->group(function () {
+            Route::get('/profil/video', 'index')->name('video-index');
+            Route::get('/profil/video/detail-section', 'detailSection');
+            Route::post('/profil/video/edit-section', 'updateSection');
+
+            Route::get('/profil/detail-video/{id}', 'detailVideo');
+            Route::post('/profil/store-video', 'storeVideo')->name('video.store');
+            Route::post('/profil/edit-video/{id}', 'updateVideo');
+            Route::post('/profil/delete-video/{id}', 'deleteVideo')->name('video.delete');
         });
 
         // AKADEMIK

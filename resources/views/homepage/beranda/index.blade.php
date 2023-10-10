@@ -46,7 +46,6 @@
         </section> --}}
         <section class="hero-section position-relative">
             <div class="position-relative ">
-
                 <div class="">
                     <div class="swiper swiper-hero">
                         <div class="swiper-wrapper">
@@ -350,7 +349,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
         <section class="video-section container section-margin-top position-relative">
             <div class="d-flex justify-content-center">

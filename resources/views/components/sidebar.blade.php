@@ -49,6 +49,8 @@
                         class="link-child {{ Request::is('admin/profil/pegawai*') ? 'active' : '' }}">Pegawai</a>
                     <a href="{{ route('kontak-index') }}"
                         class="link-child {{ Request::is('admin/profil/kontak*') ? 'active' : '' }}">Kontak</a>
+                    <a href="{{ route('video-index') }}"
+                        class="link-child {{ Request::is('admin/profil/video*') ? 'active' : '' }}">Video</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik*') ? 'active' : '' }}">

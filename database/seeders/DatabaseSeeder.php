@@ -62,9 +62,11 @@ use App\Models\SectionService;
 use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
+use App\Models\SectionVideo;
 use App\Models\Semester;
 use App\Models\Student;
 use App\Models\TahunAjaran;
+use App\Models\Video;
 use App\Models\VisionMission;
 use Illuminate\Database\Seeder;
 
@@ -2234,6 +2236,15 @@ class DatabaseSeeder extends Seeder
             'document_pdf' => 'journal-pdf-8.pdf',
             'author' => 'Wayan Surya',
             'created_date' => '2023/06/03',
+        ]);
+
+        SectionVideo::create([
+            'title' => 'Mempersembahkan tarian kebesaran SMA Negeri 1 Selat',
+            'button' => 'Lihat Semua Video',
+        ]);
+
+        Video::create([
+            'link' => 'https://www.youtube.com/embed/D0UnqGm_miA?si=iZkOKj3FrwbuWIaY',
         ]);
 
         SectionBerita::create([
