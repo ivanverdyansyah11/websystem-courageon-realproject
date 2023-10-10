@@ -45,12 +45,8 @@ class SettingController extends Controller
             $validatedData['profile'] = $request->oldImage;
         }
 
-        if ($request->oldPassword && $request->password) {
-            if (Hash::check($request->oldPassword, $user['password'])) {
-                $validatedData['password'] = Hash::make($request->password);
-            } else {
-                return redirect(route('pengaturan-index'))->with('success', 'Password Tidak Sesuai!');
-            }
+        if ($request->password) {
+            $validatedData['password'] = Hash::make($request->password);
         }
 
         $user = Auth::first()->update($validatedData);
