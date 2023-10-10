@@ -46,66 +46,39 @@
                 <div class="">
                     <div class="swiper swiper-hero">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="position-relative">
-                                        <div class="position-absolute w-100" style="z-index: 99999">
-                                            <div class="container">
-                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
-                                                    <div class="content-hero-wrapper">
-                                                        <p class="display-4 fw-bold text-white text-capitalize">
-                                                            {!! $headerHumas->title_header !!}
-                                                        </p>
-                                                        <p class="mt-4 desc text-white">
-                                                            {!! $headerHumas->description !!}
-                                                        </p>
-                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="#majalah" class="btn btn-color">{{ $headerHumas->button }}</a>
+                            @foreach($headerHumases as $key => $headerHumas)
+
+                                <div class="swiper-slide">
+                                    <div class="">
+                                        <div class="position-relative">
+                                            <div class="position-absolute w-100" style="z-index: 99999">
+                                                <div class="container">
+                                                    <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                        <div class="content-hero-wrapper">
+                                                            <p class="display-4 fw-bold text-white text-capitalize">
+                                                                {!! $headerHumas->title_header !!}
+                                                            </p>
+                                                            <p class="mt-4 desc text-white">
+                                                                {!! $headerHumas->description !!}
+                                                            </p>
+                                                            <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                                <a href="#majalah" class="btn btn-color">{{ $headerHumas->button }}</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="position-relative w-100">
-                                            <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}"
-                                            alt="hero-section image" class="w-100 hero-img">
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="position-relative">
-                                        <div class="position-absolute w-100" style="z-index: 99999">
-                                            <div class="container">
-                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
-                                                    <div class="content-hero-wrapper">
-                                                        <p class="display-4 fw-bold text-white text-capitalize">
-                                                            {!! $headerHumas->title_header !!} 2
-                                                        </p>
-                                                        <p class="mt-4 desc text-white">
-                                                            {!! $headerHumas->description !!} 2
-                                                        </p>
-                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="#majalah" class="btn btn-color">{{ $headerHumas->button }}</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                            <div class="position-relative w-100">
+                                                <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}"
+                                                alt="hero-section image" class="w-100 hero-img">
                                             </div>
-                                        </div>
-                                        <div class="position-relative w-100">
-                                            <img src="{{ asset('assets/img/humas-images/header-image/' . $headerHumas->banner) }}"
-                                            alt="hero-section image" class="w-100 hero-img">
-                                        </div>
 
+                                        </div>
                                     </div>
+
+
                                 </div>
-
-
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -186,20 +159,20 @@
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
-                    @foreach ($journals as $journal)
+                    @foreach ($beritas as $berita)
                         <div class="col">
                             <div class="card-blog">
                                 <a target="_block"
-                                href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
+                                href="{{ asset('assets/img/humas-images/majalah-image/' . $berita->document_pdf) }}"
                                 class="text-decoration-none">
-                                <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
+                                <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
                                     alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100 rounded">
                                 <p class="mt-3 text-black fw-semibold text-center">
-                                    {{ $journal->title }}
+                                    {{ $berita->title }}
                                 </p>
                                 <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                     <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
-                                    <p class="desc fs-14 lh-base">{{ $journal->created_date }}</p>
+                                    <p class="desc fs-14 lh-base">{{ $berita->created_date }}</p>
                                 </div>
                             </a>
                             </div>
@@ -208,9 +181,9 @@
                     @endforeach
                 </div>
                 <div class="btn-wrapper d-flex justify-content-center mt-4">
-                    @if ($journalCount > 4)
+                    @if ($beritaCount > 4)
                         <a href="{{ route('berita') }}" class="btn btn-color">
-                            {{ $sectionJournal->button }}
+                            Lihat Semua Berita
                         </a>
                     @endif
                 </div>
