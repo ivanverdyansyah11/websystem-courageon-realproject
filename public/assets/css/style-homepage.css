@@ -240,7 +240,7 @@ a{
         border-radius: 8px;
         padding: 20px;
     }
-    .nav-link{
+    .nav-item .nav-link{
         width:100% !important;
         font-weight: 500;
         color: black !important;
@@ -274,7 +274,8 @@ a{
 }
 @media  (min-width: 500px) {
     .centered-content{
-        transform: translateY(100%);
+        transform: translateY(30%);
+        height: 100vh;
     }
 }
 @media  (max-width: 499px) {

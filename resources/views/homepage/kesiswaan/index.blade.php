@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="position-relative w-100">
                                             <img src="{{ asset('assets/img/kesiswaan-images/header-image/' . $headerStudent->banner) }}"
-                                            alt="studefnt section image" class="w-100 hero-img">
+                                            alt="student section image" class="w-100 hero-img">
                                         </div>
 
                                     </div>
