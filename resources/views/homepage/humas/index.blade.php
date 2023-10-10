@@ -120,7 +120,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                       majalah {!! $sectionJournal->title_header !!}
+                        {!! $sectionJournal->title_header !!}
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
@@ -182,7 +182,7 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                        {!! $sectionJournal->title_header !!}
+                        berita {!! $sectionJournal->title_header !!}
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">

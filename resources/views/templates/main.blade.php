@@ -149,6 +149,24 @@
                 },
             }
         })
+        const swiperVideo = new Swiper('.swiper-video', {
+            speed: 1200,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".btn-next-video",
+                prevEl: ".btn-prev-video",
+            },
+            breakpoints: {
+                1: {
+                    slidesPerView: 1,
+                    spaceBetween: 4
+                },
+            }
+        })
         const swiperTesti = new Swiper('.swiper-testi', {
             speed: 500,
             loop: true,
