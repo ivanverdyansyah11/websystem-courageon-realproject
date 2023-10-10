@@ -305,8 +305,10 @@ Route::middleware('auth')->group(function () {
         // KESISWAAN
         Route::controller(KesiswaanController::class)->group(function () {
             Route::get('/kesiswaan', 'index')->name('kesiswaan-index');
-            Route::get('/kesiswaan/detail-header', 'detailHeader');
-            Route::post('/kesiswaan/edit-header', 'updateHeader');
+            Route::get('/kesiswaan/detail-header/{id}', 'detailHeader');
+            Route::post('/kesiswaan/store-header', 'storeHeader')->name('kesiswaan.store');
+            Route::post('/kesiswaan/edit-header/{id}', 'updateHeader');
+            Route::post('/kesiswaan/delete-header/{id}', 'deleteHeader')->name('kesiswaan.delete');
         });
 
         Route::controller(AdministrasiController::class)->group(function () {

@@ -72,10 +72,10 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="col-12 d-flex justify-content-end mt-4">
+                        {{ $section_headers->links() }}
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 d-flex justify-content-end mt-4">
-                {{ $section_headers->links() }}
             </div>
         </div>
 

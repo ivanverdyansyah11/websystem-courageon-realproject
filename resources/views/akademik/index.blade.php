@@ -73,10 +73,10 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="col-12 d-flex justify-content-end mt-4">
+                        {{ $section_headers->links() }}
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 d-flex justify-content-end mt-4">
-                {{ $section_headers->links() }}
             </div>
         </div>
 
@@ -95,10 +95,10 @@
                                     <label for="banner">Banner</label>
                                     <div class="wrapper d-flex align-items-end">
                                         <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                            class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
+                                            class="img-fluid tag-add-header" alt="Banner Section Header" width="80"
                                             data-value="banner_header">
                                         <div class="wrapper-image w-100">
-                                            <input type="file" id="banner" class="input-edit-header" name="banner"
+                                            <input type="file" id="banner" class="input-add-header" name="banner"
                                                 required>
                                         </div>
                                     </div>
@@ -211,10 +211,10 @@
                                     <div class="wrapper d-flex align-items-end">
                                         <input type="hidden" name="oldImage" data-value="oldImage_header">
                                         <img src="{{ asset('assets/img/other/img-notfound.svg') }}"
-                                            class="img-fluid tag-add-header" alt="Banner Section Header" width="80"
+                                            class="img-fluid tag-edit-header" alt="Banner Section Header" width="80"
                                             data-value="banner_header">
                                         <div class="wrapper-image w-100">
-                                            <input type="file" id="banner" class="input-add-header"
+                                            <input type="file" id="banner" class="input-edit-header"
                                                 name="banner">
                                         </div>
                                     </div>
