@@ -187,7 +187,7 @@
                             <a href="{{ route('detail-projek', $project->id) }}" class="col">
                                 <div class="card-p5">
                                     <img src="{{ asset('assets/img/akademik-images/proyek-image/' . $project->image) }}"
-                                        alt="{{ $project->title }}" class="w-100">
+                                        alt="{{ $project->title }}" class="w-100 square-img">
                                     <div class="mt-3 text-center">
                                         <p class="text-black fw-bold">{{ $project->topic }}</p>
                                         <p class="desc fs-13 text-capitalize">{{ Str::limit($project->description, 31) }}

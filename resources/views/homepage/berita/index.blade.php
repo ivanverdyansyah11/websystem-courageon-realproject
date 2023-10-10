@@ -20,12 +20,13 @@
                         <div class="card-blog">
                             <a href="{{ route('detail-berita-homepage', $berita->id) }}" class="text-decoration-none">
                                 <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
-                                    alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">
+                                    alt="{!! $berita->title !!}" class="w-100 landscape-card-img">
                                 <p class="mt-3 text-black fw-semibold text-center">
                                     {!! $berita->title !!}
                                 </p>
                                 <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
-                                    <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
+
+                                    <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="" class="">
                                     <p class="desc fs-14 lh-base">{{ $berita->created_date }}</p>
                                 </div>
                             </a>

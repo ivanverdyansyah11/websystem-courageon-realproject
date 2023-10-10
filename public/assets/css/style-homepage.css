@@ -220,6 +220,9 @@ a{
     /* color: var(--primary-color) !important; */
     color: var(--primary-color) !important;
 }
+footer .nav-link.active{
+    color: var(--primary-color) !important;
+}
 .nav-item .nav-link{
     width: fit-content !important;
     font-weight: 500;
@@ -234,6 +237,7 @@ a{
 .logo-size-navbar{
     width: 100px;
 }
+
 @media (max-width: 899px) {
     .navbar-nav{
         background-color: #f7f7f7;
@@ -410,12 +414,45 @@ section .row .col-lg-5 img{
     object-position: center;
     filter: brightness(38%);
 
+
 }
 
 /*all section setting*/
 
 
 /*card styles*/
+.card-sapras img{
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.card-blog img, .card-prestasi img{
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.landscape-card-img{
+    width: 100%;
+    aspect-ratio: 5 / 3 !important;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.square-img, .card-testi img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.profile-img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.card-testi img, .testi-img{
+    width: 54px !important;
+    height: 54px !important;
+}
+.card-extra img{
+    width: 32px;
+    height: 32px;
+}
 .card-testi, .card-desc-section{
     padding: 36px;
     border-radius: 12px;

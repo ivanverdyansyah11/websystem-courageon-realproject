@@ -197,7 +197,7 @@
                     <a href="{{ route('detail-ekstrakurikuler', $extra->id) }}" class="col">
                         <div class="card-extra d-flex gap-3 align-items-center">
                             <img src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extra->icon) }}"
-                                alt="gambar {{ $extra->name }}" class="">
+                                alt="gambar {{ $extra->name }}" class="square-img">
                             <p class="card-extra-text text-black fs-18">{{ $extra->name }}</p>
                         </div>
                     </a>
@@ -225,7 +225,7 @@
                             <a href="{{ route('detail-pelayanan', $karir->id) }}" class="col">
                                 <div class="card-p5">
                                     <img src="{{ asset('assets/img/kesiswaan-images/pelayanan-karir-image/' . $karir->dokumentasi) }}"
-                                        alt="{{ $karir->judul }}" class="w-100">
+                                        alt="{{ $karir->judul }}" class="w-100 square-img">
                                     <div class="mt-3 text-center">
                                         <p class="text-black fw-bold">
                                             {{ Str::limit($karir->judul, 26) }}
@@ -274,7 +274,7 @@
                                     <div class="image-wrapper position-relative">
                                         <div class="position-relative">
                                             <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
+                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi landscape-card-img">
                                         </div>
                                         <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                             <div
@@ -375,7 +375,7 @@
                                     <div class="d-flex gap-3 align-items-center">
                                         <div class="img-testi-wrapper">
                                             <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
-                                                alt="testimonial image" class="img-fluid rounded">
+                                                alt="testimonial image" class="img-fluid rounded square-img testi-img">
                                         </div>
                                         <div class="d-flex flex-column">
                                             <p class="fs-5 fw-semibold text-capitalize">

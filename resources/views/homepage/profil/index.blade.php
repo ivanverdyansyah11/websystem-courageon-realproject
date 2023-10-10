@@ -308,10 +308,10 @@
                                 <div class="card-school-people text-center">
                                     @if ($management->image)
                                         <img src="{{ asset('assets/img/profil-images/manajemen-image/' . $management->image) }}"
-                                            alt="{{ $management->fullname }}" class="w-100">
+                                            alt="{{ $management->fullname }}" class="w-100 profile-img">
                                     @else
                                         <img src="{{ asset('assets-homepage/img/management1.png') }}"
-                                            alt="{{ $management->fullname }}" class="w-100">
+                                            alt="{{ $management->fullname }}" class="w-100 profile-img">
                                     @endif
                                     <p class="text-black fw-bold fs-18 mt-3">{{ $management->fullname }}</p>
                                     <p class="desc">{{ $management->position }}</p>
@@ -345,10 +345,10 @@
                                 <div class="card-school-people text-center">
                                     @if ($teacher->image)
                                         <img src="{{ asset('assets/img/profil-images/guru-image/' . $teacher->image) }}"
-                                            alt="{{ $teacher->fullname }}" class="w-100">
+                                            alt="{{ $teacher->fullname }}" class="w-100 profile-img">
                                     @else
                                         <img src="{{ asset('assets-homepage/img/teacher1.png') }}"
-                                            alt="{{ $teacher->fullname }}" class="w-100">
+                                            alt="{{ $teacher->fullname }}" class="w-100 profile-img">
                                     @endif
                                     <p class="text-black fw-bold fs-18 mt-3">{{ $teacher->fullname }}</p>
                                     <p class="desc">{!! $teacher->position !!}</p>
@@ -380,10 +380,10 @@
                                 <div class="card-school-people text-center">
                                     @if ($staff->image)
                                         <img src="{{ asset('assets/img/profil-images/pegawai-image/' . $staff->image) }}"
-                                            alt="{{ $staff->fullname }}" class="w-100">
+                                            alt="{{ $staff->fullname }}" class="w-100 profile-img">
                                     @else
                                         <img src="{{ asset('assets-homepage/img/employee1.png') }}"
-                                            alt="{{ $staff->fullname }}" class="w-100">
+                                            alt="{{ $staff->fullname }}" class="w-100 profile-img">
                                     @endif
                                     <p class="text-black fw-bold fs-18 mt-3">{{ $staff->fullname }}</p>
                                     <p class="desc">{{ $staff->position }}</p>

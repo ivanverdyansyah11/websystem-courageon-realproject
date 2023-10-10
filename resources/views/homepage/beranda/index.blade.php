@@ -108,7 +108,7 @@
                                     <div class="image-wrapper position-relative">
                                         <div class="position-relative">
                                             <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi">
+                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi landscape-card-img">
                                         </div>
                                         <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                             <div
@@ -218,7 +218,7 @@
                                     href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                                     class="text-decoration-none">
                                     <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
-                                        alt="{{ $journal->title }}" class="w-100 img-fluid rounded">
+                                        alt="{{ $journal->title }}" class="w-100 img-fluid rounded landscape-card-img">
                                     <p class="mt-3 text-black fw-semibold text-center">
                                         {!! $journal->title !!}
                                     </p>
@@ -259,7 +259,7 @@
                                         <div class="d-flex gap-3 align-items-center">
                                             <div class="img-testi-wrapper">
                                                 <img src="{{ asset('assets/img/kesiswaan-images/alumni-image/' . $alumni->profile) }}"
-                                                    alt="testimonial image" class="img-fluid rounded">
+                                                    alt="testimonial image" class="img-fluid rounded square-img">
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <p class="fs-5 fw-semibold text-capitalize">
@@ -407,7 +407,7 @@
                                 <a href="{{ route('detail-berita-homepage', $berita->id) }}"
                                     class="text-decoration-none">
                                     <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
-                                        alt="{{ $berita->title }}" class="w-100 img-fluid rounded">
+                                        alt="{{ $berita->title }}" class="w-100 img-fluid rounded landscape-card-img">
                                     <p class="mt-3 text-black fw-semibold text-center">
                                         {!! $berita->title !!}
                                     </p>
