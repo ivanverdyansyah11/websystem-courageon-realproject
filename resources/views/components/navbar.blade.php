@@ -1,4 +1,4 @@
-<div class="position-absolute w-100  {{ Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') || Request::is('berita*') || Request::is('prestasi*') || Request::is('sarana-prasarana/detail') || Request::is('kategori-prestasi*') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'd-none' : 'd-inline-block' }}"
+<div class="position-absolute w-100  {{ Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') || Request::is('berita*') || Request::is('majalah*') || Request::is('prestasi*') || Request::is('sarana-prasarana/detail') || Request::is('kategori-prestasi*') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'd-none' : 'd-inline-block' }}"
     style="z-index: 999999" style="z-index: 999999">
     <nav class="navbar navbar-expand-lg py-4 navbar-dark">
         <div class="container">

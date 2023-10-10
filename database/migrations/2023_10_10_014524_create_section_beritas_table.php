@@ -16,6 +16,7 @@ class CreateSectionBeritasTable extends Migration
         Schema::create('section_beritas', function (Blueprint $table) {
             $table->id();
             $table->string('title_header');
+            $table->string('button');
             $table->timestamps();
         });
     }

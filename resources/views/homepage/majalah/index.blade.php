@@ -7,10 +7,10 @@
                 <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
                     {!! $sectionJournal->title_header !!}
                 </p>
-                <form action="{{ route('berita-cari') }}" method="POST"
-                    class="input-wrapper long-searchbar d-flex justify-content-between gap-3">
+                <form action="{{ route('majalah-cari') }}" method="POST"
+                    class="mt-3 input-wrapper long-searchbar d-flex justify-content-between gap-3">
                     @csrf
-                    <input type="search" class="input-text w-100 desc" name="search" placeholder="Masukkan judul berita">
+                    <input type="search" class="input-text w-100 desc" name="search" placeholder="Cari majalah">
                     <button class="btn btn-color btn-input">cari</button>
                 </form>
             </div>
@@ -18,7 +18,8 @@
                 @foreach ($journals as $journal)
                     <div class="col">
                         <div class="card-blog">
-                            <a href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
+                            <a target="_block"
+                                href="{{ asset('assets/img/humas-images/majalah-image/' . $journal->document_pdf) }}"
                                 class="text-decoration-none">
                                 <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                                     alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota" class="w-100">

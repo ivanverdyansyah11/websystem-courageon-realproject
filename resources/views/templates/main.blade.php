@@ -16,6 +16,7 @@
             Request::is('prestasi*') ||
             Request::is('kategori-prestasi*') ||
             Request::is('berita*') ||
+            Request::is('majalah*') ||
             Request::is('manajemen*') ||
             Request::is('guru*') ||
             Request::is('pegawai*') ||
@@ -49,6 +50,7 @@
             !Request::is('prestasi*') ||
             !Request::is('kategori-prestasi*') ||
             !Request::is('berita*') ||
+            !Request::is('majalah*') ||
             !Request::is('manajemen*') ||
             !Request::is('guru*') ||
             !Request::is('pegawai*') ||
@@ -77,6 +79,7 @@
             Request::is('prestasi*') ||
             Request::is('kategori-prestasi*') ||
             Request::is('berita*') ||
+            Request::is('majalah*') ||
             Request::is('manajemen*') ||
             Request::is('guru*') ||
             Request::is('pegawai*') ||

@@ -54,8 +54,10 @@ use App\Models\SectionService;
 use App\Models\SectionStaff;
 use App\Models\SectionStudent;
 use App\Models\SectionTeacher;
+use App\Models\SectionVideo;
 use App\Models\Student;
 use App\Models\TahunAjaran;
+use App\Models\Video;
 use App\Models\VisionMission;
 use Illuminate\Http\Request;
 
@@ -81,8 +83,11 @@ class HomepageController extends Controller
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
             'journalCount' => Journal::count(),
+            'sectionBerita' => SectionBerita::first(),
             'beritas' => Berita::take(4)->get(),
             'beritaCount' => Berita::count(),
+            'sectionVideo' => SectionVideo::first(),
+            'videos' => Video::all(),
         ]);
     }
 
@@ -256,6 +261,7 @@ class HomepageController extends Controller
             'sectionJournal' => SectionJournal::first(),
             'journals' => Journal::take(4)->get(),
             'journalCount' => Journal::count(),
+            'sectionBerita' => SectionBerita::first(),
             'beritas' => Berita::take(4)->get(),
             'beritaCount' => Berita::count(),
         ]);

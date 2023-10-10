@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-{{--    @dd($beritas)--}}
+    {{--    @dd($beritas) --}}
     <main class="">
         {{-- <section class="hero-section container position-relative">
             <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
@@ -51,36 +51,36 @@
                     <div class="swiper swiper-hero">
                         <div class="swiper-wrapper">
                             @foreach ($headerHomes as $key => $headerHome)
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="position-relative">
-                                        <div class="position-absolute w-100" style="z-index: 99999">
-                                            <div class="container">
-                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
-                                                    <div class="content-hero-wrapper">
-                                                        <p class="display-4 fw-bold text-white text-capitalize">
-                                                            {!! $headerHome->title_header !!}
-                                                        </p>
-                                                        <p class="mt-4 desc text-white">
-                                                            {!! $headerHome->description !!}
-                                                        </p>
-                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="{{ route('profil') }}" class="btn btn-color">{{ $headerHome->button }}</a>
+                                <div class="swiper-slide">
+                                    <div class="">
+                                        <div class="position-relative">
+                                            <div class="position-absolute w-100" style="z-index: 99999">
+                                                <div class="container">
+                                                    <div
+                                                        class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                        <div class="content-hero-wrapper">
+                                                            <p class="display-4 fw-bold text-white text-capitalize">
+                                                                {!! $headerHome->title_header !!}
+                                                            </p>
+                                                            <p class="mt-4 desc text-white">
+                                                                {!! $headerHome->description !!}
+                                                            </p>
+                                                            <div
+                                                                class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                                <a href="{{ route('profil') }}"
+                                                                    class="btn btn-color">{{ $headerHome->button }}</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="position-relative w-100">
+                                                <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
+                                                    alt="hero-section image" class="w-100 hero-img">
+                                            </div>
                                         </div>
-                                        <div class="position-relative w-100">
-                                            <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
-                                            alt="hero-section image" class="w-100 hero-img">
-                                        </div>
-
                                     </div>
                                 </div>
-
-
-                            </div>
                             @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
@@ -234,7 +234,7 @@
                 </div>
                 <div class="btn-wrapper d-flex justify-content-center mt-4">
                     @if ($journalCount > 4)
-                        <a href="{{ route('berita') }}" class="btn btn-color">
+                        <a href="{{ route('majalah') }}" class="btn btn-color">
                             {!! $sectionJournal->button !!}
                         </a>
                     @endif
@@ -326,18 +326,20 @@
         <section class="video-section container section-margin-top position-relative">
             <div class="d-flex justify-content-center">
                 <p class="text-md-center text-start fw-bold display-5 title-section-text">
-                    Mempersembahkan tarian kebesaran  SMA Negeri 1 Selat
+                    {!! $sectionVideo->title !!}
                 </p>
             </div>
             <div class="mt-5 position-relative">
                 <div class="swiper swiper-video">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <iframe class="yt-video" src="https://www.youtube.com/embed/D0UnqGm_miA?si=iZkOKj3FrwbuWIaY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
-                        <div class="swiper-slide">
-                            <iframe class="yt-video" src="https://www.youtube.com/embed/D0UnqGm_miA?si=iZkOKj3FrwbuWIaY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
+                        @foreach ($videos as $video)
+                            <div class="swiper-slide">
+                                <iframe class="yt-video" src="{{ $video->link }}" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination position-relative mt-4"></div>
                 </div>
@@ -345,13 +347,17 @@
                     <div class="swiper-navigation-wrapper d-flex flex-row justify-content-between">
                         <div class="btn-prev-video">
                             <div class="btn-video-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                    viewBox="0 0 19 18" fill="none">
                                     <g clip-path="url(#clip0_1625_1231)">
-                                        <path d="M13.4621 18.0204C13.7799 17.9373 14.0652 17.8049 14.2772 17.5373C14.6325 17.0888 14.64 16.4376 14.2819 15.9884C14.2126 15.9014 14.136 15.8197 14.0573 15.741C11.866 13.5488 9.67405 11.3572 7.48165 9.16617C7.4322 9.11677 7.37605 9.07407 7.2608 8.97452C7.3489 8.92272 7.4207 8.89792 7.4691 8.84962C9.6794 6.64322 11.8867 4.43387 14.097 2.22742C14.4866 1.83842 14.6497 1.39316 14.4827 0.852365C14.2345 0.0485646 13.2087 -0.277636 12.5425 0.235714C12.4683 0.292864 12.3973 0.355165 12.331 0.421365C9.78995 2.96117 7.24931 5.50132 4.70951 8.04242C4.23486 8.51732 4.1376 9.10752 4.45315 9.64317C4.5294 9.77257 4.63595 9.88762 4.74305 9.99482C7.21545 12.4705 9.69125 14.9427 12.1618 17.4201C12.4356 17.6947 12.7181 17.9396 13.1098 18.0205C13.2272 18.0204 13.3447 18.0204 13.4621 18.0204Z" fill="white"/>
+                                        <path
+                                            d="M13.4621 18.0204C13.7799 17.9373 14.0652 17.8049 14.2772 17.5373C14.6325 17.0888 14.64 16.4376 14.2819 15.9884C14.2126 15.9014 14.136 15.8197 14.0573 15.741C11.866 13.5488 9.67405 11.3572 7.48165 9.16617C7.4322 9.11677 7.37605 9.07407 7.2608 8.97452C7.3489 8.92272 7.4207 8.89792 7.4691 8.84962C9.6794 6.64322 11.8867 4.43387 14.097 2.22742C14.4866 1.83842 14.6497 1.39316 14.4827 0.852365C14.2345 0.0485646 13.2087 -0.277636 12.5425 0.235714C12.4683 0.292864 12.3973 0.355165 12.331 0.421365C9.78995 2.96117 7.24931 5.50132 4.70951 8.04242C4.23486 8.51732 4.1376 9.10752 4.45315 9.64317C4.5294 9.77257 4.63595 9.88762 4.74305 9.99482C7.21545 12.4705 9.69125 14.9427 12.1618 17.4201C12.4356 17.6947 12.7181 17.9396 13.1098 18.0205C13.2272 18.0204 13.3447 18.0204 13.4621 18.0204Z"
+                                            fill="white" />
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_1625_1231">
-                                            <rect width="18" height="18" fill="white" transform="matrix(-1 0 0 1 18.4141 0)"/>
+                                            <rect width="18" height="18" fill="white"
+                                                transform="matrix(-1 0 0 1 18.4141 0)" />
                                         </clipPath>
                                     </defs>
                                 </svg>
@@ -359,17 +365,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="position-absolute ] end-0 swiper-navigation-wrapper d-md-block d-none" style="z-index: 99999999">
+                <div class="position-absolute end-0 swiper-navigation-wrapper d-md-block d-none"
+                    style="z-index: 99999999">
                     <div class="swiper-navigation-wrapper d-flex flex-row justify-content-between">
                         <div class="btn-next-video">
                             <div class="btn-video-wrapper">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                    viewBox="0 0 19 18" fill="none">
                                     <g clip-path="url(#clip0_1625_1227)">
-                                        <path d="M5.53892 18.0204C5.22107 17.9373 4.93577 17.8049 4.72377 17.5373C4.36847 17.0888 4.36102 16.4376 4.71912 15.9884C4.78842 15.9014 4.86502 15.8197 4.94372 15.741C7.13502 13.5488 9.32692 11.3572 11.5193 9.16617C11.5688 9.11677 11.6249 9.07407 11.7402 8.97452C11.6521 8.92272 11.5803 8.89792 11.5319 8.84962C9.32157 6.64322 7.11427 4.43387 4.90402 2.22742C4.51437 1.83842 4.35127 1.39316 4.51827 0.852365C4.76652 0.0485646 5.79228 -0.277636 6.45848 0.235714C6.53268 0.292864 6.60372 0.355165 6.66997 0.421365C9.21102 2.96117 11.7517 5.50132 14.2915 8.04242C14.7661 8.51732 14.8634 9.10752 14.5478 9.64317C14.4716 9.77257 14.365 9.88762 14.2579 9.99482C11.7855 12.4705 9.30972 14.9427 6.83917 17.4201C6.56537 17.6947 6.28287 17.9396 5.89117 18.0205C5.77377 18.0204 5.65632 18.0204 5.53892 18.0204Z" fill="white"/>
+                                        <path
+                                            d="M5.53892 18.0204C5.22107 17.9373 4.93577 17.8049 4.72377 17.5373C4.36847 17.0888 4.36102 16.4376 4.71912 15.9884C4.78842 15.9014 4.86502 15.8197 4.94372 15.741C7.13502 13.5488 9.32692 11.3572 11.5193 9.16617C11.5688 9.11677 11.6249 9.07407 11.7402 8.97452C11.6521 8.92272 11.5803 8.89792 11.5319 8.84962C9.32157 6.64322 7.11427 4.43387 4.90402 2.22742C4.51437 1.83842 4.35127 1.39316 4.51827 0.852365C4.76652 0.0485646 5.79228 -0.277636 6.45848 0.235714C6.53268 0.292864 6.60372 0.355165 6.66997 0.421365C9.21102 2.96117 11.7517 5.50132 14.2915 8.04242C14.7661 8.51732 14.8634 9.10752 14.5478 9.64317C14.4716 9.77257 14.365 9.88762 14.2579 9.99482C11.7855 12.4705 9.30972 14.9427 6.83917 17.4201C6.56537 17.6947 6.28287 17.9396 5.89117 18.0205C5.77377 18.0204 5.65632 18.0204 5.53892 18.0204Z"
+                                            fill="white" />
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_1625_1227">
-                                            <rect width="18" height="18" fill="white" transform="translate(0.586914)"/>
+                                            <rect width="18" height="18" fill="white"
+                                                transform="translate(0.586914)" />
                                         </clipPath>
                                     </defs>
                                 </svg>
@@ -386,15 +397,14 @@
             <div class="position-relative">
                 <div class="d-flex justify-content-center">
                     <p class="title-section-text text-center display-5 text-black fw-bold text-capitalize">
-                        berita {!! $sectionJournal->title_header !!}
+                        {!! $sectionBerita->title_header !!}
                     </p>
                 </div>
                 <div class="content-section mt-5 row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4">
                     @foreach ($beritas as $berita)
                         <div class="col">
                             <div class="card-blog">
-                                <a target="_block"
-                                    href="{{ asset('assets/img/humas-images/berita-image/' . $berita->document_pdf) }}"
+                                <a href="{{ route('detail-berita-homepage', $berita->id) }}"
                                     class="text-decoration-none">
                                     <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
                                         alt="{{ $berita->title }}" class="w-100 img-fluid rounded">
@@ -414,7 +424,7 @@
                 <div class="btn-wrapper d-flex justify-content-center mt-4">
                     @if ($beritaCount > 4)
                         <a href="{{ route('berita') }}" class="btn btn-color">
-                            Lihat Semua
+                            {!! $sectionBerita->button !!}
                         </a>
                     @endif
                 </div>
@@ -447,9 +457,5 @@
     </main>
 
 
-    <script>
-
-
-
-    </script>
+    <script></script>
 @endsection
