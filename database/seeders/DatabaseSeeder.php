@@ -2291,7 +2291,6 @@ class DatabaseSeeder extends Seeder
 
         SectionBerita::create([
             'title_header' => 'Berita Terbaru Mengenai SMA Negeri 1 Selat',
-            'button' => 'Lihat Semua Berita',
         ]);
 
         Berita::create([

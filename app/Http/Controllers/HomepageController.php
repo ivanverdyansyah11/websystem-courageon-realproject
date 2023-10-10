@@ -274,14 +274,10 @@ class HomepageController extends Controller
 
     function beritaCari(Request $request)
     {
-        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')
-            ->orWhere('status', 'like', '%' . $request->search . '%')
-            ->orWhere('hasil', 'like', '%' . $request->search . '%')
-            ->orWhere('tanggal', 'like', '%' . $request->search . '%')
-            ->orWhere('nama_peserta', 'like', '%' . $request->search . '%')
-            ->orWhere('pembina', 'like', '%' . $request->search . '%')
-            ->orWhere('penyelenggara', 'like', '%' . $request->search . '%')
-            ->orWhere('tingkat', 'like', '%' . $request->search . '%')
+        $results = Berita::where('title', 'like', '%' . $request->search . '%')
+            ->orWhere('author', 'like', '%' . $request->search . '%')
+            ->orWhere('created_date', 'like', '%' . $request->search . '%')
+            ->orWhere('description', 'like', '%' . $request->search . '%')
             ->get();
 
         return view('homepage.berita.index', [
@@ -299,8 +295,8 @@ class HomepageController extends Controller
             'title' => 'Berita',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
-            'berita' => Berita::where('id', $id)->get(),
-            'rekomendasi' => Berita::whereNotIn('id', [$id])->get(),
+            'berita' => Berita::where('id', $id)->first(),
+            'rekomendasi' => Berita::whereNotIn('id', [$id])->take(5)->get(),
         ]);
     }
 
@@ -358,7 +354,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'achievement' => Prestasi::where('id', $id)->first(),
             'kategori_prestasi' => KategoriPrestasi::all(),
-            'rekomendasi' => Prestasi::whereNotIn('id', [$id])->get(),
+            'rekomendasi' => Prestasi::whereNotIn('id', [$id])->take(5)->get(),
         ]);
     }
 
@@ -440,7 +436,7 @@ class HomepageController extends Controller
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
             'project' => Project::where('id', $id)->first(),
-            'rekomendasi' => Project::whereNotIn('id', [$id])->get(),
+            'rekomendasi' => Project::whereNotIn('id', [$id])->take(5)->get(),
         ]);
     }
 
@@ -451,7 +447,7 @@ class HomepageController extends Controller
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
             'extracurriculars' => Extracurricular::where('id', $id)->first(),
-            'rekomendasi' => Extracurricular::whereNotIn('id', [$id])->get(),
+            'rekomendasi' => Extracurricular::whereNotIn('id', [$id])->take(5)->get(),
         ]);
     }
 
@@ -475,7 +471,7 @@ class HomepageController extends Controller
             'students' => Student::all(),
             'kelases' => Kelas::all(),
             'pelayananKarir' => PelayananKarir::where('id', $id)->first(),
-            'rekomendasi' => PelayananKarir::whereNotIn('id', [$id])->get(),
+            'rekomendasi' => PelayananKarir::whereNotIn('id', [$id])->take(5)->get(),
         ]);
     }
 

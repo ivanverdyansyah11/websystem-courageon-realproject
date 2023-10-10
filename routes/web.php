@@ -62,10 +62,10 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/kesiswaan', 'kesiswaan')->name('kesiswaan');
     Route::get('/sarana-prasarana', 'saranaPrasarana')->name('sarana-prasarana');
     Route::get('/humas', 'humas')->name('humas');
-    
+
     Route::get('/berita', 'berita')->name('berita');
     Route::post('/berita/cari', 'beritaCari')->name('berita-cari');
-    Route::get('/berita/{id}', 'detailBerita')->name('detail-berita');
+    Route::get('/berita/{id}', 'detailBerita')->name('detail-berita-homepage');
 
     Route::get('/prestasi', 'prestasi')->name('prestasi');
     Route::post('/prestasi/cari', 'prestasiCari')->name('prestasi-cari');
