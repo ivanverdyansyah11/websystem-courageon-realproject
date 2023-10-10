@@ -482,8 +482,10 @@ Route::middleware('auth')->group(function () {
         // HUMAS
         Route::controller(HumasController::class)->group(function () {
             Route::get('/humas', 'index')->name('humas-index');
-            Route::get('/humas/detail-header', 'detailHeader');
-            Route::post('/humas/edit-header', 'updateHeader');
+            Route::get('/humas/detail-header/{id}', 'detailHeader');
+            Route::post('/humas/store-header', 'storeHeader')->name('humas.store');
+            Route::post('/humas/edit-header/{id}', 'updateHeader');
+            Route::post('/humas/delete-header/{id}', 'deleteHeader')->name('humas.delete');
         });
 
         Route::controller(KemitraanController::class)->group(function () {

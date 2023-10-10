@@ -11,17 +11,42 @@ class HumasController extends Controller
     {
         return view('humas.index', [
             'title' => 'Humas',
-            'section_header' => HeaderHumas::first(),
+            'section_headers' => HeaderHumas::paginate(6),
         ]);
     }
 
-    function detailHeader()
+    function detailHeader($id)
     {
-        $section_humas = HeaderHumas::first();
-        return response()->json($section_humas);
+        $section_header = HeaderHumas::where('id', $id)->first();
+        return response()->json($section_header);
     }
 
-    function updateHeader(Request $request)
+    function storeHeader(Request $request)
+    {
+        $validatedData = $request->validate([
+            'banner' => 'required|image|mimes:jpeg,png,jpg',
+            'title_header' => 'required|string|max:255',
+            'description' => 'required|string',
+            'button' => 'required|string|max:255',
+        ]);
+
+        if ($request->file('banner')) {
+            $image = $request->file('banner');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/humas-images/header-image/'), $imageName);
+            $validatedData['banner'] = $imageName;
+        }
+
+        $headerHome = HeaderHumas::create($validatedData);
+
+        if ($headerHome) {
+            return redirect(route('humas-index'))->with('success', 'Berhasil Tambah Section Header!');
+        } else {
+            return redirect(route('humas-index'))->with('failed', 'Gagal Tambah Section Header!');
+        }
+    }
+
+    function updateHeader($id, Request $request)
     {
         $validatedData = $request->validate([
             'title_header' => 'required|string|max:255',
@@ -43,12 +68,32 @@ class HumasController extends Controller
             $validatedData['banner'] = $request->oldImage;
         }
 
-        $headerHumas = HeaderHumas::first()->update($validatedData);
+        $headerHome = HeaderHumas::where('id', $id)->first()->update($validatedData);
 
-        if ($headerHumas) {
+        if ($headerHome) {
             return redirect(route('humas-index'))->with('success', 'Berhasil Update Section Header!');
         } else {
             return redirect(route('humas-index'))->with('failed', 'Gagal Update Section Header!');
+        }
+    }
+
+    function deleteHeader($id)
+    {
+        $headerHome = HeaderHumas::where('id', $id)->first();
+
+        if ($headerHome->banner) {
+            if (file_exists(public_path('assets/img/humas-images/header-image/') . $headerHome->banner) && $headerHome->banner) {
+                $imagePath = public_path('assets/img/humas-images/header-image/') . $headerHome->banner;
+                unlink($imagePath);
+            }
+        }
+
+        $headerHome = $headerHome->delete();
+
+        if ($headerHome) {
+            return redirect(route('humas-index'))->with('success', 'Berhasil Hapus Section Header!');
+        } else {
+            return redirect(route('humas-index'))->with('failed', 'Gagal Hapus Section Header!');
         }
     }
 }
