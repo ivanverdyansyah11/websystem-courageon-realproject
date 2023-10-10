@@ -20,7 +20,7 @@
                 <h5 class="subtitle">Section Header</h5>
                 <button type="button" class="d-none d-md-inline-block button-default" data-bs-toggle="modal"
                     data-bs-target="#addSectionHeaderModal">Tambah
-                    Hero Beranda</button>
+                    Hero Kesiswaan</button>
             </div>
             <div class="col-12">
                 <div class="row table-default">

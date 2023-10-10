@@ -447,8 +447,10 @@ Route::middleware('auth')->group(function () {
         // SARANA & PRASARANA
         Route::controller(SaranaController::class)->group(function () {
             Route::get('/sarana-prasarana', 'index')->name('sarana-index');
-            Route::get('/sarana-prasarana/detail-header', 'detailHeader');
-            Route::post('/sarana-prasarana/edit-header', 'updateHeader');
+            Route::get('/sarana-prasarana/detail-header/{id}', 'detailHeader');
+            Route::post('/sarana-prasarana/store-header', 'storeHeader')->name('sarana.store');
+            Route::post('/sarana-prasarana/edit-header/{id}', 'updateHeader');
+            Route::post('/sarana-prasarana/delete-header/{id}', 'deleteHeader')->name('sarana.delete');
         });
 
         Route::controller(PrasaranaController::class)->group(function () {
