@@ -38,6 +38,7 @@ use App\Models\RemarkHome;
 use App\Models\SectionAchievement;
 use App\Models\SectionAlumni;
 use App\Models\SectionBeasiswa;
+use App\Models\SectionBerita;
 use App\Models\SectionContact;
 use App\Models\SectionDenah;
 use App\Models\SectionExtracurricular;
@@ -260,6 +261,49 @@ class HomepageController extends Controller
         ]);
     }
 
+    function berita()
+    {
+        return view('homepage.berita.index', [
+            'title' => 'Berita',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'sectionBerita' => SectionBerita::first(),
+            'beritas' => Berita::all(),
+        ]);
+    }
+
+    function beritaCari(Request $request)
+    {
+        $results = Prestasi::where('nama_kegiatan', 'like', '%' . $request->search . '%')
+            ->orWhere('status', 'like', '%' . $request->search . '%')
+            ->orWhere('hasil', 'like', '%' . $request->search . '%')
+            ->orWhere('tanggal', 'like', '%' . $request->search . '%')
+            ->orWhere('nama_peserta', 'like', '%' . $request->search . '%')
+            ->orWhere('pembina', 'like', '%' . $request->search . '%')
+            ->orWhere('penyelenggara', 'like', '%' . $request->search . '%')
+            ->orWhere('tingkat', 'like', '%' . $request->search . '%')
+            ->get();
+
+        return view('homepage.berita.index', [
+            'title' => 'Berita',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'sectionBerita' => SectionBerita::first(),
+            'beritas' => $results,
+        ]);
+    }
+
+    function detailBerita($id)
+    {
+        return view('homepage.berita.detail', [
+            'title' => 'Berita',
+            'logo' => Logo::first(),
+            'navigations' => Navigasi::first(),
+            'berita' => Berita::where('id', $id)->get(),
+            'rekomendasi' => Berita::whereNotIn('id', [$id])->get(),
+        ]);
+    }
+
     function prestasi()
     {
         return view('homepage.prestasi.index', [
@@ -318,10 +362,10 @@ class HomepageController extends Controller
         ]);
     }
 
-    function berita()
+    function majalah()
     {
-        return view('homepage.berita.index', [
-            'title' => 'Berita',
+        return view('homepage.majalah.index', [
+            'title' => 'Majalah',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
             'sectionJournal' => SectionJournal::first(),
@@ -329,15 +373,15 @@ class HomepageController extends Controller
         ]);
     }
 
-    function beritaCari(Request $request)
+    function majalahCari(Request $request)
     {
         $results = Journal::where('title', 'like', '%' . $request->search . '%')
             ->orWhere('author', 'like', '%' . $request->search . '%')
             ->orWhere('created_date', 'like', '%' . $request->search . '%')
             ->get();
 
-        return view('homepage.berita.index', [
-            'title' => 'Berita',
+        return view('homepage.majalah.index', [
+            'title' => 'Majalah',
             'logo' => Logo::first(),
             'navigations' => Navigasi::first(),
             'sectionJournal' => SectionJournal::first(),
