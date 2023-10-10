@@ -1,4 +1,4 @@
-<div class="position-absolute w-100  {{  Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') || Request::is('prestasi*') || Request::is('sarana-prasarana/detail') || Request::is('kategori-prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'd-none' : 'd-inline-block' }}" style="z-index: 999999">
+<div class="position-absolute w-100  {{  Request::is('ekstrakurikuler*') || Request::is('pelayanan-karir*') || Request::is('berita*') || Request::is('prestasi*') || Request::is('sarana-prasarana/detail') || Request::is('kategori-prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'd-none' : 'd-inline-block' }}" style="z-index: 999999">
     <nav class="navbar navbar-expand-lg py-4 navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="/beranda"><img src="{{ asset('assets/img/brand/' . $logo->logo) }}"
