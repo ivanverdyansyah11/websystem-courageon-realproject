@@ -248,10 +248,9 @@
                         @endforeach
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
-                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @if ($pelayananKarirCount > 4)
+                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @endif
-
                     </div>
                 </div>
             </div>
