@@ -147,8 +147,13 @@
                         <article class="mt-4 article-content desc">
                             {!! $extracurriculars->description !!}
                         </article>
-                        <a target="_block" href="{{ $extracurriculars->link_register }}"
-                            class="btn btn-color mt-4">daftar sekarang</a>
+                        <div class="d-flex flex-row gap-3">
+                            <a target="_block" href="{{ $extracurriculars->link_register }}"
+                               class="btn btn-color mt-4">daftar sekarang</a>
+                            <a target="_block" href="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurriculars->data_siswa) }}"
+                               class="btn btn-color mt-4">lihat peserta</a>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">

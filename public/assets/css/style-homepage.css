@@ -431,6 +431,10 @@ section .row .col-lg-5 img{
     object-fit: cover;
     border-radius: 8px;
 }
+.card-blog div img{
+    aspect-ratio: unset;
+    border-radius: unset;
+}
 .landscape-card-img{
     width: 100%;
     aspect-ratio: 5 / 3 !important;
