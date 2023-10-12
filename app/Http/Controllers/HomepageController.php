@@ -119,13 +119,27 @@ class HomepageController extends Controller
 
     function akademik()
     {
-        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('tahun')->toArray();
-        $kenaikanKelasTahunIniLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[0])->where('gender', 'L')->first();
-        $kenaikanKelasTahunIniPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[0])->where('gender', 'P')->first();
-        $kenaikanKelasTahunLaluLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[1])->where('gender', 'L')->first();
-        $kenaikanKelasTahunLaluPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[1])->where('gender', 'P')->first();
-        $kenaikanKelasTahun2LaluLaki = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'L')->first();
-        $kenaikanKelasTahun2LaluPerempuan = KenaikanKelas::where('tahun_ajaran', $tahun_ajaran[2])->where('gender', 'P')->first();
+        $tahun_ajarans_id = array();
+        $tahun_ajarans_filter = array();
+        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->get();
+        $kenaikanKelas = KenaikanKelas::where('gender', 'P')->orWhere('gender', 'L')->whereNotNull('gender')->orderBy('tahun_ajarans_id', 'DESC')->get('tahun_ajarans_id');
+
+        foreach ($kenaikanKelas as $kenaikan) {
+            $tahun_ajarans_filter[] = $kenaikan->tahun_ajarans_id;
+        }
+        $tahun_ajarans_filter = array_unique($tahun_ajarans_filter);
+        foreach ($tahun_ajarans_filter as $tahun) {
+            $tahun_ajarans_id[] = $tahun;
+        }
+        $tahun_ajarans_id = array_slice($tahun_ajarans_id, 0, 3);
+
+        $tahun_ajaran = TahunAjaran::whereIn('id', $tahun_ajarans_id)->orderBy('id', 'DESC')->get();
+        $kenaikanKelasTahunIniLaki = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[0]->id)->where('gender', 'L')->first();
+        $kenaikanKelasTahunIniPerempuan = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[0]->id)->where('gender', 'P')->first();
+        $kenaikanKelasTahunLaluLaki = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[1]->id)->where('gender', 'L')->first();
+        $kenaikanKelasTahunLaluPerempuan = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[1]->id)->where('gender', 'P')->first();
+        $kenaikanKelasTahun2LaluLaki = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[2]->id)->where('gender', 'L')->first();
+        $kenaikanKelasTahun2LaluPerempuan = KenaikanKelas::where('tahun_ajarans_id', $tahun_ajaran[2]->id)->where('gender', 'P')->first();
 
         return view('homepage.akademik.index', [
             'title' => 'Akademik',
@@ -142,7 +156,7 @@ class HomepageController extends Controller
             'galleries' => Gallery::all(),
             'sectionGraduation' => SectionGraduation::first(),
             'kenaikanKelas' => KenaikanKelas::orderBy('id', 'DESC')->take(3)->get(),
-            'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
+            'tahunAjaran' => TahunAjaran::whereIn('id', $tahun_ajarans_id)->orderBy('id', 'DESC')->get(),
             'kenaikanKelasTahunIniLaki' => $kenaikanKelasTahunIniLaki,
             'kenaikanKelasTahunIniPerempuan' => $kenaikanKelasTahunIniPerempuan,
             'kenaikanKelasTahunLaluLaki' => $kenaikanKelasTahunLaluLaki,

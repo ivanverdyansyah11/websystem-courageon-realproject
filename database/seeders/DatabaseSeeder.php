@@ -571,7 +571,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '96',
             'nilai_terendah' => '80',
             'rata_nilai' => '86',
-            'tahun_ajaran' => '2023/2024',
+            'tahun_ajarans_id' => 4,
         ]);
 
         KenaikanKelas::create([
@@ -583,7 +583,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '96',
             'nilai_terendah' => '80',
             'rata_nilai' => '86',
-            'tahun_ajaran' => '2023/2024',
+            'tahun_ajarans_id' => 4,
         ]);
 
         KenaikanKelas::create([
@@ -595,7 +595,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '92',
             'nilai_terendah' => '78',
             'rata_nilai' => '89',
-            'tahun_ajaran' => '2022/2023',
+            'tahun_ajarans_id' => 3,
         ]);
 
         KenaikanKelas::create([
@@ -607,7 +607,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '92',
             'nilai_terendah' => '78',
             'rata_nilai' => '89',
-            'tahun_ajaran' => '2022/2023',
+            'tahun_ajarans_id' => 3,
         ]);
 
         KenaikanKelas::create([
@@ -619,7 +619,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '70',
             'rata_nilai' => '82',
-            'tahun_ajaran' => '2021/2022',
+            'tahun_ajarans_id' => 2,
         ]);
 
         KenaikanKelas::create([
@@ -631,7 +631,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '70',
             'rata_nilai' => '82',
-            'tahun_ajaran' => '2021/2022',
+            'tahun_ajarans_id' => 2,
         ]);
 
         KenaikanKelas::create([
@@ -643,7 +643,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '60',
             'rata_nilai' => '75',
-            'tahun_ajaran' => '2020/2021',
+            'tahun_ajarans_id' => 1,
         ]);
 
         KenaikanKelas::create([
@@ -655,7 +655,7 @@ class DatabaseSeeder extends Seeder
             'nilai_tertinggi' => '90',
             'nilai_terendah' => '60',
             'rata_nilai' => '75',
-            'tahun_ajaran' => '2020/2021',
+            'tahun_ajarans_id' => 1,
         ]);
 
         HeaderStudent::create([
