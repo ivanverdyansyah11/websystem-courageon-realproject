@@ -121,7 +121,6 @@ class HomepageController extends Controller
     {
         $tahun_ajarans_id = array();
         $tahun_ajarans_filter = array();
-        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->get();
         $kenaikanKelas = KenaikanKelas::where('gender', 'P')->orWhere('gender', 'L')->whereNotNull('gender')->orderBy('tahun_ajarans_id', 'DESC')->get('tahun_ajarans_id');
 
         foreach ($kenaikanKelas as $kenaikan) {
@@ -168,7 +167,20 @@ class HomepageController extends Controller
 
     function kesiswaan()
     {
-        $tahun_ajaran = TahunAjaran::orderBy('id', 'DESC')->take(3)->get('id')->toArray();
+        $tahun_ajarans_id = array();
+        $tahun_ajarans_filter = array();
+        $siswas = Student::whereNotNull('nama_lengkap')->orderBy('tahun_ajarans_id', 'DESC')->get('tahun_ajarans_id');
+        foreach ($siswas as $siswa) {
+            $tahun_ajarans_filter[] = $siswa->tahun_ajarans_id;
+        }
+
+
+        $tahun_ajarans_filter = array_unique($tahun_ajarans_filter);
+
+        foreach ($tahun_ajarans_filter as $tahun) {
+            $tahun_ajarans_id[] = $tahun;
+        }
+        $tahun_ajaran = array_slice($tahun_ajarans_id, 0, 3);
 
         $dataSiswaTahunIni = [];
         $dataSiswaTahunIniLaki = [];
@@ -218,7 +230,7 @@ class HomepageController extends Controller
             'navigations' => Navigasi::first(),
             'headerStudents' => HeaderStudent::all(),
             'sectionStudent' => SectionStudent::first(),
-            'tahunAjaran' => TahunAjaran::orderBy('id', 'DESC')->take(3)->get(),
+            'tahunAjaran' => TahunAjaran::whereIn('id', $tahun_ajaran)->orderBy('id', 'DESC')->get(),
 
             'dataSiswaTahunIni' => $dataSiswaTahunIni,
             'dataSiswaTahunKedua' => $dataSiswaTahunKedua,

@@ -222,6 +222,11 @@ class KelulusanController extends Controller
 
     function storeKenaikanKelas(Request $request)
     {
+        $checkKenaikanKelas = KenaikanKelas::where('gender', $request->gender)->where('tahun_ajarans_id', $request->tahun_ajarans_id)->first();
+        if ($checkKenaikanKelas) {
+            return redirect(route('kelulusan-index'))->with('failed', 'Kenaikan Kelas Pada Gender dan Tahun Ajaran Sudah Ada!');
+        }
+
         if ($request->gender == '') {
             return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
         }
