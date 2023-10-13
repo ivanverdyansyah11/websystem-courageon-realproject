@@ -220,7 +220,7 @@
                                     <img src="{{ asset('assets/img/humas-images/majalah-image/' . $journal->thumbnail) }}"
                                         alt="{{ $journal->title }}" class="w-100 img-fluid rounded landscape-card-img">
                                     <p class="mt-3 text-black fw-semibold text-center">
-                                        {!! $journal->title !!}
+                                        {!! Str::limit($journal->title, 54) !!}
                                     </p>
                                     <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                         <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
@@ -409,7 +409,7 @@
                                     <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
                                         alt="{{ $berita->title }}" class="w-100 img-fluid rounded landscape-card-img">
                                     <p class="mt-3 text-black fw-semibold text-center">
-                                        {!! $berita->title !!}
+                                        {{ Str::limit($berita->title, 54) }}
                                     </p>
                                     <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                         <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">

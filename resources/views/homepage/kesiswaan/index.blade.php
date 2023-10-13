@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{-- @dd($dataSiswaTahunIni[3]) --}}
+{{--     @dd($tahunAjaran)--}}
 
     <main class="">
         {{-- <section class="hero-section container position-relative">
@@ -228,7 +228,7 @@
                                         alt="{{ $karir->judul }}" class="w-100 square-img">
                                     <div class="mt-3 text-center">
                                         <p class="text-black fw-bold">
-                                            {{ Str::limit($karir->judul, 26) }}
+                                                {{ Str::limit($karir->judul, 26) }}
                                         </p>
                                         <div class="mt-1 d-flex justify-content-center gap-3 align-items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -506,17 +506,17 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $dataSiswaTahunIni[1] }}
-        const data2 = {{ $dataSiswaTahunIni[2] }}
-        const data3 = {{ $dataSiswaTahunIni[3] }}
+        const data1 = {{ $dataSiswaTahunIni[1] }};
+        const data2 = {{ $dataSiswaTahunIni[2] }};
+        const data3 = {{ $dataSiswaTahunIni[3] }};
 
-        const data4 = {{ $dataSiswaTahunKedua[1] }}
-        const data5 = {{ $dataSiswaTahunKedua[2] }}
-        const data6 = {{ $dataSiswaTahunKedua[3] }}
+        const data4 = {{ $dataSiswaTahunKedua[1] }};
+        const data5 = {{ $dataSiswaTahunKedua[2] }};
+        const data6 = {{ $dataSiswaTahunKedua[3] }};
 
-        const data7 = {{ $dataSiswaTahunKetiga[1] }}
-        const data8 = {{ $dataSiswaTahunKetiga[2] }}
-        const data9 = {{ $dataSiswaTahunKetiga[3] }}
+        const data7 = {{ $dataSiswaTahunKetiga[1] }};
+        const data8 = {{ $dataSiswaTahunKetiga[2] }};
+        const data9 = {{ $dataSiswaTahunKetiga[3] }};
 
 
         new Chart(chart1, {
@@ -618,17 +618,17 @@
             }
         });
 
-        const data10 = {{ $dataSiswaTahunIniLaki[1] }}
-        const data11 = {{ $dataSiswaTahunIniLaki[2] }}
-        const data12 = {{ $dataSiswaTahunIniLaki[3] }}
+        const data10 = {{ $dataSiswaTahunIniLaki[1] }};
+        const data11 = {{ $dataSiswaTahunIniLaki[2] }};
+        const data12 = {{ $dataSiswaTahunIniLaki[3] }};
 
-        const data13 = {{ $dataSiswaTahunKeduaLaki[1] }}
-        const data14 = {{ $dataSiswaTahunKeduaLaki[2] }}
-        const data15 = {{ $dataSiswaTahunKeduaLaki[3] }}
+        const data13 = {{ $dataSiswaTahunKeduaLaki[1] }};
+        const data14 = {{ $dataSiswaTahunKeduaLaki[2] }};
+        const data15 = {{ $dataSiswaTahunKeduaLaki[3] }};
 
-        const data16 = {{ $dataSiswaTahunKetigaLaki[1] }}
-        const data17 = {{ $dataSiswaTahunKetigaLaki[2] }}
-        const data18 = {{ $dataSiswaTahunKetigaLaki[3] }}
+        const data16 = {{ $dataSiswaTahunKetigaLaki[1] }};
+        const data17 = {{ $dataSiswaTahunKetigaLaki[2] }};
+        const data18 = {{ $dataSiswaTahunKetigaLaki[3] }};
 
         new Chart(chart4, {
             type: 'pie',

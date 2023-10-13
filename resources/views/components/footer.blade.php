@@ -16,7 +16,7 @@
                         href="{{ route('profil') }}">Profile</a>
                 </div>
                 <div class="col justify-content-center d-flex">
-                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('akademik') || Request::is('prestasi*') || Request::is('berita*') || Request::is('majalah*') || Request::is('manajemen') || Request::is('guru') || Request::is('pegawai') || Request::is('projek*') ? 'active' : '' }}"
                         href="{{ route('akademik') }}">Akademik</a>
                 </div>
                 <div class="col justify-content-center d-flex">
