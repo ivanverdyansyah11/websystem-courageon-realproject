@@ -113,44 +113,44 @@
                     <div class="category-content">
                         <div class="category1 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart1" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }} </p>
+                                <canvas id="chart3" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }} </p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart2" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart3" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart1" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                         <div class="category2 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart4" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                                <canvas id="chart6" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart5" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart6" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart4" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                         <div class="category3 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart7" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                                <canvas id="chart9" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart8" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart9" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart7" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                     </div>
