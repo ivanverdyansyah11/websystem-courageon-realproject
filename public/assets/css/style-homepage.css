@@ -199,6 +199,8 @@ a{
     border-radius: 8px;
     height: 100px !important;
     width: 100px !important;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 .btn-sm{
     padding: 8px 14px;

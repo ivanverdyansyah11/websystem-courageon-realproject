@@ -43,14 +43,14 @@
                 <div class="">
                     <div class="swiper swiper-hero">
                         <div class="swiper-wrapper">
-                            @foreach($headerAcademics as $key => $headerAcademic)
-
+                            @foreach ($headerAcademics as $key => $headerAcademic)
                                 <div class="swiper-slide">
                                     <div class="">
                                         <div class="position-relative">
                                             <div class="position-absolute w-100" style="z-index: 99999">
                                                 <div class="container">
-                                                    <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                    <div
+                                                        class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
                                                         <div class="content-hero-wrapper">
                                                             <p class="display-4 fw-bold text-white text-capitalize">
                                                                 {!! $headerAcademic->title_header !!}
@@ -58,8 +58,10 @@
                                                             <p class="mt-4 desc text-white">
                                                                 {!! $headerAcademic->description !!}
                                                             </p>
-                                                            <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                                <a href="#kurikulum" class="btn btn-color">{{ $headerAcademic->button }}</a>
+                                                            <div
+                                                                class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                                <a href="#kurikulum"
+                                                                    class="btn btn-color">{{ $headerAcademic->button }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -67,7 +69,7 @@
                                             </div>
                                             <div class="position-relative w-100">
                                                 <img src="{{ asset('assets/img/akademik-images/header-image/' . $headerAcademic->banner) }}"
-                                                alt="Akademik section image" class="w-100 hero-img">
+                                                    alt="Akademik section image" class="w-100 hero-img">
                                             </div>
 
                                         </div>
@@ -271,7 +273,8 @@
     <p id="label2" class="d-none">{{ $tahunAjaran[1]->tahun }}</p>
     <p id="label3" class="d-none">{{ $tahunAjaran[0]->tahun }}</p>
 
-
+    {{-- {{ $kenaikanKelasTahunIniPerempuan[jumlah_siswa_x] = 0 }}
+    @dd(is_null($kenaikanKelasTahunIniPerempuan)) --}}
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -281,11 +284,10 @@
             var showAllCategory = document.querySelector(`.category-name[data-category="${showCategory}"]`);
             showAllCategory.classList.add('active');
             showCategory.style.display = 'flex';
-            showItems(showCategory); // Panggil fungsi showItems() dengan kategori 'category1' sebagai default
+            showItems(showCategory);
         });
 
         function showItems(category) {
-            // Menghapus kelas "active" dari semua kategori
             var categories = document.getElementsByClassName('category-name');
             for (var i = 0; i < categories.length; i++) {
                 categories[i].classList.remove('active');
@@ -313,21 +315,43 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_x + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_x }};
-        const data2 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xi + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xi }};
-        const data3 =
-            {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xii + $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii }};
-        const data4 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_x + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_x }};
-        const data5 =
-            {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xi + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xi }};
-        const data6 =
-            {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xii + $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xii }};
-        const data7 =
-            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_x + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_x }};
-        const data8 =
-            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xi + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xi }};
-        const data9 =
-            {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xii + $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xii }};
+        const data10 = {{ $kenaikanKelasTahunIniLaki ? $kenaikanKelasTahunIniLaki->jumlah_siswa_x : 0 }};
+        const data11 = {{ $kenaikanKelasTahunIniLaki ? $kenaikanKelasTahunIniLaki->jumlah_siswa_xi : 0 }};
+        const data12 = {{ $kenaikanKelasTahunIniLaki ? $kenaikanKelasTahunIniLaki->jumlah_siswa_xii : 0 }};
+        const data13 = {{ $kenaikanKelasTahunLaluLaki ? $kenaikanKelasTahunLaluLaki->jumlah_siswa_x : 0 }};
+        const data14 = {{ $kenaikanKelasTahunLaluLaki ? $kenaikanKelasTahunLaluLaki->jumlah_siswa_xi : 0 }};
+        const data15 = {{ $kenaikanKelasTahunLaluLaki ? $kenaikanKelasTahunLaluLaki->jumlah_siswa_xii : 0 }};
+        const data16 = {{ $kenaikanKelasTahun2LaluLaki ? $kenaikanKelasTahun2LaluLaki->jumlah_siswa_x : 0 }};
+        const data17 = {{ $kenaikanKelasTahun2LaluLaki ? $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xi : 0 }};
+        const data18 = {{ $kenaikanKelasTahun2LaluLaki ? $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xii : 0 }};
+        const data19 =
+            {{ $kenaikanKelasTahunIniPerempuan ? $kenaikanKelasTahunIniPerempuan->jumlah_siswa_x : 0 }};
+        const data20 =
+            {{ $kenaikanKelasTahunIniPerempuan ? $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xi : 0 }};
+        const data21 =
+            {{ $kenaikanKelasTahunIniPerempuan ? $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii : 0 }};
+        const data22 =
+            {{ $kenaikanKelasTahunLaluPerempuan ? $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_x : 0 }};
+        const data23 =
+            {{ $kenaikanKelasTahunLaluPerempuan ? $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xi : 0 }};
+        const data24 =
+            {{ $kenaikanKelasTahunLaluPerempuan ? $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xii : 0 }};
+        const data25 =
+            {{ $kenaikanKelasTahun2LaluPerempuan ? $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_x : 0 }};
+        const data26 =
+            {{ $kenaikanKelasTahun2LaluPerempuan ? $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xi : 0 }};
+        const data27 =
+            {{ $kenaikanKelasTahun2LaluPerempuan ? $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xii : 0 }};
+
+        const data1 = data10 + data19;
+        const data2 = data11 + data20;
+        const data3 = data12 + data21;
+        const data4 = data13 + data22;
+        const data5 = data14 + data23;
+        const data6 = data15 + data24;
+        const data7 = data16 + data25;
+        const data8 = data17 + data26;
+        const data9 = data18 + data27;
 
         new Chart(chart1, {
             type: 'bar',
@@ -386,16 +410,6 @@
             }
         });
 
-        const data10 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_x }};
-        const data11 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xi }};
-        const data12 = {{ $kenaikanKelasTahunIniLaki->jumlah_siswa_xii }};
-        const data13 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_x }};
-        const data14 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xi }};
-        const data15 = {{ $kenaikanKelasTahunLaluLaki->jumlah_siswa_xii }};
-        const data16 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_x }};
-        const data17 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xi }};
-        const data18 = {{ $kenaikanKelasTahun2LaluLaki->jumlah_siswa_xii }};
-
         new Chart(chart2, {
             type: 'bar',
             data: {
@@ -452,16 +466,6 @@
                 }
             }
         });
-
-        const data19 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_x }};
-        const data20 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xi }};
-        const data21 = {{ $kenaikanKelasTahunIniPerempuan->jumlah_siswa_xii }};
-        const data22 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_x }};
-        const data23 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xi }};
-        const data24 = {{ $kenaikanKelasTahunLaluPerempuan->jumlah_siswa_xii }};
-        const data25 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_x }};
-        const data26 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xi }};
-        const data27 = {{ $kenaikanKelasTahun2LaluPerempuan->jumlah_siswa_xii }};
 
         new Chart(chart3, {
             type: 'bar',

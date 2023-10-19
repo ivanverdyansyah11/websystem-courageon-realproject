@@ -109,7 +109,7 @@
                                         alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota"
                                         class="w-100 rounded">
                                     <p class="mt-3 text-black fw-semibold text-center">
-                                        {{ $journal->title }}
+                                        {!! Str::limit($journal->title, 54) !!}
                                     </p>
                                     <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                         <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">
@@ -171,7 +171,7 @@
                                         alt="Siswa Meraih Prestasi dalam Kompetisi Matematika Tingkat Kota"
                                         class="w-100 rounded">
                                     <p class="mt-3 text-black fw-semibold text-center">
-                                        {{ $berita->title }}
+                                        {!! Str::limit($berita->title, 54) !!}
                                     </p>
                                     <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
                                         <img src="{{ asset('assets-homepage/img/calendar.svg') }}" alt="">

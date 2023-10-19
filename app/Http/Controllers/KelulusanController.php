@@ -222,6 +222,11 @@ class KelulusanController extends Controller
 
     function storeKenaikanKelas(Request $request)
     {
+        $checkKenaikanKelas = KenaikanKelas::where('gender', $request->gender)->where('tahun_ajarans_id', $request->tahun_ajarans_id)->first();
+        if ($checkKenaikanKelas) {
+            return redirect(route('kelulusan-index'))->with('failed', 'Kenaikan Kelas Pada Gender dan Tahun Ajaran Sudah Ada!');
+        }
+
         if ($request->gender == '') {
             return redirect(route('kelulusan-index'))->with('failed', 'Isi Form Jenis Kelamin Terlebih Dahulu!');
         }
@@ -235,7 +240,7 @@ class KelulusanController extends Controller
             'nilai_terendah' => 'required',
             'total_siswa' => 'required',
             'rata_nilai' => 'required',
-            'tahun_ajaran' => 'required',
+            'tahun_ajarans_id' => 'required',
         ]);
 
         $kenaikanKelas = KenaikanKelas::create($validatedData);
@@ -249,15 +254,7 @@ class KelulusanController extends Controller
 
     function detailKenaikanKelas($id)
     {
-        $kenaikanKelas = KenaikanKelas::where('id', $id)->first();
-        $tahun_ajarans = TahunAjaran::all();
-
-        foreach ($tahun_ajarans as $tahun_ajaran) {
-            if ($tahun_ajaran->id === $kenaikanKelas->tahun_ajarans_id) {
-                $kenaikanKelas->tahun = $tahun_ajaran->tahun;
-            }
-        }
-
+        $kenaikanKelas = KenaikanKelas::where('id', $id)->with('tahun_ajaran')->first();
         return response()->json($kenaikanKelas);
     }
 
@@ -276,7 +273,7 @@ class KelulusanController extends Controller
             'nilai_terendah' => 'required',
             'total_siswa' => 'required',
             'rata_nilai' => 'required',
-            'tahun_ajaran' => 'required',
+            'tahun_ajarans_id' => 'required',
         ]);
 
         $kenaikanKelas = KenaikanKelas::where('id', $id)->first()->update($validatedData);

@@ -191,7 +191,7 @@
                                     <div class="col data-value data-length">{{ $kelas->nilai_terendah }}</div>
                                     <div class="col data-value data-length">{{ $kelas->rata_nilai }}</div>
                                     <div class="col data-value data-length">{{ $kelas->total_siswa }}</div>
-                                    <div class="col data-value data-length">{{ $kelas->tahun_ajaran }}</div>
+                                    <div class="col data-value data-length">{{ $kelas->tahun_ajaran->tahun }}</div>
                                     <div class="col-3 col-xl-2 data-value d-flex justify-content-end">
                                         <div class="wrapper-action d-flex">
                                             <button type="button"
@@ -751,12 +751,12 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="tahun_ajaran">Tahun Ajaran</label>
-                                <select required name="tahun_ajaran" id="tahun_ajaran" class="input">
+                                <label for="tahun_ajarans_id">Tahun Ajaran</label>
+                                <select required name="tahun_ajarans_id" id="tahun_ajarans_id" class="input">
                                     <option value="">Pilih tahun ajaran</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}"
-                                            {{ old('tahun_ajaran') == $tahun_ajaran->tahun ? 'selected' : '' }}>
+                                        <option value="{{ $tahun_ajaran->id }}"
+                                            {{ old('tahun_ajarans_id') == $tahun_ajaran->tahun ? 'selected' : '' }}>
                                             {{ $tahun_ajaran->tahun }}</option>
                                     @endforeach
                                 </select>
@@ -842,8 +842,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="input-wrapper">
-                                <label for="tahun_ajaran">Tahun Ajaran</label>
-                                <input type="text" data-value="tahun_ajaran" id="tahun_ajaran" class="input"
+                                <label for="tahun_ajarans_id">Tahun Ajaran</label>
+                                <input type="text" data-value="tahun_ajarans_id" id="tahun_ajarans_id" class="input"
                                     autocomplete="off" disabled>
                             </div>
                         </div>
@@ -854,8 +854,6 @@
                 </form>
             </div>
         </div>
-    </div>
-    </div>
     </div>
     {{-- END MODAL DETAIL KENAIKAN KELAS --}}
 
@@ -951,14 +949,15 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="tahun_ajaran">Tahun Ajaran</label>
-                                <select name="tahun_ajaran" id="tahun_ajaran" class="input" required>
-                                    <option data-value="tahun_ajaran"></option>
+                                <label for="tahun_ajarans_id">Tahun Ajaran</label>
+                                <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input" required>
+                                    <option data-value="tahun_ajarans_id"></option>z
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
-                                        <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
+                                        <option value="{{ $tahun_ajaran->id }}">
+                                            {{ $tahun_ajaran->tahun }}</option>
                                     @endforeach
                                 </select>
-                                @error('tahun_ajaran')
+                                @error('tahun_ajarans_id')
                                     <p class="caption-error mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -1093,7 +1092,7 @@
                     $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
                     $('[data-value="rata_nilai"]').val(data.rata_nilai);
                     $('[data-value="total_siswa"]').val(data.total_siswa);
-                    $('[data-value="tahun_ajaran"]').val(data.tahun_ajaran);
+                    $('[data-value="tahun_ajarans_id"]').val(data.tahun_ajaran.tahun);
                 }
             });
         });
@@ -1128,8 +1127,8 @@
                     $('[data-value="nilai_terendah"]').val(data.nilai_terendah);
                     $('[data-value="rata_nilai"]').val(data.rata_nilai);
                     $('[data-value="total_siswa"]').val(data.total_siswa);
-                    $('[data-value="tahun_ajaran"]').val(data.tahun_ajaran);
-                    $('[data-value="tahun_ajaran"]').html(data.tahun_ajaran);
+                    $('[data-value="tahun_ajarans_id"]').val(data.tahun_ajaran.id);
+                    $('[data-value="tahun_ajarans_id"]').html(data.tahun_ajaran.tahun);
                 }
             });
         });

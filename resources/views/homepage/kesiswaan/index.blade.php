@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{-- @dd($dataSiswaTahunIni[3]) --}}
+{{--     @dd($tahunAjaran)--}}
 
     <main class="">
         {{-- <section class="hero-section container position-relative">
@@ -113,44 +113,44 @@
                     <div class="category-content">
                         <div class="category1 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart1" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }} </p>
+                                <canvas id="chart3" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }} </p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart2" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart3" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart1" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                         <div class="category2 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart4" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                                <canvas id="chart6" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart5" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart6" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart4" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                         <div class="category3 item row row-cols-lg-3 row-cols-md-3 row-cols-1 gy-4">
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart7" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
+                                <canvas id="chart9" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
                                 <canvas id="chart8" class="w-75 h-75"></canvas>
                                 <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[1]->tahun }}</p>
                             </div>
                             <div class="col d-flex align-items-center gap-3 flex-column">
-                                <canvas id="chart9" class="w-75 h-75"></canvas>
-                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[2]->tahun }}</p>
+                                <canvas id="chart7" class="w-75 h-75"></canvas>
+                                <p class="fs-6 desc fw-medium">Tahun {{ $tahunAjaran[0]->tahun }}</p>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                                         alt="{{ $karir->judul }}" class="w-100 square-img">
                                     <div class="mt-3 text-center">
                                         <p class="text-black fw-bold">
-                                            {{ Str::limit($karir->judul, 26) }}
+                                                {{ Str::limit($karir->judul, 26) }}
                                         </p>
                                         <div class="mt-1 d-flex justify-content-center gap-3 align-items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -248,10 +248,9 @@
                         @endforeach
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
-                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @if ($pelayananKarirCount > 4)
+                        <a href="{{ route('pelayanan') }}" class="btn btn-color">{{ $sectionService->button }}</a>
                         @endif
-
                     </div>
                 </div>
             </div>
@@ -507,17 +506,17 @@
         const label2 = document.getElementById('label2').textContent;
         const label3 = document.getElementById('label3').textContent;
 
-        const data1 = {{ $dataSiswaTahunIni[1] }}
-        const data2 = {{ $dataSiswaTahunIni[2] }}
-        const data3 = {{ $dataSiswaTahunIni[3] }}
+        const data1 = {{ $dataSiswaTahunIni[1] }};
+        const data2 = {{ $dataSiswaTahunIni[2] }};
+        const data3 = {{ $dataSiswaTahunIni[3] }};
 
-        const data4 = {{ $dataSiswaTahunKedua[1] }}
-        const data5 = {{ $dataSiswaTahunKedua[2] }}
-        const data6 = {{ $dataSiswaTahunKedua[3] }}
+        const data4 = {{ $dataSiswaTahunKedua[1] }};
+        const data5 = {{ $dataSiswaTahunKedua[2] }};
+        const data6 = {{ $dataSiswaTahunKedua[3] }};
 
-        const data7 = {{ $dataSiswaTahunKetiga[1] }}
-        const data8 = {{ $dataSiswaTahunKetiga[2] }}
-        const data9 = {{ $dataSiswaTahunKetiga[3] }}
+        const data7 = {{ $dataSiswaTahunKetiga[1] }};
+        const data8 = {{ $dataSiswaTahunKetiga[2] }};
+        const data9 = {{ $dataSiswaTahunKetiga[3] }};
 
 
         new Chart(chart1, {
@@ -619,17 +618,17 @@
             }
         });
 
-        const data10 = {{ $dataSiswaTahunIniLaki[1] }}
-        const data11 = {{ $dataSiswaTahunIniLaki[2] }}
-        const data12 = {{ $dataSiswaTahunIniLaki[3] }}
+        const data10 = {{ $dataSiswaTahunIniLaki[1] }};
+        const data11 = {{ $dataSiswaTahunIniLaki[2] }};
+        const data12 = {{ $dataSiswaTahunIniLaki[3] }};
 
-        const data13 = {{ $dataSiswaTahunKeduaLaki[1] }}
-        const data14 = {{ $dataSiswaTahunKeduaLaki[2] }}
-        const data15 = {{ $dataSiswaTahunKeduaLaki[3] }}
+        const data13 = {{ $dataSiswaTahunKeduaLaki[1] }};
+        const data14 = {{ $dataSiswaTahunKeduaLaki[2] }};
+        const data15 = {{ $dataSiswaTahunKeduaLaki[3] }};
 
-        const data16 = {{ $dataSiswaTahunKetigaLaki[1] }}
-        const data17 = {{ $dataSiswaTahunKetigaLaki[2] }}
-        const data18 = {{ $dataSiswaTahunKetigaLaki[3] }}
+        const data16 = {{ $dataSiswaTahunKetigaLaki[1] }};
+        const data17 = {{ $dataSiswaTahunKetigaLaki[2] }};
+        const data18 = {{ $dataSiswaTahunKetigaLaki[3] }};
 
         new Chart(chart4, {
             type: 'pie',

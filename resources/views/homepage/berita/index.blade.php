@@ -22,7 +22,7 @@
                                 <img src="{{ asset('assets/img/humas-images/berita-image/' . $berita->banner) }}"
                                     alt="{!! $berita->title !!}" class="w-100 landscape-card-img">
                                 <p class="mt-3 text-black fw-semibold text-center">
-                                    {!! $berita->title !!}
+                                    {!! Str::limit($berita->title, 54) !!}
                                 </p>
                                 <div class="mt-2 d-flex gap-2 justify-content-center align-items-center">
 

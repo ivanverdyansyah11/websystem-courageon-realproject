@@ -147,11 +147,11 @@
                         <article class="mt-4 article-content desc">
                             {!! $extracurriculars->description !!}
                         </article>
-                        <div class="d-flex flex-row gap-3">
+                        <div class="d-flex flex-md-row flex-column gap-3 mt-4">
                             <a target="_block" href="{{ $extracurriculars->link_register }}"
-                               class="btn btn-color mt-4">daftar sekarang</a>
+                               class="btn btn-color">daftar sekarang</a>
                             <a target="_block" href="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurriculars->data_siswa) }}"
-                               class="btn btn-color mt-4">lihat peserta</a>
+                               class="btn btn-color">lihat peserta</a>
                         </div>
 {{--                        <embed src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurriculars->data_siswa) }}" type="">--}}
 
