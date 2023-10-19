@@ -88,6 +88,8 @@ class HomepageController extends Controller
             'beritaCount' => Berita::count(),
             'sectionVideo' => SectionVideo::first(),
             'videos' => Video::all(),
+            'sectionGallery' => SectionGallery::first(),
+            'galleries' => Gallery::all(),
         ]);
     }
 

@@ -205,29 +205,6 @@
                 </div>
             </div>
         </section>
-        <section class="gallery-section section-margin-top container">
-            <div class="d-flex justify-content-center header-section">
-                <div class="title-section-text">
-                    <p class="text-center display-5 fw-bold text-capitalize">
-                        {!! $sectionGallery->title_section !!}
-                    </p>
-                    <p class="desc fs-6 text-center mt-3">
-                        {!! $sectionGallery->description !!}
-                    </p>
-                </div>
-            </div>
-            <div class="mt-2">
-                <div class="pin-container">
-                    @foreach ($galleries as $gallery)
-                        <a href="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
-                            data-toggle="lightbox" class="pin-img rounded" data-gallery="example-gallery">
-                            <img src="{{ asset('assets/img/akademik-images/galeri-image/' . $gallery->image) }}"
-                                class="w-100 rounded" alt="gallery {{ $loop->index + 1 }}">
-                        </a>
-                    @endforeach
-                </div>
-            </div>
-        </section>
         <section class="grafik-akademik-section container section-margin-top position-relative">
             <div class="position-absolute end-0 bottom-0 d-lg-block d-none">
                 <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">

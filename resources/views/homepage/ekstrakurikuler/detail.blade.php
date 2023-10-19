@@ -153,6 +153,7 @@
                             <a target="_block" href="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurriculars->data_siswa) }}"
                                class="btn btn-color mt-4">lihat peserta</a>
                         </div>
+{{--                        <embed src="{{ asset('assets/img/kesiswaan-images/ekstrakurikuler-image/' . $extracurriculars->data_siswa) }}" type="">--}}
 
                     </div>
                 </div>
