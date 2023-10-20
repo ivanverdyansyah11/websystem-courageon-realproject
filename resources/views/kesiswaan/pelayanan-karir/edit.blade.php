@@ -50,11 +50,20 @@
                                         <label for="students_id">Siswa</label>
                                         <select name="students_id" id="students_id" class="input" autocomplete="off"
                                             required>
-                                            @foreach ($students as $student)
-                                                <option value="{{ $student->id }}"
-                                                    {{ $student->id === $pelayanan->students_id ? 'selected' : '' }}>
-                                                    {{ $student->nama_lengkap }}</option>
-                                            @endforeach
+                                            @if ($pelayanan->student)
+                                                @foreach ($students as $student)
+                                                    <option value="{{ $student->id }}"
+                                                        {{ $student->id === $pelayanan->students_id ? 'selected' : '' }}>
+                                                        {{ $student->nama_lengkap }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih siswa</option>
+                                                @foreach ($students as $student)
+                                                    <option value="{{ $student->id }}"
+                                                        {{ old('students_id') == $student->id ? 'selected' : '' }}>
+                                                        {{ $student->nama_lengkap }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('students_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
