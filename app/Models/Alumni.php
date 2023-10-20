@@ -13,4 +13,9 @@ class Alumni extends Model
     {
         return $this->belongsTo(Student::class, 'students_id');
     }
+
+    public function tahun_ajaran()
+    {
+        return $this->belongsTo(TahunAjaran::class, 'tahun_ajaran_lulus');
+    }
 }

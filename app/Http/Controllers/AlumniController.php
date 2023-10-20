@@ -91,7 +91,7 @@ class AlumniController extends Controller
         }
 
         foreach ($tahun_ajarans as $tahun_ajaran) {
-            if ($tahun_ajaran->tahun == $alumni->tahun_ajaran_lulus) {
+            if ($tahun_ajaran->id == $alumni->tahun_ajaran_lulus) {
                 $tahun_ajaran_lulus = $tahun_ajaran->tahun;
             }
         }
