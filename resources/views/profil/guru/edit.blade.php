@@ -149,11 +149,20 @@
                                     <div class="input-wrapper">
                                         <label for="mata_pelajaran">Mata Pelajaran</label>
                                         <select name="course_id" id="mata_pelajaran" class="input" required>
-                                            @foreach ($courses as $course)
-                                                <option value="{{ $course->id }}"
-                                                    {{ $teacher->course->id == $course->id ? 'selected' : '' }}>
-                                                    {{ $course->name }}</option>
-                                            @endforeach
+                                            @if ($teacher->course)
+                                                @foreach ($courses as $course)
+                                                    <option value="{{ $course->id }}"
+                                                        {{ $teacher->course->id == $course->id ? 'selected' : '' }}>
+                                                        {{ $course->name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih Mata Pelajaran</option>
+                                                @foreach ($courses as $course)
+                                                    <option value="{{ $course->id }}"
+                                                        {{ old('course_id') == $course->id ? 'selected' : '' }}>
+                                                        {{ $course->name }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('course_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>

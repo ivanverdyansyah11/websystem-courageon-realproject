@@ -64,7 +64,7 @@
             !Request::is('sarana-prasarana*') ||
             !Request::is('pengaturan*') ||
             !Request::is('humas*'))
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="{{ asset('assets/js/rte.js') }}"></script>
         <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
     @endif
