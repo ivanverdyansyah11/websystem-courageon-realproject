@@ -1012,7 +1012,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-    $(document).ready(function() {        
+    $(document).ready(function() {
         $(".select2-siswa").select2({
             dropdownParent: $("#addKenaikanSiswaModal")
         });
@@ -1027,14 +1027,14 @@
         });
         $(".select2-index").select2({
             dropdownParent: $("#addKenaikanSiswaModal")
-        });   
+        });
 
         $(".select2-gender").select2({
             dropdownParent: $("#addKenaikanKelasModal")
-        });        
+        });
         $(".select2-tahun").select2({
             dropdownParent: $("#addKenaikanKelasModal")
-        });        
+        });
 
         $(document).on('click', '[data-bs-target="#detailSectionGraduationModal"]', function() {
             $.ajax({
@@ -1185,10 +1185,10 @@
 
                     $(".select2-gender-edit").select2({
                         dropdownParent: $("#editKenaikanKelasModal")
-                    });        
+                    });
                     $(".select2-tahun-edit").select2({
                         dropdownParent: $("#editKenaikanKelasModal")
-                    }); 
+                    });
                 }
             });
         });

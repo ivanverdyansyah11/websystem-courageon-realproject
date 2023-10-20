@@ -45,6 +45,7 @@
     {{-- END STYLE CSS --}}
 
     {{-- SCRIPT JS --}}
+    
     @if (
         !Request::is('beranda') ||
             !Request::is('prestasi*') ||
