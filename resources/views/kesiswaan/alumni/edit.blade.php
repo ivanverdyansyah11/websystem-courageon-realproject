@@ -49,13 +49,22 @@
                                         <label for="students_id">Siswa</label>
                                         <select name="students_id" id="students_id" class="input" autocomplete="off"
                                             required>
-                                            @foreach ($students as $student)
-                                                @if ($student->id == $alumni->students_id)
-                                                    <option value="{{ $student->id }}" selected>
-                                                        {{ $student->nama_lengkap }}</option>
-                                                @endif
-                                                <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
-                                            @endforeach
+                                            @if ($alumni->student)
+                                                @foreach ($students as $student)
+                                                    @if ($student->id == $alumni->students_id)
+                                                        <option value="{{ $student->id }}" selected>
+                                                            {{ $student->nama_lengkap }}</option>
+                                                    @endif
+                                                    <option value="{{ $student->id }}">{{ $student->nama_lengkap }}
+                                                    </option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih siswa</option>
+                                                @foreach ($students as $student)
+                                                    <option value="{{ $student->id }}">{{ $student->nama_lengkap }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('students_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -77,14 +86,23 @@
                                         <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
                                         <select name="tahun_ajaran_lulus" id="tahun_ajaran_lulus" class="input"
                                             autocomplete="off" required>
-                                            @foreach ($tahun_ajarans as $tahun_ajaran)
-                                                @if ($tahun_ajaran->id == $alumni->tahun_ajarans_id)
-                                                    <option value="{{ $tahun_ajaran->id }}" selected>
-                                                        {{ $tahun_ajaran->tahun }}</option>
-                                                @endif
-                                                <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}
+                                            @if ($alumni->tahun_ajaran)
+                                                @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                    @if ($tahun_ajaran->id == $alumni->tahun_ajaran_lulus)
+                                                        <option value="{{ $tahun_ajaran->id }}" selected>
+                                                            {{ $tahun_ajaran->tahun }}</option>
+                                                    @endif
+                                                    <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}
+                                                    </option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih tahun ajaran lulus
                                                 </option>
-                                            @endforeach
+                                                @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                    <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('tahun_ajaran_lulus')
                                             <p class="caption-error mt-2">{{ $message }}</p>

@@ -39,8 +39,13 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <input type="text" id="students_id" class="input" autocomplete="off" disabled
-                                            value="{{ $students_nama }}">
+                                        @if ($alumni->student)
+                                            <input type="text" id="students_id" class="input" autocomplete="off"
+                                                disabled value="{{ $students_nama }}">
+                                        @else
+                                            <input type="text" id="students_id" class="input" autocomplete="off"
+                                                disabled value="Belum memilih siswa">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -53,8 +58,13 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_ajaran_lulus">Tahun Ajaran Lulus</label>
-                                        <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off"
-                                            value="{{ $tahun_ajaran_lulus }}" disabled>
+                                        @if ($alumni->tahun_ajaran)
+                                            <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off"
+                                                value="{{ $alumni->tahun_ajaran->tahun }}" disabled>
+                                        @else
+                                            <input type="text" id="tahun_ajaran_lulus" class="input" autocomplete="off"
+                                                value="Belum memilih tahun ajaran lulus" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-12">

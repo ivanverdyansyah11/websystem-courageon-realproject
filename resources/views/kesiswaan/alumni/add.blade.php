@@ -72,7 +72,7 @@
                                             autocomplete="off" required>
                                             <option value="">Pilih tahun ajaran lulus</option>
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
-                                                <option value="{{ $tahun_ajaran->tahun }}"
+                                                <option value="{{ $tahun_ajaran->id }}"
                                                     {{ old('tahun_ajaran_lulus') == $tahun_ajaran->tahun ? 'selected' : '' }}>
                                                     {{ $tahun_ajaran->tahun }}
                                                 </option>
