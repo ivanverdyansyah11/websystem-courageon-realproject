@@ -400,7 +400,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input select2" required>
+                                <select name="students_id" id="students_id" class="input select2-nama-penerima" required>
                                     <option value="">Pilih penerima beasiswa</option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}"
@@ -416,7 +416,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input select2" required>
+                                <select name="tahun" id="tahun" class="input select2-tahun-penerima" required>
                                     <option value="">Pilih tahun</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}"
@@ -442,7 +442,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <select name="beasiswas_id" id="beasiswas_id" class="input" required>
+                                <select name="beasiswas_id" id="beasiswas_id" class="input select2-jenis-penerima" required>
                                     <option value="">Pilih jenis beasiswa</option>
                                     @foreach ($allBeasiswa as $beasiswa)
                                         <option value="{{ $beasiswa->id }}"
@@ -514,7 +514,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <input type="text" id="beasiswas_id" class="input" autocomplete="off"
+                                <input type="text" id="detail-beasiswas_id" class="input" autocomplete="off"
                                     data-value="nama_beasiswa" disabled>
                             </div>
                         </div>
@@ -546,7 +546,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input select2" required>
+                                <select name="students_id" id="edit-students_id" class="input select2-edit-students" required>
                                     <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
@@ -560,7 +560,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input select2" required>
+                                <select name="tahun" id="edit-tahun" class="input select2-edit-tahun" required>
                                     <option data-value="tahun"></option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
@@ -584,7 +584,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <select name="beasiswas_id" id="beasiswas_id" class="input select2" required>
+                                <select name="beasiswas_id" id="edit-beasiswas_id" class="input select2-edit-beasiswas" required>
                                     <option data-value="beasiswas_id"></option>
                                     @foreach ($allBeasiswa as $beasiswa)
                                         <option value="{{ $beasiswa->id }}">{{ $beasiswa->title }}</option>
@@ -740,20 +740,20 @@
                 url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
                 success: async function(data) {
 
-                    await $('[data-value="student_nama"]').val(data.students_id);
-                    await $('[data-value="student_nama"]').html(data.student_nama);
-                    await $('[data-value="tahun"]').val(data.tahun);
-                    await $('[data-value="tahun"]').html(data.tahun);
-                    await $('[data-value="beasiswas_id"]').val(data.beasiswas_id);
-                    await $('[data-value="beasiswas_id"]').html(data.nama_beasiswa);
-                    await $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
-                    await textareaEditBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
-                    await $(".select2").select2({
-                        dropdownParent: $("#editPenerimaBeasiswaModal")
-                    });
-                }
-            });
+                await $('[data-value="student_nama"]').val(data.students_id);
+                await $('[data-value="student_nama"]').html(data.student_nama);
+                await $('[data-value="tahun"]').val(data.tahun);
+                await $('[data-value="tahun"]').html(data.tahun);
+                await $('[data-value="beasiswas_id"]').val(data.beasiswas_id);
+                await $('[data-value="beasiswas_id"]').html(data.nama_beasiswa);
+                await $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
+                await textareaEditBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
+                await $(".select2").select2({
+                    dropdownParent: $("#editPenerimaBeasiswaModal")
+                });
+            }
         });
+    });
 
         $(document).on('click', '[data-bs-target="#deletePenerimaBeasiswaModal"]', function() {
             let id = $(this).data('id');
