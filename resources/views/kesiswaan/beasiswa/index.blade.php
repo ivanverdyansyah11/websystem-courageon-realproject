@@ -1,5 +1,11 @@
 @extends('templates.main')
-
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
 @section('container')
     <div class="content">
         <div class="row">
@@ -394,7 +400,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input" required>
+                                <select name="students_id" id="students_id" class="input select2" required>
                                     <option value="">Pilih penerima beasiswa</option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}"
@@ -410,7 +416,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input" required>
+                                <select name="tahun" id="tahun" class="input select2" required>
                                     <option value="">Pilih tahun</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}"
@@ -540,7 +546,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Penerima</label>
-                                <select name="students_id" id="students_id" class="input" required>
+                                <select name="students_id" id="students_id" class="input select2" required>
                                     <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
@@ -554,7 +560,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun">Tahun</label>
-                                <select name="tahun" id="tahun" class="input" required>
+                                <select name="tahun" id="tahun" class="input select2" required>
                                     <option data-value="tahun"></option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->tahun }}">{{ $tahun_ajaran->tahun }}</option>
@@ -578,7 +584,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="beasiswas_id">Jenis Beasiswa</label>
-                                <select name="beasiswas_id" id="beasiswas_id" class="input" required>
+                                <select name="beasiswas_id" id="beasiswas_id" class="input select2" required>
                                     <option data-value="beasiswas_id"></option>
                                     @foreach ($allBeasiswa as $beasiswa)
                                         <option value="{{ $beasiswa->id }}">{{ $beasiswa->title }}</option>
@@ -634,110 +640,125 @@
     </div>
     {{-- END MODAL DELETE PENERIMA BEASISWA --}}
 
-    <script>
-        const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
-        const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
 
-        const textareaTambahBeasiswa = new RichTextEditor("#textareaTambahBeasiswa");
-        const textareaDetailBeasiswa = new RichTextEditor("#textareaDetailBeasiswa");
-        const textareaEditBeasiswa = new RichTextEditor("#textareaEditBeasiswa");
-
-        const textareaTambahBeasiswaPenerima = new RichTextEditor("#textareaTambahBeasiswaPenerima");
-        const textareaDetailBeasiswaPenerima = new RichTextEditor("#textareaDetailBeasiswaPenerima");
-        const textareaEditBeasiswaPenerima = new RichTextEditor("#textareaEditBeasiswaPenerima");
-
-        $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-section',
-                success: function(data) {
-                    $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="description_section"]').val(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editSectionModal"]', function() {
-            $('#editSection').attr('action', '/admin/kesiswaan/beasiswa/edit-section');
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-section',
-                success: function(data) {
-                    $('[data-value="title_section"]').val(data.title_section);
-                    $('[data-value="description_section"]').val(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#detailBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
-                success: function(data) {
-                    $('[data-value="title_beasiswa"]').val(data.title);
-                    textareaDetailBeasiswa.setHTMLCode(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $('#editBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-beasiswa/' + id);
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
-                success: function(data) {
-                    $('[data-value="title_beasiswa"]').val(data.title);
-                    textareaEditBeasiswa.setHTMLCode(data.description);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#deleteBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $('#deleteBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/delete-beasiswa/' + id);
-        });
-
-        $(document).on('click', '[data-bs-target="#detailPenerimaBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
-                success: function(data) {
-                    $('[data-value="student_nama"]').val(data.student_nama);
-                    $('[data-value="student_nis"]').val(data.student_nis);
-                    $('[data-value="tahun_beasiswa"]').val(data.tahun_beasiswa);
-                    $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
-                    $('[data-value="nama_beasiswa"]').val(data.nama_beasiswa);
-                    textareaDetailBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#editPenerimaBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $('#editPenerimaBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-penerima-beasiswa/' + id);
-            $.ajax({
-                type: 'get',
-                url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
-                success: function(data) {
-                    console.log(data);
-                    $('[data-value="student_nama"]').val(data.students_id);
-                    $('[data-value="student_nama"]').html(data.student_nama);
-                    $('[data-value="tahun"]').val(data.tahun);
-                    $('[data-value="tahun"]').html(data.tahun);
-                    $('[data-value="beasiswas_id"]').val(data.beasiswas_id);
-                    $('[data-value="beasiswas_id"]').html(data.nama_beasiswa);
-                    $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
-                    textareaEditBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
-                }
-            });
-        });
-
-        $(document).on('click', '[data-bs-target="#deletePenerimaBeasiswaModal"]', function() {
-            let id = $(this).data('id');
-            $('#deletePenerimaBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/delete-penerima-beasiswa/' + id);
-        });
-    </script>
 @endsection
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+     $(document).ready(function() {
+        $(".select2").select2({
+            dropdownParent: $("#addPenerimaBeasiswaModal")
+        });
+
+    })
+
+    const textareaDetailHeader = new RichTextEditor("#textareaDetailHeader");
+    const textareaEditHeader = new RichTextEditor("#textareaEditHeader");
+
+    const textareaTambahBeasiswa = new RichTextEditor("#textareaTambahBeasiswa");
+    const textareaDetailBeasiswa = new RichTextEditor("#textareaDetailBeasiswa");
+    const textareaEditBeasiswa = new RichTextEditor("#textareaEditBeasiswa");
+
+    const textareaTambahBeasiswaPenerima = new RichTextEditor("#textareaTambahBeasiswaPenerima");
+    const textareaDetailBeasiswaPenerima = new RichTextEditor("#textareaDetailBeasiswaPenerima");
+    const textareaEditBeasiswaPenerima = new RichTextEditor("#textareaEditBeasiswaPenerima");
+
+    $(document).on('click', '[data-bs-target="#detailSectionModal"]', function() {
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-section',
+            success: function(data) {
+                $('[data-value="title_section"]').val(data.title_section);
+                $('[data-value="description_section"]').val(data.description);
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#editSectionModal"]', function() {
+        $('#editSection').attr('action', '/admin/kesiswaan/beasiswa/edit-section');
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-section',
+            success: function(data) {
+                $('[data-value="title_section"]').val(data.title_section);
+                $('[data-value="description_section"]').val(data.description);
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#detailBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
+            success: function(data) {
+                $('[data-value="title_beasiswa"]').val(data.title);
+                textareaDetailBeasiswa.setHTMLCode(data.description);
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#editBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $('#editBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-beasiswa/' + id);
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-beasiswa/' + id,
+            success: function(data) {
+                $('[data-value="title_beasiswa"]').val(data.title);
+                textareaEditBeasiswa.setHTMLCode(data.description);
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#deleteBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $('#deleteBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/delete-beasiswa/' + id);
+    });
+
+    $(document).on('click', '[data-bs-target="#detailPenerimaBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
+            success: function(data) {
+                $('[data-value="student_nama"]').val(data.student_nama);
+                $('[data-value="student_nis"]').val(data.student_nis);
+                $('[data-value="tahun_beasiswa"]').val(data.tahun_beasiswa);
+                $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
+                $('[data-value="nama_beasiswa"]').val(data.nama_beasiswa);
+                textareaDetailBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#editPenerimaBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $('#editPenerimaBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/edit-penerima-beasiswa/' + id);
+        $.ajax({
+            type: 'get',
+            url: '/admin/kesiswaan/beasiswa/detail-penerima-beasiswa/' + id,
+            success: async function(data) {
+
+                await $('[data-value="student_nama"]').val(data.students_id);
+                await $('[data-value="student_nama"]').html(data.student_nama);
+                await $('[data-value="tahun"]').val(data.tahun);
+                await $('[data-value="tahun"]').html(data.tahun);
+                await $('[data-value="beasiswas_id"]').val(data.beasiswas_id);
+                await $('[data-value="beasiswas_id"]').html(data.nama_beasiswa);
+                await $('[data-value="jumlah_beasiswa"]').val(data.jumlah_beasiswa);
+                await textareaEditBeasiswaPenerima.setHTMLCode(data.digunakan_untuk);
+                await $(".select2").select2({
+                    dropdownParent: $("#editPenerimaBeasiswaModal")
+                });
+            }
+        });
+    });
+
+    $(document).on('click', '[data-bs-target="#deletePenerimaBeasiswaModal"]', function() {
+        let id = $(this).data('id');
+        $('#deletePenerimaBeasiswa').attr('action', '/admin/kesiswaan/beasiswa/delete-penerima-beasiswa/' + id);
+    });
+</script>
+@endpush

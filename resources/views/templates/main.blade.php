@@ -41,10 +41,11 @@
     @else
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/rte_theme_default.css') }}">
-    @endif    
+    @endif
     {{-- END STYLE CSS --}}
 
     {{-- SCRIPT JS --}}
+    
     @if (
         !Request::is('beranda') ||
             !Request::is('prestasi*') ||

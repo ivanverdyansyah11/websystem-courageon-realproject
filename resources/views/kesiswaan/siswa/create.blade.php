@@ -1,5 +1,13 @@
 @extends('templates.main')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
+
 @section('container')
     <div class="content">
         <div class="row">
@@ -35,7 +43,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        <select name="tahun_masuk" id="tahun_masuk" class="input">
+                                        <select name="tahun_masuk" id="tahun_masuk" class="input select2">
                                             <option selected>Pilih tahun ajaran masuk</option>
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
                                                 <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}</option>
@@ -145,7 +153,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                                        <select name="jenis_kelamin" id="jenis_kelamin" class="input">
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="input select2">
                                             <option selected>Pilih jenis kelamin</option>
                                             <option value="L">Laki Laki</option>
                                             <option value="P">Perempuan</option>
@@ -202,3 +210,14 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+      $(document).ready(function() {
+        $(".select2").select2()
+    })
+</script>
+@endpush
+
