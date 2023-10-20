@@ -77,7 +77,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input" required>
+                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input select2" required>
                                             <option value="">Pilih tahun ajaran</option>
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
                                                 <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}</option>
@@ -91,7 +91,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="semesters_id">Semester</label>
-                                        <select name="semesters_id" id="semesters_id" class="input" required>
+                                        <select name="semesters_id" id="semesters_id" class="input select2" required>
                                             <option value="">Pilih semester</option>
                                             @foreach ($semesters as $semester)
                                                 <option value="{{ $semester->id }}">{{ $semester->semester }}</option>
@@ -105,7 +105,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jurusans_id">Jurusan</label>
-                                        <select name="jurusans_id" id="jurusans_id" class="input" required>
+                                        <select name="jurusans_id" id="jurusans_id" class="input select2" required>
                                             <option value="">Pilih jurusan</option>
                                             @foreach ($jurusans as $jurusan)
                                                 <option value="{{ $jurusan->id }}">{{ $jurusan->name }}</option>
@@ -119,7 +119,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="indices_id">Index</label>
-                                        <select name="indices_id" id="indices_id" class="input" required>
+                                        <select name="indices_id" id="indices_id" class="input select2" required>
                                             <option value="">Pilih index</option>
                                             @foreach ($indexes as $index)
                                                 <option value="{{ $index->id }}">{{ $index->name }}</option>

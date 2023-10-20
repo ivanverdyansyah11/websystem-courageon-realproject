@@ -1,5 +1,11 @@
 @extends('templates.main')
-
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
 @section('container')
     <div class="content">
         <div class="row">
@@ -36,7 +42,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        <select name="tahun_masuk" id="tahun_masuk" class="input">
+                                        <select name="tahun_masuk" id="tahun_masuk" class="input select2">
                                             @foreach ($tahun_ajarans as $tahun_ajaran)
                                                 <option value="{{ $tahun_ajaran->id }}"
                                                     {{ $student->tahun_masuk == $tahun_ajaran->tahun ? 'selected' : '' }}>
@@ -71,7 +77,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input" required>
+                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input select2" required>
                                             @if ($student->tahun_ajaran)
                                                 @foreach ($tahun_ajarans as $tahun_ajaran)
                                                     <option value="{{ $tahun_ajaran->id }}"
@@ -94,7 +100,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="semesters_id">Semester</label>
-                                        <select name="semesters_id" id="semesters_id" class="input">
+                                        <select name="semesters_id" id="semesters_id" class="input select2">
                                             @foreach ($semesters as $semester)
                                                 <option value="{{ $semester->id }}"
                                                     {{ $student->semesters_id == $semester->id ? 'selected' : '' }}>
@@ -109,7 +115,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jurusans_id">Jurusan</label>
-                                        <select name="jurusans_id" id="jurusans_id" class="input">
+                                        <select name="jurusans_id" id="jurusans_id" class="input select2">
                                             @foreach ($jurusans as $jurusan)
                                                 <option value="{{ $jurusan->id }}"
                                                     {{ $student->jurusans_id == $jurusan->id ? 'selected' : '' }}>
@@ -124,7 +130,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="indices_id">Index</label>
-                                        <select name="indices_id" id="indices_id" class="input">
+                                        <select name="indices_id" id="indices_id" class="input select2">
                                             @foreach ($indexes as $index)
                                                 <option value="{{ $index->id }}"
                                                     {{ $student->indices_id == $index->id ? 'selected' : '' }}>
@@ -153,7 +159,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jenis_kelamin">Jenis Kelamin</label>
-                                        <select name="jenis_kelamin" id="jenis_kelamin" class="input">
+                                        <select name="jenis_kelamin" id="jenis_kelamin" class="input select2">
                                             <option value="L" {{ $student->jenis_kelamin == 'L' ? 'selected' : '' }}>
                                                 Laki Laki</option>
                                             <option value="P" {{ $student->jenis_kelamin == 'P' ? 'selected' : '' }}>
@@ -200,3 +206,13 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".select2").select2()
+        })
+    </script>
+@endpush

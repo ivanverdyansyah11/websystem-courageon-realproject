@@ -1,5 +1,11 @@
 @extends('templates.main')
-
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
 @section('container')
     <div class="content">
         <div class="row">
@@ -46,7 +52,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="kategori_prestasis_id">Kategori Prestasi</label>
-                                        <select id="kategori_prestasis_id" class="input" autocomplete="off"
+                                        <select id="kategori_prestasis_id" class="input select2" autocomplete="off"
                                             name="kategori_prestasis_id" required>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}"
@@ -72,7 +78,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input" required>
+                                        <select name="status" id="status" class="input select2" required>
                                             <option value="Guru" {{ $prestasi->status === 'Guru' ? 'selected' : '' }}>
                                                 Guru
                                             </option>
@@ -130,7 +136,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tingkat">Tingkat</label>
-                                        <select required name="tingkat" id="tingkat" class="input">
+                                        <select required name="tingkat" id="tingkat" class="input select2">
                                             <option value="Kecamatan"
                                                 {{ $prestasi->tingkat === 'Kecamatan' ? 'selected' : '' }}>
                                                 Kecamatan</option>
@@ -185,14 +191,23 @@
         </div>
     </div>
 
-    <script>
-        const inputEditPrestasi = new RichTextEditor("#inputEditPrestasi");
-
-        const tagEdit = document.querySelector('.tag-edit-image');
-        const inputEdit = document.querySelector('.input-edit-image');
-
-        inputEdit.addEventListener('change', function() {
-            tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
-        });
-    </script>
 @endsection
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
+<script>
+    $(document).ready(function() {
+        $(".select2").select2()
+    })
+
+    const inputAddPrestasi = new RichTextEditor("#inputAddPrestasi");
+
+    const tagEdit = document.querySelector('.tag-edit-image');
+    const inputEdit = document.querySelector('.input-edit-image');
+
+    inputEdit.addEventListener('change', function() {
+        tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
+    });
+</script>
+@endpush

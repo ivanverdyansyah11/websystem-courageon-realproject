@@ -1,5 +1,5 @@
-<div class="sidebar">
-    <div class="sidebar-scroll d-flex flex-column justify-content-between">
+<div class="sidebar ">
+    <div class="sidebar-scroll d-flex flex-column justify-content-between sticky-top">
         <div class="sidebar-menu-top d-flex flex-column align-items-center w-100">
             <a href="{{ route('dashboard-index') }}">
                 <img src="{{ asset('assets/img/brand/brand-logo.png') }}" class="img-fluid brand-logo" alt="Brand Logo"

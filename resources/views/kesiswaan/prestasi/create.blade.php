@@ -1,5 +1,11 @@
 @extends('templates.main')
-
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
 @section('container')
     <div class="content">
         <div class="row">
@@ -41,7 +47,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="kategori_prestasis_id">Kategori Prestasi</label>
-                                        <select id="kategori_prestasis_id" class="input" autocomplete="off"
+                                        <select id="kategori_prestasis_id" class="input select2" autocomplete="off"
                                             name="kategori_prestasis_id" required>
                                             <option value="">Pilih kategori prestasi</option>
                                             @foreach ($categories as $category)
@@ -66,7 +72,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="status">Status</label>
-                                        <select name="status" id="status" class="input" required>
+                                        <select name="status" id="status" class="input select2" required>
                                             <option selected value="">Pilih status</option>
                                             <option value="Guru">Guru</option>
                                             <option value="Pegawai">Pegawai</option>
@@ -120,7 +126,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tingkat">Tingkat</label>
-                                        <select name="tingkat" id="tingkat" class="input" required>
+                                        <select name="tingkat" id="tingkat" class="input select2" required>
                                             <option selected value="">Pilih tingkat</option>
                                             <option value="Kecamatan">Kecamatan</option>
                                             <option value="Kabupaten">Kabupaten</option>
@@ -166,15 +172,23 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const inputAddPrestasi = new RichTextEditor("#inputAddPrestasi");
-
-        const tagAdd = document.querySelector('.tag-add-image');
-        const inputAdd = document.querySelector('.input-add-image');
-
-        inputAdd.addEventListener('change', function() {
-            tagAdd.src = URL.createObjectURL(inputAdd.files[0]);
-        });
-    </script>
 @endsection
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
+<script>
+    $(document).ready(function() {
+        $(".select2").select2()
+    })
+
+    const inputAddPrestasi = new RichTextEditor("#inputAddPrestasi");
+
+    const tagEdit = document.querySelector('.tag-edit-image');
+    const inputEdit = document.querySelector('.input-edit-image');
+
+    inputEdit.addEventListener('change', function() {
+        tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
+    });
+</script>
+@endpush

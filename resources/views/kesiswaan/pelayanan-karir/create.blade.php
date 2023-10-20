@@ -1,5 +1,11 @@
 @extends('templates.main')
-
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
 @section('container')
     <div class="content">
         <div class="row">
@@ -41,7 +47,7 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="students_id">Siswa</label>
-                                        <select required name="students_id" id="students_id" class="input"
+                                        <select required name="students_id" id="students_id" class="input select2"
                                             autocomplete="off">
                                             <option value="">Pilih siswa</option>
                                             @foreach ($students as $student)
@@ -108,15 +114,24 @@
         </div>
     </div>
 
-    <script>
-        const inputAddMasalah = new RichTextEditor("#inputAddMasalah");
-        const inputAddSolusi = new RichTextEditor("#inputAddSolusi");
-
-        const tagAdd = document.querySelector('.tag-add-image');
-        const inputAdd = document.querySelector('.input-add-image');
-
-        inputAdd.addEventListener('change', function() {
-            tagAdd.src = URL.createObjectURL(inputAdd.files[0]);
-        });
-    </script>
 @endsection
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
+<script>
+    $(document).ready(function() {
+        $(".select2").select2()
+    })
+
+    const inputAddMasalah = new RichTextEditor("#inputAddMasalah");
+    const inputAddSolusi = new RichTextEditor("#inputAddSolusi");
+
+    const tagEdit = document.querySelector('.tag-edit-image');
+    const inputEdit = document.querySelector('.input-edit-image');
+
+    inputEdit.addEventListener('change', function() {
+        tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
+    });
+</script>
+@endpush
