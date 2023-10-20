@@ -95,11 +95,19 @@
                                     <div class="input-wrapper">
                                         <label for="semesters_id">Semester</label>
                                         <select name="semesters_id" id="semesters_id" class="input">
-                                            @foreach ($semesters as $semester)
-                                                <option value="{{ $semester->id }}"
-                                                    {{ $student->semesters_id == $semester->id ? 'selected' : '' }}>
-                                                    {{ $semester->semester }}</option>
-                                            @endforeach
+                                            @if ($student->semesters)
+                                                @foreach ($semesters as $semester)
+                                                    <option value="{{ $semester->id }}"
+                                                        {{ $student->semesters_id == $semester->id ? 'selected' : '' }}>
+                                                        {{ $semester->semester }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih semester</option>
+                                                @foreach ($semesters as $semester)
+                                                    <option value="{{ $semester->id }}">
+                                                        {{ $semester->semester }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('semesters_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -110,11 +118,19 @@
                                     <div class="input-wrapper">
                                         <label for="jurusans_id">Jurusan</label>
                                         <select name="jurusans_id" id="jurusans_id" class="input">
-                                            @foreach ($jurusans as $jurusan)
-                                                <option value="{{ $jurusan->id }}"
-                                                    {{ $student->jurusans_id == $jurusan->id ? 'selected' : '' }}>
-                                                    {{ $jurusan->name }}</option>
-                                            @endforeach
+                                            @if ($student->jurusan)
+                                                @foreach ($jurusans as $jurusan)
+                                                    <option value="{{ $jurusan->id }}"
+                                                        {{ $student->jurusans_id == $jurusan->id ? 'selected' : '' }}>
+                                                        {{ $jurusan->name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih jurusan</option>
+                                                @foreach ($jurusans as $jurusan)
+                                                    <option value="{{ $jurusan->id }}">
+                                                        {{ $jurusan->name }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('jurusans_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
@@ -125,11 +141,19 @@
                                     <div class="input-wrapper">
                                         <label for="indices_id">Index</label>
                                         <select name="indices_id" id="indices_id" class="input">
-                                            @foreach ($indexes as $index)
-                                                <option value="{{ $index->id }}"
-                                                    {{ $student->indices_id == $index->id ? 'selected' : '' }}>
-                                                    {{ $index->name }}</option>
-                                            @endforeach
+                                            @if ($student->index)
+                                                @foreach ($indexes as $index)
+                                                    <option value="{{ $index->id }}"
+                                                        {{ $student->indices_id == $index->id ? 'selected' : '' }}>
+                                                        {{ $index->name }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih index</option>
+                                                @foreach ($indexes as $index)
+                                                    <option value="{{ $index->id }}">
+                                                        {{ $index->name }}</option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('indices_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>

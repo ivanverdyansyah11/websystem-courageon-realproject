@@ -30,12 +30,17 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_masuk">Tahun Masuk</label>
-                                        @foreach ($tahun_ajarans as $tahun_ajaran)
-                                            @if ($tahun_ajaran->tahun == $student->tahun_masuk)
-                                                <input type="text" id="tahun_masuk" class="input" autocomplete="off"
-                                                    value="{{ $tahun_ajaran->tahun }}" disabled>
-                                            @endif
-                                        @endforeach
+                                        @if ($student->tahun_ajaran)
+                                            @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                @if ($tahun_ajaran->tahun == $student->tahun_masuk)
+                                                    <input type="text" id="tahun_masuk" class="input" autocomplete="off"
+                                                        value="{{ $tahun_ajaran->tahun }}" disabled>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <input type="text" id="tahun_masuk" class="input" autocomplete="off"
+                                                value="Belum memilih tahun masuk" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
@@ -55,45 +60,65 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                        @foreach ($tahun_ajarans as $tahun_ajaran)
-                                            @if ($tahun_ajaran->id == $student->tahun_ajarans_id)
-                                                <input type="text" id="tahun_ajarans_id" class="input"
-                                                    autocomplete="off" value="{{ $tahun_ajaran->tahun }}" disabled>
-                                            @endif
-                                        @endforeach
+                                        @if ($student->tahun_ajaran)
+                                            @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                @if ($tahun_ajaran->id == $student->tahun_ajarans_id)
+                                                    <input type="text" id="tahun_ajarans_id" class="input"
+                                                        autocomplete="off" value="{{ $tahun_ajaran->tahun }}" disabled>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <input type="text" id="tahun_masuk" class="input" autocomplete="off"
+                                                value="Belum memilih tahun ajaran" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="semesters_id">Semester</label>
-                                        @foreach ($semesters as $semester)
-                                            @if ($semester->id == $student->semesters_id)
-                                                <input type="text" id="semesters_id" class="input" autocomplete="off"
-                                                    value="{{ $semester->semester }}" disabled>
-                                            @endif
-                                        @endforeach
+                                        @if ($student->semesters)
+                                            @foreach ($semesters as $semester)
+                                                @if ($semester->id == $student->semesters_id)
+                                                    <input type="text" id="semesters_id" class="input"
+                                                        autocomplete="off" value="{{ $semester->semester }}" disabled>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <input type="text" id="semesters_id" class="input" autocomplete="off"
+                                                value="Belum memilih semester" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="jurusans_id">Jurusan</label>
-                                        @foreach ($jurusans as $jurusan)
-                                            @if ($jurusan->id == $student->semesters_id)
-                                                <input type="text" id="jurusans_id" class="input" autocomplete="off"
-                                                    value="{{ $jurusan->name }}" disabled>
-                                            @endif
-                                        @endforeach
+                                        @if ($student->jurusan)
+                                            @foreach ($jurusans as $jurusan)
+                                                @if ($jurusan->id == $student->semesters_id)
+                                                    <input type="text" id="jurusans_id" class="input" autocomplete="off"
+                                                        value="{{ $jurusan->name }}" disabled>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <input type="text" id="jurusans_id" class="input" autocomplete="off"
+                                                value="Belum memilih jurusan" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="indices_id">Index</label>
-                                        @foreach ($indexes as $index)
-                                            @if ($index->id == $student->indices_id)
-                                                <input type="text" id="indices_id" class="input" autocomplete="off"
-                                                    value="{{ $index->name }}" disabled>
-                                            @endif
-                                        @endforeach
+                                        @if ($student->index)
+                                            @foreach ($indexes as $index)
+                                                @if ($index->id == $student->indices_id)
+                                                    <input type="text" id="indices_id" class="input" autocomplete="off"
+                                                        value="{{ $index->name }}" disabled>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <input type="text" id="indices_id" class="input" autocomplete="off"
+                                                value="Belum memilih index" disabled>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
