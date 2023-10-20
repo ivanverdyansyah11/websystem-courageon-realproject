@@ -11,7 +11,7 @@
     {{-- STYLE CSS --}}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> --}}
-
+    @yield('css')
     @if (Request::is('beranda') ||
             Request::is('prestasi*') ||
             Request::is('kategori-prestasi*') ||
@@ -41,7 +41,7 @@
     @else
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/rte_theme_default.css') }}">
-    @endif
+    @endif    
     {{-- END STYLE CSS --}}
 
     {{-- SCRIPT JS --}}
@@ -63,11 +63,11 @@
             !Request::is('sarana-prasarana*') ||
             !Request::is('pengaturan*') ||
             !Request::is('humas*'))
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="{{ asset('assets/js/rte.js') }}"></script>
         <script src="{{ asset('assets/js/all_plugins.js') }}"></script>
     @endif
-    {{-- END SCRIPT JS --}}
+    {{-- SCRIPT JS --}}
 
 </head>
 
@@ -125,6 +125,7 @@
 
     {{-- SCRIPT JS --}}
 
+    @stack('js')
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

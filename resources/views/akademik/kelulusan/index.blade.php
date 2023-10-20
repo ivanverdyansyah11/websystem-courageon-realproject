@@ -1,5 +1,13 @@
 @extends('templates.main')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+@endsection
+
 @section('container')
     <div class="content">
         <div class="row">
@@ -385,7 +393,7 @@
     {{-- END MODAL EDIT SECTION GRADUATION --}}
 
     {{-- MODAL ADD KENAIKAN SISWA --}}
-    <div class="modal fade" id="addKenaikanSiswaModal" tabindex="-1" aria-labelledby="addKenaikanSiswaModalLabel"
+    <div class="modal fade" id="addKenaikanSiswaModal" aria-labelledby="addKenaikanSiswaModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -397,7 +405,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="students_id">Nama Siswa</label>
-                                <select name="students_id" id="students_id" class="input" required>
+                                <select name="students_id" id="students_id" class="input select2-siswa" required>
                                     <option value="">Pilih siswa</option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}"
@@ -413,7 +421,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="semesters_id">Semester</label>
-                                <select name="semesters_id" id="semesters_id" class="input" required>
+                                <select name="semesters_id" id="semesters_id" class="input select2-semester" required>
                                     <option value="">Pilih semester</option>
                                     @foreach ($semesters as $semester)
                                         <option value="{{ $semester->id }}"
@@ -429,7 +437,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="jurusans_id">Jurusan</label>
-                                <select name="jurusans_id" id="jurusans_id" class="input" required>
+                                <select name="jurusans_id" id="jurusans_id" class="input select2-jurusan" required>
                                     <option value="">Pilih jurusan</option>
                                     @foreach ($jurusans as $jurusan)
                                         <option value="{{ $jurusan->id }}"
@@ -445,7 +453,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="kelases_id">Kelas</label>
-                                <select name="kelases_id" id="kelases_id" class="input" required>
+                                <select name="kelases_id" id="kelases_id" class="input select2-kelas" required>
                                     <option value="">Pilih kelas</option>
                                     @foreach ($kelases as $kelas)
                                         <option value="{{ $kelas->id }}"
@@ -461,7 +469,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="indexes_id">Index</label>
-                                <select name="indexes_id" id="indexes_id" class="input" required>
+                                <select name="indexes_id" id="indexes_id" class="input select2-index" required>
                                     <option value="">Pilih index</option>
                                     @foreach ($indexes as $index)
                                         <option value="{{ $index->id }}"
@@ -495,8 +503,8 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="students_id">Nama Siswa</label>
-                                <input type="text" class="input" data-value="student_nama" id="students_id"
+                                <label for="detail_students_id">Nama Siswa</label>
+                                <input type="text" class="input" data-value="student_nama" id="detail_students_id"
                                     disabled>
                             </div>
                         </div>
@@ -547,8 +555,8 @@
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
-                                <label for="students_id">Nama Siswa</label>
-                                <select name="students_id" id="students_id" class="input" required>
+                                <label for="edit_students_id">Nama Siswa</label>
+                                <select name="students_id" id="edit_students_id" class="input select2-siswa-edit" required>
                                     <option data-value="student_nama"></option>
                                     @foreach ($students as $student)
                                         <option value="{{ $student->id }}">{{ $student->nama_lengkap }}</option>
@@ -561,8 +569,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="semesters_id">Semester</label>
-                                <select name="semesters_id" id="semesters_id" class="input" required>
+                                <label for="edit_semesters_id">Semester</label>
+                                <select name="semesters_id" id="edit_semesters_id" class="input select2-semester-edit" required>
                                     <option data-value="semester_nama"></option>
                                     @foreach ($semesters as $semester)
                                         <option value="{{ $semester->id }}">{{ $semester->semester }}</option>
@@ -575,8 +583,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="jurusans_id">Jurusan</label>
-                                <select name="jurusans_id" id="jurusans_id" class="input" required>
+                                <label for="edit_jurusans_id">Jurusan</label>
+                                <select name="jurusans_id" id="edit_jurusans_id" class="input select2-jurusan-edit" required>
                                     <option data-value="jurusan_nama"></option>
                                     @foreach ($jurusans as $jurusan)
                                         <option value="{{ $jurusan->id }}">{{ $jurusan->name }}</option>
@@ -589,8 +597,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="kelases_id">Kelas</label>
-                                <select name="kelases_id" id="kelases_id" class="input" required>
+                                <label for="edit_kelases_id">Kelas</label>
+                                <select name="kelases_id" id="edit_kelases_id" class="input select2-kelas-edit" required>
                                     <option data-value="kelas_nama"></option>
                                     @foreach ($kelases as $kelas)
                                         <option value="{{ $kelas->id }}">{{ $kelas->name }}</option>
@@ -603,8 +611,8 @@
                         </div>
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
-                                <label for="indexes_id">Index</label>
-                                <select name="indexes_id" id="indexes_id" class="input" required>
+                                <label for="edit_indexes_id">Index</label>
+                                <select name="indexes_id" id="edit_indexes_id" class="input select2-index-edit" required>
                                     <option data-value="index_nama"></option>
                                     @foreach ($indexes as $index)
                                         <option value="{{ $index->id }}">{{ $index->name }}</option>
@@ -664,7 +672,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="gender">Jenis Kelamin</label>
-                                <select name="gender" id="gender" class="input" required>
+                                <select name="gender" id="gender" class="input select2-gender" required>
                                     <option value="">Pilih jenis kelamin</option>
                                     <option value="L" {{ old('gender') == 'L' ? 'selected' : '' }}>Laki Laki
                                     </option>
@@ -752,7 +760,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                <select required name="tahun_ajarans_id" id="tahun_ajarans_id" class="input">
+                                <select required name="tahun_ajarans_id" id="tahun_ajarans_id" class="input select2-tahun">
                                     <option value="">Pilih tahun ajaran</option>
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->id }}"
@@ -787,7 +795,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="gender">Jenis Kelamin</label>
-                                <input type="text" disabled data-value="gender" id="gender" class="input"
+                                <input type="text" disabled data-value="gender" id="detail_gender" class="input"
                                     autocomplete="off">
                             </div>
                         </div>
@@ -843,7 +851,7 @@
                         <div class="col-md-6">
                             <div class="input-wrapper">
                                 <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                <input type="text" data-value="tahun_ajarans_id" id="tahun_ajarans_id" class="input"
+                                <input type="text" data-value="tahun_ajarans_id" id="detail_tahun_ajarans_id" class="input"
                                     autocomplete="off" disabled>
                             </div>
                         </div>
@@ -869,7 +877,7 @@
                         <div class="col-12 mb-4">
                             <div class="input-wrapper">
                                 <label for="gender">Jenis Kelamin</label>
-                                <select name="gender" id="gender_select" class="input" name="gender"
+                                <select name="gender" id="edit_gender_select" class="input select2-gender-edit" name="gender"
                                     data-value="gender_select" required>
                                 </select>
                                 @error('gender')
@@ -950,7 +958,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="input-wrapper">
                                 <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input" required>
+                                <select name="tahun_ajarans_id" id="detail_tahun_ajarans_id" class="input select2-tahun-edit" required>
                                     <option data-value="tahun_ajarans_id"></option>z
                                     @foreach ($tahun_ajarans as $tahun_ajaran)
                                         <option value="{{ $tahun_ajaran->id }}">
@@ -997,8 +1005,37 @@
         </div>
     </div>
     {{-- END MODAL DELETE KENAIKAN KELAS --}}
+@endsection
 
-    <script>
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {        
+        $(".select2-siswa").select2({
+            dropdownParent: $("#addKenaikanSiswaModal")
+        });
+        $(".select2-semester").select2({
+            dropdownParent: $("#addKenaikanSiswaModal")
+        });
+        $(".select2-jurusan").select2({
+            dropdownParent: $("#addKenaikanSiswaModal")
+        });
+        $(".select2-kelas").select2({
+            dropdownParent: $("#addKenaikanSiswaModal")
+        });
+        $(".select2-index").select2({
+            dropdownParent: $("#addKenaikanSiswaModal")
+        });   
+
+        $(".select2-gender").select2({
+            dropdownParent: $("#addKenaikanKelasModal")
+        });        
+        $(".select2-tahun").select2({
+            dropdownParent: $("#addKenaikanKelasModal")
+        });        
+
         $(document).on('click', '[data-bs-target="#detailSectionGraduationModal"]', function() {
             $.ajax({
                 type: 'get',
@@ -1064,6 +1101,22 @@
                     $('[data-value="index_nama"]').val(data.indexes_id);
                     $('[data-value="semester_nama"]').html(data.semester_nama);
                     $('[data-value="semester_nama"]').val(data.semesters_id);
+
+                    $(".select2-siswa-edit").select2({
+                        dropdownParent: $("#editKenaikanSiswaModal")
+                    });
+                    $(".select2-semester-edit").select2({
+                        dropdownParent: $("#editKenaikanSiswaModal")
+                    });
+                    $(".select2-jurusan-edit").select2({
+                        dropdownParent: $("#editKenaikanSiswaModal")
+                    });
+                    $(".select2-kelas-edit").select2({
+                        dropdownParent: $("#editKenaikanSiswaModal")
+                    });
+                    $(".select2-index-edit").select2({
+                        dropdownParent: $("#editKenaikanSiswaModal")
+                    });
                 }
             });
         });
@@ -1099,26 +1152,26 @@
 
         $(document).on('click', '[data-bs-target="#editKenaikanKelasModal"]', function() {
             let id = $(this).data('id');
-            $('#gender_select').children().remove();
+            $('#edit_gender_select').children().remove();
             $('#editKenaikanKelas').attr('action', '/admin/akademik/kelulusan/edit-kenaikan-kelas/' + id);
             $.ajax({
                 type: 'get',
                 url: '/admin/akademik/kelulusan/detail-kenaikan-kelas/' + id,
                 success: function(data) {
                     if (data.gender == 'L') {
-                        $('#gender_select').append(`<option selected value="` + data.gender + `">
+                        $('#edit_gender_select').append(`<option selected value="` + data.gender + `">
                                             Laki-Laki
-                                      </option>`);
-                        $('#gender_select').append(`<option value="P">
+                                    </option>`);
+                        $('#edit_gender_select').append(`<option value="P">
                                             Perempuan
-                                      </option>`);
+                                    </option>`);
                     } else {
-                        $('#gender_select').append(`<option selected value="` + data.gender + `">
+                        $('#edit_gender_select').append(`<option selected value="` + data.gender + `">
                                             Perempuan
-                                      </option>`);
-                        $('#gender_select').append(`<option value="L">
+                                    </option>`);
+                        $('#edit_gender_select').append(`<option value="L">
                                             Laki-Laki
-                                      </option>`);
+                                    </option>`);
                     }
                     $('[data-value="jumlah_siswa_x"]').val(data.jumlah_siswa_x);
                     $('[data-value="jumlah_siswa_xi"]').val(data.jumlah_siswa_xi);
@@ -1129,6 +1182,13 @@
                     $('[data-value="total_siswa"]').val(data.total_siswa);
                     $('[data-value="tahun_ajarans_id"]').val(data.tahun_ajaran.id);
                     $('[data-value="tahun_ajarans_id"]').html(data.tahun_ajaran.tahun);
+
+                    $(".select2-gender-edit").select2({
+                        dropdownParent: $("#editKenaikanKelasModal")
+                    });        
+                    $(".select2-tahun-edit").select2({
+                        dropdownParent: $("#editKenaikanKelasModal")
+                    }); 
                 }
             });
         });
@@ -1137,5 +1197,6 @@
             let id = $(this).data('id');
             $('#deleteKenaikanKelas').attr('action', '/admin/akademik/kelulusan/delete-kenaikan-kelas/' + id);
         });
-    </script>
-@endsection
+    })
+</script>
+@endpush
