@@ -71,12 +71,20 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="tahun_ajarans_id">Tahun Ajaran</label>
-                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input">
-                                            @foreach ($tahun_ajarans as $tahun_ajaran)
-                                                <option value="{{ $tahun_ajaran->id }}"
-                                                    {{ $student->tahun_ajarans_id == $tahun_ajaran->id ? 'selected' : '' }}>
-                                                    {{ $tahun_ajaran->tahun }}</option>
-                                            @endforeach
+                                        <select name="tahun_ajarans_id" id="tahun_ajarans_id" class="input" required>
+                                            @if ($student->tahun_ajaran)
+                                                @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                    <option value="{{ $tahun_ajaran->id }}"
+                                                        {{ $student->tahun_ajarans_id == $tahun_ajaran->id ? 'selected' : '' }}>
+                                                        {{ $tahun_ajaran->tahun }}</option>
+                                                @endforeach
+                                            @else
+                                                <option value="">Pilih tahun ajaran</option>
+                                                @foreach ($tahun_ajarans as $tahun_ajaran)
+                                                    <option value="{{ $tahun_ajaran->id }}">{{ $tahun_ajaran->tahun }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                         @error('tahun_ajarans_id')
                                             <p class="caption-error mt-2">{{ $message }}</p>
