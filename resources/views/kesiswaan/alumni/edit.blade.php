@@ -138,21 +138,21 @@
 
 @endsection
 @push('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
-<script>
-    $(document).ready(function() {
-        $(".select2").select2()
-    })
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
+    <script>
+        $(document).ready(function() {
+            $(".select2").select2()
+        })
 
-    const inputAddTestimoni = new RichTextEditor("#inputAddTestimoni");
+        const inputAddTestimoni = new RichTextEditor("#inputAddTestimoni");
 
-    const tagEdit = document.querySelector('.tag-edit-image');
-    const inputEdit = document.querySelector('.input-edit-image');
+        const tagEdit = document.querySelector('.tag-edit-image');
+        const inputEdit = document.querySelector('.input-edit-image');
 
-    inputEdit.addEventListener('change', function() {
-        tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
-    });
-</script>
+        inputEdit.addEventListener('change', function() {
+            tagEdit.src = URL.createObjectURL(inputEdit.files[0]);
+        });
+    </script>
 @endpush

@@ -79,454 +79,70 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Auth::create([
-            'profile' => 'profile-admin.png',
-            'username' => 'Admin Sekolah',
-            'role' => 'Manajemen Admin',
-            'email' => 'admin123@gmail.com',
-            'password' => bcrypt('admin123'),
-        ]);
+        $this->call(AuthSeeder::class);
+        $this->call(HeaderHomeSeeder::class);
+        $this->call(HistoryHomeSeeder::class);
+        $this->call(OpeningHomeSeeder::class);
+        $this->call(RemarkHomeSeeder::class);
+        $this->call(NavigasiSeeder::class);
+        $this->call(CourseSeeder::class);
+        $this->call(HeaderProfileSeeder::class);
+        $this->call(HymneSeeder::class);
+        $this->call(LogoSeeder::class);
+        $this->call(MarsSeeder::class);
+        $this->call(MottoSeeder::class);
+        $this->call(VisionMissionSeeder::class);
+        $this->call(ContactSeeder::class);
+        $this->call(EmployeeSeeder::class);
+        $this->call(RoleEmployeeSeeder::class);
+        $this->call(SectionContactSeeder::class);
+        $this->call(SectionManagementSeeder::class);
+        $this->call(SectionStaffSeeder::class);
+        $this->call(SectionTeacherSeeder::class);
+        $this->call(CurriculumSeeder::class);
+        $this->call(GallerySeeder::class);
+        $this->call(ProgramSeeder::class);
+        $this->call(ProjectSeeder::class);
+        $this->call(SectionGallerySeeder::class);
+        $this->call(SectionProgramSeeder::class);
+        $this->call(SectionProyekSeeder::class);
+        $this->call(HeaderAcademicSeeder::class);
 
-        HeaderHome::create([
-            'banner' => 'banner-header.png',
-            'title_header' => 'SMA Negeri 1 Selat, Wujudkan Impianmu Yang Tinggi Di Sini!',
-            'description' => 'Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
-            'button' => 'Lihat Profile',
-        ]);
 
-        HeaderHome::create([
-            'banner' => 'banner-header-2.png',
-            'title_header' => 'SMA Negeri 1 Selat, Wujudkan Impianmu Yang Tinggi Di Sini! 2',
-            'description' => '123 Selamat datang di SMA Negeri 1 Selat, tempat perlindungan pendidikan yang luar biasa di mana keberanian bertemu dengan keunggulan. Komitmen kami untuk merawat keunggulan akademis dan pertumbuhan pribadi membuat kami menjadi institusi terdepan yang menggenggam potensi dalam setiap individu.',
-            'button' => 'Lihat Profile 123',
-        ]);
 
-        OpeningHome::create([
-            'title_opening' => 'Selamat Datang Di SMA Negeri 1 Selat!!',
-            'description' => 'Di SMA Negeri 1 Selat, kami menciptakan lingkungan yang mendukung dan memelihara, yang mendorong individualitas dan kreativitas. Tim pendidik kami yang berdedikasi penuh komitmen untuk menyediakan pendidikan terbaik, dan perhatian pribadi.',
-        ]);
 
-        RemarkHome::create([
-            'banner' => 'banner-sambutan.jpg',
-            'title_remark' => 'Sambutan Dari Kepala Sekolah SMA Negeri 1 Selat',
-            'message' => 'Puji Syukur kepada Tuhan Yang Maha Esa yang telah memberkati SMA Negeri 1 Selat sehingga boleh berkembang dan mendapat kepercayaan masyarakat. Berkomitmen meningkatkan mutu dan pelayanan, teguh dalam iman, berbudaya serta berwawasan lingkungan sehingga mampu menghasilkan lulusan yang siap terjun ke Dunia Usaha, Dunia Industri, dan Dunia Kerja serta memiliki jiwa enterpreneur, mandiri dan mampu berkompetisi di segala bidang.',
-        ]);
 
-        HistoryHome::create([
-            'banner' => 'banner-sejarah.jpg',
-            'title_history' => 'Sejarah Singkat Tentang SMA Negeri 1 Selat',
-            'description' => 'SMA Negeri 1 Selat didirikan pada tahun 1995 oleh sekelompok pendidik visioner yang percaya bahwa pendidikan sejati tidak hanya tentang akademik, tetapi juga tentang memupuk keberanian dan semangat dalam setiap siswa. Berlokasi di sebuah desa kecil yang indah, sekolah ini berkomitmen untuk menciptakan lingkungan pembelajaran yang inklusif dan inspiratif.',
-            'button' => 'Lihat Profile',
-        ]);
 
-        Navigasi::create([
-            'link_1' => 'Beranda',
-            'link_2' => 'Profil',
-            'link_3' => 'Akademik',
-            'link_4' => 'Kesiswaan',
-            'link_5' => 'Sarana Prasarana',
-            'link_6' => 'Humas',
-        ]);
 
-        HeaderProfile::create([
-            'banner' => 'banner-header.jpg',
-            'title_header' => 'Profile Dan informasi mengenai SMA Negeri 1 Selat',
-            'description' => 'SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
-            'button' => 'Lihat Selengkapnya',
-        ]);
 
-        HeaderProfile::create([
-            'banner' => 'banner-header-2.jpg',
-            'title_header' => 'Profile Dan informasi mengenai SMA Negeri 1 Selat 2',
-            'description' => 'SMA Negeri 1 Selat adalah sekolah negeri yang terletak di Kota Bahagia. Kami didirikan dengan tekad kuat untuk menciptakan lingkungan pendidikan yang inspiratif dan inklusif bagi setiap siswa. Visi kami adalah membentuk generasi pemberani, cerdas, dan berdaya saing yang siap menghadapi tantangan dunia global.',
-            'button' => 'Lihat Selengkapnya 2',
-        ]);
 
-        Course::create([
-            'name' => 'Matematika',
-            'hours_per_week' => '12',
-        ]);
 
-        Course::create([
-            'name' => 'IPA',
-            'hours_per_week' => '8',
-        ]);
 
-        Course::create([
-            'name' => 'PPKN',
-            'hours_per_week' => '10',
-        ]);
 
-        Course::create([
-            'name' => 'Bahasa Indonesia',
-            'hours_per_week' => '11',
-        ]);
 
-        Course::create([
-            'name' => 'Bahasa Inggris',
-            'hours_per_week' => '9',
-        ]);
 
-        VisionMission::create([
-            'banner' => 'banner-visi-misi.jpg',
-            'title_vision' => 'Visi sekolah',
-            'description_vision' => 'Menjadi lembaga pendidikan yang unggul dan inovatif dalam membentuk pemimpin masa depan yang berintegritas dan berbudaya global.',
-            'title_mission' => 'Misi sekolah',
-            'description_mission' => 'Misi Courageon School adalah menyediakan pendidikan yang berkualitas tinggi dengan mengadopsi kurikulum inovatif dan metode pembelajaran berpusat pada siswa. Kami berusaha membimbing siswa untuk mengembangkan keberanian dan kreativitas mereka melalui berbagai program ekstrakurikuler yang beragam. Melalui nilai-nilai keberanian, inovasi, dan tanggung jawab, kami berkomitmen untuk membentuk siswa yang memiliki karakter unggul, siap menghadapi tantangan masa depan, dan berkontribusi positif bagi masyarakat dan dunia.',
-        ]);
 
-        Motto::create([
-            'speaker' => 'Kepala Sekolah SMA Negeri 1 Selat',
-            'motto' => 'Bangsa yang malas belajar tidak akan bisa berkembang!',
-        ]);
 
-        Logo::create([
-            'logo' => 'brand-logo.png',
-            'logo_meaning' => 'Buku dalam logo menggambarkan komitmen sekolah untuk memberikan pendidikan yang berkualitas tinggi kepada siswa. Ini mengandung pesan bahwa sekolah adalah tempat belajar dan pengetahuan yang didorong untuk membekali siswa dengan bekal yang kuat untuk masa depan.',
-            'font_meaning' => 'Penggunaan font sans serif capitalize menunjukkan kesan modern dan progresif dari sekolah tersebut. Logo ini ingin menyampaikan bahwa sekolah memiliki pendekatan yang inovatif dalam pendidikan dan selalu berada di garis depan perkembangan pendidikan.',
-            'color_meaning' => 'Warna biru tua sering dikaitkan dengan keberlanjutan dan konsistensi. Logo ini ingin menyampaikan bahwa sekolah memiliki dedikasi yang kuat untuk memberikan pendidikan berkualitas dan berkomitmen untuk mencapai tujuan jangka panjang.',
-        ]);
 
-        Mars::create([
-            'banner' => 'banner-mars.png',
-            'title_section' => 'Mars SMA Negeri 1 Selat',
-            'mars' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
-            'creation' => 'Dr. Andi Pranoto, M.Pd.',
-        ]);
 
-        Hymne::create([
-            'banner' => 'banner-hymne.png',
-            'title_section' => 'Hymne SMA Negeri 1 Selat',
-            'hymne' => '<span style="white-space:pre-wrap">Disini Tempat Kami Berkreasi<br />Tuk’ Jadi Siswa Yang Kreatif<br />Bertaqwa Landasan Hidup Kami<br />Berprestasi Tujuan Kami SMANEBA<br />Tempat kami Belajar<br />Pencetak Insan Muda Bangsa<br />Berpribadi Luhur Dan Berakhlaq Mulia<br />Mutu Berdaya Saing Global<br />Ayo …… Ayo Semua<br />Torehkan Prestasi Tuk’ SMANEBA<br />Jadikan Dia Gudang Juara Skolah<br />Tercinta Kita Semua<br />Sayangi , Cintai, SMANEBA slalu dihati</span>',
-            'creation' => 'Dr. Andi Pranoto, M.Pd.',
-        ]);
 
-        RoleEmployee::create([
-            'role' => 'management',
-        ]);
 
-        RoleEmployee::create([
-            'role' => 'teacher',
-        ]);
 
-        RoleEmployee::create([
-            'role' => 'employee',
-        ]);
 
-        SectionManagement::create([
-            'title_section' => 'Data Manajemen SMA Negeri 1 Selat',
-            'button' => 'Lihat Semua',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Komang Wirasatya',
-            'image' => 'manajemen-1.jpg',
-            'place_of_birth' => 'karangasem',
-            'date_of_birth' => '1995-11-23',
-            'highest_rank' => 'SMKN 2014',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'status' => 'pns',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Made Satyawan',
-            'image' => 'manajemen-2.jpg',
-            'place_of_birth' => 'bangli',
-            'date_of_birth' => '1985-10-23',
-            'highest_rank' => 'SMKN 2000',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'status' => 'pns',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Kadek Satria',
-            'image' => 'manajemen-3.jpg',
-            'place_of_birth' => 'Denpasar',
-            'date_of_birth' => '1996-12-21',
-            'highest_rank' => 'SMKN 2018',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'status' => 'pns',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '1',
-            'fullname' => 'I Putu Adiawan',
-            'image' => 'manajemen-4.jpg',
-            'place_of_birth' => 'Denpasar',
-            'date_of_birth' => '1990-10-11',
-            'highest_rank' => 'SMKN 2011',
-            'position' => 'Kontrak Provinsi',
-            'gender' => 'L',
-            'status' => 'pns',
-            'last_number_skp' => '5/04.C/HK/2022',
-            'last_date_skp' => '2022-01-03',
-            'first_number_skp' => '1553/03-A/HK/2014',
-            'first_date_skp' => '2014-08-01',
-        ]);
 
-        SectionTeacher::create([
-            'title_section' => 'Data Guru SMA Negeri 1 Selat',
-            'button' => 'Lihat Semua',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'Drs. I Wayan Cenik, M.Pd.',
-            'image' => 'guru-1.jpg',
-            'nip' => '19650428 199512 1 002',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'L',
-            'status' => 'pns',
-            'course_id' => '1',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'Ida Bagus Nyoman Gelgel, S.Pd.',
-            'image' => 'guru-2.jpg',
-            'nip' => '19670110 199203 1 012',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'P',
-            'status' => 'pns',
-            'course_id' => '2',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'I Wayan Suarsana, S.Pd.',
-            'image' => 'guru-3.jpg',
-            'nip' => '19680517 199512 1 003',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'L',
-            'status' => 'pns',
-            'course_id' => '1',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '2',
-            'fullname' => 'I Wayan Mudayasa, S.Pd',
-            'image' => 'guru-4.jpg',
-            'nip' => '19700622 199512 1 001',
-            'position' => 'Guru Ahli Madya',
-            'gender' => 'L',
-            'status' => 'pns',
-            'course_id' => '1',
-            'room_type' => 'Pembina Tk. I / IVb',
-        ]);
 
-        SectionStaff::create([
-            'title_section' => 'Data Pegawai SMA Negeri 1 Selat',
-            'button' => 'Lihat Semua',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'I Nengah Sumerta, S.Sos.',
-            'image' => 'pegawai-1.jpg',
-            'rank' => 'Penata / IIIc',
-            'position' => 'Analis SDM / KTU',
-            'gender' => 'L',
-            'status' => 'pns',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'I Gusti Agung Putra, S.E.',
-            'image' => 'pegawai-2.jpg',
-            'rank' => 'Penata Tk.1/ III/.d',
-            'position' => 'Pengelola Data',
-            'gender' => 'L',
-            'status' => 'pns',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'Putu Ari Setiawati.,S.E.',
-            'image' => 'pegawai-3.jpg',
-            'rank' => 'Penata/ III/.c',
-            'position' => 'Pengelola BMD',
-            'gender' => 'P',
-            'status' => 'pns',
-        ]);
 
-        Employee::create([
-            'role_employees_id' => '3',
-            'fullname' => 'I Wayan Putu Adi Jenar, S.Pd',
-            'image' => 'pegawai-4.jpg',
-            'rank' => 'Penata Muda /III/a',
-            'position' => 'Pengelola Keuangan',
-            'gender' => 'L',
-            'status' => 'pns',
-        ]);
-
-        SectionContact::create([
-            'title_section' => 'Hubungi Kami',
-            'url_maps' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.576504957393!2d115.48273847492702!3d-8.44318009159662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2053a75a7b143%3A0x5e66d8200f7bf2a2!2sSMA%20Negeri%201%20Selat!5e0!3m2!1sid!2sid!4v1692022962270!5m2!1sid!2sid',
-        ]);
-
-        Contact::create([
-            'icon' => 'email-icon.svg',
-            'name' => 'Email',
-            'link' => 'smanegeri1selat@gmail.com',
-        ]);
-
-        Contact::create([
-            'icon' => 'address-icon.svg',
-            'name' => 'Address',
-            'link' => 'Jl. Baledan, Duda, Kec. Selat, Kabupaten Karangasem, Bali 80862',
-        ]);
-
-        Contact::create([
-            'icon' => 'phone-icon.svg',
-            'name' => 'Phone Number',
-            'link' => '0274 - 513454',
-        ]);
-
-        Contact::create([
-            'icon' => 'fax-icon.svg',
-            'name' => 'FAX',
-            'link' => '0274 - 513454',
-        ]);
-
-        HeaderAcademic::create([
-            'banner' => 'banner-header.png',
-            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah!',
-            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
-            'button' => 'Lihat Selengkapnya',
-        ]);
-
-        HeaderAcademic::create([
-            'banner' => 'banner-header-2.png',
-            'title_header' => 'Inovasi Peningkatan Prestasi Akademik di Sekolah! 2',
-            'description' => 'Penelitian ini mencari cara-cara inovatif untuk meningkatkan prestasi akademik siswa di sekolah. Metode baru seperti teknologi edukasi terkini, pembelajaran berbasis proyek, dan kurikulum lintas disiplin akan dieksplorasi. Penelitian ini juga menyoroti peran guru, staf, orang tua, dan dukungan keluarga dalam mencapai hasil akademik yang lebih baik.',
-            'button' => 'Lihat Selengkapnya 2',
-        ]);
-
-        Curriculum::create([
-            'banner' => 'banner-kurikulum.png',
-            'title_section' => 'Langkah Kami Menghadapi Pendidikan Abad Ke-21',
-            'description' => 'Kurikulum di sekolah merupakan inti dari pendidikan formal, dan terus mengalami transformasi untuk menghadapi perubahan zaman dan tantangan abad ke-21. Deskripsi ini akan mengeksplorasi perubahan signifikan dalam kurikulum yang dilakukan oleh institusi pendidikan guna mempersiapkan generasi muda untuk menghadapi dunia yang cepat berubah dan kompleks. Fokus akan diberikan pada pengintegrasian teknologi dalam pembelajaran, pendekatan kreatif dalam mengajar, inklusi pendidikan bagi semua, serta upaya untuk mengembangkan keterampilan abad ke-21 seperti kritis berpikir, kerjasama, keterampilan digital, dan pemecahan masalah.',
-        ]);
-
-        SectionProgram::create([
-            'title_section' => 'Program Akademik Sekolah',
-        ]);
-
-        Program::create([
-            'banner' => 'banner-elerning.png',
-            'title' => 'E-Learning SMA Negeri 1 Selat',
-            'description' => 'Program E-Learning di SMA Negeri 1 Selat adalah platform pembelajaran digital yang inovatif dan interaktif, dirancang untuk mendukung proses belajar-mengajar yang efektif dan efisien. Melalui E-Learning, siswa memiliki akses ke beragam materi pembelajaran, modul, dan sumber daya pendukung yang dapat diakses kapan saja. Platform ini menawarkan berbagai fitur canggih, termasuk video pembelajaran, forum diskusi, ujian online, dan berbagai tugas interaktif. Dengan bimbingan dari para guru, siswa dapat berpartisipasi dalam diskusi dan berkolaborasi dengan sesama siswa dalam proses belajar.',
-            'button' => 'Website E-Learning',
-            'link' => 'https://guru.kemdikbud.go.id/',
-        ]);
-
-        Program::create([
-            'banner' => 'banner-asessment.jpg',
-            'title' => 'E-Asessment SMA Negeri 1 Selat',
-            'description' => 'E-Assessment di Sekolah SMA Negeri 1 Selat merupakan sistem evaluasi dan penilaian berbasis teknologi yang inovatif untuk mengukur kemajuan belajar siswa secara akurat dan efisien. Dengan menggunakan teknologi canggih, E-Assessment memungkinkan siswa untuk mengikuti berbagai jenis ujian dan tugas evaluasi secara online melalui platform pembelajaran digital yang terintegrasi. Platform E-Assessment ini menyediakan berbagai format ujian, termasuk pilihan ganda, uraian, dan tugas interaktif yang dirancang untuk mengukur pemahaman siswa dalam berbagai tingkatan kognitif.',
-            'button' => 'Website E-Asessment',
-            'link' => 'https://guru.kemdikbud.go.id/',
-        ]);
-
-        SectionProyek::create([
-            'title_section' => 'Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila) Di SMA Negeri 1 Selat',
-            'description' => 'Proyek 5P di SMA Negeri 1 Selat tingkatkan pemahaman siswa tentang nilai-nilai Pancasila lewat pendidikan, diskusi, kegiatan sosial, dan kompetisi. Siswanya diharapkan menerapkan nilai-nilai ini dalam kehidupan sehari-hari dan masyarakat.',
-            'button' => 'Lihat Semua',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-1.jpg',
-            'title' => 'Gaya Hidup Berkelanjutan, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Gaya Hidup Berkelanjutan',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema gaya hidup berkelanjutan di sekolah adalah inisiatif yang bertujuan untuk mengintegrasikan nilai-nilai Pancasila dengan kesadaran akan pentingnya gaya hidup yang ramah lingkungan dan berkelanjutan. Proyek ini bertujuan untuk membentuk generasi muda yang memiliki kepekaan sosial, etika, dan tanggung jawab terhadap masyarakat dan lingkungan sekitarnya, sejalan dengan prinsip-prinsip dasar Pancasila.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-2.jpg',
-            'title' => 'Bhinneka Tunggal Ika, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Bhinneka Tunggal Ika',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-3.jpg',
-            'title' => 'Kearifan Lokal, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Kearifan Lokal',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema kearifan lokal di sekolah merupakan upaya yang bertujuan untuk mengintegrasikan nilai-nilai luhur Pancasila dengan nilai-nilai kearifan lokal dalam pendidikan. Tujuan dari proyek ini adalah menghasilkan generasi muda yang tidak hanya mengerti dan menghargai prinsip-prinsip dasar negara Indonesia, tetapi juga memiliki pemahaman yang mendalam terhadap budaya dan tradisi lokal yang kaya.',
-        ]);
-
-        Project::create([
-            'image' => 'proyek-4.jpg',
-            'title' => 'Bangunlah Jiwa dan Raganya, Program Projek Pelaksanaan 5P (Projek Penguatan Profile Pelajar Pancasila)',
-            'topic' => 'Bangunlah Jiwa dan Raganya',
-            'description' => 'Proyek penguatan profil pelajar Pancasila dengan tema Bhinneka Tunggal Ika di sekolah merupakan upaya yang diarahkan untuk membentuk generasi muda yang memiliki pemahaman mendalam tentang nilai-nilai Pancasila dan mampu menjalankan semangat persatuan dalam keragaman budaya, agama, dan suku di Indonesia. Tema Bhinneka Tunggal Ika menjadi landasan penting dalam proyek ini, mengingat kekayaan keragaman yang ada di Indonesia menjadi modal sosial yang harus dihargai dan dijaga.',
-        ]);
-
-        SectionGallery::create([
-            'title_section' => 'Galeri Dokumentasi Sekolah',
-            'description' => 'Masuki dunia kecemerlangan seni di Galeri SMA Negeri 1 Selat. Lepaskan kreativitasmu dan saksikan ekspresi berani dari para siswa dan seniman berbakat kami.',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-1.jpg',
-            'title' => 'Image 1',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-2.jpg',
-            'title' => 'Image 2',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-3.jpg',
-            'title' => 'Image 3',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-4.jpg',
-            'title' => 'Image 4',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-5.jpg',
-            'title' => 'Image 5',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-6.jpg',
-            'title' => 'Image 6',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-7.jpg',
-            'title' => 'Image 7',
-        ]);
-
-        Gallery::create([
-            'image' => 'galeri-8.jpg',
-            'title' => 'Image 8',
-        ]);
 
         SectionGraduation::create([
             'title_section' => 'Grafik Data Kenaikan Kelas & Kelulusan',
