@@ -15,13 +15,16 @@
                     </a>
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/beranda*') ? 'active' : '' }}">
+                <div
+                    class="menu-link d-flex flex-column {{ Request::is('admin/beranda*') || Request::is('admin/akademik/galeri*') ? 'active' : '' }}">
                     <a href="{{ route('beranda-index') }}" class="link-item d-flex align-items-center">
                         <div class="icon-sidebar-wrapper">
                             <div class="sidebar-icon beranda-icon"></div>
                         </div>
                         <p>Beranda</p>
                     </a>
+                    <a href="{{ route('galeri-index') }}"
+                        class="link-child {{ Request::is('admin/akademik/galeri*') ? 'active' : '' }}">Galeri</a>
                 </div>
 
                 <div class="menu-link d-flex flex-column {{ Request::is('admin/profil*') ? 'active' : '' }}">
@@ -53,7 +56,8 @@
                         class="link-child {{ Request::is('admin/profil/video*') ? 'active' : '' }}">Video</a>
                 </div>
 
-                <div class="menu-link d-flex flex-column {{ Request::is('admin/akademik*') ? 'active' : '' }}">
+                <div
+                    class="menu-link d-flex flex-column {{ Request::is('admin/akademik') || Request::is('admin/akademik/kurikulum*') || Request::is('admin/akademik/program*') || Request::is('admin/akademik/proyek*') || Request::is('admin/akademik/kelulusan*') ? 'active' : '' }}">
                     <a href="{{ route('akademik-index') }}"
                         class="link-item d-flex align-items-center justify-content-between">
                         <div class="wrapper d-flex align-items-center">
@@ -72,8 +76,6 @@
                         class="link-child {{ Request::is('admin/akademik/program*') ? 'active' : '' }}">Program</a>
                     <a href="{{ route('proyek-index') }}"
                         class="link-child {{ Request::is('admin/akademik/proyek*') ? 'active' : '' }}">Proyek P5</a>
-                    <a href="{{ route('galeri-index') }}"
-                        class="link-child {{ Request::is('admin/akademik/galeri*') ? 'active' : '' }}">Galeri</a>
                     <a href="{{ route('kelulusan-index') }}"
                         class="link-child {{ Request::is('admin/akademik/kelulusan*') ? 'active' : '' }}">Kelulusan</a>
                 </div>
