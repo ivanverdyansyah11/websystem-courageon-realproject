@@ -174,6 +174,20 @@ class LogoMarsController extends Controller
             $validatedData['banner'] = $hymne->banner;
         }
 
+        if ($request->file('music_sound')) {
+            if (file_exists(public_path('assets/img/profil-images/hymne-image/') . $hymne->music_sound) && $hymne->music_sound) {
+                $oldImagePath = public_path('assets/img/profil-images/hymne-image/') . $hymne->music_sound;
+                unlink($oldImagePath);
+            }
+
+            $image = $request->file('music_sound');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/hymne-image/'), $imageName);
+            $validatedData['music_sound'] = $imageName;
+        } else {
+            $validatedData['music_sound'] = $hymne->music_sound;
+        }
+
         $hymneAction = Hymne::first()->update($validatedData);
 
         if ($hymneAction) {

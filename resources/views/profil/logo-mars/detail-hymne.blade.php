@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 col-lg-4 mb-4">
                                     <div class="input-wrapper">
                                         <label>Banner</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
@@ -34,6 +34,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="input-wrapper">
+                                        <label>Music Sound</label>
+                                        @if ($hymne->music_sound)
+                                            <audio controls>
+                                                <source
+                                                    src="{{ asset('assets/img/profil-images/hymne-image/' . $hymne->music_sound) }}"
+                                                    type="audio/mpeg">
+                                            </audio>
+                                        @else
+                                            <p class="mb-3">Sound tidak ditemukan!</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul_section">Judul Section</label>

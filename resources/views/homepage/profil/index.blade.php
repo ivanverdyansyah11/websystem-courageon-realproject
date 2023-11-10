@@ -1,84 +1,47 @@
 @extends('templates.main')
 
 @section('container')
-
     <main class="">
-        {{-- <section class="hero-section container position-relative">
-            <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
-            </div>
-            <div class="position-relative">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-7 col-12">
-                        <p class="display-4 fw-bold text-black">
-                            {{ $headerProfile->title_header }}
-                        </p>
-                        <p class="mt-4 desc">
-                            {{ $headerProfile->description }}
-                        </p>
-                        <div class="mt-4 d-flex gap-3 align-items-center">
-                            <a href="#visiMisi" class="btn btn-color">{{ $headerProfile->button }}</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-1 d-xl-block d-none"></div>
-                    <div class="col-lg-5 d-lg-block d-none">
-                        <div class="position-relative">
-                            <div class="position-absolute w-100 h-100">
-                                <div class="side-img-section-decor right-img-section-decor w-100 h-100"></div>
-                            </div>
-                            <div class="position-relative">
-                                @if ($headerProfile->banner)
-                                    <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
-                                        alt="profile section image" class="w-100 img-section right-img-section">
-                                @else
-                                    <img src="{{ asset('assets-homepage/img/profile-hero.png') }}"
-                                        alt="profile section image" class="w-100">
-                                @endif
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section> --}}
         <section class="hero-section position-relative">
             <div class="position-relative ">
 
                 <div class="">
                     <div class="swiper swiper-hero">
                         <div class="swiper-wrapper">
-                            @foreach($headerProfiles as $key => $headerProfile)
-
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="position-relative">
-                                        <div class="position-absolute w-100" style="z-index: 99999">
-                                            <div class="container">
-                                                <div class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
-                                                    <div class="content-hero-wrapper">
-                                                        <p class="display-4 fw-bold text-white text-capitalize">
-                                                            {!! $headerProfile->title_header !!}
-                                                        </p>
-                                                        <p class="mt-4 desc text-white">
-                                                            {!! $headerProfile->description !!}
-                                                        </p>
-                                                        <div class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
-                                                            <a href="#visiMisi" class="btn btn-color">{{ $headerProfile->button }}</a>
+                            @foreach ($headerProfiles as $key => $headerProfile)
+                                <div class="swiper-slide">
+                                    <div class="">
+                                        <div class="position-relative">
+                                            <div class="position-absolute w-100" style="z-index: 99999">
+                                                <div class="container">
+                                                    <div
+                                                        class="d-flex flex-column align-items-md-center text-md-center text-white centered-content">
+                                                        <div class="content-hero-wrapper">
+                                                            <p class="display-4 fw-bold text-white text-capitalize">
+                                                                {!! $headerProfile->title_header !!}
+                                                            </p>
+                                                            <p class="mt-4 desc text-white">
+                                                                {!! $headerProfile->description !!}
+                                                            </p>
+                                                            <div
+                                                                class="mt-4 d-flex gap-3 justify-content-md-center align-items-center">
+                                                                <a href="#visiMisi"
+                                                                    class="btn btn-color">{{ $headerProfile->button }}</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="position-relative w-100">
-                                            <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
-                                            alt="profile section image" class="w-100 hero-img">
-                                        </div>
+                                            <div class="position-relative w-100">
+                                                <img src="{{ asset('assets/img/profil-images/header-image/' . $headerProfile->banner) }}"
+                                                    alt="profile section image" class="w-100 hero-img">
+                                            </div>
 
+                                        </div>
                                     </div>
+
+
                                 </div>
-
-
-                            </div>
                             @endforeach
 
                         </div>
@@ -248,6 +211,12 @@
                         <p class="mt-3 desc fs-6">
                             Ciptaan: <span class="fw-semibold text-black"> {{ $mars->creation }}</span>
                         </p>
+                        @if ($mars->music_sound)
+                            <audio controls class="mt-3">
+                                <source src="{{ asset('assets/img/profil-images/mars-image/' . $mars->music_sound) }}"
+                                    type="audio/mpeg">
+                            </audio>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -268,6 +237,12 @@
                         <p class="mt-3 desc fs-6">
                             Ciptaan: <span class="fw-semibold text-black">{!! $hymne->creation !!}</span>
                         </p>
+                        @if ($hymne->music_sound)
+                            <audio controls class="mt-3">
+                                <source src="{{ asset('assets/img/profil-images/hymne-image/' . $hymne->music_sound) }}"
+                                    type="audio/mpeg">
+                            </audio>
+                        @endif
                     </div>
                     <div class="col-lg-5 d-lg-block d-none offset-lg-1">
                         <div class="position-relative w-100 h-100">

@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="banner">Banner</label>
                                         <div class="wrapper d-flex align-items-end">
@@ -44,6 +44,21 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="input-wrapper">
+                                        <label for="music_sound">Music Sound</label>
+                                        <div class="wrapper d-flex">
+                                            <div class="wrapper-image w-100">
+                                                <input type="file" id="music_sound" name="music_sound">
+                                            </div>
+                                        </div>
+                                        @error('music_sound')
+                                            <p class="caption-error mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-6 mb-4">
                                     <div class="input-wrapper">
                                         <label for="judul_section">Judul Section</label>

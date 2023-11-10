@@ -37,11 +37,15 @@
                                 <div class="col-md-6 col-lg-4 mb-4">
                                     <div class="input-wrapper">
                                         <label>Music Sound</label>
-                                        <audio controls>
-                                            <source
-                                                src="{{ asset('assets/img/profil-images/mars-image/' . $mars->music_sound) }}"
-                                                type="audio/mpeg">
-                                        </audio>
+                                        @if ($mars->music_sound)
+                                            <audio controls>
+                                                <source
+                                                    src="{{ asset('assets/img/profil-images/mars-image/' . $mars->music_sound) }}"
+                                                    type="audio/mpeg">
+                                            </audio>
+                                        @else
+                                            <p class="mb-3">Sound tidak ditemukan!</p>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-6 mb-4">

@@ -1,50 +1,7 @@
 @extends('templates.main')
 
 @section('container')
-    {{--    @dd($beritas) --}}
     <main class="">
-        {{-- <section class="hero-section container position-relative">
-            <div class="position-absolute end-50 bottom-0 d-lg-block d-none">
-                <img src="{{ asset('assets-homepage/img/section-decor.svg') }}" alt="" class="section-decor">
-            </div>
-            <div class="row position-relative">
-                <div class="col-xl-6 col-lg-7 col-12 position-relative d-flex align-items-center">
-                    <div class="d-flex justify-content-center flex-column">
-                        <p class="display-4 fw-bold text-black text-capitalize">
-                            {!! $headerHome->title_header !!}
-                        </p>
-                        <p class="mt-4 desc">
-                            {!! $headerHome->description !!}
-                        </p>
-                        <div class="mt-4 d-flex gap-3 align-items-center">
-                            <a href="{{ route('profil') }}" class="btn btn-color">{{ $headerHome->button }}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-1 d-xl-flex d-none h-100 position-relative">
-                    <div class="position-absolute end-0 hero-decor">
-                        <img src="{{ asset('assets-homepage/img/hero-decoration-img.svg') }}" alt=""
-                            class="img-decor-hero">
-                    </div>
-                </div>
-                <div class="col-lg-5 d-lg-block d-none">
-                    <div class="position-relative">
-                        <div class="position-absolute w-100 h-100">
-                            <div class="side-img-section-decor right-img-section-decor w-100 h-100"></div>
-                        </div>
-                        <div class="position-relative">
-                            @if ($headerHome->banner)
-                                <img src="{{ asset('assets/img/beranda-images/header-image/' . $headerHome->banner) }}"
-                                    alt="hero-section image" class="w-100 img-section right-img-section po">
-                            @else
-                                <img src="{{ asset('assets-homepage/img/hero-img.png') }}" alt="hero-section image"
-                                    class="w-100">
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
         <section class="hero-section position-relative">
             <div class="position-relative ">
                 <div class="">
@@ -108,7 +65,8 @@
                                     <div class="image-wrapper position-relative">
                                         <div class="position-relative">
                                             <img src="{{ asset('assets/img/kesiswaan-images/prestasi-image/' . $achievement->dokumentasi) }}"
-                                                alt="juara 1 olimpiade fisika" class="w-100 img-prestasi landscape-card-img">
+                                                alt="juara 1 olimpiade fisika"
+                                                class="w-100 img-prestasi landscape-card-img">
                                         </div>
                                         <div class="position-absolute top-0 start-0" style="z-index: 999999">
                                             <div

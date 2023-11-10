@@ -143,5 +143,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SectionPrasaranaSeeder::class);
         $this->call(SectionVideoSeeder::class);
         $this->call(VideoSeeder::class);
+        $this->call(SectionBeritaSeeder::class);
     }
 }
