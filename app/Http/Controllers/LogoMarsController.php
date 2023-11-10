@@ -6,7 +6,6 @@ use App\Models\Hymne;
 use App\Models\Logo;
 use App\Models\Mars;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class LogoMarsController extends Controller
 {
@@ -109,6 +108,20 @@ class LogoMarsController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/img/profil-images/mars-image/'), $imageName);
             $validatedData['banner'] = $imageName;
+        } else {
+            $validatedData['banner'] = $mars->banner;
+        }
+
+        if ($request->file('music_sound')) {
+            if (file_exists(public_path('assets/img/profil-images/mars-image/') . $mars->music_sound) && $mars->music_sound) {
+                $oldImagePath = public_path('assets/img/profil-images/mars-image/') . $mars->music_sound;
+                unlink($oldImagePath);
+            }
+
+            $image = $request->file('music_sound');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/profil-images/mars-image/'), $imageName);
+            $validatedData['music_sound'] = $imageName;
         } else {
             $validatedData['banner'] = $mars->banner;
         }

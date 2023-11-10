@@ -19,6 +19,7 @@ class CreateMarsTable extends Migration
             $table->string('title_section');
             $table->text('mars');
             $table->string('creation');
+            $table->string('music_sound');
             $table->timestamps();
         });
     }

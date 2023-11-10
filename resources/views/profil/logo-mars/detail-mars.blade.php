@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-xl-10">
                             <div class="row align-items-end">
-                                <div class="col-12 mb-4">
+                                <div class="col-md-6 col-lg-4 mb-4">
                                     <div class="input-wrapper">
                                         <label>Banner</label>
                                         <div class="wrapper d-flex gap-3 align-items-end">
@@ -32,6 +32,16 @@
                                                     class="img-fluid" alt="Image Not Found" width="80">
                                             @endif
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="input-wrapper">
+                                        <label>Music Sound</label>
+                                        <audio controls>
+                                            <source
+                                                src="{{ asset('assets/img/profil-images/mars-image/' . $mars->music_sound) }}"
+                                                type="audio/mpeg">
+                                        </audio>
                                     </div>
                                 </div>
                                 <div class="col-6 mb-4">

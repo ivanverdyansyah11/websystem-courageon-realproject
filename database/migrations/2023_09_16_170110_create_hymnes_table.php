@@ -19,6 +19,7 @@ class CreateHymnesTable extends Migration
             $table->string('title_section');
             $table->text('hymne');
             $table->string('creation');
+            // $table->string('music_sound');
             $table->timestamps();
         });
     }
